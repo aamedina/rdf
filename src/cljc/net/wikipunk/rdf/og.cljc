@@ -20,6 +20,7 @@
   (:refer-clojure :exclude [type]))
 
 (def audio
+  "A relevant audio URL for your object."
   {:db/ident         :og/audio,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -29,6 +30,7 @@
    :rdfs/range       :ogc/url})
 
 (def audio:album
+  "[DEPRECATED] An album to which some audio belongs."
   {:db/ident :og/audio:album,
    :rdf/type :rdf/Property,
    :rdfs/comment #xsd/langString
@@ -37,6 +39,7 @@
    :rdfs/label #xsd/langString "audio album@en-US"})
 
 (def audio:artist
+  "[DEPRECATED] An artist of some audio."
   {:db/ident         :og/audio:artist,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -45,6 +48,7 @@
    :rdfs/label       #xsd/langString "audio artist@en-US"})
 
 (def audio:secure_url
+  "A relevant, secure audio URL for your object."
   {:db/ident         :og/audio:secure_url,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -54,6 +58,7 @@
    :rdfs/range       :ogc/url})
 
 (def audio:title
+  "[DEPRECATED] A title for some audio."
   {:db/ident         :og/audio:title,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -62,6 +67,7 @@
    :rdfs/label       #xsd/langString "audio title@en-US"})
 
 (def audio:type
+  "The mime type of an audio file e.g., \"application/mp3\""
   {:db/ident :og/audio:type,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -72,6 +78,7 @@
    :rdfs/range :ogc/mime_type_str})
 
 (def country-name
+  "[DEPRECATED] The country name of the resource e.g., \"USA\""
   {:db/ident :og/country-name,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -82,6 +89,7 @@
    :rdfs/seeAlso :vcard/country-name})
 
 (def description
+  "A one to two sentence description of your object."
   {:db/ident :og/description,
    :rdf/type :rdf/Property,
    :rdfs/comment #xsd/langString
@@ -92,6 +100,7 @@
    :rdfs/subPropertyOf :rdfs/comment})
 
 (def determiner
+  "The word to precede the object's title in a sentence (e.g., \"the\" in \"the statue of liberty\").  Valid values are \"a\", \"an\", \"the\", \"\", and \"auto\"."
   {:db/ident :og/determiner,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -102,6 +111,7 @@
    :rdfs/range :ogc/determiner_str})
 
 (def email
+  "[DEPRECATED] Email of the contact for your object."
   {:db/ident :og/email,
    :rdf/type :rdf/Property,
    :rdfs/comment #xsd/langString
@@ -111,6 +121,7 @@
    :rdfs/seeAlso :foaf/mbox})
 
 (def fax_number
+  "[DEPRECATED] Fax number of the contact for your object."
   {:db/ident :og/fax_number,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -121,6 +132,7 @@
    :rdfs/seeAlso :foaf/phone})
 
 (def image
+  "An image URL which should represent your object within the graph."
   {:db/ident :og/image,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -132,6 +144,7 @@
    :rdfs/seeAlso :foaf/depiction})
 
 (def image:height
+  "The height of an image."
   {:db/ident         :og/image:height,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString "The height of an image.@en-US",
@@ -140,6 +153,7 @@
    :rdfs/range       :ogc/integer_str})
 
 (def image:secure_url
+  "A secure image URL which should represent your object within the graph."
   {:db/ident :og/image:secure_url,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -151,6 +165,7 @@
    :rdfs/seeAlso :foaf/depiction})
 
 (def image:type
+  "The mime type of an image."
   {:db/ident         :og/image:type,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString "The mime type of an image.@en-US",
@@ -159,6 +174,7 @@
    :rdfs/range       :ogc/mime_type_str})
 
 (def image:width
+  "The width of an image."
   {:db/ident         :og/image:width,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString "The width of an image.@en-US",
@@ -167,6 +183,7 @@
    :rdfs/range       :ogc/integer_str})
 
 (def isbn
+  "[DEPRECATED] International Standard Book Number for you object."
   {:db/ident :og/isbn,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -178,6 +195,7 @@
    :rdfs/seeAlso :bibo/isbn})
 
 (def latitude
+  "[DEPRECATED] The latitude of the resource e.g., the latitude of a company."
   {:db/ident :og/latitude,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -188,6 +206,7 @@
    :rdfs/seeAlso :geo/lat})
 
 (def locale
+  "A Unix locale in which this markup is rendered."
   {:db/ident         :og/locale,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -197,6 +216,7 @@
    :rdfs/range       :ogc/string})
 
 (def locality
+  "[DEPRECATED] The locality of the resource e.g, \"Palo Alto\""
   {:db/ident :og/locality,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -207,6 +227,7 @@
    :rdfs/seeAlso :vcard/locality})
 
 (def longitude
+  "[DEPRECATED] The longitude of the resource e.g., the longitude of a company."
   {:db/ident :og/longitude,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -217,6 +238,7 @@
    :rdfs/seeAlso :geo/long})
 
 (def phone_number
+  "[DEPRECATED] Phone number of the contact for your object."
   {:db/ident :og/phone_number,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -227,6 +249,7 @@
    :rdfs/seeAlso :foaf/phone})
 
 (def postal-code
+  "[DEPRECATED] The postal code of the resource e.g., \"94304\""
   {:db/ident :og/postal-code,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -237,6 +260,7 @@
    :rdfs/seeAlso :vcard/postal-code})
 
 (def region
+  "[DEPRECATED] The region of the resource e.g., \"CA\""
   {:db/ident :og/region,
    :rdf/type :rdf/Property,
    :rdfs/comment #xsd/langString
@@ -246,6 +270,7 @@
    :rdfs/seeAlso :vcard/region})
 
 (def site_name
+  "If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., \"IMDb\"."
   {:db/ident :og/site_name,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -256,6 +281,7 @@
    :rdfs/range :ogc/string})
 
 (def street-address
+  "[DEPRECATED] The street address of the resource e.g., \"1601 S California Ave\"."
   {:db/ident :og/street-address,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -266,6 +292,7 @@
    :rdfs/seeAlso :vcard/street-address})
 
 (def title
+  "The title of the object as it should appear within the graph, e.g.,  \"The Rock\"."
   {:db/ident :og/title,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -277,6 +304,7 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def type
+  "The type of your object, e.g., \"movie\".  Depending on the type you specify, other properties may also be required."
   {:db/ident :og/type,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -288,6 +316,7 @@
    :rdfs/seeAlso :rdf/type})
 
 (def upc
+  "[DEPRECATED] Universal Product Code for your object."
   {:db/ident     :og/upc,
    :rdf/type     :rdf/Property,
    :rdfs/comment #xsd/langString
@@ -297,6 +326,7 @@
    :rdfs/seeAlso :gr/hasEAN_UCC-13})
 
 (def url
+  "The canonical URL of your object that will be used as its permanent ID in the graph, e.g., \"http://www.imdb.com/title/tt0117500/\"."
   {:db/ident :og/url,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -308,6 +338,7 @@
    :rdfs/seeAlso [:foaf/homepage :dc11/identifier]})
 
 (def video
+  "A relevant video URL for your object."
   {:db/ident         :og/video,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -317,6 +348,7 @@
    :rdfs/range       :ogc/url})
 
 (def video:height
+  "The height of a video."
   {:db/ident         :og/video:height,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString "The height of a video.@en-US",
@@ -325,6 +357,7 @@
    :rdfs/range       :ogc/integer_str})
 
 (def video:secure_url
+  "A relevant, secure video URL for your object."
   {:db/ident         :og/video:secure_url,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString
@@ -334,6 +367,7 @@
    :rdfs/range       :ogc/url})
 
 (def video:type
+  "The mime type of a video e.g., \"application/x-shockwave-flash\""
   {:db/ident :og/video:type,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -344,6 +378,7 @@
    :rdfs/range :ogc/mime_type_str})
 
 (def video:width
+  "The width of a video."
   {:db/ident         :og/video:width,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #xsd/langString "The width of a video.@en-US",

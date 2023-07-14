@@ -2,14 +2,14 @@
   "This is a vocabulary document and is used to achieve certain features of the JSON-LD language."
   {:dcat/downloadURL
    "https://github.com/w3c/json-ld-wg/raw/main/ns/json-ld.jsonld",
-   :dcterms/date #xsd/date #inst "2020-03-30T00:00:00.000-04:00",
+   :dcterms/date #xsd/date #inst "2023-07-13T00:00:00.000-04:00",
    :dcterms/description
    #xsd/langString
     "This is a vocabulary document and is used to achieve certain features of the JSON-LD language.@en",
    :dcterms/title #xsd/langString "The JSON-LD Vocabulary@en",
    :owl/versionInfo
    {:rdfa/uri
-    "https://github.com/w3c/json-ld-wg/commit/dfd1827c95a66bc36c01368e10b6e4f4bbb5c8b3"},
+    "https://github.com/w3c/json-ld-wg/commit/01fbfacb60d6739a83ac9a043c71f3d8775d98b1"},
    :rdf/ns-prefix-map {"jsonld" "http://www.w3.org/ns/json-ld#",
                        "owl"    "http://www.w3.org/2002/07/owl#",
                        "rdf"    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -25,7 +25,7 @@
 
 (def ContainerType
   {:db/ident :jsonld/ContainerType
-   :rdf/type :rdfs/Class})
+   :rdf/type :owl/Class})
 
 (def Context
   "Defines term definitions and other aspects of a JSON-LD `Context`.\n\nA [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`."

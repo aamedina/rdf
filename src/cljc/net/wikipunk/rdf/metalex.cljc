@@ -28,8 +28,8 @@
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
                      :metalex/Event
-                     :metalex/Thing
-                     :owl/Thing]})
+                     :owl/Thing
+                     :metalex/Thing]})
 
 (def Addressee
   {:db/ident        :metalex/Addressee,
@@ -38,9 +38,9 @@
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Recipient
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/EventParticipant
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def Agent
   {:db/ident        :metalex/Agent,
@@ -48,7 +48,7 @@
                          :owl/someValuesFrom :metalex/Action,
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:metalex/EventParticipant :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/EventParticipant :owl/Thing :metalex/Thing]})
 
 (def Author
   {:db/ident        :metalex/Author,
@@ -57,9 +57,9 @@
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Agent
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/EventParticipant
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def BibliographicCitation
   {:db/ident :metalex/BibliographicCitation,
@@ -75,13 +75,13 @@
     "a representation of a bibliographic identiﬁer of a bibliographic object, with the intent of referring to that bibliographic object. Article 1, the ﬁrst article and the previous article are examples of citation, and the Minister, the President of the Republic, and the accused, are examples of references to other, interesting but non-bibliographic, things.@en",
    :rdf/type :owl/Class,
    :rdfs/subClassOf [:metalex/BibliographicReference
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicObject
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/BibliographicObject
+                     :metalex/Thing]})
 
 (def BibliographicCreation
   "A bibliographic creation results in a bibliographic object."
@@ -97,12 +97,12 @@
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
                      :metalex/Action
-                     :metalex/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      :metalex/Event
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def BibliographicExpression
   "a realization of one bibliographic work in the form of signs, words, sentences, paragraphs, etc. by the author of that work. Physical form aspects, as typeface or page-layout, are generally speaking excluded from the expression level. Any change in content constitutes a gives rise to a new expression. If an expression is revised or modiﬁed, the resulting expression is considered to be a new expression, no matter how minor the modiﬁcation may be."
@@ -120,13 +120,13 @@
    #xsd/langString
     "a realization of one bibliographic work in the form of signs, words, sentences, paragraphs, etc. by the author of that work. Physical form aspects, as typeface or page-layout, are generally speaking excluded from the expression level. Any change in content constitutes a gives rise to a new expression. If an expression is revised or modiﬁed, the resulting expression is considered to be a new expression, no matter how minor the modiﬁcation may be.@en",
    :rdfs/subClassOf [:metalex/CitableBibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicObject
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/BibliographicObject
+                     :metalex/Thing]})
 
 (def BibliographicExpressionCreation
   "Creation of an expression."
@@ -134,16 +134,16 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #xsd/langString "Creation of an expression.@en",
    :rdfs/subClassOf [:metalex/BibliographicCreation
-                     :metalex/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
+                     :metalex/Action
                      :metalex/Event
-                     :owl/Thing
-                     :metalex/Action]})
+                     :metalex/Thing]})
 
 (def BibliographicIdentifier
   "A unique bibliographic identiﬁer identiﬁes a bibliographic object uniquely. The uniform resource identiﬁer can for instance be used as a unique bibliographic identiﬁer but it by default dereferences to the thing it identifies in RDF/OWL."
@@ -152,7 +152,7 @@
    :rdfs/comment
    #xsd/langString
     "A unique bibliographic identiﬁer identiﬁes a bibliographic object uniquely. The uniform resource identiﬁer can for instance be used as a unique bibliographic identiﬁer but it by default dereferences to the thing it identifies in RDF/OWL.@en",
-   :rdfs/subClassOf [:metalex/BibliographicThing :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/BibliographicThing :owl/Thing :metalex/Thing]})
 
 (def BibliographicIdentifierComponent
   "Component of the mURI naming convention, This is the only part of the schema where datatype properties play a role."
@@ -164,7 +164,7 @@
    :rdfs/comment
    #xsd/langString
     "Component of the mURI naming convention, This is the only part of the schema where datatype properties play a role.@en",
-   :rdfs/subClassOf [:metalex/BibliographicThing :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/BibliographicThing :owl/Thing :metalex/Thing]})
 
 (def BibliographicItem
   "exempliﬁes one manifestation of one expression of one work: a speciﬁc copy of a book on a speciﬁc shelf in a library, a ﬁle stored on a computer in a speciﬁc location, etc. Items stored on a computer can be easily copied to another location, resulting in another item, but the same manifestation. This makes adding metadata about the item to the item in principle impossible. On the Internet generally speaking only the uniform resource locator (URL) is an item-speciﬁc datum."
@@ -178,12 +178,12 @@
    #xsd/langString
     "exempliﬁes one manifestation of one expression of one work: a speciﬁc copy of a book on a speciﬁc shelf in a library, a ﬁle stored on a computer in a speciﬁc location, etc. Items stored on a computer can be easily copied to another location, resulting in another item, but the same manifestation. This makes adding metadata about the item to the item in principle impossible. On the Internet generally speaking only the uniform resource locator (URL) is an item-speciﬁc datum.@en",
    :rdfs/subClassOf [:metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def BibliographicManifestation
   "embodies one expression of one bibliographic work. The boundaries between one manifestation and another are drawn on the basis of both content and physical form. When the production process involves changes in physical form the resulting product is considered a new manifestation. Thus, a speciﬁc XML representation, a PDF ﬁle (as generated by printing into PDF a speciﬁc Word ﬁle with a speciﬁc PDF distiller), a printed booklet, all represent diﬀerent manifestations of the same expression of a work."
@@ -199,12 +199,12 @@
    #xsd/langString
     "embodies one expression of one bibliographic work. The boundaries between one manifestation and another are drawn on the basis of both content and physical form. When the production process involves changes in physical form the resulting product is considered a new manifestation. Thus, a speciﬁc XML representation, a PDF ﬁle (as generated by printing into PDF a speciﬁc Word ﬁle with a speciﬁc PDF distiller), a printed booklet, all represent diﬀerent manifestations of the same expression of a work.@en",
    :rdfs/subClassOf [:metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def BibliographicModification
   "A modification operates on some existing matter to create a new bibliographic object."
@@ -217,16 +217,16 @@
    #xsd/langString
     "A modification operates on some existing matter to create a new bibliographic object.@en",
    :rdfs/subClassOf [:metalex/BibliographicCreation
-                     :metalex/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
+                     :metalex/Action
                      :metalex/Event
-                     :owl/Thing
-                     :metalex/Action]})
+                     :metalex/Thing]})
 
 (def BibliographicObject
   "a bounded representation of a body of information, designed with the intent to communicate, preserved in a form independent of a sender or receiver. The bibliographic object represents something else (a rule, definition, etc.). A bibliographic work, expression, manifestation, and item are bibliographic objects."
@@ -242,8 +242,8 @@
                       :owl/someValuesFrom :owl/Thing,
                       :rdf/type           :owl/Restriction}
                      :metalex/BibliographicThing
-                     :metalex/Thing
-                     :owl/Thing]})
+                     :owl/Thing
+                     :metalex/Thing]})
 
 (def BibliographicReference
   "A representation of something, a bibliographic identifier, with the intent of referring to that something. The adjective bibliographic pertains to the nature of the reference itself, not its target."
@@ -256,12 +256,12 @@
    #xsd/langString
     "A representation of something, a bibliographic identifier, with the intent of referring to that something. The adjective bibliographic pertains to the nature of the reference itself, not its target.@en",
    :rdfs/subClassOf [:metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def BibliographicSourceOfLaw
   "a bibliographic object that can be, is, was, or presumably will be referred to, by way of bibliographic citation, to back an argument claiming the existence of a legal rule in a certain legal system, or, alternatively, a bibliographic object published or realized by a competent legislator to communicate a legal rule to a certain group of addressees. Both the legislator and the user of the bibliographic source of law understand it as a medium used for communicating the existence of legal rules, including auxiliary declarations required for the proper understanding of legal rules, between legislator and user."
@@ -274,13 +274,13 @@
    #xsd/langString
     "a bibliographic object that can be, is, was, or presumably will be referred to, by way of bibliographic citation, to back an argument claiming the existence of a legal rule in a certain legal system, or, alternatively, a bibliographic object published or realized by a competent legislator to communicate a legal rule to a certain group of addressees. Both the legislator and the user of the bibliographic source of law understand it as a medium used for communicating the existence of legal rules, including auxiliary declarations required for the proper understanding of legal rules, between legislator and user.@en",
    :rdfs/subClassOf [:metalex/CitableBibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicObject
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/BibliographicObject
+                     :metalex/Thing]})
 
 (def BibliographicThing
   "a body of information, designed with the intent to communicate, preserved in a form independent of a sender or receiver, or something pertaining to such bodies of information."
@@ -306,13 +306,13 @@
    #xsd/langString
     "a bibliographic object, realized by one or more expressions, and created by one or more persons in a single creative process ending in a BibliographicWorkCreation event. A work has an author or authors, and is the result of a BibliographicWorkCreation event. We recognize the work through individual expressions of the work, but the work itself exists only in the commonality of content between and among the various expressions of the work.@en",
    :rdfs/subClassOf [:metalex/CitableBibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicObject
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/BibliographicObject
+                     :metalex/Thing]})
 
 (def BibliographicWorkCreation
   "It is the intention that the date at which this event happens is by definition the same date as found in the mURI for a Metalex work.  It is the date at which the self-identifying data in the document become stable and valid for bibliographic purposes. What this event is (a signing, a passing in parliament, or a publication in the state gazette) differs per jurisdiction. It is also typically the date at which auxiliary provisions (at minimum entry into force provisions) by default must enter into force."
@@ -325,31 +325,31 @@
    #xsd/langString
     "It is the intention that the date at which this event happens is by definition the same date as found in the mURI for a Metalex work.  It is the date at which the self-identifying data in the document become stable and valid for bibliographic purposes. What this event is (a signing, a passing in parliament, or a publication in the state gazette) differs per jurisdiction. It is also typically the date at which auxiliary provisions (at minimum entry into force provisions) by default must enter into force.@en",
    :rdfs/subClassOf [:metalex/BibliographicCreation
-                     :metalex/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
+                     :metalex/Action
                      :metalex/Event
-                     :owl/Thing
-                     :metalex/Action]})
+                     :metalex/Thing]})
 
 (def BlockFragment
   {:db/ident        :metalex/BlockFragment,
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Fragment
-                     :metalex/Thing
-                     {:owl/onProperty     :metalex/partOf,
-                      :owl/someValuesFrom :metalex/BibliographicObject,
+                     {:owl/onProperty     :metalex/represents,
+                      :owl/someValuesFrom :owl/Thing,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing
                      :metalex/BibliographicThing
                      :metalex/BibliographicObject
-                     {:owl/onProperty     :metalex/represents,
-                      :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty     :metalex/partOf,
+                      :owl/someValuesFrom :metalex/BibliographicObject,
+                      :rdf/type           :owl/Restriction}
+                     :metalex/Thing]})
 
 (def CitableBibliographicObject
   {:db/ident         :metalex/CitableBibliographicObject,
@@ -357,12 +357,12 @@
                       :metalex/BibliographicItem],
    :rdf/type         :owl/Class,
    :rdfs/subClassOf  [:metalex/BibliographicObject
-                      :metalex/Thing
-                      :owl/Thing
-                      :metalex/BibliographicThing
                       {:owl/onProperty     :metalex/represents,
                        :owl/someValuesFrom :owl/Thing,
-                       :rdf/type           :owl/Restriction}]})
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      :metalex/BibliographicThing
+                      :metalex/Thing]})
 
 (def Component
   "Component of a folder, composite document or composite document component."
@@ -375,12 +375,12 @@
                       :owl/someValuesFrom :metalex/CompoundObject,
                       :rdf/type           :owl/Restriction}
                      :metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def CompoundDocument
   "A document that has components."
@@ -389,13 +389,13 @@
    :rdfs/comment    #xsd/string "A document that has components.",
    :rdfs/subClassOf [:metalex/Document
                      :metalex/CompoundObject
-                     :metalex/Thing
+                     {:owl/onProperty     :metalex/represents,
+                      :owl/someValuesFrom :owl/Thing,
+                      :rdf/type           :owl/Restriction}
                      :owl/Thing
                      :metalex/BibliographicThing
                      :metalex/BibliographicObject
-                     {:owl/onProperty     :metalex/represents,
-                      :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                     :metalex/Thing]})
 
 (def CompoundObject
   "A bibliographic object that has components."
@@ -403,27 +403,27 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #xsd/string "A bibliographic object that has components.",
    :rdfs/subClassOf [:metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def ContainerFragment
   {:db/ident        :metalex/ContainerFragment,
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Fragment
-                     :metalex/Thing
-                     {:owl/onProperty     :metalex/partOf,
-                      :owl/someValuesFrom :metalex/BibliographicObject,
+                     {:owl/onProperty     :metalex/represents,
+                      :owl/someValuesFrom :owl/Thing,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing
                      :metalex/BibliographicThing
                      :metalex/BibliographicObject
-                     {:owl/onProperty     :metalex/represents,
-                      :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty     :metalex/partOf,
+                      :owl/someValuesFrom :metalex/BibliographicObject,
+                      :rdf/type           :owl/Restriction}
+                     :metalex/Thing]})
 
 (def Copy
   "Items can be copied. This metadatum cannot possibly be part of a Metalex XML manifestation. This class in included only for explanatory purposes."
@@ -439,17 +439,17 @@
    #xsd/langString
     "Items can be copied. This metadatum cannot possibly be part of a Metalex XML manifestation. This class in included only for explanatory purposes.@en",
    :rdfs/subClassOf [:metalex/BibliographicModification
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
-                     :metalex/BibliographicCreation]})
+                     :metalex/Event
+                     :metalex/Thing]})
 
 (def Country
   "The standard assumes that bibliographic works of interest always originate in a clearly identifiable country. Now interpreted as country codes, but ccTLD is an option (eu, int, etc.)"
@@ -462,9 +462,9 @@
    #xsd/langString
     "The standard assumes that bibliographic works of interest always originate in a clearly identifiable country. Now interpreted as country codes, but ccTLD is an option (eu, int, etc.)@en",
    :rdfs/subClassOf [:metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def Date
   {:db/ident        :metalex/Date,
@@ -475,7 +475,7 @@
                           :owl/someValuesFrom :metalex/Event,
                           :rdf/type           :owl/Restriction}],
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:metalex/EventParticipant :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/EventParticipant :owl/Thing :metalex/Thing]})
 
 (def Document
   "A document has fragments."
@@ -483,12 +483,12 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #xsd/string "A document has fragments.",
    :rdfs/subClassOf [:metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def Edit
   "A modification made to a Metalex XML file that does not change the embodied expression is an edit, made by an editor."
@@ -505,17 +505,17 @@
    #xsd/langString
     "A modification made to a Metalex XML file that does not change the embodied expression is an edit, made by an editor.@en",
    :rdfs/subClassOf [:metalex/BibliographicModification
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
-                     :metalex/BibliographicCreation]})
+                     :metalex/Event
+                     :metalex/Thing]})
 
 (def Editor
   {:db/ident        :metalex/Editor,
@@ -524,10 +524,10 @@
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Author
-                     :metalex/Thing
-                     :metalex/EventParticipant
                      :owl/Thing
-                     :metalex/Agent]})
+                     :metalex/EventParticipant
+                     :metalex/Agent
+                     :metalex/Thing]})
 
 (def Event
   "A bibliographically relevant change that happens during some time period; In the context of this schema always a date because both legislative technique and publishing practice rarely require more detailed identification of time intervals."
@@ -562,10 +562,10 @@
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Date
                      :metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
-                     :metalex/EventParticipant
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/EventParticipant
+                     :metalex/Thing]})
 
 (def ExpressionCreationExTunc
   "A fictional creation that happened before the event of which it is a fiction. This occurs in the case of annument after the fact of a modification by a constitutional court, or if errata corrige repairing minor errors are applied."
@@ -575,21 +575,21 @@
    #xsd/langString
     "A fictional creation that happened before the event of which it is a fiction. This occurs in the case of annument after the fact of a modification by a constitutional court, or if errata corrige repairing minor errors are applied.@en",
    :rdfs/subClassOf [:metalex/FictionalExpressionCreation
-                     :metalex/BibliographicExpressionCreation
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :metalex/temporalFictionOf,
                       :owl/someValuesFrom :metalex/Event,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
-                     :metalex/BibliographicCreation]})
+                     :metalex/BibliographicExpressionCreation
+                     :metalex/Event
+                     :metalex/Thing]})
 
 (def FictionalExpressionCreation
   "An expression creation that did not actuially happen on the given date: it is in reality a fiction of another event that happened before (in the case of fictional expressions made by a publisher in order to forecast what future legislation after the application of expected modifications will look like) of after (in the case of ex tunc expressions) it."
@@ -602,30 +602,30 @@
                       :owl/someValuesFrom :metalex/Event,
                       :rdf/type           :owl/Restriction}
                      :metalex/BibliographicExpressionCreation
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
-                     :metalex/BibliographicCreation]})
+                     :metalex/Event
+                     :metalex/Thing]})
 
 (def Folder
   {:db/ident         :metalex/Folder,
    :owl/disjointWith :metalex/CompoundDocument,
    :rdf/type         :owl/Class,
    :rdfs/subClassOf  [:metalex/CompoundObject
-                      :metalex/Thing
+                      {:owl/onProperty     :metalex/represents,
+                       :owl/someValuesFrom :owl/Thing,
+                       :rdf/type           :owl/Restriction}
                       :owl/Thing
                       :metalex/BibliographicThing
                       :metalex/BibliographicObject
-                      {:owl/onProperty     :metalex/represents,
-                       :owl/someValuesFrom :owl/Thing,
-                       :rdf/type           :owl/Restriction}]})
+                      :metalex/Thing]})
 
 (def Fragment
   "Identified fragment of a document, corresponds with the content of an XML element if it is a manifestation level fragment, has then element name and type, but these are rarely directly relevant."
@@ -639,27 +639,27 @@
                       :owl/someValuesFrom :metalex/BibliographicObject,
                       :rdf/type           :owl/Restriction}
                      :metalex/BibliographicObject
-                     :metalex/Thing
-                     :owl/Thing
-                     :metalex/BibliographicThing
                      {:owl/onProperty     :metalex/represents,
                       :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def InlineFragment
   {:db/ident        :metalex/InlineFragment,
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Fragment
-                     :metalex/Thing
-                     {:owl/onProperty     :metalex/partOf,
-                      :owl/someValuesFrom :metalex/BibliographicObject,
+                     {:owl/onProperty     :metalex/represents,
+                      :owl/someValuesFrom :owl/Thing,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing
                      :metalex/BibliographicThing
                      :metalex/BibliographicObject
-                     {:owl/onProperty     :metalex/represents,
-                      :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty     :metalex/partOf,
+                      :owl/someValuesFrom :metalex/BibliographicObject,
+                      :rdf/type           :owl/Restriction}
+                     :metalex/Thing]})
 
 (def Instrument
   {:db/ident        :metalex/Instrument,
@@ -667,7 +667,7 @@
                          :owl/someValuesFrom :metalex/Event,
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:metalex/EventParticipant :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/EventParticipant :owl/Thing :metalex/Thing]})
 
 (def Issue
   "Is a modifier when date of event does not uniquely identify the object, i.e. issue number or qualifier on that date. Applies both to works and to expressions."
@@ -680,9 +680,9 @@
    #xsd/langString
     "Is a modifier when date of event does not uniquely identify the object, i.e. issue number or qualifier on that date. Applies both to works and to expressions.@en",
    :rdfs/subClassOf [:metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def Language
   "Is an expression level metadatum, conformant to RFC 3066"
@@ -694,9 +694,9 @@
    :rdfs/comment #xsd/langString
                   "Is an expression level metadatum, conformant to RFC 3066@en",
    :rdfs/subClassOf [:metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def LegislativeCommencement
   "Legal entry of the BibliographicSourceOfLaw into the legal system."
@@ -709,9 +709,9 @@
                       :owl/someValuesFrom :metalex/BibliographicSourceOfLaw,
                       :rdf/type           :owl/Restriction}
                      :metalex/LegislativeEvent
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/Event
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def LegislativeCompetenceGround
   {:db/ident        :metalex/LegislativeCompetenceGround,
@@ -720,9 +720,9 @@
                          :rdf/type :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Instrument
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/EventParticipant
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def LegislativeCreation
   {:db/ident        :metalex/LegislativeCreation,
@@ -735,16 +735,16 @@
                       :rdf/type           :owl/Restriction}
                      :metalex/LegislativeEvent
                      :metalex/BibliographicCreation
-                     :metalex/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
+                     :metalex/Action
                      :metalex/Event
-                     :owl/Thing
-                     :metalex/Action]})
+                     :metalex/Thing]})
 
 (def LegislativeDelivery
   "Official Act of delivery (promulgation, signature of the King, etc.). This is the event that creates the legislative work."
@@ -755,21 +755,21 @@
     "Official Act of delivery (promulgation, signature of the King, etc.). This is the event that creates the legislative work.@en",
    :rdfs/subClassOf [:metalex/LegislativeCreation
                      :metalex/BibliographicWorkCreation
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      :metalex/LegislativeEvent
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
+                     :metalex/Event
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Legislator,
                       :rdf/type           :owl/Restriction}
-                     :metalex/BibliographicCreation]})
+                     :metalex/Thing]})
 
 (def LegislativeEvent
   "For purposes of standardization this list of legislative events is proposed. If procedures deviate significantly, other events may be defined as legislative events. Do note that it is very important to identify the relevant work creation and expression creation events."
@@ -778,7 +778,7 @@
    :rdfs/comment
    #xsd/langString
     "For purposes of standardization this list of legislative events is proposed. If procedures deviate significantly, other events may be defined as legislative events. Do note that it is very important to identify the relevant work creation and expression creation events.@en",
-   :rdfs/subClassOf [:metalex/Event :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/Event :owl/Thing :metalex/Thing]})
 
 (def LegislativeModification
   "Modification creates a new expression of a work."
@@ -789,21 +789,21 @@
    :rdfs/subClassOf [:metalex/LegislativeCreation
                      :metalex/BibliographicModification
                      :metalex/BibliographicExpressionCreation
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      :metalex/LegislativeEvent
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
+                     :metalex/Event
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Legislator,
                       :rdf/type           :owl/Restriction}
-                     :metalex/BibliographicCreation]})
+                     :metalex/Thing]})
 
 (def LegislativePublication
   "A public act by a legislative body which publishes or gives a delegation to third body to publish a manifestation of the act with legal value in the designated piblication channel (official hournal, state gazette, etc). May coincide with delivery, but is in legislative practice often a different event."
@@ -816,9 +816,9 @@
                       :owl/someValuesFrom :metalex/BibliographicSourceOfLaw,
                       :rdf/type           :owl/Restriction}
                      :metalex/LegislativeEvent
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/Event
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def LegislativeTransposition
   "The transposition deadline is a date within EU member states before they must implement/transpose EU Directives into national Law. Added for informational purposes. Some events are (also) transposition events."
@@ -831,9 +831,9 @@
                       :owl/someValuesFrom :metalex/BibliographicSourceOfLaw,
                       :rdf/type           :owl/Restriction}
                      :metalex/LegislativeEvent
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/Event
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def Legislator
   {:db/ident        :metalex/Legislator,
@@ -842,10 +842,10 @@
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Author
-                     :metalex/Thing
-                     :metalex/EventParticipant
                      :owl/Thing
-                     :metalex/Agent]})
+                     :metalex/EventParticipant
+                     :metalex/Agent
+                     :metalex/Thing]})
 
 (def MainComponent
   "Has components, but is not a component of a document."
@@ -857,16 +857,16 @@
                       :owl/onProperty    :metalex/componentOf,
                       :rdf/type          :owl/Restriction}
                      :metalex/Component
-                     :metalex/Thing
-                     {:owl/onProperty     :metalex/componentOf,
-                      :owl/someValuesFrom :metalex/CompoundObject,
+                     {:owl/onProperty     :metalex/represents,
+                      :owl/someValuesFrom :owl/Thing,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing
                      :metalex/BibliographicThing
                      :metalex/BibliographicObject
-                     {:owl/onProperty     :metalex/represents,
-                      :owl/someValuesFrom :owl/Thing,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty     :metalex/componentOf,
+                      :owl/someValuesFrom :metalex/CompoundObject,
+                      :rdf/type           :owl/Restriction}
+                     :metalex/Thing]})
 
 (def ManifestationType
   "Generally a three letter string identifying a manifestation by type. Often the file type extension, e.g. pdf, xml,  doc. NOT the mime type, as it is appended to the manifestation level mURI. pck is the extension for a package (see naming convention)."
@@ -879,9 +879,9 @@
    #xsd/langString
     "Generally a three letter string identifying a manifestation by type. Often the file type extension, e.g. pdf, xml,  doc. NOT the mime type, as it is appended to the manifestation level mURI. pck is the extension for a package (see naming convention).@en",
    :rdfs/subClassOf [:metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def Matter
   {:db/ident        :metalex/Matter,
@@ -890,17 +890,17 @@
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Instrument
-                     :metalex/Thing
+                     :owl/Thing
                      :metalex/EventParticipant
-                     :owl/Thing]})
+                     :metalex/Thing]})
 
 (def MetalexIdentifier
   {:db/ident        :metalex/MetalexIdentifier,
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/BibliographicIdentifier
-                     :metalex/Thing
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def Patient
   {:db/ident        :metalex/Patient,
@@ -908,7 +908,7 @@
                          :owl/someValuesFrom :metalex/Event,
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:metalex/EventParticipant :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/EventParticipant :owl/Thing :metalex/Thing]})
 
 (def Recipient
   {:db/ident        :metalex/Recipient,
@@ -916,7 +916,7 @@
                          :owl/someValuesFrom :metalex/Event,
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:metalex/EventParticipant :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/EventParticipant :owl/Thing :metalex/Thing]})
 
 (def Result
   {:db/ident        :metalex/Result,
@@ -924,7 +924,7 @@
                          :owl/someValuesFrom :metalex/Event,
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:metalex/EventParticipant :metalex/Thing :owl/Thing]})
+   :rdfs/subClassOf [:metalex/EventParticipant :owl/Thing :metalex/Thing]})
 
 (def Thing
   "A thing relevant to the Metalex standard."
@@ -947,17 +947,17 @@
                       :owl/someValuesFrom :metalex/BibliographicExpression,
                       :rdf/type           :owl/Restriction}
                      :metalex/BibliographicModification
-                     :metalex/Thing
+                     :metalex/BibliographicCreation
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Agent,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/onProperty     :metalex/agent,
                       :owl/someValuesFrom :metalex/Author,
                       :rdf/type           :owl/Restriction}
-                     :metalex/Event
-                     :owl/Thing
                      :metalex/Action
-                     :metalex/BibliographicCreation]})
+                     :metalex/Event
+                     :metalex/Thing]})
 
 (def Translator
   {:db/ident        :metalex/Translator,
@@ -966,10 +966,10 @@
                          :rdf/type           :owl/Restriction},
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Author
-                     :metalex/Thing
-                     :metalex/EventParticipant
                      :owl/Thing
-                     :metalex/Agent]})
+                     :metalex/EventParticipant
+                     :metalex/Agent
+                     :metalex/Thing]})
 
 (def WorkCreationDate
   {:db/ident        :metalex/WorkCreationDate,
@@ -979,10 +979,10 @@
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:metalex/Date
                      :metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
-                     :metalex/EventParticipant
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/EventParticipant
+                     :metalex/Thing]})
 
 (def WorkType
   "Generally a string from a controlled vocabulary identifying a work by type (statute, act, directive, etc.)."
@@ -995,9 +995,9 @@
    #xsd/string
     "Generally a string from a controlled vocabulary identifying a work by type (statute, act, directive, etc.).",
    :rdfs/subClassOf [:metalex/BibliographicIdentifierComponent
-                     :metalex/Thing
                      :owl/Thing
-                     :metalex/BibliographicThing]})
+                     :metalex/BibliographicThing
+                     :metalex/Thing]})
 
 (def agent
   {:db/ident           :metalex/agent,

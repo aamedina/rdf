@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.sioc.types
-  {:rdf/ns-prefix-map {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
+  {:dcat/downloadURL  "resources/sioc.types.rdf",
+   :rdf/ns-prefix-map {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
                        "annotea" "http://www.w3.org/2002/01/bookmark#",
                        "cal" "http://www.w3.org/2002/12/cal/icaltzd#",
                        "dcterms" "http://purl.org/dc/terms/",

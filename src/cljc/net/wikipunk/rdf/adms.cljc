@@ -19,22 +19,22 @@
    :rdfa/uri          "http://www.w3.org/ns/adms",
    :rdfs/label        [#xsd/langString "adms@nl" #xsd/langString "adms@en"],
    {:rdfa/uri "http://www.w3.org/2001/02pd/rec54#editor"}
-   [{:foaf/firstName #xsd/string "Pavlina",
-     :foaf/lastName  #xsd/string "Fragkou",
-     :rdf/type       :foaf/Person,
-     {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name #xsd/string
-                                                               "SEMIC EU"}}
-    {:foaf/firstName #xsd/string "Bert",
+   [{:foaf/firstName #xsd/string "Bert",
      :foaf/lastName  #xsd/string "Van Nuffelen",
      :foaf/mbox      {:rdfa/uri "mailto:bert.van.nuffelen@tenforce.com"},
      :rdf/type       :foaf/Person,
      {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name #xsd/string
                                                                "TenForce"}}
-    {:foaf/firstName #xsd/string "Makx",
-     :foaf/lastName  #xsd/string "Dekkers",
-     :rdf/type       :foaf/Person}
     {:foaf/firstName #xsd/string "Natasa",
      :foaf/lastName  #xsd/string "Sofou",
+     :rdf/type       :foaf/Person}
+    {:foaf/firstName #xsd/string "Pavlina",
+     :foaf/lastName  #xsd/string "Fragkou",
+     :rdf/type       :foaf/Person,
+     {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name #xsd/string
+                                                               "SEMIC EU"}}
+    {:foaf/firstName #xsd/string "Makx",
+     :foaf/lastName  #xsd/string "Dekkers",
      :rdf/type       :foaf/Person}]}
   (:refer-clojure :exclude [last next]))
 

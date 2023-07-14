@@ -1,4 +1,5 @@
 (ns net.wikipunk.rdf.skosxl
+  "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."
   {:dcterms/contributor
    #xsd/string "Participants in W3C's Semantic Web Deployment Working Group.",
    :dcterms/creator [#xsd/string "Sean Bechhofer" #xsd/string "Alistair Miles"],
@@ -21,6 +22,7 @@
    :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/2008/05/skos"}})
 
 (def Label
+  "Label"
   {:db/ident         :skosxl/Label,
    :owl/disjointWith [:skos/ConceptScheme :skos/Collection :skos/Concept],
    :rdf/type         :owl/Class,
@@ -32,6 +34,7 @@
    :skos/definition  #xsd/langString "A special class of lexical entities.@en"})
 
 (def altLabel
+  "If C skosxl:altLabel L and L skosxl:literalForm V, then X skos:altLabel V."
   {:db/ident :skosxl/altLabel,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -46,6 +49,7 @@
     "The property skosxl:altLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:altLabel.@en"})
 
 (def hiddenLabel
+  "If C skosxl:hiddenLabel L and L skosxl:literalForm V, then C skos:hiddenLabel V."
   {:db/ident :skosxl/hiddenLabel,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -60,6 +64,7 @@
     "The property skosxl:hiddenLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:hiddenLabel.@en"})
 
 (def labelRelation
+  "label relation"
   {:db/ident :skosxl/labelRelation,
    :rdf/type [:rdf/Property :owl/SymmetricProperty :owl/ObjectProperty],
    :rdfs/domain :skosxl/Label,
@@ -74,6 +79,7 @@
     "skosxl:labelRelation is not intended to be used directly, but rather as the basis for a design pattern which can be refined for more specific labeling scenarios.@en"})
 
 (def literalForm
+  "literal form"
   {:db/ident :skosxl/literalForm,
    :rdf/type [:rdf/Property :owl/DatatypeProperty],
    :rdfs/comment
@@ -89,6 +95,7 @@
     "The property skosxl:literalForm is used to give the literal form of an skosxl:Label.@en"})
 
 (def prefLabel
+  "If C skosxl:prefLabel L and L skosxl:literalForm V, then X skos:prefLabel V."
   {:db/ident :skosxl/prefLabel,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment

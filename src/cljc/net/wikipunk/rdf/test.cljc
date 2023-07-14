@@ -42,28 +42,28 @@
                       :rdf/type           :owl/Restriction}
                      :test/TestCase
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/rights,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/title,
+                      :owl/onProperty     :dc11/contributor,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/title,
+                      :owl/onProperty     :test/purpose,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :test/reviewStatus,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/description,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dc11/title,
+                      :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/purpose,
+                      :owl/onProperty     :dc11/title,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :test/purpose,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/contributor,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/reviewStatus,
+                      :owl/onProperty     :dc11/rights,
                       :rdf/type           :owl/Restriction}]})
 
 (def TestCase
@@ -75,28 +75,28 @@
     "A set of test inputs, execution conditions, and expected results developed for a particular objective, such as to exercise a particular program path or to verify compliance with a specific requirement",
    :rdfs/label #xsd/langString "A Test Case@en",
    :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/description,
+                      :owl/onProperty     :test/reviewStatus,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/rights,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/title,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/contributor,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/title,
+                      :owl/onProperty     :dc11/description,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :test/purpose,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/reviewStatus,
+                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dc11/title,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :test/purpose,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dc11/title,
                       :rdf/type           :owl/Restriction}]})
 
 (def accepted

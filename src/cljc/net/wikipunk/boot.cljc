@@ -148,7 +148,8 @@
 
 (def ldp
   "Linked Data Platform Vocabulary"
-  {:rdfa/uri         "http://www.w3.org/ns/ldp#",
+  {:dcat/downloadURL "resources/ldp.rdf"
+   :rdfa/uri         "http://www.w3.org/ns/ldp#",
    :rdfa/prefix      "ldp",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/ldp/"},
    :rdf/type         :rdfa/PrefixMapping})
@@ -284,7 +285,8 @@
 
 (def sioc
   "SIOC Core Ontology"
-  {:rdfa/uri    "http://rdfs.org/sioc/ns#",
+  {:dcat/downloadURL "resources/sioc.rdf"
+   :rdfa/uri    "http://rdfs.org/sioc/ns#",
    :rdfa/prefix "sioc",
    :rdfs/isDefinedBy
    {:rdfa/uri "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"},
@@ -351,7 +353,8 @@
 
 (def void
   "VoID"
-  {:rdfa/uri         "http://rdfs.org/ns/void#",
+  {:dcat/downloadURL "resources/void.ttl"
+   :rdfa/uri         "http://rdfs.org/ns/void#",
    :rdfa/prefix      "void",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/void/"},
    :rdf/type         :rdfa/PrefixMapping})

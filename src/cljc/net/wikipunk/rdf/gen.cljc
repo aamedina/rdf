@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.gen
-  {:rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
+  {:dcat/downloadURL  "resources/gen.rdf",
+   :rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
                        "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
                        "gen"  "http://www.w3.org/2000/01/rdf-schema#",
                        "owl"  "http://www.w3.org/2002/07/owl#",

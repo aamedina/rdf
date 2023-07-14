@@ -274,10 +274,10 @@
    :db/ident :d3f/ActiveLogicalLinkMapping,
    :rdf/type [:d3f/LogicalLinkMapping :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Active Logical Link Mapping",
-   :rdfs/subClassOf [:d3f/LogicalLinkMapping
-                     {:owl/onProperty     :d3f/may-query,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-query,
                       :owl/someValuesFrom :d3f/CollectorAgent,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/LogicalLinkMapping]})
 
 (def ActivePhysicalLinkMapping
   "Active physical link mapping sends and receives network traffic as a means to map the physical layer."
@@ -294,10 +294,10 @@
    :owl/disjointWith :d3f/PassivePhysicalLinkMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/PhysicalLinkMapping],
    :rdfs/label #xsd/string "Active Physical Link Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-query,
+   :rdfs/subClassOf [:d3f/PhysicalLinkMapping
+                     {:owl/onProperty     :d3f/may-query,
                       :owl/someValuesFrom :d3f/CollectorAgent,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PhysicalLinkMapping]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Activity
   "An activity is a specific behavior representing a set of actions that may be accomplished by an agent."
@@ -420,11 +420,11 @@
    :db/ident :d3f/AdministrativeNetworkActivityAnalysis,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Administrative Network Activity Analysis",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
+                     {:owl/onProperty :d3f/analyzes,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}
-                     :d3f/NetworkTrafficAnalysis]})
+                      :rdf/type :owl/Restriction}]})
 
 (def AdministrativeNetworkTraffic
   "Administrative network traffic is network traffic related to the remote administration or control of hosts or devices through a standard remote administrative protocol.  Remote shells, terminals, RDP, and VNC are examples of these protocols, which are typically only used by administrators."
@@ -891,10 +891,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Vulnerability,
                       :rdf/type           :owl/Restriction}
+                     :d3f/AssetInventory
                      {:owl/onProperty     :d3f/evaluates,
                       :owl/someValuesFrom :d3f/DigitalArtifact,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/AssetInventory]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AssociationRuleLearning
   "Association rule learning is a rule-based machine learning method for discovering interesting relations between variables in large databases."
@@ -978,11 +978,11 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/originates-from,
                       :owl/someValuesFrom :d3f/PhysicalLocation,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/authenticates,
-                      :owl/someValuesFrom :d3f/User,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/authenticates,
+                      :owl/someValuesFrom :d3f/User,
                       :rdf/type           :owl/Restriction}
                      :d3f/UserAction]})
 
@@ -1398,10 +1398,10 @@
    :db/ident :d3f/BiometricAuthentication,
    :rdf/type [:d3f/CredentialHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Biometric Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/CredentialHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Blob
   "A binary large object (BLOB) is a collection of binary data stored as a single entity. Blobs are typically images, audio or other multimedia objects, though sometimes binary executable code is stored as a blob. They can exist as persistent values inside some databases, or exist at runtime as program variables in some languages. The term is used in NoSQL databases, especially in key-value store databases such as Redis. The term is also used by languages that allow runtime manipulation of Blobs, like JavaScript. (en)"
@@ -1437,11 +1437,11 @@
                       :owl/someValuesFrom :d3f/Volume,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/PartitionTable,
+                      :owl/someValuesFrom :d3f/Partition,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Partition,
+                      :owl/someValuesFrom :d3f/PartitionTable,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Block Special File"})
 
@@ -1736,7 +1736,7 @@
 
 (def CCICatalog_v2022-04-05
   "CCI Catalog v2022-04-05"
-  {:d3f/archived-at #xsd/anyURI "https://public.cyber.mil/stigs/cci/",
+  {:d3f/archived-at {:rdfa/uri "https://public.cyber.mil/stigs/cci/"},
    :d3f/version     #xsd/string "2022-04-05",
    :db/ident        :d3f/CCICatalog_v2022-04-05,
    :rdf/type        [:d3f/ControlCorrelationIdentifierCatalog
@@ -9026,10 +9026,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-be-weakness-of,
                       :owl/someValuesFrom :d3f/UserInputFunction,
                       :rdf/type           :owl/Restriction}
+                     :d3f/CWE-77
                      {:owl/onProperty     :d3f/may-be-weakness-of,
                       :owl/someValuesFrom :d3f/ProcessStartFunction,
                       :rdf/type           :owl/Restriction}
-                     :d3f/CWE-77
                      {:owl/onProperty     :d3f/may-be-weakness-of,
                       :owl/someValuesFrom :d3f/EvalFunction,
                       :rdf/type           :owl/Restriction}]})
@@ -9922,13 +9922,13 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/accessed-by,
                       :owl/someValuesFrom :d3f/CentralProcessingUnit,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PrimaryStorage
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/CacheMemory,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PrimaryStorage]})
 
 (def CallStack
   "In computer science, a call stack is a stack data structure that stores information about the active subroutines of a computer program. This kind of stack is also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to just \"the stack\". Although maintenance of the call stack is important for the proper functioning of most software, the details are normally hidden and automatic in high-level programming languages. Many computer instruction sets provide special instructions for manipulating stacks."
@@ -10017,24 +10017,24 @@
    :db/ident :d3f/CapabilityFeatureClaim,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Capability Feature Claim",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/comments,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/implemented-by,
-                      :owl/someValuesFrom :d3f/CapabilityImplementation,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/author,
+                      :owl/someValuesFrom :d3f/Agent,
                       :rdf/type           :owl/Restriction}
                      :d3f/Statement
-                     {:owl/onProperty     :d3f/author,
-                      :owl/someValuesFrom :d3f/Agent,
+                     {:owl/onProperty     :d3f/created,
+                      :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modified,
                       :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/created,
-                      :owl/someValuesFrom :xsd/dateTime,
+                     {:owl/onProperty     :d3f/implemented-by,
+                      :owl/someValuesFrom :d3f/CapabilityImplementation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/assessed-by,
                       :owl/someValuesFrom :d3f/DefensiveTechniqueAssessment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/comments,
+                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Provider Claim"})
 
@@ -10077,15 +10077,18 @@
     "A central processing unit (CPU), also called a central processor, main processor or just processor, is the electronic circuitry that executes instructions comprising a computer program. The CPU performs basic arithmetic, logic, controlling, and input/output (I/O) operations specified by the instructions in the program. This contrasts with external components such as main memory and I/O circuitry, and specialized processors such as graphics",
    :d3f/may-contain
    [:d3f/MemoryManagementUnit :d3f/MemoryProtectionUnit :d3f/CacheMemory],
-   :d3f/synonym [#xsd/string "Central Processor"
-                 #xsd/string "CPU"
-                 #xsd/string "Main Processor"],
+   :d3f/synonym [#xsd/string "CPU"
+                 #xsd/string "Main Processor"
+                 #xsd/string "Central Processor"],
    :db/ident :d3f/CentralProcessingUnit,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy #xsd/string
                       "https://en.wikipedia.org/wiki/Central_processing_unit",
    :rdfs/label #xsd/string "Central Processing Unit",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/CacheMemory,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/MemoryProtectionUnit,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
@@ -10094,9 +10097,6 @@
                      :d3f/Processor
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/MemoryManagementUnit,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/CacheMemory,
                       :rdf/type           :owl/Restriction}]})
 
 (def CentralTendency
@@ -10214,10 +10214,10 @@
    :db/ident :d3f/CertificatePinning,
    :rdf/type [:owl/Class :d3f/CredentialHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "Certificate Pinning",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/CredentialHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/PublicKey,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CertificateTrustStore
   "A certificate truststore is used to store public certificates used to authenticate clients by the server for an SSL connection."
@@ -10294,7 +10294,7 @@
    :d3f/kb-reference
    :d3f/Reference-MethodAndSystemForDetectingMaliciousPayloads_VectraNetworksInc,
    :db/ident :d3f/Client-serverPayloadProfiling,
-   :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
+   :rdf/type [:owl/Class :d3f/NetworkTrafficAnalysis :owl/NamedIndividual],
    :rdfs/label #xsd/string "Client-server Payload Profiling",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -10782,10 +10782,10 @@
    :db/ident :d3f/ConnectedHoneynet,
    :rdf/type [:d3f/DecoyEnvironment :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Connected Honeynet",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyEnvironment
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/LocalAreaNetwork,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyEnvironment]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Connection-basedClustering
   "Connectivity-based clustering is based on connectivity between the elements Clusters are created by building a hierarchical tree-type structure."
@@ -10818,10 +10818,10 @@
    :db/ident :d3f/ConnectionAttemptAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/NetworkTrafficAnalysis],
    :rdfs/label #xsd/string "Connection Attempt Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def ConsoleOutputFunction
   "Outputs characters to a computer console."
@@ -11028,10 +11028,10 @@
      "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2"}
     {:rdfa/uri
      "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
+   :rdfs/subClassOf [:d3f/SystemCall
+                     {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemCall]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CreateProcess
   "Creates a process."
@@ -11114,15 +11114,15 @@
    :db/ident        :d3f/CredentialAccessTechnique,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Credential Access Technique",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [:d3f/OffensiveTechnique
+                     {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/PasswordFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/CredentialAccess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/accesses,
                       :owl/someValuesFrom :d3f/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OffensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/CredentialAccess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/SpawnProcess,
@@ -11247,10 +11247,10 @@
    :rdfs/label #xsd/string "Credential Transmission Scoping",
    :rdfs/seeAlso [{:rdfa/uri "https://pages.nist.gov/TIG-Stage/sp800-63c.html"}
                   {:rdfa/uri "https://www.w3.org/TR/webauthn-2/"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
+   :rdfs/subClassOf [:d3f/CredentialHardening
+                     {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CryptographicKey
   "In cryptography, a key is a piece of information (a parameter) that determines the functional output of a cryptographic algorithm. For encryption algorithms, a key specifies the transformation of plaintext into ciphertext, and vice versa for decryption algorithms. Keys also specify transformations in other cryptographic algorithms, such as digital signature schemes and message authentication codes."
@@ -11407,10 +11407,10 @@
    :db/ident :d3f/DNSAllowlisting,
    :rdf/type [:d3f/NetworkIsolation :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "DNS Allowlisting",
-   :rdfs/subClassOf [:d3f/NetworkIsolation
-                     {:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkIsolation]})
 
 (def DNSDenylisting
   "Blocking DNS Network Traffic based on criteria such as IP address, domain name, or DNS query type."
@@ -11501,12 +11501,12 @@
    :db/ident :d3f/DNSTrafficAnalysis,
    :rdf/type [:owl/NamedIndividual :d3f/NetworkTrafficAnalysis :owl/Class],
    :rdfs/label #xsd/string "DNS Traffic Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DNSLookup,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
                       :rdf/type           :owl/Restriction}]})
 
 (def DataArtifactServer
@@ -11563,15 +11563,15 @@
    :db/ident :d3f/DataInventory,
    :rdf/type [:owl/Class :d3f/AssetInventory :owl/NamedIndividual],
    :rdfs/label #xsd/string "Data Inventory",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
-                      :owl/someValuesFrom :d3f/DocumentFile,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/AssetInventory
                      {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
-                     :d3f/AssetInventory
                      {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/Database,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/inventories,
+                      :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/MultimediaDocumentFile,
@@ -11762,13 +11762,13 @@
    :db/ident :d3f/DecoyEnvironment,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/DefensiveTechnique],
    :rdfs/label #xsd/string "Decoy Environment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/Deceive,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/DefensiveTechnique
                      {:owl/onProperty     :d3f/manages,
                       :owl/someValuesFrom :d3f/DecoyArtifact,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/Deceive,
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyFile
   "A file created for the purposes of deceiving an adversary."
@@ -11787,10 +11787,10 @@
    :db/ident :d3f/DecoyFile,
    :rdf/type [:d3f/DecoyObject :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Decoy File",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyObject
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyObject]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyNetworkResource
   "Deploying a network resource for the purposes of deceiving an adversary."
@@ -11810,10 +11810,10 @@
    :db/ident :d3f/DecoyNetworkResource,
    :rdf/type [:owl/NamedIndividual :d3f/DecoyObject :owl/Class],
    :rdfs/label #xsd/string "Decoy Network Resource",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyObject
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/NetworkResource,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyObject]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyObject
   "A Decoy Object is created and deployed for the purposes of deceiving attackers."
@@ -12014,21 +12014,21 @@
    :rdfs/label #xsd/string "Defensive Technique",
    :rdfs/seeAlso {:rdfa/uri
                   "https://csrc.nist.gov/glossary/term/security_control"},
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/date,
-                      :owl/someValuesFrom :xsd/dateTime,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CapabilityFeature
+   :rdfs/subClassOf [:d3f/CapabilityFeature
                      :d3f/D3FENDThing
-                     {:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/DefensiveTactic,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/d3fend-id,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
-                     :d3f/Technique
                      {:owl/onProperty     :d3f/kb-reference,
                       :owl/someValuesFrom :d3f/TechniqueReference,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/date,
+                      :owl/someValuesFrom :xsd/dateTime,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/DefensiveTactic,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/Technique]})
 
 (def DefensiveTechniqueAssessment
   "Assessing how well a capability implementation's capability feature functions as a countermeasure."
@@ -12041,7 +12041,24 @@
    :db/ident :d3f/DefensiveTechniqueAssessment,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Defensive Technique Assessment",
-   :rdfs/subClassOf [{:owl/allValuesFrom {:owl/oneOf [#xsd/string "0"
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/assesses,
+                      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/FeatureAssessment
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :d3f/stage,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :d3f/rating,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onProperty     :d3f/counters,
+                      :owl/someValuesFrom :d3f/OffensiveTechnique,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/confidence,
+                      :owl/someValuesFrom :xsd/integer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom {:owl/oneOf [#xsd/string "0"
                                                       #xsd/string "1"
                                                       #xsd/string "2"
                                                       #xsd/string "3"],
@@ -12055,24 +12072,7 @@
                                                       #xsd/string "Isolate"],
                                           :rdf/type  :rdfs/Datatype},
                       :owl/onProperty    :d3f/stage,
-                      :rdf/type          :owl/Restriction}
-                     :d3f/FeatureAssessment
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :d3f/rating,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/onProperty     :d3f/assesses,
-                      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/confidence,
-                      :owl/someValuesFrom :xsd/integer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :d3f/stage,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/onProperty     :d3f/counters,
-                      :owl/someValuesFrom :d3f/OffensiveTechnique,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type          :owl/Restriction}]})
 
 (def DefensiveTechniqueClaim
   "Countermeasure Claim"
@@ -12537,10 +12537,10 @@
    :rdf/type
    [:owl/Class :owl/NamedIndividual :d3f/IdentifierReputationAnalysis],
    :rdfs/label #xsd/string "Domain Name Reputation Analysis",
-   :rdfs/subClassOf [:d3f/IdentifierReputationAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/DomainName,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/IdentifierReputationAnalysis]})
 
 (def DomainRegistration
   "A domain registration, or domain name registration data, is the relevant registration data from Internet resources such as domain names, IP addresses, and autonomous system numbers. Registration data is typically retrieved by means of either the Registration Data Access Protocol (RDAP) or its predecessor, the WHOIS protocol."
@@ -12608,10 +12608,10 @@
    :db/ident :d3f/DriverLoadIntegrityChecking,
    :rdf/type [:d3f/PlatformHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Driver Load Integrity Checking",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/PlatformHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/HardwareDriver,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PlatformHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Dyna-Q
   "A Dyna-Q agent combines acting, learning, and planning."
@@ -12645,12 +12645,12 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/FileAnalysis],
    :rdfs/label #xsd/string "Dynamic Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/FileAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/FileAnalysis]})
 
 (def DynamicAnalysisTool
   "Dynamic program analysis is the analysis of computer software that is performed by executing programs on a real or virtual processor."
@@ -12678,10 +12678,10 @@
    :rdfs/label #xsd/string "Email",
    :rdfs/seeAlso [#xsd/string "https://schema.ocsf.io/objects/email"
                   {:rdfa/uri "http://dbpedia.org/resource/Email"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf [:d3f/DocumentFile
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DocumentFile
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}]})
@@ -12715,10 +12715,10 @@
    :db/ident :d3f/EmailFiltering,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/InboundTrafficFiltering],
    :rdfs/label #xsd/string "Email Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/InboundTrafficFiltering
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/Email,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/InboundTrafficFiltering]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def EmailRemoval
   "The email removal technique deletes email files from system storage."
@@ -12737,10 +12737,10 @@
    :db/ident :d3f/EmailRemoval,
    :rdf/type [:d3f/FileRemoval :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Email Removal",
-   :rdfs/subClassOf [:d3f/FileRemoval
-                     {:owl/onProperty     :d3f/deletes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/deletes,
                       :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
+                     :d3f/FileRemoval
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/MailServer,
                       :rdf/type           :owl/Restriction}]})
@@ -12780,11 +12780,11 @@
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/FileAnalysis],
    :rdfs/label #xsd/string "Emulated File Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
+                      :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      :d3f/FileAnalysis
                      {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/DocumentFile,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def Enclave
@@ -12828,10 +12828,10 @@
    :db/ident         :d3f/EncryptedTunnels,
    :rdf/type         [:owl/NamedIndividual :owl/Class :d3f/NetworkIsolation],
    :rdfs/label       #xsd/string "Encrypted Tunnels",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3f/isolates,
+   :rdfs/subClassOf  [:d3f/NetworkIsolation
+                      {:owl/onProperty     :d3f/isolates,
                        :owl/someValuesFrom :d3f/IntranetNetwork,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/NetworkIsolation]})
+                       :rdf/type           :owl/Restriction}]})
 
 (def EndpointHealthBeacon
   "Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised."
@@ -13010,10 +13010,10 @@
    :db/ident :d3f/ExceptionHandlerPointerValidation,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ApplicationHardening],
    :rdfs/label #xsd/string "Exception Handler Pointer Validation",
-   :rdfs/subClassOf [:d3f/ApplicationHardening
-                     {:owl/onProperty     :d3f/validates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/validates,
                       :owl/someValuesFrom :d3f/Pointer,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ApplicationHardening]})
 
 (def ExecutableAllowlisting
   "Using a digital signature to authenticate a file before opening."
@@ -13303,14 +13303,14 @@
    :rdfs/label      #xsd/string "File",
    :rdfs/seeAlso    {:rdfa/uri
                      "http://wordnet-rdf.princeton.edu/id/06521201-n"},
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/URL,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/FileSection,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
                      :d3f/Resource]})
 
@@ -13348,12 +13348,12 @@
    :db/ident :d3f/FileAnalysis,
    :rdf/type [:d3f/DefensiveTechnique :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "File Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/File,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/Detect,
                       :rdf/type           :owl/Restriction}
                      :d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/Detect,
+                     {:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}]})
 
 (def FileCarving
@@ -13371,10 +13371,10 @@
    :db/ident :d3f/FileCarving,
    :rdf/type [:owl/Class :d3f/NetworkTrafficAnalysis :owl/NamedIndividual],
    :rdfs/label #xsd/string "File Carving",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/FileTransferNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkTrafficAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileContentRules
   "Employing a pattern matching rule language to analyze files."
@@ -13426,10 +13426,10 @@
    :db/ident :d3f/FileEncryption,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/PlatformHardening],
    :rdfs/label #xsd/string "File Encryption",
-   :rdfs/subClassOf [:d3f/PlatformHardening
-                     {:owl/onProperty     :d3f/encrypts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/encrypts,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PlatformHardening]})
 
 (def FileEviction
   "File eviction techniques evict files from system storage."
@@ -13467,10 +13467,10 @@
    :rdf/type
    [:d3f/IdentifierReputationAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "File Hash Reputation Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/IdentifierReputationAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/FileHash,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/IdentifierReputationAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileHashing
   "Employing file hash comparisons to detect known malware."
@@ -13542,10 +13542,10 @@
    :db/ident :d3f/FileRemoval,
    :rdf/type [:owl/NamedIndividual :d3f/FileEviction :owl/Class],
    :rdfs/label #xsd/string "File Removal",
-   :rdfs/subClassOf [:d3f/FileEviction
-                     {:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/FileServer,
                       :rdf/type           :owl/Restriction}
+                     :d3f/FileEviction
                      {:owl/onProperty     :d3f/deletes,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}]})
@@ -13596,18 +13596,18 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/File_system"},
    :rdfs/label #xsd/string "File System",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/FileSystemMetadata,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/FileSystemLink,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Directory,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact]})
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/FileSystemMetadata,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/Directory,
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileSystemLink
   "A file system link associates a name with a file on a file system.  Most generally, this may be a direct reference (a hard link) or an indirect one (a soft link)."
@@ -13834,10 +13834,10 @@
    :db/ident :d3f/ForwardResolutionDomainDenylisting,
    :rdf/type [:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Forward Resolution Domain Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [:d3f/DNSDenylisting
+                     {:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DNSDenylisting]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ForwardResolutionIPDenylisting
   "Blocking a DNS lookup's answer's IP address value."
@@ -14278,10 +14278,10 @@
    :db/ident :d3f/HardwareComponentInventory,
    :rdf/type [:owl/Class :d3f/AssetInventory :owl/NamedIndividual],
    :rdfs/label #xsd/string "Hardware Component Inventory",
-   :rdfs/subClassOf [:d3f/AssetInventory
-                     {:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/HardwareDevice,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/AssetInventory]})
 
 (def HardwareDevice
   "Hardware devices are the physical artifacts that constitute a network or computer system. Hardware devices are the physical parts or components of a computer, such as the monitor, keyboard, computer data storage, hard disk drive (HDD), graphic cards, sound cards, memory (RAM), motherboard, and so on, all of which are tangible physical objects. By contrast, software is instructions that can be stored and run by hardware. Hardware is directed by the software to execute any command or instruction. A combination of hardware and software forms a usable computing system."
@@ -14497,12 +14497,12 @@
    :rdf/type [:owl/NamedIndividual :d3f/IdentifierAnalysis :owl/Class],
    :rdfs/label #xsd/string "Homoglyph Detection",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/URL,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
-                     :d3f/IdentifierAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/URL,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/IdentifierAnalysis]})
 
 (def Host
   "A host is a computer or other device, typically connected to a computer network. A network host may offer information resources, services, and applications to users or other nodes on the network. A network host is a network node that is assigned a network layer host address. Network hosts that participate in applications that use the client-server model of computing, are classified as server or client systems. Network hosts may also function as nodes in peer-to-peer applications, in which all nodes share and consume resources in an equipotent manner."
@@ -14516,16 +14516,16 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Host_(network)"},
    :rdfs/label #xsd/string "Host",
    :rdfs/seeAlso #xsd/string "https://schema.ocsf.io/objects/device",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/runs,
+                      :owl/someValuesFrom :d3f/OperatingSystem,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkNode
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Application,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/runs,
-                      :owl/someValuesFrom :d3f/OperatingSystem,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkNode],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Network Host"})
 
 (def Host-basedFirewall
@@ -14579,10 +14579,10 @@
    :rdf/type [:owl/Class :d3f/DomainName :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Hostname"},
    :rdfs/label #xsd/string "Hostname",
-   :rdfs/subClassOf [:d3f/Identifier
-                     {:owl/onProperty     :d3f/identifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Host,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :d3f/Identifier],
    :skos/altLabel #xsd/string "Nodename"})
 
 (def HumanInputDeviceFirmware
@@ -14660,10 +14660,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/RemovableMediaDevice,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionIsolation
                      {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/InputDevice,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ExecutionIsolation]})
 
 (def IPAddress
   "An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.An IP address serves two main functions: host or network interface identification and location addressing. Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. IPv6 deployment has been ongoing since the mid-2000s."
@@ -14790,13 +14790,13 @@
    :db/ident :d3f/IdentifierAnalysis,
    :rdf/type [:owl/Class :d3f/DefensiveTechnique :owl/NamedIndividual],
    :rdfs/label #xsd/string "Identifier Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/Identifier,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Detect,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Identifier,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/DefensiveTechnique]})
 
 (def IdentifierReputationAnalysis
   "Analyzing the reputation of an identifier."
@@ -15143,10 +15143,10 @@
    :db/ident :d3f/InputDeviceAnalysis,
    :rdf/type [:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class],
    :rdfs/label #xsd/string "Input Device Analysis",
-   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/InputDevice,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemMonitoring]})
 
 (def InputFunction
   "Generic function that receives input from an untrusted source."
@@ -15541,10 +15541,10 @@
    :db/ident :d3f/JobFunctionAccessPatternAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/UserBehaviorAnalysis],
    :rdfs/label #xsd/string "Job Function Access Pattern Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authorization,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def JobSchedule
   "A job schedule contains specification of tasks to be executed at particular times or time intervals.  The schedule is a plan that enacted by a task scheduling process. In Windows, the schedule can be accessed at 'C:\\Windows\\System32\\Tasks' or in the registry. In Linux, the schedule is located at '/etc/crontab'"
@@ -15583,11 +15583,11 @@
                   {:rdfa/uri "http://dbpedia.org/resource/Cron"}
                   {:rdfa/uri
                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/ScheduledJob,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/JobSchedule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/creates,
+                      :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ScheduledJob,
@@ -15710,20 +15710,20 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/KernelProcessTable,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/OperatingSystemProcess,
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/KernelModule,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/Application,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/HardwareDriver,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/KernelModule,
+                     {:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/OperatingSystemProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/manages,
                       :owl/someValuesFrom :d3f/UserProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/HardwareDriver,
                       :rdf/type           :owl/Restriction}
                      :d3f/SystemSoftware]})
 
@@ -16591,10 +16591,10 @@
    :db/ident :d3f/LogicalLinkMapping,
    :rdf/type [:owl/NamedIndividual :d3f/NetworkMapping :owl/Class],
    :rdfs/label #xsd/string "Logical Link Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
+   :rdfs/subClassOf [:d3f/NetworkMapping
+                     {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/LogicalLink,
                       :rdf/type           :owl/Restriction}
-                     :d3f/NetworkMapping
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/NetworkNode,
                       :rdf/type           :owl/Restriction}
@@ -17123,10 +17123,10 @@
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://dbpedia.org/resource/Message_transfer_agent"},
    :rdfs/label #xsd/string "Mail Server",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/runs,
+   :rdfs/subClassOf [:d3f/Server
+                     {:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/MessageTransferAgent,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Server],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel [#xsd/string "MX Host"
                    #xsd/string "Email Server Resource"
                    #xsd/string "Message transfer agent"
@@ -17166,12 +17166,12 @@
    :rdf/type
    [:d3f/Kernel-basedProcessIsolation :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Mandatory Access Control",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/isolates,
-                      :owl/someValuesFrom :d3f/Process,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/Kernel-basedProcessIsolation
-                     {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
+                     {:owl/onProperty     :d3f/isolates,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}]})
 
 (def MarketingMaterial
@@ -17360,10 +17360,10 @@
    :db/ident :d3f/MemoryBoundaryTracking,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label #xsd/string "Memory Boundary Tracking",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OperatingSystemMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MemoryExtent
   "Memory Extent"
@@ -17400,18 +17400,18 @@
     "https://www.techopedia.com/definition/4768/memory-management-unit-mmu",
    :rdfs/label #xsd/string "Memory Management Unit",
    :rdfs/seeAlso #xsd/string "https://dbpedia.org/page/Memory_management_unit",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/Storage,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/VirtualAddress,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ProcessorComponent
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/TranslationLookasideBuffer,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/manages,
                       :owl/someValuesFrom :d3f/PageTable,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ProcessorComponent
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/Storage,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/TranslationLookasideBuffer,
                       :rdf/type           :owl/Restriction}]})
 
 (def MemoryManagementUnitComponent
@@ -17491,10 +17491,10 @@
    :db/ident :d3f/MessageAuthentication,
    :rdf/type [:d3f/MessageHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Message Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/MessageHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/UserToUserMessage,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/MessageHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MessageEncryption
   "Encrypting a message body using a cryptographic key."
@@ -17526,10 +17526,10 @@
    :db/ident :d3f/MessageHardening,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique],
    :rdfs/label #xsd/string "Message Hardening",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [:d3f/DefensiveTechnique
+                     {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Harden,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MessageTransferAgent
   "A message transfer agent or mail transfer agent (MTA) or mail relay is software that transfers electronic mail messages from one computer to another using a client-server application architecture. An MTA implements both the client (sending) and server (receiving) portions of the Simple Mail Transfer Protocol."
@@ -17953,8 +17953,8 @@
 (def NIST_SP_800-53_R3
   "NIST SP 800-53 R3"
   {:d3f/archived-at
-   #xsd/anyURI
-    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30",
+   {:rdfa/uri
+    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"},
    :d3f/version #xsd/integer 3,
    :db/ident :d3f/NIST_SP_800-53_R3,
    :rdf/type [:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual],
@@ -17966,8 +17966,8 @@
 (def NIST_SP_800-53_R4
   "NIST SP 800-53 R4"
   {:d3f/archived-at
-   #xsd/anyURI
-    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30",
+   {:rdfa/uri
+    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"},
    :d3f/version #xsd/integer 4,
    :db/ident :d3f/NIST_SP_800-53_R4,
    :rdf/type [:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual],
@@ -17979,8 +17979,8 @@
 (def NIST_SP_800-53_R5
   "NIST SP 800-53 R5"
   {:d3f/archived-at
-   #xsd/anyURI
-    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
+   {:rdfa/uri
+    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"},
    :d3f/version #xsd/integer 5,
    :db/ident :d3f/NIST_SP_800-53_R5,
    :rdf/type [:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual],
@@ -18191,10 +18191,10 @@
    :db/ident :d3f/NetworkMapping,
    :rdf/type [:owl/NamedIndividual :d3f/DefensiveTechnique :owl/Class],
    :rdfs/label #xsd/string "Network Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [:d3f/DefensiveTechnique
+                     {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Model,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def NetworkNode
   "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node."
@@ -18234,10 +18234,10 @@
    :db/ident :d3f/NetworkNodeInventory,
    :rdf/type [:owl/NamedIndividual :d3f/AssetInventory :owl/Class],
    :rdfs/label #xsd/string "Network Node Inventory",
-   :rdfs/subClassOf [:d3f/AssetInventory
-                     {:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/NetworkNode,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/AssetInventory]})
 
 (def NetworkPackets
   "A network packet is a formatted unit of data carried by a packet-switched network. Computer communications links that do not support packets, such as traditional point-to-point telecommunications links, simply transmit data as a bit stream. When data is formatted into packets, packet switching is possible and the bandwidth of the communication medium can be better shared among users than with circuit switching."
@@ -18367,12 +18367,12 @@
    :rdfs/label #xsd/string "Network Traffic",
    :rdfs/seeAlso [#xsd/string "https://schema.ocsf.io/objects/network_traffic"
                   {:rdfa/uri "http://dbpedia.org/resource/Network_traffic"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/originates-from,
-                      :owl/someValuesFrom :d3f/PhysicalLocation,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/DomainName,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/DomainName,
+                     {:owl/onProperty     :d3f/originates-from,
+                      :owl/someValuesFrom :d3f/PhysicalLocation,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Data Traffic"})
 
@@ -18420,10 +18420,10 @@
    :db/ident :d3f/NetworkTrafficCommunityDeviation,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Network Traffic Community Deviation",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def NetworkTrafficFiltering
   "Restricting network traffic originating from any location."
@@ -18465,13 +18465,13 @@
    :db/ident :d3f/NetworkTrafficPolicyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/NetworkMapping],
    :rdfs/label #xsd/string "Network Traffic Policy Mapping",
-   :rdfs/subClassOf [:d3f/NetworkMapping
-                     {:owl/onProperty     :d3f/maps,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/AccessControlConfiguration,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/queries,
                       :owl/someValuesFrom :d3f/CollectorAgent,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkMapping]})
 
 (def NetworkVulnerabilityAssessment
   "Network vulnerability assessment relates all the vulnerabilities of a network's components in the context of their configuration and interdependencies and can also include assessing risk emerging from the network's design as a whole, not just the sum of individual network node or network segment vulnerabilities."
@@ -18484,11 +18484,11 @@
    :db/ident :d3f/NetworkVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/NetworkMapping],
    :rdfs/label #xsd/string "Network Vulnerability Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
-                      :owl/someValuesFrom :d3f/Vulnerability,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/evaluates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
                       :owl/someValuesFrom :d3f/Network,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/identifies,
+                      :owl/someValuesFrom :d3f/Vulnerability,
                       :rdf/type           :owl/Restriction}
                      :d3f/NetworkMapping]})
 
@@ -18721,15 +18721,15 @@
    :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Operating_system"}
                   #xsd/string "https://schema.ocsf.io/objects/os"],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/SystemServiceSoftware,
+                      :owl/someValuesFrom :d3f/Kernel,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact
                      {:owl/onProperty :d3f/may-contain,
                       :owl/someValuesFrom
                       :d3f/OperatingSystemConfigurationComponent,
                       :rdf/type :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Kernel,
+                      :owl/someValuesFrom :d3f/SystemServiceSoftware,
                       :rdf/type           :owl/Restriction}]})
 
 (def OperatingSystemConfiguration
@@ -18896,12 +18896,12 @@
    :db/ident :d3f/OperationalDependencyMapping,
    :rdf/type [:owl/NamedIndividual :d3f/OperationalActivityMapping :owl/Class],
    :rdfs/label #xsd/string "Operational Dependency Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/Dependency,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OperationalActivityMapping
+   :rdfs/subClassOf [:d3f/OperationalActivityMapping
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/OrganizationalActivity,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/Dependency,
                       :rdf/type           :owl/Restriction}]})
 
 (def OperationalRiskAssessment
@@ -18923,13 +18923,13 @@
    :db/ident :d3f/OperationalRiskAssessment,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/OperationalActivityMapping],
    :rdfs/label #xsd/string "Operational Risk Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
-                      :owl/someValuesFrom :d3f/Vulnerability,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/evaluates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
                       :owl/someValuesFrom :d3f/Organization,
                       :rdf/type           :owl/Restriction}
-                     :d3f/OperationalActivityMapping]})
+                     :d3f/OperationalActivityMapping
+                     {:owl/onProperty     :d3f/identifies,
+                      :owl/someValuesFrom :d3f/Vulnerability,
+                      :rdf/type           :owl/Restriction}]})
 
 (def OperationsCenterComputer
   "Mainframe computers or mainframes (colloquially referred to as \"big iron\") are computers used primarily by large organizations for critical applications; bulk data processing, such as census, industry and consumer statistics, and enterprise resource planning; and transaction processing. They are larger and have more processing power than some other classes of computers: minicomputers, servers, workstations, and personal computers."
@@ -19019,19 +19019,19 @@
    :db/ident :d3f/OrganizationMapping,
    :rdf/type [:owl/Class :d3f/OperationalActivityMapping :owl/NamedIndividual],
    :rdfs/label #xsd/string "Organization Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-map,
-                      :owl/someValuesFrom :d3f/OrganizationalActivity,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/Dependency,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/maps,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Organization,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-map,
+                      :owl/someValuesFrom :d3f/OrganizationalActivity,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperationalActivityMapping
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Person,
                       :rdf/type           :owl/Restriction}
-                     :d3f/OperationalActivityMapping]})
+                     {:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/Dependency,
+                      :rdf/type           :owl/Restriction}]})
 
 (def OrganizationalActivity
   "Organizational Activity"
@@ -19190,10 +19190,10 @@
    :db/ident :d3f/OutboundTrafficFiltering,
    :rdf/type [:owl/NamedIndividual :d3f/NetworkTrafficFiltering :owl/Class],
    :rdfs/label #xsd/string "Outbound Traffic Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/NetworkTrafficFiltering
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/OutboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkTrafficFiltering]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def OutputDevice
   "An output device is any piece of computer hardware equipment which converts information into human-readable form. It can be text, graphics, tactile, audio, and video. Some of the output devices are Visual Display Units (VDU) i.e. a Monitor, Printer, Graphic Output devices, Plotters, Speakers etc. A new type of Output device is been developed these days, known as Speech synthesizer, a mechanism attached to the computer which produces verbal output sounding almost like human speeches."
@@ -19693,12 +19693,12 @@
    :db/ident :d3f/PhysicalLinkMapping,
    :rdf/type [:owl/NamedIndividual :d3f/NetworkMapping :owl/Class],
    :rdfs/label #xsd/string "Physical Link Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/PhysicalLink,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkMapping
+   :rdfs/subClassOf [:d3f/NetworkMapping
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/NetworkNode,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/PhysicalLink,
                       :rdf/type           :owl/Restriction}]})
 
 (def PhysicalLocation
@@ -19773,13 +19773,13 @@
    :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Computing_platform"},
    :rdfs/subClassOf [:d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/HardwareDevice,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Firmware,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/HardwareDevice,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Computer Platform"})
 
@@ -19986,13 +19986,13 @@
    #xsd/string
     "https://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/PageFrame,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
                      :d3f/Storage
-                     :d3f/HardwareDevice
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/PageFrame,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/HardwareDevice]})
 
 (def PrincipalComponentAnalysis
   "Principal components analysis (PCA) creates a new set of orthogonal variables that contain the same information as the original set. It rotates the axes of variation to give a new set of orthogonal axes, ordered so that they summarize decreasing proportions of the variation."
@@ -20122,36 +20122,36 @@
                       "http://dbpedia.org/resource/Process_(computing)"},
    :rdfs/label #xsd/string "Process",
    :rdfs/seeAlso #xsd/string "https://schema.ocsf.io/objects/process",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/process-security-context,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/process-command-line-arguments,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/process-environmental-variables,
-                      :owl/someValuesFrom :xsd/string,
+                     {:owl/onProperty     :d3f/instructed-by,
+                      :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/process-command-line-arguments,
+                     {:owl/onProperty     :d3f/may-execute,
+                      :owl/someValuesFrom :d3f/Thread,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/process-security-context,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/process-image-path,
                       :owl/someValuesFrom :d3f/ExecutableBinary,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ProcessImage,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/instructed-by,
-                      :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/process-identifier,
-                      :owl/someValuesFrom :xsd/integer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-execute,
-                      :owl/someValuesFrom :d3f/Thread,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/uses,
                       :owl/someValuesFrom :d3f/Resource,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ProcessImage,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/process-user,
                       :owl/someValuesFrom :d3f/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/process-environmental-variables,
+                      :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/process-identifier,
+                      :owl/someValuesFrom :xsd/integer,
                       :rdf/type           :owl/Restriction}]})
 
 (def ProcessAnalysis
@@ -20288,8 +20288,8 @@
    [:d3f/Reference-RemotelyLaunchedExecutablesViaWMI_MITRE
     :d3f/Reference-QuickExecutionOfASeriesOfSuspiciousCommands_MITRE
     :d3f/Reference-CommandLaunchedFromWinLogon_MITRE
-    :d3f/Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE
     :d3f/Reference-OutlierParentsOfCmd_MITRE
+    :d3f/Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE
     :d3f/Reference-ProcessesSpawningCmd.exe_MITRE
     :d3f/Reference-GenericRegsvr32_MITRE
     :d3f/Reference-SystemAndMethodsThereofForCausalityIdentificationAndAttributionsDeterminationOfProcessesInANetwork_PaloAltoNetworksIncCyberSecdoLtd
@@ -20362,10 +20362,10 @@
    :db/ident :d3f/ProcessSelf-ModificationDetection,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ProcessAnalysis],
    :rdfs/label #xsd/string "Process Self-Modification Detection",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/ProcessAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Process,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ProcessAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ProcessSpawnAnalysis
   "Analyzing spawn arguments or attributes of a process to detect processes that are unauthorized."
@@ -20424,12 +20424,12 @@
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ProcessAnalysis],
    :rdfs/label #xsd/string "Process Spawn Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ProcessAnalysis]})
+                     :d3f/ProcessAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def ProcessStartFunction
   "A function creates a new computer process, usually by invoking a create process system call."
@@ -20861,8 +20861,8 @@
    #xsd/string
     "## How it works\nA remote procedure call (RPC) enables one computer to execute a specific function on another computer, as if it were a local application process. There are numerous RPC specifications and implementations. RPC capabilities can be abused by attackers in order to achieve a variety of tactical objectives including execution, persistence, initial access, and more. RPC proxies may be used to collect and store RPC traffic. RPCs can occur over network sockets or named pipes.\n\nAnalytics look for unauthorized behavior such as:\n\n* Processes being launched or scheduled remotely\n* System configurations being changed remotely\n* Unauthorized file read activity\n\nExample RPC Protocols:\n\n* DCE/RPC\n* CORBA\n* Open Network Computing Remote Procedure Call\n* D-Bus\n* XML-RPC\n* JSON-RPC\n* SOAP\n* Apache Thrift\n\n## Considerations\n* RPC is widely used in enterprise environments, and significant data filtering may be required in large environments to enable analytic processing.\n* RPC traffic may occur over a pipe, or within a host over loopback interface, thus making network collection difficult.",
    :d3f/kb-reference
-   [:d3f/Reference-RemotelyLaunchedExecutablesViaServices_MITRE
-    :d3f/Reference-CAR-2014-11-007-RemoteWindowsManagementInstrumentation_WMI_OverRPC_MITRE
+   [:d3f/Reference-CAR-2014-11-007-RemoteWindowsManagementInstrumentation_WMI_OverRPC_MITRE
+    :d3f/Reference-RemotelyLaunchedExecutablesViaServices_MITRE
     :d3f/Reference-RPCCallInterception_CrowdstrikeInc
     :d3f/Reference-CAR-2014-05-001:RPCActivity_MITRE
     :d3f/Reference-RemotelyLaunchedExecutablesViaWMI_MITRE
@@ -21038,7 +21038,7 @@
 
 (def Reference-AccessPermissionModification_MITRE
   "Reference - CAR-2019-07-001: Access Permission Modification - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-07-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-07-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries sometimes modify object access rights at the operating system level. There are varying motivations behind this action - they may not want some files/objects to be changed on systems for persistence reasons and therefore provide admin only rights; also, they may want files to be accessible with lower levels of permissions.",
@@ -21060,8 +21060,8 @@
 
 (def Reference-AccountMonitoring_ForescoutTechnologies
   "Reference - Account monitoring - Forescout Technologies"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190205511A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190205511A1"},
    :d3f/kb-abstract
    #xsd/string
     "Systems, methods, and related technologies for account access monitoring are described. In certain aspects, a login request associated with a device can be analyzed and a score determined. The score and a threshold can be used to determine whether to initiate an action.",
@@ -21078,7 +21078,7 @@
 
 (def Reference-ActiveDirectoryDumpingViaNTDSUtil_MITRE
   "Reference - CAR-2019-08-002: Active Directory Dumping via NTDSUtil - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-08-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-08-002/"},
    :d3f/kb-abstract
    #xsd/string
     "The NTDSUtil tool may be used to dump a Microsoft Active Directory database to disk for processing with a credential access tool such as Mimikatz. This is performed by launching ntdsutil.exe as a privileged user with command line arguments indicating that media should be created for offline Active Directory installation and specifying a folder path. This process will create a copy of the Active Directory database, ntds.dit, to the specified folder path.",
@@ -21100,7 +21100,7 @@
 
 (def Reference-ActiveFirewallSystemAndMethodology_McAfeeLLC
   "Reference - Active firewall system and methodology - McAfee LLC"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US6550012B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US6550012B1"},
    :d3f/kb-abstract
    #xsd/string
     "System and methodology providing automated or \"proactive\" network security (\"active\" firewall) are described. The system implements methodology for verifying or authenticating communications, especially between network security components thereby allowing those components to share information. In one embodiment, a system implementing an active firewall is provided which includes methodology for verifying or authenticating communications between network components (e.g., sensor(s), arbiter, and actor(s)), using cryptographic keys or digital certificates. Certificates may be used to digitally sign a message or file and, in a complementary manner, to verify a digital signature. At the outset, particular software components that may participate in authenticated communication are specified, including creating a digital certificate for each such software component. Upon detection by a sensor that an event of interest that has occurred in the computer network system, the system may initiate authenticated communication between the sensor component and a central arbiter (e.g., \"event orchestrator\") component, so that the sensor may report the event to the arbiter or \"brain.\" Thereafter, the arbiter (if it chooses to act on that information) initiates authenticated communication between itself and a third software component, an \"actor\" component (e.g., \"firewall\"). The arbiter may indicate to the actor how it should handle the event. The actor or firewall, upon receiving the information, may now undertake appropriate action, such as dynamically creating or modifying rules for appropriately handling the event, or it may choose to simply ignore the information.",
@@ -21123,7 +21123,7 @@
 
 (def Reference-AdvancedDeviceMatchingSystem
   "Reference - Advanced device matching system"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US10892951B2/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US10892951B2/"},
    :d3f/kb-abstract
    #xsd/string
     "Disclosed is a device management system for discovery and management of components added to computer systems and sub-systems. The device management system provides for recognizing a newly added component, and determining if the newly added component is already a part of the system inventory. The newly added component is matched with a component currently on the system, based on at least one matching attribute. A point total is calculated for each match level and a final match score is provided. The match score is compared with an aggressiveness level to determine if a match does indeed exist.",
@@ -21138,7 +21138,7 @@
 
 (def Reference-AllLoginsSinceLastBoot_MITRE
   "Reference - CAR-2015-07-001: All Logins Since Last Boot - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2015-07-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2015-07-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Once a credential dumper like mimikatz runs, every user logged on since boot is potentially compromised, because the credentials were accessed via the memory of lsass.exe. When such an event occurs, this analytic will give the forensic context to identify compromised users. Those users could potentially be used in later events for additional logons.\n\nThe time field indicates the first and last time a system reported a user logged into a given system. This means that activity could be intermittent between the times given and should not be considered a duration.",
@@ -21161,8 +21161,8 @@
 (def Reference-AnalysisOfTheWindowsVistaSecurityModel_SymantecCorporation
   "Reference - Analysis of the Windows Vista Security Model - Symantec Corporation"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://web.archive.org/web/20140407025337/http://www.symantec.com/avcenter/reference/Windows_Vista_Security_Model_Analysis.pdf",
+   {:rdfa/uri
+    "https://web.archive.org/web/20140407025337/http://www.symantec.com/avcenter/reference/Windows_Vista_Security_Model_Analysis.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "This     paper     provides     an     in-depth     technical     assessment    of    the    security    improvements    implemented    in    Windows Vista, focusing primarily on the areas of User Account Protection  and  User  Interface  Privilege  Isolation.  This  paper  discusses   these   features   and   touches   on   several   of   their   shortcomings. It then demonstrates how it is possible to combine these  attacks  to  gain  full  control  over  the  machine  from  low  integrity, low privilege process.",
@@ -21185,8 +21185,8 @@
 
 (def Reference-AnomalyDetectionUsingAdaptiveBehavioralProfiles_SecuronixInc
   "Reference - Anomaly Detection Using Adaptive Behavioral Profiles - Securonix Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160226901A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160226901A1"},
    :d3f/kb-abstract
    #xsd/string
     "The invention provides a system and method for automatic creation of adaptive behavioral profiles for observables associated with resource states and events in a computer network (IT) infrastructure of an enterprise and for detecting anomalies that represent potential malicious activity and threats as deviations from normal behavior. Separate profiles may be created for each behavioral indicator, as well as for each time series of measurements, and aggregated to create an overall behavioral profile. An anomaly probability is determined from the behavioral profile and used to evaluate the data values of observables. Outlier data values which deviate from normal behavior by more than a predetermined probability threshold are identified for risk analysis as possible threats while inliers within the range of normal behavior are used to update the behavioral profile. Behavioral profiles are created for behavioral indicators based upon observables measured over predetermined time periods using algorithms employing statistical analysis approaches that work for any type of data distribution, and profiles are adapted over time using data aging to more closely represent current behavior. Algorithm parameters for creating profiles are based on the type of data, i.e., its metadata.",
@@ -21209,8 +21209,8 @@
 
 (def Reference-Anti-tamperSystemWithSelf-adjustingGuards_ARXANTECHNOLOGIESInc
   "Reference - Anti-tamper system with self-adjusting guards - ARXAN TECHNOLOGIES Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20150052603A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20150052603A1"},
    :d3f/kb-abstract
    #xsd/string
     "An anti-tamper system is disclosed that includes self-adjusting guards inserted in software. Self-adjusting guards include invocation criteria and guard function. During run-time, each time the self-adjusting guard is invoked, the invocation criteria is evaluated and the guard function is only executed if the invocation criteria is satisfied. The invocation criteria can be static or dynamic, satisfied randomly with fixed or varying probability, a monotonically or exponentially decreasing function or most any other type of function. The invocation criteria can be satisfied based on elapsed inter-guard invocation time (time since last guard function execution), target inter-guard invocation time, and/or guard execution time. A method is disclosed of inserting self-adjusting guards into software, and executing the software. Evaluating the invocation criteria can include adjusting the invocation criteria when satisfied. The self-adjusting guards can be inserted into the software at a source or object code level.",
@@ -21232,8 +21232,8 @@
   Reference-ApparatusForToProvideContentToAndQueryAReverseDomainNameSystemServer
   "Reference - Apparatus for to provide content to and query a reverse domain name system server - Barrracuda Networks"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20100174829A1/en?oq=20100174829",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20100174829A1/en?oq=20100174829"},
    :d3f/kb-abstract
    #xsd/string
     "An apparatus is disclosed for to provide content to and query a reverse domain name system (DNS) server without depending on the kindness of domain name system registrars, registrants. DNS replies are observed by firewalls or filters, analyzed, and transmitted to a reverse domain name system server. An embodiment of the present invention can be within a DNS server or SMTP server.",
@@ -21255,8 +21255,8 @@
 (def
   Reference-ApproachesForSecuringAnInternetEndpointUsingFine-grainedOperatingSystemVirtualization_Bromium%2CInc_
   "Reference - Approaches for securing an internet endpoint using fine-grained operating system virtualization - Bromium, Inc."
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20110296412A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20110296412A1"},
    :d3f/kb-abstract
    #xsd/string
     "Approaches for executing untrusted software on a client without compromising the client using micro-virtualization to execute untrusted software in isolated contexts. A template for instantiating a virtual machine on a client is identified in response to receiving a request to execute an application. After the template is identified, without human intervention, a virtual machine is instantiated, using the template, in which the application is to be executed. The template may be selected from a plurality of templates based on the nature of the request, as each template describe characteristics of a virtual machine suitable for a different type of activity. Selected resources such as files are displayed to the virtual machines according to user and organization policies and controls. When the client determines that the application has ceased to execute, the client ceases execution of the virtual machine without human intervention.",
@@ -21279,8 +21279,8 @@
 (def
   Reference-ArchitectureOfTransparentNetworkSecurityForApplicationContainers_NeuvectorInc
   "Reference - Architecture of transparent network security for application containers - Neuvector Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170093922A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170093922A1"},
    :d3f/kb-abstract
    #xsd/string
     "A system comprises one or more application containers, each application container including computer-readable instructions and initiated via a container service and isolated using operating system-level virtualization. The system also comprises one or more virtual switches configured to route traffic from the application containers. The system further comprises one or more security containers, each security container configured to transparently intercept traffic from the one or more application containers for analysis of network security. The system further comprises a user interface (UI) container configured to receive configuration settings from a user. The system also comprises an analytics container configured to perform analysis on data received from the one or more security containers. The system also comprises a management container configured to configure settings for the one or more security containers and the analytics container.",
@@ -21302,8 +21302,8 @@
 (def Reference-AuditUserAccountManagement
   "Reference - Audit User Account Management"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-user-account-management",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-user-account-management"},
    :d3f/kb-abstract
    #xsd/string
     "Audit User Account Management determines whether the operating system generates audit events when specific user account management tasks are performed.",
@@ -21317,7 +21317,7 @@
 
 (def Reference-AutomatedComputerVulnerabilityResolutionSystem
   "Reference - Automated computer vulnerability resolution system"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US7308712B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US7308712B2"},
    :d3f/kb-abstract
    #xsd/string
     "A system and process for addressing computer security vulnerabilities. The system and process generally comprise aggregating vulnerability information on a plurality of computer vulnerabilities; constructing a remediation database of said plurality of computer vulnerabilities; constructing a remediation signature to address the computer vulnerabilities; and deploying said remediation signature to a client computer. The remediation signature essentially comprises a sequence of actions to address a corresponding vulnerability. A managed automated approach to the process is contemplated in which the system is capable of selective deployment of remediation signatures; selective resolution of vulnerabilities; scheduled deployment of remediation signatures; and scheduled scanning of client computers for vulnerabilities.",
@@ -21335,8 +21335,8 @@
 (def
   Reference-AutomaticallyGeneratingNetworkResourceGroupsAndAssigningCustomizedDecoyPoliciesThereto_IllusiveNetworksLtd
   "Reference - Automatically generating network resource groups and assigning customized decoy policies thereto - Illusive Networks Ltd"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170310689A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170310689A1"},
    :d3f/kb-abstract
    #xsd/string
     "A cyber security system comprising circuitry of a decoy deployer planting one or more decoy lateral attack vectors in each of a first and a second group of resources within a common enterprise network of resources, the first and second groups of resources having different characteristics in terms of subnets, naming conventions, DNS aliases, listening ports, users and their privileges, and installed applications, wherein a lateral attack vector is an object of a first resource within the network that has a potential to be used by an attacker who discovered the first resource to further discover information regarding a second resource within the network, the second resource being previously undiscovered by the attacker, and wherein the decoy lateral attack vectors in the first group conform to the characteristics of the first group, and the decoy lateral attack vectors in the second group conform to the characteristics of the second group.",
@@ -21359,7 +21359,7 @@
 
 (def Reference-AutomaticallyGeneratingRulesForConnectionSecurity_Microsoft
   "Reference - Automatically generating rules for connection security - Microsoft"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US20120054825",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US20120054825"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for creating security policies for firewall and connection policies in an integrated manner is provided. The security system provides a user interface through which a user can define a security rule that specifies both a firewall policy and a connection policy. After the security rule is specified, the security system automatically generates a firewall rule and a connection rule to implement the security rule. The security system provides the firewall rule to a firewall engine that is responsible for enforcing the firewall rules and provides the connection rule to an IPsec engine that is responsible for enforcing the connection rules",
@@ -21385,7 +21385,7 @@
 
 (def Reference-AutorunDifferences_MITRE
   "Reference - CAR-2013-01-002: Autorun Differences - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-01-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-01-002/"},
    :d3f/kb-abstract
    #xsd/string
     "The Sysinternals tool Autoruns checks the registry and file system for known identify persistence mechanisms. It will output any tools identified, including built-in or added-on Microsoft functionality and third party software. Many of these locations are known by adversaries and used to obtain Persistence. Running Autoruns periodically in an environment makes it possible to collect and monitor its output for differences, which may include the removal or addition of persistent tools. Depending on the persistence mechanism and location, legitimate software may be more likely to make changes than an adversary tool. Thus, this analytic may result in significant noise in a highly dynamic environment. While Autoruns is a convenient method to scan for programs using persistence mechanisms its scanning nature does not conform well to streaming based analytics. This analytic could be replaced with one that draws from sensors that collect registry and file information if streaming analytics are desired.\n\nUtilizes the Sysinternals autoruns tool (ignoring validated Microsoft entries). Primarily not a detection analytic by itself but through analysis of results by an analyst can be used for such. Building another analytic on top of this one identifying unusual entries would likely be a beneficial alternative.",
@@ -21402,7 +21402,7 @@
 
 (def Reference-BiometricChallenge-ResponseAuthentication-Accenture
   "Reference - Biometric Challenge-Response Authentication - Accenture"
-  {:d3f/has-link #xsd/anyURI "https://www.patentguru.com/US2021110015A1",
+  {:d3f/has-link {:rdfa/uri "https://www.patentguru.com/US2021110015A1"},
    :d3f/kb-abstract
    #xsd/string
     "Secret biometric responses to authentication challenges for MFA.\n\nMethods, systems, and apparatus, including computer programs encoded on computer storage media, for authenticating users based on a sequence of biometric authentication challenges. In one aspect, a process includes receiving a first image of the face of the user and processing the first image according to a first authentication process to determine whether the face of the user shown in the first image matches the face of an authorized user. A second authentication process including a sequence of biometric authentication challenges is identified. The sequence includes at least one facial expression challenge. The user is authenticated in response to determining that the first authentication process is satisfied based on the face of the user shown in the first image matching the face of the authorized user and the second authentication process is satisfied based on the user providing a valid biometric response to each biometric authentication challenge.",
@@ -21421,7 +21421,7 @@
 (def
   Reference-BroadcastIsolationAndLevel3NetworkSwitch_HewlettPackardEnterpriseDevelopmentLP
   "Reference - Broadcast isolation and level 3 network switch - Hewlett Packard Enterprise Development LP"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US5920699A",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US5920699A"},
    :d3f/kb-abstract
    #xsd/string
     "A network switch comprising a switching Application Specific Integrated Circuit (ASIC) and a Virtual Switching Engine (VSE) connected to a plurality of ports. The switching ASIC has a high-speed memory table which enables it to look up addresses that it has previously obtained and to forward unicast packets to said addresses. The VSE is a CPU that makes switching decisions outside of the ASIC and keeps track of any unknown addresses, forwarding the packets out the appropriate ports and answers broadcast packets by proxy for all known addresses without forwarding any of the packets down the VLANs, thereby freeing the VLAN bandwidth from excessive traffic. The system requires no user configuration because the switching methodology is self-adaptive to the network in which it is inserted and has the ability to perform router functions such as level 2 and 3 switching, spanning tree protocols and compatibility with Internetwork Packet and Internetwork Packet Exchange networks.",
@@ -21441,7 +21441,7 @@
 
 (def Reference-CAR-2014-05-001:RPCActivity_MITRE
   "Reference - CAR-2014-05-001: RPC Activity - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-05-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-05-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Microsoft Windows uses its implementation of Distributed Computing Environment/Remote Procedure Call (DCE/RPC), which it calls Microsoft RPC, to call certain APIs remotely.\n\nA Remote Procedure Call is initiated by communicating to the RPC Endpoint Mapper, which exists as the Windows service RpcEptMapper and listens on the port 135/tcp. The endpoint mapper resolves a requested endpoint/interface and responds to the client with the port that the service is listening on. Since the RPC endpoints are assigned ports when the services start, these ports are dynamically assigned from 49152 to 65535. The connection to the endpoint mapper then terminates and the client program can communicate directly with the requested service.\n\nRPC is a legitimate functionality of Windows that allows remote interaction with a variety of services. For a Windows environment to be properly configured, several programs use RPC to communicate legitimately with servers. The background and benign RPC activity may be enormous, but must be learned, especially peer-to-peer RPC between workstations, which is often indicative of Lateral Movement.",
@@ -21457,7 +21457,7 @@
 (def
   Reference-CAR-2014-11-007-RemoteWindowsManagementInstrumentation_WMI_OverRPC_MITRE
   "Reference - CAR-2014-11-007: Remote Windows Management Instrumentation (WMI) over RPC - MITRE"
-  {:d3f/has-link #xsd/anyURI "",
+  {:d3f/has-link {:rdfa/uri ""},
    :d3f/kb-abstract
    #xsd/string
     "As described in ATT&CK, an adversary can use Windows Management Instrumentation (WMI) to view or manipulate objects on a remote host. It can be used to remotely edit configuration, start services, query files, and anything that can be done with a WMI class. When remote WMI requests are over RPC (CAR-2014-05-001), it connects to a DCOM interface within the RPC group netsvcs. To detect this activity, a sensor is needed at the network level that can decode RPC traffic or on the host where the communication can be detected more natively, such as Event Tracing for Windows. Using wireshark/tshark decoders, the WMI interfaces can be extracted so that WMI activity over RPC can be detected.\n\nAlthough the description details how to detect remote WMI precisely, a decent estimate has been to look for the string RPCSS within the initial RPC connection on 135/tcp. It returns a superset of this activity, and will trigger on all DCOM-related services running within RPC, which is likely to also be activity that should be detected between hosts. More about RPCSS at : rpcss_dcom_interfaces.html",
@@ -21482,7 +21482,7 @@
 
 (def Reference-CAR-2015-04-001:RemotelyScheduledTasksViaAT_MITRE
   "Reference - CAR-2015-04-001: Remotely Scheduled Tasks via AT - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2015-04-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2015-04-001/"},
    :d3f/kb-abstract
    #xsd/string
     "When AT.exe is used to remotely schedule tasks, Windows uses named pipes over SMB to communicate with the API on the remote machine. After authentication over SMB, the Named Pipe “ATSVC” is opened, over which the JobAdd function is called. On the remote host, the job files are created by the Task Scheduler and follow the convention C:\\Windows\\System32\\AT<job\\_id>. Unlike CAR-2013-05-004, this analytic specifically focuses on uses of AT that can be detected between hosts, indicating remotely gained execution.\n\nThis pipe activity could be discovered with a network decoder, such as that in wireshark, that can inspect SMB traffic to identify the use of pipes. It could also be detected by looking for raw packet capture streams or from a custom sensor on the host that hooks the appropriate API functions. If no network or API level of visibility is possible, this traffic may inferred by looking at SMB connections over 445/tcp followed by the creation of files matching the pattern C:\\Windows\\System32\\AT\\<job_id\\>.",
@@ -21500,7 +21500,7 @@
 
 (def Reference-CAR-2016-04-004_SuccessfulLocalAccountLogin
   "Reference - CAR-2016-04-004: Successful Local Account Login"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2016-04-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2016-04-004/"},
    :d3f/kb-reference-of :d3f/LocalAccountMonitoring,
    :d3f/kb-reference-title
    #xsd/string "Reference - CAR-2016-04-004: Successful Local Account Login",
@@ -21511,7 +21511,7 @@
 
 (def Reference-CAR-2020-04-001:ShadowCopyDeletion_MITRE
   "Reference - CAR-2020-04-001: Shadow Copy Deletion - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-04-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-04-001/"},
    :d3f/kb-abstract
    #xsd/string
     "The Windows Volume Shadow Copy Service is a built-in OS feature that can be used to create backup copies of files and volumes.\n\nAdversaries may delete these shadow copies, typically through the usage of system utilities such as vssadmin.exe or wmic.exe, in order prevent file and data recovery. This technique is commonly employed for this purpose by ransomware.",
@@ -21527,7 +21527,7 @@
 
 (def Reference-CAR-2020-05-001:MiniDumpOfLSASS_MITRE
   "Reference - CAR-2020-05-001: MiniDump of LSASS - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-05-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-05-001/"},
    :d3f/kb-abstract
    #xsd/string
     "This analytic detects the minidump variant of credential dumping where a process opens lsass.exe in order to extract credentials using the Win32 API call MiniDumpWriteDump. Tools like SafetyKatz, SafetyDump, and Outflank-Dumpert default to this variant and may be detected by this analytic, though keep in mind that not all options for using those tools will result in this specific behavior.\n\nThe analytic is based on a Sigma analytic contributed by Samir Bousseaden and written up in a blog on MENASEC. It looks for a call trace that includes either dbghelp.dll or dbgcore.dll, which export the relevant functions/permissions to perform the dump. It also detects using the Windows Task Manager (taskmgr.exe) to dump lsass, which is described in CAR-2019-08-001. In this iteration of the Sigma analytic, the GrantedAccess filter isn’t included because it didn’t seem to filter out any false positives and introduces the potential for evasion.\n\nThis analytic was tested both in a lab and in a production environment with a very low false-positive rate. werfault.exe and tasklist.exe, both standard Windows processes, showed up multiple times as false positives.",
@@ -21546,7 +21546,7 @@
 
 (def Reference-CAR-2020-05-003:RareLolBASCommandLines_MITRE
   "Reference - CAR-2020-05-003: Rare LolBAS Command Lines - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-05-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-05-003/"},
    :d3f/kb-abstract
    #xsd/string
     "LoLBAS are binaries and scripts that are built in to Windows, frequently are signed by Microsoft, and may be used by an attacker. Some LoLBAS are used very rarely and it might be possible to alert every time they’re used (this would depend on your environment), but many others are very common and can’t be simply alerted on.\n\nThis analytic takes all instances of LoLBAS execution and then looks for instances of command lines that are not normal in the environment. This can detect attackers (which will tend to need the binaries for something different than normal usage) but will also tend to have false positives.\n\nThe analytic needs to be tuned. The 1.5 in the query is the number of standard deviations away to look. It can be tuned up to filter out more noise and tuned down to get more results. This means it is probably best as a hunting analytic when you have analysts looking at the screen and able to tune the analytic up and down, because the threshold may not be stable for very long.",
@@ -21565,7 +21565,7 @@
 (def
   Reference-CAR-2020-08-001:NTFSAlternateDataStreamExecution-SystemUtilities_MITRE
   "Reference - CAR-2020-08-001: NTFS Alternate Data Stream Execution - System Utilities - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-08-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-08-001/"},
    :d3f/kb-abstract
    #xsd/string
     "NTFS Alternate Data Streams (ADSs) may be used by adversaries as a means of evading security tools by storing malicious data or binaries in file attribute metadata. ADSs are also powerful because they can be directly executed by various Windows tools; accordingly, this analytic looks at common ways of executing ADSs using system utilities such as powershell.",
@@ -21585,7 +21585,7 @@
 
 (def Reference-CAR-2020-09-001:ScheduledTask-FileAccess_MITRE
   "Reference - CAR-2020-09-001: Scheduled Task - FileAccess - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-09-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-09-001/"},
    :d3f/kb-abstract
    #xsd/string
     "In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows Task Scheduler to schedule a command to be run at a specified time, date, and even host. Task Scheduler stores tasks as files in two locations - C:\\Windows\\Tasks (legacy) or C:\\Windows\\System32\\Tasks. Accordingly, this analytic looks for the creation of task files in these two locations.",
@@ -21603,7 +21603,7 @@
 
 (def Reference-CAR-2020-09-002:ComponentObjectModelHijacking_MITRE
   "Reference - CAR-2020-09-002:  Component Object Model Hijacking - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-09-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-09-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may establish persistence or escalate privileges by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. This is typically done by replacing COM object registry entries under the HKEY_CURRENT_USER\\Software\\Classes\\CLSID or HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID keys. Accordingly, this analytic looks for any changes under these keys.",
@@ -21621,7 +21621,7 @@
 
 (def Reference-CAR-2020-09-003:IndicatorBlocking-DriverUnloaded_MITRE
   "Reference - CAR-2020-09-003: Indicator Blocking - Driver Unloaded - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-09-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-09-003/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may attempt to evade system defenses by unloading minifilter drivers used by host-based sensors such as Sysmon through the use of the fltmc command-line utility. Accordingly, this analytic looks for command-line invocations of this utility when used to unload minifilter drivers.",
@@ -21640,7 +21640,7 @@
 
 (def Reference-CAR-2020-09-004:CredentialsInFiles&Registry_MITRE
   "Reference - CAR-2020-09-004: Credentials in Files & Registry - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-09-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-09-004/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may search the Windows Registry on compromised systems for insecurely stored credentials for credential access. This can be accomplished using the query functionality of the reg.exe system utility, by looking for keys and values that contain strings such as “password”. In addition, adversaries may use toolkits such as PowerSploit in order to dump credentials from various applications such as IIS.Accordingly, this analytic looks for invocations of reg.exe in this capacity as well as that of several powersploit modules with similar functionality.",
@@ -21658,7 +21658,7 @@
 
 (def Reference-CAR-2020-09-005:AppInitDLLs_MITRE
   "Reference - CAR-2020-09-005: AppInit DLLs - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-09-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-09-005/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the AppInit_DLLs value in the Registry keys HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows or HKEY_LOCAL_MACHINE\\Software\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows are loaded by user32.dll into every process that loads user32.dll. These values can be abused to obtain elevated privileges by causing a malicious DLL to be loaded and run in the context of separate processes. Accordingly, this analytic looks for modifications to these registry keys that may be indicative of this type of abuse.",
@@ -21673,7 +21673,7 @@
 
 (def Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE
   "Reference - CAR-2020-11-001: Boot or Logon Initialization Scripts - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may schedule software to run whenever a user logs into the system; this is done to establish persistence and sometimes for lateral movement. This trigger is established through the registry key HKEY_CURRENT_USER\\EnvironmentUserInitMprLogonScript. This signature looks edits to existing keys or creation of new keys in that path. Users purposefully adding benign scripts to this path will result in false positives; that case is rare, however. There are other ways of running a script at startup or login that are not covered in this signature. Note that this signature overlaps with the Windows Sysinternals Autoruns tool, which would also show changes to this registry path.",
@@ -21692,7 +21692,7 @@
 
 (def Reference-CAR-2020-11-002:LocalNetworkSniffing_MITRE
   "Reference - CAR-2020-11-002: Local Network Sniffing - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may use a variety of tools to gain visibility on the current status of things on the network: which processes are listening on which ports, which services are running on other hosts, etc. This analytic looks for the names of the most common network sniffing tools. While this may be noisy on networks where sysadmins are using any of these tools on a regular basis, in most networks their use is noteworthy.",
@@ -21709,7 +21709,7 @@
 
 (def Reference-CAR-2020-11-003:DLLInjectionWithMavinject_MITRE
   "Reference - CAR-2020-11-003: DLL Injection with Mavinject - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-003/"},
    :d3f/kb-abstract
    #xsd/string
     "Injecting a malicious DLL into a process is a common adversary TTP. Although the ways of doing this are numerous, mavinject.exe is a commonly used tool for doing so because it roles up many of the necessary steps into one, and is available within Windows. Attackers may rename the executable, so we also use the common argument “INJECTRUNNING” as a related signature here. Whitelisting certain applications may be necessary to reduce noise for this analytic.",
@@ -21727,7 +21727,7 @@
 
 (def Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE
   "Reference - CAR-2020-11-004: Processes Started From Irregular Parent - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-004/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may start legitimate processes and then use their memory space to run malicious code. This analytic looks for common Windows processes that have been abused this way in the past; when the processes are started for this purpose they may not have the standard parent that we would expect. This list is not exhaustive, and it is possible for cyber actors to avoid this discepency. These signatures only work if Sysmon reports the parent process, which may not always be the case if the parent dies before sysmon processes the event.",
@@ -21746,7 +21746,7 @@
 
 (def Reference-CAR-2020-11-005:ClearPowershellConsoleCommandHistory_MITRE
   "Reference - CAR-2020-11-005: Clear Powershell Console Command History - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-005/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may attempt to conceal their tracks by deleting the history of commands run within the Powershell console, or turning off history saving to begin with. This analytic looks for several commands that would do this. This does not capture the event if it is done within the console itself; only commandline-based commands are detected. Note that the command to remove the history file directly may very a bit if the history file is not saved in the default path on a particular system.",
@@ -21765,7 +21765,7 @@
 
 (def Reference-CAR-2020-11-006:LocalPermissionGroupDiscovery_MITRE
   "Reference - CAR-2020-11-006: Local Permission Group Discovery - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-006/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-006/"},
    :d3f/kb-abstract
    #xsd/string
     "Cyber actors frequently enumerate local or domain permissions groups. The net utility is usually used for this purpose. This analytic looks for any instances of net.exe, which is not normally used for benign purposes, although system administrator actions may trigger false positives.",
@@ -21783,7 +21783,7 @@
 
 (def Reference-CAR-2020-11-007:NetworkShareConnectionRemoval_MITRE
   "Reference - CAR-2020-11-007: Network Share Connection Removal - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-007/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-007/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may use network shares to exfliltrate date; they will then remove the shares to cover their tracks. This analytic looks for the removal of network shares via commandline, which is otherwise a rare event.",
@@ -21801,7 +21801,7 @@
 
 (def Reference-CAR-2020-11-008:MSBuildAndMsxsl_MITRE
   "Reference - CAR-2020-11-008: MSBuild and msxsl - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-008/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-008/"},
    :d3f/kb-abstract
    #xsd/string
     "Trusted developer utilities such as MSBuild may be leveraged to run malicious code with elevated privileges. This analytic looks for any instances of msbuild.exe, which will execute any C# code placed within a given XML document; and msxsl.exe, which processes xsl transformation specifications for XML files and will execute a variaty of scripting languages contained within the XSL file. Both of these executables are rarely used outside of Visual Studio.",
@@ -21817,7 +21817,7 @@
 
 (def Reference-CAR-2020-11-009:CompiledHTMLAccess_MITRE
   "Reference - CAR-2020-11-009: Compiled HTML Access - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-009/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-009/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may hide malicious code in .chm compiled HTML files. When these files are read, Windows uses the HTML help executable named hh.exe, which is the signature for this analytic.",
@@ -21833,7 +21833,7 @@
 
 (def Reference-CAR-2020-11-010:CMSTP_MITRE
   "Reference - CAR-2020-11-010: CMSTP - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-010/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-010/"},
    :d3f/kb-abstract
    #xsd/string
     "CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be leveraged to setup listeners that will receive and install malware from remote sources in trusted fashion. When CMSTP.exe is seen in combination with an external connection, it is a good indication of this TTP.",
@@ -21848,7 +21848,7 @@
 
 (def Reference-CAR-2020-11-011:RegistryEditFromScreensaver
   "Reference - CAR-2020-11-011: Registry Edit from Screensaver"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2020-11-011/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2020-11-011/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may use screensaver files to run malicious code. This analytic triggers on suspicious edits to the screensaver registry keys, which dictate which .scr file the screensaver runs.",
@@ -21865,7 +21865,7 @@
 
 (def Reference-CAR-2021-01-002:UnusuallyLongCommandLineStrings_MITRE
   "Reference - CAR-2021-01-002: Unusually Long Command Line Strings - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Often, after a threat actor gains access to a system, they will attempt to run some kind of malware to further infect the victim machine. These malware often have long command line strings, which could be a possible indicator of attack. Here, we use sysmon and Splunk to first find the average command string length and search for command strings that stretch over multiple lines, thus identifying anomalies and possibly malicious commands.",
@@ -21884,7 +21884,7 @@
 
 (def Reference-CAR-2021-01-003:ClearingWindowsLogsWithWevtutil_MITRE
   "Reference - CAR-2021-01-003: Clearing Windows Logs with Wevtutil - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-003/"},
    :d3f/kb-abstract
    #xsd/string
     "In an attempt to clear traces after compromising a machine, threat actors often try to clear Windows Event logs. This is often done using “wevtutil”, a legitimate tool provided by Microsoft. This action interferes with event collection and notification, and may lead to a security event going undetected, thereby potentially leading to further compromise of the network.",
@@ -21903,7 +21903,7 @@
 (def
   Reference-CAR-2021-01-004:UnusualChildProcessForSpoolsv_ExeOrConnhost_Exe_MITRE
   "Reference - CAR-2021-01-004: Unusual Child Process for Spoolsv.Exe or Connhost.Exe - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-004/"},
    :d3f/kb-abstract
    #xsd/string
     "After gaining initial access to a system, threat actors attempt to escalate privileges as they may be operating within a lower privileged process which does not allow them to access protected information or carry out tasks which require higher permissions. A common way of escalating privileges in a system is by externally invoking and exploiting spoolsv or connhost executables, both of which are legitimate Windows applications. This query searches for an invocation of either of these executables by a user, thus alerting us of any potentially malicious activity.",
@@ -21923,7 +21923,7 @@
 
 (def Reference-CAR-2021-01-006:UnusualChildProcessSpawnedUsingDDEExploit_MITRE
   "Reference - CAR-2021-01-006: Unusual Child Process spawned using DDE exploit - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-006/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-006/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands. DDE is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications. Once a link is established, applications can autonomously exchange transactions consisting of strings, warm data links (notifications when a data item changes), hot data links (duplications of changes to a data item), and requests for command execution.",
@@ -21944,7 +21944,7 @@
 (def
   Reference-CAR-2021-01-007:DetectingTamperingOfWindowsDefenderCommandPrompt_MITRE
   "Reference - CAR-2021-01-007: Detecting Tampering of Windows Defender Command Prompt - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-007/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-007/"},
    :d3f/kb-abstract
    #xsd/string
     "In an attempt to avoid detection after compromising a machine, threat actors often try to disable Windows Defender. This is often done using “sc” [service control], a legitimate tool provided by Microsoft for managing services. This action interferes with event detection and may lead to a security event going undetected, thereby potentially leading to further compromise of the network.",
@@ -21965,7 +21965,7 @@
 
 (def Reference-CAR-2021-01-008:DisableUAC_MITRE
   "Reference - CAR-2021-01-008: Disable UAC - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-008/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-008/"},
    :d3f/kb-abstract
    #xsd/string
     "Threat actors often, after compromising a machine, try to disable User Access Control (UAC) to escalate privileges. This is often done by changing the registry key for system policies using “reg.exe”, a legitimate tool provided by Microsoft for modifying the registry via command prompt or scripts. This action interferes with UAC and may enable a threat actor to escalate privileges on the compromised system, thereby allowing further exploitation of the system.",
@@ -21980,7 +21980,7 @@
 
 (def Reference-CAR-2021-01-009:DetectingShadowCopyDeletionViaVssadmin_exe_MITRE
   "Reference - CAR-2021-01-009: Detecting Shadow Copy Deletion via Vssadmin.exe - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-01-009/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-01-009/"},
    :d3f/kb-abstract
    #xsd/string
     "After compromising a network of systems, threat actors often try to delete Shadow Copy in an attempt to prevent administrators from restoring the systems to versions present before the attack. This is often done via vssadmin, a legitimate Windows tool to interact with shadow copies. This non-detection of this technique, which is often employed by ransomware strains such as “Olympic Destroyer”, may lead to a failure in recovering systems after an attack.",
@@ -22000,7 +22000,7 @@
 
 (def Reference-CAR-2021-02-001:Webshell-IndicativeProcessTree_MITRE
   "Reference - CAR-2021-02-001: Webshell-Indicative Process Tree - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-02-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-02-001/"},
    :d3f/kb-abstract
    #xsd/string
     "A web shell is a web script placed on an openly accessible web server to allow an adversary to use the server as a gatway in a network. As the shell operates, commands will be issued from within the web application into the broader server operating system. This analytic looks for host enumeration executables initiated by any web service that would not normally be executed within that environment.",
@@ -22019,7 +22019,7 @@
 
 (def Reference-CAR-2021-02-002:GetSystemElevation_MITRE
   "Reference - CAR-2021-02-002: Get System Elevation - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-02-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-02-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Cyber actors frequently escalate to the SYSTEM account after gaining entry to a Windows host, to enable them to carry out various attacks more effectively. Tools such as Meterpreter, Cobalt Strike, and Empire carry out automated steps to “Get System”, which is the same as switching over to the System user account. Most of these tools utilize multiple techniques to try and attain SYSTEM: in the first technique, they create a named pipe and connects an instance of cmd.exe to it, which allows them to impersonate the security context of cmd.exe, which is SYSTEM. In the second technique, a malicious DLL is injected into a process that is running as SYSTEM; the injected DLL steals the SYSTEM token and applies it where necessary to escalate privileges. This analytic looks for both of these techniques.",
@@ -22035,7 +22035,7 @@
 
 (def Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE
   "Reference - CAR-2021-04-001: Common Windows Process Masquerading - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-04-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-04-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Masquerading (T1036) is defined by ATT&CK as follows:\n\n“Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.”\n\nMalware authors often use this technique to hide malicious executables behind legitimate Windows executable names (e.g. lsass.exe, svchost.exe, etc).\n\nThere are several sub-techniques, but this analytic focuses on Match Legitimate Name or Location only.",
@@ -22054,7 +22054,7 @@
 
 (def Reference-CAR-2021-05-001:AttemptToAddCertificateToUntrustedStore_MITRE
   "Reference - CAR-2021-05-001: Attempt To Add Certificate To Untrusted Store - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may add their own root certificate to the certificate store, to cause the web browser to trust that certificate and not display a security warning when it encounters the previously unseen certificate. This action may be the precursor to malicious activity.",
@@ -22073,7 +22073,7 @@
 
 (def Reference-CAR-2021-05-002:BatchFileWriteToSystem32_MITRE
   "Reference - CAR-2021-05-002: Batch File Write to System32 - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-002/"},
    :d3f/kb-abstract
    #xsd/string
     "While batch files are not inherently malicious, it is uncommon to see them created after OS installation, especially in the Windows directory. This analytic looks for the suspicious activity of a batch file being created within the C:\\Windows\\System32 directory tree. There will be only occasional false positives due to administrator actions.",
@@ -22091,7 +22091,7 @@
 
 (def Reference-CAR-2021-05-003:BCDEditFailureRecoveryModification_MITRE
   "Reference - CAR-2021-05-003: BCDEdit Failure Recovery Modification - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-003/"},
    :d3f/kb-abstract
    #xsd/string
     "This search looks for flags passed to bcdedit.exe modifications to the built-in Windows error recovery boot configurations. This is typically used by ransomware to prevent recovery.",
@@ -22110,7 +22110,7 @@
 
 (def Reference-CAR-2021-05-004:BITSJobPersistence_MITRE
   "Reference - CAR-2021-05-004: BITS Job Persistence - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-004/"},
    :d3f/kb-abstract
    #xsd/string
     "The following query identifies Microsoft Background Intelligent Transfer Service utility bitsadmin.exe scheduling a BITS job to persist on an endpoint. The query identifies the parameters used to create, resume or add a file to a BITS job. Typically seen combined in a oneliner or ran in sequence. If identified, review the BITS job created and capture any files written to disk. It is possible for BITS to be used to upload files and this may require further network data analysis to identify. You can use bitsadmin /list /verbose to list out the jobs during investigation.",
@@ -22126,7 +22126,7 @@
 
 (def Reference-CAR-2021-05-005:BITSAdminDownloadFile_MITRE
   "Reference - CAR-2021-05-005: BITSAdmin Download File - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-005/"},
    :d3f/kb-abstract
    #xsd/string
     "The following query identifies Microsoft Background Intelligent Transfer Service utility bitsadmin.exe using the transfer parameter to download a remote object. In addition, look for download or upload on the command-line, the switches are not required to perform a transfer. Capture any files downloaded. Review the reputation of the IP or domain used. Typically once executed, a follow on command will be used to execute the dropped file. Note that the network connection or file modification events related will not spawn or create from bitsadmin.exe, but the artifacts will appear in a parallel process of svchost.exe with a command-line similar to svchost.exe -k netsvcs -s BITS. It’s important to review all parallel and child processes to capture any behaviors and artifacts. In some suspicious and malicious instances, BITS jobs will be created. You can use bitsadmin /list /verbose to list out the jobs during investigation.",
@@ -22144,7 +22144,7 @@
 (def
   Reference-CAR-2021-05-006:CertUtilDownloadWithURLCacheAndSplitArguments_MITRE
   "Reference - CAR-2021-05-006: CertUtil Download With URLCache and Split Arguments - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-006/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-006/"},
    :d3f/kb-abstract
    #xsd/string
     "Certutil.exe may download a file from a remote destination using -urlcache. This behavior does require a URL to be passed on the command-line. In addition, -f (force) and -split (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for certutil.exe to contact public IP space. However, it is uncommon for certutil.exe to write files to world writeable paths.\\ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question.",
@@ -22165,7 +22165,7 @@
 (def
   Reference-CAR-2021-05-007:CertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE
   "Reference - CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-007/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-007/"},
    :d3f/kb-abstract
    #xsd/string
     "Certutil.exe may download a file from a remote destination using -VerifyCtl. This behavior does require a URL to be passed on the command-line. In addition, -f (force) and -split (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for certutil.exe to contact public IP space. \\ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question. Using -VerifyCtl, the file will either be written to the current working directory or %APPDATA%\\..\\LocalLow\\Microsoft\\CryptnetUrlCache\\Content\\<hash>.",
@@ -22182,7 +22182,7 @@
 
 (def Reference-CAR-2021-05-008:CertutilExeCertificateExtraction_MITRE
   "Reference - CAR-2021-05-008: Certutil exe certificate extraction - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-008/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-008/"},
    :d3f/kb-abstract
    #xsd/string
     "This search looks for arguments to certutil.exe indicating the manipulation or extraction of Certificate. This certificate can then be used to sign new authentication tokens specially inside Federated environments such as Windows ADFS.",
@@ -22201,7 +22201,7 @@
 
 (def Reference-CAR-2021-05-009:CertUtilWithDecodeArgument_MITRE
   "Reference - CAR-2021-05-009: CertUtil With Decode Argument - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-009/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-009/"},
    :d3f/kb-abstract
    #xsd/string
     "CertUtil.exe may be used to encode and decode a file, including PE and script code. Encoding will convert a file to base64 with -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- tags. Malicious usage will include decoding a encoded file that was downloaded. Once decoded, it will be loaded by a parallel process. Note that there are two additional command switches that may be used - encodehex and decodehex. Similarly, the file will be encoded in HEX and later decoded for further execution. During triage, identify the source of the file being decoded. Review its contents or execution behavior for further analysis.",
@@ -22219,7 +22219,7 @@
 
 (def Reference-CAR-2021-05-010:CreateLocalAdminAccountsUsingNetExe_MITRE
   "Reference - CAR-2021-05-010: Create local admin accounts using net exe - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-010/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-010/"},
    :d3f/kb-abstract
    #xsd/string
     "This search looks for the creation of local administrator accounts using net.exe.",
@@ -22238,7 +22238,7 @@
 
 (def Reference-CAR-2021-05-011:CreateRemoteThreadIntoLSASS_MITRE
   "Reference - CAR-2021-05-011: Create Remote Thread into LSASS - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2021-05-011/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2021-05-011/"},
    :d3f/kb-abstract
    #xsd/string
     "Actors may create a remote thread into the LSASS service as part of a workflow to dump credentials.",
@@ -22257,8 +22257,8 @@
 (def Reference-CatiaUAFPlugin
   "Reference - Catia UAF Plugin"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.3ds.com/products-services/catia/products/no-magic/addons/uaf-plugin/",
+   {:rdfa/uri
+    "https://www.3ds.com/products-services/catia/products/no-magic/addons/uaf-plugin/"},
    :d3f/kb-abstract
    #xsd/string
     "MagicDraw offers the most robust standards compliant [Unified Architecture Framework (UAF)], DoDAF 2.0, MODAF 1.2, NAF 3, and NAF 4 via a UAF standardized solution. And what's more, No Magic fully supports all architectural framework products ensuring you achieve project results. No Magic also leads the industry in usability and interoprability, ensuring that you avoid unnecessary cost, schedule and performance risk.",
@@ -22277,8 +22277,8 @@
 (def Reference-CertificateAndPublicKeyPinning
   "Reference - Certificate and Public Key Pinning"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning",
+   {:rdfa/uri
+    "https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning"},
    :d3f/kb-abstract
    #xsd/string
     "Certificate and Public Key Pinning technical guide to implementing certificate and public key pinning.",
@@ -22292,7 +22292,7 @@
 
 (def Reference-CertificateTransparency
   "Reference - Certificate Transparency"
-  {:d3f/has-link #xsd/anyURI "https://www.certificate-transparency.org/",
+  {:d3f/has-link {:rdfa/uri "https://www.certificate-transparency.org/"},
    :d3f/kb-abstract
    #xsd/string
     "Google's Certificate Transparency project fixes several structural flaws in the SSL certificate system, which is the main cryptographic system that underlies all HTTPS connections.\n\nThese flaws weaken the reliability and effectiveness of encrypted Internet connections and can compromise critical TLS/SSL mechanisms, including domain validation, end-to-end encryption, and the chains of trust set up by certificate authorities.",
@@ -22307,8 +22307,8 @@
 (def Reference-CiscoASR9000AccessListCommands
   "Reference - Cisco ASR 9000 Series Aggregation Services Routers - Access List Commands"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/addr_serv/command/reference/ir40asrbook_chapter1.html",
+   {:rdfa/uri
+    "https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/addr_serv/command/reference/ir40asrbook_chapter1.html"},
    :d3f/kb-abstract
    #xsd/string
     "An access control list (ACL) consists of one or more access control entries (ACEs) that collectively define the network traffic profile. This profile can then be referenced by Cisco IOS XR Software software features such as traffic filtering, priority or custom queueing, and dynamic access control. Each ACL includes an action element (permit or deny) and a filter element based on criteria such as source address, destination address, protocol, and protocol-specific parameters.",
@@ -22325,7 +22325,7 @@
 
 (def Reference-CommandLaunchedFromWinLogon_MITRE
   "Reference - CAR-2014-11-008: Command Launched from WinLogon - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-11-008/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-11-008/"},
    :d3f/kb-abstract
    #xsd/string
     "An adversary can use accessibility features (Ease of Access), such as StickyKeys or Utilman, to launch a command shell from the logon screen and gain SYSTEM access. Since an adversary does not have physical access to the machine, this technique must be run within Remote Desktop. To prevent an adversary from getting to the login screen without first authenticating, Network-Level Authentication (NLA) must be enabled. If a debugger is set up for one of the accessibility features, then it will intercept the process launch of the feature and instead execute a new command line. This analytic looks for instances of cmd.exe or powershell.exe launched directly from the logon process, winlogon.exe. It should be used in tandem with CAR-2014-11-003, which detects the accessibility programs in the command line.",
@@ -22344,7 +22344,7 @@
 
 (def Reference-CommandLineUsageOfArchivingSoftware_MITRE
   "Reference - CAR-2013-07-005: Command Line Usage of Archiving Software - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-07-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-07-005/"},
    :d3f/kb-abstract
    #xsd/string
     "Before exfiltrating data that an adversary has collected, it is very likely that a compressed archive will be created, so that transfer times are minimized and fewer files are transmitted. There is variety between the tools used to compress data, but the command line usage and context of archiving tools, such as ZIP, RAR, and 7ZIP, should be monitored.\n\nIn addition to looking for RAR or 7z program names, command line usage of 7Zip or RAR can be detected with the flag usage of \"\\* a \\*\". This is helpful, as adversaries may change program names.",
@@ -22370,8 +22370,8 @@
   Reference-ComputationalModelingAndClassificationOfDataStreams_CrowdstrikeInc
   "Reference - Computational modeling and classification of data streams - Crowdstrike Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20180197089A1/en?oq=US-2018197089-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20180197089A1/en?oq=US-2018197089-A1"},
    :d3f/kb-abstract
    #xsd/string
     "Example techniques described herein determine a signature or classification of a data stream such as a file. The classification can indicate whether the data stream is associated with malware. A processor can locate training analysis regions of training data streams based on predetermined structure data, and determining training model inputs based on the training analysis regions. The processor can determine a computational model based on the training model inputs. The computational model can receive an input vector and provide a corresponding feature vector. The processor can then locate a trial analysis region of a trial data stream based on the predetermined structure data and determine a trial model input. The processor can operate the computational model based on the trial model input to provide a trial feature vector, e.g., a signature. The processor can operate a second computational model to provide a classification based on the signature.",
@@ -22395,8 +22395,8 @@
   Reference-Computer-implementedMethodsAndSystemsForIdentifyingVisuallySimilarTextCharacterStrings_GreathornInc
   "Reference - Computer-implemented methods and systems for identifying visually similar text character strings - Greathorn Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US10320815B2/en?oq=US-10320815-B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US10320815B2/en?oq=US-10320815-B2"},
    :d3f/kb-abstract
    #xsd/string
     "Methods and systems are disclosed for selecting text character strings from a corpus of relevant strings that would commonly be considered to be visually similar to human viewer to an input string. The initial corpus may be any sufficiently broad or specific source of text, e.g., the names of users in a computer application system. The character strings in the corpus are classified such that direct, character-by-character comparisons may be limited to a small subset of likely-similar strings. The input string is then directly compared to strings that are likely to be similar to it, taking into account individual characters' similarities, combinations of characters that look similar to individual characters, transposition of characters, and simple additions and deletions.",
@@ -22418,7 +22418,7 @@
 
 (def Reference-ComputerMotherboardHavingPeripheralSecurityFunctions
   "Reference - Computer motherboard having peripheral security functions"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8869308B2/en",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8869308B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "A secure motherboard for a computer, wherein each user accessible peripheral port is protected by hardware based peripheral protection circuitry soldered to the motherboard.",
@@ -22436,8 +22436,8 @@
 
 (def Reference-ComputerWormDefenseSystemAndMethod_FireEyeInc
   "Reference - Computer Worm Defense System and Method - FireEye Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20130036472A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20130036472A1"},
    :d3f/kb-abstract
    #xsd/string
     "\"A computer worm defense system comprises multiple containment systems tied together by a management system. Each containment system is deployed on a separate communication network and contains a worm sensor and a blocking system. In various embodiments, the computer worm may be transported from a production network, where the computer worm is not readily identifiable, to an alternate network in the worm sensor where the computer worm may be readily identifiable. Computer worm identifiers generated by a worm sensor of one containment system can be provided not only to the blocking system of the same containment system, but can also be distributed by the management system to blocking systems of other containment systems.\"",
@@ -22458,8 +22458,8 @@
 (def
   Reference-ComputingApparatusWithAutomaticIntegrityReferenceGenerationAndMaintenance_Tripwire%2CInc_
   "Reference - Computing apparatus with automatic integrity reference generation and maintenance - Tripwire, Inc."
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20040060046A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20040060046A1"},
    :d3f/kb-abstract
    #xsd/string
     "An apparatus is equipped to automatically update one or more integrity references of a software entity, when the software entity is installed onto the apparatus. The apparatus is further equipped to periodically determine whether the integrity of the apparatus has been compromised based at least in part on the one or more integrity references of the software entity that are automatically updated during installation of the software entity.",
@@ -22481,8 +22481,8 @@
 (def Reference-ConfigureUserAccessControlAndPermissions
   "Reference - Configure User Access Control and Permissions"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/configure/user-access-control",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/configure/user-access-control"},
    :d3f/kb-abstract
    #xsd/string
     "When deployed on Windows Server, Windows Admin Center provides a centralized point of management for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.",
@@ -22497,8 +22497,8 @@
 
 (def Reference-ContentExtractorAndAnalysisSystem_Bit9Inc%2CCarbonBlackInc
   "Reference - Content extractor and analysis system - Bit 9 Inc, Carbon Black Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20070028110A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20070028110A1"},
    :d3f/kb-abstract
    #xsd/string
     "A security system provides a defense from known and unknown viruses, worms, spyware, hackers, and unwanted software. The system can implement centralized policies that allow an administrator to approve, block, quarantine, and log file activities. The system can extract content of interest from a file container, repackage the content of interest as another valid file type, perform hashes on the content of interest, associate the hash of the container with the hash of the repackaged content, transfer the repackaged content, and store the hash with other security-related information.",
@@ -22519,8 +22519,8 @@
   Reference-ContinuousAuthenticationByAnalysisOfKeyboardTypingCharacteristics_BradfordUniv_%2CUK
   "Reference - Continuous authentication by analysis of keyboard typing characteristics - Bradford Univ., UK"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://ieeexplore.ieee.org/document/491588?reload=true&arnumber=491588",
+   {:rdfa/uri
+    "https://ieeexplore.ieee.org/document/491588?reload=true&arnumber=491588"},
    :d3f/kb-abstract
    #xsd/string
     "This paper describes a simple, software based keyboard monitoring system for the IBM PC for the continuous analysis of the typing characteristics of the user for the purpose of continuous authentication. By exploiting the electrical characteristics of the PC keyboard interface together with modifications to the internal system timer, very accurate measurements can be made of keystroke interval and duration, including measurements of rollover. Rollover patterns, particularly when typing common diphthongs, can be highly characteristic of individual users and provide quite an accurate indication of the users identity.\nPublished in: European Convention on Security and Detection, 1995.",
@@ -22541,7 +22541,7 @@
 
 (def Reference-CreateRemoteProcessViaWMIC_MITRE_Other
   "Reference - CAR-2016-03-002: Create Remote Process via WMIC - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2016-03-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2016-03-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may use Windows Management Instrumentation (WMI) to move laterally, by launching executables remotely.The analytic CAR-2014-12-001 describes how to detect these processes with network traffic monitoring and process monitoring on the target host. However, if the command line utility wmic.exe is used on the source host, then it can additionally be detected on an analytic. The command line on the source host is constructed into something like wmic.exe /node:\"\\<hostname\\>\" process call create \"\\<command line\\>\". It is possible to also connect via IP address, in which case the string \"\\<hostname\\>\" would instead look like IP Address.\n\nAlthough this analytic was created after CAR-2014-12-001, it is a much simpler (although more limited) approach. Processes can be created remotely via WMI in a few other ways, such as more direct API access or the built-in utility PowerShell.",
@@ -22560,7 +22560,7 @@
 
 (def Reference-CredentialDumpingViaMimikatz_MITRE
   "Reference - CAR-2019-04-004: Credential Dumping via Mimikatz - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-04-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-04-004/"},
    :d3f/kb-abstract
    #xsd/string
     "Credential dumpers like Mimikatz can be loaded into memory and from there read data from another processes. This analytic looks for instances where processes are requesting specific permissions to read parts of the LSASS process in order to detect when credential dumping is occurring. One weakness is that all current implementations are \"overtuned\" to look for common access patterns used by Mimikatz.",
@@ -22582,7 +22582,7 @@
 
 (def Reference-CredentialDumpingViaWindowsTaskManager_MITRE
   "Reference - CAR-2019-08-001: Credential Dumping via Windows Task Manager - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-08-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-08-001/"},
    :d3f/kb-abstract
    #xsd/string
     "The Windows Task Manager may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching Task Manager as a privileged user, selecting lsass.exe, and clicking \"Create dump file\". This saves a dump file to disk with a deterministic name that includes the name of the process being dumped.\n\nThis requires filesystem data to determine whether files have been created.",
@@ -22605,8 +22605,8 @@
 (def Reference-CyberCommandSystemCYCS
   "Reference - Cyber Command System (CYCS)"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.mitre.org/research/technology-transfer/technology-licensing/cyber-command-system-cycs",
+   {:rdfa/uri
+    "https://www.mitre.org/research/technology-transfer/technology-licensing/cyber-command-system-cycs"},
    :d3f/kb-abstract
    #xsd/string
     "MITRE’s Cyber Command System (CyCS) tool addresses the objective of improved mission assurance in cyberspace by enabling the mapping of mission operations to the network operations that support those missions. This tool provides mission-impact assessment through situational awareness and impact analysis. CyCS addresses mission-assurance challenges for highly distributed enterprise systems of systems through vulnerability, threat, and consequence management.",
@@ -22619,7 +22619,7 @@
 
 (def Reference-DLLInjectionViaLoadLibrary_MITRE
   "Reference - CAR-2013-10-002: DLL Injection via Load Library - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-10-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-10-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Microsoft Windows allows for processes to remotely create threads within other processes of the same privilege level. This functionality is provided via the Windows API CreateRemoteThread. Both Windows and third-party software use this ability for legitimate purposes. For example, the Windows process csrss.exe creates threads in programs to send signals to registered callback routines. Both adversaries and host-based security software use this functionality to inject DLLs, but for very different purposes. An adversary is likely to inject into a program to evade defenses or bypass User Account Control, but a security program might do this to gain increased monitoring of API calls. One of the most common methods of DLL Injection is through the Windows API LoadLibrary.\n\nAllocate memory in the target program with VirtualAllocEx\nWrite the name of the DLL to inject into this program with WriteProcessMemory\nCreate a new thread and set its entry point to LoadLibrary using the API CreateRemoteThread.\nThis behavior can be detected by looking for thread creations across processes, and resolving the entry point to determine the function name. If the function is LoadLibraryA or LoadLibraryW, then the intent of the remote thread is clearly to inject a DLL. When this is the case, the source process must be examined so that it can be ignored when it is both expected and a trusted process.",
@@ -22638,7 +22638,7 @@
 
 (def Reference-DNSWhitelist-DNSWL-EmailAuthenticationMethodExtension
   "Reference - DNS Whitelist (DNSWL) Email Authentication Method Extension"
-  {:d3f/has-link #xsd/anyURI "https://datatracker.ietf.org/doc/html/rfc8904",
+  {:d3f/has-link {:rdfa/uri "https://datatracker.ietf.org/doc/html/rfc8904"},
    :d3f/kb-reference-of :d3f/DNSAllowlisting,
    :d3f/kb-reference-title
    #xsd/string "DNS Whitelist (DNSWL) Email Authentication Method Extension",
@@ -22652,8 +22652,8 @@
 (def Reference-DYNAMICBASE_UseAddressSpaceLayoutRandomization_MicrosoftDocs
   "Reference - /DYNAMICBASE (Use address space layout randomization) - Microsoft Docs"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/cpp/build/reference/dynamicbase-use-address-space-layout-randomization?view=vs-2019",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/cpp/build/reference/dynamicbase-use-address-space-layout-randomization?view=vs-2019"},
    :d3f/kb-author #xsd/string "Microsoft",
    :d3f/kb-mitre-analysis #xsd/string "",
    :d3f/kb-organization #xsd/string "Microsoft",
@@ -22672,8 +22672,8 @@
 
 (def Reference-DaggerFactSheet
   "Reference - Dagger Fact Sheet"
-  {:d3f/has-link #xsd/anyURI
-                  "https://www.jhuapl.edu/dagger/documents/DaggerFactSheet.pdf",
+  {:d3f/has-link
+   {:rdfa/uri "https://www.jhuapl.edu/dagger/documents/DaggerFactSheet.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "Dagger is a modeling and visualization tool suite that shows how system failures impact mission status. Updated with manual or real-time status, Dagger is used for mission/system planning, situational awareness during mission execution, and course-of-action analysis.",
@@ -22688,7 +22688,7 @@
 (def
   Reference-DaggerModelingAndVisualizationForMissionImpactSituationalAwareness
   "Reference - Dagger: Modeling and visualization for mission impact situational awareness"
-  {:d3f/has-link #xsd/anyURI "https://ieeexplore.ieee.org/document/7795296",
+  {:d3f/has-link {:rdfa/uri "https://ieeexplore.ieee.org/document/7795296"},
    :d3f/kb-abstract
    #xsd/string
     "Dagger is a modeling and visualization framework that addresses the challenge of representing knowledge and information for decision-makers, enabling them to better comprehend the operational context of network security data. It allows users to answer critical questions such as “Given that I care about mission X, is there any reason I should be worried about what is going on in cyberspace?” or “If this system fails, will I still be able to accomplish my mission?”.",
@@ -22708,8 +22708,8 @@
 (def Reference-DataExecutionPrevention_Microsoft
   "Reference - Mitigate threats by using Windows 10 security features: Data Execution Prevention - Microsoft"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10#data-execution-prevention",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10#data-execution-prevention"},
    :d3f/kb-abstract
    #xsd/string
     "Malware depends on its ability to insert a malicious payload into memory with the hope that it will be executed later. Wouldn't it be great if you could prevent malware from running if it wrote to an area that has been allocated solely for the storage of information?\n\nData Execution Prevention (DEP) does exactly that, by substantially reducing the range of memory that malicious code can use for its benefit. DEP uses the No eXecute bit on modern CPUs to mark blocks of memory as read-only so that those blocks can't be used to execute malicious code that may be inserted by means of a vulnerability exploit.",
@@ -22732,7 +22732,7 @@
 (def
   Reference-DataProcessingAndScanningSystemsForGeneratingAndPopulatingADataInventory
   "Reference - Data processing and scanning systems for generating and populating a data inventory"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US11240273B2/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US11240273B2/"},
    :d3f/kb-abstract
    #xsd/string
     "In particular embodiments, a data processing data inventory generation system is configured to: (1) generate a data model (e.g., a data inventory) for one or more data assets utilized by a particular organization; (2) generate a respective data inventory for each of the one or more data assets; and (3) map one or more relationships between one or more aspects of the data inventory, the one or more data assets, etc. within the data model. In particular embodiments, a data asset (e.g., data system, software application, etc.) may include, for example, any entity that collects, processes, contains, and/or transfers personal data (e.g., such as a software application, “internet of things” computerized device, database, website, data-center, server, etc.). The system may be configured to identify particular data assets and/or personal data in data repositories using any suitable intelligent identity scanning technique.",
@@ -22754,8 +22754,8 @@
 (def
   Reference-Database_for_receiving_storing_and_compiling_information_about_email_messages
   "Reference - Database for receiving, storing and compiling information about email messages"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20050091319A1/",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20050091319A1/"},
    :d3f/kb-author #xsd/string "Steven Kirsch",
    :d3f/kb-reference-of [:d3f/IPReputationAnalysis
                          :d3f/DomainNameReputationAnalysis],
@@ -22771,7 +22771,7 @@
 
 (def Reference-DeadCodeElimination
   "Reference - Dead code elimination"
-  {:d3f/has-link #xsd/anyURI "https://nebelwelt.net/files/15LangSec.pdf",
+  {:d3f/has-link {:rdfa/uri "https://nebelwelt.net/files/15LangSec.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "There is a significant body of work devoted to testing, verifying, and certifying the correctness of optimizing compilers. The focus of such work is to determine if source code and optimized code have the same functional semantics. In this paper, we introduce the correctness-security gap, which arises when a compiler optimization preserves the functionality of but violates a security guarantee made by source code. We show with concrete code examples that several standard optimizations, which have been formally proved correct, inhabit this correctness-security gap. We analyze this gap and conclude that it arises due to techniques that model the state of the program but not the state of the underlying machine. We propose a broad research program whose goal is to identify, understand, and mitigate the impact of security errors introduced by compiler optimizations. Our proposal includes research in testing, program analysis, theorem proving, and the development of new, accurate machine models for reasoning about the impact of compiler optimizations on security.",
@@ -22787,7 +22787,7 @@
 
 (def Reference-DebuggersForAccessibilityApplications_MITRE
   "Reference - CAR-2014-11-003: Debuggers for Accessibility Applications - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-11-006/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-11-006/"},
    :d3f/kb-abstract
    #xsd/string
     "The Windows Registry location HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options allows for parameters to be set for applications during execution. One feature used by malicious actors is the \"Debugger\" option. When a key has this value enabled, a Debugging command line can be specified. Windows will launch the Debugging command line, and pass the original command line in as an argument. Adversaries can set a Debugger for Accessibility Applications. The analytic looks for the original command line as an argument to the Debugger. When the strings \"sethc.exe\", \"utilman.exe\", \"osk.exe\", \"narrator.exe\", and \"Magnify.exe\" are detected in the arguments, but not as the main executable, it is very likely that a Debugger is set.\n\nThis analytic could depend on the possibility of the known strings used as arguments for other applications used in the day-to-day environment. Although the chance of the string \"sethc.exe\" being used as an argument for another application is unlikely, it still is a possibility.",
@@ -22813,8 +22813,8 @@
 (def Reference-Deception-BasedResponsesToSecurityAttacks_CrowdstrikeInc
   "Reference - Deception-Based Responses to Security Attacks - Crowdstrike Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20140250524A1/en?oq=US-2014250524-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20140250524A1/en?oq=US-2014250524-A1"},
    :d3f/kb-abstract
    #xsd/string
     "Deception-based techniques for responding to security attacks are described herein. The techniques include transitioning a security attack to a monitored computing device posing as a computing device impacted by the security attack and enabling the adversary to obtain deceptive information from the monitored computing device. Also, the adversary may obtain a document configured to report identifying information of an entity opening the document, thereby identifying the adversary associated with the attack. Further, the techniques include determining that a domain specified in a domain name request is associated with malicious activity and responding to the request with a network address of a monitored computing device to cause the requesting process to communicate with the monitored computing device in place of an adversary server. Additionally, a service may monitor dormant domains names associated with malicious activity and, in response to a change, respond with an alert or a configuration update.",
@@ -22836,8 +22836,8 @@
 
 (def Reference-DecoyAndDeceptiveDataObjectTechnology_Cymmetria%2CInc_
   "Reference - Decoy and deceptive data object technology - Cymmetria, Inc."
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170134423A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170134423A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computer implemented method of detecting unauthorized access to a protected network by monitoring a dynamically updated deception environment, comprising launching, on one or more decoy endpoints, one or more decoy operating system (OS) managing one or more of a plurality of deception applications mapping a plurality of applications executed in a protected network, updating dynamically a usage indication for a plurality of deception data objects deployed in the protected network to emulate usage of the plurality of deception data objects for accessing the deception application(s) wherein the plurality of deception data objects are configured to trigger an interaction with the deception application(s) when used, detecting usage of data contained in the deception data object(s) by monitoring the interaction and identifying one or more potential unauthorized operations based on analysis of the detection.\n\nIn order to convince the potential attacker that the deception environment is the real (valid) processing environment and/or part thereof, the campaign manager may construct the false identity according to the public information of the certain user that may typically be available to the potential attacker. By exposing the real (public) information of the certain user to the potential attacker, the false identity may seem consistent and legitimate to the potential attacker. For example, the campaign manager may create a false account, for example, a Facebook account of the certain user that includes the same public information that is publicly available to other Facebook users from the real (genuine) Facebook account of the certain user. The fake company account may include information specific to the role and/or job title of certain user within the company, for example, a programmer, an accountant, an IT person and/or the like.",
@@ -22858,8 +22858,8 @@
 
 (def Reference-DecoyAndDeceptiveDataObjectTechnology_CymmetriaInc
   "Reference - Decoy and deceptive data object technology - Cymmetria Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170134423A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170134423A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computer implemented method of detecting unauthorized access to a protected network by monitoring a dynamically updated deception environment, comprising launching, on one or more decoy endpoints, one or more decoy operating system (OS) managing one or more of a plurality of deception applications mapping a plurality of applications executed in a protected network, updating dynamically a usage indication for a plurality of deception data objects deployed in the protected network to emulate usage of the plurality of deception data objects for accessing the deception application(s) wherein the plurality of deception data objects are configured to trigger an interaction with the deception application(s) when used, detecting usage of data contained in the deception data object(s) by monitoring the interaction and identifying one or more potential unauthorized operations based on analysis of the detection.",
@@ -22879,7 +22879,7 @@
 
 (def Reference-DecoyNetwork-BasedServiceForDeceivingAttackers-AmazonTechnologies
   "Reference - Decoy Network-Based Service for Deceiving Attackers - Amazon Technologies"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US10873601B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US10873601B1"},
    :d3f/kb-abstract
    #xsd/string
     "A decoy network-based service uses a decoy credential to lure an attacker to access the decoy network-based service, and monitors the attacker's activity with respect to the decoy network-based service to determine the attacker's motivation. In various examples, a decoy credential is published on an Internet-accessible site, and a system that provides a network-based service (e.g., a service provider network) subsequently receives an access request from a computing device that includes the decoy credential. Based on the decoy credential, the computing device may be provided access to a decoy network-based service, and application programming interface (API) calls made by the computing device may be routed through a decoy control plane. The data relating to the API calls may be stored and analyzed to determine a motivation of the attacker, which may be used in various downstream applications to improve security for customers of the network-based service.",
@@ -22899,8 +22899,8 @@
 (def Reference-DecoyPersonasForSafeguardingOnlineIdentityUsingDeception_
   "Reference - Decoy Personas for Safeguarding Online Identity Using Deception - MITRE"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://web.archive.org/web/20180407204216/https://isc.sans.edu/diary/Decoy+Personas+for+Safeguarding+Online+Identity+Using+Deception/16159",
+   {:rdfa/uri
+    "https://web.archive.org/web/20180407204216/https://isc.sans.edu/diary/Decoy+Personas+for+Safeguarding+Online+Identity+Using+Deception/16159"},
    :d3f/kb-abstract
    #xsd/string
     "What if online scammers weren't sure whether the user account they are targeting is really yours, or whether the information they compiled about you is real? It's worth considering whether decoy online personas might help in the quest to safeguard our digital identities and data.\n\nI believe deception tactics, such as selective and careful use of honeypots, holds promise for defending enterprise IT resources. Some forms of deception could also protect individuals against online scammers and other attackers. This approach might not be quite practical today for most people, but in the future we might find it both necessary and achievable.\n\nHuman attackers and malicious software pursue user accounts and data on-line through harvesting, phishing, password-guessing, software vulnerabilities, and various other means. How might we use decoys to confuse, misdirect, slow down and detect adversaries engaged in such activities?\n\n...\n\nThe wealth of personal details available on social networking sites allows attackers to target individuals using social engineering, secret question-guessing and other techniques. For some examples of such approaches, see The Use of Fake or Fraudulent LinkedIn Profiles and Data Mining Resumes for Computer Attack Reconnaissance.\n\nSetting up one or more fake social network profiles (e.g., on Facebook) that use the person's real name can help the individual deflect the attack or can act as an early warning of an impending attack. A decoy profile could purposefully expose some inaccurate information, while the person's real profile would be more carefully concealed using the site's privacy settings. Decoy profiles would be associated with spamtrap email addresses.\n\nSimilarly, the person could expose decoy profiles on other sites, for instance those reveal shopping habits (e.g., Amazon), musings (e.g., Twitter), skills (e.g., GitHub), travel (e.g., TripIt), affections (e.g., Pinterest), music taste (e.g., Pandora) and so on. The person's decoy identities could also have fake resumes available on sites such as Indeed and Monster.com.",
@@ -22925,8 +22925,8 @@
 (def Reference-DetectingDDoSAttackUsingSnort
   "Reference - Detecting DDoS Attack Using Snort"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.researchgate.net/publication/338660054_DETECTING_DDoS_ATTACK_USING_Snort",
+   {:rdfa/uri
+    "https://www.researchgate.net/publication/338660054_DETECTING_DDoS_ATTACK_USING_Snort"},
    :d3f/kb-abstract
    #xsd/string
     "A DDoS (Distributed Denial-of-Service) attack is very common and easy toexecute and does not require any sophisticated tools. It can happen to anyone. In this project we deploy snort in our home network as a NIDS (Network Intrusion Detection System) to detect a DDoS attack and prevent it.",
@@ -22943,8 +22943,8 @@
 (def
   Reference-DetectingNetworkReconnaissanceByTrackingIntranetDark-netCommunications_VECTRANETWORKSInc
   "Reference - Detecting network reconnaissance by tracking intranet dark-net communications - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20150264078A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20150264078A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for detecting network reconnaissance is disclosed wherein network traffic can be parsed into unidirectional flows that correspond to sessions. A learning module may categorize computing entities inside the network into assets and generate asset data to monitor the computing entities. If one or more computing entities address a flow to an address of a host that no longer exists, ghost asset data may be recorded and updated in the asset data. When a computing entity inside the network contacts an object in the dark-net, the computing entity may be recorded a potential mapper. When the computing entity tries to contact a number of objects in the dark-net, such that a computed threshold is exceeded, the computing entity is identified a malicious entity performing network reconnaissance.",
@@ -22966,8 +22966,8 @@
 
 (def Reference-DetectingScript-basedMalware_CrowdstrikeInc
   "Reference - Detecting script-based malware - Crowdstrike Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190188384A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190188384A1"},
    :d3f/kb-abstract
    #xsd/string
     "Described herein are systems, techniques, and computer program products for preventing execution, by a scripting engine, of harmful commands that may be introduced by computer malware or other mechanisms. The system identifies certain host processes that may attempt to utilize a hosted scripting engine. An unmanaged interface module is injected into an identified host process. The unmanaged interface module is configured to detect certain conditions indicating the likelihood that a scripting engine will be instantiated, and in response to inject a managed interface module into the host process. The managed interface module hooks into certain methods of the scripting engine to intercept commands before they are executed by the scripting engine. The managed and unmanaged interface components then communicate with a kernel-mode threat detection component to determine whether any commands should be blocked.",
@@ -22985,8 +22985,8 @@
 
 (def Reference-DetectionOfMaliciousIDNHomoglyphDomains
   "Reference - Detection of Malicious IDNHomoglyph Domains"
-  {:d3f/has-link #xsd/anyURI
-                  "http://essay.utwente.nl/79263/1/Yazdani_MA_EEMCS.pdf",
+  {:d3f/has-link {:rdfa/uri
+                  "http://essay.utwente.nl/79263/1/Yazdani_MA_EEMCS.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "At early stages of Internet development, users were only able to register or access domains with ASCII characters. The introduction of IDN (Internationalized Domain Name) which uses the larger Unicode character set, made it possible for regional users to deal with domain names using their local language alphabet. Beside the advantages provided by IDN, a new type of network threats has also emerged. The reason behind this is that there are many similar-looking characters in Unicode system, called homoglyphs. These characters could be used by an attacker to lure users by replacing one or more characters of a benign domain.",
@@ -23005,8 +23005,8 @@
   Reference-DeterministicMethodForDetectingAndBlockingOfExploitsOnInterpretedCode_K2CyberSecurityInc
   "Reference - Deterministic method for detecting and blocking of exploits on interpreted code - K2 Cyber Security Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20190180036A1/en?oq=US-2019180036-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20190180036A1/en?oq=US-2019180036-A1"},
    :d3f/kb-abstract
    #xsd/string
     "In one aspect, a method useful for preventing exploitation of a vulnerability in an interpreted code by monitoring and validating an execution of the interpreted code in a script file by an application server, includes the step of generating a mapping for an incoming network connection to a specified script file to be executed by an application server. The computerized method includes the step of inserting a hook for monitoring an application programming interface (API) call or a privileged instruction executed by the application server. The computerized method includes the step of inserting a validation code configured to validate the API call or the privileged instruction executed by the interpreted code in a script.",
@@ -23029,8 +23029,8 @@
 (def Reference-DigitalIdentityGuidelines800-63-3
   "Reference - Digital Identity Guidelines 800-63-3"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf",
+   {:rdfa/uri
+    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf"},
    :d3f/kb-author #xsd/string "NIST",
    :d3f/kb-organization #xsd/string "NIST",
    :d3f/kb-reference-of :d3f/StrongPasswordPolicy,
@@ -23042,8 +23042,8 @@
 (def Reference-DistributedMeta-informationQueryInANetwork_Bit9Inc
   "Reference - Distributed meta-information query in a network - Bit 9 Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20070028302A1/en?oq=US-2007028302-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20070028302A1/en?oq=US-2007028302-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A security system provides a defense from known and unknown viruses, worms, spyware, hackers, and social engineering attacks. The system can implement centralized policies that allow an administrator to approve, block, quarantine, and log file activities. A server associated with a number of hosts can provide a query for host computers to access security-related meta-information in local host stores. The query is pulled from the server by the hosts. The results of the distributed host query are stored and merged on the server, and exported for display, reports, or security response.",
@@ -23063,8 +23063,8 @@
 
 (def Reference-DomainAgeRegistrationAlert_IncRapid7IncRAPID7Inc
   "Reference - Domain age registration alert - Inc Rapid7 Inc RAPID7 Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170026400A1/",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170026400A1/"},
    :d3f/kb-abstract
    #xsd/string
     "Systems and methods of identifying a security risk by monitoring and generating alerts based on attempts to access web domains that have been registered within a short period of time and are therefore identified as \"high-risk,\" including identifying an attempt to access a domain; receiving a registration date of the domain; and detecting a security risk based on the registration date of the domain.",
@@ -23082,7 +23082,7 @@
 
 (def Reference-DomainKeysIdentifiedMail-Signatures-IETF
   "Reference - RFC 6376: DomainKeys Identified Mail (DKIM) Signatures - IETF"
-  {:d3f/has-link #xsd/anyURI "https://tools.ietf.org/html/rfc6376",
+  {:d3f/has-link {:rdfa/uri "https://tools.ietf.org/html/rfc6376"},
    :d3f/kb-abstract
    #xsd/string
     "DomainKeys Identified Mail (DKIM) permits a person, role, or organization that owns the signing domain to claim some responsibility for a message by associating the domain with the message.  This can be an author's organization, an operational relay, or one of their agents.  DKIM separates the question of the identity of the Signer of the message from the purported author of the message.  Assertion of responsibility is validated through a\ncryptographic signature and by querying the Signer's domain directly\nto retrieve the appropriate public key.  Message transit from author to recipient is through relays that typically make no substantive change to the message content and thus preserve the DKIM signature.",
@@ -23101,8 +23101,8 @@
   Reference-DynamicSelectionAndGenerationOfAVirtualCloneForDetonationOfSuspiciousContentWithinAHoneyNetwork_PaloAltoNetworksInc
   "Reference - Dynamic selection and generation of a virtual clone for detonation of suspicious content within a honey network - Palo Alto Networks Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9882929B1/en?oq=US-9882929-B1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9882929B1/en?oq=US-9882929-B1"},
    :d3f/kb-abstract
    #xsd/string
     "Techniques for dynamic selection and generation of detonation location of suspicious content with a honey network are disclosed. In some embodiments, a system for dynamic selection and generation of detonation location of suspicious content with a honey network includes a virtual machine (VM) instance manager that manages a plurality of virtual clones executed in an instrumented VM environment, in which the plurality of virtual clones executed in the instrumented VM environment correspond to the honey network that emulates a plurality of devices in an enterprise network; and an intelligent malware detonator that detonates a malware sample in at least one of the plurality of virtual clones executed in the instrumented VM environment.",
@@ -23124,7 +23124,7 @@
 (def
   Reference-EmbeddingContextsForOn-lineThreatsIntoResponsePolicyZones-VerisignInc
   "Reference - Embedding contexts for on-line threats into response policy zones - Verisign Inc"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US10440059B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US10440059B1"},
    :d3f/kb-abstract
    #xsd/string
     "Hierarchical threat intelligence embedded in subdomain CNAMEs of a DNS denylist.\n\nIn one embodiment, a response policy zone (RPZ) application generates an RPZ that includes contexts for the on-line threats that are associated with domain names. For a domain name that is associated with an on-line threat, the RPZ application determines a threat specification that describes a characteristic of the on-line threat. The RPZ application then generates an alias based on the domain name and the threat specification. Subsequently, the RPZ application generates a domain name system (DNS) resource record that maps the domain name to the alias, includes the resource record in the RPZ, and transmits the RPZ to a DNS name server that implements the RPZ. Upon receiving a DNS query associated with the domain name, the DNS name server generates a DNS response based on the alias. Because the domain name and the threat specification is reflected in the alias, the DNS response automatically provides a relevant context.",
@@ -23144,8 +23144,8 @@
 (def Reference-End-to-endCertificatePinning
   "Reference - End-to-end certificate pinning"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9847992B2/en?q=certificate+pinning&oq=certificate+pinning",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9847992B2/en?q=certificate+pinning&oq=certificate+pinning"},
    :d3f/kb-abstract
    #xsd/string
     "Some embodiments implement end-to-end certificate pinning for content intake from various content providers and for content distribution to various end users. To ensure secure retrieval of content provider content, the content distributor pins the content provider to one or more certificate authorities.",
@@ -23160,7 +23160,7 @@
 (def
   Reference-EnhancingNetworkSecurityByPreventingUser-InitiatedMalwareExecution_
   "Reference - Enhancing Network Security By Preventing User-Initiated Malware Execution - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://ieeexplore.ieee.org/document/1425209",
+  {:d3f/has-link {:rdfa/uri "https://ieeexplore.ieee.org/document/1425209"},
    :d3f/kb-abstract
    #xsd/string
     "In this paper, we describe characteristics of the most widely used defense techniques for the blocking of user-initiated malware and why these techniques are insufficient. We then introduce a module verification strategy that will eliminate, or at least severely reduce, this problem by extending the classic \"defense in depth\" network security strategy. We then describe how the augmentation of a standard operating system loader to include references to a database of cryptographic hashes of module executables can be used to implement this strategy. Finally, we describe our efforts towards the creation of a prototype system that implements the module verification strategy.",
@@ -23186,8 +23186,8 @@
 (def
   Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA
   "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"
-  {:d3f/has-link #xsd/anyURI
-                  "https://www.cisa.gov/news-events/analysis-reports/ar21-134a",
+  {:d3f/has-link
+   {:rdfa/uri "https://www.cisa.gov/news-events/analysis-reports/ar21-134a"},
    :d3f/kb-organization #xsd/string "CISA",
    :d3f/kb-reference-of :d3f/CredentialRotation,
    :d3f/kb-reference-title
@@ -23202,7 +23202,7 @@
 
 (def Reference-ExecutionWithAT_MITRE
   "Reference - CAR-2013-05-004: Execution with AT - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-05-004/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-05-004/"},
    :d3f/kb-abstract
    #xsd/string
     "In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows built-in command AT (at.exe) to schedule a command to be run at a specified time, date, and even host. This method has been used by adversaries and administrators alike. Its use may lead to detection of compromised hosts and compromised users if it is used to move laterally. The built-in Windows tool schtasks.exe (CAR-2013-08-001) offers greater flexibility when creating, modifying, and enumerating tasks. For these reasons, schtasks.exe is more commonly used by administrators, tools/scripts, and power users.",
@@ -23222,7 +23222,7 @@
 
 (def Reference-ExecutionWithSchtasks_MITRE
   "Reference - CAR-2013-08-001: Execution with schtasks - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-08-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-08-001/"},
    :d3f/kb-abstract
    #xsd/string
     "The Windows built-in tool schtasks.exe provides the creation, modification, and running of scheduled tasks on a local or remote computer. It is provided as a more flexible alternative to at.exe, described in CAR-2013-05-004. Although used by adversaries, the tool is also legitimately used by administrators, scripts, and software configurations. The scheduled tasks tool can be used to gain Persistence and can be used in combination with a Lateral Movement technique to remotely gain execution. Additionally, the command has parameters to specify the user and password responsible for creating the task, as well as the user and password combination that the task will run as. The /s flag will cause a task to run as the SYSTEM user, usually indicating privilege escalation.",
@@ -23244,8 +23244,8 @@
 (def Reference-FWTK-FirewallToolkit_
   "Reference - FWTK - Firewall Toolkit"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://blogs.gartner.com/john_pescatore/2008/10/02/this-week-in-network-security-history-the-firewall-toolkit/",
+   {:rdfa/uri
+    "https://blogs.gartner.com/john_pescatore/2008/10/02/this-week-in-network-security-history-the-firewall-toolkit/"},
    :d3f/kb-abstract #xsd/string "delivered to DARPA in ~1993",
    :d3f/kb-author #xsd/string "",
    :d3f/kb-mitre-analysis #xsd/string "",
@@ -23266,8 +23266,8 @@
 (def Reference-FWTKDocumentation-Fwtk_org
   "Reference - FWTK Documentation - fwtk.org"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://web.archive.org/web/20070510153306/http://www.fwtk.org/fwtk/docs/documentation.html#1.1",
+   {:rdfa/uri
+    "https://web.archive.org/web/20070510153306/http://www.fwtk.org/fwtk/docs/documentation.html#1.1"},
    :d3f/kb-abstract
    #xsd/string
     "In case you don't already know, FWTK stands for the FireW all Tool Kit. It is used as a base to create a secure firewall system. If you need good documentation, please read the source code. If you are not familiar with C or do not feel comfortable with performing the configuration and security verification yourself, then I would suggest that you purchase a commercial firewall from a vendor (such as TIS, Checkpoint, Raptor, etc.).\n\nA machine needs other tools to secure it, including, but hardly limited to, tools to check files (tripwire), audit tools (tiger/cops), secure access methods (kerberos/ssh), something to watch logs and machine states (swatch/watcher some to mind) and filtering and routing tools such as screend/ipfilterd/ipacl.\n\nAgain, I would recommend that you do not proceed to build a production FWTK firewall unless you are familiar with UNIX security.",
@@ -23284,8 +23284,8 @@
 (def Reference-File-modifyingMalwareDetection_CrowdstrikeInc
   "Reference - File-modifying malware detection - Crowdstrike Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20180121650A1/en?oq=US-2018121650-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20180121650A1/en?oq=US-2018121650-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A security agent implemented on a computing device is described herein. The security agent is configured to detect file-modifying malware by detecting that a process is traversing a directory of the memory of the computing device and detecting that the process is accessing files in the memory according to specified file access patterns. The security agent can also be configured to correlate actions of multiple processes that correspond to a specified file access pattern and detect that one or more of the multiple processes are malware by correlating their behavior.",
@@ -23305,8 +23305,8 @@
 (def Reference-FileAndFolderPermissions
   "Reference - File and Folder Permissions"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/bb727008(v=technet.10)?redirectedfrom=MSDN",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/bb727008(v=technet.10)?redirectedfrom=MSDN"},
    :d3f/kb-organization #xsd/string "Microsoft",
    :d3f/kb-reference-of :d3f/LocalFilePermissions,
    :d3f/kb-reference-title #xsd/string "File and Folder Permissions",
@@ -23317,8 +23317,8 @@
 (def Reference-FileIntegrityMonitoringinMicrosoftDefenderforCloud-Microsoft
   "Reference - File Integrity Monitoring in Microsoft Defender for Cloud - Microsoft"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://learn.microsoft.com/en-us/azure/defender-for-cloud/file-integrity-monitoring-overview",
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/azure/defender-for-cloud/file-integrity-monitoring-overview"},
    :d3f/kb-organization #xsd/string "Microsoft",
    :d3f/kb-reference-of :d3f/FileIntegrityMonitoring,
    :d3f/kb-reference-title
@@ -23332,7 +23332,7 @@
 
 (def Reference-Finding_phishing_sites
   "Reference - Finding phishing sites"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8839418B2/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8839418B2/"},
    :d3f/kb-author
    #xsd/string
     "Geoffrey John Hulten, Paul Stephen Rehfuss, Robert Rounthwaite, Joshua Theodore Goodman, Gopalakrishnan Seshadrinathan, Anthony P. Penta, Manav Mishra, Roderic C. Deyo, Elliott Jeb Haber, David Aaron Ward Snelling",
@@ -23346,7 +23346,7 @@
 
 (def Reference-FirewallForInterentAccess_SecureComputingLLC
   "Reference - Firewall for interent access - Secure Computing LLC"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/GB2317539A",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/GB2317539A"},
    :d3f/kb-abstract
    #xsd/string
     "Regulating the flow of internetwork connections through a firewall (10) having a network protocol stack (14,16,18) which includes an Internet Protocol (IP) layer (16). A determination is made of the parameters characteristic of a connection request, including a netelement parameter characteristic of where the connection request came from. A query is generated and a determination is made whether there is a rule corresponding to that query. If there is a rule corresponding to the query, a determination is made whether authentication is required by the rule. If authentication is required by the rule, an authentication protocol is activated and the connection is activated if the authentication protocol is completed successfully.",
@@ -23368,7 +23368,7 @@
 (def
   Reference-FirewallForProcessingAConnectionlessNetworkPacket_NationalSecurityAgency
   "Reference - Firewall for processing a connectionless network packet - National Security Agency"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US7073196B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US7073196B1"},
    :d3f/kb-abstract
    #xsd/string
     "The present invention is a device for and method of accessing a network by initializing a database, an approved list, and a disapproved list; receiving an connectionless network packet; computing a flow tag based on the connectionless network packet; discarding the connectionless network packet and returning to the second step if the flow tag is on the disapproved list; allowing access to the network and returning to the second step if the flow tag is on the approved list; comparing the flow tag to the database if the flow tag is not on the approved list or the disapproved list; discarding the connectionless network packet, adding the flow tag to the disapproved list, and returning to the second step if the database rejects the flow tag; and allowing access to the network, adding the flow tag to the approved list, and returning to the second step if the database accepts the flow tag.",
@@ -23392,7 +23392,7 @@
 (def
   Reference-FirewallForProcessingConnection-orientedAndConnectionlessDatagramsOverAConnection-orientedNetwork_NationalSecurityAgency
   "Reference - Firewall for processing connection-oriented and connectionless datagrams over a connection-oriented network - National Security Agency"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US6615358B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US6615358B1"},
    :d3f/kb-abstract
    #xsd/string
     "The present invention is a device for and method of accessing an information network by initializing a database, an ATM approved list, an IP approved list, and an IP disapproved list; receiving a datagram; discarding the datagram if it is not on the ATM approved list; determining the datagram's type; allowing access to the network and comparing the connection request, if any, to the database if the datagram is ATM signaling; discarding the datagram if the datagram is ATM signaling and the database denies the request; adding the request to the ATM approved list if the datagram is ATM signaling and the database allows the request; allowing access to the network if the datagram is ATM data that excludes IP data and the request is on the ATM approved list; computing a flow tag if the datagram is ATM data that includes IP data; discarding the datagram if the flow tag is on the IP disapproved list; allowing access to the network if the flow tag is on the IP approved list; comparing the flow tag to the database if the flow tag is neither on the IP approved list nor on the IP disapproved list; discarding the datagram and adding the flow tag to the IP disapproved list if the database rejects the flow tag; and allowing access to the network and adding the flow tag to the corresponding approved list if the database accepts the flow tag; and performing these steps on the next datagram",
@@ -23416,7 +23416,7 @@
 
 (def Reference-FirewallsThatFilterBasedUponProtocolCommands_IntelCorp
   "Reference - Firewalls that filter based upon protocol commands - Intel Corp"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US6832256B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US6832256B1"},
    :d3f/kb-abstract
    #xsd/string
     "Data transfer is controlled between a first network and a second network of computers by a firewall-proxy combination. Active interpretation of protocol commands exchanged between the first network and the second network is performed to determine specific actions concerning completion of the protocol request. This active firewall-proxy combination may exist on either the first or second network of computers. This method of control provides centralized control and administration for all potentially reachable resources within a network.",
@@ -23439,8 +23439,8 @@
 
 (def Reference-FirmwareBehaviorAnalysisConFirm
   "Reference - Firmware Behavior Analysis ConFirm"
-  {:d3f/has-link #xsd/anyURI
-                  "http://sites.nyuad.nyu.edu/moma/pdfs/pubs/C22.pdf",
+  {:d3f/has-link {:rdfa/uri
+                  "http://sites.nyuad.nyu.edu/moma/pdfs/pubs/C22.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "The modernization of various critical infrastructure components has dictated the use of microprocessor-based\nembedded control systems in critical applications. It is often\ninfeasible, however, to employ the same level of security measures used in general purpose computing systems, due to the stringent\nperformance and resource constraints of embedded devices. Furthermore, as software relies on the firmware for proper operation,\nno software-level technique can detect malicious behavior of\nthe firmware. In this work, we propose ConFirm, a low-cost\ntechnique to detect malicious modifications in the firmware\nof embedded systems by measuring the number of low-level hardware events that occur during the execution of the firmware.",
@@ -23460,8 +23460,8 @@
 
 (def Reference-FirmwareBehaviorAnalysisVIPER
   "Reference - Firmware Behavior Analysis VIPER"
-  {:d3f/has-link #xsd/anyURI
-                  "https://dl.acm.org/doi/pdf/10.1145/2046707.2046711",
+  {:d3f/has-link {:rdfa/uri
+                  "https://dl.acm.org/doi/pdf/10.1145/2046707.2046711"},
    :d3f/kb-abstract
    #xsd/string
     "Recent research demonstrates that malware can infect peripherals' firmware in a typical x86 computer system, e.g., by exploiting vulnerabilities in the firmware itself or in the firmware update tools. Verifying the integrity of peripherals' firmware is thus an important challenge. We propose software-only attestation protocols to verify the integrity of peripherals' firmware, and show that they can detect all known software-based attacks.",
@@ -23476,8 +23476,8 @@
 
 (def Reference-FirmwareEmbeddedMonitoringCodeRedBalloon
   "Reference - Firmware Embedded Monitoring Code Red Balloon"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US10657262B1/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US10657262B1/en"},
    :d3f/kb-abstract
    #xsd/string
     "Systems and methods for securing embedded devices via both online and offline defensive strategies. One or more security software components may be injected into firmware binary to create a modified firmware binary, which is functionally- and size-equivalent to the original firmware binary. The security software components may retrieve live forensic information related to embedded devices for use in live hardening of the modified firmware binary while the embedded device is online, dynamically patching the firmware",
@@ -23494,8 +23494,8 @@
 (def Reference-FirmwareEmbeddedMonitoringCodeSymbiotes
   "Reference - Firmware Embedded Monitoring Code Symbiotes"
   {:d3f/has-link
-   #xsd/anyURI
-    "http://nsl.cs.columbia.edu/projects/minestrone/papers/Symbiotes.pdf",
+   {:rdfa/uri
+    "http://nsl.cs.columbia.edu/projects/minestrone/papers/Symbiotes.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "A large number of embedded devices on the internet, such as\nrouters and VOIP phones, are typically ripe for exploitation. Little to no defensive technology, such as AV scanners or IDS's, are available to protect these devices. We propose a host-based defense mechanism, which we call Symbiotic Embedded Machines (SEM), that is specifically designed\nto inject intrusion detection functionality into the firmware of the device.",
@@ -23512,8 +23512,8 @@
 
 (def Reference-FirmwareVerificationEclypsium
   "Reference - Firmware Verification Eclypsium"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20200074086A1/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20200074086A1/en"},
    :d3f/kb-abstract
    #xsd/string
     "Systems and methods are provided herein for monitoring and identifying potential security vulnerabilities in hardware and / or firmware of host devices .",
@@ -23529,7 +23529,7 @@
 
 (def Reference-FirmwareVerificationTrapezoid
   "Reference - Firmware Verification Trapezoid"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9674183B2/en",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9674183B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "A trust control management method for security, operable on a computer system generates a unique Trust ID value by combining user-defined values with hardware-specific values associated with the user's computer system and storing the Trust ID value in a memory register physically associated with the hardware of the computer system.",
@@ -23546,8 +23546,8 @@
 (def
   Reference-FrameworkForNotifyingADirectoryServiceOfAuthenticationEventsProcessedOutsideTheDirectoryService_OracleInternationalCorp
   "Reference - Framework for notifying a directory service of authentication events processed outside the directory service - Oracle International Corp"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20090077645A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20090077645A1"},
    :d3f/kb-abstract
    #xsd/string
     "Methods, systems and machine-readable media for authenticating an end user for a client application are disclosed. According to one embodiment of the invention, a method of authenticating an end user for a client application using a directory service having an authentication control policy that tracks failed authentication attempts and allows lock out of an account after a predetermined number of failures comprises receiving end user identity information and security information at the client application; sending a search request to the directory service for an entry associated with the end user identity information and, if a match is found, receiving a authentication token from the directory service associated with the end user identity information; comparing the received authentication token with the security information; if the authentication token matches the security information, sending a request to update the directory service to indicate that successful authentication of the end user has occurred; and if the authentication token does not match the security information, sending a request to update the directory service to indicate that a failed attempt at authentication of the end user has occurred.",
@@ -23569,8 +23569,8 @@
 (def Reference-GS_BufferSecurityCheck_MicrosoftDocs
   "Reference - /GS (Buffer Security Check) - Microsoft Docs"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/cpp/build/reference/gs-buffer-security-check?view=vs-2019",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/cpp/build/reference/gs-buffer-security-check?view=vs-2019"},
    :d3f/kb-abstract #xsd/string "",
    :d3f/kb-author #xsd/string "",
    :d3f/kb-mitre-analysis #xsd/string "",
@@ -23589,7 +23589,7 @@
 
 (def Reference-GenericRegsvr32_MITRE
   "Reference - CAR-2019-04-002: Generic Regsvr32 - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-04-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-04-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Regsvr32 can be used to execute arbitrary code in the context of a Windows signed binary, which can be used to bypass application whitelisting. This analytic looks for suspicious usage of the tool. It's not likely that you'll get millions of hits, but it does occur during normal activity so some form of baselining would be necessary for this to be an alerting analytic. Alternatively, it can be used for hunt by looking for new or anomalous DLLs manually.",
@@ -23611,8 +23611,8 @@
   Reference-GuardsForApplicationInSoftwareTamperproofing_PurdueResearchFoundation
   "Reference - Guards for application in software tamperproofing - Purdue Research Foundation"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US7287166B1/en?oq=US-7287166-B1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US7287166B1/en?oq=US-7287166-B1"},
    :d3f/kb-abstract
    #xsd/string
     "A method of protecting a software program from unauthorized modification, and a system for practicing the method. The method utilizes self-protecting software code. Armed internally with self-defensive mechanisms, a self-protecting software program is tamper-resistant. Whenever its integrity is compromised, a self-protecting software program may become unusable due to software program crashes or other errors, or may generate subtle errors that do not immediately result render the program unusable but still result in incorrect software program execution. A self-protecting software program also may be able to repair itself to restore the integrity of its damaged code. The system comprises a computer program for automatically adding self-protection features to a software program.",
@@ -23634,8 +23634,8 @@
   Reference-Hardware-assistedSystemAndMethodForDetectingAndAnalyzingSystemCallsMadeToAnOpertingSystemKernel_EndgameInc
   "Reference - Hardware-assisted system and method for detecting and analyzing system calls made to an operting system kernel - Endgame Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20180032728A1/en?oq=US20180032728-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20180032728A1/en?oq=US20180032728-A1"},
    :d3f/kb-abstract
    #xsd/string
     "The present disclosure relates to a system and method for monitoring system calls to an operating system kernel. A performance monitoring unit is used to monitor system calls and to gather information about each system call. The information is gathered upon interrupting the system call and can include system call type, parameters, and information about the calling thread/process, in order to determine whether the system call was generated by malicious software code. Potentially malicious software code is nullified by a malicious code counter-attack module.",
@@ -23657,8 +23657,8 @@
 
 (def Reference-HeuristicBotnetDetection_PaloAltoNetworksInc
   "Reference - Heuristic botnet detection - Palo Alto Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160156644A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160156644A1"},
    :d3f/kb-abstract
    #xsd/string
     "In some embodiments, heuristic botnet detection is provided. In some embodiments, heuristic botnet detection includes monitoring network traffic to identify suspicious network traffic; and detecting a bot based on a heuristic analysis of the suspicious network traffic behavior using a processor, in which the suspicious network traffic behavior includes command and control traffic associated with a bot master. In some embodiments, heuristic botnet detection further includes assigning a score to the monitored network traffic, in which the score corresponds to a botnet risk characterization of the monitored network traffic (e.g., based on one or more heuristic botnet detection techniques); increasing the score based on a correlation of additional suspicious behaviors associated with the monitored network traffic (e.g., based on one or more heuristic botnet detection techniques); and determining the suspicious behavior is associated with a botnet based on the score.",
@@ -23677,7 +23677,7 @@
 
 (def Reference-HostDiscoveryCommands_MITRE
   "Reference - CAR-2016-03-001: Host Discovery Commands - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2016-03-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2016-03-001/"},
    :d3f/kb-abstract
    #xsd/string
     "When entering on a host for the first time, an adversary may try to discover information about the host. There are several built-in Windows commands that can be used to learn about the software configurations, active users, administrators, and networking configuration. These commands should be monitored to identify when an adversary is learning information about the system and environment. The information returned may impact choices an adversary can make when establishing persistence, escalating privileges, or moving laterally.\n\nBecause these commands are built in, they may be run frequently by power users or even by normal users. Thus, an analytic looking at this information should have well-defined white- or blacklists, and should consider looking at an anomaly detection approach, so that this information can be learned dynamically.",
@@ -23699,8 +23699,8 @@
 (def
   Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd
   "Reference - Host intrusion prevention system using software and user behavior analysis - Sophos Ltd"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20110023115A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20110023115A1"},
    :d3f/kb-abstract
    #xsd/string
     "In embodiments of the present invention improved capabilities are described for threat detection using a behavioral-based host-intrusion prevention method and system for monitoring a user interaction with a computer, software application, operating system, graphic user interface, or some other component or client of a computer network, and performing an action to protect the computer network based at least in part on the user interaction and a computer code process executing during or in association with a computer usage session.",
@@ -23725,8 +23725,8 @@
 (def Reference-HowASLRProtectsLinuxSystemsFromBufferOverflowAttacks_NetworkWorld
   "Reference - How ASLR protects Linux systems from buffer overflow attacks - Network World"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.networkworld.com/article/3331199/what-does-aslr-do-for-linux.html",
+   {:rdfa/uri
+    "https://www.networkworld.com/article/3331199/what-does-aslr-do-for-linux.html"},
    :d3f/kb-abstract
    #xsd/string
     "ASLR (Address Space Layout Randomization) is a memory exploitation mitigation technique used on both Linux and Windows systems. Learn how to tell if it's running, enable/disable it, and get a view of how it works.",
@@ -23747,8 +23747,8 @@
 (def Reference-HowDoesAntivirusQuarantineWork-SafetyDetectives
   "Reference - How Does Antivirus Quarantine Work? - Safety Detectives"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.safetydetectives.com/blog/how-does-antivirus-quarantine-work/",
+   {:rdfa/uri
+    "https://www.safetydetectives.com/blog/how-does-antivirus-quarantine-work/"},
    :d3f/kb-abstract
    #xsd/string
     "Your antivirus has just finished a regular scan and it’s asking whether you want to quarantine the virus it’s found. You click ‘yes’ without putting much thought into what’s actually happening. But what does quarantining actually mean, what does it do and is it safe for your computer? It’s important to understand the details so that you know what’s happening when you send infected files into quarantine.",
@@ -23764,8 +23764,8 @@
 (def Reference-HowToChangeRegistryValuesOrPermissionsFromACommandLineOrAScript
   "Reference - How to change registry values or permissions from a command line or a script"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/troubleshoot/windows-client/application-management/change-registry-values-permissions",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/troubleshoot/windows-client/application-management/change-registry-values-permissions"},
    :d3f/kb-abstract
    #xsd/string
     "This article describes how to change registry values or permissions from a command line or a script.\n\nApplies to:   Windows 10 - all editions, Windows Server 2012 R2\nOriginal KB number:   264584",
@@ -23784,8 +23784,8 @@
   Reference-HowTrustRelationshipsWorkForResourceForestsInAzureActiveDirectoryDomainServices
   "Reference - How trust relationships work for resource forests in Azure Active Directory Domain Services"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-forest-trust",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-forest-trust"},
    :d3f/kb-abstract
    #xsd/string
     "Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.",
@@ -23803,7 +23803,7 @@
 
 (def Reference-IEEE-802_1AB-2016
   "Reference - IEEE Standard for Local and Metropolitan Area Networks - Station and Media Access Control Connectivity Discovery"
-  {:d3f/has-link #xsd/anyURI "https://standards.ieee.org/ieee/802.1AB/6047/",
+  {:d3f/has-link {:rdfa/uri "https://standards.ieee.org/ieee/802.1AB/6047/"},
    :d3f/kb-organization #xsd/string "IEEE",
    :d3f/kb-reference-of :d3f/HardwareComponentInventory,
    :d3f/kb-reference-title
@@ -23818,8 +23818,8 @@
 (def
   Reference-IdentificationAndExtractionOfKeyForensicsIndicatorsOfCompromiseUsingSubject-specificFilesystemViews
   "Reference - Identification and extraction of key forensics indicators of compromise using subject-specific filesystem views"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20200004962A1/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20200004962A1/en"},
    :d3f/kb-abstract
    #xsd/string
     "A stackable filesystem that transparently tracks process file writes for forensic analysis. The filesystem comprises a base filesystem, and an overlay filesystem. Processes see the union of the upper and lower filesystems, but process writes are only reflected in the overlay. By providing per-process views of the filesystem using this stackable approach, a forensic analyzer can record a process's file-based activity-i.e., file creation, deletion, modification. These activities are then analyzed to identify indicators of compromise (IoCs). These indicators are then fed into a forensics analysis engine, which then quickly decides whether a subject (e.g., process, user) is malicious. If so, the system takes some proactive action to alert a proper authority, to quarantine the potential attack, or to provide other remediation. The approach enables forensic analysis without requiring file access mediation, or conducting system event-level collection and analysis, making it a lightweight, and non-intrusive solution.",
@@ -23838,8 +23838,8 @@
 
 (def Reference-IdentificationOfTracerouteNodesAndAssociatedDevices
   "Reference - Identification of traceroute nodes and associated devices"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US10079749B2/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US10079749B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "Various embodiments pertain to communication network systems. In particular, various embodiments relate to multi-path probing in communication network systems that can be used to estimate the complete topology of the network. A method includes receiving data at a source node from a tracerouting probe in a network. The data includes information about at least one network node. The method also includes determining an identification for the at least one network node based on information. In addition, the method includes using the identification of the at least one network node to determine an identification of at least one device.",
@@ -23857,8 +23857,8 @@
 (def
   Reference-IdentificationOfVisualInternationalDomainNameCollisions-VerisignInc
   "Reference - Identification of visual international domain name collisions - Verisign Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US10599836B2/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US10599836B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "Fuzzy OCR to detect domain name homoglyph attacks.\n\nVarious embodiments of the invention disclosed herein provide techniques for detecting a homograph attack. An IDN collision detection server retrieves a first domain name that includes a punycode element. The IDN collision detection server converts the first domain into a second domain name that includes a Unicode character corresponding to the punycode element. The IDN collision detection server converts the second domain name into an image. The IDN collision detection server performs one or more optical character recognition operations on the image to generate a textual string associated with the image. The IDN collision detection server determines that the textual string matches at least a portion of a third domain name.",
@@ -23878,7 +23878,7 @@
 (def
   Reference-IdentifyingADenial-of-serviceAttackInACloud-basedProxyService-CloudfareInc_
   "Reference - Identifying a denial-of-service attack in a cloud-based proxy service - Cloudfare Inc."
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8613089B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8613089B1"},
    :d3f/kb-abstract
    #xsd/string
     "A cloud-based proxy service identifies a denial-of-service (DoS) attack including determining that there is a potential DoS attack being directed to an IP address of the cloud-based proxy service; and responsive to determining that there are a plurality of domains that resolve to that IP address, identifying the one of the plurality of domains that is the target of the DoS attack. The domain that is under attack is identified by scattering the plurality of domains to resolve to different IP addresses, where a result of the scattering is that each of those domains resolves to a different IP address, and identifying one of those plurality of domains as the target of the DoS attack by determining that there is an abnormally high amount of traffic being directed to the IP address in which that domain resolves.",
@@ -23900,8 +23900,8 @@
 (def Reference-IndirectBranchingCalls
   "Reference - Indirect Branching Calls"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1048.1241&rep=rep1&type=pdf",
+   {:rdfa/uri
+    "https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1048.1241&rep=rep1&type=pdf"},
    :d3f/kb-abstract
    #xsd/string
     "Return-oriented programming (ROP) has become the\nprimary exploitation technique for system compromise\nin the presence of non-executable page protections. ROP\nexploits are facilitated mainly by the lack of complete\naddress space randomization coverage or the presence\nof memory disclosure vulnerabilities, necessitating additional ROP-specific mitigations.\nIn this paper we present a practical runtime ROP exploit prevention technique for the protection of thirdparty applications. Our approach is based on the detection of abnormal control transfers that take place during\nROP code execution. This is achieved using hardware\nfeatures of commodity processors, which incur negligible runtime overhead and allow for completely transparent operation without requiring any modifications to\nthe protected applications. Our implementation for Windows 7, named kBouncer, can be selectively enabled for\ninstalled programs in the same fashion as user-friendly\nmitigation toolkits like Microsoft's EMET. The results of\nour evaluation demonstrate that kBouncer has low runtime overhead of up to 4%, when stressed with specially\ncrafted workloads that continuously trigger its core detection component, while it has negligible overhead for\nactual user applications. In our experiments with in-thewild ROP exploits, kBouncer successfully protected all\ntested applications, including Internet Explorer, Adobe\nFlash Player, and Adobe Reader.",
@@ -23920,8 +23920,8 @@
 (def Reference-InferentialExploitAttemptDetection_CrowdstrikeInc
   "Reference - Inferential exploit attempt detection - Crowdstrike Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US10216934B2/en?oq=US-10216934-B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US10216934B2/en?oq=US-10216934-B2"},
    :d3f/kb-abstract
    #xsd/string
     "A security agent implemented on a monitored computing device is described herein. The security agent is configured to detect an action of interest (AoI) that may be probative of a security exploit and to determine a context in which that AoI occurred. Based on that context, the security agent is further configured to decide whether the AoI is a security exploit and can take preventative action to prevent the exploit from being completed.\n\nDetermining that the AoI includes the security exploit is based at least in part on one or more of: determining that the return address is outside memory previously allocated for an object; determining that the object identifier is associated with a vulnerable object; determining that permissions of the memory region include two or more of read, write, and execute; or determining that the memory region is one page in length.\n\nDetermining that the return address is outside memory previously allocated for an object and the method further including treating code that the return address points to as malicious code.",
@@ -23941,8 +23941,8 @@
 (def
   Reference-InstantProcessTerminationToolToRecoverControlOfAnInformationHandlingSystem_DellProductsLP
   "Reference - Instant process termination tool to recover control of an information handling system - Dell Products LP"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20060236108A1/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20060236108A1/en"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for automatic termination of unauthorized malevolent processes operating on an information handling system. A list of authenticated and essential process list is stored on the information handling system. Unauthorized processes not contained on the list can be automatically terminated by the user by invoking the present invention with a single click of a mouse or pointer device on an icon residing on the display screen of the information handling system. The offending processes are immediately terminated without generating a user prompt, which would ordinarily provide sufficient time for the malware to spawn additional offending processes. The present invention also provides significant means to recover control of a malware-infected information handling system in order to use repair tools and utilities. The present invention can be deployed at the time of manufacture of an information handling system or independently installed by a user.",
@@ -23964,8 +23964,8 @@
 (def
   Reference-IntegrityAssuranceThroughEarlyLoadingInTheBootPhase_CrowdstrikeInc
   "Reference - Integrity assurance through early loading in the boot phase - Crowdstrike Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170061127A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170061127A1"},
    :d3f/kb-abstract
    #xsd/string
     "Techniques utilizing library and pre-boot components to ensure that a driver associated with a kernel-mode component is initialized before other drivers during a boot phase are described herein. The library component is processed during a boot phase; the pre-boot component, which may be an alternative to the library component, is processed during a pre-boot phase. By ensuring that the driver is the first driver initialized, the components enable the driver to launch the kernel-mode component before other drivers are initialized. The library component may also determine whether another driver is to be initialized before the kernel-mode component driver, may ensure that kernel-mode component driver is initialized first, and may alert the kernel-mode component. Also, the library component may retrieve information that is to be deleted by the operating system before initialization of drivers and may provide that information to the kernel-mode component.",
@@ -23986,8 +23986,8 @@
 
 (def Reference-IntrusionDetectionUsingAHeartbeat_SophosLtd
   "Reference - Intrusion detection using a heartbeat - Sophos Ltd"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20180191752A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20180191752A1"},
    :d3f/kb-abstract
    #xsd/string
     "A variety of techniques are disclosed for detection of advanced persistent threats and similar malware. In one aspect, the detection of certain network traffic at a gateway is used to trigger a query of an originating endpoint, which can use internal logs to identify a local process that is sourcing the network traffic. In another aspect, an endpoint is configured to periodically generate and transmit a secure heartbeat, so that an interruption of the heartbeat can be used to signal the possible presence of malware. In another aspect, other information such as local and global reputation information is used to provide context for more accurate malware detection.",
@@ -24006,7 +24006,7 @@
 
 (def Reference-IsolationOfApplicationsWithinAVirtualMachine_Bromium%2CInc_
   "Reference - Isolation of applications within a virtual machine - Bromium, Inc."
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9921860B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9921860B1"},
    :d3f/kb-abstract
    #xsd/string
     "Approaches for launching an application within a virtual machine. In response to receiving a request to launch an application, a device instantiates, without human intervention and based on a policy, a virtual machine in which the application is to be launched. The policy determines which resources of a device, such as a mobile device or computer system, are accessible to the virtual machine. The policy may, but need not, determine whether the virtual machine has access to a type of resource which obligates the user of the device to make a monetary payment for the user of the resource.",
@@ -24029,8 +24029,8 @@
 (def Reference-LUKS1On-DiskFormatSpecificationVersion1_2_3
   "Reference - LUKS1 On-Disk Format SpecificationVersion 1.2.3"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://mirrors.edge.kernel.org/pub/linux/utils/cryptsetup/LUKS_docs/on-disk-format.pdf",
+   {:rdfa/uri
+    "https://mirrors.edge.kernel.org/pub/linux/utils/cryptsetup/LUKS_docs/on-disk-format.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "LUKS is short for \"Linux Unified Key Setup\". It has initially been developed to remedy the unpleasantness a user experienced that arise from deriving the encryption setup from changing user space, and forgotten command line arguments. The result of this changes are an unaccessible encryption storage. The reason for this to happen was, a unstandardised way to read, process and set up encryption keys, and if the user was unlucky, he upgraded to an incompatible version of user space tools that needed a good deal of knowledge to use with old encryption volumes.",
@@ -24045,8 +24045,8 @@
 
 (def Reference-LibreNMSDocsNetworkMapExtension
   "Reference - Libre NMS - Network Map Extension"
-  {:d3f/has-link #xsd/anyURI
-                  "https://docs.librenms.org/Extensions/Network-Map/",
+  {:d3f/has-link {:rdfa/uri
+                  "https://docs.librenms.org/Extensions/Network-Map/"},
    :d3f/kb-abstract
    #xsd/string
     "LibreNMS has the ability to show you a network map based on:\n* xDP Discovery\n* MAC addresses",
@@ -24059,7 +24059,7 @@
 
 (def Reference-LibreNMSDocsOxidizedExtension
   "Reference - Libre NMS - Oxidized Extension"
-  {:d3f/has-link #xsd/anyURI "https://docs.librenms.org/Extensions/Oxidized/",
+  {:d3f/has-link {:rdfa/uri "https://docs.librenms.org/Extensions/Oxidized/"},
    :d3f/kb-abstract
    #xsd/string
     "Integrating LibreNMS with Oxidized brings the following benefits:\n\n* Config viewing: Current, History, and Diffs all under the Configs tab of each device\n* Automatic addition of devices to Oxidized: Including filtering and grouping to ease credential management\n* Configuration searching",
@@ -24072,7 +24072,7 @@
 
 (def Reference-LsassProcessDumpViaProcdump_MITRE
   "Reference - CAR-2019-07-002: Lsass Process Dump via Procdump - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-07-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-07-002/"},
    :d3f/kb-abstract
    #xsd/string
     "ProcDump is a sysinternal command-line utility whose primary purpose is monitoring an application for CPU spikes and generating crash dumps during a spike that an administrator or developer can use to determine the cause of the spike.\n\nProcDump may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching procdump.exe as a privileged user with command line options indicating that lsass.exe should be dumped to a file with an arbitrary name.",
@@ -24095,8 +24095,8 @@
 (def Reference-MGT516ManagingSecurityVulnerabilitiesEnterpriseAndCloud
   "Reference - MGT516: Managing Security Vulnerabilities: Enterprise and Cloud"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.sans.org/cyber-security-courses/managing-enterprise-cloud-security-vulnerabilities/",
+   {:rdfa/uri
+    "https://www.sans.org/cyber-security-courses/managing-enterprise-cloud-security-vulnerabilities/"},
    :d3f/kb-abstract
    #xsd/string
     "Vulnerability, patch, and configuration management are not new security topics. In fact, they are some of the oldest security functions. Yet, we still struggle to manage these capabilities effectively. The quantity of outstanding vulnerabilities for most large organizations is overwhelming, and all organizations struggle to keep up with the never-ending onslaught of new vulnerabilities in their infrastructure and applications. When you add in the cloud and the increasing speed with which all organizations must deliver systems, applications, and features to both their internal and external customers, security may seem unachievable. This course will show you the most effective ways to mature your vulnerability management program and move from identifying vulnerabilities to successfully treating them. 16 Cyber42 and lab exercises",
@@ -24115,8 +24115,8 @@
 
 (def Reference-MaliciousRelayDetectionOnNetworks_VECTRANETWORKSInc
   "Reference - Malicious relay detection on networks - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20150264083A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20150264083A1"},
    :d3f/kb-abstract
    #xsd/string
     "A system and method for detecting malicious relay communications is disclosed. Network communications can be received and analyzed using such network components as a network switch. The received traffic can be parsed into sessions. Relay metadata can be extracted from the sessions and further be used to categorize the sessions into one or more types of relay metadata behaviors. Once a significant amount of sessions are detected an alarm may be triggered and/or alarm data may be generated for analysis by network security administrators.",
@@ -24136,8 +24136,8 @@
 
 (def Reference-MalwareAnalysisSystem_PaloAltoNetworksInc
   "Reference - Malware analysis system - Palo Alto Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20150319136A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20150319136A1"},
    :d3f/kb-abstract
    #xsd/string
     "In some embodiments, a malware analysis system includes receiving a potential malware sample from a firewall; analyzing the potential malware sample using a virtual machine to determine if the potential malware sample is malware; and automatically generating a signature if the potential malware sample is determined to be malware. In some embodiments, the potential malware sample does not match a preexisting signature, and the malware is a zero-day attack.",
@@ -24155,8 +24155,8 @@
 
 (def Reference-MalwareDetectionInEventLoops_CrowdstrikeInc
   "Reference - Malware detection in event loops - Crowdstrike Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190205530A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190205530A1"},
    :d3f/kb-abstract
    #xsd/string
     "Example techniques locate or identify malware based on events from or at monitored computing devices. A control unit can detect a sequence of events of various types. The control unit can locate a loop within the sequence of events based at least in part on relative frequencies of the event types. The control unit can determine a distribution of event types of the events within the loop, and determining that software running the sequence is associated with malware based at least in part on the distribution of event types within the loop. In some examples, the control unit can locate a point of commonality among a plurality of stack traces associated with respective events within the loop. The control unit can determine a malware module comprising the point of commonality.",
@@ -24175,8 +24175,8 @@
 
 (def Reference-MalwareDetectionUsingLocalComputationalModels_CrowdstrikeInc
   "Reference - Malware detection using local computational models - Crowdstrike Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190026466A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190026466A1"},
    :d3f/kb-abstract
    #xsd/string
     "Example techniques herein determine that a trial data stream is associated with malware (\"dirty\") using a local computational model (CM). The data stream can be represented by a feature vector. A control unit can receive a first, dirty feature vector (e.g., a false miss) and determine the local CM based on the first feature vector. The control unit can receive a trial feature vector representing the trial data stream. The control unit can determine that the trial data stream is dirty if a broad CM or the local CM determines that the trial feature vector is dirty. In some examples, the local CM can define a dirty region in a feature space. The control unit can determine the local CM based on the first feature vector and other clean or dirty feature vectors, e.g., a clean feature vector nearest to the first feature vector.",
@@ -24201,8 +24201,8 @@
 
 (def Reference-MethodAndApparatusForDetectingMaliciousWebsites_EndgameInc
   "Reference - Method and Apparatus for Detecting Malicious Websites - Endgame Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20140331319A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20140331319A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method and apparatus for detecting malicious websites is disclosed.",
@@ -24225,7 +24225,7 @@
 (def
   Reference-MethodAndApparatusForIncreasingTheSpeedAtWhichComputerVirusesAreDetected_McAfeeLLC
   "Reference - Method and apparatus for increasing the speed at which computer viruses are detected - McAfee LLC"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US5502815A",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US5502815A"},
    :d3f/kb-abstract
    #xsd/string
     "The method and apparatus for increasing the speed at which computer viruses are detected stores initial state information concerning the file or volume which is being examined for a virus. This information is stored in a cache in a non-volatile storage medium and when files are subsequently scanned for viruses, the current state information is compared to the initial state information stored in the cache. If the initial state information differs from the current state information then the file or volume is scanned for viruses which change the state information of the file or volume. If the initial state information and current state information is the same then the file or volume is scanned for a subset of viruses which do not change the state information.",
@@ -24247,8 +24247,8 @@
 (def
   Reference-MethodAndApparatusForNetworkFraudDetectionAndRemediationThroughAnalytics_IdaptiveLLC
   "Reference - Method and Apparatus for Network Fraud Detection and Remediation Through Analytics - Idaptive LLC"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190081968A1/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190081968A1/en"},
    :d3f/kb-abstract
    #xsd/string
     "A system and method for assessing the identity fraud risk of an entity's (a user's, computer process's, or device's) behavior within a computer network and then to take appropriate action. The system uses real-time machine learning for its assessment. It records the entity's log-in behavior (conditions at log-in) and behavior once logged in to create an entity profile that helps identify behavior patterns. The system compares new entity behavior with the entity profile to determine a risk score and a confidence level for the behavior. If the risk score and confidence level indicate a credible identity fraud risk at log-in, the system can require more factors of authentication before log-in succeeds. If the system detects risky behavior after log-in, it can take remedial action such as ending the entity's session, curtailing the entity's privileges, or notifying a human administrator.",
@@ -24275,7 +24275,7 @@
 (def
   Reference-MethodAndApparatusForUtilizingATokenForResourceAccess_RsaSecurityInc_
   "Reference - Method and apparatus for utilizing a token for resource access - Rsa Security Inc."
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US5657388A/en",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US5657388A/en"},
    :d3f/kb-abstract
    #xsd/string
     "A method and apparatus for utilizing a token which is preferably a \"dumb token\" to provide secure access by authorized users to a selected resource. The token stores a secret user code in machine readable form, which code is read by a token processor. The token processor also receives a time-varying value and an algorithm, both of which may be stored or generated at either the token or the token processor and preferably a secret personal identification code which may be inputted at the token, but is preferably inputted at the token processor. The secret user code, time-varying value and secret personal identification code are then algorithmically combined by the algorithm, preferably in the token processor, to generate a one-time nonpredictable code which is transmitted to a host processor. The host processor utilizes the received one-time nonpredictable code to determine if the user is authorized access to the resource and grants access to the resource if the user is determined to be authorized. The system may be modified to operate in query/response mode. The token processor may be any of a variety of available portable remote processors or may be a device such as a telephone which is equipped with card or other token reader and with processing capability.",
@@ -24295,7 +24295,7 @@
 
 (def Reference-MethodAndSystemForControllingCommunicationPorts
   "Reference - Method and system for controlling communication ports"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8566924",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8566924"},
    :d3f/kb-abstract
    #xsd/string
     "A method for limiting devices and controlling the applications executed from USB ports on personal computers (PCs).",
@@ -24313,8 +24313,8 @@
 (def
   Reference-MethodAndSystemForDetectingAlgorithm-generatedDomains_VECTRANETWORKSInc
   "Reference - Method and system for detecting algorithm-generated domains - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20150264070A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20150264070A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for detecting algorithm-generated domains (AGDs) is disclosed wherein domain names requested by an internal host are categorized or classified using curated data sets, active services (e.g. Internet services), and certainty scores to match domain names to domain names or IP addresses used by command and control servers.",
@@ -24338,8 +24338,8 @@
   Reference-MethodAndSystemForDetectingExternalControlOfCompromisedHosts_VECTRANETWORKSInc
   "Reference - Method and system for detecting external control of compromised hosts - VECTRA NETWORKS Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9407647B2/en?oq=US-9407647-B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9407647B2/en?oq=US-9407647-B2"},
    :d3f/kb-abstract
    #xsd/string
     "A detection engine may be implemented by receiving network traffic and processing the traffic into one or more session datasets. Sessions not initiated by an internal host may be discarded. The frequency between the communication packets from the internal host to external host may be grouped or processed into rapid-exchange instances. The number of rapid-exchange instances, the time intervals between them, and/or the rhythm and directions of the initiation of the instances may be analyzed to determine that a human actor is manually controlling the external host. In some embodiments, when it is determined that only one human actor is involved, alarm data may be generated that indicates that a network intrusion involving manual remote control has occurred or is underway.",
@@ -24362,8 +24362,8 @@
 (def Reference-MethodAndSystemForDetectingMaliciousPayloads_VectraNetworksInc
   "Reference - Method and system for detecting malicious payloads - Vectra Networks Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/EP3293937A1/en?oq=EP-3293937-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/EP3293937A1/en?oq=EP-3293937-A1"},
    :d3f/kb-abstract
    #xsd/string
     "Disclosed is an improved method, system, and computer program product for identifying malicious payloads. The disclosed approach identifies potentially malicious payload exchanges which may be associated with payload injection or root-kit magic key usage.\n\nSome examples of data inputs:\n    Information for clients and servers, such as IP address and host information\n    Payloads for both clients and servers\n    Amount of data being transferred\n    Duration of communications\n    Length of time delay between client request and server response",
@@ -24385,8 +24385,8 @@
 (def
   Reference-MethodAndSystemForDetectingRestrictedContentAssociatedWithRetrievedContent_SophosLtd
   "Reference - Method and system for detecting restricted content associated with retrieved content - Sophos Ltd"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160359883A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160359883A1"},
    :d3f/kb-abstract
    #xsd/string
     "In embodiments of the present invention improved capabilities are described for detecting restricted content associated with retrieved content. The method and system may include receiving a client request for content, saving contextual information from the client request, presenting retrieved content in response to the client request, and presenting the contextual information from the client request, and retrieved content, to a scanning facility. The scanning facility may utilize the contextual information from the client request to aid in the detection of restricted content associated with retrieved content.",
@@ -24411,8 +24411,8 @@
 (def
   Reference-MethodAndSystemForDetectingSuspiciousAdministrativeActivity_VectraNetworksInc
   "Reference - Method and system for detecting suspicious administrative activity - Vectra Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20180077186A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20180077186A1"},
    :d3f/kb-abstract
    #xsd/string
     "Disclosed is an improved approach for identifying suspicious administrative host activity within a network. Network traffic is examined to learn the behavior of hosts within a network. This provides an effective way of determining whether or not a host is performing suspicious activity over an administrative protocol.",
@@ -24435,8 +24435,8 @@
 (def
   Reference-MethodAndSystemForDetectingThreatsUsingMetadataVectors_VECTRANETWORKSInc
   "Reference - Method and system for detecting threats using metadata vectors - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160191551A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160191551A1"},
    :d3f/kb-abstract
    #xsd/string
     "An approach for detecting network attacks using metadata vectors may initially involve receiving network communications or packets, extracting metadata items from the packets. The metadata items describe the communications without requiring deep content inspection of the data payload or contents. The communications may be clustered into groups using the metadata items. If a cluster exceeds a threshold, an alarm may be generated.",
@@ -24459,8 +24459,8 @@
 (def
   Reference-MethodAndSystemForDetectingThreatsUsingPassiveClusterMapping_VectraNetworksInc
   "Reference - Method and system for detecting threats using passive cluster mapping - Vectra Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160149936A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160149936A1"},
    :d3f/kb-abstract
    #xsd/string
     "An approach for detecting network threats is disclosed, that may involve receiving network traffic, plotting the network traffic in a n-dimensional feature space to form a network map, generating a client signature at least by placing new client points in the map, setting a threshold, and generating an alarm if one or more client activity points exceed the threshold. In some embodiments, the network map and the client signature are updated using sliding windows and distance calculations.",
@@ -24482,8 +24482,8 @@
 
 (def Reference-MethodAndSystemForProvidingSoftwareUpdatesToLocalMachines
   "Reference - Method and system for providing software updates to local machines"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US10474448B2/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US10474448B2/en"},
    :d3f/kb-author #xsd/string "John Melton Reynolds",
    :d3f/kb-organization #xsd/string "Sophos Ltd",
    :d3f/kb-reference-title
@@ -24498,7 +24498,7 @@
 
 (def Reference-MethodAndSystemForUDPFloodAttackDetection-RioreyLLC
   "Reference - Method and system for UDP flood attack detection - Riorey LLC"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8307430B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8307430B1"},
    :d3f/kb-abstract
    #xsd/string
     "A system and method is provided to identify UDP attacks. A processor determines a spectral density of packet timing intervals, a natural distance between the spectral density and a uniform distribution, and a non-linear amplifier applying a non-linear amplification to the natural distance to detect a denial-of-service attack. It uses the concept of traffic statistics analysis, i.e., spectral densities of arrived-packet timing intervals, calculates the KL-distance measurement and makes decision based on the output of a non-linear Gaussian amplifier, with which one can easily adjust the amplifier via selecting different parameters of mean and variance to satisfy system requirements of false-positive and false-negative UDP attack detections.",
@@ -24515,7 +24515,7 @@
 (def
   Reference-MethodForControllingComputerNetworkSecurity_CheckpointSoftwareTechnologiesLtd
   "Reference - Method for controlling computer network security - Checkpoint Software Technologies Ltd"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/EP0658837B1/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/EP0658837B1/"},
    :d3f/kb-abstract
    #xsd/string
     "A method of operating a security system for a computer network in which data is passed in said network as data packets, said system controlling the passage of said data packets in the network according to a security rule, where each aspect of said network controlled by said security rule has been defined, said security rule has been defined in terms of said aspects and converted into a set of filter language instructions.",
@@ -24538,7 +24538,7 @@
 
 (def Reference-MethodForFileEncryption
   "Reference - Method for file encryption"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9521123B2/en",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9521123B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "A method for encryption and sealing of a plaintext file by hashing the plaintext file to produce a plaintext hash, encrypting the plaintext file to produce ciphertext, hashing the ciphertext to produce a ciphertext hash, hashing the plaintext hash and the ciphertext hash to produce a result hash, and sealing the ciphertext together with the result hash.",
@@ -24555,7 +24555,7 @@
 (def
   Reference-MethodUsingKernelModeAssistanceForTheDetectionAndRemovalOfThreatsWhichAreActivelyPreventingDetectionAndRemovalFromARunningSystem_SymantecCorporation
   "Reference - Method using kernel mode assistance for the detection and removal of threats which are actively preventing detection and removal from a running system - Symantec Corporation"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8239947B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8239947B1"},
    :d3f/kb-abstract
    #xsd/string
     "A user mode application component invokes the assistance of a kernel mode driver component to detect and/or remediate malicious code on a computer system. The user mode application may include code that detects, for example, spyware and computer viruses, from user mode and when appropriate takes protective action when malicious code is detected. In one aspect, when the user mode application is unable to perform a selected operation in attempting to detect and/or take protective action, the user mode application invokes a kernel mode driver for assistance. The kernel mode driver assists user mode application in detecting malicious code and/or taking protective action by enabling or otherwise performing a selected operation for the user mode application.",
@@ -24577,8 +24577,8 @@
 
 (def Reference-MissionDependencyModelingForCyberSituationalAwareness
   "Reference - Mission Dependency Modeling for Cyber Situational Awareness"
-  {:d3f/has-link #xsd/anyURI
-                  "https://csis.gmu.edu/noel/pubs/2016_NATO_IST_148.pdf",
+  {:d3f/has-link {:rdfa/uri
+                  "https://csis.gmu.edu/noel/pubs/2016_NATO_IST_148.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "This paper describes a hierarchical graph-based model that captures mission dependencies at various levels of abstraction, showing interdependencies among mission objectives, tasks, information, and cyber assets. For this work, we employ established tools within a structured methodology for cyber resiliency analysis. Our model is focused on a strategic-level military scenario defined in a formal Request for Information (RFI) to industry and research partners by the NATO Multinational Cyber Defense Capability Development (MN CD2) Work Package 2 (WP2). We enhance this scenario with additional mission and operational context, and then build a mission dependency model for the enhanced scenario. It is anticipated that our mission dependency model will be part of an upcoming demonstration of cyber defense situational awareness capabilities in a NATO Communications and Information (NCI) Agency test environment, integrated with data sources that represent the operational military environment.",
@@ -24597,7 +24597,7 @@
 (def
   Reference-MockAttackCybersecurityTrainingSystemAndMethods_WOMBATSECURITYTECHNOLOGIESInc
   "Reference - Mock attack cybersecurity training system and methods - WOMBAT SECURITY TECHNOLOGIES Inc"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9558677B2/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9558677B2/"},
    :d3f/kb-abstract
    #xsd/string
     "A training system senses a user action that may expose the user to a threat, such as a cybersecurity threat. The user action may be in response to a mock attack delivered via a messaging service, a wireless communication service, a fake malware application or another device, service, system or mechanism. The system selects a training action from a collection of available training actions and causes the training action to be delivered to the user.",
@@ -24619,7 +24619,7 @@
 
 (def Reference-ModelingUserAccessToComputerResources_DaedalusGroupLLC
   "Reference - Modeling user access to computer resources - Daedalus Group LLC (formerly IBM)"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8214364B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8214364B2"},
    :d3f/kb-abstract
    #xsd/string
     "Embodiments of the invention provide a method for detecting changes in behavior of authorized users of computer resources and reporting the detected changes to the relevant individuals. The method includes evaluating actions performed by each user against user behavioral models and business rules. As a result of the analysis, a subset of users may be identified and reported as having unusual or suspicious behavior. In response, the management may provide feedback indicating that the user behavior is due to the normal expected business needs or that the behavior warrants further review. The management feedback is available for use by machine learning algorithms to improve the analysis of user actions over time. Consequently, investigation of user actions regarding computer resources is facilitated and data loss is prevented more efficiently relative to the prior art approaches with only minimal disruption to the ongoing business processes.",
@@ -24641,8 +24641,8 @@
 (def
   Reference-ModificationOfAServerToMimicADeceptionMechanism_AcalvioTechnologiesInc
   "Reference - Modification of a Server to Mimic a Deception Mechanism - Acalvio Technologies Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170149825A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170149825A1"},
    :d3f/kb-abstract
    #xsd/string
     "Provided are devices, computer-program products, and methods (e.g., methods implemented by a production system or security agent program or process) for providing services on a production system to mimic a deception mechanism. For example, a method can include determining a deception characteristic of a deception mechanism and determining a production characteristic of the production system. The method can further include determining an additional service or a modification of an existing service of the production system using the deception characteristic and the production characteristic. In some cases, the additional service and/or the modification can be a deterrent to potential attackers of the production system. The method can further include modifying the production system to mimic the deception mechanism, including adding the additional service to the production system or modifying the existing service using the modification.",
@@ -24662,7 +24662,7 @@
 
 (def Reference-Munin
   "Reference - Munin"
-  {:d3f/has-link  #xsd/anyURI "https://github.com/Neo23x0/munin",
+  {:d3f/has-link  {:rdfa/uri "https://github.com/Neo23x0/munin"},
    :d3f/kb-author #xsd/string "Florian Roth",
    :d3f/kb-reference-title
    #xsd/string "Online Hash Checker for Virustotal and Other Services",
@@ -24673,8 +24673,8 @@
 (def Reference-NIST-RMF-Quick-Start-Guide-Assess-Step-FAQ
   "Reference - NIST RMF Quick Start Guide - Assess Step - Frequently Asked Questions (FAQ)"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://csrc.nist.gov/CSRC/media/Projects/risk-management/documents/05-Assess%20Step/NIST%20RMF%20Assess%20Step-FAQs.pdf",
+   {:rdfa/uri
+    "https://csrc.nist.gov/CSRC/media/Projects/risk-management/documents/05-Assess%20Step/NIST%20RMF%20Assess%20Step-FAQs.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "Once security and privacy controls are implemented, they need to be evaluated for correctness and effectiveness. After the initial assessment is completed and the system enters the operations/maintenance phase of the system development life cycle, the controls are assessed on an ongoing basis according to the organization and system’s continuous monitoring plans. The ongoing assessment supports the authorizing official’s decision to continue or discontinue the system’s authorization to operate. Control effectiveness assessments are performed by an independent third-party assessor or assessment team if the system categorization is moderate or high.",
@@ -24691,7 +24691,7 @@
 
 (def Reference-NIST-Special-Publication-800-160-Volume-1
   "Reference - NIST Special Publication 800-160 Volume 1 - System Security Engineering"
-  {:d3f/has-link #xsd/anyURI "https://doi.org/10.6028/NIST.SP.800-160v1",
+  {:d3f/has-link {:rdfa/uri "https://doi.org/10.6028/NIST.SP.800-160v1"},
    :d3f/kb-abstract
    #xsd/string
     "With the continuing frequency, intensity, and adverse consequences of cyber-attacks, disruptions, hazards, and other threats to federal, state, and local governments, the military, businesses, and the critical infrastructure, the need for trustworthy secure systems has never been more important to the long-term economic and national security interests of the United States. Engineering-based solutions are essential to managing the growing complexity, dynamicity, and interconnectedness of today’s systems, as exemplified by cyber-physical systems and systems-of-systems, including the Internet of Things. This publication addresses the engineering-driven perspective and actions necessary to develop more defensible and survivable systems, inclusive of the machine, physical, and human components that compose the systems and the capabilities and services delivered by those systems. It starts with and builds upon a set of well-established International Standards for systems and software engineering published by the International Organization for Standardization (ISO), the International Electrotechnical Commission (IEC), and the Institute of Electrical and Electronics Engineers (IEEE) and infuses systems security engineering methods, practices, and techniques into those systems and software engineering activities. The objective is to address security issues from a stakeholder protection needs, concerns, and requirements perspective and to use established engineering processes to ensure that such needs, concerns, and requirements are addressed with appropriate fidelity and rigor, early and in a sustainable manner throughout the life cycle of the system.",
@@ -24710,7 +24710,7 @@
 
 (def Reference-NIST-Special-Publication-800-37-Revision-2
   "Reference - NIST Special Publication 800-37 Revision 2 - Risk Management Framework for Information Systems and Organizations"
-  {:d3f/has-link #xsd/anyURI "https://doi.org/10.6028/NIST.SP.800-37r2",
+  {:d3f/has-link {:rdfa/uri "https://doi.org/10.6028/NIST.SP.800-37r2"},
    :d3f/kb-abstract
    #xsd/string
     "This publication describes the Risk Management Framework (RMF) and provides guidelines for applying the RMF to information systems and organizations. The RMF provides a disciplined, structured, and flexible process for managing security and privacy risk that includes information security categorization; control selection, implementation, and assessment; system and common control authorizations; and continuous monitoring. The RMF includes activities to prepare organizations to execute the framework at appropriate risk management levels. The RMF also promotes near real-time risk management and ongoing information system and common control authorization through the implementation of continuous monitoring processes; provides senior leaders and executives with the necessary information to make efficient, cost-effective, risk management decisions about the systems supporting their missions and business functions; and incorporates security and privacy into the system development life cycle. Executing the RMF tasks links essential risk management processes at the system level to risk management processes at the organization level. In addition, it establishes responsibility and accountability for the controls implemented within an organization’s information systems and inherited by those systems.",
@@ -24727,7 +24727,7 @@
 
 (def Reference-NIST-Special-Publication-800-53A-Revision-5
   "Reference - NIST Special Publication 800-53A Revision 5 - Assessing Security and Privacy Controls in Information Systems and Organizations"
-  {:d3f/has-link #xsd/anyURI "https://doi.org/10.6028/NIST.SP.800-53Ar5",
+  {:d3f/has-link {:rdfa/uri "https://doi.org/10.6028/NIST.SP.800-53Ar5"},
    :d3f/kb-abstract
    #xsd/string
     "This publication provides a methodology and set of procedures for conducting assessments of security and privacy controls employed within systems and organizations within an effective risk management framework. The assessment procedures, executed at various phases of the system development life cycle, are consistent with the security and privacy controls in NIST Special Publication 800-53, Revision 5. The procedures are customizable and can be easily tailored to provide organizations with the needed flexibility to conduct security and privacy control assessments that support organizational risk management processes and are aligned with the stated risk tolerance of the organization. Information on building effective security and privacy assessment plans is also provided with guidance on analyzing assessment results.",
@@ -24744,7 +24744,7 @@
 
 (def Reference-NISTIR-8011-Volume-1
   "Reference - NISTIR 8011 Volume 1 - Automation Support for Security Control Assessments"
-  {:d3f/has-link #xsd/anyURI "https://doi.org/10.6028/NIST.IR.8011-1",
+  {:d3f/has-link {:rdfa/uri "https://doi.org/10.6028/NIST.IR.8011-1"},
    :d3f/kb-abstract
    #xsd/string
     "This volume introduces concepts to support automated assessment of most of the security controls in NIST Special Publication (SP) 800-53. Referencing SP 800-53A, the controls are divided into more granular parts (determination statements) to be assessed. The parts of the control assessed by each determination statement are called control items. The control items are then grouped into the appropriate security capabilities. As suggested by SP 800-53 Revision 4, security capabilities are groups of controls that support a common purpose. For effective automated assessment, testable defect checks are defined that bridge the determination statements to the broader security capabilities to be achieved and to the SP 800-53 security control items themselves. The defect checks correspond to security sub-capabilities-called sub-capabilities because each is part of a larger capability. Capabilities and sub-capabilities are both designed with the purpose of addressing a series of attack steps. Automated assessments (in the form of defect checks) are performed using the test assessment method defined in SP 800-53A by comparing a desired and actual state (or behavior).",
@@ -24763,7 +24763,7 @@
 (def
   Reference-Network-BasedBufferOverflowDetectionByExploitCodeAnalysis_InformationSecurityResearchCentre
   "Reference - Network-Based Buffer Overflow Detection by Exploit Code Analysis - Information Security Research Centre"
-  {:d3f/has-link #xsd/anyURI "https://eprints.qut.edu.au/21172/1/21172.pdf",
+  {:d3f/has-link {:rdfa/uri "https://eprints.qut.edu.au/21172/1/21172.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "Buffer overflow attacks continue to be a major security problem and detecting attacks of this nature\nis therefore crucial to network security. Signature based network based intrusion detection systems (NIDS)\ncompare network traffic to signatures modelling suspicious or attack traffic to detect network attacks. Since\ndetection is based on pattern matching, a signature modelling the attack must exist for the NIDS to detect it, and\nit is therefore only capable of detecting known attacks. This paper proposes a method to detect buffer overflow\nattacks by parsing the payload of network packets in search of shellcode which is the remotely executable\ncomponent of a buffer overflow attack. By analysing the shellcode it is possible to determine which system\ncalls the exploit uses, and hence the operation of the exploit. Current NIDS-based buffer overflow detection\ntechniques mainly rely upon specific signatures for each new attack. Our approach is able to detect previously\nunseen buffer overflow attacks, in addition to existing ones, without the need for specific signatures for each\nnew attack. The method has been implemented and tested for buffer overflow attacks on Linux on the Intel x86\narchitecture using the Snort NIDS.",
@@ -24785,8 +24785,8 @@
 (def Reference-Network-levelPolymorphicShellcodeDetectionUsingEmulation
   "Reference - Network-level polymorphic shellcode detection using emulation"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.cs.unc.edu/~fabian/course_papers/polymorphic-detect.pdf",
+   {:rdfa/uri
+    "https://www.cs.unc.edu/~fabian/course_papers/polymorphic-detect.pdf"},
    :d3f/kb-author #xsd/string "Michalis Polychronakis",
    :d3f/kb-reference-of :d3f/ByteSequenceEmulation,
    :d3f/kb-reference-title
@@ -24800,7 +24800,7 @@
 
 (def Reference-NetworkFirewallWithProxy_SecureComputingLLC
   "Reference - Network firewall with proxy - Secure Computing LLC"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/GB2318031A",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/GB2318031A"},
    :d3f/kb-abstract
    #xsd/string
     "A proxy which is part of a firewall controls exchanges of information between two application entities. The proxy interrogates attempts to establish a communication session by requesting entities with a server entity in lower layers in accordance with defined authentication procedures. The Proxy interfaces with networking software to direct a communication stack to monitor connection requests to any address on specific ports. The requestor's address, and the server's address are checked against a access control list. If either address is invalid, the proxy closes the connection. If both are valid, a new connection is setup such that both the requestor and server are transparently connected to the proxy with variable higher levels being connected in a relay mode. Protocol data units are interrogated for conformance to a protocol session, and optionally further decoded to add additional application specific filtering. In one embodiment, an OSI architecture comprises the levels.",
@@ -24822,8 +24822,8 @@
 (def Reference-OSQueryWindowsUserCollectionCode
   "Reference - OS Query Windows User Collection Code"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://github.com/osquery/osquery/blob/d2be385d71f401c85872f00d479df8f499164c5a/osquery/tables/system/windows/users.cpp",
+   {:rdfa/uri
+    "https://github.com/osquery/osquery/blob/d2be385d71f401c85872f00d479df8f499164c5a/osquery/tables/system/windows/users.cpp"},
    :d3f/kb-reference-title #xsd/string "OS Query Windows User Collection Code",
    :db/ident :d3f/Reference-OSQueryWindowsUserCollectionCode,
    :rdf/type [:d3f/SourceCodeReference :owl/NamedIndividual],
@@ -24832,8 +24832,8 @@
 (def Reference-OpenSourceIntelligenceDeceptions_IllusiveNetworksLtd
   "Reference - Open source intelligence deceptions - Illusive Networks Ltd"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US10333976B1/en?assignee=Illusive+Networks+Ltd&oq=Illusive+Networks+Ltd+",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US10333976B1/en?assignee=Illusive+Networks+Ltd&oq=Illusive+Networks+Ltd+"},
    :d3f/kb-abstract
    #xsd/string
     "A system to detect attackers who attempt to breach an enterprise network and attackers who have already breached the enterprise network, including an open source intelligence (OSINT) discoverer scanning the Internet to discover data related to an enterprise that is available online, an OSINT replacer generating deceptive files by replacing placeholders within template files with deceptive information, based on the data discovered by the OSINT discoverer, an OSINT distributor planting the deceptive files generated by the OSINT replacer within designated OSINT resources, and a deception management server that alerts an administrator in response to an attacker attempting to make a connection within the network using information in a deceptive file planted by the OSINT distributor.",
@@ -24856,8 +24856,8 @@
 (def Reference-OrganizationalManagementInSAPERPHCM
   "Reference - Organizational Management in SAP ERP HCM"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.sap-press.com/organizational-management-in-sap-erp-hcm_3996/",
+   {:rdfa/uri
+    "https://www.sap-press.com/organizational-management-in-sap-erp-hcm_3996/"},
    :d3f/kb-author #xsd/string "Soham Ray",
    :d3f/kb-organization #xsd/string "SAP Press",
    :d3f/kb-reference-of :d3f/OrganizationMapping,
@@ -24869,7 +24869,7 @@
 
 (def Reference-OutlierParentsOfCmd_MITRE
   "Reference - CAR-2014-11-002: Outlier Parents of Cmd - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-11-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-11-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Many programs create command prompts as part of their normal operation including malware used by attackers. This analytic attempts to identify suspicious programs spawning cmd.exe by looking for programs that do not normally create cmd.exe.\n\nWhile this analytic does not take the user into account, doing so could generate further interesting results. It is very common for some programs to spawn cmd.exe as a subprocess, for example to run batch files or windows commands. However many process don't routinely launch a command prompt - for example Microsoft Outlook. A command prompt being launched from a process that normally doesn't launch command prompts could be the result of malicious code being injected into that process, or of an attacker replacing a legitimate program with a malicious one.",
@@ -24889,8 +24889,8 @@
 (def Reference-OverviewOfTheSeccompSandbox
   "Reference - Overview of the seccomp sandbox"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://code.google.com/archive/p/seccompsandbox/wikis/overview.wiki",
+   {:rdfa/uri
+    "https://code.google.com/archive/p/seccompsandbox/wikis/overview.wiki"},
    :d3f/kb-reference-of :d3f/SystemCallFiltering,
    :d3f/kb-reference-title #xsd/string "Overview of the seccomp sandbox",
    :db/ident :d3f/Reference-OverviewOfTheSeccompSandbox,
@@ -24899,8 +24899,8 @@
 
 (def Reference-PasswordandKeyRotation-SSH
   "Reference - Password and Key Rotation - SSH"
-  {:d3f/has-link #xsd/anyURI
-                  "https://www.ssh.com/academy/iam/password-key-rotation",
+  {:d3f/has-link {:rdfa/uri
+                  "https://www.ssh.com/academy/iam/password-key-rotation"},
    :d3f/kb-organization #xsd/string "SSH",
    :d3f/kb-reference-of :d3f/CredentialRotation,
    :d3f/kb-reference-title #xsd/string "Password and Key Rotation",
@@ -24911,8 +24911,8 @@
 (def Reference-PlatformFirmwareResiliencyGuidelines_NIST
   "Reference - Platform Firmware Resiliency Guidelines - NIST"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-193.pdf",
+   {:rdfa/uri
+    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-193.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "This document provides technical guidelines and recommendations supporting resiliency of platform firmware and data against potentially destructive attacks. The platform is a collection of fundamental hardware and firmware components needed to boot and operate a system. A successful attack on platform firmware could render a system inoperable, perhaps permanently, or requiring reprogramming by the original manufacturer, resulting in significant disruptions to users. The technical guidelines in this document promote resiliency in the platform by describing security mechanisms for protecting the platform against unauthorized changes, detecting unauthorized changes that occur, and recovering from attacks rapidly and securely. Implementers, including Original Equipment Manufacturers (OEMs) and component/device suppliers, can use these guidelines to build stronger security mechanisms into platforms. System administrators, security professionals, and users can use this document to guide procurement strategies and priorities for future systems.",
@@ -24931,8 +24931,8 @@
 (def Reference-PointerAuthenticationOnARMv8_3
   "Reference - Pointer Authentication on ARMv8.3"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.qualcomm.com/media/documents/files/whitepaper-pointer-authentication-on-armv8-3.pdf",
+   {:rdfa/uri
+    "https://www.qualcomm.com/media/documents/files/whitepaper-pointer-authentication-on-armv8-3.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "The pointer authentication scheme introduced by ARM is a software security primitive that makes it much harder for an attacker to modify protected pointers in memory without being detected. In this document, we will provide more details about the Pointer Authentication mechanism, provide a security analysis, and discuss the implementation of certain software security countermeasures, such as stack protection and control flow integrity, using the Pointer Authentication primitives.",
@@ -24947,8 +24947,8 @@
 (def Reference-PointerAuthenticationProjectZero
   "Reference - Pointer Authentication Project Zero"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://googleprojectzero.blogspot.com/2019/02/examining-pointer-authentication-on.html",
+   {:rdfa/uri
+    "https://googleprojectzero.blogspot.com/2019/02/examining-pointer-authentication-on.html"},
    :d3f/kb-abstract
    #xsd/string
     "In this post I examine Apple's implementation of Pointer Authentication on the A12 SoC used in the iPhone XS, with a focus on how Apple has improved over the ARM standard. I then demonstrate a way to use an arbitrary kernel read/write primitive to forge kernel PAC signatures for the A keys, which is sufficient to execute arbitrary code in the kernel using JOP. The technique I discovered was (mostly) fixed in iOS 12.1.3. In fact, this fix first appeared in the 16D5032a beta while my research was still ongoing.",
@@ -24964,8 +24964,8 @@
 (def
   Reference-PostSandboxMethodsAndSystemsForDetectingAndBlockingZero-dayExploitsViaApiCallValidation_K2CyberSecurityInc
   "Reference - Post sandbox methods and systems for detecting and blocking zero-day exploits via api call validation - K2 Cyber Security Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190138715A1/",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190138715A1/"},
    :d3f/kb-abstract
    #xsd/string
     "In one aspect, a method useful for monitoring and validating execution of executable binary code, includes the step of disassembling an executable binary code of an application. The method includes the step of detecting and obtaining location and type of an application programming interface (API) call, system call, and privileged instruction that is executed by the executable binary code. The method includes the step of detecting and obtaining return address from an Al call and system call. The method includes the step of validating location of the API call system call, and privileged instruction. The method includes the step of validating return from the API call and system call.",
@@ -24987,7 +24987,7 @@
 
 (def Reference-PowershellExecution_MITRE
   "Reference - CAR-2014-04-003: Powershell Execution - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-04-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-04-003/"},
    :d3f/kb-abstract
    #xsd/string
     "PowerShell is a scripting environment included with Windows that is used by both attackers and administrators. Execution of PowerShell scripts in most Windows versions is opaque and not typically secured by antivirus which makes using PowerShell an easy way to circumvent security measures. This analytic detects execution of PowerShell scripts.\n\nPowershell can be used to hide monitored command line execution such as:\n\n* net use\n* sc start",
@@ -25008,7 +25008,7 @@
 (def
   Reference-PredictingDomainGenerationAlgorithmsWithLongShort-TermMemoryNetworks_
   "Reference - Predicting Domain Generation Algorithms with Long Short-Term Memory Networks"
-  {:d3f/has-link #xsd/anyURI "https://arxiv.org/abs/1611.007911",
+  {:d3f/has-link {:rdfa/uri "https://arxiv.org/abs/1611.007911"},
    :d3f/kb-abstract
    #xsd/string
     "Various families of malware use domain generation algorithms (DGAs) to generate a large number of pseudo-random domain names to connect to a command and control (C&C) server. In order to block DGA C&C traffic, security organizations must first discover the algorithm by reverse engineering malware samples, then generating a list of domains for a given seed. The domains are then either preregistered or published in a DNS blacklist. This process is not only tedious, but can be readily circumvented by malware authors using a large number of seeds in algorithms with multivariate recurrence properties (e.g., banjori) or by using a dynamic list of seeds (e.g., bedep). Another technique to stop malware from using DGAs is to intercept DNS queries on a network and predict whether domains are DGA generated. Such a technique will alert network administrators to the presence of malware on their networks. In addition, if the predictor can also accurately predict the family of DGAs, then network administrators can also be alerted to the type of malware that is on their networks. This paper presents a DGA classifier that leverages long short-term memory (LSTM) networks to predict DGAs and their respective families without the need for a priori feature extraction. Results are significantly better than state-of-the-art techniques, providing 0.9993 area under the receiver operating characteristic curve for binary classification and a micro-averaged F1 score of 0.9906. In other terms, the LSTM technique can provide a 90% detection rate with a 1:10000 false positive (FP) rate---a twenty times FP improvement over comparable methods. Experiments in this paper are run on open datasets and code snippets are provided to reproduce the results.",
@@ -25031,8 +25031,8 @@
 
 (def Reference-PreventingExecutionOfTaskScheduledMalware_McAfeeLLC
   "Reference - Preventing execution of task scheduled malware - McAfee LLC"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160105450A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160105450A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method for preventing malware attacks includes the steps of detecting an attempt on an electronic device to access a task scheduler, determining an entity associated with the attempt to access the task scheduler, determining a malware status of the entity, and, based on the malware status of the entity, allowing or denying the attempted access to the task scheduler. The task scheduler is configured to launch one or more applications at a specified time or interval.",
@@ -25054,8 +25054,8 @@
 
 (def Reference-PrivacyAndSecuritySystemsAndMethodsOfUse
   "Reference - Privacy and security systems and methods of use"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US10128890B2/en",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US10128890B2/en"},
    :d3f/kb-author #xsd/string "Teddy David Thomas",
    :d3f/kb-reference-title #xsd/string
                             "Privacy and security systems and methods of use",
@@ -25066,8 +25066,8 @@
 
 (def Reference-PrivateVirtualLocalAreaNetworkIsolation_CiscoTechnologyInc
   "Reference - Private virtual local area network isolation - Cisco Technology Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20120331142A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20120331142A1"},
    :d3f/kb-abstract
    #xsd/string
     "In one embodiment, a method includes obtaining addresses of end hosts at a switch, the switch configured with a primary virtual local area network and a secondary virtual local area network, creating a private virtual local area network access list comprising the addresses of end hosts permitted to communicate on the secondary virtual local area network, and applying the private virtual local area network access list to interfaces connected to the end hosts permitted to communicate on the secondary virtual local area network. An apparatus is also disclosed.",
@@ -25086,7 +25086,7 @@
 
 (def Reference-ProcessesSpawningCmd_exe_MITRE
   "Reference - CAR-2013-02-003: Processes Spawning cmd.exe - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-02-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-02-003/"},
    :d3f/kb-abstract
    #xsd/string
     "The Windows Command Prompt (cmd.exe) is a utility that provides a command line interface to Windows operating systems. It provides the ability to run additional programs and also has several built-in commands such as dir, copy, mkdir, and type, as well as batch scripts (.bat). Typically, when a user runs a command prompt, the parent process is explorer.exe or another instance of the prompt. There may be automated programs, logon scripts, or administrative tools that launch instances of the command prompt in order to run scripts or other built-in commands. Spawning the process cmd.exe from certain parents may be more indicative of malice. For example, if Adobe Reader or Outlook launches a command shell, this may suggest that a malicious document has been loaded and should be investigated. Thus, by looking for abnormal parent processes of cmd.exe, it may be possible to detect adversaries.",
@@ -25110,8 +25110,8 @@
 
 (def Reference-ProtectedComputingEnvironment_MicrosoftTechnologyLicensingLLC
   "Reference - Protected computing environment - Microsoft Technology Licensing LLC"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20060242406A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20060242406A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method of establishing a protected environment within a computing device including validating a kernel component loaded into a kernel of the computing device, establishing a security state for the kernel based on the validation, creating a secure process and loading a software component into the secure process, periodically checking the security state of the kernel, and notifying the secure process when the security state of the kernel has changed.",
@@ -25133,7 +25133,7 @@
 (def
   Reference-ProtectingAgainstDistributedDenialOfServiceAttacks-CiscoTechnologyInc_
   "Reference - Protecting against distributed denial of service attacks - Cisco Technology Inc."
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US7171683B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US7171683B2"},
    :d3f/kb-abstract
    #xsd/string
     "A method for authenticating packet communication traffic includes receiving a data packet sent over a network from a source address to a destination address and reading from the packet a value of a field that is indicative of a number of hops traversed by the packet since having been sent from the source address. The authenticity of the source address is assessed responsive to the value.",
@@ -25153,7 +25153,7 @@
 (def
   Reference-ProtectingAgainstDistributedNetworkFloodAttacks-JuniperNetworksInc_
   "Reference - Protecting against distributed network flood attacks - Juniper Networks Inc."
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8789173B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8789173B2"},
    :d3f/kb-abstract
    #xsd/string
     "A network security device performs a three-stage analysis of traffic to identify malicious clients. In one example, a device includes an attack detection module to, during a first stage, monitor network connections to a protected network device, during a second stage, to monitor a plurality of types of transactions for the plurality of network sessions when a parameter for the connections exceeds a connection threshold, and during a third stage, to monitor communications associated with network addresses from which transactions of the at least one of type of transactions originate when a parameter associated with the at least one type of transactions exceeds a transaction-type threshold. The device executes a programmed action with respect to at least one of the network addresses when the transactions of the at least one of the plurality of types of transactions originating from the at least one network address exceeds a client-transaction threshold.",
@@ -25173,8 +25173,8 @@
 (def Reference-PsSuspend
   "Reference - PsSuspend - Microsoft"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://learn.microsoft.com/en-us/sysinternals/downloads/pssuspend",
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/sysinternals/downloads/pssuspend"},
    :d3f/kb-author #xsd/string "Mark Russinovich",
    :d3f/kb-organization #xsd/string "Microsoft",
    :d3f/kb-reference-of :d3f/ProcessSuspension,
@@ -25185,7 +25185,7 @@
 
 (def Reference-QualysNetworkPassiveSensorGettingStartedGuide
   "Reference - Qualys Network Passive Sensor Getting Started Guide"
-  {:d3f/has-link #xsd/anyURI "https://www.qualys.com/passive-scanning-sensor/",
+  {:d3f/has-link {:rdfa/uri "https://www.qualys.com/passive-scanning-sensor/"},
    :d3f/kb-abstract
    #xsd/string
     "Qualys Passive Scanning Sensor (PS) continuously monitors all network traffic and flags any asset activity. It identifies and profiles devices the moment they connect to the network, including those difficult to scan, corporate owned, brought by employees, and rogue IT. The data is sent immediately to the Qualys Cloud Platform for centralized analysis.",
@@ -25202,7 +25202,7 @@
 
 (def Reference-QuickExecutionOfASeriesOfSuspiciousCommands_MITRE
   "Reference - CAR-2013-04-002: Quick execution of a series of suspicious commands - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-04-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-04-002/"},
    :d3f/kb-abstract
    #xsd/string
     "Certain commands are frequently used by malicious actors and infrequently used by normal users. By looking for execution of these commands in short periods of time, we can not only see when a malicious user was on the system but also get an idea of what they were doing.",
@@ -25225,7 +25225,7 @@
 
 (def Reference-RDPConnectionDetection_MITRE
   "Reference - CAR-2013-07-002: RDP Connection Detection - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-07-002",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-07-002"},
    :d3f/kb-abstract
    #xsd/string
     "The Remote Desktop Protocol (RDP), built in to Microsoft operating systems, allows a user to remotely log in to the desktop of another host. It allows for interactive access of the running windows, and forwards key presses, mouse clicks, etc. Network administrators, power users, and end-users may use RDP for day-to-day operations. From an adversary's perspective, RDP provides a means to laterally move to a new host. Determining which RDP connections correspond to adversary activity can be a difficult problem in highly dynamic environments, but will be useful in identifying the scope of a compromise.",
@@ -25248,7 +25248,7 @@
 
 (def Reference-RFC2289-AOne-TimePasswordSystem
   "Reference - RFC 2289 - A One-Time Password System"
-  {:d3f/has-link #xsd/anyURI "https://tools.ietf.org/html/rfc2289",
+  {:d3f/has-link {:rdfa/uri "https://tools.ietf.org/html/rfc2289"},
    :d3f/kb-organization #xsd/string "Internet Engineering Task Force (IETF)",
    :d3f/kb-reference-of :d3f/One-timePassword,
    :d3f/kb-reference-title #xsd/string "A One-Time Password System",
@@ -25262,8 +25262,8 @@
 (def
   Reference-RFC3411-AnArchitectureForDescribingSimpleNetworkManagementProtocolSNMPManagementFrameworks
   "Reference - An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks"
-  {:d3f/has-link #xsd/anyURI
-                  "https://https://datatracker.ietf.org/doc/html/rfc3411",
+  {:d3f/has-link {:rdfa/uri
+                  "https://https://datatracker.ietf.org/doc/html/rfc3411"},
    :d3f/kb-author #xsd/string "D. Harrington, R. Presuhn, B. Wijnen",
    :d3f/kb-organization #xsd/string "Internet Engineering Task Force (IETF)",
    :d3f/kb-reference-of :d3f/HardwareComponentInventory,
@@ -25280,7 +25280,7 @@
 (def
   Reference-RFC7208-SenderPolicyFramework-SPF-ForAuthorizingUseOfDomainsInEmail-IETF
   "Reference - RFC 7208: Sender Policy Framework (SPF) for Authorizing Use of Domains in Email - IETF"
-  {:d3f/has-link #xsd/anyURI "https://tools.ietf.org/html/rfc7208",
+  {:d3f/has-link {:rdfa/uri "https://tools.ietf.org/html/rfc7208"},
    :d3f/kb-abstract
    #xsd/string
     "Email on the Internet can be forged in a number of ways. In particular, existing protocols place no restriction on what a sending host can use as the \"MAIL FROM\" of a message or the domain given on the SMTP HELO/EHLO commands.  This document describes version 1 of the Sender Policy Framework (SPF) protocol, whereby Administrative Management Domains (ADMDs) can explicitly authorize the hosts that are allowed to use their domain names, and a receiving host can check such authorization.",
@@ -25300,7 +25300,7 @@
 (def
   Reference-RFC7489-Domain-basedMessageAuthentication-Reporting-AndConformance-DMARC
   "Reference - RFC 7489: Domain-based Message Authentication, Reporting, and Conformance (DMARC) - IETF"
-  {:d3f/has-link #xsd/anyURI "https://tools.ietf.org/html/rfc7489",
+  {:d3f/has-link {:rdfa/uri "https://tools.ietf.org/html/rfc7489"},
    :d3f/kb-abstract
    #xsd/string
     "Domain-based Message Authentication, Reporting, and Conformance(DMARC) is a scalable mechanism by which a mail-originating organization can express domain-level policies and preferences for message validation, disposition, and reporting, that a mail-receiving organization can use to improve mail handling.\n\nOriginators of Internet Mail need to be able to associate reliable and authenticated domain identifiers with messages, communicate policies about messages that use those identifiers, and report about mail using those identifiers.  These abilities have several benefits: Receivers can provide feedback to Domain Owners about the use of their domains; this feedback can provide valuable insight about the management of internal operations and the presence of external domain name abuse.\n\nDMARC does not produce or encourage elevated delivery privilege of authenticated email. DMARC is a mechanism for policy distribution that enables increasingly strict handling of messages that fail authentication checks, ranging from no action, through altered\ndelivery, up to message rejection.",
@@ -25320,7 +25320,7 @@
 (def
   Reference-RFC7642SystemForCrossDomainIdentityManagementDefinitionsOverviewConceptsAndRequirements
   "Reference - RFC 7642: System for Cross-domain Identity Management: Definitions, Overview, Concepts, and Requirements"
-  {:d3f/has-link #xsd/anyURI "https://datatracker.ietf.org/doc/html/rfc7642",
+  {:d3f/has-link {:rdfa/uri "https://datatracker.ietf.org/doc/html/rfc7642"},
    :d3f/kb-abstract
    #xsd/string
     "The System for Cross-domain Identity Management (SCIM) specification is designed to manage user identity in cloud-based applications and services in a standardized way to enable interoperability, security, and scalability.  The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models.  The intent of the SCIM specification is to reduce the cost and complexity of user management operations by providing a common user schema and extension model, as well as binding documents to provide patterns for exchanging this schema using standard protocols.  In essence, make it fast, cheap, and easy to move users in to, out of, and around the cloud.",
@@ -25339,7 +25339,7 @@
 
 (def Reference-RPCCallInterception_CrowdstrikeInc
   "Reference - RPC call interception - Crowdstrike Inc"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US20150163109",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US20150163109"},
    :d3f/kb-abstract
    #xsd/string
     "A service proxy is described herein. The service proxy is configured to act as an intermediary between a client and a service. The service proxy may observe communications, modify communications, log communications, or the like, particularly so as to enhance the security and reliability of the host device. In some implementations, the service proxy may cooperate with an operating system to take over a named port object. In some implementations, the service proxy may receive messages as an intermediary between the client and the server. In some implementations, the service proxy may attach to a shared memory to intercept communications. In some implementations, the service proxy may be injected into a client process to appear to be the client itself.",
@@ -25356,8 +25356,8 @@
 
 (def Reference-RedHatEnterpriseLinux8SecurityTechnicalImplementationGuide
   "Reference - Red Hat Enterprise Linux 8 Security Technical Implementation Guide"
-  {:d3f/has-link #xsd/anyURI
-                  "https://www.stigviewer.com/stig/red_hat_enterprise_linux_8/",
+  {:d3f/has-link
+   {:rdfa/uri "https://www.stigviewer.com/stig/red_hat_enterprise_linux_8/"},
    :d3f/kb-abstract #xsd/string
                      "Red Hat Enterprise Linux 8 Security Guidelines",
    :d3f/kb-reference-of :d3f/ApplicationConfigurationHardening,
@@ -25373,7 +25373,7 @@
 
 (def Reference-Reg_exeCalledFromCommandShell_MITRE
   "Reference - CAR-2013-03-001: Reg.exe called from Command Shell - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-03-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-03-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Registry modifications are often essential in establishing persistence via known Windows mechanisms. Many legitimate modifications are done graphically via regedit.exe or by using the corresponding channels, or even calling the Registry APIs directly. The built-in utility reg.exe provides a command-line interface to the registry, so that queries and modifications can be performed from a shell, such as cmd.exe. When a user is responsible for these actions, the parent of cmd.exe will likely be explorer.exe. Occasionally, power users and administrators write scripts that do this behavior as well, but likely from a different process tree. These background scripts must be learned so they can be tuned out accordingly.",
@@ -25396,8 +25396,8 @@
 (def Reference-RegistryKeySecurityAndAccessRights
   "Reference - Registry Key Security and Access Rights"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-key-security-and-access-rights",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-key-security-and-access-rights"},
    :d3f/kb-abstract
    #xsd/string
     "The Windows security model enables you to control access to registry keys. For more information about security, see Access-Control Model.",
@@ -25412,7 +25412,7 @@
 
 (def Reference-RemoteDesktopLogon_MITRE
   "Reference - CAR-2016-04-005: Remote Desktop Logon - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2016-04-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2016-04-005/"},
    :d3f/kb-abstract
    #xsd/string
     "A remote desktop logon, through RDP, may be typical of a system administrator or IT support, but only from select workstations. Monitoring remote desktop logons and comparing to known/approved originating systems can detect lateral movement of an adversary.",
@@ -25432,7 +25432,7 @@
 
 (def Reference-RemoteRegistry_MITRE
   "Reference - CAR-2014-11-005: Remote Registry - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-11-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-11-005/"},
    :d3f/kb-abstract
    #xsd/string
     "An adversary can remotely manipulate the registry of another machine if the RemoteRegistry service is enabled and valid credentials are obtained. While the registry is remotely accessed, it can be used to prepare a Lateral Movement technique, discover the configuration of a host, achieve Persistence, or anything that aids an adversary in achieving the mission. Like most ATT&CK techniques, this behavior can be used legitimately, and the reliability of an analytic depends on the proper identification of the pre-existing legitimate behaviors. Although this behavior is disabled in many Windows configurations, it is possible to remotely enable the RemoteRegistry service, which can be detected with CAR-2014-03-005.\n\nRemote access to the registry can be achieved via\n\n* Windows API function RegConnectRegistry\n* command line via reg.exe\n* graphically via regedit.exe\n\nAll of these behaviors call into the Windows API, which uses the NamedPipe WINREG over SMB to handle the protocol information. This network can be decoded with wireshark or a similar sensor, and can also be detected by hooking the API function.",
@@ -25449,7 +25449,7 @@
 
 (def Reference-RemotelyLaunchedExecutablesViaServices_MITRE
   "Reference - CAR-2014-03-005: Remotely Launched Executables via Services - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-03-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-03-005/"},
    :d3f/kb-abstract
    #xsd/string
     "There are several ways to cause code to execute on a remote host. One of the most common methods is via the Windows Service Control Manager (SCM), which allows authorized users to remotely create and modify services. Several tools, such as PsExec, use this functionality.\n\nWhen a client remotely communicates with the Service Control Manager, there are two observable behaviors. First, the client connects to the RPC Endpoint Mapper over 135/tcp. This handles authentication, and tells the client what port the endpoint--in this case the SCM--is listening on. Then, the client connects directly to the listening port on services.exe. If the request is to start an existing service with a known command line, the the SCM process will run the corresponding command.\n\nThis compound behavior can be detected by looking for services.exe receiving a network connection and immediately spawning a child process.",
@@ -25468,7 +25468,7 @@
 
 (def Reference-RemotelyLaunchedExecutablesViaWMI_MITRE
   "Reference - CAR-2014-12-001: Remotely Launched Executables via WMI - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-12-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-12-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries can use Windows Management Instrumentation (WMI) to move laterally by launching executables remotely. For adversaries to achieve this, they must open a WMI connection to a remote host. This RPC activity is currently detected by CAR-2014-11-007. After the WMI connection has been initialized, a process can be remotely launched using the command: wmic /node:\"<hostname>\" process call create \"<command line>\", which is detected via CAR-2016-03-002.\n\nThis leaves artifacts at both a network (RPC) and process (command line) level. When wmic.exe (or the schtasks API) is used to remotely create processes, Windows uses RPC (135/tcp) to communicate with the the remote machine.\n\nAfter RPC authenticates, the RPC endpoint mapper opens a high port connection, through which the schtasks Remote Procedure Call is actually implemented. With the right packet decoders, or by looking for certain byte streams in raw data, these functions can be identified.\n\nWhen the command line is executed, it has the parent process of C:\\windows\\system32\\wbem\\WmiPrvSE.exe. This analytic looks for these two events happening in sequence, so that the network connection and target process are output.",
@@ -25487,7 +25487,7 @@
 
 (def Reference-RemotelyScheduledTasksViaSchtasks_MITRE
   "Reference - CAR-2015-04-002: Remotely Scheduled Tasks via Schtasks - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2015-04-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2015-04-002/"},
    :d3f/kb-abstract
    #xsd/string
     "An adversary can move laterally using the schtasks command to remotely schedule tasks. Although these events can be detected with command line analytics CAR-2013-08-001, it is possible for an adversary to use the API directly, via the Task Scheduler GUI or with a scripting language such as PowerShell. In this cases, an additional source of data becomes necessary to detect adversarial behavior. When scheduled tasks are created remotely, Windows uses RPC (135/tcp) to communicate with the Task Scheduler on the remote machine. Once an RPC connection is established (CAR-2014-05-001), the client communicates with the Scheduled Tasks endpoint, which runs within the service group netsvcs. With packet capture and the right packet decoders or byte-stream based signatures, remote invocations of these functions can be identified.\n\nCertain strings can be identifiers of the schtasks, by looking up the interface UUID of ITaskSchedulerService in different formats\n\n* UUID 86d35949-83c9-4044-b424-db363231fd0c (decoded)\n* Hex 49 59 d3 86 c9 83 44 40 b4 24 db 36 32 31 fd 0c (raw)\n* ASCII IYD@$621 (printable bytes only)\n\nThis identifier is present three times during the RPC request phase. Any sensor that has access to the byte code as raw, decoded, or ASCII could implement this analytic.",
@@ -25506,8 +25506,8 @@
 
 (def Reference-Reputation_of_an_entity_associated_with_a_content_item
   "Reference - Reputation of an entity associated with a content item"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20060253584A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20060253584A1"},
    :d3f/kb-author #xsd/string "Christopher Dixon, Thomas Pinckney",
    :d3f/kb-reference-of :d3f/FileHashReputationAnalysis,
    :d3f/kb-reference-title
@@ -25522,8 +25522,8 @@
 (def Reference-ReverseDNSBlocking_BarracudaNetworks
   "Reference - Reverse DNS Blocking - Barracuda Networks"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://campus.barracuda.com/product/emailsecuritygateway/doc/39819732/reverse-dns-blocking/",
+   {:rdfa/uri
+    "https://campus.barracuda.com/product/emailsecuritygateway/doc/39819732/reverse-dns-blocking/"},
    :d3f/kb-author #xsd/string "campus.barracuda.com",
    :d3f/kb-mitre-analysis
    #xsd/string
@@ -25538,8 +25538,8 @@
 (def Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft
   "Reference - Revoke a previously issued verifiable credential - Microsoft"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://learn.microsoft.com/en-us/azure/active-directory/verifiable-credentials/how-to-issuer-revoke",
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/azure/active-directory/verifiable-credentials/how-to-issuer-revoke"},
    :d3f/kb-author
    #xsd/string "Barclay Neira, Christer Ljung, Juan Camilo Ruiz, John Flores",
    :d3f/kb-organization #xsd/string "Microsoft",
@@ -25555,7 +25555,7 @@
 
 (def Reference-RunDLL32_exeMonitoring_MITRE
   "Reference - CAR-2014-03-006: RunDLL32.exe monitoring - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-03-006/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-03-006/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may find it necessary to use Dyanamic-link Libraries (DLLs) to evade defenses. One way these DLLs can be \"executed\" is through the use of the built-in Windows utility RunDLL32, which allows a user to execute code in a DLL, providing the name and optional arguments to an exported entry point. Windows uses RunDll32 legitimately in its normal operation, but with a proper baseline and understanding of the environment, monitoring its usage could be fruitful.",
@@ -25577,8 +25577,8 @@
 (def Reference-SAFESEH_ImageHasSafeExceptionHandlers_MicrosoftDocs
   "Reference - /SAFESEH (Image has Safe Exception Handlers) - Microsoft Docs"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/cpp/build/reference/safeseh-image-has-safe-exception-handlers?view=msvc-160",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/cpp/build/reference/safeseh-image-has-safe-exception-handlers?view=msvc-160"},
    :d3f/kb-abstract
    #xsd/string
     "When /SAFESEH is specified, the linker will only produce an image if it can also produce a table of the image's safe exception handlers. This table specifies for the operating system which exception handlers are valid for the image.",
@@ -25603,7 +25603,7 @@
 
 (def Reference-SMBCopyAndExecution_MITRE
   "Reference - CAR-2013-05-005: SMB Copy and Execution - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-05-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-05-005/"},
    :d3f/kb-abstract
    #xsd/string
     "An adversary needs to gain access to other hosts to move throughout an environment. In many cases, this is a twofold process. First, a file is remotely written to a host via an SMB share (detected by CAR-2013-05-003). Then, a variety of Execution techniques can be used to remotely establish execution of the file or script. To detect this behavior, look for files that are written to a host over SMB and then later run directly as a process or in the command line arguments. SMB File Writes and Remote Execution may happen normally in an environment, but the combination of the two behaviors is less frequent and more likely to indicate adversarial activity.\n\nThis can possibly extend to more copy protocols in order to widen its reach, or it could be tuned more finely to focus on specific program run locations (e.g. %SYSTEMROOT%\\system32) to gain a higher detection rate.",
@@ -25626,7 +25626,7 @@
 
 (def Reference-SMBEventsMonitoring_MITRE
   "Reference - CAR-2013-01-003: SMB Events Monitoring - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-01-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-01-003/"},
    :d3f/kb-abstract
    #xsd/string
     "Server Message Block (SMB) is used by Windows to allow for file, pipe, and printer sharing over port 445/tcp. It allows for enumerating, and reading from and writing to file shares for a remote computer. Although it is heavily used by Windows servers for legitimate purposes and by users for file and printer sharing, many adversaries also use SMB to achieve Lateral Movement. Looking at this activity more closely to obtain an adequate sense of situational awareness may make it possible to detect adversaries moving between hosts in a way that deviates from normal activity. Because SMB traffic is heavy in many environments, this analytic may be difficult to turn into something that can be used to quickly detect an APT. In some cases, it may make more sense to run this analytic in a forensic fashion. Looking through and filtering its output after an intrusion has been discovered may be helpful in identifying the scope of compromise.\n\nOutput Description:\nThe source, destination, content, and time of each event.",
@@ -25643,7 +25643,7 @@
 
 (def Reference-SMBSessionSetups_MITRE
   "Reference - CAR-2013-09-003: SMB Session Setups - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-09-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-09-003/"},
    :d3f/kb-abstract
    #xsd/string
     "Account usage within SMB can be used to identify compromised credentials, and the hosts accessed with them.\n\nThis analytic monitors SMB activity that deals with user activity rather than file activity.",
@@ -25664,7 +25664,7 @@
 
 (def Reference-SMBWriteRequest-NamedPipes_MITRE
   "Reference - CAR-2014-03-001: SMB Write Request - NamedPipes - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-03-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-03-001/"},
    :d3f/kb-abstract
    #xsd/string
     "An SMB write can be an indicator of lateral movement, especially when combined with other information such as execution of that written file. Named pipes are a subset of SMB write requests. Named pipes such as msftewds may not be alarming; however others, such as lsarpc, may.\n\nMonitoring SMB write requests still creates some noise, particularly with named pipes. As a result, SMB is now split between writing named pipes and writing other files.",
@@ -25683,7 +25683,7 @@
 
 (def Reference-SMBWriteRequest_MITRE
   "Reference - CAR-2013-05-003: SMB Write Request - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-05-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-05-003/"},
    :d3f/kb-abstract
    #xsd/string
     "As described in CAR-2013-01-003, SMB provides a means of remotely managing a file system. Adversaries often use SMB to move laterally to a host. SMB is commonly used to upload files. It may be used for staging in Exfiltration or as a Lateral Movement technique. Unlike SMB Reads, SMB Write requests typically require an additional level of access, resulting in less activity. Focusing on SMB Write activity narrows the field to find techniques that actively change remote hosts, instead of passively reading files.",
@@ -25706,8 +25706,8 @@
 (def Reference-SNMPNetworkAutoDiscovery
   "Reference - SNMP - Network Auto-Discovery"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.device42.com/auto-discovery/network-auto-discovery/",
+   {:rdfa/uri
+    "https://docs.device42.com/auto-discovery/network-auto-discovery/"},
    :d3f/kb-abstract
    #xsd/string
     "SNMP, or Simple Network Management Protocol, is a protocol and a standard that is supported by just about any managed network-connected hardware. There are three widely deployed versions: SNMP v1, v2c (most commonly used), and v3. SNMP is typically utilized read-only, but supports read/write, and by default utilized port 161. SNMP exposes management data in the form of ‘variables’, which are organized in what is known as a MIB, or “Management Information Base”. A MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.",
@@ -25720,8 +25720,8 @@
 
 (def Reference-SecureCachingOfServerCredentials_DellProductsLP
   "Reference - Secure caching of server credentials - Dell Products LP"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20100107241A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20100107241A1"},
    :d3f/kb-abstract
    #xsd/string
     "A credential caching system includes receiving a set of authentication credentials, storing the set of authentication credentials in a credential cache memory, wherein the credential cache memory is coupled with a management controller, and supplying the set of authentication credentials for automatic authentication during a reset or reboot. In the event of a security breach, the credential caching system clears the set of authentication credentials from the credential cache memory so that the set of authentication credentials may no longer be used for a reset or reboot.",
@@ -25741,7 +25741,7 @@
 
 (def Reference-SecureMultipurposeInternetMailExtensionsMIME-Version3_1
   "Reference - Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1"
-  {:d3f/has-link #xsd/anyURI "https://tools.ietf.org/html/rfc3851",
+  {:d3f/has-link {:rdfa/uri "https://tools.ietf.org/html/rfc3851"},
    :d3f/kb-organization #xsd/string "Internet Engineering Task Force (IETF)",
    :d3f/kb-reference-title
    #xsd/string
@@ -25756,8 +25756,8 @@
 (def Reference-SecuringWebTransactions
   "Reference - Securing Web Transactions"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.nccoe.nist.gov/sites/default/files/library/sp1800/tls-serv-cert-mgt-nist-sp1800-16b-final.pdf",
+   {:rdfa/uri
+    "https://www.nccoe.nist.gov/sites/default/files/library/sp1800/tls-serv-cert-mgt-nist-sp1800-16b-final.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "Organizations risk losing revenue, customers, and reputation, and exposing internal or customer data to\nattackers if they do not properly manage Transport Layer Security (TLS) server certificates. TLS is the\nmost widely used security protocol to secure web transactions and other communications on the\ninternet and internal networks. TLS server certificates are central to the security and operation of\ninternet-facing and internal web services. Improper TLS server certificate management results in\nsignificant outages to web applications and services-such as government services, online banking, flight operations, and mission-critical services within an organization-and increased risk of security breaches.",
@@ -25775,8 +25775,8 @@
   Reference-Securing_Web_Transactions__TLS_Server_Certificate_Management_Appendix_A_Passive_Inspection
   "Reference - Securing Web Transactions TLS Server Certificate Management - Appendix A Passive Inspection"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.nccoe.nist.gov/publication/1800-16/VolD/vol-d-appendix.html",
+   {:rdfa/uri
+    "https://www.nccoe.nist.gov/publication/1800-16/VolD/vol-d-appendix.html"},
    :d3f/kb-abstract
    #xsd/string
     "The example implementation demonstrates the ability to perform passive inspection of encrypted TLS connections. The question of whether or not to perform such an inspection is complex. There are important tradeoffs between traffic security and traffic visibility that each organization should consider. Some organizations prefer to decrypt internal TLS traffic, so it can be inspected to detect attacks that may be hiding within encrypted connections. Such inspection can detect intrusion, malware, and fraud, and can conduct troubleshooting, forensics, and performance monitoring. For these organizations, TLS inspection may serve as both a standard practice and a critical component of their threat detection and service assurance strategies.",
@@ -25794,7 +25794,7 @@
 
 (def Reference-SecurityArchitectureForTheInternetProtocol
   "Reference - Security Architecture for the Internet Protocol"
-  {:d3f/has-link #xsd/anyURI "https://datatracker.ietf.org/doc/html/rfc1825",
+  {:d3f/has-link {:rdfa/uri "https://datatracker.ietf.org/doc/html/rfc1825"},
    :d3f/kb-abstract
    #xsd/string
     "This memo describes the security mechanisms for IP version 4 (IPv4)\n   and IP version 6 (IPv6) and the services that they provide.  Each\n   security mechanism is specified in a separate document.  This\n   document also describes key management requirements for systems\n   implementing those security mechanisms.  This document is not an\n   overall Security Architecture for the Internet and is instead focused\n   on IP-layer security.",
@@ -25810,7 +25810,7 @@
 (def
   Reference-SecuritySystemWithMethodologyForInterprocessCommunicationControl_CheckPointSoftwareTechInc
   "Reference - Security System with Methodology for Interprocess Communication Control - Check Point Software Tech Inc"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US20040199763",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US20040199763"},
    :d3f/kb-abstract
    #xsd/string
     "A security system with methodology for interprocess communication control is described. In one embodiment, a method for controlling interprocess communication is provided that includes steps of: defining rules indicating which system services a given application can invoke; trapping an attempt by a particular application to invoke a particular system service; identifying the particular application that is attempting to invoke the particular system service; and based on identity of the particular application and on the rules indicating which system services a given application can invoke, blocking the attempt when the rules indicate that the particular application cannot invoke the particular system service.",
@@ -25832,7 +25832,7 @@
 
 (def Reference-SecurityVulnerabilityInformationAggregation
   "Reference - Security vulnerability information aggregation"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8544098B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8544098B2"},
    :d3f/kb-abstract
    #xsd/string
     "Security vulnerability information aggregation techniques are disclosed. Vulnerability information associated with one or more security vulnerabilities is obtained from multiple sources and aggregated into respective unified vulnerability definitions for the one or more security vulnerabilities. Aggregation may involve format conversion, content aggregation, or both in some embodiments. Unified vulnerability definitions may be distributed to vulnerability information consumers in accordance with consumer-specific policies. Storage of vulnerability information received from the sources may allow the aggregation process to be performed on existing vulnerability information “retro-actively”. Related data structures and Graphical User Interfaces (GUIs) are also disclosed.",
@@ -25849,7 +25849,7 @@
 
 (def Reference-ServiceBinaryModifications_MITRE
   "Reference - CAR-2014-02-001: Service Binary Modifications - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-02-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-02-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Adversaries may modify the binary file for an existing service to achieve Persistence while potentially evading defenses. If a newly created or modified runs as a service, it may indicate APT activity. However, services are frequently installed by legitimate software. A well-tuned baseline is essential to differentiating between benign and malicious service modifications.",
@@ -25868,7 +25868,7 @@
 
 (def Reference-ServiceOutlierExecutables_MITRE
   "Reference - CAR-2013-09-005: Service Outlier Executables - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-09-005/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-09-005/"},
    :d3f/kb-abstract
    #xsd/string
     "New executables that are started as a service are suspicious. This analytic looks for anomalous service executables.",
@@ -25892,7 +25892,7 @@
 
 (def Reference-ServiceSearchPathInterception_MITRE
   "Reference - CAR-2014-07-001: Service Search Path Interception - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2014-07-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2014-07-001/"},
    :d3f/kb-abstract
    #xsd/string
     "According to ATT&CK, an adversary may escalate privileges by intercepting the search path for legitimately installed services. As a result, Windows will launch the target executable instead of the desired binary and command line. This can be done when there are spaces in the binary path and the path is unquoted. Search path interception should never happen legitimately and will likely be the result of an adversary abusing a system misconfiguration. With a few regular expressions, it is possible to identify the execution of services with intercepted search paths.",
@@ -25914,7 +25914,7 @@
 
 (def Reference-ServicesLaunchingCmd_MITRE
   "Reference - CAR-2014-05-002: Services launching Cmd - MITRE"
-  {:d3f/has-link #xsd/anyURI "",
+  {:d3f/has-link {:rdfa/uri ""},
    :d3f/kb-abstract
    #xsd/string
     "Windows runs the Service Control Manager (SCM) within the process services.exe. Windows launches services as independent processes or DLL loads within a svchost.exe group. To be a legitimate service, a process (or DLL) must have the appropriate service entry point SvcMain. If an application does not have the entry point, then it will timeout (default is 30 seconds) and the process will be killed.\n\nTo survive the timeout, adversaries and red teams can create services that direct to cmd.exe with the flag /c, followed by the desired command. The /c flag causes the command shell to run a command and immediately exit. As a result, the desired program will remain running and it will report an error starting the service. This analytic will catch that command prompt instance that is used to launch the actual malicious executable. Additionally, the children and descendants of services.exe will run as a SYSTEM user by default. Thus, services are a convenient way for an adversary to gain Persistence and Privilege Escalation.",
@@ -25941,7 +25941,7 @@
   {:d3f/comment
    #xsd/string
     "The reference only lists pre-Vista event IDs; current (2020) ones are found at: https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/basic-audit-logon-events",
-   :d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-02-008/",
+   :d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-02-008/"},
    :d3f/kb-abstract
    #xsd/string
     "Multiple users logged into a single machine at the same time, or even within the same hour, do not typically occur in networks we have observed.\n\nLogon events are Windows Event Code 4624 for Windows Vista and above, 518 for pre-Vista. Logoff events are 4634 for Windows Vista and above, 538 for pre-Vista. Logon types 2, 3, 9 and 10 are of interest. For more details see the Logon Types table on Microsoft's Audit Logon Events page.",
@@ -25958,8 +25958,8 @@
 (def
   Reference-SinkholingBadNetworkDomainsByRegisteringTheBadNetworkDomainsOnTheInternet_PaloAltoNetworksInc
   "Reference - Sinkholing bad network domains by registering the bad network domains on the internet - Palo Alto Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160381065A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160381065A1"},
    :d3f/kb-abstract
    #xsd/string
     "Techniques for sinkholing bad network domains by registering the bad network domains on the Internet are provided. In some embodiments, sinkholing bad network domains by registering the bad network domains on the Internet includes determining a network domain is a bad network domain, in which the bad network domain is determined to be associated with an identified malware (e.g., malware that has been identified and has been determined to be associated with the bad domain), and the bad network domain is sinkholed by registering the bad network domain with a sinkholed IP address; and identifying a host that is infected with the identified malware based on an attempt by the host to connect to the sinkholed IP address.",
@@ -25981,7 +25981,7 @@
 
 (def Reference-SoftwareVulnerabilityGraphDatabase
   "Reference - Software vulnerability graph database"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/WO2020028535A1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/WO2020028535A1"},
    :d3f/kb-abstract
    #xsd/string
     "To analyze open-source code at a large scale, a security domain graph language (\"GL\") has been created that functions as a vulnerability description language and facilitates program analysis queries. The SGL facilitates building and maintaining a graph database to catalogue vulnerabilities found in open-source components. This graphical database can be accessed via a database interface directly or accessed by an agent that interacts with the database interface. To build the graph database, a database interface processes an open-source component and creates graph structures which represent relationships present in the open-source component. The database interface transforms a vulnerability description into a canonical form based on a schema for the graph database and updates the database based on a determination of whether the vulnerability is a duplicate. This ensures quality and consistency of the vulnerability dataset maintained in the graph database.",
@@ -25999,7 +25999,7 @@
 
 (def Reference-Squiblydoo_MITRE
   "Reference - CAR-2019-04-003: Squiblydoo - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-04-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-04-003/"},
    :d3f/kb-abstract
    #xsd/string
     "Squiblydoo is a specific usage of regsvr32.dll to load a COM scriptlet directly from the internet and execute it in a way that bypasses application whitelisting. It can be seen by looking for regsvr32.exe executions that load the scrobj.dll (which execute the COM scriptlet) or, if that is too noisy, those that also load content directly via HTTP or HTTPS.",
@@ -26018,8 +26018,8 @@
 
 (def Reference-StackSmashingProtection_StackGuard_RedHat
   "Reference - Security Technologies: Stack Smashing Protection (StackGuard) - Red Hat"
-  {:d3f/has-link #xsd/anyURI
-                  "https://access.redhat.com/blogs/766093/posts/3548631",
+  {:d3f/has-link {:rdfa/uri
+                  "https://access.redhat.com/blogs/766093/posts/3548631"},
    :d3f/kb-abstract
    #xsd/string
     "In our previous blog, we saw how arbitrary code execution resulting from stack-buffer overflows can be partly mitigated by marking segments of memory as non-executable, a technology known as Execshield. However stack-buffer overflow exploits can still effectively overwrite the function return address, which leads to several interesting exploitation techniques like ret2libc, ret2gets, and ret2plt. With all of these methods, the function return address is overwritten and attacker controlled code is executed when the program control transfers to overwritten address on the stack.",
@@ -26038,7 +26038,7 @@
 
 (def Reference-StreamingPhish
   "Reference - StreamingPhish"
-  {:d3f/has-link #xsd/anyURI "https://github.com/wesleyraptor/streamingphish",
+  {:d3f/has-link {:rdfa/uri "https://github.com/wesleyraptor/streamingphish"},
    :d3f/kb-abstract
    #xsd/string
     "This is a utility that uses supervised machine learning to detect phishing domains from the Certificate Transparency log network.",
@@ -26052,7 +26052,7 @@
 
 (def Reference-SupplyChainCyber-deception_Cymmetria%2CInc_
   "Reference - Supply chain cyber-deception - Cymmetria, Inc."
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/WO2017187379A1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/WO2017187379A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computer implemented method of detecting unauthorized access to a protected network from external endpoints, comprising monitoring, at a protected network, communication with one or more external endpoints using one or more access clients to access one or more of a plurality of resources of the protected networked, where one or more deception resources created in the protected network map one or more of the plurality of resources, detecting usage of data contained in one or more of a plurality of deception data objects deployed in the one or more access clients by monitoring an interaction triggered by one or more of the deception data objects with the one or more deception resources when used and identifying one or more potential unauthorized operations based on analysis of the detection.",
@@ -26073,7 +26073,7 @@
 
 (def Reference-SuspiciousArguments_MITRE
   "Reference - CAR-2013-07-001: Suspicious Arguments - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-07-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-07-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Malicious actors may rename built-in commands or external tools, such as those provided by SysInternals, to better blend in with the environment. In those cases, the file path name is arbitrary and may blend in well with the background. If the arguments are closely inspected, it may be possible to infer what tools are running and understand what an adversary is doing. When any legitimate software shares the same command lines, it must be whitelisted according to the expected parameters.",
@@ -26095,7 +26095,7 @@
 
 (def Reference-SuspiciousRunLocations_MITRE
   "Reference - CAR-2013-05-002: Suspicious Run Locations - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-05-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-05-002/"},
    :d3f/kb-abstract
    #xsd/string
     "In Windows, files should never execute out of certain directory locations. Any of these locations may exist for a variety of reasons, and executables may be present in the directory but should not execute. As a result, some defenders make the mistake of ignoring these directories and assuming that a process will never run from one. There are known TTPs that have taken advantage of this fact to go undetected. This fact should inform defenders to monitor these directories more closely, knowing that they should never contain running processes.",
@@ -26119,8 +26119,8 @@
 (def
   Reference-SynchronizingAHoneyNetworkConfigurationToReflectATargetNetworkEnvironment_PaloAltoNetworksInc
   "Reference - Synchronizing a honey network configuration to reflect a target network environment - Palo Alto Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170019425A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170019425A1"},
    :d3f/kb-abstract
    #xsd/string
     "Techniques for synchronizing a honey network configuration to reflect a target network environment are disclosed. In some embodiments, a system for synchronizing a honey network configuration to reflect a target network environment includes a device profile data store that includes a plurality of attributes of each of a plurality of devices in the target network environment; a virtual machine (VM) image library that includes one or more VM images; and a virtual clone manager executed on a processor that instantiates a virtual clone of one or more devices in the target enterprise network using a VM image selected from the VM image library that is customized based on one or more attributes for a target device in the device profile data store.",
@@ -26142,8 +26142,8 @@
 (def
   Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc
   "Reference - System, method, and computer program product for detecting and assessing security risks in a network - Exabeam Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190034641A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190034641A1"},
    :d3f/kb-abstract
    #xsd/string
     "The present disclosure is directed to a system, method, and computer program for detecting and assessing security risks in an enterprise's computer network. A behavior model is built for a user in the network based on the user's interactions with the network, wherein a behavior model for a user indicates client device(s), server(s), and resources used by the user. The user's behavior during a period of time is compared to the user's behavior model. A risk assessment is calculated for the period of time based at least in part on the comparison between the user's behavior and the user's behavior model, wherein any one of certain anomalies between the user's behavior and the user's behavior model increase the risk assessment.",
@@ -26173,8 +26173,8 @@
   Reference-SystemAndAMethodForIdentifyingThePresenceOfMalwareAndRansomwareUsingMini-trapsSetAtNetworkEndpoints_FidelisCybersecuritySolutionsInc
   "Reference - System and a method for identifying the presence of malware and ransomware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9807115B2/en?oq=US-9807115-B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9807115B2/en?oq=US-9807115-B2"},
    :d3f/kb-abstract
    #xsd/string
     "A system for identifying the presence of ransomware on a network, including a plurality of resources, interconnected to form a network and at least one decoy drive.The decoy drive includes a plurality of decoy files to be encrypted by the ransomware, and wherein the decoy drive continuously provides the decoy files thereby continuously occupying the ransomware.",
@@ -26198,8 +26198,8 @@
 (def
   Reference-SystemAndMethodForDetectingHomoglyphAttacksWithASiameseConvolutionalNeuralNetwork_EndgameInc
   "Reference - System and method for detecting homoglyph attacks with a siamese convolutional neural network - Endgame Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20190019058A1/",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20190019058A1/"},
    :d3f/kb-abstract
    #xsd/string
     "The present invention utilizes computer vision technologies to identify potentially malicious URLs and executable files in a computing device. In one embodiment, a Siamese convolutional neural network is trained to identify the relative similarity between image versions of two strings of text. After the training process, a list of strings that are likely to be utilized in malicious attacks are provided (e.g., legitimate URLs for popular websites). When a new string is received, it is converted to an image and then compared against the image of list of strings. The relative similarity is determined, and if the similarity rating falls below a predetermined threshold, an alert is generated indicating that the string is potentially malicious.",
@@ -26223,8 +26223,8 @@
   Reference-SystemAndMethodForDetectingMalwareInjectedIntoMemoryOfAComputingDevice_EndgameInc
   "Reference - System and method for detecting malware injected into memory of a computing device - Endgame Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20190018958A1/en?oq=US20190018958-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20190018958A1/en?oq=US20190018958-A1"},
    :d3f/kb-abstract
    #xsd/string
     "In the embodiments described herein, a malicious code detection module identifies potentially malicious instructions in memory of a computing device. The malicious code detection module examines the call stack for each thread running within the operating system of the computing device. Within each call stack, the malicious code detection module identifies the originating module for each stack frame and determines whether the originating module is backed by an image on disk. If an originating module is not backed by an image on disk, the thread containing that originating module is flagged as potentially malicious, execution of the thread optionally is suspended, and an alert is generated for the user or administrator.",
@@ -26247,8 +26247,8 @@
   Reference-SystemAndMethodForDetectionOfAChangeInBehaviorInTheUseOfAWebsiteThroughVectorVelocityAnalysis_SilverTailSystems
   "Reference - System and Method for Detection of a Change in Behavior in the Use of a Website Through Vector Velocity Analysis - Silver Tail Systems"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20100235909A1/en?oq=US+20100235909+A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20100235909A1/en?oq=US+20100235909+A1"},
    :d3f/kb-abstract
    #xsd/string
     "A system and software for identifying the change of user behavior on a website includes analyzing the actions of users on a website comprising a plurality of fields or input parameters that identify the actions performed on a website including fields related to previous actions by that user or other users of the website. The fields or input parameters are represented in a vector format where vectors represent different sessions of activity on the website, pages of the website, users of the website, or other attributes of the use of a website. Analysis is performed to determine if new sessions are similar or dissimilar to previously known sessions and if a session is converging or diverging from known sessions based on the velocity and direction of the velocity of the vectors in the vector space.",
@@ -26273,8 +26273,8 @@
   Reference-SystemAndMethodForIdentifyingThePresenceOfMalwareUsingMini-trapsSetAtNetworkEndpoints_FidelisCybersecuritySolutionsInc
   "Reference - System and method for identifying the presence of malware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9807114B2/en?oq=US-9807114-B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9807114B2/en?oq=US-9807114-B2"},
    :d3f/kb-abstract
    #xsd/string
     "A system for identifying the presence of advanced persistent threats on a network including a plurality of resources, interconnected to form a network, at least one decoy resource, at least one mini-trap installed on at least one of the plurality of resources and functionally associated with at one of the at least one decoy resource, the at least one mini-trap comprising deceptive information directing malware accessing the at least one mini-trap to the decoy resource associated therewith, and a manager node forming part of the network, locally or remotely, and configured to manage placement of the at least one mini-trap on the at least one of the plurality of resources and association between the at least one mini-trap and the decoy resource associated therewith.",
@@ -26298,8 +26298,8 @@
 
 (def Reference-SystemAndMethodForInternetSecurity_CylanceInc
   "Reference - System and method for internet security - Cylance Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20120117644A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20120117644A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computer implemented method for preventing SQL injection attacks comprises intercepting a web request associated with a web service at a first software hook in a first web service execution context, persisting at least a portion of the intercepted web request in a storage location associated with the first software hook and accessible to at least one additional execution context, intercepting a database query generated by at least one web service processing operation at a second software hook associated with the execution of the query, wherein the query is generated in response to the intercepted web request and the second hook retrieves the persisted portion of the intercepted web request, comparing a portion of the persisted portion of the intercepted web request with at least a portion of the intercepted database query, and determining, prior to the query being executed, whether the query corresponds to a potential SQL injection attack.",
@@ -26319,7 +26319,7 @@
 
 (def Reference-SystemAndMethodForManagedSecurityAssessmentAndMitigation
   "Reference - System and method for managed security assessment and mitigation"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9544324B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9544324B2"},
    :d3f/kb-abstract
    #xsd/string
     "In an embodiment of the invention, a system for assessing vulnerabilities includes: a security management system; a network device in a system under test (SUT), wherein the network device is privy to traffic in the SUT; and wherein the SMS is privy to traffic that is known by the network device and/or to one or more traffic observations that is known by the network device.",
@@ -26340,8 +26340,8 @@
   Reference-SystemAndMethodForNetworkSecurityIncludingDetectionOfAttacksThroughPartnerWebsites_EMCIPHoldingCoLLC
   "Reference - System and Method for Network Security Including Detection of Attacks Through Partner Websites - EMC IP Holding Co LLC"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20110302653A1/en?oq=US+20110302653+A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20110302653A1/en?oq=US+20110302653+A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computer readable storage medium has instructions for execution on a computer. The instructions monitor transactions between a server and a set of clients. An evaluation of session indicators associated with the transactions is performed. Individual sessions between the server and individual clients of the plurality of clients are isolated in response to the evaluation.",
@@ -26365,8 +26365,8 @@
 
 (def Reference-SystemAndMethodForProcessHollowingDetection_CarbonBlackInc
   "Reference - System and Method for Process Hollowing Detection - Carbon Black Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170272462A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170272462A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for remediating a process hollowing intrusion on a user device comprising detecting a process starting on the user device, preparing the process to monitor Application Programming Interface (API) calls between the process and an operating system of the user device, determining whether the process is associated with a process hollowing intrusion based on information associated with the process and/or the API calls, and executing security policies against the process associated with the process hollowing intrusion. In examples, it is determined whether the child process is associated with a process hollowing intrusion in response to determining whether one or more API calls associated with known process hollowing intrusions modify executable memory of and/or modify an entry point address of the child process.",
@@ -26387,7 +26387,7 @@
 (def
   Reference-SystemAndMethodForProvidingAnActivelyInvalidatedClient-sideNetworkResourceCache_IMVU
   "Reference - System and method for providing an actively invalidated client-side network resource cache - IMVU"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9578081B2/en",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9578081B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "A system and method for providing an actively invalidated client-side network resource cache are disclosed. A particular embodiment includes: a client configured to request, for a client application, data associated with an identifier from a server; the server configured to provide the data associated with the identifier and to establish a queue associated with the identifier at a scalable message queuing system, the client being configured to subscribe to the queue at the scalable message queuing system to receive invalidation information associated with the data; the server being further configured to signal the queue of an invalidation event associated with the data; the scalable message queuing system being configured to convey information indicative of the invalidation event to the client; and the client being further configured to re-request the data associated with the identifier from the server upon receipt of the information indicative of the invalidation event.",
@@ -26409,7 +26409,7 @@
 (def
   Reference-SystemAndMethodForProvidingAnonymousRemailingAndFilteringOfElectronicMail_Nokia
   "Reference - System and method for providing anonymous remailing and filtering of electronic mail - Nokia"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/JPH11161574A",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/JPH11161574A"},
    :d3f/kb-abstract
    #xsd/string
     "To make anonymous a sender name present on an actual transmission source address by including an alias transmission source address substitution unit and removing the actual transmission source address from an electronic mail message. SOLUTION: A hash value of the destination address of an electronic mail message is calculated (S330). Then, (n) blank bytes are added to a compressed actual transmission source address (S340). The true length of the actual transmission source address is hidden by adding blank bytes. Further, a 2nd bit field is added to a secret key saved locally in a remailer, and an extended secret key characteristic of the destination address is generated. Then, the compressed actual transmission source address is ciphered according to the data ciphering standards using the extended secret key characteristic of the destination address as a cipher key (S350). Further, the 2nd bit field is added to the ciphered and compressed actual transmission source address (S360).",
@@ -26431,7 +26431,7 @@
 (def
   Reference-SystemAndMethodForScanningRemoteServicesToLocateStoredObjectsWithMalware
   "Reference - System and method for scanning remote services to locate stored objects with malware"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US11368475B1/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US11368475B1/"},
    :d3f/kb-abstract
    #xsd/string
     "A system and method for retrieval and analysis of stored objects for malware is described. The method involves receiving a scan request message from a customer to conduct analytics on one or more objects stored within a third-party controlled service. In response to receipt of the scan request message, the system generates a redirect message. The redirect message redirects the customer to an authentication portal of the third-party controlled service operating as a logon page and configures receipt by the system of access credentials for the third-party controlled service upon verification of the customer. Using the access credentials, the system is able to retrieve the one or more objects using the access credentials and performing analytics on each object of the one or more objects to classify each object as malicious or benign.",
@@ -26453,8 +26453,8 @@
   Reference-SystemAndMethodForValidatingIn-memoryIntegrityOfExecutableFilesToIdentifyMaliciousActivity_EndgameInc
   "Reference - System and method for validating in-memory integrity of executable files to identify malicious activity - Endgame Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20190018962A1/en?oq=15648887",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20190018962A1/en?oq=15648887"},
    :d3f/kb-abstract
    #xsd/string
     "In the embodiments described herein, a malicious code detection module identifies potentially malicious instructions in volatile memory of a computing device before the instructions are executed. The malicious code detection module identifies an executable file, such as an .exe file, in memory, validates one or more components of the executable file against the same file stored in non-volatile storage, and issues an alert if the validation fails.",
@@ -26475,7 +26475,7 @@
 
 (def Reference-SystemAndMethodForVulnerabilityRiskAssessment
   "Reference - System and method for vulnerability risk analysis"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9317692B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9317692B2"},
    :d3f/kb-abstract
    #xsd/string
     "Embodiments of the present invention are directed to a method and system for automated risk analysis. The method includes accessing host configuration information of a host and querying a vulnerability database based on the host configuration information. The method further includes receiving a list of vulnerabilities and accessing a plurality of vulnerability scores. The list of vulnerabilities corresponds to vulnerabilities of the host. Vulnerabilities can be removed from the list based on checking for installed fixes corresponding to vulnerability. A composite risk score can then be determined for the host a nd each software product of the host based on the plurality of vulnerability scores. An aggregate risk score can then be determined for the host and each software product of the host based on the plurality of vulnerability scores.",
@@ -26494,8 +26494,8 @@
 (def
   Reference-SystemAndMethodThereofForIdentifyingAndRespondingToSecurityIncidentsBasedOnPreemptiveForensics_PaloAltoNetworksInc
   "Reference - System and method thereof for identifying and responding to security incidents based on preemptive forensics - Palo Alto Networks Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160142424A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160142424A1"},
    :d3f/kb-abstract
    #xsd/string
     "A system is connected to a plurality of user devices coupled to an enterprise's network. The system continuously collects, stores, and analyzes forensic data related to the enterprise's network. Based on the analysis, the system is able to determine normal behavior of the network and portions thereof and thereby identify abnormal behaviors within the network. Upon identification of an abnormal behavior, the system determines whether the abnormal behavior relates to a security incident. Upon determining a security incident in any portion of the enterprise's network, the system extracts forensic data respective of the security incident and enables further assessment of the security incident as well as identification of the source of the security incident. The system provides real-time damage assessment respective of the security incident as well as the security incident's attributions.",
@@ -26521,8 +26521,8 @@
   Reference-SystemAndMethodsThereofForCausalityIdentificationAndAttributionsDeterminationOfProcessesInANetwork_PaloAltoNetworksIncCyberSecdoLtd
   "Reference - System and methods thereof for causality identification and attributions determination of processes in a network - Palo Alto Networks IncCyber Secdo Ltd"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20170195350A1/en?oq=US-2017195350-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20170195350A1/en?oq=US-2017195350-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A system is used for detection of advanced persistent and non-persistent threats in a computerized environment. The system is connected to a plurality of user devices coupled to an enterprise's network. The system receives via an interface an electronic notification of at least one event in the operating system of the computer. The system then analyzes the at least one event. The system then generates a causality chain for the at least one event respective of the analysis. The causality chain comprises all the threads that attributed to the at least one event in a chronological order. The system then identifies a main thread that started the causality chain that led to the at least one event. Then, the system determines whether the main thread is associated with malicious software. Upon determination that the main thread is associated with malicious software, the causality chain is marked as infected.",
@@ -26546,8 +26546,8 @@
   Reference-SystemAndMethodsThereofForDetectionOfPersistentThreatsInAComputerizedEnvironmentBackground_PaloAltoNetworksIncCyberSecdoLtd
   "Reference - System and methods thereof for detection of persistent threats in a computerized environment background - Palo Alto Networks IncCyber Secdo Ltd"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20170206358A1/en?oq=US-2017206358-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20170206358A1/en?oq=US-2017206358-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A system is used for detection of advanced persistent and non-persistent threats in a computerized environment. The system is connected to a plurality of user devices coupled to an enterprise's network. The system receives via an interface an electronic notification of at least one event in the operating system of the computer. The system then analyzes the at least one event. The system then generates a causality chain for the at least one event respective of the analysis. The causality chain comprises all the threads that attributed to the at least one event in a chronological order. The system then identifies a main thread that started the causality chain that led to the at least one event. Then, the system determines whether the main thread is associated with malicious software. Upon determination that the main thread is associated with malicious software, the causality chain is marked as infected.",
@@ -26570,8 +26570,8 @@
   Reference-SystemAndMethodsThereofForIdentificationOfSuspiciousSystemProcesses_PaloAltoNetworksInc
   "Reference - System and methods thereof for identification of suspicious system processes - Palo Alto Networks Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20170286683A1/en?oq=US-2017286683-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20170286683A1/en?oq=US-2017286683-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computerized method for identification of suspicious processes executing on an end-point device communicatively connected to network, the network communicatively connected to a server, the method comprising receiving, by the server, a record of at least one process, initiated by and executing on by the end-point device. One or more parameters associated with the at least one process are identified. A first time pointer is identified corresponding to the identified one or more parameters, a first time pointer. A second time pointer at which a user associated with the end-point device initiated a user dependent process is identified. Whether the second time pointer occurred before the first time pointer is identified. It is determined whether the at least one process was initiated by the user based on identification of user dependent processes and corresponding attribution. An action is performed based on the above determination.",
@@ -26595,8 +26595,8 @@
   Reference-SystemAndMethodsThereofForLogicalIdentificationOfMaliciousThreatsAcrossAPluralityOfEnd-pointDevicesCommunicativelyConnectedByANetwork_PaloAltoNetworksIncCyberSecdoLtd
   "Reference - System and methods thereof for logical identification of malicious threats across a plurality of end-point devices (epd) communicatively connected by a network - Palo Alto Networks IncCyber Secdo Ltd"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20180373870A1/en?oq=US-2018373870-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20180373870A1/en?oq=US-2018373870-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computerized method for logical identification of malicious threats across a plurality of end-point devices (EPD) communicatively connected by a network, comprising collecting over the network an identifier associated with each file of a plurality of files, wherein each file of the plurality of files is installed on at least one of the plurality of EPDs and wherein the identifier is the same for each like file of the plurality of file. Information associated with an identified subset of files is collected, wherein the information indicates at least a time at which the at least one file was installed on one or more of the plurality of EPDs and the way the at least one file spread within the network. The collected information is analyzed according to a set of predetermined computerized investigation rules. The analysis is used to determine whether at least a file of the identified subset files is a suspicious file.",
@@ -26620,8 +26620,8 @@
   Reference-SystemAndMethodsThereofForPreventingRansomwareFromEncryptingDataElementsStoredInAMemoryOfAComputer-basedSystem_PaloAltoNetworksInc
   "Reference - System and methods thereof for preventing ransomware from encrypting data elements stored in a memory of a computer-based system - Palo Alto Networks Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US20170308711A1/en?oq=US-2017308711-A1",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US20170308711A1/en?oq=US-2017308711-A1"},
    :d3f/kb-abstract
    #xsd/string
     "A computerized method for preventing ransomware from encrypting data elements stored in a memory of a computer-based system, the method comprising identifying at least one identifier for a data element, wherein the at least one identifier indicates at least a position of the data element within the memory. An optimal number of virtual traps is determined for the data element corresponding to the at least one identifier. An optimal position for each of the virtual traps is determined corresponding to the at least one identifier. The virtual traps are send to the determined optimal position within the memory.",
@@ -26643,8 +26643,8 @@
 (def
   Reference-SystemForDetectingThreatsUsingScenario-basedTrackingOfInternalAndExternalNetworkTraffic_VECTRANETWORKSInc
   "Reference - System for detecting threats using scenario-based tracking of internal and external network traffic - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160191563A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160191563A1"},
    :d3f/kb-abstract
    #xsd/string
     "Disclosed is an improved approach to implement a system and method for detecting insider threats, where models are constructed that is capable of defining what constitutes the normal behavior for any given hosts and quickly find anomalous behaviors that could constitute a potential threat to an organization. The disclosed approach provides a way to identify abnormal data transfers within and external to an organization without the need for individual monitoring software on each host, by leveraging metadata that describe the data exchange patterns observed in the network.",
@@ -26667,8 +26667,8 @@
 (def
   Reference-SystemForImplementingThreatDetectionUsingDailyNetworkTrafficCommunityOutliers_VECTRANETWORKSInc
   "Reference - System for implementing threat detection using daily network traffic community outliers - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160191560A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160191560A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for identifying insider threats within an organization is provided. The approach constructs an internal connectivity graph to identify communities of hosts/users, and checks for abnormal behavior relative to past behaviors.",
@@ -26693,8 +26693,8 @@
 (def
   Reference-SystemForImplementingThreatDetectionUsingThreatAndRiskAssessmentOfAsset-actorInteractions_VECTRANETWORKSInc
   "Reference - System for implementing threat detection using threat and risk assessment of asset-actor interactions - VECTRA NETWORKS Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20160191559A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20160191559A1"},
    :d3f/kb-abstract
    #xsd/string
     "Disclosed is an approach to detect insider threats, by tracking unusual access activity for a specific user or computer with regard to accessing key assets over time. In this way, malicious activity and the different preparation phases of attacks can be identified.",
@@ -26718,8 +26718,8 @@
 (def
   Reference-SystemsAndMethodsForDetectingAnd_orHandlingTargetedAttacksInTheEmailChannel_GraphusInc
   "Reference - Systems and methods for detecting and/or handling targeted attacks in the email channel - Graphus Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20170324767A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20170324767A1"},
    :d3f/kb-abstract
    #xsd/string
     "Techniques for detecting and/or handling target attacks in an enterprise's email channel are provided. The techniques include receiving aspects of an incoming email message addressed to a first email account holder, selecting a recipient interaction profile and/or a sender profile from a plurality of predetermined profiles stored in a memory based upon the received properties, determining a message trust rating associated with the incoming email message based upon the incoming email message and the selected recipient interaction profile and/or the sender profile; and generating an alert identifying the incoming email message as including a security risk based upon the determined message trust rating. The recipient interaction profile includes information associating the first email account holder and a plurality of email senders from whom email messages have previously been received for the first email account holder, and the sender profile includes information associating a sender of the incoming email message with characteristics determined from a plurality of email messages previously received from the sender.",
@@ -26742,7 +26742,7 @@
 
 (def Reference-SystemsAndMethodsForDetectingCredentialTheft_SymantecCorp
   "Reference - Systems and methods for detecting credential theft - Symantec Corp"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US10162962B1",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US10162962B1"},
    :d3f/kb-abstract
    #xsd/string
     "The disclosed computer-implemented method for detecting credential theft may include (i) monitoring a secured computing system's credential store that may include at least one sensitive credential that may be used to facilitate authentication of a user that is attempting to access the secured computing system, (ii) gathering, while monitoring the credential store, primary evidence of an attempted theft of the sensitive credential from the credential store, (iii) gathering corroborating evidence of the attempted theft of the sensitive credential, and (iv) performing a security action in response to gathering the primary evidence and the corroborating evidence of the attempted theft. The primary evidence of the attempted theft of the sensitive credential may include evidence of any suspicious access of the sensitive credential from the credential store that occurs outside of a procedure of authenticating the user. Various other methods, systems, and computer-readable media are also disclosed.",
@@ -26766,8 +26766,8 @@
   Reference-TCGTrustedAttestationProtocolUseCasesForTPMFamilies1_2And2_0AndDICE
   "Reference - TCG Trusted Attestation Protocol Use Cases for TPM Families 1.2 and 2.0 and DICE"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://trustedcomputinggroup.org/wp-content/uploads/TCG_TNC_TAP_Use_Cases_v1r0p35_published.pdf",
+   {:rdfa/uri
+    "https://trustedcomputinggroup.org/wp-content/uploads/TCG_TNC_TAP_Use_Cases_v1r0p35_published.pdf"},
    :d3f/kb-reference-title
    #xsd/string
     "TCG Trusted Attestation Protocol Use Cases for TPM Families 1.2 and 2.0 and DICE",
@@ -26781,8 +26781,8 @@
 (def Reference-TPM2_0LibrarySpecification_TrustedComputingGroup%2CIncorporated
   "Reference - TPM 2.0 Library Specification - Trusted Computing Group, Incorporated"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://trustedcomputinggroup.org/resource/tpm-library-specification/",
+   {:rdfa/uri
+    "https://trustedcomputinggroup.org/resource/tpm-library-specification/"},
    :d3f/kb-abstract
    #xsd/string
     "This specification defines the Trusted Platform Module (TPM) a device that enables trust in computing\nplatforms in general. It is broken into parts to make the role of each part clear. All parts are required in\norder to constitute a complete standard. For a complete definition of all requirements necessary to build a TPM, the designer will need to use the appropriate platform-specific specification to understand all of the requirements for a TPM in a specific application or make appropriate choices as an implementer. Those wishing to create a TPM need to be aware that this specification does not provide a complete picture of the options and commands necessary to implement a TPM. To implement a TPM the designer needs to refer to the relevant platform-specific specification to understand the options and settings required for a TPM in a specific type of platform or make appropriate choices as an implementer.",
@@ -26803,8 +26803,8 @@
 (def Reference-TamperProofMutatingSoftware_ARXANTECHNOLOGIESInc
   "Reference - Tamper proof mutating software - ARXAN TECHNOLOGIES Inc"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9262600B2/en?oq=US9262600B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9262600B2/en?oq=US9262600B2"},
    :d3f/kb-abstract
    #xsd/string
     "System and method is disclosed for protecting client software running on a client computer from tampering using a secure server. Prior to or independent of executing the client software, the system integrates self-protection into the client software; removes functions from the client software for execution on the server; develops client software self-protection updates; and periodically distributes the updates. During execution of the client software, the system receives an initial request from the client computer for execution of the removed function; verifies the initial request; and cooperates with the client computer in execution of the client software if verification is successful. If verification is unsuccessful, the system can attempt to update the client software on the client computer; and require a new initial request. Client software can be updated on occurrence of a triggering event. Communications can be encrypted, and the encryption updated. Authenticating checksums can be used for verification.",
@@ -26824,8 +26824,8 @@
   Reference-Technical_Specifications_for_Construction_and_Management_of_Sensitive_Compartmented_Information_Facilities
   "Reference - Technical Specifications for Construction and Management of Sensitive Compartmented Information Facilities"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.dni.gov/files/Governance/IC-Tech-Specs-for-Const-and-Mgmt-of-SCIFs-v15.pdf",
+   {:rdfa/uri
+    "https://www.dni.gov/files/Governance/IC-Tech-Specs-for-Const-and-Mgmt-of-SCIFs-v15.pdf"},
    :d3f/kb-author #xsd/string
                    "National Counterintelligence and Security Center",
    :d3f/kb-reference-of :d3f/RFShielding,
@@ -26841,7 +26841,7 @@
 
 (def Reference-TechniquesForImpedingAndDetectingNetworkThreats_VerisignInc
   "Reference - Techniques for impeding and detecting network threats - Verisign Inc"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US10904273B1/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US10904273B1/"},
    :d3f/kb-abstract
    #xsd/string
     "Infinite DNS decoy trap resource to catch threats scanning for network resources to attack.\n\nIn various embodiments, a name server transmits a canonical name as resolution to another canonical name. In operation, when a resource name is requested for resolution, a determination is made that the resource name corresponds to a trap resource name. A first canonical name is transmitted as resolution to the trap resource name. The first canonical name is requested for resolution, and a second canonical name is transmitted as resolution. By providing trap canonical names as resolutions to trap canonical names, unauthorized software making the resolution requests is kept occupied with requesting resolution of canonical name after canonical name, impeding the ability of the unauthorized software from traversing a network.",
@@ -26861,8 +26861,8 @@
 (def Reference-TenablePassiveNetworkMonitoring
   "Reference - Tenable Passive Network Monitoring"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.tenable.com/sites/default/files/solution-briefs/SB-Passive-Network-Monitoring.pdf",
+   {:rdfa/uri
+    "https://www.tenable.com/sites/default/files/solution-briefs/SB-Passive-Network-Monitoring.pdf"},
    :d3f/kb-abstract
    #xsd/string
     "Tenable Nessus® Network Monitor (NNM), a passive monitoring sensor, continuously discovers active assets on the network and assesses them for vulnerabilities. NNM is based on patented network discovery and vulnerability analysis technology that continuously monitors and profiles non-intrusively. It monitors IPv4, IPv6 and mixed network traffic at the packet layer to determine topology, services and vulnerabilities.",
@@ -26878,8 +26878,8 @@
   Reference-Testing_Metrics_for_Password_Creation_Policies_by_Attacking_Large_Sets_of_Revealed_Passwords
   "Reference - Testing Metrics for Password Creation Policies by Attacking Large Sets of Revealed Passwords"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.cs.umd.edu/~jkatz/security/downloads/passwords_revealed-weir.pdf",
+   {:rdfa/uri
+    "https://www.cs.umd.edu/~jkatz/security/downloads/passwords_revealed-weir.pdf"},
    :d3f/kb-author #xsd/string
                    "Matt Weir, Sudhir Aggarwal, Michael Collins, Henry Stern",
    :d3f/kb-reference-of :d3f/StrongPasswordPolicy,
@@ -26896,8 +26896,8 @@
 (def Reference-ThePyramidOfPain-DavidBianco
   "Reference - The Pyramid of Pain - David Bianco"
   {:d3f/has-link
-   #xsd/anyURI
-    "http://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html",
+   {:rdfa/uri
+    "http://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html"},
    :d3f/kb-abstract
    #xsd/string
     "This article identifies progressive levels of adversary difficulty encountered for various types of indicators.",
@@ -26910,8 +26910,8 @@
 
 (def Reference-ThreatDetectionForReturnOrientedProgramming_CrowdstrikeInc
   "Reference - Threat detection for return oriented programming - Crowdstrike Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20140075556A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20140075556A1"},
    :d3f/kb-abstract
    #xsd/string
     "This disclosure describes, in part, techniques for detecting security exploits associated with return-oriented programming. The techniques include determining that a retrieved count is indicative of malicious activity, such as return oriented programming. The count may be retrieved from a processor performance counter of prediction mismatches, the prediction mismatches resulting from comparisons of a call stack of a computing device and of a shadow call stack maintained by a processor of the computing device. The techniques further include performing at least one security response action in response to determining that the count indicates malicious activity.",
@@ -26934,8 +26934,8 @@
   Reference-ThreatDetectionThroughTheAccumulatedDetectionOfThreatCharacteristics_SophosLtd
   "Reference - Threat detection through the accumulated detection of threat characteristics - Sophos Ltd"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://patents.google.com/patent/US9104864B2/en?oq=US-9104864-B2",
+   {:rdfa/uri
+    "https://patents.google.com/patent/US9104864B2/en?oq=US-9104864-B2"},
    :d3f/kb-abstract
    #xsd/string
     "Embodiments of the present disclosure provide for improved capabilities in the detection of malware, where malware threats are detected through the accumulated identification of threat characteristics for targeted computer objects. Methods and systems include dynamic threat detection providing a first database that correlates a plurality of threat characteristics to a threat, wherein a presence of the plurality of the threat characteristics confirms a presence of the threat; detecting a change event in a computer run-time process; testing the change event for a presence of one or more of the plurality of characteristics upon detection of the change event; storing a detection of one of the plurality of characteristics in a second database that accumulates detected characteristics for the computer run-time process; and identifying the threat when each one of the plurality of characteristics appears in the second database.",
@@ -26958,8 +26958,8 @@
   Reference-TivoliApplicationDependencyDiscoverManager7_3_0DependenciesBetweenResources
   "Reference - Tivoli Application Dependency Discovery Manager 7.3.0 - Dependencies between resources"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.ibm.com/docs/en/taddm/7.3.0?topic=model-dependencies-between-resources",
+   {:rdfa/uri
+    "https://www.ibm.com/docs/en/taddm/7.3.0?topic=model-dependencies-between-resources"},
    :d3f/kb-organization #xsd/string "IBM",
    :d3f/kb-reference-of [:d3f/SystemDependencyMapping
                          :d3f/ServiceDependencyMapping
@@ -26976,7 +26976,7 @@
 
 (def Reference-TokenlessBiometricTransactionAuthorizationMethodAndSystem
   "Reference - Tokenless biometric transaction authorization method and system"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US5870723A/",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US5870723A/"},
    :d3f/kb-abstract
    #xsd/string
     "A method and system for tokenless authorization of commercial transactions between a buyer and a seller using a computer system. A transaction is proposed by a seller, and the buyer signals his acceptance by entering his personal authentication information comprising a PIN and at least one biometric sample, forming a commercial transaction message. The commercial transaction message is forwarded to the computer system, where the computer system compares the personal authentication information in the commercial transaction message with previously registered buyer biometric samples. If the computer system successfully identifies the buyer, a financial account of the buyer is debited and a financial account of the seller is credited, and the results of the transaction are presented to both buyer and seller. As a result of the invention, a buyer can conduct commercial transactions without having to use any tokens such as portable man-made memory devices such as smartcards or swipe cards. The invention allows buyers to quickly select one of a group of different financial accounts from which to transfer funds. The invention further indicates to the user that the authentic computer system was accessed by the use of a private code that is returned to the buyer after the identification is complete. The invention additionally permits an authorized buyer to alert authorities in the event of an emergency, such as when a transaction is coerced.",
@@ -26994,7 +26994,7 @@
 
 (def Reference-Tripwire
   "Reference - Tripwire"
-  {:d3f/has-link        #xsd/anyURI "https://linux.die.net/man/8/tripwire",
+  {:d3f/has-link        {:rdfa/uri "https://linux.die.net/man/8/tripwire"},
    :d3f/kb-reference-of :d3f/FileIntegrityMonitoring,
    :d3f/kb-reference-title #xsd/string "Reference - Tripwire",
    :db/ident            :d3f/Reference-Tripwire,
@@ -27004,8 +27004,8 @@
 (def Reference-TrustedAttestationProtocolUseCases
   "Reference - Trusted Attestation Protocol Use Cases"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://trustedcomputinggroup.org/wp-content/uploads/TCG_TNC_TAP_Use_Cases_v1r0p35_published.pdf",
+   {:rdfa/uri
+    "https://trustedcomputinggroup.org/wp-content/uploads/TCG_TNC_TAP_Use_Cases_v1r0p35_published.pdf"},
    :d3f/kb-article
    #xsd/string
     "## Document Abstract\nThis specification defines the Trusted Platform Module (TPM) a device that enables trust in computing platforms in general. It is broken into parts to make the role of each part clear. All parts are required in order to constitute a complete standard. For a complete definition of all requirements necessary to build a TPM, the designer will need to use the appropriate platform-specific specification to understand all of the requirements for a TPM in a specific application or make appropriate choices as an implementer. Those wishing to create a TPM need to be aware that this specification does not provide a complete picture of the options and commands necessary to implement a TPM. To implement a TPM the designer needs to refer to the relevant platform-specific specification to understand the options and settings required for a TPM in a specific type of platform or make appropriate choices as an implementer.",
@@ -27018,8 +27018,8 @@
 (def
   Reference-TrustedCommunicationsWithChildProcesses_MicrosoftTechnologyLicensingLLC
   "Reference - Trusted Communications With Child Processes - Microsoft Technology Licensing LLC"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20120174210A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20120174210A1"},
    :d3f/kb-abstract
    #xsd/string
     "A method to identify a child process to a parent process in an operating system includes obtaining a token and login identifier from the operating system. The parent process creates a remote procedure call communications endpoint to communicate with the child process. Thereafter, a child process is spawned by the parent process. A child-initiated request to communicate with the parent process is then received by the parent process. In order to verify the identity of the child-initiated request, the parent process impersonates the child process and receives as identifier that identifies the requestor child process. The requestor process identifier and the spawned child identifier are compared. Based on the comparison, the parent process responds to the child-initiated request. In another embodiment, process identifiers are used by the parent process to verify the identity of a child process the requests communication with the parent process.",
@@ -27041,7 +27041,7 @@
 
 (def Reference-UACBypass_MITRE
   "Reference - CAR-2019-04-001: UAC Bypass - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2019-04-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2019-04-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Bypassing user account control (UAC Bypass) is generally done by piggybacking on a system process that has auto-escalate privileges. This analytic looks to detect those cases as described by the open-source UACME tool.",
@@ -27061,8 +27061,8 @@
 (def Reference-UEFIPlatformInitialization-Specification
   "Reference - UEFI Platform Initialization (PI) Specification"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://uefi.org/sites/default/files/resources/PI_Spec_1_7_A_final_May1.pdf",
+   {:rdfa/uri
+    "https://uefi.org/sites/default/files/resources/PI_Spec_1_7_A_final_May1.pdf"},
    :d3f/kb-reference-of :d3f/BootloaderAuthentication,
    :d3f/kb-reference-title #xsd/string
                             "UEFI Platform Initialization (PI) Specification",
@@ -27073,7 +27073,7 @@
 
 (def Reference-USBFilterForHubMaliciousCodePreventionSystem
   "Reference - USB filter for hub malicious code prevention system"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US9990325B2/en",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US9990325B2/en"},
    :d3f/kb-abstract
    #xsd/string
     "The present invention relates generally to computer systems, and more specifically, to a universal serial bus (USB) filter hub for a computer system.",
@@ -27091,7 +27091,7 @@
 
 (def Reference-UnifiedArchitectureFrameworkUAF
   "Reference - Unified Architecture Framework (UAF)"
-  {:d3f/has-link #xsd/anyURI "https://www.omg.org/spec/UAF/",
+  {:d3f/has-link {:rdfa/uri "https://www.omg.org/spec/UAF/"},
    :d3f/kb-abstract
    #xsd/string
     "UAF is an OMG standard that assists in development of architectural descriptions in commercial industry firms, federal government agencies and defense organizations. UAF has a variety of use cases from Enterprise and Mission architecting, to System of Systems (SoS) and Cyber-physical Systems engineering, as well as being an enabler for Digital Transformation efforts and for Department of Defense Architecture Framework (DoDAF) and NATO Architecture Framework (NAF) modeling. Architectural Descriptions in UAF are aligned with ISO/IEC/IEEE 42010:2011, Systems and software engineering -- Architecture description.",
@@ -27110,8 +27110,8 @@
 (def Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries
   "Reference - Use DNS Policy for Applying Filters on DNS Queries"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/windows-server/networking/dns/deploy/apply-filters-on-dns-queries",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows-server/networking/dns/deploy/apply-filters-on-dns-queries"},
    :d3f/kb-organization #xsd/string "Microsoft",
    :d3f/kb-reference-title
    #xsd/string "Use DNS Policy for Applying Filters on DNS Queries",
@@ -27124,8 +27124,8 @@
 (def
   Reference-UseOfAnApplicationControllerToMonitorAndControlSoftwareFileAndApplicationEnvironments_SophosLtd
   "Reference - Use of an application controller to monitor and control software file and application environments - Sophos Ltd"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20180032727A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20180032727A1"},
    :d3f/kb-abstract
    #xsd/string
     "In embodiments of the present invention, a framework for an extensible, file-based security system is described for determining an appropriate application, application environment, and/or access or security control measure based at least in part on a file's reputation. In response to the selection of a file, an application controller may be used to select a software application from two or more software applications to open the selected file, based at least in part on the selected file's reputation. If launched, a software application may be configured to open the file in an environment, such as a virtual machine, quarantined environment, and the like, that is appropriate for the file based at least in part on the reputation information. A software application may be a secure software application configured to manage secure files, or an insecure software application configured to manage insecure files. The selected file, and communications relating to the selected software application, may be managed according to the selected software application's secure or insecure configuration. Further, the selected software application may associate reputation information with all files that are modified and/or created by the selected software application, including at least in part, reputation information matching that of the selected file.",
@@ -27148,8 +27148,8 @@
 (def Reference-UseRkillToStopMalwareProcesses-Ghacks_net
   "Reference - Use Rkill to Stop Malware Processes - ghacks.net"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://www.ghacks.net/2011/07/29/use-rkill-to-stop-malware-processes/",
+   {:rdfa/uri
+    "https://www.ghacks.net/2011/07/29/use-rkill-to-stop-malware-processes/"},
    :d3f/kb-author #xsd/string "Melanie Gross",
    :d3f/kb-organization #xsd/string "ghacks.net",
    :d3f/kb-reference-of :d3f/ProcessTermination,
@@ -27161,7 +27161,7 @@
 
 (def Reference-UserActivityFromClearingEventLogs_MITRE
   "Reference - CAR-2016-04-002: User Activity from Clearing Event Logs - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2016-04-002/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2016-04-002/"},
    :d3f/kb-abstract
    #xsd/string
     "It is unlikely that event log data would be cleared during normal operations, and it is likely that malicious attackers may try to cover their tracks by clearing an event log. When an event log gets cleared, it is suspicious. Alerting when a \"Clear Event Log\" is generated could point to this intruder technique. Centrally collecting events has the added benefit of making it much harder for attackers to cover their tracks. Event Forwarding permits sources to forward multiple copies of a collected event to multiple collectors, thus enabling redundant event collection. Using a redundant event collection model can minimize the single point of failure risk.",
@@ -27183,7 +27183,7 @@
 
 (def Reference-UserActivityFromStoppingWindowsDefensiveServices_MITRE
   "Reference - CAR-2016-04-003: User Activity from Stopping Windows Defensive Services - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2016-04-003/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2016-04-003/"},
    :d3f/kb-abstract
    #xsd/string
     "Spyware and malware remain a serious problem and Microsoft developed security services, Windows Defender and Windows Firewall, to combat this threat. In the event Windows Defender or Windows Firewall is turned off, administrators should correct the issue immediately to prevent the possibility of infection or further infection and investigate to determine if caused by crash or user manipulation.",
@@ -27204,7 +27204,7 @@
 
 (def Reference-UserLoggedInToMultipleHosts_MITRE
   "Reference - CAR-2013-02-012: User Logged in to Multiple Hosts - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-02-012/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-02-012/"},
    :d3f/kb-abstract
    #xsd/string
     "Most users use only one or two machines during the normal course of business. User accounts that log in to multiple machines, especially over a short period of time, may be compromised. Remote logins among multiple machines may be an indicator of Lateral Movement.\n\nCertain users will likely appear as being logged into several machines and may need to be \"whitelisted.\" Such users would include network admins or user names that are common to many hosts.",
@@ -27227,7 +27227,7 @@
 
 (def Reference-UserLoginActivityMonitoring_MITRE
   "Reference - CAR-2013-10-001: User Login Activity Monitoring - MITRE"
-  {:d3f/has-link #xsd/anyURI "https://car.mitre.org/analytics/CAR-2013-10-001/",
+  {:d3f/has-link {:rdfa/uri "https://car.mitre.org/analytics/CAR-2013-10-001/"},
    :d3f/kb-abstract
    #xsd/string
     "Monitoring logon and logoff events for hosts on the network is very important for situational awareness. This information can be used as an indicator of unusual activity as well as to corroborate activity seen elsewhere.\n\nCould be applied to a number of different types of monitoring depending on what information is desired. Some use cases include monitoring for all remote connections and building login timelines for users. Logon events are Windows Event Code 4624 for Windows Vista and above, 518 for pre-Vista. Logoff events are 4634 for Windows Vista and above, 538 for pre-Vista.",
@@ -27248,7 +27248,7 @@
 
 (def Reference-UsingSpanningTreeProtocolSTPToEnhanceLayer2NetworkTopologyMaps
   "Reference - Using spanning tree protocol (STP) to enhance layer-2 topology maps"
-  {:d3f/has-link #xsd/anyURI "https://patents.google.com/patent/US8045488B2",
+  {:d3f/has-link {:rdfa/uri "https://patents.google.com/patent/US8045488B2"},
    :d3f/kb-abstract
    #xsd/string
     "Spanning Tree Protocol (STP) data is obtained via network switch (SNMP) queries to enhance identification of switch-to-switch links in Layer-2 mapping. In particular, by analyzing the STP data, ambiguity in determining switch uplink ports may be reduced. Specifically, the STP data can be used in conjunction with other topography data to provide Layer-2 connectivity for nodes on a network topology. Layer-2 address mapping tables are collected from a topology mapping, and STP data is collected, along with address translation tables (ARP) tables. Using this information, switches are identified using Layer-2 address tables. The STP data can be correlated by comparing data in switches, identifying switch ports directly connected to other switch ports, and eliminating direct switch-to-switch port connections from consideration for further Layer-2 node mappings.",
@@ -27267,8 +27267,8 @@
 
 (def Reference-VirtualizedProcessIsolation_AdvancedMicroDevicesInc
   "Reference - Virtualized process isolation - Advanced Micro Devices Inc"
-  {:d3f/has-link #xsd/anyURI
-                  "https://patents.google.com/patent/US20180081829A1",
+  {:d3f/has-link {:rdfa/uri
+                  "https://patents.google.com/patent/US20180081829A1"},
    :d3f/kb-abstract
    #xsd/string
     "Systems, apparatuses, and methods for implementing virtualized process isolation are disclosed. A system includes a kernel and multiple guest VMs executing on the system's processing hardware. Each guest VM includes a vShim layer for managing kernel accesses to user space and guest accesses to kernel space. The vShim layer also maintains a separate set of page tables from the kernel page tables. In one embodiment, data in the user space is encrypted and the kernel goes through the vShim layer to access user space data. When the kernel attempts to access a user space address, the kernel exits and the vShim layer is launched to process the request. If the kernel has permission to access the address, the vShim layer copies the data to a region in kernel space and then returns execution to the kernel.",
@@ -27286,7 +27286,7 @@
 
 (def Reference-Web-BasedEnterpriseManagement
   "Reference - Web-Based Enterprise Management"
-  {:d3f/has-link #xsd/anyURI "https://www.dmtf.org/standards/wbem",
+  {:d3f/has-link {:rdfa/uri "https://www.dmtf.org/standards/wbem"},
    :d3f/kb-organization #xsd/string "Distributed Management Task Force (DMTF)",
    :d3f/kb-reference-of [:d3f/HardwareComponentInventory
                          :d3f/SoftwareInventory
@@ -27299,7 +27299,7 @@
 
 (def Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2
   "Reference - Web Authentication: An API for accessing Public Key Credentials\nLevel 2"
-  {:d3f/has-link #xsd/anyURI "https://www.w3.org/TR/webauthn-2/",
+  {:d3f/has-link {:rdfa/uri "https://www.w3.org/TR/webauthn-2/"},
    :d3f/kb-abstract
    #xsd/string
     "This specification defines an API enabling the creation and use of strong, attested, scoped, public key-based credentials by web applications, for the purpose of strongly authenticating users. Conceptually, one or more public key credentials, each scoped to a given WebAuthn Relying Party, are created by and bound to authenticators as requested by the web application. The user agent mediates access to authenticators and their public key credentials in order to preserve user privacy. Authenticators are responsible for ensuring that no operation is performed without user consent. Authenticators provide cryptographic proof of their properties to Relying Parties via attestation. This specification also describes the functional model for WebAuthn conformant authenticators, including their signature and attestation functionality.",
@@ -27317,7 +27317,7 @@
 
 (def Reference-WhatIsNX_XDFeature_RedHat
   "Reference - What is NX/XD feature?"
-  {:d3f/has-link #xsd/anyURI "https://access.redhat.com/solutions/2936741",
+  {:d3f/has-link {:rdfa/uri "https://access.redhat.com/solutions/2936741"},
    :d3f/kb-abstract
    #xsd/string
     "What is NX/XD feature ?\nHow to check whether NX/XD is enabled ?\nHow to enable or disable NX/XD?\n\nNX/XD is a hardware cpu feature which is provided in almost all the hardware. Some BIOS has advanced option of enabling or disabling it.\nNX stands for No eXecute and XD stands for eXecute Disable. Both are same and is a technology used in processors to prevent execution of certain types of code.",
@@ -27335,8 +27335,8 @@
 (def Reference-Windows-Management-Infrastructure
   "Reference - Windows Management Infrastructure (MI)"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/previous-versions/windows/desktop/wmi_v2/windows-management-infrastructure",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/previous-versions/windows/desktop/wmi_v2/windows-management-infrastructure"},
    :d3f/kb-organization #xsd/string "Microsoft",
    :d3f/kb-reference-of [:d3f/HardwareComponentInventory
                          :d3f/SoftwareInventory
@@ -27351,8 +27351,8 @@
 (def Reference-Windows-Management-Instrumentation
   "Reference - Windows Management Instrumentation (WMI)"
   {:d3f/has-link
-   #xsd/anyURI
-    "https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-start-page",
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-start-page"},
    :d3f/kb-organization #xsd/string "Microsoft",
    :d3f/kb-reference-of [:d3f/ConfigurationInventory
                          :d3f/HardwareComponentInventory
@@ -27366,8 +27366,8 @@
 
 (def Reference-Windows10STIG
   "Reference - Windows 10 STIG"
-  {:d3f/has-link        #xsd/anyURI
-                         "https://www.stigviewer.com/stig/windows_10/",
+  {:d3f/has-link        {:rdfa/uri
+                         "https://www.stigviewer.com/stig/windows_10/"},
    :d3f/kb-abstract     #xsd/string "Windows 10 STIG guidance.",
    :d3f/kb-reference-of :d3f/ApplicationConfigurationHardening,
    :d3f/kb-reference-title
@@ -27378,7 +27378,7 @@
 
 (def Reference-WindowsRemoteManagement_WinRM_MITRE
   "Reference - CAR-2014-11-006: Windows Remote Management (WinRM) - MITRE"
-  {:d3f/has-link #xsd/anyURI "",
+  {:d3f/has-link {:rdfa/uri ""},
    :d3f/kb-abstract #xsd/string "",
    :d3f/kb-author #xsd/string "MITRE",
    :d3f/kb-mitre-analysis #xsd/string "",
@@ -27400,8 +27400,8 @@
 
 (def Reference-www_biometric-solutions_com_keystroke-dynamics
   "Reference - http://www.biometric-solutions.com/keystroke-dynamics.html - biometric-solutions.com"
-  {:d3f/has-link #xsd/anyURI
-                  "http://www.biometric-solutions.com/keystroke-dynamics.html",
+  {:d3f/has-link {:rdfa/uri
+                  "http://www.biometric-solutions.com/keystroke-dynamics.html"},
    :d3f/kb-abstract
    #xsd/string
     "Keystroke dynamics or typing dynamics refers to the automated method of identifying or confirming the identity of an individual based on the manner and the rhythm of typing on a keyboard. Keystroke dynamics is a behavioral biometric, this means that the biometric factor is 'something you do'.\n\nAlready during the second world war a technique known as The Fist of the Sender was used by military intelligence to distinguish based on the rhythm whether a morse code message was send by ally or enemy. These days each household has at least one computer keyboard, making keystroke dynamics the easiest biometric solution to implement in terms of hardware.\n\nWith keystroke dynamics the biometric template used to identify an individual is based on the typing pattern, the rhythm and the speed of typing on a keyboard. The raw measurements used for keystroke dynamics are dwell time and flight time.",
@@ -27751,11 +27751,11 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/UserBehaviorAnalysis],
    :rdfs/label #xsd/string "Resource Access Pattern Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Authorization,
+                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
                      :d3f/UserBehaviorAnalysis
                      {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Authentication,
+                      :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}]})
 
 (def ResourceDevelopment
@@ -27811,11 +27811,11 @@
    :db/ident :d3f/ReverseResolutionDomainDenylisting,
    :rdf/type [:owl/Class :d3f/DNSDenylisting :owl/NamedIndividual],
    :rdfs/label #xsd/string "Reverse Resolution Domain Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/blocks,
+   :rdfs/subClassOf [:d3f/DNSDenylisting
+                     {:owl/onProperty :d3f/blocks,
                       :owl/someValuesFrom
                       :d3f/InboundInternetDNSResponseTraffic,
-                      :rdf/type :owl/Restriction}
-                     :d3f/DNSDenylisting]})
+                      :rdf/type :owl/Restriction}]})
 
 (def ReverseResolutionIPDenylisting
   "Blocking a reverse lookup based on the query's IP address value."
@@ -27913,10 +27913,10 @@
                   {:rdfa/uri
                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}
                   #xsd/string "https://linux.die.net/man/1/at"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/created-by,
+   :rdfs/subClassOf [:d3f/OperatingSystemProcess
+                     {:owl/onProperty     :d3f/created-by,
                       :owl/someValuesFrom :d3f/JobSchedulerSoftware,
                       :rdf/type           :owl/Restriction}
-                     :d3f/OperatingSystemProcess
                      {:owl/onProperty     :d3f/contained-by,
                       :owl/someValuesFrom :d3f/JobSchedule,
                       :rdf/type           :owl/Restriction}
@@ -27942,10 +27942,10 @@
    :db/ident :d3f/ScheduledJobAnalysis,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label #xsd/string "Scheduled Job Analysis",
-   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/JobSchedule,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemMonitoring]})
 
 (def Scheduling
   "Scheduling"
@@ -28049,10 +28049,10 @@
    :db/ident :d3f/SegmentAddressOffsetRandomization,
    :rdf/type [:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Segment Address Offset Randomization",
-   :rdfs/subClassOf [:d3f/ApplicationHardening
-                     {:owl/onProperty     :d3f/obfuscates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/obfuscates,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ApplicationHardening]})
 
 (def Self-organizingMap
   "A Self-Organizing Map (SOM) is a unsupervised learning model in Artificial Neural Network where the feature maps are the generated two-dimensional discretized form of an input space during the model training (based on competitive learning)"
@@ -28466,12 +28466,12 @@
    :db/ident :d3f/SessionDurationAnalysis,
    :rdf/type [:owl/Class :d3f/UserBehaviorAnalysis :owl/NamedIndividual],
    :rdfs/label #xsd/string "Session Duration Analysis",
-   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/UserBehaviorAnalysis
                      {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authorization,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}]})
 
 (def SetSystemConfigValue
@@ -28657,15 +28657,15 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Software"},
    :rdfs/label #xsd/string "Software",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/instructs,
-                      :owl/someValuesFrom :d3f/Process,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/implements,
                       :owl/someValuesFrom :d3f/Subroutine,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
+                     {:owl/onProperty     :d3f/instructs,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}]})
 
 (def SoftwareArtifactServer
@@ -28943,12 +28943,12 @@
    :rdfs/label #xsd/string "Stack Frame",
    :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Call_stack"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/StackFrameCanary,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/Pointer,
                       :rdf/type           :owl/Restriction}
-                     :d3f/StackComponent],
+                     :d3f/StackComponent
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/StackFrameCanary,
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel [#xsd/string "Activation Record"
                    #xsd/string "Activation Frame"]})
 
@@ -29207,10 +29207,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/strengthens,
                       :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
+                     :d3f/CredentialHardening
                      {:owl/onProperty     :d3f/strengthens,
                       :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def StyleGAN
   "Successor to the ProGAN."
@@ -29554,10 +29554,10 @@
    :db/ident :d3f/SystemConfigurationPermissions,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "System Configuration Permissions",
-   :rdfs/subClassOf [:d3f/PlatformHardening
-                     {:owl/hasValue   :d3f/M1028,
+   :rdfs/subClassOf [{:owl/hasValue   :d3f/M1028,
                       :owl/onProperty :d3f/restricts,
                       :rdf/type       :owl/Restriction}
+                     :d3f/PlatformHardening
                      {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}]})
@@ -29847,12 +29847,12 @@
    :db/ident :d3f/SystemVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :d3f/SystemMapping :owl/Class],
    :rdfs/label #xsd/string "System Vulnerability Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
-                      :owl/someValuesFrom :d3f/DigitalSystem,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemMapping
+   :rdfs/subClassOf [:d3f/SystemMapping
                      {:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Vulnerability,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/evaluates,
+                      :owl/someValuesFrom :d3f/DigitalSystem,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1001
@@ -29936,14 +29936,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Security Account Manager",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/Process,
+                      :owl/someValuesFrom :d3f/SystemPasswordDatabase,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1003
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/AuthenticationService,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/SystemPasswordDatabase,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1003_003
@@ -30178,10 +30178,13 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Rootkit",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/Kernel,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/KernelModule,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/Kernel,
+                      :owl/someValuesFrom :d3f/Firmware,
                       :rdf/type           :owl/Restriction}
                      :d3f/DefenseEvasionTechnique
                      {:owl/onProperty     :d3f/may-modify,
@@ -30189,9 +30192,6 @@
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/BootSector,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/Firmware,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1015
@@ -30253,10 +30253,10 @@
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/CreateSocket,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DiscoveryTechnique
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/OperatingSystemConfigurationFile,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DiscoveryTechnique
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
@@ -30539,8 +30539,11 @@
    :db/ident        :d3f/T1033,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "System Owner/User Discovery",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/DirectoryService,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/PasswordFile,
@@ -30552,11 +30555,8 @@
                       :owl/someValuesFrom :d3f/CopyToken,
                       :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/DirectoryService,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1035
@@ -30958,11 +30958,11 @@
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/JobSchedule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1053_001
@@ -31058,11 +31058,11 @@
    :db/ident        :d3f/T1055.001,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Dynamic-link Library Injection",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/SystemCall,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/adds,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SystemCall,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -31412,10 +31412,10 @@
    :db/ident        :d3f/T1068,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Exploitation for Privilege Escalation",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [:d3f/PrivilegeEscalationTechnique
+                     {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/PrivilegeEscalation,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PrivilegeEscalationTechnique
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/StackFrame,
                       :rdf/type           :owl/Restriction}
@@ -31618,16 +31618,16 @@
    :db/ident        :d3f/T1072,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Software Deployment Tools Execution",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/File,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ExecutionTechnique
+                     :d3f/LateralMovementTechnique
+                     {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/SoftwareDeploymentTool,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/installs,
                       :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionTechnique
-                     :d3f/LateralMovementTechnique
-                     {:owl/onProperty     :d3f/adds,
-                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1073
@@ -31711,17 +31711,17 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Valid Accounts",
    :rdfs/subClassOf [:d3f/InitialAccessTechnique
-                     {:owl/onProperty     :d3f/uses,
-                      :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
                      :d3f/DefenseEvasionTechnique
                      :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}
                      :d3f/PrivilegeEscalationTechnique
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
+                     {:owl/onProperty     :d3f/uses,
+                      :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1078_001
@@ -32269,12 +32269,12 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
                       :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/AuthenticationLog,
-                      :rdf/type           :owl/Restriction}
                      :d3f/T1110
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1110_002
@@ -32299,20 +32299,20 @@
    :db/ident        :d3f/T1110.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Password Spraying",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-create,
-                      :owl/someValuesFrom
-                      :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
+                      :owl/someValuesFrom :d3f/Password,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/accesses,
-                      :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1110
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3f/may-create,
+                      :owl/someValuesFrom
+                      :d3f/IntranetAdministrativeNetworkTraffic,
+                      :rdf/type :owl/Restriction}]})
 
 (def T1110_004
   "Credential Stuffing"
@@ -32323,17 +32323,17 @@
    :db/ident        :d3f/T1110.004,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Credential Stuffing",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/AuthenticationLog,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/produces,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1110
                      {:owl/onProperty :d3f/may-create,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     :d3f/T1110
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/AuthenticationLog,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1111
   "Two-Factor Authentication Interception"
@@ -32640,16 +32640,16 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "External Remote Services",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authorization,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
+                      :owl/someValuesFrom :d3f/NetworkSession,
                       :rdf/type           :owl/Restriction}
                      :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/NetworkSession,
+                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PersistenceTechnique]})
+                     :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authorization,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1134
   "Access Token Manipulation"
@@ -32697,15 +32697,15 @@
    :db/ident        :d3f/T1134.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Make and Impersonate Token",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/copies,
-                      :owl/someValuesFrom :d3f/AccessToken,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1134
-                     {:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1134
                      {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/LoginSession,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/copies,
+                      :owl/someValuesFrom :d3f/AccessToken,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1134_004
@@ -32798,11 +32798,11 @@
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
                      :d3f/T1137
                      {:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
@@ -32864,16 +32864,16 @@
    :db/ident        :d3f/T1137.006,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Add-ins",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/OfficeApplication,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/adds,
                       :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1137
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/OfficeApplication,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/T1137]})
 
 (def T1138
   "Application Shimming"
@@ -32901,10 +32901,10 @@
    :db/ident        :d3f/T1140,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Deobfuscate/Decode Files or Information",
-   :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
-                     {:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DefenseEvasionTechnique
                      {:owl/onProperty     :d3f/may-add,
                       :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}
@@ -33295,11 +33295,11 @@
                       :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}
                      :d3f/CredentialAccessTechnique
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/WindowsShortcutFile,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/WindowsShortcutFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1188
@@ -33319,14 +33319,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Drive-by Compromise",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
+                      :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
-                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
+                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/URL,
+                      :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1190
@@ -33341,10 +33341,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
+                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/injects,
                       :owl/someValuesFrom :d3f/DatabaseQuery,
                       :rdf/type           :owl/Restriction}
-                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}]})
@@ -33449,15 +33449,15 @@
    :rdfs/label      #xsd/string "BITS Jobs",
    :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
                      {:owl/onProperty     :d3f/may-produce,
+                      :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/IntranetIPCNetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/IntranetWebNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-produce,
-                      :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PersistenceTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1198
   "SIP and Trust Provider Hijacking"
@@ -33653,17 +33653,17 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Exploitation of Remote Services",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/LateralMovementTechnique
+                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/StackFrame,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/LateralMovementTechnique
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1211
@@ -33690,18 +33690,18 @@
    :db/ident        :d3f/T1212,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Exploitation for Credential Access",
-   :rdfs/subClassOf [:d3f/CredentialAccessTechnique
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/AuthenticationService,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/CredentialAccessTechnique
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ProcessCodeSegment,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/AuthenticationService,
+                      :owl/someValuesFrom :d3f/CredentialManagementSystem,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/StackFrame,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/CredentialManagementSystem,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1213
@@ -33943,12 +33943,12 @@
    :rdfs/seeAlso
    {:rdfa/uri
     "https://posts.specterops.io/mavinject-exe-functionality-deconstructed-c29ab2cf5c0e"},
-   :rdfs/subClassOf [:d3f/T1218
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1218
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/CreateThread,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1218_014
@@ -33963,15 +33963,15 @@
    :db/ident :d3f/T1218.014,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "MMC",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/T1218
                      {:owl/onProperty     :d3f/may-add,
                       :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1218
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/Command,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1219
@@ -34440,15 +34440,15 @@
    :db/ident        :d3f/T1505.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Web Shell",
-   :rdfs/subClassOf [:d3f/T1505
-                     {:owl/onProperty     :d3f/adds,
-                      :owl/someValuesFrom :d3f/WebScriptFile,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/WebServer,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/WebServer,
+                     :d3f/T1505
+                     {:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/WebScriptFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1505_004
@@ -34514,19 +34514,19 @@
                       :owl/someValuesFrom :d3f/GetRunningProcesses,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/FileSystemMetadata,
+                      :owl/someValuesFrom :d3f/SystemFirewallConfiguration,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/SystemFirewallConfiguration,
+                      :owl/someValuesFrom :d3f/KernelProcessTable,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3f/may-access,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
+                     :d3f/T1518
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/KernelProcessTable,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1518]})
+                      :owl/someValuesFrom :d3f/FileSystemMetadata,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1519
   "Emond"
@@ -34722,10 +34722,10 @@
                       :rdf/type           :owl/Restriction}
                      :d3f/T1542
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootLoader,
+                      :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootSector,
+                      :owl/someValuesFrom :d3f/BootLoader,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1542_004
@@ -34889,17 +34889,17 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Trap",
    :rdfs/subClassOf [:d3f/T1546
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
+                     {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/Command,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1546_006
@@ -34940,17 +34940,17 @@
    :db/ident        :d3f/T1546.008,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Accessibility Features",
-   :rdfs/subClassOf [:d3f/T1546
-                     {:owl/onProperty :d3f/may-create,
+   :rdfs/subClassOf [{:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
-                      :d3f/IntranetAdministrativeNetworkTraffic,
+                      :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
+                     :d3f/T1546
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ExecutableBinary,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty :d3f/may-modify,
+                     {:owl/onProperty :d3f/may-create,
                       :owl/someValuesFrom
-                      :d3f/SystemConfigurationDatabaseRecord,
+                      :d3f/IntranetAdministrativeNetworkTraffic,
                       :rdf/type :owl/Restriction}]})
 
 (def T1546_009
@@ -34962,17 +34962,17 @@
    :db/ident        :d3f/T1546.009,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "AppCert DLLs",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [{:owl/onProperty :d3f/modifies,
+                      :owl/someValuesFrom
+                      :d3f/SystemConfigurationDatabaseRecord,
+                      :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1546
-                     {:owl/onProperty :d3f/modifies,
-                      :owl/someValuesFrom
-                      :d3f/SystemConfigurationDatabaseRecord,
-                      :rdf/type :owl/Restriction}]})
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1546_010
   "AppInit DLLs"
@@ -34983,17 +34983,17 @@
    :db/ident        :d3f/T1546.010,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "AppInit DLLs",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/loads,
+   :rdfs/subClassOf [:d3f/T1546
+                     {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1546
                      {:owl/onProperty :d3f/modifies,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1546_011
   "Application Shimming"
@@ -35044,14 +35044,14 @@
    :db/ident        :d3f/T1546.014,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Emond",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/PropertyListFile,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ConfigurationResource,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1546
                      {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/PropertyListFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/PropertyListFile,
                       :rdf/type           :owl/Restriction}]})
 
@@ -35300,13 +35300,13 @@
    :db/ident        :d3f/T1548.002,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Bypass User Access Control",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/executes,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
@@ -35639,16 +35639,16 @@
    :db/ident        :d3f/T1555.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Credentials from Web Browsers",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/ReadFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1555
-                     {:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/In-memoryPasswordStore,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/accesses,
                       :owl/someValuesFrom :d3f/DatabaseFile,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/ReadFile,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1555]})
 
 (def T1555_004
   "Windows Credential Manager"
@@ -35947,20 +35947,20 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Disk Content Wipe",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/PartitionTable,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/Partition,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/BlockDevice,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootSector,
-                      :rdf/type           :owl/Restriction}
+                     :d3f/T1561
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/Volume,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1561
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/PartitionTable,
+                      :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1561_002
@@ -36023,11 +36023,11 @@
    :db/ident        :d3f/T1562.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Impair Command History Logging",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/WindowsRegistryKey,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessEnvironmentVariable,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/WindowsRegistryKey,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/UserInitScript,
@@ -36080,13 +36080,13 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Safe Mode Boot",
    :rdfs/subClassOf [:d3f/T1562
+                     {:owl/onProperty     :d3f/disables,
+                      :owl/someValuesFrom :d3f/EndpointSensor,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3f/disables,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationInitDatabaseRecord,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/disables,
-                      :owl/someValuesFrom :d3f/EndpointSensor,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EndpointHealthBeacon,
                       :rdf/type           :owl/Restriction}]})
@@ -36234,18 +36234,18 @@
    :db/ident        :d3f/T1564.006,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Run Virtual Instance",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-add,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/VirtualizationSoftware,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
                      :d3f/T1564
-                     {:owl/onProperty     :d3f/executes,
+                     {:owl/onProperty     :d3f/may-add,
                       :owl/someValuesFrom :d3f/VirtualizationSoftware,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/Directory,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/creates,
+                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1564_007
@@ -36269,13 +36269,13 @@
    :db/ident        :d3f/T1564.008,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Email Hiding Rules",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/EmailRule,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/T1564
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/EmailRule,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1564
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/EmailRule,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
                       :rdf/type           :owl/Restriction}]})
@@ -36379,14 +36379,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Spearphishing Link",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Email,
+                      :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
+                      :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1566
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/URL,
+                      :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1566_003
@@ -38084,10 +38084,10 @@
    :db/ident :d3f/URLAnalysis,
    :rdf/type [:d3f/IdentifierAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "URL Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/IdentifierAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/URL,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/IdentifierAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def URLReputationAnalysis
   "Analyzing the reputation of a URL."
@@ -38218,13 +38218,13 @@
    :rdfs/label #xsd/string "User",
    :rdfs/seeAlso [#xsd/string "UserAccount"
                   {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/10761247-n"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricted-by,
-                      :owl/someValuesFrom :d3f/AccessControlList,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/has-account,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/has-account,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact]})
+                     :d3f/DigitalArtifact
+                     {:owl/onProperty     :d3f/restricted-by,
+                      :owl/someValuesFrom :d3f/AccessControlList,
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserAccount
   "A user account allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system; however, authentication does not imply authorization. To log into an account, a user is typically required to authenticate oneself with a password or other credentials for the purposes of accounting, security, logging, and resource management."
@@ -38465,10 +38465,10 @@
    :db/ident :d3f/UserSessionInitConfigAnalysis,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label #xsd/string "User Session Init Config Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/UserInitConfigurationFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OperatingSystemMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserStartupDirectory
   "A user startup directory holds information necessary to start the users session with the system."
@@ -38506,13 +38506,13 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Personal_message"},
    :rdfs/label #xsd/string "User to User Message",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/has-sender,
+                      :owl/someValuesFrom :d3f/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/has-recipient,
-                      :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/has-sender,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact],
@@ -39158,15 +39158,15 @@
    [#xsd/string
      "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
     #xsd/string "https://schema.ocsf.io/objects/registry_key"],
-   :rdfs/subClassOf [:d3f/SystemConfigurationDatabaseRecord
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/windows-registry-key,
+                      :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/WindowsRegistryValue,
                       :rdf/type           :owl/Restriction}
+                     :d3f/SystemConfigurationDatabaseRecord
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/windows-registry-key,
-                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}]})
 
 (def WindowsRegistryValue
@@ -39937,8 +39937,8 @@
    :rdfs/label #xsd/langString "date@en",
    :rdfs/range :xsd/dateTime,
    :rdfs/seeAlso
-   #xsd/anyURI
-    "https://www.w3.org/wiki/Good_Ontologies#The_Dublin_Core_.28DC.29_ontology",
+   {:rdfa/uri
+    "https://www.w3.org/wiki/Good_Ontologies#The_Dublin_Core_.28DC.29_ontology"},
    :rdfs/subPropertyOf :d3f/d3fend-data-property})
 
 (def deceives
@@ -40014,8 +40014,8 @@
                         "A statement that represents something in words.",
    :db/ident           :d3f/description,
    :rdf/type           :owl/AnnotationProperty,
-   :rdfs/isDefinedBy   #xsd/anyURI
-                        "http://wordnet-rdf.princeton.edu/id/06737512-n",
+   :rdfs/isDefinedBy   {:rdfa/uri
+                        "http://wordnet-rdf.princeton.edu/id/06737512-n"},
    :rdfs/label         #xsd/langString "description@en",
    :rdfs/subPropertyOf :d3f/d3fend-catalog-annotation-property})
 

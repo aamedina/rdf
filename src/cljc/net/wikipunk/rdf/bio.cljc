@@ -28,15 +28,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Accession@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Adoption
@@ -49,15 +49,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Adoption@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Annulment
@@ -70,15 +70,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Annulment@en",
    :rdfs/subClassOf [:bio/GroupEvent
+                     {:rdfa/uri
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
                      :event/Event
                      :bio/Event
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      :dcmitype/Event
                      {:owl/minCardinality #xsd/nonNegativeInteger 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
-                     {:rdfa/uri
-                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
+                      :rdf/type           :owl/Restriction}],
    :vs/term_status #xsd/string "unstable"})
 
 (def Assassination
@@ -91,17 +91,17 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Assassination@en",
    :rdfs/subClassOf [:bio/Murder
-                     :bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
                      :bio/Death
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event
+                     :bio/IndividualEvent],
    :vs/term_status #xsd/string "unstable"})
 
 (def Baptism
@@ -114,15 +114,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Baptism@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def BarMitzvah
@@ -135,15 +135,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "BarMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def BasMitzvah
@@ -156,15 +156,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "BasMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Birth
@@ -176,15 +176,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label       #xsd/langString "Birth@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
-                      :event/Event
-                      :bio/Event
-                      :dcmitype/Event
-                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                       {:rdfa/uri
                        "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                      :event/Event
+                      :bio/Event
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :bio/principal,
-                       :rdf/type        :owl/Restriction}],
+                       :rdf/type        :owl/Restriction}
+                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                      :dcmitype/Event],
    :vs/term_status   #xsd/string "testing"})
 
 (def Burial
@@ -197,15 +197,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Burial@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Coronation
@@ -218,15 +218,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Coronation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Cremation
@@ -239,15 +239,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Cremation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Death
@@ -258,15 +258,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label       #xsd/langString "Death@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
-                      :event/Event
-                      :bio/Event
-                      :dcmitype/Event
-                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                       {:rdfa/uri
                        "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                      :event/Event
+                      :bio/Event
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :bio/principal,
-                       :rdf/type        :owl/Restriction}],
+                       :rdf/type        :owl/Restriction}
+                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                      :dcmitype/Event],
    :vs/term_status   #xsd/string "stable"})
 
 (def Demotion
@@ -279,16 +279,16 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Demotion@en",
    :rdfs/subClassOf [:bio/PositionChange
-                     :bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event
+                     :bio/IndividualEvent],
    :vs/term_status #xsd/string "unstable"})
 
 (def Disbanding
@@ -300,15 +300,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Disbanding@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Dismissal
@@ -321,15 +321,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Dismissal@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Divorce
@@ -341,15 +341,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label       #xsd/langString "Divorce@en",
    :rdfs/subClassOf  [:bio/GroupEvent
+                      {:rdfa/uri
+                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
                       :event/Event
                       :bio/Event
+                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                       :dcmitype/Event
                       {:owl/minCardinality #xsd/nonNegativeInteger 2,
                        :owl/onProperty     :bio/partner,
-                       :rdf/type           :owl/Restriction}
-                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
-                      {:rdfa/uri
-                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
+                       :rdf/type           :owl/Restriction}],
    :vs/term_status   #xsd/string "unstable"})
 
 (def Emigration
@@ -362,15 +362,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Emigration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Employment
@@ -383,15 +383,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Employment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Enrolment
@@ -404,15 +404,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Enrolment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Event
@@ -444,16 +444,16 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Execution@en",
    :rdfs/subClassOf [:bio/Death
-                     :bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event
+                     :bio/IndividualEvent],
    :vs/term_status #xsd/string "unstable"})
 
 (def Formation
@@ -465,15 +465,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Formation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Funeral
@@ -485,15 +485,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Funeral@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Graduation
@@ -506,15 +506,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Graduation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def GroupEvent
@@ -530,11 +530,11 @@
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
                      :bio/Event
-                     :event/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
-                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Imprisonment
@@ -547,15 +547,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Imprisonment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Inauguration
@@ -568,15 +568,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Inauguration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def IndividualEvent
@@ -592,11 +592,11 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :bio/Event
-                     :event/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
-                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Interval
@@ -621,15 +621,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Investiture@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Marriage
@@ -645,15 +645,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Marriage@en",
    :rdfs/subClassOf [:bio/GroupEvent
+                     {:rdfa/uri
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
                      :event/Event
                      :bio/Event
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      :dcmitype/Event
                      {:owl/minCardinality #xsd/nonNegativeInteger 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
-                     {:rdfa/uri
-                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
+                      :rdf/type           :owl/Restriction}],
    :vs/term_status #xsd/string "stable"})
 
 (def Murder
@@ -666,16 +666,16 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Murder@en",
    :rdfs/subClassOf [:bio/Death
-                     :bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event
+                     :bio/IndividualEvent],
    :vs/term_status #xsd/string "unstable"})
 
 (def NameChange
@@ -687,15 +687,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label       #xsd/langString "Change of Name@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
-                      :event/Event
-                      :bio/Event
-                      :dcmitype/Event
-                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                       {:rdfa/uri
                        "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                      :event/Event
+                      :bio/Event
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :bio/principal,
-                       :rdf/type        :owl/Restriction}],
+                       :rdf/type        :owl/Restriction}
+                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                      :dcmitype/Event],
    :vs/term_status   #xsd/string "unstable"})
 
 (def Naturalization
@@ -708,15 +708,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Naturalization@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Ordination
@@ -729,15 +729,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Ordination@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Performance
@@ -751,15 +751,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Performance@en",
    :rdfs/subClassOf [:bio/GroupEvent
+                     {:rdfa/uri
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
                      :event/Event
                      :bio/Event
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      :dcmitype/Event
                      {:owl/minCardinality #xsd/nonNegativeInteger 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
-                     {:rdfa/uri
-                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
+                      :rdf/type           :owl/Restriction}],
    :vs/term_status #xsd/string "unstable"})
 
 (def PositionChange
@@ -772,15 +772,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Change of Position@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Promotion
@@ -793,16 +793,16 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Promotion@en",
    :rdfs/subClassOf [:bio/PositionChange
-                     :bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event
+                     :bio/IndividualEvent],
    :vs/term_status #xsd/string "unstable"})
 
 (def Redundancy
@@ -815,15 +815,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Redundancy@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Relationship
@@ -848,15 +848,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Resignation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def Retirement
@@ -869,15 +869,15 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Retirement@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :event/Event
-                     :bio/Event
-                     :dcmitype/Event
-                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}
+                     :event/Event
+                     :bio/Event
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:rdfa/uri "http://linkedevents.org/ontology/Event"}
+                     :dcmitype/Event],
    :vs/term_status #xsd/string "unstable"})
 
 (def agent
@@ -1435,4 +1435,4 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
    :rdfs/label #xsd/langString "Witness@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:bio/spectator :owl/differentFrom :bio/agent]})
+   :rdfs/subPropertyOf [:bio/spectator :bio/agent :owl/differentFrom]})

@@ -140,7 +140,7 @@
     "Deprecated - use sp:Modify instead.\n\nRepresents a DELETE FROM (part of SPARQL UPDATE language). The graph IRIs are stored in sp:graphIRI. The template patterns to delete are stored in sp:deletePattern. The WHERE clause is represented using sp:where.",
    :rdfs/label #xsd/string "Delete",
    :rdfs/subClassOf
-   [:sp/Modify :sp/Command :rdfs/Resource :sp/SystemClass :sp/Update]})
+   [:sp/Modify :sp/Command :rdfs/Resource :sp/Update :sp/SystemClass]})
 
 (def DeleteData
   "An Update operation to delete specific triples. The graph triples are represented using sp:data, which points to an rdf:List of sp:Triples or sp:NamedGraphs."
@@ -214,7 +214,7 @@
     "A list of Elements. This class is never instantiated directly as SPIN will use plain rdf:Lists to store element lists.",
    :rdfs/label #xsd/string "Element list",
    :rdfs/subClassOf
-   [:sp/ElementGroup :rdf/List :rdfs/Resource :sp/SystemClass :sp/Element]})
+   [:sp/ElementGroup :rdf/List :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def Exists
   "An EXISTS element group."
@@ -223,9 +223,9 @@
    :rdfs/comment    #xsd/string "An EXISTS element group.",
    :rdfs/label      #xsd/string "Exists",
    :rdfs/subClassOf [:sp/ElementGroup
+                     :sp/Element
                      :rdfs/Resource
-                     :sp/SystemClass
-                     :sp/Element]})
+                     :sp/SystemClass]})
 
 (def Filter
   "A constraint element that evaluates a given expression to true or false."
@@ -254,7 +254,7 @@
     "Deprecated - use sp:Modify instead.\n\nRepresents a INSERT INTO (part of SPARQL UPDATE language). The graph IRIs are stored in sp:graphIRI. The template patterns to delete are stored in sp:insertPattern. The WHERE clause is represented using sp:where.",
    :rdfs/label #xsd/string "Insert",
    :rdfs/subClassOf
-   [:sp/Modify :sp/Command :rdfs/Resource :sp/SystemClass :sp/Update]})
+   [:sp/Modify :sp/Command :rdfs/Resource :sp/Update :sp/SystemClass]})
 
 (def InsertData
   "An Update operation to insert specific triples. The graph triples are represented using sp:data, which points to an rdf:List of sp:Triples or sp:NamedGraphs."
@@ -274,7 +274,7 @@
    #xsd/string
     "Deprecated: use sp:Bind instead.\n\nA variable assignment (LET (?<varName> := <expression>)). Not part of the SPARQL 1.0 standard, but (for example) ARQ.",
    :rdfs/label #xsd/string "Let",
-   :rdfs/subClassOf [:sp/Bind :rdfs/Resource :sp/SystemClass :sp/Element]})
+   :rdfs/subClassOf [:sp/Bind :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def Load
   "A LOAD Update operation. The document to load is specified using sp:document, and the (optional) target graph using sp:into."
@@ -309,9 +309,9 @@
    :rdfs/comment    #xsd/string "A MINUS element group.",
    :rdfs/label      #xsd/string "Minus",
    :rdfs/subClassOf [:sp/ElementGroup
+                     :sp/Element
                      :rdfs/Resource
-                     :sp/SystemClass
-                     :sp/Element]})
+                     :sp/SystemClass]})
 
 (def ModPath
   "A modified path such as rdfs:subClassOf*."
@@ -339,9 +339,9 @@
                      "A named Graph element such as GRAPH <uri> {...}.",
    :rdfs/label      #xsd/string "Named graph",
    :rdfs/subClassOf [:sp/ElementGroup
+                     :sp/Element
                      :rdfs/Resource
-                     :sp/SystemClass
-                     :sp/Element]})
+                     :sp/SystemClass]})
 
 (def NotExists
   "A NOT EXISTS element group."
@@ -350,9 +350,9 @@
    :rdfs/comment    #xsd/string "A NOT EXISTS element group.",
    :rdfs/label      #xsd/string "Not exists",
    :rdfs/subClassOf [:sp/ElementGroup
+                     :sp/Element
                      :rdfs/Resource
-                     :sp/SystemClass
-                     :sp/Element]})
+                     :sp/SystemClass]})
 
 (def Optional
   "An optional element in a query."
@@ -361,9 +361,9 @@
    :rdfs/comment    #xsd/string "An optional element in a query.",
    :rdfs/label      #xsd/string "Optional",
    :rdfs/subClassOf [:sp/ElementGroup
+                     :sp/Element
                      :rdfs/Resource
-                     :sp/SystemClass
-                     :sp/Element]})
+                     :sp/SystemClass]})
 
 (def OrderByCondition
   "An abstract base class for ascending or descending order conditions. Instances of this class (typically bnodes) must have a value for expression to point to the actual values."
@@ -445,7 +445,7 @@
     "A SERVICE call that matches a nested sub-pattern against a SPARQL end point specified by a URI.",
    :rdfs/label #xsd/string "Service",
    :rdfs/subClassOf
-   [:sp/ElementGroup :rdfs/Resource :sp/SystemClass :sp/Element]})
+   [:sp/ElementGroup :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def SubQuery
   "A nested SELECT query inside of an element list. The query is stored in sp:query."
@@ -503,7 +503,7 @@
    :rdfs/comment #xsd/string "A triple pattern used in the body of a query.",
    :rdfs/label #xsd/string "Triple pattern",
    :rdfs/subClassOf
-   [:sp/Element :sp/Triple :rdfs/Resource :sp/SystemClass :sp/Tuple]})
+   [:sp/Element :sp/Triple :rdfs/Resource :sp/Tuple :sp/SystemClass]})
 
 (def TripleTemplate
   "A prototypical triple used as template in the head of a Construct query. May contain variables."
@@ -513,7 +513,7 @@
    #xsd/string
     "A prototypical triple used as template in the head of a Construct query. May contain variables.",
    :rdfs/label #xsd/string "Triple template",
-   :rdfs/subClassOf [:sp/Triple :rdfs/Resource :sp/SystemClass :sp/Tuple]})
+   :rdfs/subClassOf [:sp/Triple :rdfs/Resource :sp/Tuple :sp/SystemClass]})
 
 (def Tuple
   "Abstract base class for things that have subject and object."
@@ -531,9 +531,9 @@
    :rdfs/comment    #xsd/string "A UNION group.",
    :rdfs/label      #xsd/string "Union",
    :rdfs/subClassOf [:sp/ElementGroup
+                     :sp/Element
                      :rdfs/Resource
-                     :sp/SystemClass
-                     :sp/Element]})
+                     :sp/SystemClass]})
 
 (def Update
   "Abstract base class to group the various SPARQL UPDATE commands."

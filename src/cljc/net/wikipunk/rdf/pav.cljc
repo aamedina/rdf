@@ -28,9 +28,9 @@
    :rdfs/seeAlso [:pav/createdBy :pav/authoredOn],
    :rdfs/subPropertyOf [:pav/contributedBy
                         :dcterms/creator
-                        :prov/wasInfluencedBy
                         :prov/wasAttributedTo
-                        :dcterms/contributor]})
+                        :dcterms/contributor
+                        :prov/wasInfluencedBy]})
 
 (def authoredOn
   "The date this resource was authored.\n\npav:authoredBy gives the authoring agent.\n\nNote that pav:authoredOn is different from pav:createdOn, although they are often the same. See pav:createdBy for a discussion.\n\nThis property is normally used in a functional way, indicating the last time of authoring, although PAV does not formally restrict this.\n\nThe value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -94,8 +94,8 @@
    :rdfs/seeAlso [:pav/createdAt :pav/curatedBy :pav/createdOn :pav/authoredBy],
    :rdfs/subPropertyOf [:dcterms/creator
                         :prov/wasAttributedTo
-                        :prov/wasInfluencedBy
-                        :dcterms/contributor]})
+                        :dcterms/contributor
+                        :prov/wasInfluencedBy]})
 
 (def createdOn
   "The date of creation of the resource representation.\n\nThe agents responsible can be indicated with pav:createdBy.\n\nThis property is normally used in a functional way, indicating the time of creation, although PAV does not formally restrict this. pav:lastUpdateOn can be used to indicate minor updates that did not affect the creating date.\n\nThe value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -134,9 +134,9 @@
    :rdfs/label #xsd/langString "Curated by@en",
    :rdfs/seeAlso [:pav/curatedOn :pav/createdBy],
    :rdfs/subPropertyOf [:pav/contributedBy
-                        :prov/wasInfluencedBy
                         :prov/wasAttributedTo
-                        :dcterms/contributor]})
+                        :dcterms/contributor
+                        :prov/wasInfluencedBy]})
 
 (def curatedOn
   "The date this resource was curated.\n\npav:curatedBy gives the agent(s) that performed the curation.\n\nThis property is normally used in a functional way, indicating the last curation date, although PAV does not formally restrict this.\n\nThe value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -290,9 +290,9 @@
    :rdfs/seeAlso [:pav/derivedFrom :pav/version :pav/hasVersion],
    :rdfs/subPropertyOf [:pav/hasEarlierVersion
                         :prov/wasRevisionOf
-                        :prov/wasInfluencedBy
+                        :prov/wasDerivedFrom
                         :prov/alternateOf
-                        :prov/wasDerivedFrom]})
+                        :prov/wasInfluencedBy]})
 
 (def providedBy
   "The original provider of the encoded information (e.g. PubMed, UniProt, Science Commons).\n\nThe provider might not coincide with the dct:publisher, which would describe the current publisher of the resource. For instance if the resource was retrieved, imported or derived from a source, that source was published by the original provider. pav:providedBy provides a shortcut to indicate that original provider on the new resource.  "

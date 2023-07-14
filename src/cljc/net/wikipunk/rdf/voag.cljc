@@ -31,22 +31,22 @@
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type [:owl/Ontology
               :voag/CreativeCommonsWork
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/hasLicenseType,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/hasLicenseType,
                :rdf/type          :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/hasLicenseType,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasCatalogEntry,
+               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Graph,
                :owl/onProperty    :voag/hasCatalogEntry,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasCatalogEntry,
-               :rdf/type           :owl/Restriction}],
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              :owl/Thing],
    :rdfa/prefix "voag",
    :rdfa/uri "http://voag.linkedmodel.org/1.0/schema/voag",
    :rdfs/label #xsd/string "Vocabulary Of Attribution and Governance",
@@ -63,7 +63,7 @@
    :vaem/namespacePrefix #xsd/string "voag",
    :vaem/revisionNumber #xsd/string "1.0",
    :vaem/specificity #vaem/integer_1to5 "1",
-   :vaem/url #xsd/anyURI "http://voag.linkedmodel.org/1.0/owl/schema/voag",
+   :vaem/url {:rdfa/uri "http://voag.linkedmodel.org/1.0/owl/schema/voag"},
    :vaem/usesNonImportedResource [:dc11/rights :dc11/subject :dc11/title],
    :voag/hasLicenseType :voag/CC-SHAREALIKE_3PT0-US,
    :voag/intent
@@ -74,55 +74,55 @@
   "Academic Free License, all versions through 3.0"
   {:db/ident :voag/ACADEMIIC_FREE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Academic Free License, all versions through 3.0",
    :vaem/acronym #xsd/string "AcademicFreeLicense",
@@ -130,61 +130,61 @@
    #xsd/string
     "The Academic Free License is a free software license, not copyleft, and incompatible with the GNU GPL. Recent versions contain contract clauses similar to the Open Software License, and should be avoided for the same reasons.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://opensource.org/licenses/academic.php"})
+   :voag/url {:rdfa/uri "http://opensource.org/licenses/academic.php"}})
 
 (def ACDL_V1PT0
   "Apple's Common Documentation License, Version 1.0"
   {:db/ident :voag/ACDL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Apple's Common Documentation License, Version 1.0",
    :vaem/acronym #xsd/string "ACDL",
@@ -192,62 +192,62 @@
    #xsd/string
     "This is a Free Documentation license that is incompatible with the GNU FDL. It is incompatible because Section (2c) says “You add no other terms or conditions to those of this License”, and the GNU FDL has additional terms not accounted for in the Common Documentation License.",
    :voag/url
-   #xsd/string
-    "http://fedoraproject.org/wiki/Licensing/Common_Documentation_License"})
+   {:rdfa/uri
+    "http://fedoraproject.org/wiki/Licensing/Common_Documentation_License"}})
 
 (def AGPL_V1PT0
   "Affero General Public License version 1"
   {:db/ident :voag/AGPL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Affero General Public License version 1",
    :vaem/acronym #xsd/string "AGPLv1.0",
@@ -256,61 +256,61 @@
     "The Affero General Public License is a free software license, copyleft, and incompatible with the GNU GPL. It consists of the GNU GPL version 2, with one additional section that Affero added with FSF approval. The new section, 2(d), covers the distribution of application programs through web services or computer networks. This license has been succeeded by the GNU Affero General Public License version 3; please use that instead.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/supercededBy :voag/AGPL_V3PT0,
-   :voag/url #xsd/string "http://www.affero.org/oagpl.html"})
+   :voag/url {:rdfa/uri "http://www.affero.org/oagpl.html"}})
 
 (def AGPL_V3PT0
   "GNU Affero General Public License (AGPL) version 3"
   {:db/ident :voag/AGPL_V3PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "GNU Affero General Public License (AGPL) version 3",
    :vaem/acronym #xsd/string "AGPLv3.0",
@@ -319,61 +319,61 @@
     "This is a free software, copyleft license. Its terms effectively consist of the terms of GPLv3, with an additional paragraph in section 13 to allow users who interact with the licensed software over a network to receive the source for that program. GNU AGPL v3.0 should be considered by Developers considering using the GNU AGPL for any software which will commonly be run over a network. Note that the GNU AGPL is not compatible with GPLv2. It is also technically not compatible with GPLv3 in a strict sense: you cannot take code released under the GNU AGPL and convey or modify it however you like under the terms of GPLv3, or vice versa. However, you are allowed to combine separate modules or source files released under both of those licenses in a single project, which will provide many programmers with all the permission they need to make the programs they want. ",
    :voag/incompatibleWith :voag/GNU-GPL_V2,
    :voag/supercedes :voag/AGPL_V1PT0,
-   :voag/url #xsd/string "http://www.gnu.org/licenses/agpl.html"})
+   :voag/url {:rdfa/uri "http://www.gnu.org/licenses/agpl.html"}})
 
 (def APACHE_V1PT0
   "Apache License, Version 1.0"
   {:db/ident :voag/APACHE_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Apache License, Version 1.0",
    :vaem/acronym #xsd/string "apache1",
@@ -381,61 +381,61 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license with an advertising clause. This creates practical problems like those of the original BSD license, including incompatibility with the GNU GPL",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.apache.org/licenses/LICENSE-1.0"})
+   :voag/url {:rdfa/uri "http://www.apache.org/licenses/LICENSE-1.0"}})
 
 (def APACHE_V1PT1
   "Apache License, Version 1.1"
   {:db/ident :voag/APACHE_V1PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Apache License, Version 1.1",
    :vaem/acronym #xsd/string "apache1.1",
@@ -444,180 +444,180 @@
     "This is a permissive non-copyleft free software license. It has a few requirements that render it incompatible with the GNU GPL, such as strong prohibitions on the use of Apache-related names.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/supercedes :voag/APACHE_V1PT0,
-   :voag/url #xsd/string "http://www.apache.org/licenses/LICENSE-1.1"})
+   :voag/url {:rdfa/uri "http://www.apache.org/licenses/LICENSE-1.1"}})
 
 (def APACHE_V2PT0
   "Apache License, Version 2.0"
   {:db/ident     :voag/APACHE_V2PT0,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "Apache License, Version 2.0",
    :vaem/acronym #xsd/string "apache2",
-   :voag/url     #xsd/string "http://www.apache.org/licenses/LICENSE-2.0"})
+   :voag/url     {:rdfa/uri "http://www.apache.org/licenses/LICENSE-2.0"}})
 
 (def APSL_V1PT0
   "Apple's Common Documentation License, Version 1.0"
   {:db/ident :voag/APSL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Apple's Common Documentation License, Version 1.0",
    :vaem/acronym #xsd/string "APSL",
    :vaem/description
    #xsd/string
     "This is a free software license, incompatible with the GNU GPL. We recommend that you not use this license for new software that you write, but it is ok to use and improve the software released under this license",
-   :voag/url #xsd/anyURI "http://www.opensource.apple.com/license/apsl/"})
+   :voag/url {:rdfa/uri "http://www.opensource.apple.com/license/apsl/"}})
 
 (def APSL_V1PTX
   "Apple Public Source License (APSL), version 1.x"
   {:db/ident :voag/APSL_V1PTX,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Apple Public Source License (APSL), version 1.x",
    :vaem/acronym #xsd/string "apsl1",
@@ -626,121 +626,121 @@
     "Versions 1.0, 1.1 and 1.2 are not free software licenses (follow the link for more explanation). Please don't use these licenses, and we urge you to avoid any software that has been released under them. Version 2.0 of the APSL is a free software license.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "https://fedoraproject.org/wiki/Licensing/Apple_Public_Source_License_1.2"})
+   {:rdfa/uri
+    "https://fedoraproject.org/wiki/Licensing/Apple_Public_Source_License_1.2"}})
 
 (def APSL_V2
   "Apple Public Source License (APSL), version 2"
   {:db/ident     :voag/APSL_V2,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "Apple Public Source License (APSL), version 2",
    :vaem/acronym #xsd/string "apsl2",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url     #xsd/string "http://www.opensource.apple.com/apsl"})
+   :voag/url     {:rdfa/uri "http://www.opensource.apple.com/apsl"}})
 
 (def ARPHIC_PUBLIC_LICENSE
   "Arphic Public License"
   {:db/ident :voag/ARPHIC_PUBLIC_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Arphic Public License",
    :vaem/acronym #xsd/string "Arphic",
@@ -748,69 +748,69 @@
    #xsd/string
     "This is a copyleft free software license, incompatible with the GPL. Its normal use is for fonts, and in that use, the incompatibility does not cause a problem.",
    :voag/compatibleWith :voag/GNU-GPL,
-   :voag/url #xsd/string
-              "http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE"})
+   :voag/url {:rdfa/uri
+              "http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE"}})
 
 (def ARTISTIC_LICENSE_2PT0
   "Artistic License 2.0"
   {:db/ident :voag/ARTISTIC_LICENSE_2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Artistic License 2.0",
    :vaem/acronym #xsd/string "ArtisticLicense2",
    :vaem/description
    #xsd/string
     "This license is a free software license, compatible with the GPL thanks to the relicensing option in section 4(c)(ii).",
-   :voag/url #xsd/string "http://www.perlfoundation.org/artistic_license_2_0"})
+   :voag/url {:rdfa/uri "http://www.perlfoundation.org/artistic_license_2_0"}})
 
 (def Accredidation
   "Accredidation"
@@ -818,18 +818,18 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Accredidation",
    :rdfs/subClassOf [:voag/Qualifier
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}]})
 
 (def AdministrativeEvent
@@ -838,28 +838,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Administrative Event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -888,28 +888,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Approval Event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -921,19 +921,19 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Approval Process",
    :rdfs/subClassOf  [:voag/GovernanceProcess
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/longDescription,
+                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       :voag/Process
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :voag/longDescription,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "A \"Governance Process\"."})
 
@@ -959,37 +959,37 @@
   {:db/ident :voag/Attribution,
    :rdf/type [:owl/Class
               :voag/CreativeCommonsRequirement
-              :voag/EnumeratedValue
-              :dtype/EnumeratedValue],
+              :dtype/EnumeratedValue
+              :voag/EnumeratedValue],
    :rdfs/label #xsd/string "Attributed Source",
-   :rdfs/subClassOf [{:owl/cardinality #xsd/nonNegativeInteger 1,
+   :rdfs/subClassOf [:voag/Qualifier
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :vaem/name,
                       :rdf/type        :owl/Restriction}
-                     :voag/Qualifier
                      {:owl/allValuesFrom :voag/AttributionLogo,
                       :owl/onProperty    :voag/hasLogo,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/url,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/string,
-                      :owl/onProperty    :voag/pointOfContact,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/string,
+                      :owl/onProperty    :voag/pointOfContact,
+                      :rdf/type          :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}],
    :vaem/definition
    #xsd/string
@@ -1003,74 +1003,74 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Attribution logo",
    :rdfs/subClassOf [:voag/Logo
+                     :owl/Thing
+                     :voag/Image
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/height,
+                      :owl/onProperty     :voag/caption,
                       :rdf/type           :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :voag/image,
                       :rdf/type        :owl/Restriction}
-                     :voag/Image
-                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/width,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/caption,
+                      :owl/onProperty     :voag/height,
                       :rdf/type           :owl/Restriction}]})
 
 (def BERKELEY_DATABASE_LICENSE
   "Berkeley Database License"
   {:db/ident :voag/BERKELEY_DATABASE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Berkeley Database License",
    :vaem/acronym #xsd/string "BerkleyDB",
@@ -1078,62 +1078,62 @@
    #xsd/string
     "This is a free software license, compatible with the GNU GPL. It is also known as the \"Sleepycat Software Product License\".",
    :voag/url
-   #xsd/string
-    "http://www.oracle.com/technology/software/products/berkeley-db/htdocs/oslicense.html"})
+   {:rdfa/uri
+    "http://www.oracle.com/technology/software/products/berkeley-db/htdocs/oslicense.html"}})
 
 (def BITTORRENT_LICENSE
   "BitTorrent Open Source License"
   {:db/ident :voag/BITTORRENT_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "BitTorrent Open Source License",
    :vaem/acronym #xsd/string "bittorrent",
@@ -1141,62 +1141,62 @@
    #xsd/string
     "This is a free software license, but incompatible with the GPL, for the same reasons as the Jabber Open Source License.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://www.bittorrent.com/bittorrent-open-source-license"})
+   :voag/url {:rdfa/uri
+              "http://www.bittorrent.com/bittorrent-open-source-license"}})
 
 (def BOOST_LICENSE
   "Boost Software License"
   {:db/ident :voag/BOOST_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Boost Software License",
    :vaem/acronym #xsd/string "boost",
@@ -1204,61 +1204,61 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.boost.org/LICENSE_1_0.txt"})
+   :voag/url {:rdfa/uri "http://www.boost.org/LICENSE_1_0.txt"}})
 
 (def BSD_ORIGINAL_LICENSE
   "Original BSD license"
   {:db/ident :voag/BSD_ORIGINAL_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Original BSD license",
    :vaem/acronym #xsd/string "OriginalBSD",
@@ -1266,7 +1266,7 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license with a serious flaw: the “obnoxious BSD advertising clause”. The flaw is not fatal; that is, it does not render the software non-free. But it does cause practical problems, including incompatibility with the GNU GPL. If you want to use a simple, permissive non-copyleft free software license, it is much better to use the modified BSD license or the X11 license. However, there is no reason not to use programs that have been released under the original BSD license.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.xfree86.org/3.3.6/COPYRIGHT2.html#6"})
+   :voag/url {:rdfa/uri "http://www.xfree86.org/3.3.6/COPYRIGHT2.html#6"}})
 
 (def BiMonthly
   "Bi monthly"
@@ -1299,118 +1299,118 @@
   "Creative Commons Attribution-Share Alike 3.0 United States License"
   {:db/ident :voag/CC-SHAREALIKE_3PT0-US,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label
    #xsd/string
     "Creative Commons Attribution-Share Alike 3.0 United States License",
-   :voag/image #xsd/anyURI
-                "http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png",
+   :voag/image {:rdfa/uri
+                "http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png"},
    :voag/permits [:voag/CCP_Distribution :voag/CCP_DerivativeWorks],
    :voag/requires [:voag/CCR_ShareAlike :voag/Attribution],
-   :voag/url #xsd/anyURI "http://creativecommons.org/licenses/by-sa/3.0/us/"})
+   :voag/url {:rdfa/uri "http://creativecommons.org/licenses/by-sa/3.0/us/"}})
 
 (def CC0
   "CC0"
   {:db/ident :voag/CC0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "CC0",
    :vaem/acronym #xsd/string "CC0",
@@ -1418,62 +1418,62 @@
    #xsd/string
     "CC0 is a public domain dedication from Creative Commons. A work released under CC0 is dedicated to the public domain to the fullest extent permitted by law. If that is not possible for any reason, CC0 also provides a simple permissive license as a fallback. Both public domain works and the simple license provided by CC0 are compatible with the GNU GPL. If you want to release your work to the public domain, use CC0.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://creativecommons.org/publicdomain/zero/1.0/legalcode"})
+   :voag/url {:rdfa/uri
+              "http://creativecommons.org/publicdomain/zero/1.0/legalcode"}})
 
 (def CCBY-ND
   "Creative Commons Attribution-NoDerivs 3.0 license (a.k.a. CC BY-ND)"
   {:db/ident :voag/CCBY-ND,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label
    #xsd/string
@@ -1482,133 +1482,133 @@
    :vaem/description
    #xsd/string
     "This is the license used throughout the FSF web site. This license provides much the same permissions as our verbatim copying license, but it's much more detailed. We particularly recommend it for audio and/or video works of opinion. Please be specific about which Creative Commons license is being used.",
-   :voag/url #xsd/string
-              "http://creativecommons.org/licenses/by-nd/3.0/legalcode"})
+   :voag/url {:rdfa/uri
+              "http://creativecommons.org/licenses/by-nd/3.0/legalcode"}})
 
 (def CCBY-SA
   "Creative Commons Attribution-Sharealike 2.0 license"
   {:db/ident     :voag/CCBY-SA,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string
                   "Creative Commons Attribution-Sharealike 2.0 license",
    :vaem/acronym #xsd/string "ccbysa",
-   :voag/url     #xsd/string
-                  "http://creativecommons.org/licenses/by-sa/2.0/legalcode"})
+   :voag/url     {:rdfa/uri
+                  "http://creativecommons.org/licenses/by-sa/2.0/legalcode"}})
 
 (def CCBY_LICENSE
   "Creative Commons Attribution 2.0 license"
   {:db/ident     :voag/CCBY_LICENSE,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "Creative Commons Attribution 2.0 license",
    :vaem/acronym #xsd/string "ccby",
-   :voag/url     #xsd/string
-                  "http://creativecommons.org/licenses/by/2.0/legalcode"})
+   :voag/url     {:rdfa/uri
+                  "http://creativecommons.org/licenses/by/2.0/legalcode"}})
 
 (def CCPH_CommercialUse
   {:db/ident         :voag/CCPH_CommercialUse,
    :rdf/type         [:voag/CreativeCommonsProhibition
-                      :voag/EnumeratedValue
-                      :dtype/EnumeratedValue],
+                      :dtype/EnumeratedValue
+                      :voag/EnumeratedValue],
    :rdfs/label       [#xsd/langString "Creative Commons Commercial Use@en-US"
                       #xsd/string "Commercial use"],
    :vaem/description #xsd/langString
@@ -1619,8 +1619,8 @@
 (def CCPH_HighIncomeNationUse
   {:db/ident         :voag/CCPH_HighIncomeNationUse,
    :rdf/type         [:voag/CreativeCommonsProhibition
-                      :voag/EnumeratedValue
-                      :dtype/EnumeratedValue],
+                      :dtype/EnumeratedValue
+                      :voag/EnumeratedValue],
    :rdfs/label       [#xsd/langString
                        "Creative Commons High Income Nation Use@en-US"
                       #xsd/string "High income nation use"],
@@ -1681,8 +1681,8 @@
   "Creative Commons Attribution"
   {:db/ident :voag/CCR_Attribution,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :voag/EnumeratedValue
-              :dtype/EnumeratedValue],
+              :dtype/EnumeratedValue
+              :voag/EnumeratedValue],
    :rdfs/label #xsd/langString "Creative Commons Attribution@en-US",
    :vaem/description
    #xsd/langString
@@ -1692,22 +1692,22 @@
   "Creative Commons Copyleft"
   {:db/ident :voag/CCR_Copyleft,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :voag/EnumeratedValue
-              :dtype/EnumeratedValue],
+              :dtype/EnumeratedValue
+              :voag/EnumeratedValue],
    :rdfs/label #xsd/langString "Creative Commons Copyleft@en-US",
    :vaem/description
    [#xsd/string
      "Copyleft is a general method for making a program (or other work) free, and requiring all modified and extended versions of the program to be free as well. The simplest way to make a program free software is to put it in the public domain, uncopyrighted. This allows people to share the program and their improvements, if they are so minded. But it also allows uncooperative people to convert the program into proprietary software. They can make changes, many or few, and distribute the result as a proprietary product. People who receive the program in that modified form do not have the freedom that the original author gave them; the middleman has stripped it away.  In the GNU project, Copyleft says that anyone who redistributes the software, with or without changes, must pass along the freedom to further copy and change it. Copyleft guarantees that every user has freedom."
     #xsd/langString
      "combined works must be licensed under specified terms, similar to those on the original work@en-US"],
-   :vaem/url #xsd/anyURI "http://www.gnu.org/copyleft/copyleft.html"})
+   :vaem/url {:rdfa/uri "http://www.gnu.org/copyleft/copyleft.html"}})
 
 (def CCR_LesserCopyleft
   "Creative Commons Lesser Copyleft"
   {:db/ident :voag/CCR_LesserCopyleft,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :voag/EnumeratedValue
-              :dtype/EnumeratedValue],
+              :dtype/EnumeratedValue
+              :voag/EnumeratedValue],
    :rdfs/label #xsd/langString "Creative Commons Lesser Copyleft@en-US",
    :vaem/description
    #xsd/langString
@@ -1717,8 +1717,8 @@
   "Creative Commons Notice"
   {:db/ident         :voag/CCR_Notice,
    :rdf/type         [:voag/CreativeCommonsRequirement
-                      :voag/EnumeratedValue
-                      :dtype/EnumeratedValue],
+                      :dtype/EnumeratedValue
+                      :voag/EnumeratedValue],
    :rdfs/label       #xsd/langString "Creative Commons Notice@en-US",
    :vaem/description #xsd/langString
                       "copyright and license notices be kept intact@en-US"})
@@ -1727,8 +1727,8 @@
   "Creative Commons Share Alike"
   {:db/ident :voag/CCR_ShareAlike,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :voag/EnumeratedValue
-              :dtype/EnumeratedValue],
+              :dtype/EnumeratedValue
+              :voag/EnumeratedValue],
    :rdfs/label #xsd/langString "Creative Commons Share Alike@en-US",
    :vaem/description
    #xsd/langString
@@ -1738,8 +1738,8 @@
   "Creative Commons Source Code"
   {:db/ident :voag/CCR_SourceCode,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :voag/EnumeratedValue
-              :dtype/EnumeratedValue],
+              :dtype/EnumeratedValue
+              :voag/EnumeratedValue],
    :rdfs/label #xsd/langString "Creative Commons Source Code@en-US",
    :vaem/description
    #xsd/langString
@@ -1749,55 +1749,55 @@
   "Common Development and Distribution License (CDDL), version 1.0"
   {:db/ident :voag/CDDL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label
    #xsd/string
@@ -1807,62 +1807,62 @@
    #xsd/string
     "This is a free software license. It has a copyleft with a scope that's similar to the one in the Mozilla Public License, which makes it incompatible with the GNU GPL. This means a module covered by the GPL and a module covered by the CDDL cannot legally be linked together.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://www.opensolaris.org/os/licensing/cddllicense.txt"})
+   :voag/url {:rdfa/uri
+              "http://www.opensolaris.org/os/licensing/cddllicense.txt"}})
 
 (def CECILL_V2
   "CeCILL version 2"
   {:db/ident :voag/CECILL_V2,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "CeCILL version 2",
    :vaem/acronym #xsd/string "CeCILL",
@@ -1870,61 +1870,61 @@
    #xsd/string
     "The CeCILL is a free software license, explicitly compatible with the GNU GPL. The text of the CeCILL uses a couple of biased terms that ought to be avoided: “intellectual property” (see this article) and “protection” (see this article); this decision was unfortunate, because reading the license tends to spread the presuppositions of those terms. However, this does not cause any particular problem for the programs released under the CeCILL. Section 9.4 of the CeCILL commits the program's developers to certain forms of cooperation with the users, if someone attacks the program with a patent. You might look at that as a problem for the developer; however, if you are sure you would want to cooperate with the users in those ways anyway, then it isn't a problem for you.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.cecill.info/licences.en.html"})
+   :voag/url {:rdfa/uri "http://www.cecill.info/licences.en.html"}})
 
 (def CLEAR_BSD
   "The Clear BSD License"
   {:db/ident :voag/CLEAR_BSD,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "The Clear BSD License",
    :vaem/acronym #xsd/string "clearbsd",
@@ -1932,8 +1932,8 @@
    #xsd/string
     "This is a free software license, compatible with both GPLv2 and GPLv3. It is based on the modified BSD license, and adds a term expressly stating it does not grant you any patent licenses. Because of this, we encourage you to be careful about using software under this license; you should first consider whether the licensor might want to sue you for patent infringement. If the developer is disclaiming patent licenses to set up a trap for you, it would be wise to avoid the program.",
    :voag/compatibleWith [:voag/GNU-GPL_V3 :voag/GNU-GPL_V2],
-   :voag/url #xsd/string
-              "http://labs.metacarta.com/license-explanation.html#license"})
+   :voag/url {:rdfa/uri
+              "http://labs.metacarta.com/license-explanation.html#license"}})
 
 (def CL_None
   "None"
@@ -2030,55 +2030,55 @@
   "Common Public License Version 1.0"
   {:db/ident :voag/COMMON_PUBLIC_LICENSE_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Common Public License Version 1.0",
    :vaem/acronym #xsd/string "CommonPublicLicense10",
@@ -2086,61 +2086,61 @@
    #xsd/string
     "This is a free software license. Unfortunately, its weak copyleft and choice of law clause make it incompatible with the GNU GPL.",
    :voag/incompatibleWith [:voag/GNU-GPL_V3 :voag/GNU-GPL_V2],
-   :voag/url #xsd/string "http://www.eclipse.org/legal/cpl-v10.html"})
+   :voag/url {:rdfa/uri "http://www.eclipse.org/legal/cpl-v10.html"}})
 
 (def CONDOR_PUBLIC_LICENSE
   "Condor Public License"
   {:db/ident :voag/CONDOR_PUBLIC_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Condor Public License",
    :vaem/acronym #xsd/string "Condor",
@@ -2149,123 +2149,123 @@
     "Recent versions of Condor (from 6.9.5 on) are released under the Apache License 2.0. Only older versions of Condor use this license. The Condor Public License is a free software license. It has a couple of requirements that make it incompatible with the GNU GPL, including strong restrictions on the use of Condor-related names, and a condition that you must comply with United States export laws.",
    :voag/incompatibleWith [:voag/GNU-GPL_V3 :voag/GNU-GPL_V2],
    :voag/url
-   #xsd/string
-    "http://www.cs.wisc.edu/condor/condor-public-license.html#condor"})
+   {:rdfa/uri
+    "http://www.cs.wisc.edu/condor/condor-public-license.html#condor"}})
 
 (def CPAL
   "Common Public Attribution License 1.0 (CPAL)"
   {:db/ident :voag/CPAL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Common Public Attribution License 1.0 (CPAL)",
    :vaem/acronym #xsd/string "CPAL",
    :vaem/description
    #xsd/string
     "This is a free software license. It is based on the Mozilla Public License, and is incompatible with the GPL for the same reasons: it has several requirements for modified versions that do not exist in the GPL. It also requires you to publish the source of the program if you allow others to use it.",
-   :voag/url #xsd/string "http://opensource.org/licenses/cpal_1.0"})
+   :voag/url {:rdfa/uri "http://opensource.org/licenses/cpal_1.0"}})
 
 (def CRYPTIX_GENERAL_LICENSE
   "Cryptix General License"
   {:db/ident :voag/CRYPTIX_GENERAL_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Cryptix General License",
    :rdfs/seeAlso :voag/X11_LICENSE,
@@ -2274,7 +2274,7 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with the GNU GPL. It is very similar to the X11 license.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.cryptix.org/LICENSE.TXT"})
+   :voag/url {:rdfa/uri "http://www.cryptix.org/LICENSE.TXT"}})
 
 (def Catalog
   "Catalog"
@@ -2288,37 +2288,37 @@
                       :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
                      :voag/GovernedObject
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/documentedAt,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
+                      :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasGovernance,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasProvenance,
+                      :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/Governance,
                       :owl/onProperty    :voag/hasGovernance,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
+                      :owl/onProperty     :voag/documentedAt,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}],
    :vaem/definition #xsd/string "An index to a set of resources "})
 
 (def ChangeFrequency
@@ -2344,19 +2344,19 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Change Management Process",
    :rdfs/subClassOf  [:voag/GovernanceProcess
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/longDescription,
+                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       :voag/Process
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :voag/longDescription,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "A \"Governance Process\".",
    :voag/shortDescription #xsd/string "A \"Governance Process\"."})
@@ -2387,28 +2387,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Concurrence event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -2486,59 +2486,59 @@
   "Design Science License (DSL)"
   {:db/ident     :voag/DSL_LICENSE,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "Design Science License (DSL)",
    :vaem/acronym #xsd/string "dsl",
-   :voag/url     #xsd/string "http://www.gnu.org/licenses/dsl.html"})
+   :voag/url     {:rdfa/uri "http://www.gnu.org/licenses/dsl.html"}})
 
 (def Daily
   "Daily"
@@ -2563,28 +2563,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Deletion Event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -2600,28 +2600,28 @@
                       :owl/onProperty  :voag/performedBy,
                       :rdf/type        :owl/Restriction}
                      :voag/Event
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/int 1,
-                      :owl/onProperty     :voag/endDate,
-                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/Party,
                       :owl/onProperty    :voag/instigatedBy,
                       :rdf/type          :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/instigatedBy,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/int 1,
+                      :owl/onProperty     :voag/eventDate,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/startDate,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
-                      :owl/onProperty     :voag/eventDate,
+                      :owl/onProperty     :voag/endDate,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}],
@@ -2644,37 +2644,37 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Document",
    :rdfs/subClassOf [:voag/GovernedObject
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/documentedAt,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/longDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasGovernance,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasGovernance,
+                      :owl/onProperty     :voag/hasProvenance,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DocumentationChange
   "Documentation change"
@@ -2686,55 +2686,55 @@
   "Educational Community License 2.0"
   {:db/ident :voag/ECL_V2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Educational Community License 2.0",
    :vaem/acronym #xsd/string "ECL2.0",
@@ -2744,122 +2744,122 @@
    :voag/basedOn :voag/APACHE_V2PT0,
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/incompatibleWith :voag/GNU-GPL_V2,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/ecl2.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/ecl2.php"}})
 
 (def ECOS_V2PT0
   "eCos license version 2.0"
   {:db/ident :voag/ECOS_V2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "eCos license version 2.0",
    :vaem/acronym #xsd/string "eCos20",
    :vaem/description
    #xsd/string
     "The eCos license version 2.0 is a GPL-compatible free software license. It consists of the GPL, plus an exception allowing linking to software not under the GPL. This license has the same disadvantages as the LGPL.",
-   :voag/url #xsd/string "http://www.gnu.org/licenses/ecos-license.html"})
+   :voag/url {:rdfa/uri "http://www.gnu.org/licenses/ecos-license.html"}})
 
 (def ECPAT_LICENSE
   "Expat License"
   {:db/ident :voag/ECPAT_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Expat License",
    :vaem/acronym #xsd/string "Expat",
@@ -2867,120 +2867,120 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with the GNU GPL. It is sometimes ambiguously referred to as the MIT License.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.jclark.com/xml/copying.txt"})
+   :voag/url {:rdfa/uri "http://www.jclark.com/xml/copying.txt"}})
 
 (def EIFFEL_FORUM_LICENSE_V2
   "Eiffel Forum License, version 2"
   {:db/ident     :voag/EIFFEL_FORUM_LICENSE_V2,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "Eiffel Forum License, version 2",
    :vaem/acronym #xsd/string "Eiffel",
-   :voag/url     #xsd/string
-                  "http://www.gnu.org/licenses/eiffel-forum-license-2.html"})
+   :voag/url     {:rdfa/uri
+                  "http://www.gnu.org/licenses/eiffel-forum-license-2.html"}})
 
 (def EPL_V1PT0
   "Eclipse Public License Version 1.0"
   {:db/ident :voag/EPL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Eclipse Public License Version 1.0",
    :rdfs/seeAlso :voag/COMMON_PUBLIC_LICENSE_V1PT0,
@@ -2989,61 +2989,61 @@
    #xsd/string
     "The Eclipse Public License is similar to the Common Public License. The only change is that the EPL removes the broader patent retaliation language regarding patent infringement suits specifically against Contributors to the EPL'd program.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.eclipse.org/legal/epl-v10.html"})
+   :voag/url {:rdfa/uri "http://www.eclipse.org/legal/epl-v10.html"}})
 
 (def EUPL_V1PT1
   "European Union Public License (EUPL) version 1.1"
   {:db/ident :voag/EUPL_V1PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "European Union Public License (EUPL) version 1.1",
    :vaem/acronym #xsd/string "EUPL",
@@ -3052,61 +3052,61 @@
     "This is a free software license. By itself, it has a copyleft comparable to the GPL's. However, it allows recipients to distribute the work under the terms of other selected licenses, and some of those—the Eclipse Public License and the Common Public License in particular—only provide a weaker copyleft. Thus, developers can't rely on this license to provide a strong copyleft. The EUPL is compatible with GPLv2, because that is listed as one of the alternative licenses that recipients may use. However, it is incompatible with GPLv3, because recipients are not given permission to use GPLv3's terms, and the EUPL's copyleft conflicts with GPLv3's.",
    :voag/compatibleWith :voag/GNU-GPL_V2,
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.osor.eu/eupl"})
+   :voag/url {:rdfa/uri "http://www.osor.eu/eupl"}})
 
 (def EU_DATAGRID_LICENSE
   "EU DataGrid Software License"
   {:db/ident :voag/EU_DATAGRID_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "EU DataGrid Software License",
    :vaem/acronym #xsd/string "EUDataGrid",
@@ -3114,7 +3114,7 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/eudatagrid.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/eudatagrid.php"}})
 
 (def EarlyAdoption
   "Early adoption"
@@ -3137,30 +3137,30 @@
   {:db/ident        :voag/Event,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Event",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
+   :rdfs/subClassOf [:owl/Thing
+                     {:owl/allValuesFrom :voag/Party,
+                      :owl/onProperty    :voag/instigatedBy,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/eventDate,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing
+                     {:owl/maxCardinality #xsd/int 1,
+                      :owl/onProperty     :voag/startDate,
+                      :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/int 1,
-                      :owl/onProperty     :voag/instigatedBy,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Party,
-                      :owl/onProperty    :voag/instigatedBy,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/endDate,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
-                      :owl/onProperty     :voag/startDate,
+                      :owl/onProperty     :voag/instigatedBy,
                       :rdf/type           :owl/Restriction}]})
 
 (def Experimental
@@ -3173,55 +3173,55 @@
   "FreeBSD Documentation License"
   {:db/ident :voag/FREEBSD_DL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "FreeBSD Documentation License",
    :vaem/acronym #xsd/string "FreeBSDDL",
@@ -3229,62 +3229,62 @@
    #xsd/string
     "This is a permissive non-copyleft free documentation license that is compatible with the GNU FDL.",
    :voag/compatibleWith :voag/GNU-FDL,
-   :voag/url #xsd/string
-              "http://www.freebsd.org/copyright/freebsd-doc-license.html"})
+   :voag/url {:rdfa/uri
+              "http://www.freebsd.org/copyright/freebsd-doc-license.html"}})
 
 (def FREETYPE_PROJECT_LICENSE
   "Freetype Project License"
   {:db/ident :voag/FREETYPE_PROJECT_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Freetype Project License",
    :vaem/acronym #xsd/string "freetype",
@@ -3293,119 +3293,119 @@
     "This is a free software license, and compatible with GPLv3. It has some attribution requirements which make it incompatible with GPLv2.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/incompatibleWith :voag/GNU-GPL_V2,
-   :voag/url #xsd/string "http://freetype.fis.uniroma2.it/FTL.TXT"})
+   :voag/url {:rdfa/uri "http://freetype.fis.uniroma2.it/FTL.TXT"}})
 
 (def FREE_ART_LICENSE
   "Free Art License"
   {:db/ident     :voag/FREE_ART_LICENSE,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "Free Art License",
    :vaem/acronym #xsd/string "FreeArt",
-   :voag/url     #xsd/string "http://artlibre.org/licence/lalgb.html"})
+   :voag/url     {:rdfa/uri "http://artlibre.org/licence/lalgb.html"}})
 
 (def FREE_BSD_LICENSE
   "FreeBSD license"
   {:db/ident :voag/FREE_BSD_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "FreeBSD license",
    :vaem/acronym #xsd/string "FreeBSD",
@@ -3413,8 +3413,8 @@
    #xsd/string
     "This is the original BSD license with the advertising clause and another clause removed. (It is also sometimes called the “2-clause BSD license”.) It is a simple, permissive non-copyleft free software license, compatible with the GNU GPL. If you want a simple, permissive non-copyleft free software license, the FreeBSD license is a reasonable choice. However, please don't call it a “BSD” or “BSD-style” license, because that is likely to cause confusion which could lead to use of the flawed original BSD license.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://www.freebsd.org/copyright/freebsd-license.html"})
+   :voag/url {:rdfa/uri
+              "http://www.freebsd.org/copyright/freebsd-license.html"}})
 
 (def Figure
   "Figure"
@@ -3425,18 +3425,18 @@
                        :owl/onProperty     :voag/imageMap,
                        :rdf/type           :owl/Restriction}
                       :voag/Image
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/height,
+                       :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "An illustration of some kind."})
 
@@ -3444,233 +3444,233 @@
   "GNU Free Documentation License"
   {:db/ident     :voag/GNU-FDL,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "GNU Free Documentation License",
    :vaem/acronym #xsd/string "FDL",
-   :voag/url     #xsd/string "http://www.gnu.org/licenses/fdl.html"})
+   :voag/url     {:rdfa/uri "http://www.gnu.org/licenses/fdl.html"}})
 
 (def GNU-GPL
   "GNU General Public License (GPL)"
   {:db/ident :voag/GNU-GPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "GNU General Public License (GPL)",
    :vaem/acronym #xsd/string "GPL",
    :vaem/description
    #xsd/string
     "The GNU GPL can be used for general data which is not software, as long as one can determine what the definition of “source code” refers to in the particular case. As it turns out, the DSL (see below) also requires that you determine what the “source code” is, using approximately the same definition that the GPL uses.",
-   :voag/url #xsd/anyURI "http://www.gnu.org/licenses/gpl.html"})
+   :voag/url {:rdfa/uri "http://www.gnu.org/licenses/gpl.html"}})
 
 (def GNU-GPL_V2
   "GNU General Public License (GPL) version 2"
   {:db/ident     :voag/GNU-GPL_V2,
    :rdf/type     [:voag/LicenseModel
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/hasProvenance,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/LicenseModel,
                    :owl/onProperty    :voag/basedOn,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/longDescription,
                    :rdf/type           :owl/Restriction}
-                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/url,
+                   :owl/onProperty     :voag/documentedAt,
                    :rdf/type           :owl/Restriction}
-                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                   :owl/onProperty     :voag/url,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/compatibleWith,
-                   :rdf/type          :owl/Restriction}
                   {:owl/allValuesFrom :voag/Provenance,
                    :owl/onProperty    :voag/hasProvenance,
                    :rdf/type          :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :vaem/acronym,
-                   :rdf/type           :owl/Restriction}
-                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/id,
-                   :rdf/type           :owl/Restriction}
-                  :owl/Thing
-                  {:owl/maxCardinality #xsd/int 1,
-                   :owl/onProperty     :voag/image,
-                   :rdf/type           :owl/Restriction}
                   {:owl/allValuesFrom :voag/Governance,
                    :owl/onProperty    :voag/hasGovernance,
-                   :rdf/type          :owl/Restriction}
-                  {:owl/allValuesFrom :voag/LicenseModel,
-                   :owl/onProperty    :voag/incompatibleWith,
                    :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/shortDescription,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/incompatibleWith,
+                   :rdf/type          :owl/Restriction}
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                   :owl/onProperty     :voag/documentedAt,
+                   :owl/onProperty     :voag/id,
                    :rdf/type           :owl/Restriction}
+                  :owl/Thing
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :voag/hasGovernance,
                    :rdf/type           :owl/Restriction}
+                  {:owl/allValuesFrom :voag/LicenseModel,
+                   :owl/onProperty    :voag/compatibleWith,
+                   :rdf/type          :owl/Restriction}
+                  {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/url,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :voag/hasProvenance,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                   :owl/onProperty     :vaem/acronym,
+                   :rdf/type           :owl/Restriction}
+                  :voag/GovernedObject
                   {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                    :owl/onProperty     :vaem/name,
+                   :rdf/type           :owl/Restriction}
+                  {:owl/maxCardinality #xsd/int 1,
+                   :owl/onProperty     :voag/image,
                    :rdf/type           :owl/Restriction}],
    :rdfs/label   #xsd/string "GNU General Public License (GPL) version 2",
    :vaem/acronym #xsd/string "GPLv2",
-   :voag/url     #xsd/string
-                  "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html"})
+   :voag/url     {:rdfa/uri
+                  "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html"}})
 
 (def GNU-GPL_V3
   "GNU General Public License (GPL) version 3"
   {:db/ident :voag/GNU-GPL_V3,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "GNU General Public License (GPL) version 3",
    :vaem/acronym #xsd/string "GNUGPL",
@@ -3678,61 +3678,61 @@
    #xsd/string
     "This is the latest version of the GNU GPL: a free software license, and a copyleft license. We recommend it for most software packages. GPLv3 is not compatible with GPLv2 by itself. However, most software released under GPLv2 allows you to use the terms of later versions of the GPL as well. When this is the case, you can use the code under GPLv3 to make the desired combination.",
    :voag/supercedes :voag/GNU-GPL_V2,
-   :voag/url #xsd/anyURI "http://www.gnu.org/licenses/gpl.html"})
+   :voag/url {:rdfa/uri "http://www.gnu.org/licenses/gpl.html"}})
 
 (def GNU-LGPL_V2PT1
   "GNU Lesser General Public License (LGPL) version 2.1"
   {:db/ident :voag/GNU-LGPL_V2PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "GNU Lesser General Public License (LGPL) version 2.1",
@@ -3741,62 +3741,62 @@
    #xsd/string
     "This is the previous version of the LGPL: a free software license, but not a strong copyleft license, because it permits linking with non-free modules. It is compatible with GPLv2 and GPLv3.",
    :voag/supercededBy :voag/GNU-LGPL_V3,
-   :voag/url #xsd/string
-              "http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"})
+   :voag/url {:rdfa/uri
+              "http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"}})
 
 (def GNU-LGPL_V3
   "GNU Lesser General Public License (LGPL) version 3"
   {:db/ident :voag/GNU-LGPL_V3,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "GNU Lesser General Public License (LGPL) version 3",
    :vaem/acronym #xsd/string "LGPL",
@@ -3804,61 +3804,61 @@
    #xsd/string
     "This is the latest version of the LGPL: a free software license, but not a strong copyleft license, because it permits linking with non-free modules. It is compatible with GPLv3. Note that LGPLv3 is not compatible with GPLv2 by itself. However, most software released under GPLv2 allows you to use the terms of later versions of the GPL as well. When this is the case, you can use the code under GPLv3 to make the desired combination. ",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.gnu.org/licenses/lgpl.html"})
+   :voag/url {:rdfa/uri "http://www.gnu.org/licenses/lgpl.html"}})
 
 (def GNU_ALL_PERMISSIVE_LICENSE
   "GNU All-Permissive License"
   {:db/ident :voag/GNU_ALL_PERMISSIVE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "GNU All-Permissive License",
    :vaem/acronym #xsd/string "GNUAllPermissive",
@@ -3867,124 +3867,124 @@
     "This is a simple permissive free software license, compatible with the GNU GPL, which we recommend GNU packages use for README and other small supporting files. All developers can feel free to use it in similar situations. ",
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html"})
+   {:rdfa/uri
+    "http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html"}})
 
 (def GNU_VERBATIM_COPYING_LICENSE
   "GNU Verbatim Copying License"
   {:db/ident :voag/GNU_VERBATIM_COPYING_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "GNU Verbatim Copying License",
    :vaem/acronym #xsd/string "GNUVerbatim",
    :vaem/description
    #xsd/string
     "This is the license used throughout the GNU web site. It is very simple, and especially well-suited to written works.",
-   :voag/url #xsd/string
-              "http://www.gnu.org/licenses/licenses.html#VerbatimCopying"})
+   :voag/url {:rdfa/uri
+              "http://www.gnu.org/licenses/licenses.html#VerbatimCopying"}})
 
 (def GPLPA
   "GPL for Computer Programs of the Public Administration"
   {:db/ident :voag/GPLPA,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "GPL for Computer Programs of the Public Administration",
@@ -3994,16 +3994,16 @@
     "The GPL-PA (whose original name in Portuguese is “Licença Pública Geral para Administração Pública”) is non-free for several reasons: (1) It permits use only in “normal circumstances”; (2) It does not allow distribution of source code without binaries; (3) Its permissions lapse after 50 years.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.celepar.pr.gov.br/modules/conteudo/conteudo.php?conteudo=69"})
+   {:rdfa/uri
+    "http://www.celepar.pr.gov.br/modules/conteudo/conteudo.php?conteudo=69"}})
 
 (def GR_Authorizer
   "Authorizer"
   {:db/ident    :voag/GR_Authorizer,
    :dtype/value #xsd/string "authorizer",
    :rdf/type    [:voag/GovernanceRole
-                 :voag/EnumeratedValue
-                 :dtype/EnumeratedValue],
+                 :dtype/EnumeratedValue
+                 :voag/EnumeratedValue],
    :rdfs/label  #xsd/string "Authorizer"})
 
 (def GR_Steward
@@ -4011,8 +4011,8 @@
   {:db/ident    :voag/GR_Steward,
    :dtype/value #xsd/string "steward",
    :rdf/type    [:voag/GovernanceRole
-                 :voag/EnumeratedValue
-                 :dtype/EnumeratedValue],
+                 :dtype/EnumeratedValue
+                 :voag/EnumeratedValue],
    :rdfs/label  #xsd/string "Steward"})
 
 (def GR_Submitter
@@ -4020,8 +4020,8 @@
   {:db/ident    :voag/GR_Submitter,
    :dtype/value #xsd/string "submitter",
    :rdf/type    [:voag/GovernanceRole
-                 :voag/EnumeratedValue
-                 :dtype/EnumeratedValue],
+                 :dtype/EnumeratedValue
+                 :voag/EnumeratedValue],
    :rdfs/label  #xsd/string "Submitter"})
 
 (def Governance
@@ -4029,70 +4029,71 @@
   {:db/ident :voag/Governance,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Governance",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/GovernanceEvent,
-                      :owl/onProperty    :voag/hasGovernanceEvent,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/int 1,
-                      :owl/onProperty  :voag/hasApprovalStatus,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasOwner,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Document,
-                      :owl/onProperty    :voag/hasNormativeDocument,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :voag/hasLicenseType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasConfidentiality,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasLicenseType,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Party,
-                      :owl/onProperty    :voag/hasOwner,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Issue,
-                      :owl/onProperty    :voag/hasIssue,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/int 1,
-                      :owl/onProperty  :voag/hasProtocol,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Document,
-                      :owl/onProperty    :voag/hasReferenceDocument,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ConfidentialityLevel,
-                      :owl/onProperty    :voag/hasConfidentiality,
+   :rdfs/subClassOf [{:owl/allValuesFrom :voag/GovernanceProtocol,
+                      :owl/onProperty    :voag/hasProtocol,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/isFOSS,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ChangeFrequency,
-                      :owl/onProperty    :voag/frequencyOfChange,
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasOwner,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/int 1,
+                      :owl/onProperty  :voag/hasProtocol,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ChangeType,
+                      :owl/onProperty    :voag/hasAnticipatedChangeType,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ConfidentialityLevel,
+                      :owl/onProperty    :voag/hasConfidentiality,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Party,
+                      :owl/onProperty    :voag/hasOwner,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasConfidentiality,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Document,
+                      :owl/onProperty    :voag/hasReferenceDocument,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality #xsd/int 1,
+                      :owl/onProperty  :voag/hasApprovalStatus,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/LicenseModel,
+                      :owl/onProperty    :voag/hasLicenseType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasLicenseType,
+                      :rdf/type           :owl/Restriction}
                      :voag/Qualifier
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/supercedes,
+                     {:owl/allValuesFrom :voag/Document,
+                      :owl/onProperty    :voag/hasApplicableDocument,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/GovernanceProtocol,
-                      :owl/onProperty    :voag/hasProtocol,
+                     {:owl/allValuesFrom :voag/Issue,
+                      :owl/onProperty    :voag/hasIssue,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/isITAR,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/AssignedRole,
-                      :owl/onProperty    :voag/accountableEntityOf,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ChangeType,
-                      :owl/onProperty    :voag/hasAnticipatedChangeType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Document,
-                      :owl/onProperty    :voag/hasApplicableDocument,
-                      :rdf/type          :owl/Restriction}
                      {:owl/cardinality #xsd/int 1,
                       :owl/onProperty  :voag/accountableEntityOf,
                       :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Document,
+                      :owl/onProperty    :voag/hasNormativeDocument,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/GovernanceEvent,
+                      :owl/onProperty    :voag/hasGovernanceEvent,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/AssignedRole,
+                      :owl/onProperty    :voag/accountableEntityOf,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/supercedes,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ChangeFrequency,
+                      :owl/onProperty    :voag/frequencyOfChange,
+                      :rdf/type          :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
@@ -4104,8 +4105,7 @@
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :rdf/type           :owl/Restriction}],
    :vaem/definition
    #xsd/string
     "Governance concerns how an artifact is provisioned and managed over its lifecycle. Governance also concerns the status tracking and processes that need to exist on information objects and services for a successful initiaitve, mission, program, or project. Such governance needs to outline the relationships between all internal and external groups involved, describe the proper flow of information regarding to all stakeholders, ensure the appropriate review of issues encountered and ensure that required approvals and direction are obtained at each appropriate stage.",
@@ -4119,28 +4119,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Governance Event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -4153,18 +4153,18 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Governance Process",
    :rdfs/subClassOf  [:voag/Process
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/longDescription,
-                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :voag/longDescription,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "A \"Process\".",
    :voag/shortDescription #xsd/string "A \"Process\"."})
@@ -4185,68 +4185,68 @@
                          :rdf/type :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Governance Protocol",
-   :rdfs/subClassOf [{:owl/cardinality #xsd/int 3,
-                      :owl/onProperty  :voag/hasProcess,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ChangeManagementProcess,
-                      :owl/onProperty    :voag/hasChangeManagementProcess,
+   :rdfs/subClassOf [{:owl/allValuesFrom :voag/StakeholderGroup,
+                      :owl/onProperty    :voag/mayNeedConcurrenceFrom,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasIssueResolutionProcess,
-                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/StakeholderGroup,
-                      :owl/onProperty    :voag/isInterestOf,
+                      :owl/onProperty    :voag/isApprovedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/isGovernedBy,
+                     {:owl/cardinality #xsd/int 3,
+                      :owl/onProperty  :voag/hasProcess,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/StakeholderGroup,
-                      :owl/onProperty    :voag/mayNeedConcurrenceFrom,
-                      :rdf/type          :owl/Restriction}
-                     :voag/Qualifier
-                     {:owl/allValuesFrom :voag/Organization,
-                      :owl/onProperty    :voag/isGovernedBy,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/IssueResolutionProcess,
-                      :owl/onProperty    :voag/hasIssueResolutionProcess,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/onProperty     :voag/hasNormativeDocument,
-                      :owl/someValuesFrom :voag/Document,
+                     {:owl/onProperty     :voag/isGovernedBy,
+                      :owl/someValuesFrom :voag/StakeholderGroup,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/StakeholderGroup,
-                      :owl/onProperty    :voag/isApprovedBy,
-                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/ApprovalProcess,
                       :owl/onProperty    :voag/hasApprovalProcess,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasApprovalProcess,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/StakeholderGroup,
-                      :owl/onProperty    :voag/reviewedBy,
+                     {:owl/allValuesFrom :voag/ChangeManagementProcess,
+                      :owl/onProperty    :voag/hasChangeManagementProcess,
                       :rdf/type          :owl/Restriction}
-                     {:owl/onProperty     :voag/isGovernedBy,
-                      :owl/someValuesFrom :voag/StakeholderGroup,
+                     {:owl/allValuesFrom :voag/Organization,
+                      :owl/onProperty    :voag/isGovernedBy,
+                      :rdf/type          :owl/Restriction}
+                     :voag/Qualifier
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasIssueResolutionProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasChangeManagementProcess,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/StakeholderGroup,
+                      :owl/onProperty    :voag/isInterestOf,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/onProperty     :voag/hasNormativeDocument,
+                      :owl/someValuesFrom :voag/Document,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/IssueResolutionProcess,
+                      :owl/onProperty    :voag/hasIssueResolutionProcess,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/StakeholderGroup,
+                      :owl/onProperty    :voag/reviewedBy,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/isGovernedBy,
+                      :rdf/type        :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :rdf/type           :owl/Restriction}],
    :vaem/description
    #xsd/string
     "Governance is used  to mean the processes that need to exist for a successful initiaitve, mission, program, or project. Such governance needs to outline the relationships between all internal and external groups involved, describe the proper flow of information regarding to all stakeholders, ensure the appropriate review of issues encountered and ensure that required approvals and direction for a 'GovernedEntity' is obtained at each appropriate stage.",
@@ -4272,36 +4272,36 @@
   {:db/ident        :voag/GovernedObject,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Governed Object",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/documentedAt,
+   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasGovernance,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
+                      :owl/onProperty     :voag/documentedAt,
                       :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty     :voag/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/longDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
+                      :rdf/type          :owl/Restriction}
                      :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasProvenance,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasGovernance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}],
    :vaem/definition #xsd/string "An abstract class for all governed entities"})
 
@@ -4314,6 +4314,7 @@
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
@@ -4322,77 +4323,76 @@
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Graph
   "Graph"
   {:db/ident :voag/Graph,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Graph",
-   :rdfs/subClassOf [:void/Dataset
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/urlOfRDFfile,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasLogo,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/attributionText,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :vaem/namespacePrefix,
-                      :rdf/type        :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom :voag/ProductLogo,
+                      :owl/onProperty    :voag/hasLogo,
+                      :rdf/type          :owl/Restriction}
+                     :void/Dataset
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/downloads,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/urlOfTurtleFile,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :vaem/namespacePrefix,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/curatedGraphURI,
+                      :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :voag/Attribution,
                       :owl/onProperty    :voag/withAttributionTo,
                       :rdf/type          :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/curatedGraphURI,
+                      :owl/onProperty  :voag/attributionText,
                       :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/urlOfTurtleFile,
+                      :rdf/type           :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :vaem/namespace,
                       :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ProductLogo,
-                      :owl/onProperty    :voag/hasLogo,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/documentedAt,
+                      :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
+                      :owl/onProperty     :voag/urlOfRDFfile,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasGovernance,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasProvenance,
+                      :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :voag/url,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/Provenance,
                       :owl/onProperty    :voag/hasProvenance,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
+                      :owl/onProperty     :voag/documentedAt,
                       :rdf/type           :owl/Restriction}
                      :voag/GovernedObject
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}],
    :vaem/definition
    #xsd/string
     "A set of RDF triples in an ontology graph specified according to VOAG."})
@@ -4401,55 +4401,55 @@
   "Hacktivismo Enhanced-Source Software License Agreement"
   {:db/ident :voag/HESSLA,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "Hacktivismo Enhanced-Source Software License Agreement",
@@ -4458,61 +4458,61 @@
    #xsd/string
     "This is not a free software license, because it restricts what jobs people can use the software for, and restricts in substantive ways what jobs modified versions of the program can do.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.hacktivismo.com/about/hessla.php"})
+   :voag/url {:rdfa/uri "http://www.hacktivismo.com/about/hessla.php"}})
 
 (def IBM_PUBLIC_LICENSE_V1PT0
   "IBM Public License, Version 1.0"
   {:db/ident :voag/IBM_PUBLIC_LICENSE_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "IBM Public License, Version 1.0",
    :vaem/acronym #xsd/string "IBMPL",
@@ -4520,61 +4520,61 @@
    #xsd/string
     "This is a free software license. Unfortunately, it has a choice of law clause which makes it incompatible with the GNU GPL.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/ibmpl.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/ibmpl.php"}})
 
 (def IJG_LICENSE
   "Independent JPEG Group License"
   {:db/ident :voag/IJG_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Independent JPEG Group License",
    :vaem/acronym #xsd/string "IJG",
@@ -4582,124 +4582,124 @@
    #xsd/string
     "This is a free software license, and compatible with the GNU GPL. The authors have assured us that developers who document changes as required by the GPL will also comply with the similar requirement in this license.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://dev.w3.org/cvsweb/Amaya/libjpeg/Attic/README?rev=1.2"})
+   :voag/url {:rdfa/uri
+              "http://dev.w3.org/cvsweb/Amaya/libjpeg/Attic/README?rev=1.2"}})
 
 (def IMATRIX_STANDARD_FUNCTION_LIBRARY_LICENSE
   "License of the iMatix Standard Function Library"
   {:db/ident         :voag/IMATRIX_STANDARD_FUNCTION_LIBRARY_LICENSE,
    :rdf/type         [:voag/LicenseModel
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/hasProvenance,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/LicenseModel,
                        :owl/onProperty    :voag/basedOn,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/longDescription,
                        :rdf/type           :owl/Restriction}
-                      :voag/GovernedObject
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/url,
+                       :owl/onProperty     :voag/documentedAt,
                        :rdf/type           :owl/Restriction}
-                      {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                       :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/LicenseModel,
-                       :owl/onProperty    :voag/compatibleWith,
-                       :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :voag/Provenance,
                        :owl/onProperty    :voag/hasProvenance,
                        :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :vaem/acronym,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
-                      :owl/Thing
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/image,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/hasGovernance,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/LicenseModel,
-                       :owl/onProperty    :voag/incompatibleWith,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/LicenseModel,
+                       :owl/onProperty    :voag/incompatibleWith,
+                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/documentedAt,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/hasGovernance,
                        :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/LicenseModel,
+                       :owl/onProperty    :voag/compatibleWith,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/hasProvenance,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :vaem/acronym,
+                       :rdf/type           :owl/Restriction}
+                      :voag/GovernedObject
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/image,
                        :rdf/type           :owl/Restriction}],
    :rdfs/label       #xsd/string
                       "License of the iMatix Standard Function Library",
    :vaem/acronym     #xsd/string "iMatix",
    :vaem/description #xsd/string
                       "This is a free software license and is GPL compatible.",
-   :voag/url         #xsd/string
-                      "http://legacy.imatix.com/html/sfl/sfl4.htm#license"})
+   :voag/url         {:rdfa/uri
+                      "http://legacy.imatix.com/html/sfl/sfl4.htm#license"}})
 
 (def IMLIB2_LICENSE
   "License of imlib2"
   {:db/ident :voag/IMLIB2_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of imlib2",
    :vaem/acronym #xsd/string "imlib",
@@ -4707,62 +4707,62 @@
    #xsd/string
     "This is a free software license, and GPL-compatible. The author has explained to us that the GPL's options for providing source all mean the source has been \"made available publicly\" in their words.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://trac.enlightenment.org/e/browser/trunk/imlib2/COPYING"})
+   :voag/url {:rdfa/uri
+              "http://trac.enlightenment.org/e/browser/trunk/imlib2/COPYING"}})
 
 (def INTEL_OPEN_SOURCE_LICENSE
   "Intel Open Source License"
   {:db/ident :voag/INTEL_OPEN_SOURCE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Intel Open Source License",
    :vaem/acronym #xsd/string "intel",
@@ -4770,62 +4770,62 @@
    #xsd/string "This is a Free Software license, compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.opensource.org/licenses/intel-open-source-license.html"})
+   {:rdfa/uri
+    "http://www.opensource.org/licenses/intel-open-source-license.html"}})
 
 (def IPL_V1PT0
   "Interbase Public License, Version 1.0"
   {:db/ident :voag/IPL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Interbase Public License, Version 1.0",
    :vaem/acronym #xsd/string "IPL",
@@ -4834,62 +4834,62 @@
     "This is a free software license that is essentially the same as the Mozilla Public License, Version 1.1. Like the MPL, the IPL has some complex restrictions that make it incompatible with the GNU GPL. That is, a module covered by the GPL and a module covered by the IPL cannot legally be linked together.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.borland.com/devsupport/interbase/opensource/IPL.html"})
+   {:rdfa/uri
+    "http://www.borland.com/devsupport/interbase/opensource/IPL.html"}})
 
 (def ISC_LICENSE
   "ISC License"
   {:db/ident :voag/ISC_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "ISC License",
    :vaem/acronym #xsd/string "ISC",
@@ -4897,7 +4897,7 @@
    #xsd/string
     "This license is sometimes also known as the OpenBSD License. It is a free software license, and compatible with the GNU GPL. This license does have an unfortunate wording choice: it provides recipients with \"Permission to use, copy, modify, and/or distribute this software....\" This is roughly the same language from the license of Pine that the University of Washington later claimed prohibited people from distributing modified versions of the software.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.isc.org/software/license"})
+   :voag/url {:rdfa/uri "http://www.isc.org/software/license"}})
 
 (def Icon
   "Icon"
@@ -4905,18 +4905,18 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Icon",
    :rdfs/subClassOf  [:voag/Image
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/height,
+                       :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "A logo of some kind"})
 
@@ -4953,37 +4953,37 @@
   {:db/ident :voag/Issue,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Issue",
-   :rdfs/subClassOf [{:owl/cardinality #xsd/int 1,
-                      :owl/onProperty  :voag/disposition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+   :rdfs/subClassOf [{:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :voag/hasStatus,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/priority,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/PriorityValue,
-                      :owl/onProperty    :voag/priority,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/title,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/int 1,
-                      :owl/onProperty  :voag/userID,
-                      :rdf/type        :owl/Restriction}
-                     :owl/Thing
-                     {:owl/allValuesFrom :voag/IssueStatus,
-                      :owl/onProperty    :voag/hasStatus,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/int 1,
+                      :owl/onProperty  :voag/disposition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/title,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}],
+                      :owl/onProperty     :voag/longDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/IssueStatus,
+                      :owl/onProperty    :voag/hasStatus,
+                      :rdf/type          :owl/Restriction}
+                     :owl/Thing
+                     {:owl/cardinality #xsd/int 1,
+                      :owl/onProperty  :voag/userID,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/PriorityValue,
+                      :owl/onProperty    :voag/priority,
+                      :rdf/type          :owl/Restriction}],
    :vaem/description
    #xsd/string
     "captures issues such as raising of an issue related to a particular entity in a registry",
@@ -4997,19 +4997,19 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Issue Resolution Process",
    :rdfs/subClassOf  [:voag/GovernanceProcess
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/longDescription,
+                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       :voag/Process
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :voag/longDescription,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "A \"Governance Process\".",
    :voag/shortDescription #xsd/string "A \"Governance Process\"."})
@@ -5031,55 +5031,55 @@
   "Jahia Community Source License"
   {:db/ident :voag/JAHIA_COMMUNITY_SOURCE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Jahia Community Source License",
    :vaem/acronym #xsd/string "Jahia",
@@ -5087,61 +5087,61 @@
    #xsd/string
     "The Jahia Community Source License is not a free software license. Use of the source code is limited to research purposes.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.jahia.org/jahia/Jahia/pid/145"})
+   :voag/url {:rdfa/uri "http://www.jahia.org/jahia/Jahia/pid/145"}})
 
 (def JOSL_V1PT0
   "Jabber Open Source License, Version 1.0"
   {:db/ident :voag/JOSL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Jabber Open Source License, Version 1.0",
    :vaem/acronym #xsd/string "josl",
@@ -5150,62 +5150,62 @@
     "The license is a free software license, incompatible with the GPL. It permits relicensing under a certain class of licenses, those which include all the requirements of the Jabber license. The GPL is not a member of that class, so the Jabber license does not permit relicensing under the GPL. Therefore, it is not compatible.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://code.google.com/p/jabber-net/source/browse/branches/RELEASE_1_0/LICENSE.txt"})
+   {:rdfa/uri
+    "http://code.google.com/p/jabber-net/source/browse/branches/RELEASE_1_0/LICENSE.txt"}})
 
 (def JSON_LICENSE
   "The JSON License"
   {:db/ident :voag/JSON_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "The JSON License",
    :vaem/acronym #xsd/string "JSON",
@@ -5213,61 +5213,61 @@
    #xsd/string
     "This is the license of the original implementation of the JSON data interchange format. This license uses the Expat license as a base, but adds a clause mandating: “The Software shall be used for Good, not Evil.” This is a restriction on usage and thus conflicts with freedom 0. The restriction might be unenforcible, but we cannot presume that. Thus, the license is nonfree.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.json.org/license.html"})
+   :voag/url {:rdfa/uri "http://www.json.org/license.html"}})
 
 (def LPPL_V1PT2
   "LaTeX Project Public License 1.2"
   {:db/ident :voag/LPPL_V1PT2,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "LaTeX Project Public License 1.2",
    :vaem/acronym #xsd/string "LPPL-1.2",
@@ -5275,61 +5275,61 @@
    #xsd/string
     "This license is an incomplete statement of the distribution terms for LaTeX. As far as it goes, it is a free software license, but incompatible with the GPL because it has many requirements that are not in the GPL.  This license contains complex and annoying restrictions on how to publish a modified version, including one requirement that falls just barely on the good side of the line of what is acceptable: that any modified file must have a new name. The reason this requirement is acceptable for LaTeX is that TeX has a facility to allow you to map file names, to specify “use file bar when file foo is requested”. With this facility, the requirement is merely annoying; without the facility, the same requirement would be a serious obstacle, and we would have to conclude it makes the program non-free. This condition may cause trouble with some major modifications. For example, if you wanted to port an LPPL-covered work to another system that lacked a similar remapping facility, but still required users to request this file by name, you would need to implement a remapping facility too to keep this software free. That would be a nuisance, but the fact that a license would make code nonfree if transplanted into a very different context does not make it nonfree in the original context. The LPPL says that some files, in certain versions of LaTeX, may have additional restrictions, which could render them non-free. For this reason, it may take some careful checking to produce a version of LaTeX that is free software. The LPPL makes the controversial claim that simply having files on a machine where a few other people could log in and access them in itself constitutes distribution. We believe courts would not uphold this claim, but it is not good for people to start making the claim. Note: These comments are for version 1.2 (3 Sep 1999) of the LPPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.latex-project.org/lppl/lppl-1-2.txt"})
+   :voag/url {:rdfa/uri "http://www.latex-project.org/lppl/lppl-1-2.txt"}})
 
 (def LPPL_V1PT3A
   "LaTeX Project Public License 1.3a"
   {:db/ident :voag/LPPL_V1PT3A,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "LaTeX Project Public License 1.3a",
    :vaem/acronym #xsd/string "LPPL-1.3a",
@@ -5338,61 +5338,61 @@
     "GNU have not written a full analysis of this license, but it is a free software license, with less stringent requirements on distribution than LPPL 1.2 (described next). It is still incompatible with the GPL because some modified versions must include a copy of or pointer to an unmodified version.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/supercedes :voag/LPPL_V1PT2,
-   :voag/url #xsd/string "http://www.latex-project.org/lppl/lppl-1-3a.txt"})
+   :voag/url {:rdfa/uri "http://www.latex-project.org/lppl/lppl-1-3a.txt"}})
 
 (def LUCENT_PUBLIC_LICENSE_V1PT02
   "Lucent Public License Version 1.02 (Plan 9 license)"
   {:db/ident :voag/LUCENT_PUBLIC_LICENSE_V1PT02,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "Lucent Public License Version 1.02 (Plan 9 license)",
@@ -5401,7 +5401,7 @@
    #xsd/string
     "This is a free software license, but it is incompatible with the GNU GPL because of its choice of law clause. We recommend that you not use this license for new software that you write, but it is ok to use and improve Plan 9 under this license.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://plan9.bell-labs.com/plan9dist/license.html"})
+   :voag/url {:rdfa/uri "http://plan9.bell-labs.com/plan9dist/license.html"}})
 
 (def LicenseModel
   "License Model"
@@ -5409,55 +5409,55 @@
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "License Model",
    :rdfs/subClassOf [{:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :voag/basedOn,
+                      :owl/onProperty    :voag/incompatibleWith,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/image,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/LicenseModel,
+                      :owl/onProperty    :voag/compatibleWith,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/acronym,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/url,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :voag/incompatibleWith,
+                      :owl/onProperty    :voag/basedOn,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/acronym,
-                      :rdf/type           :owl/Restriction}
                      :voag/GovernedObject
-                     {:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :voag/compatibleWith,
+                     :owl/Thing
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/longDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasGovernance,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasProvenance,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty     :voag/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/documentedAt,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasGovernance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}],
    :vaem/definition
    #xsd/string
     "A License Model describes the licensing conditions associated with a software artifact."})
@@ -5483,70 +5483,70 @@
                       :owl/onProperty     :voag/hasOntologyArchitectureDiagram,
                       :rdf/type           :owl/Restriction}
                      :voag/Catalog
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/documentedAt,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasGovernance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     :voag/GovernedObject
-                     {:owl/allValuesFrom :voag/GovernedObject,
-                      :owl/onProperty    :voag/hasCatalogEntry,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/longDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasGovernance,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasProvenance,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty     :voag/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/documentedAt,
+                      :rdf/type           :owl/Restriction}
+                     :voag/GovernedObject
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/GovernedObject,
+                      :owl/onProperty    :voag/hasCatalogEntry,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}]})
 
 (def LinkedModelLogo-200x80
   "LinkedModel ICON 200 x 80"
   {:db/ident :voag/LinkedModelLogo-200x80,
    :rdf/type [:voag/Logo
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/width,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
               {:owl/cardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
               :voag/Image
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/width,
+               :rdf/type           :owl/Restriction}
+              :owl/Thing
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/caption,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "LinkedModel ICON 200 x 80",
    :vaem/description #xsd/string "LinkedModel Logo",
    :voag/caption #xsd/string "LinkedModel Standard ICON",
    :voag/height #xsd/string "80",
    :voag/image
-   #xsd/anyURI
-    "http://www.linkedmodel.org/lib/lm/images/logos/linkedmodels-logo.gif",
+   {:rdfa/uri
+    "http://www.linkedmodel.org/lib/lm/images/logos/linkedmodels-logo.gif"},
    :voag/width #xsd/string "200"})
 
 (def Logo
@@ -5555,18 +5555,18 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Logo",
    :rdfs/subClassOf  [:voag/Image
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/height,
+                       :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "Logo is ..."})
 
@@ -5574,55 +5574,55 @@
   "Modified BSD license"
   {:db/ident :voag/MODIFIED_BSD_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Modified BSD license",
    :rdfs/seeAlso :voag/BSD_ORIGINAL_LICENSE,
@@ -5630,61 +5630,61 @@
    :vaem/description
    #xsd/string
     "This is the original BSD license, modified by removal of the advertising clause. It is a simple, permissive non-copyleft free software license, compatible with the GNU GPL. If you want a simple, permissive non-copyleft free software license, the modified BSD license is a reasonable choice. However, it is risky to recommend use of “the BSD license”, because confusion could easily occur and lead to use of the flawed original BSD license. To avoid this risk, you can suggest the X11 license instead. The X11 license and the revised BSD license are more or less equivalent. This license is sometimes referred to as the 3-clause BSD license.",
-   :voag/url #xsd/string "http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5"})
+   :voag/url {:rdfa/uri "http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5"}})
 
 (def MPL
   "Mozilla Public License (MPL)"
   {:db/ident :voag/MPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Mozilla Public License (MPL)",
    :vaem/acronym #xsd/string "MPL",
@@ -5692,61 +5692,61 @@
    #xsd/string
     "This is a free software license which is not a strong copyleft; unlike the X11 license, it has some complex restrictions that make it incompatible with the GNU GPL. That is, a module covered by the GPL and a module covered by the MPL cannot legally be linked together. GNU urge you not to use the MPL for this reason. However, MPL 1.1 has a provision (section 13) that allows a program (or parts of it) to offer a choice of another license as well. If part of a program allows the GNU GPL as an alternate choice, or any other GPL-compatible license as an alternate choice, that part of the program has a GPL-compatible license.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.mozilla.org/MPL/MPL-1.1.html"})
+   :voag/url {:rdfa/uri "http://www.mozilla.org/MPL/MPL-1.1.html"}})
 
 (def MS-LPL
   "Microsoft Limited Public License (Ms-LPL)"
   {:db/ident :voag/MS-LPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Microsoft Limited Public License (Ms-LPL)",
    :vaem/acronym #xsd/string "Ms-LPL",
@@ -5755,62 +5755,62 @@
     "This license is non-free because of section 3(F), which requires that any modified software you make from the original code must run on Windows. The Microsoft Public License does not have this restriction.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.microsoft.com/resources/sharedsource/licensingbasics/limitedpubliclicense.mspx"})
+   {:rdfa/uri
+    "http://www.microsoft.com/resources/sharedsource/licensingbasics/limitedpubliclicense.mspx"}})
 
 (def MS-LRL
   "Microsoft Limited Reciprocal License (Ms-LRL)"
   {:db/ident :voag/MS-LRL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Microsoft Limited Reciprocal License (Ms-LRL)",
    :vaem/acronym #xsd/string "Ms-LRL",
@@ -5819,124 +5819,124 @@
     "This license is non-free because of section 3(G), which requires that any modified software you make from the original code must run on Windows. The Microsoft Reciprocal License does not have this restriction.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.microsoft.com/resources/sharedsource/licensingbasics/limitedreciprocallicense.mspx"})
+   {:rdfa/uri
+    "http://www.microsoft.com/resources/sharedsource/licensingbasics/limitedreciprocallicense.mspx"}})
 
 (def MS-PL
   "Microsoft Public License (Ms-PL)"
   {:db/ident :voag/MS-PL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Microsoft Public License (Ms-PL)",
    :vaem/acronym #xsd/string "ms-pl",
    :vaem/description
    #xsd/string
     "This is a free software license; it has a copyleft that is not strong, but incompatible with the GNU GPL. GNU urge you not to use the Ms-PL for this reason.",
-   :voag/url #xsd/string
-              "http://www.microsoft.com/opensource/licenses.mspx#Ms-PL"})
+   :voag/url {:rdfa/uri
+              "http://www.microsoft.com/opensource/licenses.mspx#Ms-PL"}})
 
 (def MS-RL
   "Microsoft Reciprocal License (Ms-RL)"
   {:db/ident :voag/MS-RL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Microsoft Reciprocal License (Ms-RL)",
    :vaem/acronym #xsd/string "ms-rl",
@@ -5945,62 +5945,62 @@
     "This is a free software license. It's based on the Microsoft Public License, and has an additional clause to make the copyleft just a little bit stronger. It's also incompatible with the GNU GPL, and GNU urge you not to use the Ms-RL for this reason.",
    :voag/basedOn :voag/MS-PL,
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://www.microsoft.com/opensource/licenses.mspx#Ms-RL"})
+   :voag/url {:rdfa/uri
+              "http://www.microsoft.com/opensource/licenses.mspx#Ms-RL"}})
 
 (def MS-RRL
   "Microsoft Reference License"
   {:db/ident :voag/MS-RRL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Microsoft Reference License",
    :vaem/acronym #xsd/string "Ms-RL",
@@ -6009,62 +6009,62 @@
     "This is a non-free license: you are not allowed to modify the software at all, and you are only allowed to share it under very particular circumstances.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.microsoft.com/resources/sharedsource/licensingbasics/referencelicense.mspx"})
+   {:rdfa/uri
+    "http://www.microsoft.com/resources/sharedsource/licensingbasics/referencelicense.mspx"}})
 
 (def MS-SSL
   "Microsoft's Shared Source CLI, C#, and Jscript License"
   {:db/ident :voag/MS-SSL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "Microsoft's Shared Source CLI, C#, and Jscript License",
@@ -6073,8 +6073,8 @@
    #xsd/string
     "This license does not permit commercial distribution, and only allows commercial use under certain circumstances.  Microsoft has other licenses which it describes as “Shared Source”, some of which have different restrictions.",
    :voag/url
-   #xsd/string
-    "http://fedoraproject.org/wiki/Licensing/Microsoft_Shared_Source_License"})
+   {:rdfa/uri
+    "http://fedoraproject.org/wiki/Licensing/Microsoft_Shared_Source_License"}})
 
 (def Maturity
   "Maturity"
@@ -6108,116 +6108,116 @@
   "NASA Open Source Agreement"
   {:db/ident :voag/NASA_OPEN_SOURCE_AGREEMENT,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "NASA Open Source Agreement",
    :vaem/acronym #xsd/string "NASA",
    :vaem/description
    #xsd/string
     "The NASA Open Source Agreement, version 1.3, is not a free software license because it includes a provision requiring changes to be your “original creation”. Free software development depends on combining code from third parties, and the NASA license doesn't permit this. GNU urge you not to use this license. In addition, if you are a United States citizen, please write to NASA and call for the use of a truly free software license.",
-   :voag/url #xsd/string "http://www.opensource.org/licenses/nasa1.3"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/nasa1.3"}})
 
 (def NCSA_LICENSE
   "NCSA/University of Illinois Open Source License"
   {:db/ident :voag/NCSA_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "NCSA/University of Illinois Open Source License",
    :vaem/acronym #xsd/string "NCSA",
@@ -6225,61 +6225,61 @@
    #xsd/string
     "This license is based on the terms of the Expat and modified BSD licenses. It is a simple, permissive non-copyleft free software license, compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/UoI-NCSA.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/UoI-NCSA.php"}})
 
 (def NOKIA_OPEN_SOURCE_LICENSE
   "Nokia Open Source License"
   {:db/ident :voag/NOKIA_OPEN_SOURCE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Nokia Open Source License",
    :rdfs/seeAlso :voag/MPL,
@@ -6287,61 +6287,61 @@
    :vaem/description
    #xsd/string
     "This is similar to the Mozilla Public License: a free software license incompatible with the GNU GPL.",
-   :voag/url #xsd/string "http://opensource.org/licenses/nokia.html"})
+   :voag/url {:rdfa/uri "http://opensource.org/licenses/nokia.html"}})
 
 (def NOSL_V1PT0
   "Netizen Open Source License (NOSL), Version 1.0"
   {:db/ident :voag/NOSL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Netizen Open Source License (NOSL), Version 1.0",
    :rdfs/seeAlso :voag/MPL,
@@ -6350,61 +6350,61 @@
    #xsd/string
     "This is a free software license that is essentially the same as the Mozilla Public License, Version 1.1. Like the MPL, the NOSL has some complex restrictions that make it incompatible with the GNU GPL. That is, a module covered by the GPL and a module covered by the NOSL cannot legally be linked together. GNU urge you not to use the NOSL for this reason.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://bits.netizen.com.au/licenses/NOSL/nosl.txt"})
+   :voag/url {:rdfa/uri "http://bits.netizen.com.au/licenses/NOSL/nosl.txt"}})
 
 (def NPL
   "Netscape Public License (NPL)"
   {:db/ident :voag/NPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Netscape Public License (NPL)",
    :vaem/acronym #xsd/string "NPL",
@@ -6412,7 +6412,7 @@
    #xsd/string
     "This is a free software license, not a strong copyleft, and incompatible with the GNU GPL. It consists of the Mozilla Public License with an added clause that permits Netscape to use your added code even in their proprietary versions of the program. Of course, they do not give you permission to use their code in the analogous way. GNU urge you not to use the NPL.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.mozilla.org/NPL/NPL-1.1.html"})
+   :voag/url {:rdfa/uri "http://www.mozilla.org/NPL/NPL-1.1.html"}})
 
 (def Never
   "Never"
@@ -6427,33 +6427,33 @@
   {:db/ident   :voag/NoAttributionSpecified,
    :rdf/type   [:voag/Attribution
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/url,
+                 :owl/onProperty     :voag/hasLogo,
                  :rdf/type           :owl/Restriction}
-                {:owl/allValuesFrom :voag/AttributionLogo,
-                 :owl/onProperty    :voag/hasLogo,
-                 :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :xsd/string,
-                 :owl/onProperty    :voag/pointOfContact,
-                 :rdf/type          :owl/Restriction}
                 {:owl/cardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty  :vaem/name,
                  :rdf/type        :owl/Restriction}
+                {:owl/allValuesFrom :xsd/string,
+                 :owl/onProperty    :voag/pointOfContact,
+                 :rdf/type          :owl/Restriction}
+                :voag/Qualifier
+                :owl/Thing
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/url,
+                 :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :voag/id,
                  :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/longDescription,
-                 :rdf/type           :owl/Restriction}
-                :voag/Qualifier
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/hasLogo,
-                 :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :voag/shortDescription,
                  :rdf/type           :owl/Restriction}
-                :owl/Thing
+                {:owl/allValuesFrom :voag/AttributionLogo,
+                 :owl/onProperty    :voag/hasLogo,
+                 :rdf/type          :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :vaem/name,
+                 :rdf/type           :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/longDescription,
                  :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "No attribution specified"})
 
@@ -6462,79 +6462,79 @@
   {:db/ident   :voag/NoGovernanceSpecified,
    :rdf/type   [:voag/Governance
                 {:owl/allValuesFrom :voag/Document,
-                 :owl/onProperty    :voag/hasApplicableDocument,
+                 :owl/onProperty    :voag/hasNormativeDocument,
                  :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :voag/Issue,
-                 :owl/onProperty    :voag/hasIssue,
-                 :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :voag/Document,
-                 :owl/onProperty    :voag/hasReferenceDocument,
-                 :rdf/type          :owl/Restriction}
-                {:owl/cardinality #xsd/int 1,
-                 :owl/onProperty  :voag/hasApprovalStatus,
-                 :rdf/type        :owl/Restriction}
-                {:owl/cardinality #xsd/int 1,
-                 :owl/onProperty  :voag/accountableEntityOf,
-                 :rdf/type        :owl/Restriction}
-                {:owl/allValuesFrom :voag/Governance,
-                 :owl/onProperty    :voag/supercedes,
-                 :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :voag/ConfidentialityLevel,
-                 :owl/onProperty    :voag/hasConfidentiality,
-                 :rdf/type          :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/isFOSS,
-                 :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/hasLicenseType,
-                 :rdf/type           :owl/Restriction}
-                :owl/Thing
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/hasOwner,
-                 :rdf/type           :owl/Restriction}
-                {:owl/allValuesFrom :voag/ChangeFrequency,
-                 :owl/onProperty    :voag/frequencyOfChange,
-                 :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :voag/GovernanceProtocol,
-                 :owl/onProperty    :voag/hasProtocol,
-                 :rdf/type          :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/shortDescription,
-                 :rdf/type           :owl/Restriction}
                 {:owl/allValuesFrom :voag/LicenseModel,
                  :owl/onProperty    :voag/hasLicenseType,
                  :rdf/type          :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/id,
-                 :rdf/type           :owl/Restriction}
-                {:owl/allValuesFrom :voag/ChangeType,
-                 :owl/onProperty    :voag/hasAnticipatedChangeType,
-                 :rdf/type          :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/isITAR,
-                 :rdf/type           :owl/Restriction}
-                {:owl/allValuesFrom :voag/Party,
-                 :owl/onProperty    :voag/hasOwner,
-                 :rdf/type          :owl/Restriction}
-                :voag/Qualifier
-                {:owl/allValuesFrom :voag/GovernanceEvent,
-                 :owl/onProperty    :voag/hasGovernanceEvent,
-                 :rdf/type          :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :voag/hasConfidentiality,
                  :rdf/type           :owl/Restriction}
-                {:owl/allValuesFrom :voag/Document,
-                 :owl/onProperty    :voag/hasNormativeDocument,
-                 :rdf/type          :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/hasLicenseType,
+                 :rdf/type           :owl/Restriction}
+                :voag/Qualifier
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/longDescription,
+                 :rdf/type           :owl/Restriction}
                 {:owl/allValuesFrom :voag/AssignedRole,
                  :owl/onProperty    :voag/accountableEntityOf,
                  :rdf/type          :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/longDescription,
+                 :owl/onProperty     :voag/isITAR,
                  :rdf/type           :owl/Restriction}
+                {:owl/allValuesFrom :voag/ChangeFrequency,
+                 :owl/onProperty    :voag/frequencyOfChange,
+                 :rdf/type          :owl/Restriction}
+                {:owl/allValuesFrom :voag/ConfidentialityLevel,
+                 :owl/onProperty    :voag/hasConfidentiality,
+                 :rdf/type          :owl/Restriction}
+                {:owl/allValuesFrom :voag/GovernanceProtocol,
+                 :owl/onProperty    :voag/hasProtocol,
+                 :rdf/type          :owl/Restriction}
+                {:owl/cardinality #xsd/int 1,
+                 :owl/onProperty  :voag/accountableEntityOf,
+                 :rdf/type        :owl/Restriction}
+                {:owl/allValuesFrom :voag/Issue,
+                 :owl/onProperty    :voag/hasIssue,
+                 :rdf/type          :owl/Restriction}
+                {:owl/allValuesFrom :voag/ChangeType,
+                 :owl/onProperty    :voag/hasAnticipatedChangeType,
+                 :rdf/type          :owl/Restriction}
+                {:owl/allValuesFrom :voag/Governance,
+                 :owl/onProperty    :voag/supercedes,
+                 :rdf/type          :owl/Restriction}
                 {:owl/cardinality #xsd/int 1,
                  :owl/onProperty  :voag/hasProtocol,
                  :rdf/type        :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/id,
+                 :rdf/type           :owl/Restriction}
+                :owl/Thing
+                {:owl/allValuesFrom :voag/Party,
+                 :owl/onProperty    :voag/hasOwner,
+                 :rdf/type          :owl/Restriction}
+                {:owl/allValuesFrom :voag/Document,
+                 :owl/onProperty    :voag/hasApplicableDocument,
+                 :rdf/type          :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/isFOSS,
+                 :rdf/type           :owl/Restriction}
+                {:owl/allValuesFrom :voag/GovernanceEvent,
+                 :owl/onProperty    :voag/hasGovernanceEvent,
+                 :rdf/type          :owl/Restriction}
+                {:owl/cardinality #xsd/int 1,
+                 :owl/onProperty  :voag/hasApprovalStatus,
+                 :rdf/type        :owl/Restriction}
+                {:owl/allValuesFrom :voag/Document,
+                 :owl/onProperty    :voag/hasReferenceDocument,
+                 :rdf/type          :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/hasOwner,
+                 :rdf/type           :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/shortDescription,
+                 :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :vaem/name,
                  :rdf/type           :owl/Restriction}],
@@ -6544,23 +6544,22 @@
   "No pedigree specified"
   {:db/ident   :voag/NoPedigreeSpecified,
    :rdf/type   [:voag/Pedigree
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/usage,
-                 :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/hasMaturity,
-                 :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/int 1,
                  :owl/onProperty     :voag/shortDescription,
                  :rdf/type           :owl/Restriction}
-                {:owl/allValuesFrom :voag/Maturity,
-                 :owl/onProperty    :voag/hasMaturity,
-                 :rdf/type          :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/usage,
+                 :rdf/type           :owl/Restriction}
                 {:owl/allValuesFrom :voag/Accredidation,
                  :owl/onProperty    :voag/hasAccredidation,
                  :rdf/type          :owl/Restriction}
+                :owl/Thing
+                {:owl/allValuesFrom :voag/Party,
+                 :owl/onProperty    :voag/usedBy,
+                 :rdf/type          :owl/Restriction}
+                :voag/Qualifier
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/id,
+                 :owl/onProperty     :voag/hasMaturity,
                  :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :voag/hasAccredidation,
@@ -6568,16 +6567,17 @@
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :voag/shortDescription,
                  :rdf/type           :owl/Restriction}
-                :owl/Thing
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :vaem/name,
-                 :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :voag/longDescription,
                  :rdf/type           :owl/Restriction}
-                :voag/Qualifier
-                {:owl/allValuesFrom :voag/Party,
-                 :owl/onProperty    :voag/usedBy,
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/id,
+                 :rdf/type           :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :vaem/name,
+                 :rdf/type           :owl/Restriction}
+                {:owl/allValuesFrom :voag/Maturity,
+                 :owl/onProperty    :voag/hasMaturity,
                  :rdf/type          :owl/Restriction}],
    :rdfs/label #xsd/string "No pedigree specified"})
 
@@ -6586,54 +6586,54 @@
   {:db/ident   :voag/NoProvenanceSpecified,
    :rdf/type   [:voag/Provenance
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/longDescription,
+                 :owl/onProperty     :voag/hasPedigree,
                  :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :vaem/name,
-                 :rdf/type           :owl/Restriction}
-                :voag/Qualifier
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/shortDescription,
-                 :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/id,
-                 :rdf/type           :owl/Restriction}
-                :owl/Thing
                 {:owl/allValuesFrom :voag/ChangeType,
                  :owl/onProperty    :voag/hasChangeType,
-                 :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :voag/GovernedObject,
-                 :owl/onProperty    :voag/supercedes,
                  :rdf/type          :owl/Restriction}
                 {:owl/maxCardinality #xsd/int 1,
                  :owl/onProperty     :voag/shortDescription,
                  :rdf/type           :owl/Restriction}
-                {:owl/cardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty  :voag/timestamp,
-                 :rdf/type        :owl/Restriction}
+                {:owl/allValuesFrom :voag/Pedigree,
+                 :owl/onProperty    :voag/hasPedigree,
+                 :rdf/type          :owl/Restriction}
+                {:owl/maxCardinality #xsd/int 1,
+                 :owl/onProperty     :voag/revision,
+                 :rdf/type           :owl/Restriction}
                 {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                  :owl/onProperty     :vaem/lastUpdated,
                  :rdf/type           :owl/Restriction}
                 {:owl/allValuesFrom :voag/GovernedObject,
                  :owl/onProperty    :voag/supercededBy,
                  :rdf/type          :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :vaem/name,
+                 :rdf/type           :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/longDescription,
+                 :rdf/type           :owl/Restriction}
+                :owl/Thing
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/id,
+                 :rdf/type           :owl/Restriction}
+                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty     :voag/shortDescription,
+                 :rdf/type           :owl/Restriction}
+                :voag/Qualifier
                 {:owl/minCardinality #xsd/nonNegativeInteger 0,
                  :owl/onProperty     :voag/basedOn,
                  :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/int 1,
-                 :owl/onProperty     :voag/revision,
-                 :rdf/type           :owl/Restriction}
-                {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                 :owl/onProperty     :voag/hasPedigree,
-                 :rdf/type           :owl/Restriction}
+                {:owl/cardinality #xsd/nonNegativeInteger 1,
+                 :owl/onProperty  :voag/timestamp,
+                 :rdf/type        :owl/Restriction}
+                {:owl/allValuesFrom :voag/GovernedObject,
+                 :owl/onProperty    :voag/supercedes,
+                 :rdf/type          :owl/Restriction}
                 {:owl/cardinality #xsd/int 1,
                  :owl/onProperty  :voag/source,
                  :rdf/type        :owl/Restriction}
                 {:owl/allValuesFrom :voag/Party,
                  :owl/onProperty    :voag/source,
-                 :rdf/type          :owl/Restriction}
-                {:owl/allValuesFrom :voag/Pedigree,
-                 :owl/onProperty    :voag/hasPedigree,
                  :rdf/type          :owl/Restriction}],
    :rdfs/label #xsd/string "No provenance specified"})
 
@@ -6643,29 +6643,29 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Non-Concurrence Event",
    :rdfs/subClassOf  [:voag/GovernanceEvent
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      :voag/Event
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
+                       :rdf/type           :owl/Restriction}
+                      :voag/Event
+                      {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -6685,55 +6685,55 @@
   "Open Content License, Version 1.0"
   {:db/ident :voag/OCL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Open Content License, Version 1.0",
    :vaem/acronym #xsd/string "OCL",
@@ -6741,61 +6741,61 @@
    #xsd/string
     "This license does not qualify as free, because there are restrictions on charging money for copies. GNU recommend you do not use this license. Note that this license is not the same as the Open Publication License. The practice of abbreviating “Open Content License” as “OPL” leads to confusion between them. For clarity, it is better not to use the abbreviation “OPL” for either license. It is worth spelling their names in full to make sure people understand what you say.",
    :voag/incompatibleWith [:voag/GNU-FDL :voag/OPL],
-   :voag/url #xsd/string "http://opencontent.org/opl.shtml"})
+   :voag/url {:rdfa/uri "http://opencontent.org/opl.shtml"}})
 
 (def OPENLDAP_LICENSE_V2PT7
   "OpenLDAP License, Version 2.7"
   {:db/ident :voag/OPENLDAP_LICENSE_V2PT7,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "OpenLDAP License, Version 2.7",
    :vaem/acronym #xsd/string "newOpenLDAP",
@@ -6803,62 +6803,62 @@
    #xsd/string
     "This is a permissive non-copyleft free software license that is compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://www.openldap.org/software/release/license.html"})
+   :voag/url {:rdfa/uri
+              "http://www.openldap.org/software/release/license.html"}})
 
 (def OPEN_DIRECTORY_LICENSE
   "Open Directory License (aka dmoz.org License)"
   {:db/ident :voag/OPEN_DIRECTORY_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Open Directory License (aka dmoz.org License)",
    :vaem/acronym #xsd/string "OpenDirectory",
@@ -6866,61 +6866,61 @@
    #xsd/string
     "This is not a free documentation license. The primary problems are that your right to redistribute any given version is not permanent and that it requires the user to keep checking back at that site, which is too restrictive of the user's freedom.",
    :voag/incompatibleWith :voag/GNU-FDL,
-   :voag/url #xsd/string "http://dmoz.org/license.html"})
+   :voag/url {:rdfa/uri "http://dmoz.org/license.html"}})
 
 (def OPEN_PUBLICATION_LICENSE_V1PT0
   "Open Publication License, Version 1.0"
   {:db/ident :voag/OPEN_PUBLICATION_LICENSE_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Open Publication License, Version 1.0",
    :vaem/acronym #xsd/string "RealOPL",
@@ -6928,61 +6928,61 @@
    #xsd/string
     "This license can be used as a free documentation license. It is a copyleft free documentation license provided the copyright holder does not exercise any of the “LICENSE OPTIONS” listed in Section VI of the license. But if either of the options is invoked, the license becomes non-free. In any case, it is incompatible with the GNU FDL.  This creates a practical pitfall in using or recommending this license: if you recommend “Use the Open Publication License, Version 1.0 but don't enable the options”, it would be easy for the second half of that recommendation to get forgotten; someone might use the license with the options, making a manual non-free, and yet think he or she is following your advice. Likewise, if you use this license without either of the options to make your manual free, someone else might decide to imitate you, then change his or her mind about the options thinking that that is just a detail; the result would be that his or her manual is non-free. Thus, while manuals published under this license do qualify as free documentation if neither license option was used, it is better to use the GNU Free Documentation License and avoid the risk of leading someone else astray. Please note that this license is not the same as the Open Content License. These two licenses are frequently confused, as the Open Content License is often referred to as the “OPL”. For clarity, it is better not to use the abbreviation “OPL” for either license. It is worth spelling their names in full to make sure people understand what you say.",
    :voag/incompatibleWith :voag/GNU-FDL,
-   :voag/url #xsd/string "http://opencontent.org/openpub/"})
+   :voag/url {:rdfa/uri "http://opencontent.org/openpub/"}})
 
 (def OPEN_SOFTWARE_LICENSE
   "Open Software License, all versions through 3.0"
   {:db/ident :voag/OPEN_SOFTWARE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Open Software License, all versions through 3.0",
    :vaem/acronym #xsd/string "OSL",
@@ -6990,61 +6990,61 @@
    #xsd/string
     "The Open Software License is a free software license. It is incompatible with the GNU GPL in several ways. Recent versions of the Open Software License have a term which requires distributors to try to obtain explicit assent to the license. This means that distributing OSL software on ordinary FTP sites, sending patches to ordinary mailing lists, or storing the software in an ordinary version control system, is arguably a violation of the license and would subject you to possible termination of the license. Thus, the Open Software License makes it very difficult to develop software using the ordinary tools of free software development. For this reason, and because it is incompatible with the GPL, GNU recommend that no version of the OSL be used for any software.  GNU urge you not to use the Open Software License for software you write. However, there is no reason to avoid running programs that have been released under this license.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/osl-3.0.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/osl-3.0.php"}})
 
 (def OPEN_SSL_LICENSE
   "OpenSSL license"
   {:db/ident :voag/OPEN_SSL_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "OpenSSL license",
    :vaem/acronym #xsd/string "OpenSSL",
@@ -7052,61 +7052,61 @@
    #xsd/string
     "The license of OpenSSL is a conjunction of two licenses, one of them being the license of SSLeay. You must follow both. The combination results in a copyleft free software license that is incompatible with the GNU GPL. It also has an advertising clause like the original BSD license and the Apache license. GNU recommend using GNUTLS instead of OpenSSL in software you write. However, there is no reason not to use OpenSSL and applications that work with OpenSSL.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.sdisw.com/openssl.htm"})
+   :voag/url {:rdfa/uri "http://www.sdisw.com/openssl.htm"}})
 
 (def OPL
   "Open Public License"
   {:db/ident :voag/OPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Open Public License",
    :vaem/acronym #xsd/string "OPL",
@@ -7114,8 +7114,8 @@
    #xsd/string
     "This is not a free software license, because it requires sending every published modified version to a specific initial developer. There are also some other words in this license whose meaning we're not sure of that might also be problematic.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "https://fedoraproject.org/wiki/Licensing/Open_Public_License"})
+   :voag/url {:rdfa/uri
+              "https://fedoraproject.org/wiki/Licensing/Open_Public_License"}})
 
 (def OpenIssue
   "Open"
@@ -7160,19 +7160,19 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Organization logo",
    :rdfs/subClassOf  [:voag/Logo
+                      :owl/Thing
+                      :voag/Image
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/height,
+                       :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :voag/Image
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "A logo for an organization"})
 
@@ -7180,55 +7180,55 @@
   "Phorum License, Version 2.0"
   {:db/ident :voag/PHORUM_LICENSE_V2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Phorum License, Version 2.0",
    :vaem/acronym #xsd/string "Phorum",
@@ -7236,68 +7236,68 @@
    #xsd/string
     "This is a free software license but it is incompatible with the GPL. Section 5 makes the license incompatible with the GPL.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://phorum.org/license.txt"})
+   :voag/url {:rdfa/uri "http://phorum.org/license.txt"}})
 
 (def PHP_LICENSE_V3PT01
   "PHP License, Version 3.01"
   {:db/ident :voag/PHP_LICENSE_V3PT01,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "PHP License, Version 3.01",
    :vaem/acronym #xsd/string "PHP-3.01",
    :vaem/description
    #xsd/string
     "This license is used by most of PHP4. It is a non-copyleft free software license. It is incompatible with the GNU GPL because it includes strong restrictions on the use of “PHP” in the name of derived products. GNU recommend that you not use this license for anything except PHP add-ons.",
-   :voag/url #xsd/string "http://www.php.net/license/3_01.txt"})
+   :voag/url {:rdfa/uri "http://www.php.net/license/3_01.txt"}})
 
 (def PS_Draft
   "Draft Status"
@@ -7401,117 +7401,117 @@
   "License of Python 1.6b1 through 2.0 and 2.1"
   {:db/ident :voag/PYTHON_LICENSE_V1PT6B1_THROUGH_2PT0_AND_2PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of Python 1.6b1 through 2.0 and 2.1",
    :vaem/acronym #xsd/string "PythonOld",
    :vaem/description
    #xsd/string
     "This is a free software license but is incompatible with the GNU GPL. The primary incompatibility is that this Python license is governed by the laws of the State of Virginia, in the USA, and the GPL does not permit this.",
-   :voag/url #xsd/string
-              "http://www.handle.net/python_licenses/python1.6_9-5-00.html"})
+   :voag/url {:rdfa/uri
+              "http://www.handle.net/python_licenses/python1.6_9-5-00.html"}})
 
 (def PYTHON_LICENSE_V2PT0PT1_AND_OTHERS
   "License of Python 2.0.1, 2.1.1, and newer versions"
   {:db/ident :voag/PYTHON_LICENSE_V2PT0PT1_AND_OTHERS,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of Python 2.0.1, 2.1.1, and newer versions",
    :vaem/acronym #xsd/string "Python",
@@ -7519,7 +7519,7 @@
    #xsd/string
     "This is a free software license and is compatible with the GNU GPL. Please note, however, that intermediate versions of Python (1.6b1, through 2.0 and 2.1) are under a different license.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.python.org/2.0.1/license.html"})
+   :voag/url {:rdfa/uri "http://www.python.org/2.0.1/license.html"}})
 
 (def Party
   "Party"
@@ -7541,41 +7541,41 @@
   {:db/ident :voag/Pedigree,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Pedigree",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/Accredidation,
-                      :owl/onProperty    :voag/hasAccredidation,
+   :rdfs/subClassOf [{:owl/allValuesFrom :voag/Party,
+                      :owl/onProperty    :voag/usedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/usage,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Party,
-                      :owl/onProperty    :voag/usedBy,
-                      :rdf/type          :owl/Restriction}
-                     :voag/Qualifier
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/hasMaturity,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasAccredidation,
+                      :owl/onProperty     :voag/usage,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/Maturity,
                       :owl/onProperty    :voag/hasMaturity,
                       :rdf/type          :owl/Restriction}
+                     :voag/Qualifier
+                     {:owl/allValuesFrom :voag/Accredidation,
+                      :owl/onProperty    :voag/hasAccredidation,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasAccredidation,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :rdf/type           :owl/Restriction}],
    :vaem/definition
    #xsd/string
     "Pedigree captures aspects of an artifact that have to do with maturity, quality, salience, and accredidation.",
@@ -7631,19 +7631,19 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Product logo",
    :rdfs/subClassOf  [:voag/Logo
+                      :owl/Thing
+                      :voag/Image
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/height,
+                       :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :voag/Image
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string
                       "Product logo is used for products, solutions, etc."})
@@ -7659,56 +7659,56 @@
   {:db/ident :voag/Provenance,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Provenance",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/int 1,
+   :rdfs/subClassOf [{:owl/allValuesFrom :voag/Party,
+                      :owl/onProperty    :voag/source,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasPedigree,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ChangeType,
+                      :owl/onProperty    :voag/hasChangeType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/revision,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/GovernedObject,
-                      :owl/onProperty    :voag/supercededBy,
-                      :rdf/type          :owl/Restriction}
                      {:owl/cardinality #xsd/int 1,
                       :owl/onProperty  :voag/source,
                       :rdf/type        :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :voag/basedOn,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/timestamp,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Party,
-                      :owl/onProperty    :voag/source,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ChangeType,
-                      :owl/onProperty    :voag/hasChangeType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasPedigree,
-                      :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/int 1,
                       :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Pedigree,
-                      :owl/onProperty    :voag/hasPedigree,
-                      :rdf/type          :owl/Restriction}
-                     :voag/Qualifier
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/lastUpdated,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/GovernedObject,
+                      :owl/onProperty    :voag/supercededBy,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/GovernedObject,
                       :owl/onProperty    :voag/supercedes,
                       :rdf/type          :owl/Restriction}
+                     :voag/Qualifier
+                     {:owl/allValuesFrom :voag/Pedigree,
+                      :owl/onProperty    :voag/hasPedigree,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/timestamp,
+                      :rdf/type        :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                      :rdf/type           :owl/Restriction}],
    :vaem/definition
    #xsd/string
     "Provenance specifies the origin or source of some artifact. The primary purpose of provenance is to capture the time, place, and if appropriate the person responsible, for the creation, production or provisioning of The artifact. Provenance also captures a record of how a version may have been superceded by another version of the artifact.",
@@ -7727,55 +7727,55 @@
   "Q Public License (QPL), Version 1.0"
   {:db/ident :voag/QPL_LICENSE_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Q Public License (QPL), Version 1.0",
    :vaem/acronym #xsd/string "QPL",
@@ -7783,7 +7783,7 @@
    #xsd/string
     "This is a non-copyleft free software license which is incompatible with the GNU GPL. It also causes major practical inconvenience, because modified sources can only be distributed as patches. GNU recommend that you avoid using the QPL for anything that you write, and use QPL-covered software packages only when absolutely necessary. However, this avoidance no longer applies to Qt itself, since Qt is now also released under the GNU GPL. Since the QPL is incompatible with the GNU GPL, you cannot take a GPL-covered program and QPL-covered program and link them together, no matter how.  However, if you have written a program that uses QPL-covered library (called FOO), and you want to release your program under the GNU GPL, you can easily do that, see GNU for more details.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://doc.trolltech.com/3.0/license.html"})
+   :voag/url {:rdfa/uri "http://doc.trolltech.com/3.0/license.html"}})
 
 (def Qualifier
   "Qualifier"
@@ -7816,17 +7816,17 @@
   "RDF Icon 32 X 35"
   {:db/ident :voag/RDFIcon-32X35,
    :rdf/type [:voag/Icon
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              :voag/Image
               {:owl/cardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
+              :owl/Thing
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/caption,
                :rdf/type           :owl/Restriction}
-              :owl/Thing
+              :voag/Image
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}],
@@ -7835,63 +7835,63 @@
    :voag/caption #xsd/string "RDF Standard ICON",
    :voag/height #xsd/string "35",
    :voag/image
-   #xsd/anyURI
-    "http://www.linkedmodel.org/lib/lm/images/icons/rdf_w3c_icon.48.gif",
+   {:rdfa/uri
+    "http://www.linkedmodel.org/lib/lm/images/icons/rdf_w3c_icon.48.gif"},
    :voag/width #xsd/string "32"})
 
 (def RPL
   "Reciprocal Public License"
   {:db/ident :voag/RPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Reciprocal Public License",
    :vaem/acronym #xsd/string "RPL",
@@ -7899,61 +7899,61 @@
    #xsd/string
     "The Reciprocal Public License is a non-free license because of three problems. 1. It puts limits on prices charged for an initial copy. 2. It requires notification of the original developer for publication of a modified version. 3. It requires publication of any modified version that an organization uses, even privately.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/rpl.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/rpl.php"}})
 
 (def RPSL_V1PT0
   "RealNetworks Public Source License (RPSL), Version 1.0"
   {:db/ident :voag/RPSL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "RealNetworks Public Source License (RPSL), Version 1.0",
@@ -7962,61 +7962,61 @@
    #xsd/string
     "The RPSL is a free software license that is GPL-incompatible for a number of reasons: it requires that derivative works be licensed under the terms of the RPSL, and mandates that any litigation take place in Seattle, Washington.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.opensource.org/licenses/real.php"})
+   :voag/url {:rdfa/uri "http://www.opensource.org/licenses/real.php"}})
 
 (def RUBY_LICENSE
   "License of Ruby"
   {:db/ident :voag/RUBY_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of Ruby",
    :vaem/acronym #xsd/string "RUBY",
@@ -8024,7 +8024,7 @@
    #xsd/string
     "This is a free software license, compatible with the GPL via an explicit dual-licensing clause. Ruby is copyrighted free software by Yukihiro Matsumoto <matz@netlab.co.jp>.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.ruby-lang.org/en/LICENSE.txt"})
+   :voag/url {:rdfa/uri "http://www.ruby-lang.org/en/LICENSE.txt"}})
 
 (def RefactoringChange
   "Refactoring change"
@@ -8038,28 +8038,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Rejection Event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -8081,28 +8081,28 @@
    :rdf/type         :owl/Class,
    :rdfs/label       #xsd/string "Retreival Event",
    :rdfs/subClassOf  [:voag/Event
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -8118,29 +8118,29 @@
                        :owl/onProperty    :voag/performedBy,
                        :rdf/type          :owl/Restriction}
                       :voag/GovernanceEvent
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      :voag/Event
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/instigatedBy,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
+                       :owl/onProperty     :voag/eventDate,
+                       :rdf/type           :owl/Restriction}
+                      :voag/Event
+                      {:owl/maxCardinality #xsd/int 1,
                        :owl/onProperty     :voag/startDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/int 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}],
@@ -8151,55 +8151,55 @@
   "SGI Free Software License B, version 2.0"
   {:db/ident :voag/SGI_FREE_SOFTWARE_LICENSE_B_V2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "SGI Free Software License B, version 2.0",
    :rdfs/seeAlso :voag/X11_LICENSE,
@@ -8207,122 +8207,122 @@
    :vaem/description
    #xsd/string
     "The SGI Free Software License B version 2.0 is a free software license. It is essentially identical to the X11 License, with an optional alternative way of providing license notices. Previous versions of the SGI Free Software License B were not free software licenses, despite their name. However, they all included clauses that allow you to upgrade to new versions of the license, if you choose to do so. As a result, if a piece of software was released under any version of the SGI Free License B, you can use it under the terms of this free version.",
-   :voag/url #xsd/string "http://oss.sgi.com/projects/FreeB/"})
+   :voag/url {:rdfa/uri "http://oss.sgi.com/projects/FreeB/"}})
 
 (def SIL-OFL_V1PT1
   "SIL Open Font License 1.1"
   {:db/ident :voag/SIL-OFL_V1PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "SIL Open Font License 1.1",
    :vaem/acronym #xsd/string "SILOFL",
    :vaem/description
    #xsd/string
     "The Open Font License (including its original release, version 1.0) is a free copyleft license for fonts. Its only unusual requirement is that fonts be distributed with some computer program, rather than alone. Since a simple Hello World program will satisfy the requirement, it is harmless. Neither GNU nor SIL recommend the use of this license for anything other than fonts.",
-   :voag/url #xsd/string "http://scripts.sil.org/OFL_web"})
+   :voag/url {:rdfa/uri "http://scripts.sil.org/OFL_web"}})
 
 (def SISSL_V1PT0
   "Sun Industry Standards Source License 1.0"
   {:db/ident :voag/SISSL_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Sun Industry Standards Source License 1.0",
    :vaem/acronym #xsd/string "SISSL",
@@ -8330,62 +8330,62 @@
    #xsd/string
     "This is a free software license, not a strong copyleft, which is incompatible with the GNU GPL because of details rather than any major policy.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://www.openoffice.org/licenses/sissl_license.html"})
+   :voag/url {:rdfa/uri
+              "http://www.openoffice.org/licenses/sissl_license.html"}})
 
 (def SML
   "Simple Machines License"
   {:db/ident :voag/SML,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Simple Machines License",
    :vaem/acronym #xsd/string "SML",
@@ -8393,23 +8393,23 @@
    #xsd/string
     "Despite the name, this is a software license, and it's non-free for several reasons: (1) You must get the licensor's permission before distributing the software; (2) You cannot sell copies of the software; (3) It's possible that your license can be terminated if you received the software from someone who did not obey the license's terms.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.simplemachines.org/about/license.php"})
+   :voag/url {:rdfa/uri "http://www.simplemachines.org/about/license.php"}})
 
 (def SPARQLIcon-80X15
   "SPARQL ICON 80 X 15"
   {:db/ident :voag/SPARQLIcon-80X15,
    :rdf/type [:voag/Icon
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              :voag/Image
               {:owl/cardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
+              :owl/Thing
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/caption,
                :rdf/type           :owl/Restriction}
-              :owl/Thing
+              :voag/Image
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}],
@@ -8418,63 +8418,63 @@
    :voag/caption #xsd/string "SPARQL Standard ICON",
    :voag/height #xsd/string "15",
    :voag/image
-   #xsd/anyURI
-    "http://www.linkedmodel.org/lib/lm/images/icons/sw-sparql-blue.png",
+   {:rdfa/uri
+    "http://www.linkedmodel.org/lib/lm/images/icons/sw-sparql-blue.png"},
    :voag/width #xsd/string "80"})
 
 (def SPL
   "Sun Public License"
   {:db/ident :voag/SPL,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Sun Public License",
    :rdfs/seeAlso :voag/MPL,
@@ -8483,61 +8483,61 @@
    #xsd/string
     "This is essentially the same as the Mozilla Public License: a free software license incompatible with the GNU GPL. Do not confuse this with the Sun Community Source License which is not a free software license.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://java.sun.com/spl.html"})
+   :voag/url {:rdfa/uri "http://java.sun.com/spl.html"}})
 
 (def STANDARD_ML_OF_NJ_LICENSE
   "Standard ML of New Jersey Copyright License"
   {:db/ident :voag/STANDARD_ML_OF_NJ_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Standard ML of New Jersey Copyright License",
    :vaem/acronym #xsd/string "StandardMLofNJ",
@@ -8545,69 +8545,69 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://cm.bell-labs.com/cm/cs/what/smlnj/license.html"})
+   :voag/url {:rdfa/uri
+              "http://cm.bell-labs.com/cm/cs/what/smlnj/license.html"}})
 
 (def SYSTEMC_V3PT0
   "SystemC \"Open Source\" License, Version 3.0"
   {:db/ident :voag/SYSTEMC_V3PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "SystemC \"Open Source\" License, Version 3.0",
    :vaem/acronym #xsd/string "SystemC-3.0",
    :vaem/description
    #xsd/string
     "This license requires all recipients to proactively help the licensor enforce its trademarks. This is an unreasonable condition to place on users' rights, so the license is non-free. It also has other practical problems: some of the requirements are vague, and it uses the term “intellectual property”.",
-   :voag/url #xsd/string "http://www.systemc.org/about/org_docs/license/"})
+   :voag/url {:rdfa/uri "http://www.systemc.org/about/org_docs/license/"}})
 
 (def SchemaGraph
   "Schema graph"
@@ -8615,69 +8615,69 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Schema graph",
    :rdfs/subClassOf [:voag/Graph
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/curatedGraphURI,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/documentedAt,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasGovernance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
+                     :void/Dataset
+                     :owl/Thing
                      {:owl/allValuesFrom :voag/Attribution,
                       :owl/onProperty    :voag/withAttributionTo,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
+                      :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/urlOfRDFfile,
+                      :owl/onProperty     :voag/hasGovernance,
                       :rdf/type           :owl/Restriction}
-                     :voag/GovernedObject
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :vaem/namespace,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasLogo,
+                      :owl/onProperty     :voag/downloads,
                       :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/curatedGraphURI,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasProvenance,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty     :voag/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/urlOfTurtleFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/urlOfRDFfile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/attributionText,
+                      :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :voag/Governance,
                       :owl/onProperty    :voag/hasGovernance,
                       :rdf/type          :owl/Restriction}
-                     :void/Dataset
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
+                      :owl/onProperty     :voag/documentedAt,
+                      :rdf/type           :owl/Restriction}
+                     :voag/GovernedObject
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :vaem/namespacePrefix,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/urlOfTurtleFile,
+                      :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/downloads,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/ProductLogo,
                       :owl/onProperty    :voag/hasLogo,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/attributionText,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                      :rdf/type          :owl/Restriction}]})
 
 (def Service
   "Service"
@@ -8747,37 +8747,37 @@
                        :owl/onProperty     :voag/hasLogo,
                        :rdf/type           :owl/Restriction}
                       :voag/GovernedObject
+                      :owl/Thing
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/documentedAt,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/longDescription,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/hasGovernance,
                        :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/hasProvenance,
+                       :rdf/type           :owl/Restriction}
                       {:owl/minCardinality #xsd/nonNegativeInteger 0,
                        :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Provenance,
-                       :owl/onProperty    :voag/hasProvenance,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/hasGovernance,
                        :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Provenance,
+                       :owl/onProperty    :voag/hasProvenance,
+                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/longDescription,
+                       :owl/onProperty     :voag/documentedAt,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                       :owl/onProperty     :voag/shortDescription,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                       :owl/onProperty     :voag/hasProvenance,
-                       :rdf/type           :owl/Restriction}
-                      :owl/Thing],
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}],
    :vaem/description #xsd/string "An industry, de facto or de jure standard"})
 
 (def TopQuadrantAttribution
@@ -8785,39 +8785,39 @@
   {:db/ident            :voag/TopQuadrantAttribution,
    :rdf/type            [:voag/Attribution
                          {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                          :owl/onProperty     :voag/url,
+                          :owl/onProperty     :voag/hasLogo,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :voag/AttributionLogo,
-                          :owl/onProperty    :voag/hasLogo,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :xsd/string,
-                          :owl/onProperty    :voag/pointOfContact,
-                          :rdf/type          :owl/Restriction}
                          {:owl/cardinality #xsd/nonNegativeInteger 1,
                           :owl/onProperty  :vaem/name,
                           :rdf/type        :owl/Restriction}
+                         {:owl/allValuesFrom :xsd/string,
+                          :owl/onProperty    :voag/pointOfContact,
+                          :rdf/type          :owl/Restriction}
+                         :voag/Qualifier
+                         :owl/Thing
+                         {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                          :owl/onProperty     :voag/url,
+                          :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                           :owl/onProperty     :voag/id,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                          :owl/onProperty     :voag/longDescription,
-                          :rdf/type           :owl/Restriction}
-                         :voag/Qualifier
-                         {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                          :owl/onProperty     :voag/hasLogo,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                           :owl/onProperty     :voag/shortDescription,
                           :rdf/type           :owl/Restriction}
-                         :owl/Thing
+                         {:owl/allValuesFrom :voag/AttributionLogo,
+                          :owl/onProperty    :voag/hasLogo,
+                          :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                           :owl/onProperty     :vaem/name,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                          :owl/onProperty     :voag/longDescription,
                           :rdf/type           :owl/Restriction}],
    :rdfs/label          #xsd/string "TopQuadrant attribution",
    :vaem/name           #xsd/string "TopQuadrant, Inc.",
    :voag/hasLogo        :voag/TopQuadrantLogo-613x150,
    :voag/pointOfContact #xsd/string "Ralph Hodgson, TopQuadrant, Inc.",
-   :voag/url            #xsd/anyURI "http://www.topquadrant.com"})
+   :voag/url            {:rdfa/uri "http://www.topquadrant.com"}})
 
 (def TopQuadrantLogo-613x150
   "TopQuadrant Logo 613 x 150"
@@ -8825,36 +8825,6 @@
    :rdf/type [:voag/OrganizationLogo
               :voag/AttributionLogo
               :voag/Logo
-              {:owl/cardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty  :voag/image,
-               :rdf/type        :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/width,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}
-              :voag/Image
-              :owl/Thing],
-   :rdfs/label #xsd/string "TopQuadrant Logo 613 x 150",
-   :vaem/description
-   #xsd/string "TopQuadrant's logo - diamond with company name to the right",
-   :voag/height #xsd/string "150",
-   :voag/image
-   #xsd/anyURI
-    "http://www.linkedmodel.org/lib/lm/images/logos/TQ_logo_C_2009_SM_print.jpg",
-   :voag/width #xsd/string "613"})
-
-(def TurtleIcon-32bX35
-  "Turtle Icon 32 X 35"
-  {:db/ident :voag/TurtleIcon-32bX35,
-   :rdf/type [:voag/Icon
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
               :voag/Image
               {:owl/cardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty  :voag/image,
@@ -8863,6 +8833,36 @@
                :owl/onProperty     :voag/caption,
                :rdf/type           :owl/Restriction}
               :owl/Thing
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/width,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}],
+   :rdfs/label #xsd/string "TopQuadrant Logo 613 x 150",
+   :vaem/description
+   #xsd/string "TopQuadrant's logo - diamond with company name to the right",
+   :voag/height #xsd/string "150",
+   :voag/image
+   {:rdfa/uri
+    "http://www.linkedmodel.org/lib/lm/images/logos/TQ_logo_C_2009_SM_print.jpg"},
+   :voag/width #xsd/string "613"})
+
+(def TurtleIcon-32bX35
+  "Turtle Icon 32 X 35"
+  {:db/ident :voag/TurtleIcon-32bX35,
+   :rdf/type [:voag/Icon
+              {:owl/cardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty  :voag/image,
+               :rdf/type        :owl/Restriction}
+              :owl/Thing
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/caption,
+               :rdf/type           :owl/Restriction}
+              :voag/Image
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}],
@@ -8872,63 +8872,63 @@
    :voag/caption #xsd/string "Turtle ICON",
    :voag/height #xsd/string "35",
    :voag/image
-   #xsd/anyURI
-    "http://www.linkedmodel.org/lib/lm/images/icons/turtle_icon_32x35.jpg",
+   {:rdfa/uri
+    "http://www.linkedmodel.org/lib/lm/images/icons/turtle_icon_32x35.jpg"},
    :voag/width #xsd/string "32"})
 
 (def UNICODE_LICENSE
   "Unicode, Inc. License Agreement for Data Files and Software"
   {:db/ident :voag/UNICODE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string
                 "Unicode, Inc. License Agreement for Data Files and Software",
@@ -8936,61 +8936,61 @@
    :vaem/description
    #xsd/string
     "This is a license that Unicode, Inc. has applied to the Unicode Character Database—various data files that developers can use to help implement the Unicode standard in their own programs. It is a simple permissive license, compatible with all versions of the GPL. If you want to use files covered by this License Agreement in your own software, that shouldn't be any problem, but we recommend that you also include a full copy of its text. Some of the files contain alternative license terms which are nonfree, or no licensing information at all, so including a copy of the License Agreement will help avoid confusion when others want to distribute your software. Of course, you'll also need to follow the conditions in this License Agreement for distributing the files, but those are very straightforward.  Take care to ensure that the files you are using are covered by this License Agreement. Other files published by Unicode, Inc. are covered by the Unicode Terms of Use, a different, nonfree license that appears on the same page but covers different files. A short explanation at the top of this License Agreement details which files it covers. Do not use this License Agreement for your own software. If you want to use a simple permissive license for your project, please use the Expat license; it is by far more common, and widely recognized in the free software community.",
-   :voag/url #xsd/string "http://www.unicode.org/copyright.html#Exhibit1"})
+   :voag/url {:rdfa/uri "http://www.unicode.org/copyright.html#Exhibit1"}})
 
 (def UNLICENSE
   "The Unlicense"
   {:db/ident :voag/UNLICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "The Unlicense",
    :vaem/acronym #xsd/string "Unlicense",
@@ -8998,7 +8998,7 @@
    #xsd/string
     "The Unlicense is a public domain dedication. A work released under the Unlicense is dedicated to the public domain to the fullest extent permitted by law, and also comes with an additional simple license that helps cover any cases where the dedication is inadequate. Both public domain works and the simple license provided by the Unlicense are compatible with the GNU GPL. If you want to release your work to the public domain, we recommend you use CC0. CC0 also provides a public domain dedication with a fallback license, and is more thorough and mature than the Unlicense.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://unlicense.org/"})
+   :voag/url {:rdfa/uri "http://unlicense.org/"}})
 
 (def UncertainFrequency
   "Uncertain frequency"
@@ -9018,55 +9018,55 @@
   "University of Utah Public License"
   {:db/ident :voag/UtahPublicLicense,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "University of Utah Public License",
    :vaem/acronym #xsd/string "UtahPublicLicense",
@@ -9074,61 +9074,61 @@
    #xsd/string
     "The University of Utah Public License is a non-free license because it does not allow commercial redistribution. It also purports to restrict commercially running the software and even commercially giving consultation about it. Those restrictions are probably not legally enforceable under US copyright law, but they might be in some countries.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.cs.utah.edu/~gk/teem/txt/LICENSE.txt"})
+   :voag/url {:rdfa/uri "http://www.cs.utah.edu/~gk/teem/txt/LICENSE.txt"}})
 
 (def VIM_LICENSE_V6PT1_OR_LATER
   "License of Vim, Version 6.1 or later"
   {:db/ident :voag/VIM_LICENSE_V6PT1_OR_LATER,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of Vim, Version 6.1 or later",
    :vaem/acronym #xsd/string "Vim",
@@ -9136,33 +9136,33 @@
    #xsd/string
     "This is a free software license, partially copyleft but not really. It is compatible with the GPL, by an explicit conversion clause.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.gnu.org/licenses/vim-license.txt"})
+   :voag/url {:rdfa/uri "http://www.gnu.org/licenses/vim-license.txt"}})
 
 (def VOAG-OntologyLogo_360x110
   "VOAG Logo"
   {:db/ident :voag/VOAG-OntologyLogo_360x110,
    :rdf/type [:voag/ProductLogo
+              :voag/Logo
               :owl/Thing
-              :voag/Image
-              {:owl/cardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty  :voag/image,
-               :rdf/type        :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/width,
+               :owl/onProperty     :voag/height,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/caption,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/height,
+               :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}
-              :voag/Logo],
+              {:owl/cardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty  :voag/image,
+               :rdf/type        :owl/Restriction}
+              :voag/Image],
    :rdfs/label #xsd/string "VOAG Logo",
    :voag/caption #xsd/string "VOAG Logo",
    :voag/height #xsd/string "110",
    :voag/image
-   #xsd/anyURI
-    "http://www.linkedmodel.org/lib/lm/images/logos/voag_logo_360x110.png",
+   {:rdfa/uri
+    "http://www.linkedmodel.org/lib/lm/images/logos/voag_logo_360x110.png"},
    :voag/width #xsd/string "360"})
 
 (def VocabGraph
@@ -9171,123 +9171,123 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Vocab graph",
    :rdfs/subClassOf [:voag/Graph
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/curatedGraphURI,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/documentedAt,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasGovernance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Provenance,
-                      :owl/onProperty    :voag/hasProvenance,
-                      :rdf/type          :owl/Restriction}
+                     :void/Dataset
+                     :owl/Thing
                      {:owl/allValuesFrom :voag/Attribution,
                       :owl/onProperty    :voag/withAttributionTo,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/shortDescription,
+                      :owl/onProperty     :voag/longDescription,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/urlOfRDFfile,
+                      :owl/onProperty     :voag/hasGovernance,
                       :rdf/type           :owl/Restriction}
-                     :voag/GovernedObject
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :vaem/namespace,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasLogo,
+                      :owl/onProperty     :voag/downloads,
                       :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/curatedGraphURI,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/hasProvenance,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty     :voag/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/urlOfTurtleFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/urlOfRDFfile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :voag/attributionText,
+                      :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :voag/Governance,
                       :owl/onProperty    :voag/hasGovernance,
                       :rdf/type          :owl/Restriction}
-                     :void/Dataset
+                     {:owl/allValuesFrom :voag/Provenance,
+                      :owl/onProperty    :voag/hasProvenance,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/longDescription,
+                      :owl/onProperty     :voag/documentedAt,
+                      :rdf/type           :owl/Restriction}
+                     :voag/GovernedObject
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/shortDescription,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :vaem/namespacePrefix,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/urlOfTurtleFile,
+                      :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/downloads,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/ProductLogo,
                       :owl/onProperty    :voag/hasLogo,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :voag/attributionText,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                      :rdf/type          :owl/Restriction}]})
 
 (def W3C_SOFTWARE_LICENSE
   "W3C Software Notice and License"
   {:db/ident :voag/W3C_SOFTWARE_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "W3C Software Notice and License",
    :vaem/acronym #xsd/string "W3C",
@@ -9295,62 +9295,62 @@
                       "This is a free software license and is GPL compatible.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231"})
+   {:rdfa/uri
+    "http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231"}})
 
 (def WEBM_LICENSE
   "License of WebM"
   {:db/ident :voag/WEBM_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of WebM",
    :vaem/acronym #xsd/string "WebM",
@@ -9358,68 +9358,68 @@
    #xsd/string
     "Google's WebM implementation is covered by the Modified BSD License. Google also provides a separate patent license (confusingly called an “Additional IP Rights Grant”) for patents that Google owns or controls that are necessarily infringed by their implementation of WebM. GPL-covered software can be distributed in compliance with this license's terms: it allows distributors to exercise all of the rights granted by the GPL, while fulfilling all its conditions. Thus, all of WebM's license is free and GPL-compatible. Like most BSD licenses, this license allows you to use the VP8 code with a minimum of restrictions on your use. You can use the code in proprietary software as well as open source software.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.webmproject.org/license/"})
+   :voag/url {:rdfa/uri "http://www.webmproject.org/license/"}})
 
 (def WTFPL_V2
   "WTFPL, Version 2"
   {:db/ident :voag/WTFPL_V2,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "WTFPL, Version 2",
    :vaem/acronym #xsd/string "WTFPL",
    :vaem/description
    #xsd/string
     "This is a free software license, very permissive and GPL-compatible.",
-   :voag/url #xsd/string "http://sam.zoy.org/wtfpl/COPYING"})
+   :voag/url {:rdfa/uri "http://sam.zoy.org/wtfpl/COPYING"}})
 
 (def Weekly
   "Weekly"
@@ -9439,55 +9439,55 @@
   "X11 License"
   {:db/ident :voag/X11_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "X11 License",
    :vaem/acronym #xsd/string "X11License",
@@ -9495,61 +9495,61 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with the GNU GPL. Older versions of XFree86 used the same license, and some of the current variants of XFree86 also do. Later versions of XFree86 are distributed under the XFree86 1.1 license. This license is sometimes called the MIT license, but that term is misleading, since MIT has used many licenses for software.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3"})
+   :voag/url {:rdfa/uri "http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3"}})
 
 (def XFREE86_LICENSE_V1PT1
   "XFree86 1.1 License"
   {:db/ident :voag/XFREE86_LICENSE_V1PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "XFree86 1.1 License",
    :vaem/acronym #xsd/string "XFree861.1License",
@@ -9557,61 +9557,61 @@
    #xsd/string
     "This is a simple, permissive non-copyleft free software license, compatible with version 3 of the GPL. Note that this license is incompatible with version 2 of the GPL, because of its requirements that apply to all documentation in the distribution that contain acknowledgements. There are currently several variants of XFree86, and only some of them use this license. Some continue to use the X11 license.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.xfree86.org/current/LICENSE4.html"})
+   :voag/url {:rdfa/uri "http://www.xfree86.org/current/LICENSE4.html"}})
 
 (def XINETD_LICENSE
   "License of xinetd"
   {:db/ident :voag/XINETD_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of xinetd",
    :vaem/acronym #xsd/string "xinetd",
@@ -9619,62 +9619,62 @@
    #xsd/string
     "This is a copyleft free software license, incompatible with the GPL. It is incompatible because it places extra restrictions on redistribution of modified versions that contradict the redistribution requirements in the GPL.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string
-              "http://fedoraproject.org/wiki/Licensing/Xinetd_License"})
+   :voag/url {:rdfa/uri
+              "http://fedoraproject.org/wiki/Licensing/Xinetd_License"}})
 
 (def YAHOO_PUBLIC_LICENSE_V1PT0
   "Yahoo! Public License 1.0"
   {:db/ident :voag/YAHOO_PUBLIC_LICENSE_V1PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Yahoo! Public License 1.0",
    :vaem/acronym #xsd/string "Yahoo",
@@ -9683,184 +9683,184 @@
     "This is a free software license. It has a copyleft similar to the one found in the Mozilla Public License. It also has a choice of law clause in section 7. These features both make the license GPL-incompatible. The license also unfortunately uses the term “intellectual property”.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/url
-   #xsd/string
-    "http://info.yahoo.com/legal/us/yahoo/publiclicense/publiclicense-1813.html"})
+   {:rdfa/uri
+    "http://info.yahoo.com/legal/us/yahoo/publiclicense/publiclicense-1813.html"}})
 
 (def ZEND_LICENSE_V2PT0
   "Zend License, Version 2.0"
   {:db/ident :voag/ZEND_LICENSE_V2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Zend License, Version 2.0",
    :vaem/acronym #xsd/string "Zend",
    :vaem/description
    #xsd/string
     "This license is used by one part of PHP4. It is a non-copyleft free software license which is incompatible with the GNU GPL, and has practical problems like those of the original BSD license. GNU recommend that you not use this license for anything you write.",
-   :voag/url #xsd/string "http://www.zend.com/license/2_00.txt"})
+   :voag/url {:rdfa/uri "http://www.zend.com/license/2_00.txt"}})
 
 (def ZLIB_LICENSE
   "License of ZLib"
   {:db/ident :voag/ZLIB_LICENSE,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "License of ZLib",
    :vaem/acronym #xsd/string "ZLib",
    :vaem/description
    #xsd/string "This is a free software license, and compatible with the GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
-   :voag/url #xsd/string "http://www.gzip.org/zlib/zlib_license.html"})
+   :voag/url {:rdfa/uri "http://www.gzip.org/zlib/zlib_license.html"}})
 
 (def ZOPE_PUBLICE_LICENSE_V1
   "Zope Public License version 1"
   {:db/ident :voag/ZOPE_PUBLICE_LICENSE_V1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Zope Public License version 1",
    :rdfs/seeAlso :voag/ZOPE_PUBLIC_LICENSE_V2PT0,
@@ -9870,61 +9870,61 @@
     "This is a simple, fairly permissive non-copyleft free software license with practical problems like those of the original BSD license, including incompatibility with the GNU GPL. GNU urge you not to use the ZPL version 1 for software you write. However, there is no reason to avoid running programs that have been released under this license, such as previous versions of Zope. Version 2.0 of the Zope Public License is GPL-compatible.",
    :voag/incompatibleWith :voag/GNU-GPL_V3,
    :voag/supercededBy :voag/ZOPE_PUBLIC_LICENSE_V2PT0,
-   :voag/url #xsd/string "http://www.zope.org/Resources/ZPL"})
+   :voag/url {:rdfa/uri "http://www.zope.org/Resources/ZPL"}})
 
 (def ZOPE_PUBLIC_LICENSE_V2PT0
   "Zope Public License, versions 2.0"
   {:db/ident :voag/ZOPE_PUBLIC_LICENSE_V2PT0,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Zope Public License, versions 2.0",
    :vaem/acronym #xsd/string "Zope20",
@@ -9933,61 +9933,61 @@
     "This is a simple, permissive non-copyleft free software license which is compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/supercedes :voag/ZOPE_PUBLICE_LICENSE_V1,
-   :voag/url #xsd/string "http://www.zope.org/Resources/ZPL"})
+   :voag/url {:rdfa/uri "http://www.zope.org/Resources/ZPL"}})
 
 (def ZOPE_PUBLIC_LICENSE_V2PT1
   "Zope Public License, versions 2.1"
   {:db/ident :voag/ZOPE_PUBLIC_LICENSE_V2PT1,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/basedOn,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/longDescription,
                :rdf/type           :owl/Restriction}
-              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/url,
+               :owl/onProperty     :voag/documentedAt,
                :rdf/type           :owl/Restriction}
-              {:owl/minCardinality #xsd/nonNegativeInteger 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/compatibleWith,
-               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :voag/Provenance,
                :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
-              {:owl/maxCardinality #xsd/int 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/Governance,
                :owl/onProperty    :voag/hasGovernance,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/shortDescription,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-               :owl/onProperty     :voag/documentedAt,
+               :owl/onProperty     :voag/id,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/minCardinality #xsd/nonNegativeInteger 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
               {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality #xsd/int 1,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}],
    :rdfs/label #xsd/string "Zope Public License, versions 2.1",
    :vaem/acronym #xsd/string "Zope20",
@@ -9996,7 +9996,7 @@
     "This is a simple, permissive non-copyleft free software license which is compatible with the GNU GPL.",
    :voag/compatibleWith :voag/GNU-GPL_V3,
    :voag/supercedes :voag/ZEND_LICENSE_V2PT0,
-   :voag/url #xsd/string "http://www.zope.org/Resources/ZPL"})
+   :voag/url {:rdfa/uri "http://www.zope.org/Resources/ZPL"}})
 
 (def accountableEntityOf
   "accountable entity of"

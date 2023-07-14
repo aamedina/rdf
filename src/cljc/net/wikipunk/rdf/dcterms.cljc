@@ -1,14 +1,6 @@
 (ns net.wikipunk.rdf.dcterms
-  "DCMI Metadata Terms - other"
-  {:dc11/date #xsd/date #inst "2012-06-14T00:00:00.000-04:00",
-   :dc11/publisher {:rdfa/uri "http://purl.org/dc/aboutdcmi#DCMI"},
-   :dc11/title #xsd/langString "DCMI Metadata Terms - other@en",
-   :dcat/downloadURL
+  {:dcat/downloadURL
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl",
-   :dcterms/date #xsd/date #inst "2012-06-14T00:00:00.000-04:00",
-   :dcterms/modified #xsd/date #inst "2012-06-14T00:00:00.000-04:00",
-   :dcterms/publisher {:rdfa/uri "http://purl.org/dc/aboutdcmi#DCMI"},
-   :dcterms/title #xsd/langString "DCMI Metadata Terms - other@en",
    :rdf/ns-prefix-map {"dcam"    "http://purl.org/dc/dcam/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -411,8 +403,8 @@
    :rdfs/isDefinedBy    {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label          #xsd/langString "Physical Medium@en",
    :rdfs/subClassOf     [:dcterms/MediaType
-                         :rdfs/Resource
-                         :dcterms/MediaTypeOrExtent]})
+                         :dcterms/MediaTypeOrExtent
+                         :rdfs/Resource]})
 
 (def PhysicalResource
   "A material thing."

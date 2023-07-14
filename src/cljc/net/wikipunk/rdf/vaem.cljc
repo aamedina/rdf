@@ -201,24 +201,24 @@
    #xsd/string
     "The purpose of VAEM is to provide, by import, a foundation for commonly needed resources for metadata on an ontology.",
    :vaem/latestPublishedVersion
-   #xsd/anyURI "http://www.linkedmodel.org/doc/2014/SCHEMA_vaem-v2.0",
+   {:rdfa/uri "http://www.linkedmodel.org/doc/2014/SCHEMA_vaem-v2.0"},
    :vaem/logo
-   #xsd/anyURI
-    "http://linkedmodel.org/lib/lm/images/logos/TopBraid-RDM-Graph-Logo.png",
+   {:rdfa/uri
+    "http://linkedmodel.org/lib/lm/images/logos/TopBraid-RDM-Graph-Logo.png"},
    :vaem/name #xsd/string "VAEM",
-   :vaem/namespace #xsd/anyURI "http://www.linkedmodel.org/schema/vaem#",
+   :vaem/namespace {:rdfa/uri "http://www.linkedmodel.org/schema/vaem#"},
    :vaem/namespacePrefix #xsd/string "vaem",
    :vaem/owner #xsd/string "TopQuadrant, Inc.",
-   :vaem/previousPublishedVersion #xsd/anyURI
-                                   "http://linkedmodel.org/doc/vaem/1.2/",
+   :vaem/previousPublishedVersion {:rdfa/uri
+                                   "http://linkedmodel.org/doc/vaem/1.2/"},
    :vaem/rdfxmlFileURL
-   #xsd/anyURI "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.rdf",
+   {:rdfa/uri "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.rdf"},
    :vaem/revision #xsd/string "2.0",
    :vaem/title
    #xsd/string
     "Vocabulary for Attaching Essential Metadata (VAEM) - Version 2.0",
    :vaem/turtleFileURL
-   #xsd/anyURI "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.ttl",
+   {:rdfa/uri "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.ttl"},
    :vaem/usesNonImportedResource [:dcterms/modified
                                   :dcterms/abstract
                                   :dcterms/creator
@@ -240,78 +240,78 @@
                       {:rdfa/uri "http://www.linkedmodel.org/2.0/schema/vaem"}],
    :rdfs/label #xsd/string "Graph Metadata",
    :rdfs/seeAlso {:rdfa/uri "http://voag.linkedmodel.org/vocab/voag"},
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/turtleFileURL,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Aspect,
-                      :owl/onProperty    :vaem/hasAspect,
+   :rdfs/subClassOf [{:owl/allValuesFrom :vaem/Discipline,
+                      :owl/onProperty    :vaem/hasDiscipline,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Domain,
+                      :owl/onProperty    :vaem/hasDomain,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/hasMetadata,
+                      :owl/onProperty     :vaem/latestPublishedVersion,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/owner,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/GraphMetaData,
-                      :owl/onProperty    :vaem/hasMetadata,
-                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/string,
                       :owl/onProperty    :vaem/description,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/namespacePrefix,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/intent,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :vaem/name,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Party,
+                      :owl/onProperty    :vaem/hasSteward,
+                      :rdf/type          :owl/Restriction}
+                     :owl/Thing
+                     {:owl/allValuesFrom :vaem/Aspect,
+                      :owl/onProperty    :vaem/hasAspect,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/hasIdentifier,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/revision,
+                      :owl/onProperty     :vaem/previousPublishedVersion,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing
-                     {:owl/allValuesFrom :vaem/GraphRole,
-                      :owl/onProperty    :vaem/hasGraphRole,
+                     {:owl/allValuesFrom :vaem/Viewpoint,
+                      :owl/onProperty    :vaem/hasViewpoint,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/intent,
+                      :owl/onProperty     :vaem/rdfxmlFileURL,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/specificity,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/previousPublishedVersion,
+                      :owl/onProperty     :vaem/hasMetadata,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/latestPublishedVersion,
+                      :owl/onProperty     :vaem/revision,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/rdfxmlFileURL,
+                      :owl/onProperty     :vaem/owner,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Party,
-                      :owl/onProperty    :vaem/hasOwner,
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/hasSteward,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/GraphRole,
+                      :owl/onProperty    :vaem/hasGraphRole,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/hasLicenseType,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/namespacePrefix,
+                      :owl/onProperty     :vaem/turtleFileURL,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/namespace,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Domain,
-                      :owl/onProperty    :vaem/hasDomain,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/hasSteward,
-                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :vaem/Party,
-                      :owl/onProperty    :vaem/hasSteward,
+                      :owl/onProperty    :vaem/hasOwner,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Discipline,
-                      :owl/onProperty    :vaem/hasDiscipline,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :vaem/name,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Viewpoint,
-                      :owl/onProperty    :vaem/hasViewpoint,
+                     {:owl/allValuesFrom :vaem/GraphMetaData,
+                      :owl/onProperty    :vaem/hasMetadata,
                       :rdf/type          :owl/Restriction}]})
 
 (def GraphRole
@@ -339,13 +339,13 @@
    :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/schema/vaem"}
                       {:rdfa/uri "http://www.linkedmodel.org/2.0/schema/vaem"}],
    :rdfs/label #xsd/string "Graph role",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:owl/Thing
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :vaem/filePrefix,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}]})
 
 (def LicenseModel
   "The VAEM Licence Model class is a placeholder for concepts that are fully defined by VOAG."
@@ -454,7 +454,7 @@
                       {:rdfa/uri "http://www.linkedmodel.org/schema/vaem"}],
    :rdfs/label       #xsd/string "TopQuadrant",
    :vaem/name        #xsd/string "TopQuadrant, Inc.",
-   :vaem/url         #xsd/anyURI "http:/www.topquadrant.com"})
+   :vaem/url         {:rdfa/uri "http:/www.topquadrant.com"}})
 
 (def TransformsGraph
   "Transforms graph"

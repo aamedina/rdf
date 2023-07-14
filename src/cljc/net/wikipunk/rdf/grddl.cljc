@@ -1,5 +1,4 @@
 (ns net.wikipunk.rdf.grddl
-  "XSLT"
   {:rdf/ns-prefix-map {"admin" "http://webns.net/mvcb/",
                        "dc11"  "http://purl.org/dc/elements/1.1/",
                        "doap"  "http://usefulinc.com/ns/doap#",
@@ -10,10 +9,9 @@
                        "rdfs"  "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type          :rdfa/PrefixMapping,
    :rdfa/prefix       "grddl",
-   :rdfa/uri          "http://www.w3.org/TR/xslt",
+   :rdfa/uri          "http://www.w3.org/2003/g/data-view#",
    :rdfs/isDefinedBy  {:rdfa/uri
-                       "http://www.w3.org/TR/2007/REC-grddl-20070911/"},
-   :rdfs/label        #xsd/string "XSLT"})
+                       "http://www.w3.org/TR/2007/REC-grddl-20070911/"}})
 
 (def InformationResource
   "A resource which has the property that all of its essential characteristics can be conveyed in a message"

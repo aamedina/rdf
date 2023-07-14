@@ -8,9 +8,8 @@
                        "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "xhv",
-   :rdfa/uri "http://www.w3.org/1999/xhtml/vocab",
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/rdfa-core/"},
-   :xhv/stylesheet {:rdfa/uri "http://www.w3.org/StyleSheets/TR/base.css"}}
+   :rdfa/uri "http://www.w3.org/1999/xhtml/vocab#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/rdfa-core/"}}
   (:refer-clojure :exclude [first last list meta next]))
 
 (def alert

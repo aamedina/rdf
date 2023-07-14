@@ -50,10 +50,10 @@
   {:db/ident        :mls/Dataset,
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:mls/Data
-                     :mls/InformationEntity
                      {:owl/onProperty     :mls/hasQuality,
                       :owl/someValuesFrom :mls/DataCharacteristic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :mls/InformationEntity]})
 
 (def DatasetCharacteristic
   {:db/ident        :mls/DatasetCharacteristic,
@@ -120,10 +120,10 @@
   {:db/ident        :mls/Feature,
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:mls/Data
-                     :mls/InformationEntity
                      {:owl/onProperty     :mls/hasQuality,
                       :owl/someValuesFrom :mls/DataCharacteristic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :mls/InformationEntity]})
 
 (def FeatureCharacteristic
   {:db/ident        :mls/FeatureCharacteristic,
@@ -262,27 +262,27 @@
    :rdfs/comment
    #xsd/string
     "Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed.",
-   :rdfs/subClassOf [{:owl/onProperty     :mls/hasInput,
-                      :owl/someValuesFrom :mls/Data,
+   :rdfs/subClassOf [{:owl/onProperty     :mls/realizes,
+                      :owl/someValuesFrom :mls/Algorithm,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :mls/achieves,
-                      :owl/someValuesFrom :mls/Task,
+                     {:owl/onProperty     :mls/hasInput,
+                      :owl/someValuesFrom :mls/HyperParameterSetting,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :mls/hasOutput,
+                      :owl/someValuesFrom :mls/Model,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/executes,
                       :owl/someValuesFrom :mls/Implementation,
                       :rdf/type           :owl/Restriction}
                      :mls/Process
-                     {:owl/onProperty     :mls/hasOutput,
-                      :owl/someValuesFrom :mls/Model,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :mls/realizes,
-                      :owl/someValuesFrom :mls/Algorithm,
+                     {:owl/onProperty     :mls/achieves,
+                      :owl/someValuesFrom :mls/Task,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/hasOutput,
                       :owl/someValuesFrom :mls/ModelEvaluation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/hasInput,
-                      :owl/someValuesFrom :mls/HyperParameterSetting,
+                      :owl/someValuesFrom :mls/Data,
                       :rdf/type           :owl/Restriction}]})
 
 (def Software

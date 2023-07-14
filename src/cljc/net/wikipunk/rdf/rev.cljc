@@ -1,7 +1,5 @@
 (ns net.wikipunk.rdf.rev
-  {:cc/license {:rdfa/uri "http://creativecommons.org/licenses/by/1.0/"},
-   :dc11/type :dcmitype/Text,
-   :dcat/downloadURL
+  {:dcat/downloadURL
    "https://raw.githubusercontent.com/iand/vocabdotorg/main/www/src/review/review.rdf",
    :rdf/ns-prefix-map {"cc"    "http://web.resource.org/cc/",
                        "dc11"  "http://purl.org/dc/elements/1.1/",
@@ -13,9 +11,9 @@
                        "rev"   "http://purl.org/stuff/rev#",
                        "vann"  "http://purl.org/vocab/vann/",
                        "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type :cc/Work,
+   :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "rev",
-   :rdfa/uri "http://purl.org/stuff/rev",
+   :rdfa/uri "http://purl.org/stuff/rev#",
    :rdfs/isDefinedBy {:rdfa/uri "http://vocab.org/review/terms.html"}}
   (:refer-clojure :exclude [type]))
 
@@ -44,6 +42,7 @@
    :vs/term_status [#xsd/string "deprecated" #xsd/string "testing"]})
 
 (def Review
+  "A review of an work"
   {:db/ident         :rev/Review,
    :rdf/type         [:owl/Class :rdfs/Class],
    :rdfs/comment     #xsd/langString "A review of an work@en",
@@ -92,6 +91,7 @@
    :vs/term_status   #xsd/string "deprecated"})
 
 (def hasReview
+  "Associates a work with a a review"
   {:db/ident         :rev/hasReview,
    :rdf/type         [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment     #xsd/langString "Associates a work with a a review@en",
@@ -103,6 +103,7 @@
    :vs/term_status   #xsd/string "stable"})
 
 (def maxRating
+  "Maximum value for rating property"
   {:db/ident         :rev/maxRating,
    :dc11/description #xsd/langString "Maximum value for rating property@en",
    :rdf/type         :rdf/Property,
@@ -113,6 +114,7 @@
    :vs/term_status   #xsd/string "stable"})
 
 (def minRating
+  "Minimum value for rating property"
   {:db/ident         :rev/minRating,
    :dc11/description #xsd/langString "Minimum value for rating property@en",
    :rdf/type         :rdf/Property,
@@ -136,6 +138,7 @@
    :vs/term_status   #xsd/string "deprecated"})
 
 (def rating
+  "A numeric value"
   {:db/ident         :rev/rating,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment     #xsd/langString "A numeric value@en",
@@ -145,6 +148,7 @@
    :vs/term_status   #xsd/string "stable"})
 
 (def reviewer
+  "The person that has written the review"
   {:db/ident         :rev/reviewer,
    :rdf/type         [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment     #xsd/langString
@@ -157,6 +161,7 @@
    :vs/term_status   #xsd/string "stable"})
 
 (def text
+  "The text of the review"
   {:db/ident         :rev/text,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment     #xsd/langString "The text of the review@en",

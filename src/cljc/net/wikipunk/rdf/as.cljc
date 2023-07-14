@@ -341,8 +341,6 @@
    :rdfs/label      #xsd/langString "OrderedCollectionPage@en",
    :rdfs/subClassOf [:as/CollectionPage
                      :as/OrderedCollection
-                     :as/Object
-                     :as/Collection
                      {:owl/intersectionOf [:as/Collection
                                            {:owl/allValuesFrom
                                             {:owl/intersectionOf
@@ -356,7 +354,9 @@
                                              :rdf/type :owl/Class},
                                             :owl/onProperty :as/items,
                                             :rdf/type :owl/Restriction}],
-                      :rdf/type :owl/Class}]})
+                      :rdf/type :owl/Class}
+                     :as/Collection
+                     :as/Object]})
 
 (def OrderedItems
   "A rdf:List variant for Objects and Links"

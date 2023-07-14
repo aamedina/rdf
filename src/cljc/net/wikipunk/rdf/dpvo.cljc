@@ -301,7 +301,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Adult@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Advertising
@@ -403,9 +403,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Anonymisation@en",
    :rdfs/subClassOf [:dpvo/Deidentification
-                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/DataSanitisationTechnique],
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "modified@en"})
 
 (def Anonymise
@@ -472,8 +472,8 @@
    :rdfs/label          #xsd/langString "Applicant@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def Assess
@@ -518,8 +518,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Asset Management Procedures@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def AsylumSeeker
@@ -534,9 +534,9 @@
    :rdfs/label          #xsd/langString "Asylum Seeker@en",
    :rdfs/subClassOf     [:dpvo/VulnerableDataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
                          :dpvo/NaturalPerson
-                         :dpvo/DataSubject],
+                         :dpvo/DataSubject
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def AsymmetricCryptography
@@ -554,8 +554,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Asymmetric Cryptography@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def AsymmetricEncryption
@@ -572,8 +572,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Asymmetric Encryption@en",
    :rdfs/subClassOf [:dpvo/Encryption
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def AuditApproved
@@ -691,9 +691,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Authentication using ABC@en",
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #xsd/langString "accepted@en"})
 
@@ -712,9 +712,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Authentication using PABC@en",
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #xsd/langString "accepted@en"})
 
@@ -912,8 +912,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Background Checks@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Benefit
@@ -948,8 +948,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Biometric Authentication@en",
    :rdfs/subClassOf [:dpvo/AuthenticationProtocols
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Certification
@@ -967,8 +967,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Certification@en",
    :rdfs/subClassOf [:dpvo/CertificationSeal
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CertificationSeal
@@ -1005,7 +1005,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Child@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "changed@en"})
 
 (def Citizen
@@ -1023,7 +1023,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Citizen@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def City
@@ -1056,9 +1056,9 @@
    :rdfs/label #xsd/langString "Client@en",
    :rdfs/subClassOf [:dpvo/Customer
                      :dpvo/Entity
-                     :dpvo/LegalEntity
+                     :dpvo/DataSubject
                      :dpvo/NaturalPerson
-                     :dpvo/DataSubject],
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CloudLocation
@@ -1092,8 +1092,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Code of Conduct@en",
    :rdfs/subClassOf [:dpvo/GuidelinesPrinciple
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Collect
@@ -1253,8 +1253,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Compliance Monitoring@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ComplianceStatus
@@ -1340,8 +1340,8 @@
    :dcterms/description #xsd/langString "State of being conformant@en",
    :rdf/type            [:dpvo/ConformanceStatus
                          :owl/NamedIndividual
-                         :dpvo/Status
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Conformant@en",
    :vs/term_status      #xsd/langString "accepted@en"})
@@ -1373,9 +1373,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusInvalidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when the obtained consent has been assigned a duration - which has lapsed or 'expired', making it invalid to be used further for processing data@en",
@@ -1396,9 +1396,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusValidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when the individual clicks on a button, ticks a checkbox, verbally agrees - or any other form that communicates their decision agreeing to the processing of data@en",
@@ -1419,9 +1419,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusInvalidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is where an investigating authority or a court finds the collected consent did not meet requirements, and 'invalidates' both prior and future uses of it to carry out processing@en",
@@ -1444,9 +1444,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Consent Notice@en",
    :rdfs/subClassOf [:dpvo/PrivacyNotice
-                     :dpvo/Notice
+                     :dpvo/OrganisationalMeasure
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/Notice],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ConsentRecord
@@ -1463,9 +1463,9 @@
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Consent Record@en",
    :rdfs/subClassOf     [:dpvo/DataProcessingRecord
+                         :dpvo/OrganisationalMeasure
                          :dpvo/TechnicalOrganisationalMeasure
-                         :dpvo/RecordsOfActivities
-                         :dpvo/OrganisationalMeasure],
+                         :dpvo/RecordsOfActivities],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def ConsentRefused
@@ -1481,9 +1481,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:dpvo/ConsentStatusInvalidForProcessing
               :owl/NamedIndividual
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when the individual clicks on a 'disagree' or 'reject' or 'refuse' button, or leaves a checkbox unticked@en",
@@ -1505,9 +1505,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusInvalidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when the individual closes or dismisses a notice without making a decision. This state is intended for making the distinction between a notice being provided (as a consent request) and the individual interacting with the notice without making a decision - where the 'ignoring of a notice' is taken as consent being neither given nor refused@en",
@@ -1529,9 +1529,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusInvalidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when a notice has been presented to the individual but they have not made a decision@en",
@@ -1553,9 +1553,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:dpvo/ConsentStatusInvalidForProcessing
               :owl/NamedIndividual
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when a Data Controller stops utilising previously obtaining consent, such as when that service no longer exists@en",
@@ -1602,7 +1602,7 @@
     "This identifies the stages associated with consent that should not be used to process data@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Consent Status Invalid for Processing@en",
-   :rdfs/subClassOf [:dpvo/ConsentStatus :dpvo/Context :dpvo/Status],
+   :rdfs/subClassOf [:dpvo/ConsentStatus :dpvo/Status :dpvo/Context],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ConsentStatusValidForProcessing
@@ -1623,7 +1623,7 @@
     "Practically, given consent is the only valid state for processing@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Consent Status Valid for Processing@en",
-   :rdfs/subClassOf [:dpvo/ConsentStatus :dpvo/Context :dpvo/Status],
+   :rdfs/subClassOf [:dpvo/ConsentStatus :dpvo/Status :dpvo/Context],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ConsentUnknown
@@ -1640,9 +1640,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:dpvo/ConsentStatusInvalidForProcessing
               :owl/NamedIndividual
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "Consent states can be unknown, for example, when information is not available, or cannot be trusted, or is known to be inaccurate@en",
@@ -1664,9 +1664,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusInvalidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "This state can be considered a form of 'revocation' of consent, where the revocation can only be performed by the data subject. Therefore we suggest using ConsentRevoked when it is a non-data-subject entity, and ConsentWithdrawn when it is the data subject@en",
@@ -1777,8 +1777,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Consultation with Authority@en",
    :rdfs/subClassOf [:dpvo/Consultation
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ConsultationWithDPO
@@ -1793,8 +1793,8 @@
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Consultation with DPO@en",
    :rdfs/subClassOf     [:dpvo/Consultation
-                         :dpvo/TechnicalOrganisationalMeasure
-                         :dpvo/OrganisationalMeasure],
+                         :dpvo/OrganisationalMeasure
+                         :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def ConsultationWithDataSubject
@@ -1810,8 +1810,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Consultation with Data Subject@en",
    :rdfs/subClassOf [:dpvo/Consultation
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ConsultationWithDataSubjectRepresentative
@@ -1827,9 +1827,9 @@
    :rdfs/label #xsd/langString
                 "Consultation with Data Subject Representative@en",
    :rdfs/subClassOf [:dpvo/ConsultationWithDataSubject
+                     :dpvo/OrganisationalMeasure
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/Consultation
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/Consultation],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Consumer
@@ -1848,7 +1848,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Consumer@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Context
@@ -1897,8 +1897,8 @@
    :rdfs/label #xsd/langString "Contract@en",
    :rdfs/subClassOf [:dpvo/LegalBasis
                      :dpvo/LegalAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ContractPerformance
@@ -1915,10 +1915,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Contract Performance@en",
    :rdfs/subClassOf [:dpvo/Contract
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/LegalAgreement
                      :dpvo/OrganisationalMeasure
-                     :dpvo/LegalBasis],
+                     :dpvo/LegalBasis
+                     :dpvo/LegalAgreement
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ContractualTerms
@@ -1936,8 +1936,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Contractual Terms@en",
    :rdfs/subClassOf [:dpvo/LegalAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ControllerProcessorAgreement
@@ -1956,9 +1956,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Controller-Processor Agreement@en",
    :rdfs/subClassOf [:dpvo/DataProcessingAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/OrganisationalMeasure
-                     :dpvo/LegalAgreement],
+                     :dpvo/LegalAgreement
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Copy
@@ -1989,7 +1989,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Counter Money Laundering@en",
    :rdfs/subClassOf
-   [:dpvo/FraudPreventionAndDetection :dpvo/EnforceSecurity :dpvo/Purpose],
+   [:dpvo/FraudPreventionAndDetection :dpvo/Purpose :dpvo/EnforceSecurity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Country
@@ -2022,8 +2022,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Credential Management@en",
    :rdfs/subClassOf [:dpvo/AuthorisationProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CreditChecking
@@ -2038,7 +2038,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Credit Checking@en",
    :rdfs/subClassOf
-   [:dpvo/CustomerSolvencyMonitoring :dpvo/CustomerManagement :dpvo/Purpose],
+   [:dpvo/CustomerSolvencyMonitoring :dpvo/Purpose :dpvo/CustomerManagement],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CryptographicAuthentication
@@ -2056,8 +2056,8 @@
    :rdfs/label #xsd/langString "Cryptographic Authentication@en",
    :rdfs/subClassOf [:dpvo/AuthenticationProtocols
                      :dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CryptographicKeyManagement
@@ -2075,8 +2075,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Cryptographic Key Management@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CryptographicMethods
@@ -2114,7 +2114,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Customer@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CustomerCare
@@ -2243,9 +2243,9 @@
    :rdfs/label #xsd/langString "Cybersecurity Assessment@en",
    :rdfs/subClassOf [:dpvo/SecurityAssessment
                      :dpvo/Assessment
+                     :dpvo/OrganisationalMeasure
                      :dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def CybersecurityTraining
@@ -2262,8 +2262,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Cybersecurity Training@en",
    :rdfs/subClassOf [:dpvo/StaffTraining
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DPIA
@@ -2282,9 +2282,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Protection Impact Assessment (DPIA)@en",
    :rdfs/subClassOf [:dpvo/ImpactAssessment
+                     :dpvo/OrganisationalMeasure
                      :dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Damage
@@ -2412,8 +2412,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Processing Agreement@en",
    :rdfs/subClassOf [:dpvo/LegalAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DataProcessingRecord
@@ -2428,8 +2428,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Processing Record@en",
    :rdfs/subClassOf [:dpvo/RecordsOfActivities
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DataProcessor
@@ -2462,10 +2462,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Protection Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
                      :dpvo/Organisation
-                     :dpvo/LegalEntity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DataProtectionOfficer
@@ -2500,8 +2500,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Protection Training@en",
    :rdfs/subClassOf [:dpvo/StaffTraining
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DataPublishedByDataSubject
@@ -2534,8 +2534,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Redaction@en",
    :rdfs/subClassOf [:dpvo/DataSanitisationTechnique
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DataSanitisationTechnique
@@ -2588,7 +2588,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Data Sub-Processor@en",
    :rdfs/subClassOf
-   [:dpvo/DataProcessor :dpvo/Entity :dpvo/LegalEntity :dpvo/Recipient],
+   [:dpvo/DataProcessor :dpvo/Recipient :dpvo/Entity :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DataSubject
@@ -2657,9 +2657,9 @@
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Data Transfer Impact Assessment@en",
    :rdfs/subClassOf     [:dpvo/ImpactAssessment
+                         :dpvo/OrganisationalMeasure
                          :dpvo/Assessment
-                         :dpvo/TechnicalOrganisationalMeasure
-                         :dpvo/OrganisationalMeasure],
+                         :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def DataTransferLegalBasis
@@ -2736,8 +2736,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "De-Identification@en",
    :rdfs/subClassOf [:dpvo/DataSanitisationTechnique
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "modified@en"})
 
 (def DeliveryOfGoods
@@ -2759,7 +2759,7 @@
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/purposes#Delivery"},
    :rdfs/subClassOf
-   [:dpvo/RequestedServiceProvision :dpvo/ServiceProvision :dpvo/Purpose],
+   [:dpvo/RequestedServiceProvision :dpvo/Purpose :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Derive
@@ -2818,8 +2818,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Design Standard@en",
    :rdfs/subClassOf [:dpvo/GuidelinesPrinciple
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Destruct
@@ -2852,10 +2852,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Deterministic Pseudonymisation@en",
    :rdfs/subClassOf [:dpvo/Pseudonymisation
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/Deidentification
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Detriment
@@ -2890,8 +2890,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Differential Privacy@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DigitalRightsManagement
@@ -2927,8 +2927,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Digital Signatures@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DirectMarketing
@@ -2962,8 +2962,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Disaster Recovery Procedures@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Disclose
@@ -3040,8 +3040,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Distributed System Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DocumentRandomisedPseudonymisation
@@ -3059,10 +3059,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Document Randomised Pseudonymisation@en",
    :rdfs/subClassOf [:dpvo/Pseudonymisation
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/Deidentification
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DocumentSecurity
@@ -3080,8 +3080,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Document Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Duration
@@ -3126,8 +3126,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Educational Training@en",
    :rdfs/subClassOf [:dpvo/StaffTraining
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def EffectivenessDeterminationProcedures
@@ -3145,8 +3145,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Effectiveness Determination Procedures@en",
    :rdfs/subClassOf [:dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ElderlyDataSubject
@@ -3162,9 +3162,9 @@
    :rdfs/label #xsd/langString "Elderly Data Subject@en",
    :rdfs/subClassOf [:dpvo/VulnerableDataSubject
                      :dpvo/Entity
-                     :dpvo/LegalEntity
                      :dpvo/NaturalPerson
-                     :dpvo/DataSubject],
+                     :dpvo/DataSubject
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Employee
@@ -3182,8 +3182,8 @@
    :rdfs/label          #xsd/langString "Employee@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def Encryption
@@ -3218,8 +3218,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Encryption at Rest@en",
    :rdfs/subClassOf [:dpvo/Encryption
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def EncryptionInTransfer
@@ -3237,8 +3237,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Encryption in Transfer@en",
    :rdfs/subClassOf [:dpvo/Encryption
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def EncryptionInUse
@@ -3252,8 +3252,8 @@
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Encryption in Use@en",
    :rdfs/subClassOf     [:dpvo/Encryption
-                         :dpvo/TechnicalMeasure
-                         :dpvo/TechnicalOrganisationalMeasure],
+                         :dpvo/TechnicalOrganisationalMeasure
+                         :dpvo/TechnicalMeasure],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def EndToEndEncryption
@@ -3271,8 +3271,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "End-to-End Encryption (E2EE)@en",
    :rdfs/subClassOf [:dpvo/Encryption
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def EndlessDuration
@@ -3348,10 +3348,10 @@
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Enter Into Contract@en",
    :rdfs/subClassOf     [:dpvo/Contract
-                         :dpvo/TechnicalOrganisationalMeasure
-                         :dpvo/LegalAgreement
                          :dpvo/OrganisationalMeasure
-                         :dpvo/LegalBasis],
+                         :dpvo/LegalBasis
+                         :dpvo/LegalAgreement
+                         :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def Entity
@@ -3447,9 +3447,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Explicitly Expressed Consent@en",
    :rdfs/subClassOf [:dpvo/ExpressedConsent
-                     :dpvo/Consent
                      :dpvo/InformedConsent
-                     :dpvo/LegalBasis],
+                     :dpvo/LegalBasis
+                     :dpvo/Consent],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ExpressedConsent
@@ -3469,7 +3469,7 @@
     "Expressed consent requires the individual take a specific and unambigious action that directly indicates their consent. This action may be a part of other processes such as setting preferences, or agreeing to a contract, or other matters not relating to consent. An example of expressed consent is interacting with a checkbox within a dashboard or clicking a button on a web form@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Expressed Consent@en",
-   :rdfs/subClassOf [:dpvo/InformedConsent :dpvo/Consent :dpvo/LegalBasis],
+   :rdfs/subClassOf [:dpvo/InformedConsent :dpvo/LegalBasis :dpvo/Consent],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def FederatedLocations
@@ -3501,8 +3501,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "File System Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Filter
@@ -3687,10 +3687,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Fully Randomised Pseudonymisation@en",
    :rdfs/subClassOf [:dpvo/Pseudonymisation
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/Deidentification
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Generate
@@ -3746,8 +3746,8 @@
                          "Geographic coverage spanning the entire globe@en",
    :rdf/type            [:dpvo/GeographicCoverage
                          :owl/NamedIndividual
-                         :dpvo/Context
                          :dpvo/ProcessingContext
+                         :dpvo/Context
                          :dpvo/Scale],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Global Scale@en",
@@ -3797,8 +3797,8 @@
    :rdfs/label          #xsd/langString "Guardian(s) of Data Subject@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def GuidelinesPrinciple
@@ -3833,8 +3833,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Hardware Security Protocols@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Harm
@@ -3869,8 +3869,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Hash Functions@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def HashMessageAuthenticationCode
@@ -3889,9 +3889,9 @@
    :rdfs/label #xsd/langString
                 "Hash-based Message Authentication Code (HMAC)@en",
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #xsd/langString "accepted@en"})
 
@@ -3910,8 +3910,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Homomorphic Encryption@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def HugeDataVolume
@@ -3942,8 +3942,8 @@
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
               :dpvo/ProcessingContext
-              :dpvo/Scale
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Huge Scale Of Data Subjects@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -3975,9 +3975,9 @@
    #xsd/langString "Human involvement for the purposes of providing inputs@en",
    :rdf/type [:dpvo/HumanInvolvement
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
               :dpvo/Context
-              :dpvo/AutomationOfProcessing],
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Human Involvement for Input@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -3992,9 +3992,9 @@
     "Human involvement for the purposes of having oversight over a system, its operations, inputs, or outputs@en",
    :rdf/type [:dpvo/HumanInvolvement
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
               :dpvo/Context
-              :dpvo/AutomationOfProcessing],
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Human Involvement for Oversight@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -4009,9 +4009,9 @@
     "Human involvement for the purposes of verification of a system, its operations, inputs, or outputs@en",
    :rdf/type [:dpvo/HumanInvolvement
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
               :dpvo/Context
-              :dpvo/AutomationOfProcessing],
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Human Involvement for Verification@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -4054,8 +4054,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Identity Management Method@en",
    :rdfs/subClassOf [:dpvo/AuthorisationProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def IdentityVerification
@@ -4092,7 +4092,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Immigrant@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Impact
@@ -4130,8 +4130,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Impact Assessment@en",
    :rdfs/subClassOf [:dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ImpliedConsent
@@ -4151,7 +4151,7 @@
     "Implied consent is expected to also be Informed Consent. An example is a CCTV notice outside a monitored area that informs the individuals that by walking in they would be consenting to the use of camera for surveillance.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Implied Consent@en",
-   :rdfs/subClassOf [:dpvo/InformedConsent :dpvo/Consent :dpvo/LegalBasis],
+   :rdfs/subClassOf [:dpvo/InformedConsent :dpvo/LegalBasis :dpvo/Consent],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Importance
@@ -4191,9 +4191,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Improve Existing Products and Services@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/ServiceOptimisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ImproveInternalCRMProcesses
@@ -4214,10 +4214,10 @@
    :rdfs/label #xsd/langString "Improve Internal CRM Processes@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
                      :dpvo/CustomerRelationshipManagement
-                     :dpvo/ServiceProvision
-                     :dpvo/ServiceOptimisation
                      :dpvo/Purpose
-                     :dpvo/CustomerManagement],
+                     :dpvo/CustomerManagement
+                     :dpvo/ServiceOptimisation
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def IncidentManagementProcedures
@@ -4234,8 +4234,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Incident Management Procedures@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def IncidentReportingCommunication
@@ -4252,8 +4252,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Incident Reporting Communication@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def IncorrectData
@@ -4287,9 +4287,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Increase Service Robustness@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/ServiceOptimisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def IndeterminateDuration
@@ -4336,7 +4336,7 @@
     "Infer indicates data that is derived without it being present or obtainable from existing data. For data that is presented, and is 'extracted' or 'obtained' from existing data, see Derive.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Infer@en",
-   :rdfs/subClassOf [:dpvo/Derive :dpvo/Processing :dpvo/Obtain],
+   :rdfs/subClassOf [:dpvo/Derive :dpvo/Obtain :dpvo/Processing],
    :vs/term_status #xsd/langString "modified@en"})
 
 (def InferredPersonalData
@@ -4390,8 +4390,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Information Security Policy@en",
    :rdfs/subClassOf [:dpvo/Policy
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def InformedConsent
@@ -4448,9 +4448,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Internal Resource Optimisation@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/ServiceOptimisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def InternationalOrganisation
@@ -4485,8 +4485,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Intrusion Detection System@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def JobApplicant
@@ -4505,9 +4505,9 @@
    :rdfs/label          #xsd/langString "Job Applicant@en",
    :rdfs/subClassOf     [:dpvo/Applicant
                          :dpvo/Entity
-                         :dpvo/LegalEntity
+                         :dpvo/DataSubject
                          :dpvo/NaturalPerson
-                         :dpvo/DataSubject],
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def JointDataControllers
@@ -4544,9 +4544,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Joint Data Controllers Agreement@en",
    :rdfs/subClassOf [:dpvo/DataProcessingAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/OrganisationalMeasure
-                     :dpvo/LegalAgreement],
+                     :dpvo/LegalAgreement
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Justification
@@ -4590,8 +4590,8 @@
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
               :dpvo/ProcessingContext
-              :dpvo/Scale
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Large Scale Of Data Subjects@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -4610,8 +4610,8 @@
    {:rdfa/uri "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ProcessingScale
-              :dpvo/ProcessingContext
               :dpvo/Scale
+              :dpvo/ProcessingContext
               :dpvo/Context],
    :rdfs/comment
    #xsd/langString
@@ -4642,9 +4642,9 @@
                          "State of being lawful or legally compliant@en",
    :rdf/type            [:dpvo/Lawfulness
                          :owl/NamedIndividual
-                         :dpvo/ComplianceStatus
+                         :dpvo/Status
                          :dpvo/Context
-                         :dpvo/Status],
+                         :dpvo/ComplianceStatus],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Lawful@en",
    :vs/term_status      #xsd/langString "accepted@en"})
@@ -4660,7 +4660,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Lawfulness@en",
-   :rdfs/subClassOf [:dpvo/ComplianceStatus :dpvo/Context :dpvo/Status],
+   :rdfs/subClassOf [:dpvo/ComplianceStatus :dpvo/Status :dpvo/Context],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def LawfulnessUnkown
@@ -4672,9 +4672,9 @@
                          "State of the lawfulness not being known@en",
    :rdf/type            [:dpvo/Lawfulness
                          :owl/NamedIndividual
-                         :dpvo/ComplianceStatus
+                         :dpvo/Status
                          :dpvo/Context
-                         :dpvo/Status],
+                         :dpvo/ComplianceStatus],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Lawfulness Unknown@en",
    :vs/term_status      #xsd/langString "accepted@en"})
@@ -4788,8 +4788,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Legitimate Interest Assessment@en",
    :rdfs/subClassOf [:dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def LegitimateInterestOfController
@@ -4864,8 +4864,8 @@
     "Geographic coverage spanning a specific environment within the locality@en",
    :rdf/type [:dpvo/GeographicCoverage
               :owl/NamedIndividual
-              :dpvo/Context
               :dpvo/ProcessingContext
+              :dpvo/Context
               :dpvo/Scale],
    :rdfs/comment
    #xsd/langString
@@ -4896,8 +4896,8 @@
                          "Geographic coverage spanning a specific locality@en",
    :rdf/type [:dpvo/GeographicCoverage
               :owl/NamedIndividual
-              :dpvo/Context
               :dpvo/ProcessingContext
+              :dpvo/Context
               :dpvo/Scale],
    :rdfs/comment
    #xsd/langString
@@ -4963,8 +4963,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Logging Policies@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MaintainCreditCheckingDatabase
@@ -4980,9 +4980,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Maintain Credit Checking Database@en",
    :rdfs/subClassOf [:dpvo/CreditChecking
-                     :dpvo/CustomerSolvencyMonitoring
+                     :dpvo/Purpose
                      :dpvo/CustomerManagement
-                     :dpvo/Purpose],
+                     :dpvo/CustomerSolvencyMonitoring],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MaintainCreditRatingDatabase
@@ -4998,9 +4998,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Maintain Credit Rating Database@en",
    :rdfs/subClassOf [:dpvo/CreditChecking
-                     :dpvo/CustomerSolvencyMonitoring
+                     :dpvo/Purpose
                      :dpvo/CustomerManagement
-                     :dpvo/Purpose],
+                     :dpvo/CustomerSolvencyMonitoring],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MaintainFraudDatabase
@@ -5016,7 +5016,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "MaintainFraudDatabase@en",
    :rdfs/subClassOf
-   [:dpvo/FraudPreventionAndDetection :dpvo/EnforceSecurity :dpvo/Purpose],
+   [:dpvo/FraudPreventionAndDetection :dpvo/Purpose :dpvo/EnforceSecurity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MakeAvailable
@@ -5113,8 +5113,8 @@
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
               :dpvo/ProcessingContext
-              :dpvo/Scale
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Medium Scale Of Data Subjects@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -5129,8 +5129,8 @@
     "Processing that takes place at medium scales (as specified by some criteria)@en",
    :rdf/type [:dpvo/ProcessingScale
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
               :dpvo/Scale
+              :dpvo/ProcessingContext
               :dpvo/Context],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Medium Scale Processing@en",
@@ -5152,7 +5152,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Member@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MemberPartnerManagement
@@ -5187,9 +5187,9 @@
    :rdfs/label #xsd/langString "Mentally Vulnerable Data Subject@en",
    :rdfs/subClassOf [:dpvo/VulnerableDataSubject
                      :dpvo/Entity
-                     :dpvo/LegalEntity
                      :dpvo/NaturalPerson
-                     :dpvo/DataSubject],
+                     :dpvo/DataSubject
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MessageAuthenticationCodes
@@ -5206,9 +5206,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Message Authentication Codes (MAC)@en",
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #xsd/langString "accepted@en"})
 
@@ -5226,8 +5226,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Mobile Platform Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Modify
@@ -5240,7 +5240,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Modify@en",
-   :rdfs/subClassOf     [:dpvo/Alter :dpvo/Transform :dpvo/Processing],
+   :rdfs/subClassOf     [:dpvo/Alter :dpvo/Processing :dpvo/Transform],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def Monitor
@@ -5253,7 +5253,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Monitor@en",
-   :rdfs/subClassOf     [:dpvo/Consult :dpvo/Use :dpvo/Processing],
+   :rdfs/subClassOf     [:dpvo/Consult :dpvo/Processing :dpvo/Use],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def MonitoringPolicies
@@ -5270,8 +5270,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Monitoring Policies@en",
    :rdfs/subClassOf [:dpvo/GovernanceProcedures
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MonotonicCounterPseudonymisation
@@ -5290,10 +5290,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Monotonic Counter Pseudonymisation@en",
    :rdfs/subClassOf [:dpvo/Pseudonymisation
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/Deidentification
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "modified@en"})
 
 (def Move
@@ -5328,8 +5328,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Multi-Factor Authentication (MFA)@en",
    :rdfs/subClassOf [:dpvo/AuthenticationProtocols
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def MultiNationalScale
@@ -5341,8 +5341,8 @@
                          "Geographic coverage spanning multiple nations@en",
    :rdf/type            [:dpvo/GeographicCoverage
                          :owl/NamedIndividual
-                         :dpvo/Context
                          :dpvo/ProcessingContext
+                         :dpvo/Context
                          :dpvo/Scale],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Multi National Scale@en",
@@ -5363,8 +5363,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Non-Disclosure Agreement (NDA)@en",
    :rdfs/subClassOf [:dpvo/LegalAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def NationalAuthority
@@ -5380,10 +5380,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "National Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
                      :dpvo/Organisation
-                     :dpvo/LegalEntity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def NationalScale
@@ -5395,8 +5395,8 @@
                          "Geographic coverage spanning a nation@en",
    :rdf/type            [:dpvo/GeographicCoverage
                          :owl/NamedIndividual
-                         :dpvo/Context
                          :dpvo/ProcessingContext
+                         :dpvo/Context
                          :dpvo/Scale],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "National Scale@en",
@@ -5423,8 +5423,8 @@
    #xsd/langString "Geographic coverage nearly spanning the entire globe@en",
    :rdf/type [:dpvo/GeographicCoverage
               :owl/NamedIndividual
-              :dpvo/Context
               :dpvo/ProcessingContext
+              :dpvo/Context
               :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Nearly Global Scale@en",
@@ -5463,8 +5463,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Network Proxy Routing@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def NetworkSecurityProtocols
@@ -5481,8 +5481,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Network Security Protocols@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def NonCitizen
@@ -5501,7 +5501,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Non-Citizen@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def NonCommercialResearch
@@ -5549,8 +5549,8 @@
    :dcterms/description #xsd/langString "State of being non-conformant@en",
    :rdf/type            [:dpvo/ConformanceStatus
                          :owl/NamedIndividual
-                         :dpvo/Status
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "NonConformant@en",
    :vs/term_status      #xsd/langString "accepted@en"})
@@ -5773,8 +5773,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Operating System Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def OptimisationForConsumer
@@ -5799,7 +5799,7 @@
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/purposes#Custom"},
    :rdfs/subClassOf
-   [:dpvo/ServiceOptimisation :dpvo/ServiceProvision :dpvo/Purpose],
+   [:dpvo/ServiceOptimisation :dpvo/Purpose :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def OptimisationForController
@@ -5819,7 +5819,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Optimisation for Controller@en",
    :rdfs/subClassOf
-   [:dpvo/ServiceOptimisation :dpvo/ServiceProvision :dpvo/Purpose],
+   [:dpvo/ServiceOptimisation :dpvo/Purpose :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def OptimiseUserInterface
@@ -5839,9 +5839,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Optimise User Interface@en",
    :rdfs/subClassOf [:dpvo/OptimisationForConsumer
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/ServiceOptimisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Optional
@@ -5991,9 +5991,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Privacy Impact Assessment@en",
    :rdfs/subClassOf [:dpvo/ImpactAssessment
+                     :dpvo/OrganisationalMeasure
                      :dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ParentOfDataSubject
@@ -6008,8 +6008,8 @@
    :rdfs/label          #xsd/langString "Parent(s) of Data Subject@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def PartiallyAutomatedProcessing
@@ -6061,7 +6061,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Participant@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PassiveRight
@@ -6098,8 +6098,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Password Authentication@en",
    :rdfs/subClassOf [:dpvo/AuthenticationProtocols
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Patient
@@ -6118,7 +6118,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Patient@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PaymentManagement
@@ -6152,8 +6152,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Penetration Testing Methods@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Permission
@@ -6240,7 +6240,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Personalised Advertising@en",
    :rdfs/subClassOf
-   [:dpvo/Personalisation :dpvo/Advertising :dpvo/Marketing :dpvo/Purpose],
+   [:dpvo/Personalisation :dpvo/Advertising :dpvo/Purpose :dpvo/Marketing],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PersonalisedBenefits
@@ -6260,9 +6260,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Personalised Benefits@en",
    :rdfs/subClassOf [:dpvo/ServicePersonalisation
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/Personalisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PersonnelHiring
@@ -6325,8 +6325,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Physical Access Control Method@en",
    :rdfs/subClassOf [:dpvo/AccessControlMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Policy
@@ -6362,8 +6362,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Post-Quantum Cryptography@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PrimaryImportance
@@ -6397,8 +6397,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Privacy by Default@en",
    :rdfs/subClassOf [:dpvo/GuidelinesPrinciple
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PrivacyByDesign
@@ -6434,8 +6434,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Privacy Notice@en",
    :rdfs/subClassOf [:dpvo/Notice
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PrivacyPreservingProtocol
@@ -6453,8 +6453,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Privacy Preserving Protocol@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PrivateInformationRetrieval
@@ -6472,8 +6472,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Private Information Retrieval@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PrivateLocation
@@ -6553,8 +6553,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Professional Training@en",
    :rdfs/subClassOf [:dpvo/StaffTraining
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Profiling
@@ -6603,10 +6603,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Provide Event Recommendations@en",
    :rdfs/subClassOf [:dpvo/ProvidePersonalisedRecommendations
+                     :dpvo/Purpose
                      :dpvo/ServicePersonalisation
-                     :dpvo/ServiceProvision
                      :dpvo/Personalisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ProvidePersonalisedRecommendations
@@ -6624,9 +6624,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Provide Personalised Recommendations@en",
    :rdfs/subClassOf [:dpvo/ServicePersonalisation
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/Personalisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ProvideProductRecommendations
@@ -6649,10 +6649,10 @@
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/purposes#Marketing"},
    :rdfs/subClassOf [:dpvo/ProvidePersonalisedRecommendations
+                     :dpvo/Purpose
                      :dpvo/ServicePersonalisation
-                     :dpvo/ServiceProvision
                      :dpvo/Personalisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Pseudonymisation
@@ -6673,9 +6673,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Pseudonymisation@en",
    :rdfs/subClassOf [:dpvo/Deidentification
-                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/DataSanitisationTechnique],
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "modified@en"})
 
 (def Pseudonymise
@@ -6813,8 +6813,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Quantum Cryptography@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Query
@@ -6827,7 +6827,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Query@en",
-   :rdfs/subClassOf     [:dpvo/Consult :dpvo/Use :dpvo/Processing],
+   :rdfs/subClassOf     [:dpvo/Consult :dpvo/Processing :dpvo/Use],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def RNGPseudonymisation
@@ -6846,10 +6846,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "RNG Pseudonymisation@en",
    :rdfs/subClassOf [:dpvo/Pseudonymisation
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/Deidentification
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "modified@en"})
 
 (def RandomLocation
@@ -6966,10 +6966,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Regional Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
                      :dpvo/Organisation
-                     :dpvo/LegalEntity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def RegionalScale
@@ -6982,8 +6982,8 @@
     "Geographic coverage spanning a specific region or regions@en",
    :rdf/type [:dpvo/GeographicCoverage
               :owl/NamedIndividual
-              :dpvo/Context
               :dpvo/ProcessingContext
+              :dpvo/Context
               :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Regional Scale@en",
@@ -7006,9 +7006,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Register of Processing Activities@en",
    :rdfs/subClassOf [:dpvo/DataProcessingRecord
+                     :dpvo/OrganisationalMeasure
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/RecordsOfActivities
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/RecordsOfActivities],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def RegularityOfRecertification
@@ -7069,9 +7069,9 @@
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
    :rdf/type [:owl/NamedIndividual
               :dpvo/ConsentStatusValidForProcessing
-              :dpvo/Context
+              :dpvo/ConsentStatus
               :dpvo/Status
-              :dpvo/ConsentStatus],
+              :dpvo/Context],
    :rdfs/comment
    #xsd/langString
     "An example of this state is when a previously given consent has expired, and the individual is presented a notice regarding continuing associated processing operations - to which they agree. This state can be useful to keep track of 'reconfirmed' or 'refreshed' consent within consent records, assist notices and contextual agents to create better consenting dialogues, and assist with specific legal obligations related to subsequent consenting@en",
@@ -7363,9 +7363,9 @@
    :rdfs/label #xsd/langString "Review Impact Assessment@en",
    :rdfs/subClassOf [:dpvo/ReviewProcedure
                      :dpvo/ImpactAssessment
+                     :dpvo/OrganisationalMeasure
                      :dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ReviewProcedure
@@ -7449,7 +7449,7 @@
                      #xsd/string "Beatriz Esteves"
                      #xsd/string "Paul Ryan"],
    :dcterms/description #xsd/langString "Record of a Right being exercised@en",
-   :rdf/type [:dpvo/Record :owl/NamedIndividual :dpvo/Processing :dpvo/Obtain],
+   :rdf/type [:dpvo/Record :owl/NamedIndividual :dpvo/Obtain :dpvo/Processing],
    :rdfs/comment
    #xsd/langString
     "This concept represents a record of one or more right exercise activities, such as those associated with a single data subject or service or entity@en",
@@ -7472,8 +7472,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Right Fulfilment Notice@en",
    :rdfs/subClassOf [:dpvo/Notice
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def RightNonFulfilmentNotice
@@ -7491,8 +7491,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Right Non-Fulfilment Notice@en",
    :rdfs/subClassOf [:dpvo/Notice
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Risk
@@ -7540,8 +7540,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Risk Management Plan@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def RiskManagementPolicy
@@ -7558,8 +7558,8 @@
    :rdfs/label #xsd/langString "Risk Management Policy@en",
    :rdfs/subClassOf [:dpvo/Policy
                      :dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def RiskManagementProcess
@@ -7577,8 +7577,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Risk Management Process@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def RiskMitigationMeasure
@@ -7649,8 +7649,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Safeguard for Data Transfer@en",
    :rdfs/subClassOf [:dpvo/Safeguard
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Scale
@@ -7729,8 +7729,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Seal@en",
    :rdfs/subClassOf [:dpvo/CertificationSeal
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SearchFunctionalities
@@ -7779,8 +7779,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Secret Sharing Schemes@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Sector
@@ -7819,8 +7819,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Secure Multi-Party Computation@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SecurityAssessment
@@ -7839,8 +7839,8 @@
    :rdfs/label #xsd/langString "Security Assessment@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
                      :dpvo/Assessment
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SecurityKnowledgeTraining
@@ -7858,8 +7858,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Security Knowledge Training@en",
    :rdfs/subClassOf [:dpvo/StaffTraining
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SecurityMethod
@@ -7905,8 +7905,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Security Role Procedures@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SellDataToThirdParties
@@ -7928,7 +7928,7 @@
     "Sell here means exchange, submit, or provide in return for direct or indirect compensation. Was subclass of commercial interest, changed to reflect selling something@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Sell Data to Third Parties@en",
-   :rdfs/subClassOf [:dpvo/SellProducts :dpvo/ServiceProvision :dpvo/Purpose],
+   :rdfs/subClassOf [:dpvo/SellProducts :dpvo/Purpose :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SellInsightsFromData
@@ -7950,7 +7950,7 @@
     "Sell here means exchange, submit, or provide in return for direct or indirect compensation. Was subclass of commercial interest, changed to reflect selling something@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Sell Insights from Data@en",
-   :rdfs/subClassOf [:dpvo/SellProducts :dpvo/ServiceProvision :dpvo/Purpose],
+   :rdfs/subClassOf [:dpvo/SellProducts :dpvo/Purpose :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SellProducts
@@ -7990,7 +7990,7 @@
     "Sell Products here refers to processing necessary to provide and complete a sale to customers. It should not be confused with providing services with a cost based on an established agreement.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Sell Products to Data Subject@en",
-   :rdfs/subClassOf [:dpvo/SellProducts :dpvo/ServiceProvision :dpvo/Purpose],
+   :rdfs/subClassOf [:dpvo/SellProducts :dpvo/Purpose :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SensitivePersonalData
@@ -8154,8 +8154,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Single Sign On@en",
    :rdfs/subClassOf [:dpvo/AuthenticationProtocols
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SingularDataVolume
@@ -8201,8 +8201,8 @@
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
               :dpvo/ProcessingContext
-              :dpvo/Scale
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Singular Scale Of Data Subjects@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -8235,8 +8235,8 @@
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
               :dpvo/ProcessingContext
-              :dpvo/Scale
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Small Scale Of Data Subjects@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -8251,8 +8251,8 @@
     "Processing that takes place at small scales (as specified by some criteria)@en",
    :rdf/type [:dpvo/ProcessingScale
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
               :dpvo/Scale
+              :dpvo/ProcessingContext
               :dpvo/Context],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Small Scale Processing@en",
@@ -8338,8 +8338,8 @@
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
               :dpvo/ProcessingContext
-              :dpvo/Scale
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/Scale],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Sporadic Scale Of Data Subjects@en",
    :vs/term_status #xsd/langString "accepted@en"})
@@ -8508,8 +8508,8 @@
    :rdfs/label          #xsd/langString "Student@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def SubProcessorAgreement
@@ -8528,9 +8528,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Sub-Processor Agreement@en",
    :rdfs/subClassOf [:dpvo/DataProcessingAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/OrganisationalMeasure
-                     :dpvo/LegalAgreement],
+                     :dpvo/LegalAgreement
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Subscriber
@@ -8551,8 +8551,8 @@
    :rdfs/label          #xsd/langString "Subscriber@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def SupraNationalAuthority
@@ -8568,10 +8568,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Supra-National Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
                      :dpvo/Organisation
-                     :dpvo/LegalEntity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SupraNationalUnion
@@ -8603,8 +8603,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Symmetric Cryptography@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SymmetricEncryption
@@ -8621,8 +8621,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Symmetric Encryption@en",
    :rdfs/subClassOf [:dpvo/Encryption
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def SyntheticData
@@ -8671,10 +8671,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Targeted Advertising@en",
    :rdfs/subClassOf [:dpvo/PersonalisedAdvertising
-                     :dpvo/Marketing
-                     :dpvo/Personalisation
                      :dpvo/Purpose
-                     :dpvo/Advertising],
+                     :dpvo/Advertising
+                     :dpvo/Marketing
+                     :dpvo/Personalisation],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def TechnicalMeasure
@@ -8795,9 +8795,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Third-Party Agreement@en",
    :rdfs/subClassOf [:dpvo/DataProcessingAgreement
-                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo/OrganisationalMeasure
-                     :dpvo/LegalAgreement],
+                     :dpvo/LegalAgreement
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def ThirdPartySecurityProcedures
@@ -8815,8 +8815,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Third Party Security Procedures@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Tourist
@@ -8835,7 +8835,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Tourist@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Transfer
@@ -8896,8 +8896,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Trusted Computing@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def TrustedExecutionEnvironments
@@ -8915,8 +8915,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Trusted Execution Environments@en",
    :rdfs/subClassOf [:dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def TrustedThirdPartyUtilisation
@@ -8934,8 +8934,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Trusted Third Party Utilisation@en",
    :rdfs/subClassOf [:dpvo/SecurityProcedure
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/OrganisationalMeasure],
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def UninformedConsent
@@ -8964,9 +8964,9 @@
                          "State of being unlawful or legally non-compliant@en",
    :rdf/type            [:dpvo/Lawfulness
                          :owl/NamedIndividual
-                         :dpvo/ComplianceStatus
+                         :dpvo/Status
                          :dpvo/Context
-                         :dpvo/Status],
+                         :dpvo/ComplianceStatus],
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label          #xsd/langString "Unlawful@en",
    :vs/term_status      #xsd/langString "accepted@en"})
@@ -9029,8 +9029,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Usage Control@en",
    :rdfs/subClassOf [:dpvo/AccessControlMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Use
@@ -9061,8 +9061,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Use of Synthetic Data@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def User
@@ -9080,8 +9080,8 @@
    :rdfs/label          #xsd/langString "User@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def UserInterfacePersonalisation
@@ -9104,9 +9104,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "User Interface Personalisation@en",
    :rdfs/subClassOf [:dpvo/ServicePersonalisation
-                     :dpvo/ServiceProvision
+                     :dpvo/Purpose
                      :dpvo/Personalisation
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def VariableLocation
@@ -9232,8 +9232,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Virtualisation Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Visitor
@@ -9252,8 +9252,8 @@
    :rdfs/label          #xsd/langString "Visitor@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Entity
-                         :dpvo/LegalEntity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def VitalInterest
@@ -9284,7 +9284,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Vital Interest of Data Subject@en",
    :rdfs/subClassOf
-   [:dpvo/VitalInterestOfNaturalPerson :dpvo/VitalInterest :dpvo/LegalBasis],
+   [:dpvo/VitalInterestOfNaturalPerson :dpvo/LegalBasis :dpvo/VitalInterest],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def VitalInterestOfNaturalPerson
@@ -9318,8 +9318,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Vulnerability Testing Methods@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def VulnerableDataSubject
@@ -9339,7 +9339,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Vulnerable Data Subject@en",
    :rdfs/subClassOf
-   [:dpvo/DataSubject :dpvo/Entity :dpvo/LegalEntity :dpvo/NaturalPerson],
+   [:dpvo/DataSubject :dpvo/Entity :dpvo/NaturalPerson :dpvo/LegalEntity],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def WebBrowserSecurity
@@ -9356,8 +9356,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "WebBrowser Security@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def WebSecurityProtocols
@@ -9374,8 +9374,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Web Security Protocols@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def WirelessSecurityProtocols
@@ -9393,8 +9393,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl#"},
    :rdfs/label #xsd/langString "Wireless Security Protocols@en",
    :rdfs/subClassOf [:dpvo/SecurityMethod
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def WithinDevice
@@ -9455,8 +9455,8 @@
    :rdfs/label #xsd/langString "Zero Knowledge Authentication@en",
    :rdfs/subClassOf [:dpvo/AuthenticationProtocols
                      :dpvo/CryptographicMethods
-                     :dpvo/TechnicalMeasure
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def hasActivityStatus

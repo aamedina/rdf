@@ -1,13 +1,26 @@
 (ns net.wikipunk.rdf.dcat
   {:dcterms/contributor
-   [{:foaf/homepage {:rdfa/uri "https://jakub.klímek.com/"},
-     :foaf/name     #xsd/string "Jakub Klímek",
-     :rdfs/seeAlso  {:rdfa/uri "https://jakub.klímek.com/#me"}}
-    {:foaf/homepage {:rdfa/uri "http://makxdekkers.com/"},
-     :foaf/name     #xsd/string "Makx Dekkers",
-     :rdfs/seeAlso  {:rdfa/uri "http://makxdekkers.com/makxdekkers.rdf#me"}}
+   [{:foaf/name #xsd/string "Martin Alvarez-Espinar"}
+    {:foaf/homepage      {:rdfa/uri "http://www.w3.org/People/all#phila"},
+     :foaf/name          #xsd/string "Phil Archer",
+     :rdfs/seeAlso       {:rdfa/uri "http://philarcher.org/foaf.rdf#me"},
+     :schema/affiliation {:rdfa/uri "http://www.w3.org/data#W3C"}}
+    {:foaf/homepage {:rdfa/uri "http://www.andrea-perego.name/foaf/#me"},
+     :foaf/name     #xsd/string "Andrea Perego",
+     :rdfs/seeAlso  {:rdfa/uri "https://orcid.org/0000-0001-9300-2694"}}
+    {:foaf/homepage
+     [{:rdfa/uri "https://w3id.org/people/ralbertoni/"}
+      {:rdfa/uri
+       "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"}],
+     :foaf/name #xsd/string "Riccardo Albertoni",
+     :rdfs/seeAlso {:rdfa/uri "https://orcid.org/0000-0001-5648-2713"}}
     {:foaf/name #xsd/string "Marios Meimaris"}
-    {:foaf/name #xsd/string "Martin Alvarez-Espinar"}
+    {:foaf/name    #xsd/string "Ghislain Auguste Atemezing",
+     :rdfs/seeAlso {:rdfa/uri
+                    "http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf"}}
+    {:foaf/homepage {:rdfa/uri "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
+     :foaf/name     #xsd/string "Shuji Kamitsuna"}
+    {:foaf/name #xsd/string "Richard Cyganiak"}
     {:foaf/homepage      {:rdfa/uri "https://agbeltran.github.io"},
      :foaf/name          #xsd/string "Alejandra Gonzalez-Beltran",
      :rdfs/seeAlso       {:rdfa/uri "https://orcid.org/0000-0003-3499-8262"},
@@ -15,35 +28,14 @@
                           :foaf/name
                           #xsd/string
                            "Science and Technology Facilities Council, UK"}}
-    {:foaf/homepage
-     [{:rdfa/uri "https://w3id.org/people/ralbertoni/"}
-      {:rdfa/uri
-       "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"}],
-     :foaf/name #xsd/string "Riccardo Albertoni",
-     :rdfs/seeAlso {:rdfa/uri "https://orcid.org/0000-0001-5648-2713"}}
-    {:foaf/homepage      {:rdfa/uri "http://www.w3.org/People/all#phila"},
-     :foaf/name          #xsd/string "Phil Archer",
-     :rdfs/seeAlso       {:rdfa/uri "http://philarcher.org/foaf.rdf#me"},
-     :schema/affiliation {:rdfa/uri "http://www.w3.org/data#W3C"}}
-    {:foaf/name #xsd/string "David Browning",
-     :schema/affiliation {:foaf/homepage {:rdfa/uri "http://www.refinitiv.com"},
-                          :foaf/name     #xsd/string "Refinitiv"}}
-    {:foaf/name    #xsd/string "Ghislain Auguste Atemezing",
-     :rdfs/seeAlso {:rdfa/uri
-                    "http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf"}}
-    {:foaf/name #xsd/string "Boris Villazón-Terrazas"}
-    {:foaf/name #xsd/string "Rufus Pollock",
-     :schema/affiliation {:foaf/homepage {:rdfa/uri "http://okfn.org"},
-                          :foaf/name     #xsd/string
-                                          "Open Knowledge Foundation"}}
     {:foaf/name #xsd/string "Vassilios Peristeras",
      :schema/affiliation
      {:foaf/homepage {:rdfa/uri "http://ec.europa.eu/dgs/informatics/"},
       :foaf/name     #xsd/string "European Commission, DG DIGIT"}}
-    {:foaf/name #xsd/string "Richard Cyganiak"}
-    {:foaf/homepage {:rdfa/uri "http://www.andrea-perego.name/foaf/#me"},
-     :foaf/name     #xsd/string "Andrea Perego",
-     :rdfs/seeAlso  {:rdfa/uri "https://orcid.org/0000-0001-9300-2694"}}
+    {:foaf/name #xsd/string "Boris Villazón-Terrazas"}
+    {:foaf/homepage {:rdfa/uri "http://makxdekkers.com/"},
+     :foaf/name     #xsd/string "Makx Dekkers",
+     :rdfs/seeAlso  {:rdfa/uri "http://makxdekkers.com/makxdekkers.rdf#me"}}
     {:foaf/name #xsd/string "Simon J D Cox",
      :foaf/workInfoHomepage {:rdfa/uri "http://people.csiro.au/Simon-Cox"},
      :rdf/type :foaf/Person,
@@ -53,11 +45,19 @@
       :foaf/name
       #xsd/string
        "Commonwealth Scientific and Industrial Research Organisation"}}
-    {:foaf/homepage {:rdfa/uri "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
-     :foaf/name     #xsd/string "Shuji Kamitsuna"}],
-   :dcterms/creator [{:foaf/name #xsd/string "John Erickson"}
-                     {:foaf/name    #xsd/string "Fadi Maali",
-                      :rdfs/seeAlso {:rdfa/uri "http://fadmaa.me/foaf.ttl"}}],
+    {:foaf/name #xsd/string "Rufus Pollock",
+     :schema/affiliation {:foaf/homepage {:rdfa/uri "http://okfn.org"},
+                          :foaf/name     #xsd/string
+                                          "Open Knowledge Foundation"}}
+    {:foaf/homepage {:rdfa/uri "https://jakub.klímek.com/"},
+     :foaf/name     #xsd/string "Jakub Klímek",
+     :rdfs/seeAlso  {:rdfa/uri "https://jakub.klímek.com/#me"}}
+    {:foaf/name #xsd/string "David Browning",
+     :schema/affiliation {:foaf/homepage {:rdfa/uri "http://www.refinitiv.com"},
+                          :foaf/name     #xsd/string "Refinitiv"}}],
+   :dcterms/creator [{:foaf/name    #xsd/string "Fadi Maali",
+                      :rdfs/seeAlso {:rdfa/uri "http://fadmaa.me/foaf.ttl"}}
+                     {:foaf/name #xsd/string "John Erickson"}],
    :dcterms/license {:rdfa/uri "https://creativecommons.org/licenses/by/4.0/"},
    :dcterms/modified [#xsd/date #inst "2013-09-20T00:00:00.000-04:00"
                       #xsd/date #inst "2020-11-30T00:00:00.000-05:00"
@@ -227,12 +227,12 @@
                 #xsd/langString "Katalogizační záznam@cs"
                 #xsd/langString "Registre du catalogue@fr"],
    :rdfs/subClassOf [:rdfs/Resource
-                     {:owl/allValuesFrom :dcat/Resource,
-                      :owl/onProperty    :foaf/primaryTopic,
-                      :rdf/type          :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :foaf/primaryTopic,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :dcat/Resource,
+                      :owl/onProperty    :foaf/primaryTopic,
+                      :rdf/type          :owl/Restriction}],
    :skos/definition
    [#xsd/langString
      "Un record in un catalogo di dati che descrive un singolo dataset o servizio di dati.@it"
@@ -254,8 +254,6 @@
     "English definition updated in this revision. Multilingual text not yet updated except the Spanish one and the Czech one and Italian one.@en",
    :skos/scopeNote
    [#xsd/langString
-     "このクラスはオプションで、すべてのカタログがそれを用いるとは限りません。これは、データセットに関するメタデータとカタログ内のデータセットのエントリーに関するメタデータとで区別が行われるカタログのために存在しています。例えば、データセットの公開日プロパティーは、公開機関が情報を最初に利用可能とした日付を示しますが、カタログ・レコードの公開日は、データセットがカタログに追加された日付です。両方の日付が異っていたり、後者だけが分かっている場合は、カタログ・レコードに対してのみ公開日を指定すべきです。W3CのPROVオントロジー[prov-o]を用いれば、データセットに対する特定の変更に関連するプロセスやエージェントの詳細などの、さらに詳しい来歴情報の記述が可能となることに注意してください。@ja"
-    #xsd/langString
      "Questa classe è opzionale e non tutti i cataloghi la utilizzeranno. Esiste per cataloghi in cui si opera una distinzione tra i metadati relativi al dataset ed i metadati relativi alla gestione del dataset nel catalogo. Ad esempio, la  proprietà per indicare la data di pubblicazione del dataset rifletterà la data in cui l'informazione è stata originariamente messa a disposizione dalla casa editrice, mentre la data di pubblicazione per il record nel catalogo rifletterà la data in cui il dataset è stato aggiunto al catalogo. Nei casi dove solo quest'ultima sia nota, si utilizzerà esclusivamente la data di  pubblicazione relativa al record del catalogo. Si noti che l'Ontologia W3C PROV permette di descrivere ulteriori informazioni sulla provenienza, quali i dettagli del processo, la procedura e l'agente coinvolto in una particolare modifica di un dataset.@it"
     #xsd/langString
      "Tato třída je volitelná a ne všechny katalogy ji využijí. Existuje pro katalogy, ve kterých se rozlišují metadata datové sady či datové služby a metadata o záznamu o datové sadě či datové službě v katalogu. Například datum publikace datové sady odráží datum, kdy byla datová sada původně zveřejněna poskytovatelem dat, zatímco datum publikace katalogizačního záznamu je datum zanesení datové sady do katalogu. V případech kdy se obě data liší, nebo je známo jen to druhé, by mělo být specifikováno jen datum publikace katalogizačního záznamu. Všimněte si, že ontologie W3C PROV umožňuje popsat další informace o původu jako například podrobnosti o procesu konkrétní změny datové sady a jeho účastnících.@cs"
@@ -268,9 +266,12 @@
     #xsd/langString
      "Denne klasse er valgfri og ikke alle kataloger vil anvende denne klasse. Den kan anvendes i de kataloger hvor der skelnes mellem metadata om datasættet eller datatjenesten og metadata om selve posten til registreringen af datasættet eller datatjenesten i kataloget. Udgivelsesdatoen for datasættet afspejler for eksempel den dato hvor informationerne oprindeligt blev gjort tilgængelige af udgiveren, hvorimod udgivelsesdatoen for katalogposten er den dato hvor datasættet blev føjet til kataloget. I de tilfælde hvor de to datoer er forskellige eller hvor blot sidstnævnte er kendt, bør udgivelsesdatoen kun angives for katalogposten. Bemærk at W3Cs PROV ontologi gør til muligt at tilføje yderligere proveniensoplysninger eksempelvis om processen eller aktøren involveret i en given ændring af datasættet.@da"
     #xsd/langString
+     "このクラスはオプションで、すべてのカタログがそれを用いるとは限りません。これは、データセットに関するメタデータとカタログ内のデータセットのエントリーに関するメタデータとで区別が行われるカタログのために存在しています。例えば、データセットの公開日プロパティーは、公開機関が情報を最初に利用可能とした日付を示しますが、カタログ・レコードの公開日は、データセットがカタログに追加された日付です。両方の日付が異っていたり、後者だけが分かっている場合は、カタログ・レコードに対してのみ公開日を指定すべきです。W3CのPROVオントロジー[prov-o]を用いれば、データセットに対する特定の変更に関連するプロセスやエージェントの詳細などの、さらに詳しい来歴情報の記述が可能となることに注意してください。@ja"
+    #xsd/langString
      "C'est une classe facultative et tous les catalogues ne l'utiliseront pas. Cette classe existe pour les catalogues\tayant une distinction entre les métadonnées sur le jeu de données et les métadonnées sur une entrée du jeu de données dans le catalogue.@fr"]})
 
 (def DataService
+  "Dataservice"
   {:db/ident :dcat/DataService,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -329,6 +330,7 @@
      "Se un dcat:DataService è associato a uno o più Dataset specificati, questi sono indicati dalla proprietà dcat:serveDataset.@it"]})
 
 (def Dataset
+  "Datasamling"
   {:db/ident :dcat/Dataset,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment
@@ -700,6 +702,7 @@
      "A site or end-point that gives access to the distribution of the dataset.@en"]})
 
 (def accessURL
+  "adgangsURL"
   {:db/ident :dcat/accessURL,
    :owl/propertyChainAxiom [:dcat/accessService :dcat/endpointURL],
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -866,6 +869,7 @@
      "La dimensione in byte può essere approssimata quando non si conosce la dimensione precisa. Il valore di dcat:byteSize dovrebbe essere espresso come un xsd:decimal.@it"]})
 
 (def catalog
+  "har delkatalog"
   {:db/ident :dcat/catalog,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -906,6 +910,7 @@
      "A catalog whose contents are of interest in the context of this catalog.@en"]})
 
 (def centroid
+  "centroide"
   {:db/ident :dcat/centroid,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/domain :dcterms/Location,
@@ -1091,6 +1096,7 @@
     "Status: English Definition text modified by DCAT revision team, Italian, Spanish and Czech translation provided, other translations pending.@en"})
 
 (def distribution
+  "har distribution"
   {:db/ident :dcat/distribution,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -1209,6 +1215,7 @@
     #xsd/langString "Η τιμή είναι ένα URL.@el"]})
 
 (def endDate
+  "sluttidspunkt"
   {:db/ident :dcat/endDate,
    :rdf/type [:rdf/Property :owl/DatatypeProperty],
    :rdfs/domain :dcterms/PeriodOfTime,
@@ -1699,6 +1706,7 @@
      "Se usa para asociar con otro recurso para el cuál la naturaleza de la relación es conocida pero no es ninguna de las propiedades que provee el estándar Dublin Core (dct:hasPart, dct:isPartOf, dct:conformsTo, dct:isFormatOf, dct:hasFormat, dct:isVersionOf, dct:hasVersion, dct:replaces, dct:isReplacedBy, dct:references, dct:isReferencedBy, dct:requires, dct:isRequiredBy) or PROV-O properties (prov:wasDerivedFrom, prov:wasInfluencedBy, prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource, prov:alternateOf, prov:specializationOf).@es"]})
 
 (def record
+  "har post"
   {:db/ident :dcat/record,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
@@ -1792,6 +1800,7 @@
      "Kolekce dat, kterou je tato Datová služba schopna poskytnout.@cs"]})
 
 (def service
+  "har datatjeneste"
   {:db/ident :dcat/service,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1894,6 +1903,7 @@
      "If the dataset is an image or grid this should correspond to the spacing of items. For other kinds of spatial dataset, this property will usually indicate the smallest distance between items in the dataset.@en"]})
 
 (def startDate
+  "starttidspunkt"
   {:db/ident :dcat/startDate,
    :rdf/type [:rdf/Property :owl/DatatypeProperty],
    :rdfs/domain :dcterms/PeriodOfTime,
@@ -1983,6 +1993,7 @@
      "Risoluzioni temporali alternative potrebbero essere fornite come diverse distribuzioni di set di dati.@it"]})
 
 (def theme
+  "tema"
   {:db/ident :dcat/theme,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -2054,6 +2065,7 @@
      "Το σετ των skos:Concepts που χρησιμοποιείται για να κατηγοριοποιήσει τα σύνολα δεδομένων είναι οργανωμένο εντός ενός skos:ConceptScheme που περιγράφει όλες τις κατηγορίες και τις σχέσεις αυτών στον κατάλογο.@el"]})
 
 (def themeTaxonomy
+  "temataksonomi"
   {:db/ident :dcat/themeTaxonomy,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment

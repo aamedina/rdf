@@ -26,10 +26,10 @@
    :rdfs/comment    #xsd/string "A radio channel that uses AM.",
    :rdfs/label      #xsd/string "AMRadioChannel",
    :rdfs/subClassOf [:schema/RadioChannel
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/BroadcastChannel
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1004"}})
 
@@ -42,22 +42,22 @@
     "Reference documentation for application programming interfaces (APIs).",
    :rdfs/label #xsd/string "APIReference",
    :rdfs/subClassOf [:schema/TechArticle
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing]})
 
 (def Abdomen
   "Abdomen clinical examination."
   {:db/ident        :schema/Abdomen,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Abdomen clinical examination.",
    :rdfs/label      #xsd/string "Abdomen",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -69,9 +69,9 @@
    :rdfs/comment    #xsd/string "Web page type: About page.",
    :rdfs/label      #xsd/string "AboutPage",
    :rdfs/subClassOf [:schema/WebPage
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def AcceptAction
   "The act of committing to/adopting an object.\\n\\nRelated actions:\\n\\n* [[RejectAction]]: The antonym of AcceptAction."
@@ -82,10 +82,10 @@
     "The act of committing to/adopting an object.\\n\\nRelated actions:\\n\\n* [[RejectAction]]: The antonym of AcceptAction.",
    :rdfs/label #xsd/string "AcceptAction",
    :rdfs/subClassOf [:schema/AllocateAction
-                     :schema/Thing
-                     :schema/OrganizeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/OrganizeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Accommodation
   "An accommodation is a place that can accommodate human beings, e.g. a hotel room, a camping pitch, or a meeting room. Many accommodations are for overnight stays, but this is not a mandatory requirement.\nFor more specific types of accommodations not defined in schema.org, one can use [[additionalType]] with external vocabularies.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -95,7 +95,7 @@
    #xsd/string
     "An accommodation is a place that can accommodate human beings, e.g. a hotel room, a camping pitch, or a meeting room. Many accommodations are for overnight stays, but this is not a mandatory requirement.\nFor more specific types of accommodations not defined in schema.org, one can use [[additionalType]] with external vocabularies.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "Accommodation",
-   :rdfs/subClassOf [:schema/Place :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Place :rdfs/Resource :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -108,11 +108,11 @@
     "Accountancy business.\\n\\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).\n      ",
    :rdfs/label #xsd/string "AccountingService",
    :rdfs/subClassOf [:schema/FinancialService
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AchieveAction
   "The act of accomplishing something via previous efforts. It is an instantaneous action rather than an ongoing process."
@@ -122,7 +122,7 @@
    #xsd/string
     "The act of accomplishing something via previous efforts. It is an instantaneous action rather than an ongoing process.",
    :rdfs/label #xsd/string "AchieveAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def Action
   "An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.\\n\\nSee also [blog post](http://blog.schema.org/2014/04/announcing-schemaorg-actions.html) and [Actions overview document](http://schema.org/docs/actions.html)."
@@ -156,9 +156,9 @@
    :rdfs/label      #xsd/string "ActionStatusType",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def ActivateAction
   "The act of starting or activating a device or application (e.g. starting a timer or turning on a flashlight)."
@@ -169,16 +169,16 @@
     "The act of starting or activating a device or application (e.g. starting a timer or turning on a flashlight).",
    :rdfs/label #xsd/string "ActivateAction",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/ControlAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ActivationFee
   "Represents the activation fee part of the total price for an offered product, for example a cellphone contract."
   {:db/ident :schema/ActivationFee,
    :rdf/type [:schema/PriceComponentTypeEnumeration
-              :schema/Enumeration
+              :schema/Intangible
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Represents the activation fee part of the total price for an offered product, for example a cellphone contract.",
@@ -191,11 +191,11 @@
   "An in-progress action (e.g., while watching the movie, or driving to a location)."
   {:db/ident :schema/ActiveActionStatus,
    :rdf/type [:schema/ActionStatusType
-              :schema/Thing
               :rdfs/Resource
-              :schema/StatusEnumeration
               :schema/Enumeration
-              :schema/Intangible],
+              :schema/StatusEnumeration
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "An in-progress action (e.g., while watching the movie, or driving to a location).",
@@ -206,9 +206,9 @@
   {:db/ident        :schema/ActiveNotRecruiting,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Active, but not recruiting new participants.",
    :rdfs/label      #xsd/string "ActiveNotRecruiting",
@@ -222,9 +222,9 @@
                      "The act of editing by adding an object to a collection.",
    :rdfs/label      #xsd/string "AddAction",
    :rdfs/subClassOf [:schema/UpdateAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def AdministrativeArea
   "A geographical region, typically under the jurisdiction of a particular government."
@@ -243,11 +243,11 @@
    :rdfs/comment    #xsd/string "An adult entertainment establishment.",
    :rdfs/label      #xsd/string "AdultEntertainment",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AdultOrientedEnumeration
   "Enumeration of considerations that make a product relevant or potentially restricted for adults only."
@@ -258,7 +258,7 @@
     "Enumeration of considerations that make a product relevant or potentially restricted for adults only.",
    :rdfs/label #xsd/string "AdultOrientedEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2989"}})
@@ -272,7 +272,7 @@
     "An [[Article]] that an external entity has paid to place or to produce to its specifications. Includes [advertorials](https://en.wikipedia.org/wiki/Advertorial), sponsored content, native advertising and other paid content.",
    :rdfs/label #xsd/string "AdvertiserContentArticle",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Article :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/Article :schema/CreativeWork :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -282,10 +282,10 @@
   "Physical activity of relatively low intensity that depends primarily on the aerobic energy-generating process; during activity, the aerobic metabolism uses oxygen to adequately meet energy demands during exercise."
   {:db/ident :schema/AerobicActivity,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Physical activity of relatively low intensity that depends primarily on the aerobic energy-generating process; during activity, the aerobic metabolism uses oxygen to adequately meet energy demands during exercise.",
@@ -301,7 +301,7 @@
     "When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.\\n\\nNote: AggregateOffers are normally expected to associate multiple offers that all share the same defined [[businessFunction]] value, or default to http://purl.org/goodrelations/v1#Sell if businessFunction is not explicitly defined.",
    :rdfs/label #xsd/string "AggregateOffer",
    :rdfs/subClassOf
-   [:schema/Offer :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Offer :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def AggregateRating
   "The average rating based on multiple ratings or reviews."
@@ -312,8 +312,8 @@
    :rdfs/label      #xsd/string "AggregateRating",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Rating
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def AgreeAction
   "The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants."
@@ -324,10 +324,10 @@
     "The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants.",
    :rdfs/label #xsd/string "AgreeAction",
    :rdfs/subClassOf [:schema/ReactAction
-                     :schema/Thing
-                     :schema/AssessAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/AssessAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Airline
   "An organization that provides flights for passengers."
@@ -346,16 +346,16 @@
    :rdfs/label      #xsd/string "Airport",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CivicStructure
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def AlbumRelease
   "AlbumRelease."
   {:db/ident           :schema/AlbumRelease,
    :rdf/type           [:schema/MusicAlbumReleaseType
-                        :schema/Enumeration
-                        :rdfs/Resource
                         :schema/Intangible
+                        :rdfs/Resource
+                        :schema/Enumeration
                         :schema/Thing],
    :rdfs/comment       #xsd/string "AlbumRelease.",
    :rdfs/label         #xsd/string "AlbumRelease",
@@ -366,9 +366,9 @@
   {:db/ident        :schema/AlcoholConsideration,
    :rdf/type        [:schema/AdultOrientedEnumeration
                      :rdfs/Resource
+                     :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string
                      "Item contains alcohol or promotes alcohol consumption.",
    :rdfs/label      #xsd/string "AlcoholConsideration",
@@ -391,11 +391,11 @@
   "All-wheel Drive is a transmission layout where the engine drives all four wheels."
   {:db/ident :schema/AllWheelDriveConfiguration,
    :rdf/type [:schema/DriveWheelConfigurationValue
-              :rdfs/Resource
-              :schema/Thing
               :schema/QualitativeValue
+              :schema/Enumeration
+              :rdfs/Resource
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "All-wheel Drive is a transmission layout where the engine drives all four wheels.",
@@ -408,10 +408,10 @@
   "Content about the allergy-related aspects of a health topic."
   {:db/ident :schema/AllergiesHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string "Content about the allergy-related aspects of a health topic.",
    :rdfs/label #xsd/string "AllergiesHealthAspect",
@@ -428,7 +428,7 @@
     "The act of organizing tasks/objects/events by associating resources to it.",
    :rdfs/label #xsd/string "AllocateAction",
    :rdfs/subClassOf
-   [:schema/OrganizeAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/OrganizeAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def AmpStory
   "A creative work with a visual storytelling format intended to be viewed online, particularly on mobile devices."
@@ -439,7 +439,7 @@
     "A creative work with a visual storytelling format intended to be viewed online, particularly on mobile devices.",
    :rdfs/label #xsd/string "AmpStory",
    :rdfs/subClassOf
-   [:schema/MediaObject :schema/CreativeWork :schema/Thing :rdfs/Resource],
+   [:schema/MediaObject :schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2646"}})
@@ -451,20 +451,20 @@
    :rdfs/comment    #xsd/string "An amusement park.",
    :rdfs/label      #xsd/string "AmusementPark",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AnaerobicActivity
   "Physical activity that is of high-intensity which utilizes the anaerobic metabolism of the body."
   {:db/ident :schema/AnaerobicActivity,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Physical activity that is of high-intensity which utilizes the anaerobic metabolism of the body.",
@@ -480,10 +480,10 @@
     "An AnalysisNewsArticle is a [[NewsArticle]] that, while based on factual reporting, incorporates the expertise of the author/producer, offering interpretations and conclusions.",
    :rdfs/label #xsd/string "AnalysisNewsArticle",
    :rdfs/subClassOf [:schema/NewsArticle
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -497,7 +497,7 @@
    #xsd/string
     "Any part of the human body, typically a component of an anatomical system. Organs, tissues, and cells are all anatomical structures.",
    :rdfs/label #xsd/string "AnatomicalStructure",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def AnatomicalSystem
@@ -508,16 +508,16 @@
    #xsd/string
     "An anatomical system is a group of anatomical structures that work together to perform a certain task. Anatomical systems, such as organ systems, are one organizing principle of anatomy, and can include circulatory, digestive, endocrine, integumentary, immune, lymphatic, muscular, nervous, reproductive, respiratory, skeletal, urinary, vestibular, and other systems.",
    :rdfs/label #xsd/string "AnatomicalSystem",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def AndroidPlatform
   "Represents the broad notion of Android-based operating systems."
   {:db/ident :schema/AndroidPlatform,
    :rdf/type [:schema/DigitalPlatformEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Intangible
+              :schema/Enumeration
               :schema/Thing],
    :rdfs/comment
    #xsd/string
@@ -531,10 +531,10 @@
   "A specific branch of medical science that pertains to study of anesthetics and their application."
   {:db/ident :schema/Anesthesia,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -550,10 +550,10 @@
    :rdfs/comment    #xsd/string "Animal shelter.",
    :rdfs/label      #xsd/string "AnimalShelter",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Answer
   "An answer offered to a question; perhaps correct, perhaps opinionated or wrong."
@@ -564,7 +564,7 @@
     "An answer offered to a question; perhaps correct, perhaps opinionated or wrong.",
    :rdfs/label #xsd/string "Answer",
    :rdfs/subClassOf
-   [:schema/Comment :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/Comment :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/QAStackExchange"}})
 
@@ -577,7 +577,7 @@
     "An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Apartment\">http://en.wikipedia.org/wiki/Apartment</a>).",
    :rdfs/label #xsd/string "Apartment",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/Thing :schema/Place :rdfs/Resource],
+   [:schema/Accommodation :rdfs/Resource :schema/Place :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -588,21 +588,21 @@
    :rdfs/comment    #xsd/string "Residence type: Apartment complex.",
    :rdfs/label      #xsd/string "ApartmentComplex",
    :rdfs/subClassOf [:schema/Residence
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Appearance
   "Appearance assessment with clinical examination."
   {:db/ident        :schema/Appearance,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Appearance assessment with clinical examination.",
    :rdfs/label      #xsd/string "Appearance",
@@ -616,11 +616,11 @@
                   "The act of inserting at the end if an ordered collection.",
    :rdfs/label #xsd/string "AppendAction",
    :rdfs/subClassOf [:schema/InsertAction
-                     :schema/Thing
                      :schema/AddAction
-                     :schema/UpdateAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/UpdateAction
+                     :schema/Thing]})
 
 (def ApplyAction
   "The act of registering to an organization/service without the guarantee to receive it.\\n\\nRelated actions:\\n\\n* [[RegisterAction]]: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted."
@@ -631,7 +631,7 @@
     "The act of registering to an organization/service without the guarantee to receive it.\\n\\nRelated actions:\\n\\n* [[RegisterAction]]: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted.",
    :rdfs/label #xsd/string "ApplyAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/OrganizeAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/OrganizeAction :schema/Action :schema/Thing]})
 
 (def ApprovedIndication
   "An indication for a medical therapy that has been formally specified or approved by a regulatory body that regulates use of the therapy; for example, the US FDA approves indications for most drugs in the US."
@@ -642,9 +642,9 @@
     "An indication for a medical therapy that has been formally specified or approved by a regulatory body that regulates use of the therapy; for example, the US FDA approves indications for most drugs in the US.",
    :rdfs/label #xsd/string "ApprovedIndication",
    :rdfs/subClassOf [:schema/MedicalIndication
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Aquarium
@@ -654,23 +654,25 @@
    :rdfs/comment    #xsd/string "Aquarium.",
    :rdfs/label      #xsd/string "Aquarium",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def ArchiveComponent
+  "An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections."
   {:db/ident :schema/ArchiveComponent,
    :rdf/type :rdfs/Class,
    :rdfs/comment
    #xsd/langString
     "An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections.@en",
    :rdfs/label #xsd/langString "ArchiveComponent@en",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1758"}})
 
 (def ArchiveOrganization
+  "An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public."
   {:db/ident :schema/ArchiveOrganization,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -678,10 +680,10 @@
     "An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public.@en",
    :rdfs/label #xsd/langString "ArchiveOrganization@en",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1758"}})
@@ -695,7 +697,7 @@
     "The act of arriving at a place. An agent arrives at a destination from a fromLocation, optionally with participants.",
    :rdfs/label #xsd/string "ArriveAction",
    :rdfs/subClassOf
-   [:schema/MoveAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/MoveAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ArtGallery
   "An art gallery."
@@ -704,11 +706,11 @@
    :rdfs/comment    #xsd/string "An art gallery.",
    :rdfs/label      #xsd/string "ArtGallery",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Artery
   "A type of blood vessel that specifically carries blood away from the heart."
@@ -721,10 +723,10 @@
     "A type of blood vessel that specifically carries blood away from the heart.",
    :rdfs/label #xsd/string "Artery",
    :rdfs/subClassOf [:schema/Vessel
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/AnatomicalStructure
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Article
@@ -735,7 +737,7 @@
    #xsd/string
     "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.\\n\\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).",
    :rdfs/label #xsd/string "Article",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/rNews"}})
 
 (def AskAction
@@ -747,10 +749,10 @@
     "The act of posing a question / favor to someone.\\n\\nRelated actions:\\n\\n* [[ReplyAction]]: Appears generally as a response to AskAction.",
    :rdfs/label #xsd/string "AskAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def AskPublicNewsArticle
   "A [[NewsArticle]] expressing an open call by a [[NewsMediaOrganization]] asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes."
@@ -762,9 +764,9 @@
    :rdfs/label #xsd/string "AskPublicNewsArticle",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/NewsArticle
-                     :schema/Thing
+                     :schema/CreativeWork
                      :schema/Article
-                     :schema/CreativeWork],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -777,7 +779,7 @@
    :rdfs/comment    #xsd/string
                      "The act of forming one's opinion, reaction or sentiment.",
    :rdfs/label      #xsd/string "AssessAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def AssignAction
   "The act of allocating an action/event/task to some destination (someone or something)."
@@ -788,10 +790,10 @@
     "The act of allocating an action/event/task to some destination (someone or something).",
    :rdfs/label #xsd/string "AssignAction",
    :rdfs/subClassOf [:schema/AllocateAction
-                     :schema/Thing
-                     :schema/OrganizeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/OrganizeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Atlas
   "A collection or bound volume of maps, charts, plates or tables, physical or in media form illustrating any subject."
@@ -814,11 +816,11 @@
     "Professional service: Attorney. \\n\\nThis type is deprecated - [[LegalService]] is more inclusive and less ambiguous.",
    :rdfs/label #xsd/string "Attorney",
    :rdfs/subClassOf [:schema/LegalService
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Audience
   "Intended audience for an item, i.e. the group for whom the item was created."
@@ -828,7 +830,7 @@
    #xsd/string
     "Intended audience for an item, i.e. the group for whom the item was created.",
    :rdfs/label #xsd/string "Audience",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def AudioObject
   "An audio file."
@@ -837,9 +839,9 @@
    :rdfs/comment       #xsd/string "An audio file.",
    :rdfs/label         #xsd/string "AudioObject",
    :rdfs/subClassOf    [:schema/MediaObject
-                        :schema/Thing
                         :rdfs/Resource
-                        :schema/CreativeWork],
+                        :schema/CreativeWork
+                        :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/rNews"}})
 
 (def AudioObjectSnapshot
@@ -851,10 +853,10 @@
     "A specific and exact (byte-for-byte) version of an [[AudioObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.",
    :rdfs/label #xsd/string "AudioObjectSnapshot",
    :rdfs/subClassOf [:schema/AudioObject
-                     :schema/Thing
-                     :schema/MediaObject
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/MediaObject
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2450"}})
@@ -867,20 +869,20 @@
    :rdfs/label      #xsd/string "Audiobook",
    :rdfs/subClassOf [:schema/Book
                      :schema/AudioObject
-                     :schema/Thing
-                     :schema/MediaObject
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/MediaObject
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def AudiobookFormat
   "Book format: Audiobook. This is an enumerated value for use with the bookFormat property. There is also a type 'Audiobook' in the bib extension which includes Audiobook specific properties."
   {:db/ident :schema/AudiobookFormat,
    :rdf/type [:schema/BookFormatType
-              :schema/Thing
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Book format: Audiobook. This is an enumerated value for use with the bookFormat property. There is also a type 'Audiobook' in the bib extension which includes Audiobook specific properties.",
@@ -890,10 +892,10 @@
   "Indicates that the publisher gives some special status to the publication of the document. (\"The Queens Printer\" version of a UK Act of Parliament, or the PDF version of a Directive published by the EU Office of Publications.) Something \"Authoritative\" is considered to be also [[OfficialLegalValue]]."
   {:db/ident :schema/AuthoritativeLegalValue,
    :rdf/type [:schema/LegalValueLevel
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Indicates that the publisher gives some special status to the publication of the document. (\"The Queens Printer\" version of a UK Act of Parliament, or the PDF version of a Directive published by the EU Office of Publications.) Something \"Authoritative\" is considered to be also [[OfficialLegalValue]].",
@@ -911,10 +913,10 @@
    :rdfs/comment    #xsd/string "The act of granting permission to an object.",
    :rdfs/label      #xsd/string "AuthorizeAction",
    :rdfs/subClassOf [:schema/AllocateAction
-                     :schema/Thing
-                     :schema/OrganizeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/OrganizeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def AutoBodyShop
   "Auto body shop."
@@ -923,11 +925,11 @@
    :rdfs/comment    #xsd/string "Auto body shop.",
    :rdfs/label      #xsd/string "AutoBodyShop",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutoDealer
   "An car dealership."
@@ -936,11 +938,11 @@
    :rdfs/comment    #xsd/string "An car dealership.",
    :rdfs/label      #xsd/string "AutoDealer",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutoPartsStore
   "An auto parts store."
@@ -950,11 +952,11 @@
    :rdfs/label      #xsd/string "AutoPartsStore",
    :rdfs/subClassOf [:schema/Store
                      :schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutoRental
   "A car rental business."
@@ -963,11 +965,11 @@
    :rdfs/comment    #xsd/string "A car rental business.",
    :rdfs/label      #xsd/string "AutoRental",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutoRepair
   "Car repair business."
@@ -976,11 +978,11 @@
    :rdfs/comment    #xsd/string "Car repair business.",
    :rdfs/label      #xsd/string "AutoRepair",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutoWash
   "A car wash business."
@@ -989,11 +991,11 @@
    :rdfs/comment    #xsd/string "A car wash business.",
    :rdfs/label      #xsd/string "AutoWash",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutomatedTeller
   "ATM/cash machine."
@@ -1002,11 +1004,11 @@
    :rdfs/comment    #xsd/string "ATM/cash machine.",
    :rdfs/label      #xsd/string "AutomatedTeller",
    :rdfs/subClassOf [:schema/FinancialService
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def AutomotiveBusiness
   "Car repair, sales, or parts."
@@ -1015,20 +1017,20 @@
    :rdfs/comment    #xsd/string "Car repair, sales, or parts.",
    :rdfs/label      #xsd/string "AutomotiveBusiness",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Ayurvedic
   "A system of medicine that originated in India over thousands of years and that focuses on integrating and balancing the body, mind, and spirit."
   {:db/ident :schema/Ayurvedic,
    :rdf/type [:schema/MedicineSystem
               :schema/MedicalEnumeration
-              :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "A system of medicine that originated in India over thousands of years and that focuses on integrating and balancing the body, mind, and spirit.",
@@ -1039,8 +1041,8 @@
   "Indicates that the item is available on back order."
   {:db/ident     :schema/BackOrder,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string
@@ -1056,10 +1058,10 @@
     "A [[NewsArticle]] providing historical context, definition and detail on a specific topic (aka \"explainer\" or \"backgrounder\"). For example, an in-depth article or frequently-asked-questions ([FAQ](https://en.wikipedia.org/wiki/FAQ)) document on topics such as Climate Change or the European Union. Other kinds of background material from a non-news setting are often described using [[Book]] or [[Article]], in particular [[ScholarlyArticle]]. See also [[NewsArticle]] for related vocabulary from a learning/education perspective.",
    :rdfs/label #xsd/string "BackgroundNewsArticle",
    :rdfs/subClassOf [:schema/NewsArticle
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -1069,11 +1071,11 @@
   "Pathogenic bacteria that cause bacterial infection."
   {:db/ident        :schema/Bacteria,
    :rdf/type        [:schema/InfectiousAgentClass
-                     :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :rdfs/Resource
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string
                      "Pathogenic bacteria that cause bacterial infection.",
    :rdfs/label      #xsd/string "Bacteria",
@@ -1087,19 +1089,19 @@
    :rdfs/label      #xsd/string "Bakery",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
                      :schema/Place
-                     :schema/LocalBusiness]})
+                     :schema/LocalBusiness
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Balance
   "Physical activity that is engaged to help maintain posture and balance."
   {:db/ident :schema/Balance,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Physical activity that is engaged to help maintain posture and balance.",
@@ -1115,10 +1117,10 @@
     "A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest.",
    :rdfs/label #xsd/string "BankAccount",
    :rdfs/subClassOf [:schema/FinancialProduct
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def BankOrCreditUnion
@@ -1128,11 +1130,11 @@
    :rdfs/comment    #xsd/string "Bank or credit union.",
    :rdfs/label      #xsd/string "BankOrCreditUnion",
    :rdfs/subClassOf [:schema/FinancialService
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def BarOrPub
   "A bar or pub."
@@ -1141,11 +1143,11 @@
    :rdfs/comment    #xsd/string "A bar or pub.",
    :rdfs/label      #xsd/string "BarOrPub",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Barcode
   "An image of a visual machine-readable code such as a barcode or QR code."
@@ -1156,19 +1158,19 @@
     "An image of a visual machine-readable code such as a barcode or QR code.",
    :rdfs/label #xsd/string "Barcode",
    :rdfs/subClassOf [:schema/ImageObject
-                     :schema/Thing
-                     :schema/MediaObject
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/MediaObject
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def BasicIncome
   "BasicIncome: this is a benefit for basic income."
   {:db/ident        :schema/BasicIncome,
    :rdf/type        [:schema/GovernmentBenefitsType
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/Enumeration
-                     :rdfs/Resource],
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "BasicIncome: this is a benefit for basic income.",
    :rdfs/label      #xsd/string "BasicIncome",
@@ -1184,8 +1186,8 @@
    :rdfs/label      #xsd/string "Beach",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CivicStructure
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def BeautySalon
   "Beauty salon."
@@ -1194,11 +1196,11 @@
    :rdfs/comment    #xsd/string "Beauty salon.",
    :rdfs/label      #xsd/string "BeautySalon",
    :rdfs/subClassOf [:schema/HealthAndBeautyBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def BedAndBreakfast
   "Bed and breakfast.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -1210,10 +1212,10 @@
    :rdfs/label #xsd/string "BedAndBreakfast",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/LodgingBusiness
-                     :schema/Organization
-                     :schema/Thing
                      :schema/Place
-                     :schema/LocalBusiness]})
+                     :schema/LocalBusiness
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def BedDetails
   "An entity holding detailed information about the available bed types, e.g. the quantity of twin beds for a hotel room. For the single case of just one bed of a certain type, you can use bed directly with a text. See also [[BedType]] (under development)."
@@ -1237,9 +1239,9 @@
    :rdfs/label #xsd/string "BedType",
    :rdfs/subClassOf [:schema/QualitativeValue
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"},
    :schema/source {:rdfa/uri
@@ -1254,16 +1256,16 @@
     "The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\\n\\nRelated actions:\\n\\n* [[FollowAction]]: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.",
    :rdfs/label #xsd/string "BefriendAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def BenefitsHealthAspect
   "Content about the benefits and advantages of usage or utilization of topic."
   {:db/ident :schema/BenefitsHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content about the benefits and advantages of usage or utilization of topic.",
@@ -1279,11 +1281,11 @@
    :rdfs/comment    #xsd/string "A bike store.",
    :rdfs/label      #xsd/string "BikeStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def BioChemEntity
   "Any biological, chemical, or biochemical thing. For example: a protein; a gene; a chemical; a synthetic chemical."
@@ -1314,10 +1316,10 @@
    :rdfs/comment    #xsd/string "A blog post.",
    :rdfs/label      #xsd/string "BlogPosting",
    :rdfs/subClassOf [:schema/SocialMediaPosting
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing]})
 
 (def BloodTest
   "A medical test performed on a sample of a patient's blood."
@@ -1327,7 +1329,7 @@
                   "A medical test performed on a sample of a patient's blood.",
    :rdfs/label #xsd/string "BloodTest",
    :rdfs/subClassOf
-   [:schema/MedicalTest :schema/Thing :schema/MedicalEntity :rdfs/Resource],
+   [:schema/MedicalTest :rdfs/Resource :schema/MedicalEntity :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def BoardingPolicyType
@@ -1337,9 +1339,9 @@
    :rdfs/comment    #xsd/string "A type of boarding policy used by an airline.",
    :rdfs/label      #xsd/string "BoardingPolicyType",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def BoatReservation
   "A reservation for boat travel.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]]."
@@ -1350,7 +1352,7 @@
     "A reservation for boat travel.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
    :rdfs/label #xsd/string "BoatReservation",
    :rdfs/subClassOf
-   [:schema/Reservation :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Reservation :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1755"}})
@@ -1363,9 +1365,9 @@
                      "A terminal for boats, ships, and other water vessels.",
    :rdfs/label      #xsd/string "BoatTerminal",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1755"}})
@@ -1377,9 +1379,9 @@
    :rdfs/comment    #xsd/string "A trip on a commercial ferry line.",
    :rdfs/label      #xsd/string "BoatTrip",
    :rdfs/subClassOf [:schema/Trip
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1755"}})
@@ -1388,11 +1390,11 @@
   "Arm length (measured between arms/shoulder line intersection and the prominent wrist bone). Used, for example, to fit shirts."
   {:db/ident :schema/BodyMeasurementArm,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Arm length (measured between arms/shoulder line intersection and the prominent wrist bone). Used, for example, to fit shirts.",
@@ -1405,11 +1407,11 @@
   "Maximum girth of bust. Used, for example, to fit women's suits."
   {:db/ident :schema/BodyMeasurementBust,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Maximum girth of bust. Used, for example, to fit women's suits.",
@@ -1422,11 +1424,11 @@
   "Maximum girth of chest. Used, for example, to fit men's suits."
   {:db/ident :schema/BodyMeasurementChest,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string "Maximum girth of chest. Used, for example, to fit men's suits.",
    :rdfs/label #xsd/string "BodyMeasurementChest",
@@ -1438,11 +1440,11 @@
   "Foot length (measured between end of the most prominent toe and the most prominent part of the heel). Used, for example, to measure socks."
   {:db/ident :schema/BodyMeasurementFoot,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Foot length (measured between end of the most prominent toe and the most prominent part of the heel). Used, for example, to measure socks.",
@@ -1455,11 +1457,11 @@
   "Maximum hand girth (measured over the knuckles of the open right hand excluding thumb, fingers together). Used, for example, to fit gloves."
   {:db/ident :schema/BodyMeasurementHand,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Maximum hand girth (measured over the knuckles of the open right hand excluding thumb, fingers together). Used, for example, to fit gloves.",
@@ -1472,11 +1474,11 @@
   "Maximum girth of head above the ears. Used, for example, to fit hats."
   {:db/ident :schema/BodyMeasurementHead,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Maximum girth of head above the ears. Used, for example, to fit hats.",
@@ -1489,11 +1491,11 @@
   "Body height (measured between crown of head and soles of feet). Used, for example, to fit jackets."
   {:db/ident :schema/BodyMeasurementHeight,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Body height (measured between crown of head and soles of feet). Used, for example, to fit jackets.",
@@ -1506,11 +1508,11 @@
   "Girth of hips (measured around the buttocks). Used, for example, to fit skirts."
   {:db/ident :schema/BodyMeasurementHips,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Girth of hips (measured around the buttocks). Used, for example, to fit skirts.",
@@ -1523,11 +1525,11 @@
   "Inside leg (measured between crotch and soles of feet). Used, for example, to fit pants."
   {:db/ident :schema/BodyMeasurementInsideLeg,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Inside leg (measured between crotch and soles of feet). Used, for example, to fit pants.",
@@ -1540,11 +1542,11 @@
   "Girth of neck. Used, for example, to fit shirts."
   {:db/ident        :schema/BodyMeasurementNeck,
    :rdf/type        [:schema/BodyMeasurementTypeEnumeration
-                     :schema/MeasurementTypeEnumeration
-                     :schema/Intangible
-                     :rdfs/Resource
                      :schema/Thing
-                     :schema/Enumeration],
+                     :schema/Enumeration
+                     :schema/MeasurementTypeEnumeration
+                     :rdfs/Resource
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string
                      "Girth of neck. Used, for example, to fit shirts.",
    :rdfs/label      #xsd/string "BodyMeasurementNeck",
@@ -1562,9 +1564,9 @@
    :rdfs/label #xsd/string "BodyMeasurementTypeEnumeration",
    :rdfs/subClassOf [:schema/MeasurementTypeEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -1573,11 +1575,11 @@
   "Girth of body just below the bust. Used, for example, to fit women's swimwear."
   {:db/ident :schema/BodyMeasurementUnderbust,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Girth of body just below the bust. Used, for example, to fit women's swimwear.",
@@ -1590,11 +1592,11 @@
   "Girth of natural waistline (between hip bones and lower ribs). Used, for example, to fit pants."
   {:db/ident :schema/BodyMeasurementWaist,
    :rdf/type [:schema/BodyMeasurementTypeEnumeration
-              :schema/MeasurementTypeEnumeration
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/MeasurementTypeEnumeration
+              :rdfs/Resource
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Girth of natural waistline (between hip bones and lower ribs). Used, for example, to fit pants.",
@@ -1607,11 +1609,11 @@
   "Body weight. Used, for example, to measure pantyhose."
   {:db/ident        :schema/BodyMeasurementWeight,
    :rdf/type        [:schema/BodyMeasurementTypeEnumeration
-                     :schema/MeasurementTypeEnumeration
-                     :schema/Intangible
-                     :rdfs/Resource
                      :schema/Thing
-                     :schema/Enumeration],
+                     :schema/Enumeration
+                     :schema/MeasurementTypeEnumeration
+                     :rdfs/Resource
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string
                      "Body weight. Used, for example, to measure pantyhose.",
    :rdfs/label      #xsd/string "BodyMeasurementWeight",
@@ -1628,8 +1630,8 @@
    :rdfs/label      #xsd/string "BodyOfWater",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Landform
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def Bone
   "Rigid connective tissue that comprises up the skeletal structure of the human body."
@@ -1640,9 +1642,9 @@
     "Rigid connective tissue that comprises up the skeletal structure of the human body.",
    :rdfs/label #xsd/string "Bone",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Book
@@ -1660,9 +1662,9 @@
    :rdfs/comment    #xsd/string "The publication format of the book.",
    :rdfs/label      #xsd/string "BookFormatType",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def BookSeries
   "A series of books. Included books can be indicated with the hasPart property."
@@ -1674,10 +1676,10 @@
    :rdfs/label #xsd/string "BookSeries",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CreativeWorkSeries
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series]})
+                     :schema/Thing]})
 
 (def BookStore
   "A bookstore."
@@ -1686,11 +1688,11 @@
    :rdfs/comment    #xsd/string "A bookstore.",
    :rdfs/label      #xsd/string "BookStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def BookmarkAction
   "An agent bookmarks/flags/labels/tags/marks an object."
@@ -1701,8 +1703,8 @@
    :rdfs/label      #xsd/string "BookmarkAction",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def BooleanClass
   "Boolean: True or False."
@@ -1721,7 +1723,7 @@
     "The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.\\n\\nRelated actions:\\n\\n* [[LendAction]]: Reciprocal of BorrowAction.",
    :rdfs/label #xsd/string "BorrowAction",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def BowlingAlley
   "A bowling alley."
@@ -1730,11 +1732,11 @@
    :rdfs/comment    #xsd/string "A bowling alley.",
    :rdfs/label      #xsd/string "BowlingAlley",
    :rdfs/subClassOf [:schema/SportsActivityLocation
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def BrainStructure
   "Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity."
@@ -1745,9 +1747,9 @@
     "Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.",
    :rdfs/label #xsd/string "BrainStructure",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Brand
@@ -1758,7 +1760,7 @@
    #xsd/string
     "A brand is a name used by an organization or business person for labeling a product, product group, or similar.",
    :rdfs/label #xsd/string "Brand",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -1771,7 +1773,7 @@
     "A BreadcrumbList is an ItemList consisting of a chain of linked Web pages, typically described using at least their URL and their name, and typically ending with the current page.\\n\\nThe [[position]] property is used to reconstruct the order of the items in a BreadcrumbList. The convention is that a breadcrumb list has an [[itemListOrder]] of [[ItemListOrderAscending]] (lower values listed first), and that the first items in this list correspond to the \"top\" or beginning of the breadcrumb trail, e.g. with a site or section homepage. The specific values of 'position' are not assigned meaning for a BreadcrumbList, but they should be integers, e.g. beginning with '1' for the first item in the list.\n      ",
    :rdfs/label #xsd/string "BreadcrumbList",
    :rdfs/subClassOf
-   [:schema/ItemList :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/ItemList :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def Brewery
   "Brewery."
@@ -1780,11 +1782,11 @@
    :rdfs/comment    #xsd/string "Brewery.",
    :rdfs/label      #xsd/string "Brewery",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Bridge
   "A bridge."
@@ -1793,9 +1795,9 @@
    :rdfs/comment    #xsd/string "A bridge.",
    :rdfs/label      #xsd/string "Bridge",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def BroadcastChannel
   "A unique instance of a BroadcastService on a CableOrSatelliteService lineup."
@@ -1834,9 +1836,9 @@
   "BroadcastRelease."
   {:db/ident           :schema/BroadcastRelease,
    :rdf/type           [:schema/MusicAlbumReleaseType
-                        :schema/Enumeration
-                        :rdfs/Resource
                         :schema/Intangible
+                        :rdfs/Resource
+                        :schema/Enumeration
                         :schema/Thing],
    :rdfs/comment       #xsd/string "BroadcastRelease.",
    :rdfs/label         #xsd/string "BroadcastRelease",
@@ -1851,7 +1853,7 @@
     "A delivery service through which content is provided via broadcast over the air or online.",
    :rdfs/label #xsd/string "BroadcastService",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Service :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Service :schema/Intangible :schema/Thing]})
 
 (def BrokerageAccount
   "An account that allows an investor to deposit funds and place investment orders with a licensed broker or brokerage firm."
@@ -1862,11 +1864,11 @@
     "An account that allows an investor to deposit funds and place investment orders with a licensed broker or brokerage firm.",
    :rdfs/label #xsd/string "BrokerageAccount",
    :rdfs/subClassOf [:schema/InvestmentOrDeposit
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :schema/FinancialProduct
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/FinancialProduct
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -1879,10 +1881,10 @@
    :rdfs/comment    #xsd/string "A Buddhist temple.",
    :rdfs/label      #xsd/string "BuddhistTemple",
    :rdfs/subClassOf [:schema/PlaceOfWorship
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def BusOrCoach
   "A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. Coaches are luxury busses, usually in service for long distance travel."
@@ -1893,7 +1895,7 @@
     "A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. Coaches are luxury busses, usually in service for long distance travel.",
    :rdfs/label #xsd/string "BusOrCoach",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Vehicle :schema/Thing :schema/Product],
+   [:rdfs/Resource :schema/Vehicle :schema/Product :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"},
@@ -1908,7 +1910,7 @@
     "A reservation for bus travel. \\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
    :rdfs/label #xsd/string "BusReservation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Reservation :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Reservation :schema/Intangible :schema/Thing]})
 
 (def BusStation
   "A bus station."
@@ -1917,9 +1919,9 @@
    :rdfs/comment    #xsd/string "A bus station.",
    :rdfs/label      #xsd/string "BusStation",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def BusStop
   "A bus stop."
@@ -1928,9 +1930,9 @@
    :rdfs/comment    #xsd/string "A bus stop.",
    :rdfs/label      #xsd/string "BusStop",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def BusTrip
   "A trip on a commercial bus line."
@@ -1939,9 +1941,9 @@
    :rdfs/comment    #xsd/string "A trip on a commercial bus line.",
    :rdfs/label      #xsd/string "BusTrip",
    :rdfs/subClassOf [:schema/Trip
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def BusinessAudience
   "A set of characteristics belonging to businesses, e.g. who compose an item's target audience."
@@ -1952,7 +1954,7 @@
     "A set of characteristics belonging to businesses, e.g. who compose an item's target audience.",
    :rdfs/label #xsd/string "BusinessAudience",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Audience :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Audience :schema/Intangible :schema/Thing]})
 
 (def BusinessEntityType
   "A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#Business\\n* http://purl.org/goodrelations/v1#Enduser\\n* http://purl.org/goodrelations/v1#PublicInstitution\\n* http://purl.org/goodrelations/v1#Reseller\n\t  "
@@ -1963,7 +1965,7 @@
     "A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#Business\\n* http://purl.org/goodrelations/v1#Enduser\\n* http://purl.org/goodrelations/v1#PublicInstitution\\n* http://purl.org/goodrelations/v1#Reseller\n\t  ",
    :rdfs/label #xsd/string "BusinessEntityType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -1973,7 +1975,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Business event.",
    :rdfs/label      #xsd/string "BusinessEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def BusinessFunction
   "The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#ConstructionInstallation\\n* http://purl.org/goodrelations/v1#Dispose\\n* http://purl.org/goodrelations/v1#LeaseOut\\n* http://purl.org/goodrelations/v1#Maintain\\n* http://purl.org/goodrelations/v1#ProvideService\\n* http://purl.org/goodrelations/v1#Repair\\n* http://purl.org/goodrelations/v1#Sell\\n* http://purl.org/goodrelations/v1#Buy\n        "
@@ -1984,7 +1986,7 @@
     "The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#ConstructionInstallation\\n* http://purl.org/goodrelations/v1#Dispose\\n* http://purl.org/goodrelations/v1#LeaseOut\\n* http://purl.org/goodrelations/v1#Maintain\\n* http://purl.org/goodrelations/v1#ProvideService\\n* http://purl.org/goodrelations/v1#Repair\\n* http://purl.org/goodrelations/v1#Sell\\n* http://purl.org/goodrelations/v1#Buy\n        ",
    :rdfs/label #xsd/string "BusinessFunction",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -1992,10 +1994,10 @@
   "BusinessSupport: this is a benefit for supporting businesses."
   {:db/ident :schema/BusinessSupport,
    :rdf/type [:schema/GovernmentBenefitsType
+              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/Enumeration
-              :rdfs/Resource],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string "BusinessSupport: this is a benefit for supporting businesses.",
    :rdfs/label #xsd/string "BusinessSupport",
@@ -2012,7 +2014,7 @@
     "The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.",
    :rdfs/label #xsd/string "BuyAction",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TradeAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def CDCPMDRecord
   "A CDCPMDRecord is a data structure representing a record in a CDC tabular data format\n      used for hospital data reporting. See [documentation](/docs/cdc-covid.html) for details, and the linked CDC materials for authoritative\n      definitions used as the source here.\n      "
@@ -2023,7 +2025,7 @@
     "A CDCPMDRecord is a data structure representing a record in a CDC tabular data format\n      used for hospital data reporting. See [documentation](/docs/cdc-covid.html) for details, and the linked CDC materials for authoritative\n      definitions used as the source here.\n      ",
    :rdfs/label #xsd/string "CDCPMDRecord",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2521"}})
@@ -2032,8 +2034,8 @@
   "CDFormat."
   {:db/ident           :schema/CDFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "CDFormat.",
@@ -2045,10 +2047,10 @@
   {:db/ident        :schema/CT,
    :rdf/type        [:schema/MedicalImagingTechnique
                      :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "X-ray computed tomography imaging.",
    :rdfs/label      #xsd/string "CT",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -2062,7 +2064,7 @@
     "A service which provides access to media programming like TV or radio. Access may be via cable or satellite.",
    :rdfs/label #xsd/string "CableOrSatelliteService",
    :rdfs/subClassOf
-   [:schema/Service :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Service :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def CafeOrCoffeeShop
   "A cafe or coffee shop."
@@ -2071,11 +2073,11 @@
    :rdfs/comment    #xsd/string "A cafe or coffee shop.",
    :rdfs/label      #xsd/string "CafeOrCoffeeShop",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Campground
   "A camping site, campsite, or [[Campground]] is a place used for overnight stay in the outdoors, typically containing individual [[CampingPitch]] locations. \\n\\n\nIn British English a campsite is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites (source: Wikipedia, see [https://en.wikipedia.org/wiki/Campsite](https://en.wikipedia.org/wiki/Campsite)).\\n\\n\n\nSee also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).\n"
@@ -2087,11 +2089,11 @@
    :rdfs/label #xsd/string "Campground",
    :rdfs/subClassOf [:schema/LodgingBusiness
                      :schema/CivicStructure
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -2104,7 +2106,7 @@
     "A [[CampingPitch]] is an individual place for overnight stay in the outdoors, typically being part of a larger camping site, or [[Campground]].\\n\\n\nIn British English a campsite, or campground, is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites.\n(Source: Wikipedia, see [https://en.wikipedia.org/wiki/Campsite](https://en.wikipedia.org/wiki/Campsite).)\\n\\n\nSee also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).\n",
    :rdfs/label #xsd/string "CampingPitch",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/Thing :schema/Place :rdfs/Resource],
+   [:schema/Accommodation :rdfs/Resource :schema/Place :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -2116,8 +2118,8 @@
    :rdfs/label      #xsd/string "Canal",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/BodyOfWater
-                     :schema/Thing
                      :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def CancelAction
@@ -2129,10 +2131,10 @@
     "The act of asserting that a future event/action is no longer going to happen.\\n\\nRelated actions:\\n\\n* [[ConfirmAction]]: The antonym of CancelAction.",
    :rdfs/label #xsd/string "CancelAction",
    :rdfs/subClassOf [:schema/PlanAction
-                     :schema/Thing
-                     :schema/OrganizeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/OrganizeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Car
   "A car is a wheeled, self-powered motor vehicle used for transportation."
@@ -2143,7 +2145,7 @@
     "A car is a wheeled, self-powered motor vehicle used for transportation.",
    :rdfs/label #xsd/string "Car",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Vehicle :schema/Thing :schema/Product],
+   [:rdfs/Resource :schema/Vehicle :schema/Product :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"}})
@@ -2157,7 +2159,7 @@
     "A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.",
    :rdfs/label #xsd/string "CarUsageType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"},
@@ -2167,10 +2169,10 @@
   "A specific branch of medical science that pertains to diagnosis and treatment of disorders of heart and vasculature."
   {:db/ident :schema/Cardiovascular,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -2183,13 +2185,13 @@
   "Cardiovascular system assessment with clinical examination."
   {:db/ident :schema/CardiovascularExam,
    :rdf/type [:schema/PhysicalExam
+              :schema/MedicalProcedure
               :schema/MedicalEnumeration
-              :schema/Enumeration
-              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/MedicalProcedure
-              :schema/MedicalEntity],
+              :rdfs/Resource
+              :schema/MedicalEntity
+              :schema/Enumeration],
    :rdfs/comment #xsd/string
                   "Cardiovascular system assessment with clinical examination.",
    :rdfs/label #xsd/string "CardiovascularExam",
@@ -2199,10 +2201,10 @@
   "A case series (also known as a clinical series) is a medical research study that tracks patients with a known exposure given similar treatment or examines their medical records for exposure and outcome. A case series can be retrospective or prospective and usually involves a smaller number of patients than the more powerful case-control studies or randomized controlled trials. Case series may be consecutive or non-consecutive, depending on whether all cases presenting to the reporting authors over a period of time were included, or only a selection."
   {:db/ident :schema/CaseSeries,
    :rdf/type [:schema/MedicalObservationalStudyDesign
-              :schema/Intangible
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -2217,18 +2219,18 @@
    :rdfs/comment    #xsd/string "A casino.",
    :rdfs/label      #xsd/string "Casino",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def CassetteFormat
   "CassetteFormat."
   {:db/ident           :schema/CassetteFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "CassetteFormat.",
@@ -2243,8 +2245,8 @@
    :rdfs/label      #xsd/string "CategoryCode",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/DefinedTerm
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/894"}})
@@ -2257,8 +2259,8 @@
    :rdfs/label      #xsd/string "CategoryCodeSet",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/DefinedTermSet
-                     :schema/Thing
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/894"}})
@@ -2270,20 +2272,20 @@
    :rdfs/comment    #xsd/string "A Catholic church.",
    :rdfs/label      #xsd/string "CatholicChurch",
    :rdfs/subClassOf [:schema/Church
-                     :schema/Thing
-                     :schema/Place
-                     :schema/PlaceOfWorship
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/PlaceOfWorship
+                     :schema/Place
+                     :schema/Thing]})
 
 (def CausesHealthAspect
   "Information about the causes and main actions that gave rise to the topic."
   {:db/ident :schema/CausesHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Information about the causes and main actions that gave rise to the topic.",
@@ -2299,9 +2301,9 @@
    :rdfs/comment    #xsd/string "A graveyard.",
    :rdfs/label      #xsd/string "Cemetery",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Chapter
   "One of the sections into which a book is divided. A chapter usually has a section number or a name."
@@ -2311,7 +2313,7 @@
    #xsd/string
     "One of the sections into which a book is divided. A chapter usually has a section number or a name.",
    :rdfs/label #xsd/string "Chapter",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def CharitableIncorporatedOrganization
@@ -2321,8 +2323,8 @@
               :rdfs/Resource
               :schema/Thing
               :schema/Enumeration
-              :schema/NonprofitType
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/NonprofitType],
    :rdfs/comment
    #xsd/string
     "CharitableIncorporatedOrganization: Non-profit type referring to a Charitable Incorporated Organization (UK).",
@@ -2340,7 +2342,7 @@
     "An agent inspects, determines, investigates, inquires, or examines an object's accuracy, quality, condition, or state.",
    :rdfs/label #xsd/string "CheckAction",
    :rdfs/subClassOf
-   [:schema/FindAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/FindAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def CheckInAction
   "The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check-in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).\\n\\nRelated actions:\\n\\n* [[CheckOutAction]]: The antonym of CheckInAction.\\n* [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\\n* [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence."
@@ -2351,10 +2353,10 @@
     "The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check-in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).\\n\\nRelated actions:\\n\\n* [[CheckOutAction]]: The antonym of CheckInAction.\\n* [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\\n* [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.",
    :rdfs/label #xsd/string "CheckInAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def CheckOutAction
   "The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check-in) or place (e.g. hotel).\\n\\nRelated actions:\\n\\n* [[CheckInAction]]: The antonym of CheckOutAction.\\n* [[DepartAction]]: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.\\n* [[CancelAction]]: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service."
@@ -2366,9 +2368,9 @@
    :rdfs/label #xsd/string "CheckOutAction",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CommunicateAction
-                     :schema/Thing
                      :schema/InteractAction
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def CheckoutPage
   "Web page type: Checkout page."
@@ -2378,8 +2380,8 @@
    :rdfs/label      #xsd/string "CheckoutPage",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/WebPage
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ChemicalSubstance
   "A chemical substance is 'a portion of matter of constant composition, composed of molecular entities of the same type or of different types' (source: [ChEBI:59999](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999))."
@@ -2402,10 +2404,10 @@
    :rdfs/comment    #xsd/string "A Childcare center.",
    :rdfs/label      #xsd/string "ChildCare",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ChildrensEvent
   "Event type: Children's event."
@@ -2413,17 +2415,17 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Children's event.",
    :rdfs/label      #xsd/string "ChildrensEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def Chiropractic
   "A system of medicine focused on the relationship between the body's structure, mainly the spine, and its functioning."
   {:db/ident :schema/Chiropractic,
    :rdf/type [:schema/MedicineSystem
               :schema/MedicalEnumeration
-              :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "A system of medicine focused on the relationship between the body's structure, mainly the spine, and its functioning.",
@@ -2439,7 +2441,7 @@
     "The act of expressing a preference from a set of options or a large or unbounded set of choices/options.",
    :rdfs/label #xsd/string "ChooseAction",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/AssessAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Church
   "A church."
@@ -2448,10 +2450,10 @@
    :rdfs/comment    #xsd/string "A church.",
    :rdfs/label      #xsd/string "Church",
    :rdfs/subClassOf [:schema/PlaceOfWorship
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def City
   "A city or town."
@@ -2460,9 +2462,9 @@
    :rdfs/comment    #xsd/string "A city or town.",
    :rdfs/label      #xsd/string "City",
    :rdfs/subClassOf [:schema/AdministrativeArea
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def CityHall
   "A city hall."
@@ -2471,10 +2473,10 @@
    :rdfs/comment    #xsd/string "A city hall.",
    :rdfs/label      #xsd/string "CityHall",
    :rdfs/subClassOf [:schema/GovernmentBuilding
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def CivicStructure
   "A public structure, such as a town hall or concert hall."
@@ -2493,7 +2495,7 @@
    #xsd/string
     "A [[Claim]] in Schema.org represents a specific, factually-oriented claim that could be the [[itemReviewed]] in a [[ClaimReview]]. The content of a claim can be summarized with the [[text]] property. Variations on well known claims can have their common identity indicated via [[sameAs]] links, and summarized with a [[name]]. Ideally, a [[Claim]] description includes enough contextual information to minimize the risk of ambiguity or inclarity. In practice, many claims are better understood in the context in which they appear or the interpretations provided by claim reviews.\n\n  Beyond [[ClaimReview]], the Claim type can be associated with related creative works - for example a [[ScholarlyArticle]] or [[Question]] might be [[about]] some [[Claim]].\n\n  At this time, Schema.org does not define any types of relationship between claims. This is a natural area for future exploration.\n  ",
    :rdfs/label #xsd/string "Claim",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1828"}})
@@ -2507,7 +2509,7 @@
     "A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).",
    :rdfs/label #xsd/string "ClaimReview",
    :rdfs/subClassOf
-   [:schema/Review :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/Review :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1061"}})
 
@@ -2519,17 +2521,17 @@
    :rdfs/comment
    #xsd/string "A class, also often called a 'Type'; equivalent to rdfs:Class.",
    :rdfs/label #xsd/string "Class",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://meta.schema.org"}})
 
 (def CleaningFee
   "Represents the cleaning fee part of the total price for an offered product, for example a vacation rental."
   {:db/ident :schema/CleaningFee,
    :rdf/type [:schema/PriceComponentTypeEnumeration
-              :schema/Enumeration
+              :schema/Intangible
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Represents the cleaning fee part of the total price for an offered product, for example a vacation rental.",
@@ -2543,10 +2545,10 @@
   {:db/ident :schema/Clinician,
    :rdf/type [:schema/MedicalAudienceType
               :schema/Intangible
-              :rdfs/Resource
-              :schema/MedicalEnumeration
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :rdfs/Resource
+              :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
     "Medical clinicians, including practicing physicians and other medical professionals involved in clinical practice.",
@@ -2569,20 +2571,20 @@
    :rdfs/comment    #xsd/string "A clothing store.",
    :rdfs/label      #xsd/string "ClothingStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def CoOp
   "Play mode: CoOp. Co-operative games, where you play on the same team with friends."
   {:db/ident :schema/CoOp,
    :rdf/type [:schema/GamePlayMode
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/Intangible
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "Play mode: CoOp. Co-operative games, where you play on the same team with friends.",
@@ -2603,10 +2605,10 @@
   "Also known as a panel study. A cohort study is a form of longitudinal study used in medicine and social science. It is one type of study design and should be compared with a cross-sectional study.  A cohort is a group of people who share a common characteristic or experience within a defined period (e.g., are born, leave school, lose their job, are exposed to a drug or a vaccine, etc.). The comparison group may be the general population from which the cohort is drawn, or it may be another cohort of persons thought to have had little or no exposure to the substance under investigation, but otherwise similar. Alternatively, subgroups within the cohort may be compared with each other."
   {:db/ident :schema/CohortStudy,
    :rdf/type [:schema/MedicalObservationalStudyDesign
-              :schema/Intangible
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -2621,7 +2623,7 @@
    :rdfs/comment    #xsd/string
                      "A collection of items, e.g. creative works or products.",
    :rdfs/label      #xsd/string "Collection",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def CollectionPage
@@ -2631,9 +2633,9 @@
    :rdfs/comment    #xsd/string "Web page type: Collection page.",
    :rdfs/label      #xsd/string "CollectionPage",
    :rdfs/subClassOf [:schema/WebPage
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def CollegeOrUniversity
   "A college, university, or other third-level educational institution."
@@ -2644,11 +2646,11 @@
     "A college, university, or other third-level educational institution.",
    :rdfs/label #xsd/string "CollegeOrUniversity",
    :rdfs/subClassOf [:schema/EducationalOrganization
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ComedyClub
   "A comedy club."
@@ -2657,11 +2659,11 @@
    :rdfs/comment    #xsd/string "A comedy club.",
    :rdfs/label      #xsd/string "ComedyClub",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ComedyEvent
   "Event type: Comedy event."
@@ -2679,10 +2681,10 @@
    :rdfs/label      #xsd/string "ComicCoverArt",
    :rdfs/subClassOf [:schema/CoverArt
                      :schema/ComicStory
-                     :schema/Thing
                      :rdfs/Resource
+                     :schema/CreativeWork
                      :schema/VisualArtwork
-                     :schema/CreativeWork],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def ComicIssue
@@ -2694,7 +2696,7 @@
     "Individual comic issues are serially published as\n    \tpart of a larger series. For the sake of consistency, even one-shot issues\n    \tbelong to a series comprised of a single issue. All comic issues can be\n    \tuniquely identified by: the combination of the name and volume number of the\n    \tseries to which the issue belongs; the issue number; and the variant\n    \tdescription of the issue (if any).",
    :rdfs/label #xsd/string "ComicIssue",
    :rdfs/subClassOf
-   [:schema/PublicationIssue :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/PublicationIssue :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def ComicSeries
@@ -2707,11 +2709,11 @@
    :rdfs/label #xsd/string "ComicSeries",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Periodical
-                     :schema/Thing
-                     :schema/CreativeWorkSeries
                      :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series],
+                     :schema/CreativeWorkSeries
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def ComicStory
@@ -2743,18 +2745,18 @@
                      "The act of generating a comment about a subject.",
    :rdfs/label      #xsd/string "CommentAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def CommentPermission
   "Permission to add comments to the document."
   {:db/ident     :schema/CommentPermission,
    :rdf/type     [:schema/DigitalDocumentPermissionType
-                  :schema/Thing
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
+                  :schema/Thing
                   :schema/Intangible],
    :rdfs/comment #xsd/string "Permission to add comments to the document.",
    :rdfs/label   #xsd/string "CommentPermission"})
@@ -2768,16 +2770,16 @@
     "The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation.",
    :rdfs/label #xsd/string "CommunicateAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def CommunityHealth
   "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas."
   {:db/ident :schema/CommunityHealth,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -2785,11 +2787,11 @@
     "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas.",
    :rdfs/label #xsd/string "CommunityHealth",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def CompilationAlbum
@@ -2797,9 +2799,9 @@
   {:db/ident           :schema/CompilationAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "CompilationAlbum.",
    :rdfs/label         #xsd/string "CompilationAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -2813,10 +2815,10 @@
     "A [[CompleteDataFeed]] is a [[DataFeed]] whose standard representation includes content for every item currently in the feed.\n\nThis is the equivalent of Atom's element as defined in Feed Paging and Archiving [RFC 5005](https://tools.ietf.org/html/rfc5005), for example (and as defined for Atom), when using data from a feed that represents a collection of items that varies over time (e.g. \"Top Twenty Records\") there is no need to have newer entries mixed in alongside older, obsolete entries. By marking this feed as a CompleteDataFeed, old entries can be safely discarded when the feed is refreshed, since we can assume the feed has provided descriptions for all current items.",
    :rdfs/label #xsd/string "CompleteDataFeed",
    :rdfs/subClassOf [:schema/DataFeed
-                     :schema/Thing
                      :schema/Dataset
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1397"}})
@@ -2826,9 +2828,9 @@
   {:db/ident        :schema/Completed,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Completed.",
    :rdfs/label      #xsd/string "Completed",
@@ -2838,11 +2840,11 @@
   "An action that has already taken place."
   {:db/ident     :schema/CompletedActionStatus,
    :rdf/type     [:schema/ActionStatusType
-                  :schema/Thing
                   :rdfs/Resource
-                  :schema/StatusEnumeration
                   :schema/Enumeration
-                  :schema/Intangible],
+                  :schema/StatusEnumeration
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "An action that has already taken place.",
    :rdfs/label   #xsd/string "CompletedActionStatus"})
 
@@ -2855,10 +2857,10 @@
     "A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. \"electricity\" or \"final cleaning\").",
    :rdfs/label #xsd/string "CompoundPriceSpecification",
    :rdfs/subClassOf [:schema/PriceSpecification
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue],
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -2879,11 +2881,11 @@
    :rdfs/comment    #xsd/string "A computer store.",
    :rdfs/label      #xsd/string "ComputerStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ConfirmAction
   "The act of notifying someone that a future event/action is going to happen as expected.\\n\\nRelated actions:\\n\\n* [[CancelAction]]: The antonym of ConfirmAction."
@@ -2894,11 +2896,11 @@
     "The act of notifying someone that a future event/action is going to happen as expected.\\n\\nRelated actions:\\n\\n* [[CancelAction]]: The antonym of ConfirmAction.",
    :rdfs/label #xsd/string "ConfirmAction",
    :rdfs/subClassOf [:schema/InformAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
+                     :schema/InteractAction
                      :schema/CommunicateAction
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Consortium
   "A Consortium is a membership [[Organization]] whose members are typically Organizations."
@@ -2908,7 +2910,7 @@
    #xsd/string
     "A Consortium is a membership [[Organization]] whose members are typically Organizations.",
    :rdfs/label #xsd/string "Consortium",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1559"}})
@@ -2942,9 +2944,9 @@
    :rdfs/comment    #xsd/string "Web page type: Contact page.",
    :rdfs/label      #xsd/string "ContactPage",
    :rdfs/subClassOf [:schema/WebPage
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ContactPoint
   "A contact point&#x2014;for example, a Customer Complaints department."
@@ -2955,7 +2957,7 @@
     "A contact point&#x2014;for example, a Customer Complaints department.",
    :rdfs/label #xsd/string "ContactPoint",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing]})
 
 (def ContactPointOption
   "Enumerated options related to a ContactPoint."
@@ -2965,17 +2967,17 @@
    :rdfs/label      #xsd/string "ContactPointOption",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ContagiousnessHealthAspect
   "Content about contagion mechanisms and contagiousness information over the topic."
   {:db/ident :schema/ContagiousnessHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content about contagion mechanisms and contagiousness information over the topic.",
@@ -2993,8 +2995,8 @@
    :rdfs/label      #xsd/string "Continent",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Landform
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def ControlAction
   "An agent controls a device or application."
@@ -3011,11 +3013,11 @@
    :rdfs/comment    #xsd/string "A convenience store.",
    :rdfs/label      #xsd/string "ConvenienceStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Conversation
   "One or more messages between organizations or people on a particular topic. Individual messages can be linked to the conversation with isPartOf or hasPart properties."
@@ -3034,9 +3036,9 @@
    :rdfs/comment    #xsd/string "The act of producing/preparing food.",
    :rdfs/label      #xsd/string "CookAction",
    :rdfs/subClassOf [:schema/CreateAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Corporation
   "Organization: A business corporation."
@@ -3044,7 +3046,7 @@
    :rdf/type           :rdfs/Class,
    :rdfs/comment       #xsd/string "Organization: A business corporation.",
    :rdfs/label         #xsd/string "Corporation",
-   :rdfs/subClassOf    [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf    [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/rNews"}})
 
 (def CorrectionComment
@@ -3055,8 +3057,8 @@
    :rdfs/label      #xsd/string "CorrectionComment",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Comment
-                     :schema/Thing
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1950"}})
@@ -3068,9 +3070,9 @@
    :rdfs/comment    #xsd/string "A country.",
    :rdfs/label      #xsd/string "Country",
    :rdfs/subClassOf [:schema/AdministrativeArea
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Course
   "A description of an educational course which may be offered as distinct instances which take place at different times or take place at different locations, or be offered through different media or modes of study. An educational course is a sequence of one or more educational events and/or creative works which aims to build knowledge, competence or ability of learners."
@@ -3082,8 +3084,8 @@
    :rdfs/label #xsd/string "Course",
    :rdfs/subClassOf [:schema/LearningResource
                      :schema/CreativeWork
-                     :schema/Thing
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :schema/Thing]})
 
 (def CourseInstance
   "An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students."
@@ -3093,7 +3095,7 @@
    #xsd/string
     "An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.",
    :rdfs/label #xsd/string "CourseInstance",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def Courthouse
   "A courthouse."
@@ -3103,9 +3105,9 @@
    :rdfs/label      #xsd/string "Courthouse",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/GovernmentBuilding
-                     :schema/Thing
+                     :schema/CivicStructure
                      :schema/Place
-                     :schema/CivicStructure]})
+                     :schema/Thing]})
 
 (def CoverArt
   "The artwork on the outer surface of a CreativeWork."
@@ -3115,9 +3117,9 @@
                      "The artwork on the outer surface of a CreativeWork.",
    :rdfs/label      #xsd/string "CoverArt",
    :rdfs/subClassOf [:schema/VisualArtwork
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"}})
 
 (def CovidTestingFacility
@@ -3129,13 +3131,13 @@
     "A CovidTestingFacility is a [[MedicalClinic]] where testing for the COVID-19 Coronavirus\n      disease is available. If the facility is being made available from an established [[Pharmacy]], [[Hotel]], or other\n      non-medical organization, multiple types can be listed. This makes it easier to re-use existing schema.org information\n      about that place, e.g. contact info, address, opening hours. Note that in an emergency, such information may not always be reliable.\n      ",
    :rdfs/label #xsd/string "CovidTestingFacility",
    :rdfs/subClassOf [:schema/MedicalClinic
-                     :schema/Organization
-                     :schema/Thing
+                     :schema/MedicalOrganization
+                     :rdfs/Resource
+                     :schema/LocalBusiness
                      :schema/Place
                      :schema/MedicalBusiness
-                     :schema/LocalBusiness
-                     :rdfs/Resource
-                     :schema/MedicalOrganization],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2490"}})
@@ -3148,7 +3150,7 @@
    #xsd/string
     "The act of deliberately creating/producing/generating/building a result out of the agent.",
    :rdfs/label #xsd/string "CreateAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def CreativeWork
   "The most generic kind of creative work, including books, movies, photographs, software programs, etc."
@@ -3180,9 +3182,9 @@
    :rdfs/label #xsd/string "CreativeWorkSeries",
    :rdfs/subClassOf [:schema/Series
                      :schema/CreativeWork
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def CreditCard
   "A card payment method of a particular brand or name.  Used to mark up a particular payment method and/or the financial product/service that supplies the card account.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#AmericanExpress\\n* http://purl.org/goodrelations/v1#DinersClub\\n* http://purl.org/goodrelations/v1#Discover\\n* http://purl.org/goodrelations/v1#JCB\\n* http://purl.org/goodrelations/v1#MasterCard\\n* http://purl.org/goodrelations/v1#VISA\n       "
@@ -3196,11 +3198,11 @@
                      :schema/PaymentCard
                      :schema/LoanOrCredit
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible
-                     :schema/FinancialProduct
                      :schema/PaymentMethod
-                     :schema/Service],
+                     :schema/Intangible
+                     :schema/Service
+                     :schema/FinancialProduct
+                     :schema/Thing],
    :schema/contributor [{:rdfa/uri
                          "http://schema.org/docs/collab/GoodRelationsClass"}
                         {:rdfa/uri "http://schema.org/docs/collab/FIBO"}]})
@@ -3212,9 +3214,9 @@
    :rdfs/comment    #xsd/string "A crematorium.",
    :rdfs/label      #xsd/string "Crematorium",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def CriticReview
   "A [[CriticReview]] is a more specialized form of Review written or published by a source that is recognized for its reviewing activities. These can include online columns, travel and food guides, TV and radio shows, blogs and other independent Web sites. [[CriticReview]]s are typically more in-depth and professionally written. For simpler, casually written user/visitor/viewer/customer reviews, it is more appropriate to use the [[UserReview]] type. Review aggregator sites such as Metacritic already separate out the site's user reviews from selected critic reviews that originate from third-party sources."
@@ -3225,7 +3227,7 @@
     "A [[CriticReview]] is a more specialized form of Review written or published by a source that is recognized for its reviewing activities. These can include online columns, travel and food guides, TV and radio shows, blogs and other independent Web sites. [[CriticReview]]s are typically more in-depth and professionally written. For simpler, casually written user/visitor/viewer/customer reviews, it is more appropriate to use the [[UserReview]] type. Review aggregator sites such as Metacritic already separate out the site's user reviews from selected critic reviews that originate from third-party sources.",
    :rdfs/label #xsd/string "CriticReview",
    :rdfs/subClassOf
-   [:schema/Review :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/Review :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1589"}})
@@ -3234,10 +3236,10 @@
   "Studies carried out on pre-existing data (usually from 'snapshot' surveys), such as that collected by the Census Bureau. Sometimes called Prevalence Studies."
   {:db/ident :schema/CrossSectional,
    :rdf/type [:schema/MedicalObservationalStudyDesign
-              :schema/Intangible
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -3265,10 +3267,10 @@
     "A service to convert funds from one currency to another currency.",
    :rdfs/label #xsd/string "CurrencyConversionService",
    :rdfs/subClassOf [:schema/FinancialProduct
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def DDxElement
@@ -3280,9 +3282,9 @@
     "An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.",
    :rdfs/label #xsd/string "DDxElement",
    :rdfs/subClassOf [:schema/MedicalIntangible
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DJMixAlbum
@@ -3290,9 +3292,9 @@
   {:db/ident           :schema/DJMixAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "DJMixAlbum.",
    :rdfs/label         #xsd/string "DJMixAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -3301,8 +3303,8 @@
   "DVDFormat."
   {:db/ident           :schema/DVDFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "DVDFormat.",
@@ -3313,10 +3315,10 @@
   "Indicates that the item is damaged."
   {:db/ident     :schema/DamagedCondition,
    :rdf/type     [:schema/OfferItemCondition
+                  :rdfs/Resource
                   :schema/Enumeration
                   :schema/Intangible
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item is damaged.",
    :rdfs/label   #xsd/string "DamagedCondition"})
 
@@ -3337,16 +3339,16 @@
     "A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.",
    :rdfs/label #xsd/string "DanceGroup",
    :rdfs/subClassOf
-   [:schema/PerformingGroup :schema/Organization :schema/Thing :rdfs/Resource]})
+   [:schema/PerformingGroup :rdfs/Resource :schema/Organization :schema/Thing]})
 
 (def DangerousGoodConsideration
   "The item is dangerous and requires careful handling and/or special training of the user. See also the [UN Model Classification](https://unece.org/DAM/trans/danger/publi/unrec/rev17/English/02EREv17_Part2.pdf) defining the 9 classes of dangerous goods such as explosives, gases, flammables, and more."
   {:db/ident :schema/DangerousGoodConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "The item is dangerous and requires careful handling and/or special training of the user. See also the [UN Model Classification](https://unece.org/DAM/trans/danger/publi/unrec/rev17/English/02EREv17_Part2.pdf) defining the 9 classes of dangerous goods such as explosives, gases, flammables, and more.",
@@ -3362,7 +3364,7 @@
    :rdf/type            :rdfs/Class,
    :rdfs/comment        #xsd/string "A collection of datasets.",
    :rdfs/label          #xsd/string "DataCatalog",
-   :rdfs/subClassOf     [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf     [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/contributor  {:rdfa/uri
                          "http://schema.org/docs/collab/DatasetClass"}})
 
@@ -3375,9 +3377,9 @@
                          "All or part of a [[Dataset]] in downloadable form. ",
    :rdfs/label          #xsd/string "DataDownload",
    :rdfs/subClassOf     [:schema/MediaObject
-                         :schema/Thing
                          :rdfs/Resource
-                         :schema/CreativeWork],
+                         :schema/CreativeWork
+                         :schema/Thing],
    :schema/contributor  {:rdfa/uri
                          "http://schema.org/docs/collab/DatasetClass"}})
 
@@ -3390,7 +3392,7 @@
     "A single feed providing structured information about one or more entities or topics.",
    :rdfs/label #xsd/string "DataFeed",
    :rdfs/subClassOf
-   [:schema/Dataset :schema/Thing :rdfs/Resource :schema/CreativeWork]})
+   [:schema/Dataset :rdfs/Resource :schema/CreativeWork :schema/Thing]})
 
 (def DataFeedItem
   "A single item within a larger data feed."
@@ -3398,7 +3400,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "A single item within a larger data feed.",
    :rdfs/label      #xsd/string "DataFeedItem",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def DataType
   "The basic data types such as Integers, Strings, etc."
@@ -3451,7 +3453,7 @@
     "A DatedMoneySpecification represents monetary values with optional start and end dates. For example, this could represent an employee's salary over a specific period of time. __Note:__ This type has been superseded by [[MonetaryAmount]], use of that type is recommended.",
    :rdfs/label #xsd/string "DatedMoneySpecification",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/supersededBy :schema/MonetaryAmount})
 
 (def DayOfWeek
@@ -3463,7 +3465,7 @@
     "The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.\n\nOriginally, URLs from [GoodRelations](http://purl.org/goodrelations/v1) were used (for [[Monday]], [[Tuesday]], [[Wednesday]], [[Thursday]], [[Friday]], [[Saturday]], [[Sunday]] plus a special entry for [[PublicHolidays]]); these have now been integrated directly into schema.org.\n      ",
    :rdfs/label #xsd/string "DayOfWeek",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -3474,11 +3476,11 @@
    :rdfs/comment    #xsd/string "A day spa.",
    :rdfs/label      #xsd/string "DaySpa",
    :rdfs/subClassOf [:schema/HealthAndBeautyBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def DeactivateAction
   "The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight)."
@@ -3489,14 +3491,14 @@
     "The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight).",
    :rdfs/label #xsd/string "DeactivateAction",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/ControlAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def DecontextualizedContent
   "Content coded 'missing context' in a [[MediaReview]], considered in the context of how it was published or shared.\n\nFor a [[VideoObject]] to be 'missing context': Presenting unaltered video in an inaccurate manner that misrepresents the footage. For example, using incorrect dates or locations, altering the transcript or sharing brief clips from a longer video to mislead viewers. (A video rated 'original' can also be missing context.)\n\nFor an [[ImageObject]] to be 'missing context': Presenting unaltered images in an inaccurate manner to misrepresent the image and mislead the viewer. For example, a common tactic is using an unaltered image but saying it came from a different time or place. (An image rated 'original' can also be missing context.)\n\nFor an [[ImageObject]] with embedded text to be 'missing context': An unaltered image presented in an inaccurate manner to misrepresent the image and mislead the viewer. For example, a common tactic is using an unaltered image but saying it came from a different time or place. (An 'original' image with inaccurate text would generally fall in this category.)\n\nFor an [[AudioObject]] to be 'missing context': Unaltered audio presented in an inaccurate manner that misrepresents it. For example, using incorrect dates or locations, or sharing brief clips from a longer recording to mislead viewers. (Audio rated “original” can also be missing context.)\n"
   {:db/ident :schema/DecontextualizedContent,
    :rdf/type [:schema/MediaManipulationRatingEnumeration
-              :rdfs/Resource
               :schema/Thing
+              :rdfs/Resource
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -3515,10 +3517,10 @@
                      "A defence establishment, such as an army or navy base.",
    :rdfs/label      #xsd/string "DefenceEstablishment",
    :rdfs/subClassOf [:schema/GovernmentBuilding
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def DefinedRegion
   "A DefinedRegion is a geographic area defined by potentially arbitrary (rather than political, administrative or natural geographical) criteria. Properties are provided for defining a region by reference to sets of postal codes.\n\nExamples: a delivery destination when shopping. Region where regional pricing is configured.\n\nRequirement 1:\nCountry: US\nStates: \"NY\", \"CA\"\n\nRequirement 2:\nCountry: US\nPostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]}\n{ [12345, 12345], [78945, 78945], }\nRegion = state, canton, prefecture, autonomous community...\n"
@@ -3529,7 +3531,7 @@
     "A DefinedRegion is a geographic area defined by potentially arbitrary (rather than political, administrative or natural geographical) criteria. Properties are provided for defining a region by reference to sets of postal codes.\n\nExamples: a delivery destination when shopping. Region where regional pricing is configured.\n\nRequirement 1:\nCountry: US\nStates: \"NY\", \"CA\"\n\nRequirement 2:\nCountry: US\nPostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]}\n{ [12345, 12345], [78945, 78945], }\nRegion = state, canton, prefecture, autonomous community...\n",
    :rdfs/label #xsd/string "DefinedRegion",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2506"}})
@@ -3555,7 +3557,7 @@
    #xsd/string
     "A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.",
    :rdfs/label #xsd/string "DefinedTermSet",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/894"}})
@@ -3564,10 +3566,10 @@
   "Indicates a document for which the text is conclusively what the law says and is legally binding. (E.g. the digitally signed version of an Official Journal.)\n  Something \"Definitive\" is considered to be also [[AuthoritativeLegalValue]]."
   {:db/ident :schema/DefinitiveLegalValue,
    :rdf/type [:schema/LegalValueLevel
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Indicates a document for which the text is conclusively what the law says and is legally binding. (E.g. the digitally signed version of an Official Journal.)\n  Something \"Definitive\" is considered to be also [[AuthoritativeLegalValue]].",
@@ -3586,7 +3588,7 @@
    #xsd/string "The act of editing a recipient by removing one of its objects.",
    :rdfs/label #xsd/string "DeleteAction",
    :rdfs/subClassOf
-   [:schema/UpdateAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/UpdateAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def DeliveryChargeSpecification
   "The price for the delivery of an offer using a particular delivery method."
@@ -3597,10 +3599,10 @@
     "The price for the delivery of an offer using a particular delivery method.",
    :rdfs/label #xsd/string "DeliveryChargeSpecification",
    :rdfs/subClassOf [:schema/PriceSpecification
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue],
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -3621,7 +3623,7 @@
     "A delivery method is a standardized procedure for transferring the product or service to the destination of fulfillment chosen by the customer. Delivery methods are characterized by the means of transportation used, and by the organization or group that is the contracting party for the sending organization or person.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#DeliveryModeDirectDownload\\n* http://purl.org/goodrelations/v1#DeliveryModeFreight\\n* http://purl.org/goodrelations/v1#DeliveryModeMail\\n* http://purl.org/goodrelations/v1#DeliveryModeOwnFleet\\n* http://purl.org/goodrelations/v1#DeliveryModePickUp\\n* http://purl.org/goodrelations/v1#DHL\\n* http://purl.org/goodrelations/v1#FederalExpress\\n* http://purl.org/goodrelations/v1#UPS\n        ",
    :rdfs/label #xsd/string "DeliveryMethod",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -3634,7 +3636,7 @@
     "A DeliveryTimeSettings represents re-usable pieces of shipping information, relating to timing. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished (and identified/referenced) by their different values for [[transitTimeLabel]].",
    :rdfs/label #xsd/string "DeliveryTimeSettings",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2506"}})
@@ -3656,9 +3658,9 @@
   {:db/ident           :schema/DemoAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "DemoAlbum.",
    :rdfs/label         #xsd/string "DemoAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -3667,9 +3669,9 @@
   "Indicates demo game availability, i.e. a somehow limited demonstration of the full game."
   {:db/ident :schema/DemoGameAvailability,
    :rdf/type [:schema/GameAvailabilityEnumeration
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
    #xsd/string
@@ -3688,19 +3690,19 @@
    :rdfs/subClassOf [:schema/MedicalOrganization
                      :schema/MedicalBusiness
                      :schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Dentistry
   "A branch of medicine that is involved in the dental care."
   {:db/ident :schema/Dentistry,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment #xsd/string
@@ -3717,7 +3719,7 @@
     "The act of  departing from a place. An agent departs from a fromLocation for a destination, optionally with participants.",
    :rdfs/label #xsd/string "DepartAction",
    :rdfs/subClassOf
-   [:schema/MoveAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/MoveAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def DepartmentStore
   "A department store."
@@ -3726,11 +3728,11 @@
    :rdfs/comment    #xsd/string "A department store.",
    :rdfs/label      #xsd/string "DepartmentStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def DepositAccount
   "A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits."
@@ -3742,21 +3744,21 @@
    :rdfs/label #xsd/string "DepositAccount",
    :rdfs/subClassOf [:schema/InvestmentOrDeposit
                      :schema/BankAccount
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :schema/FinancialProduct
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/FinancialProduct
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def Dermatologic
   "Something relating to or practicing dermatology."
   {:db/ident            :schema/Dermatologic,
    :rdf/type            [:schema/MedicalSpecialty
+                         :schema/Intangible
+                         :schema/Enumeration
                          :schema/Specialty
                          :rdfs/Resource
-                         :schema/Enumeration
-                         :schema/Intangible
                          :schema/Thing
                          :schema/MedicalEnumeration],
    :rdfs/comment        #xsd/string
@@ -3769,10 +3771,10 @@
   "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin."
   {:db/ident :schema/Dermatology,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -3780,20 +3782,20 @@
     "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin.",
    :rdfs/label #xsd/string "Dermatology",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DesktopWebPlatform
   "Represents the broad notion of 'desktop' browsers as a Web Platform."
   {:db/ident :schema/DesktopWebPlatform,
    :rdf/type [:schema/DigitalPlatformEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Intangible
+              :schema/Enumeration
               :schema/Thing],
    :rdfs/comment
    #xsd/string
@@ -3807,10 +3809,10 @@
   "A diet appropriate for people with diabetes."
   {:db/ident     :schema/DiabeticDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet appropriate for people with diabetes.",
    :rdfs/label   #xsd/string "DiabeticDiet"})
 
@@ -3818,11 +3820,11 @@
   "A medical device used for diagnostic purposes."
   {:db/ident        :schema/Diagnostic,
    :rdf/type        [:schema/MedicalDevicePurpose
-                     :rdfs/Resource
-                     :schema/Enumeration
+                     :schema/MedicalEnumeration
                      :schema/Thing
+                     :schema/Enumeration
                      :schema/Intangible
-                     :schema/MedicalEnumeration],
+                     :rdfs/Resource],
    :rdfs/comment    #xsd/string
                      "A medical device used for diagnostic purposes.",
    :rdfs/label      #xsd/string "Diagnostic",
@@ -3851,9 +3853,9 @@
     "A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes.",
    :rdfs/label #xsd/string "DiagnosticProcedure",
    :rdfs/subClassOf [:schema/MedicalProcedure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Diet
@@ -3866,30 +3868,30 @@
    :rdfs/label #xsd/string "Diet",
    :rdfs/subClassOf [:schema/LifestyleModification
                      :schema/CreativeWork
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DietNutrition
   "Dietetics and nutrition as a medical specialty."
   {:db/ident        :schema/DietNutrition,
    :rdf/type        [:schema/MedicalSpecialty
+                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Specialty
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Intangible
                      :schema/Thing
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string
                      "Dietetics and nutrition as a medical specialty.",
    :rdfs/label      #xsd/string "DietNutrition",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DietarySupplement
@@ -3902,17 +3904,17 @@
    :rdfs/label #xsd/string "DietarySupplement",
    :rdfs/subClassOf [:schema/Substance
                      :schema/Product
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DigitalAudioTapeFormat
   "DigitalAudioTapeFormat."
   {:db/ident           :schema/DigitalAudioTapeFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "DigitalAudioTapeFormat.",
@@ -3925,7 +3927,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "An electronic file or document.",
    :rdfs/label      #xsd/string "DigitalDocument",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def DigitalDocumentPermission
   "A permission for a particular person or group to access a particular file."
@@ -3946,14 +3948,14 @@
     "A type of permission which can be granted for accessing a digital document.",
    :rdfs/label #xsd/string "DigitalDocumentPermissionType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def DigitalFormat
   "DigitalFormat."
   {:db/ident           :schema/DigitalFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "DigitalFormat.",
@@ -3969,7 +3971,7 @@
     "Enumerates some common technology platforms, for use with properties such as [[actionPlatform]]. It is not supposed to be comprehensive - when a suitable code is not enumerated here, textual or URL values can be used instead. These codes are at a fairly high level and do not deal with versioning and other nuance. Additional codes can be suggested [in github](https://github.com/schemaorg/schemaorg/issues/3057). ",
    :rdfs/label #xsd/string "DigitalPlatformEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/3057"}})
@@ -3978,10 +3980,10 @@
   "DisabilitySupport: this is a benefit for disability support."
   {:db/ident :schema/DisabilitySupport,
    :rdf/type [:schema/GovernmentBenefitsType
+              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/Enumeration
-              :rdfs/Resource],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string "DisabilitySupport: this is a benefit for disability support.",
    :rdfs/label #xsd/string "DisabilitySupport",
@@ -3998,17 +4000,17 @@
     "The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants.",
    :rdfs/label #xsd/string "DisagreeAction",
    :rdfs/subClassOf [:schema/ReactAction
-                     :schema/Thing
-                     :schema/AssessAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/AssessAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Discontinued
   "Indicates that the item has been discontinued."
   {:db/ident     :schema/Discontinued,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item has been discontinued.",
@@ -4021,9 +4023,9 @@
    :rdfs/comment    #xsd/string "The act of discovering/finding an object.",
    :rdfs/label      #xsd/string "DiscoverAction",
    :rdfs/subClassOf [:schema/FindAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def DiscussionForumPosting
   "A posting to a discussion forum."
@@ -4032,10 +4034,10 @@
    :rdfs/comment    #xsd/string "A posting to a discussion forum.",
    :rdfs/label      #xsd/string "DiscussionForumPosting",
    :rdfs/subClassOf [:schema/SocialMediaPosting
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing]})
 
 (def DislikeAction
   "The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants."
@@ -4046,10 +4048,10 @@
     "The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.",
    :rdfs/label #xsd/string "DislikeAction",
    :rdfs/subClassOf [:schema/ReactAction
-                     :schema/Thing
-                     :schema/AssessAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/AssessAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Distance
   "Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'."
@@ -4060,16 +4062,16 @@
     "Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'.",
    :rdfs/label #xsd/string "Distance",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Quantity :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Quantity :schema/Intangible :schema/Thing]})
 
 (def DistanceFee
   "Represents the distance fee (e.g., price per km or mile) part of the total price for an offered product, for example a car rental."
   {:db/ident :schema/DistanceFee,
    :rdf/type [:schema/PriceComponentTypeEnumeration
-              :schema/Enumeration
+              :schema/Intangible
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Represents the distance fee (e.g., price per km or mile) part of the total price for an offered product, for example a car rental.",
@@ -4085,11 +4087,11 @@
    :rdfs/comment    #xsd/string "A distillery.",
    :rdfs/label      #xsd/string "Distillery",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/743"}})
 
@@ -4102,7 +4104,7 @@
     "The act of providing goods, services, or money without compensation, often for philanthropic reasons.",
    :rdfs/label #xsd/string "DonateAction",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TradeAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def DoseSchedule
   "A specific dosing schedule for a drug or supplement."
@@ -4112,20 +4114,20 @@
                      "A specific dosing schedule for a drug or supplement.",
    :rdfs/label      #xsd/string "DoseSchedule",
    :rdfs/subClassOf [:schema/MedicalIntangible
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DoubleBlindedTrial
   "A trial design in which neither the researcher nor the patient knows the details of the treatment the patient was randomly assigned to."
   {:db/ident :schema/DoubleBlindedTrial,
    :rdf/type [:schema/MedicalTrialDesign
-              :schema/Enumeration
-              :schema/Thing
-              :schema/Intangible
               :schema/MedicalEnumeration
-              :rdfs/Resource],
+              :schema/Thing
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "A trial design in which neither the researcher nor the patient knows the details of the treatment the patient was randomly assigned to.",
@@ -4139,18 +4141,18 @@
    :rdfs/comment    #xsd/string "The act of downloading an object.",
    :rdfs/label      #xsd/string "DownloadAction",
    :rdfs/subClassOf [:schema/TransferAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Downpayment
   "Represents the downpayment (up-front payment) price component of the total price for an offered product that has additional installment payments."
   {:db/ident :schema/Downpayment,
    :rdf/type [:schema/PriceComponentTypeEnumeration
-              :schema/Enumeration
+              :schema/Intangible
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Represents the downpayment (up-front payment) price component of the total price for an offered product that has additional installment payments.",
@@ -4168,7 +4170,7 @@
     "The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments.",
    :rdfs/label #xsd/string "DrawAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/CreateAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/CreateAction :schema/Action :schema/Thing]})
 
 (def Drawing
   "A picture or diagram made with a pencil, pen, or crayon rather than paint."
@@ -4190,9 +4192,9 @@
    :rdfs/comment    #xsd/string "The act of swallowing liquids.",
    :rdfs/label      #xsd/string "DrinkAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def DriveWheelConfigurationValue
   "A value indicating which roadwheels will receive torque."
@@ -4204,8 +4206,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/QualitativeValue
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"}})
@@ -4216,8 +4218,8 @@
    :rdf/type [:schema/CarUsageType
               :schema/Enumeration
               :schema/Intangible
-              :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :rdfs/Resource],
    :rdfs/comment #xsd/string
                   "Indicates the usage of the vehicle for driving school.",
    :rdfs/label #xsd/string "DrivingSchoolVehicleUsage",
@@ -4238,9 +4240,9 @@
    :rdfs/label #xsd/string "Drug",
    :rdfs/subClassOf [:schema/Substance
                      :schema/Product
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugClass
@@ -4251,7 +4253,7 @@
    #xsd/string
     "A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc.",
    :rdfs/label #xsd/string "DrugClass",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugCost
@@ -4262,7 +4264,7 @@
    #xsd/string
     "The cost per unit of a medical drug. Note that this type is not meant to represent the price in an offer of a drug for sale; see the Offer type for that. This type will typically be used to tag wholesale or average retail cost of a drug, or maximum reimbursable cost. Costs of medical drugs vary widely depending on how and where they are paid for, so while this type captures some of the variables, costs should be used with caution by consumers of this schema's markup.",
    :rdfs/label #xsd/string "DrugCost",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugCostCategory
@@ -4273,9 +4275,9 @@
    :rdfs/label      #xsd/string "DrugCostCategory",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugLegalStatus
@@ -4286,9 +4288,9 @@
                      "The legal availability status of a medical drug.",
    :rdfs/label      #xsd/string "DrugLegalStatus",
    :rdfs/subClassOf [:schema/MedicalIntangible
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugPregnancyCategory
@@ -4302,8 +4304,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugPrescriptionStatus
@@ -4317,8 +4319,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DrugStrength
@@ -4330,9 +4332,9 @@
     "A specific strength in which a medical drug is available in a specific country.",
    :rdfs/label #xsd/string "DrugStrength",
    :rdfs/subClassOf [:schema/MedicalIntangible
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def DryCleaningOrLaundry
@@ -4342,10 +4344,10 @@
    :rdfs/comment    #xsd/string "A dry-cleaning business.",
    :rdfs/label      #xsd/string "DryCleaningOrLaundry",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Duration
   "Quantity: Duration (use [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601))."
@@ -4356,16 +4358,16 @@
     "Quantity: Duration (use [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)).",
    :rdfs/label #xsd/string "Duration",
    :rdfs/subClassOf
-   [:schema/Quantity :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Quantity :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def EBook
   "Book format: Ebook."
   {:db/ident     :schema/EBook,
    :rdf/type     [:schema/BookFormatType
-                  :schema/Thing
-                  :schema/Enumeration
                   :rdfs/Resource
-                  :schema/Intangible],
+                  :schema/Enumeration
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Book format: Ebook.",
    :rdfs/label   #xsd/string "EBook"})
 
@@ -4373,9 +4375,9 @@
   "EPRelease."
   {:db/ident           :schema/EPRelease,
    :rdf/type           [:schema/MusicAlbumReleaseType
-                        :schema/Enumeration
-                        :rdfs/Resource
                         :schema/Intangible
+                        :rdfs/Resource
+                        :schema/Enumeration
                         :schema/Thing],
    :rdfs/comment       #xsd/string "EPRelease.",
    :rdfs/label         #xsd/string "EPRelease",
@@ -4385,11 +4387,11 @@
   "Represents EU Energy Efficiency Class A as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryA,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class A as defined in EU energy labeling regulations.",
@@ -4402,11 +4404,11 @@
   "Represents EU Energy Efficiency Class A+ as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryA1Plus,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class A+ as defined in EU energy labeling regulations.",
@@ -4419,11 +4421,11 @@
   "Represents EU Energy Efficiency Class A++ as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryA2Plus,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class A++ as defined in EU energy labeling regulations.",
@@ -4436,11 +4438,11 @@
   "Represents EU Energy Efficiency Class A+++ as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryA3Plus,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class A+++ as defined in EU energy labeling regulations.",
@@ -4453,11 +4455,11 @@
   "Represents EU Energy Efficiency Class B as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryB,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class B as defined in EU energy labeling regulations.",
@@ -4470,11 +4472,11 @@
   "Represents EU Energy Efficiency Class C as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryC,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class C as defined in EU energy labeling regulations.",
@@ -4487,11 +4489,11 @@
   "Represents EU Energy Efficiency Class D as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryD,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class D as defined in EU energy labeling regulations.",
@@ -4504,11 +4506,11 @@
   "Represents EU Energy Efficiency Class E as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryE,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class E as defined in EU energy labeling regulations.",
@@ -4521,11 +4523,11 @@
   "Represents EU Energy Efficiency Class F as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryF,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class F as defined in EU energy labeling regulations.",
@@ -4538,11 +4540,11 @@
   "Represents EU Energy Efficiency Class G as defined in EU energy labeling regulations."
   {:db/ident :schema/EUEnergyEfficiencyCategoryG,
    :rdf/type [:schema/EUEnergyEfficiencyEnumeration
-              :schema/EnergyEfficiencyEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/EnergyEfficiencyEnumeration],
    :rdfs/comment
    #xsd/string
     "Represents EU Energy Efficiency Class G as defined in EU energy labeling regulations.",
@@ -4562,8 +4564,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/EnergyEfficiencyEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2670"}})
@@ -4572,13 +4574,13 @@
   "Ear function assessment with clinical examination."
   {:db/ident        :schema/Ear,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Ear function assessment with clinical examination.",
    :rdfs/label      #xsd/string "Ear",
@@ -4591,16 +4593,16 @@
    :rdfs/comment    #xsd/string "The act of swallowing solid objects.",
    :rdfs/label      #xsd/string "EatAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def EditedOrCroppedContent
   "Content coded 'edited or cropped content' in a [[MediaReview]], considered in the context of how it was published or shared.\n\nFor a [[VideoObject]] to be 'edited or cropped content': The video has been edited or rearranged. This category applies to time edits, including editing multiple videos together to alter the story being told or editing out large portions from a video.\n\nFor an [[ImageObject]] to be 'edited or cropped content': Presenting a part of an image from a larger whole to mislead the viewer.\n\nFor an [[ImageObject]] with embedded text to be 'edited or cropped content': Presenting a part of an image from a larger whole to mislead the viewer.\n\nFor an [[AudioObject]] to be 'edited or cropped content': The audio has been edited or rearranged. This category applies to time edits, including editing multiple audio clips together to alter the story being told or editing out large portions from the recording.\n"
   {:db/ident :schema/EditedOrCroppedContent,
    :rdf/type [:schema/MediaManipulationRatingEnumeration
-              :rdfs/Resource
               :schema/Thing
+              :rdfs/Resource
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -4627,8 +4629,8 @@
    :rdfs/label         #xsd/string "EducationalAudience",
    :rdfs/subClassOf    [:rdfs/Resource
                         :schema/Audience
-                        :schema/Thing
-                        :schema/Intangible],
+                        :schema/Intangible
+                        :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/LRMIClass"}})
 
 (def EducationalOccupationalCredential
@@ -4666,17 +4668,17 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Organization
                      :schema/CivicStructure
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def EffectivenessHealthAspect
   "Content about the effectiveness-related aspects of a health topic."
   {:db/ident :schema/EffectivenessHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content about the effectiveness-related aspects of a health topic.",
@@ -4692,11 +4694,11 @@
    :rdfs/comment    #xsd/string "An electrician.",
    :rdfs/label      #xsd/string "Electrician",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ElectronicsStore
   "An electronics store."
@@ -4705,11 +4707,11 @@
    :rdfs/comment    #xsd/string "An electronics store.",
    :rdfs/label      #xsd/string "ElectronicsStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ElementarySchool
   "An elementary school."
@@ -4718,11 +4720,11 @@
    :rdfs/comment    #xsd/string "An elementary school.",
    :rdfs/label      #xsd/string "ElementarySchool",
    :rdfs/subClassOf [:schema/EducationalOrganization
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def EmailMessage
   "An email message."
@@ -4731,9 +4733,9 @@
    :rdfs/comment    #xsd/string "An email message.",
    :rdfs/label      #xsd/string "EmailMessage",
    :rdfs/subClassOf [:schema/Message
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Embassy
   "An embassy."
@@ -4742,19 +4744,19 @@
    :rdfs/comment    #xsd/string "An embassy.",
    :rdfs/label      #xsd/string "Embassy",
    :rdfs/subClassOf [:schema/GovernmentBuilding
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def Emergency
   "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness."
   {:db/ident :schema/Emergency,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -4762,11 +4764,11 @@
     "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness.",
    :rdfs/label #xsd/string "Emergency",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def EmergencyService
@@ -4777,10 +4779,10 @@
                      "An emergency service, such as a fire station or ER.",
    :rdfs/label      #xsd/string "EmergencyService",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def EmployeeRole
   "A subclass of OrganizationRole used to describe employee relationships."
@@ -4791,10 +4793,10 @@
     "A subclass of OrganizationRole used to describe employee relationships.",
    :rdfs/label #xsd/string "EmployeeRole",
    :rdfs/subClassOf [:schema/OrganizationRole
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/Role]})
+                     :schema/Role
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EmployerAggregateRating
   "An aggregate rating of an Organization related to its role as an employer."
@@ -4805,10 +4807,10 @@
     "An aggregate rating of an Organization related to its role as an employer.",
    :rdfs/label #xsd/string "EmployerAggregateRating",
    :rdfs/subClassOf [:schema/AggregateRating
-                     :schema/Thing
                      :schema/Rating
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1689"}})
 
@@ -4821,7 +4823,7 @@
     "An [[EmployerReview]] is a review of an [[Organization]] regarding its role as an employer, written by a current or former employee of that organization.",
    :rdfs/label #xsd/string "EmployerReview",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Review :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/Review :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1589"}})
@@ -4833,19 +4835,19 @@
    :rdfs/comment    #xsd/string "An employment agency.",
    :rdfs/label      #xsd/string "EmploymentAgency",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Endocrine
   "A specific branch of medical science that pertains to diagnosis and treatment of disorders of endocrine glands and their secretions."
   {:db/ident :schema/Endocrine,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -4863,10 +4865,10 @@
     "An agent approves/certifies/likes/supports/sanctions an object.",
    :rdfs/label #xsd/string "EndorseAction",
    :rdfs/subClassOf [:schema/ReactAction
-                     :schema/Thing
-                     :schema/AssessAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/AssessAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def EndorsementRating
   "An EndorsementRating is a rating that expresses some level of endorsement, for example inclusion in a \"critic's pick\" blog, a\n\"Like\" or \"+1\" on a social network. It can be considered the [[result]] of an [[EndorseAction]] in which the [[object]] of the action is rated positively by\nsome [[agent]]. As is common elsewhere in schema.org, it is sometimes more useful to describe the results of such an action without explicitly describing the [[Action]].\n\nAn [[EndorsementRating]] may be part of a numeric scale or organized system, but this is not required: having an explicit type for indicating a positive,\nendorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive.\n"
@@ -4877,7 +4879,7 @@
     "An EndorsementRating is a rating that expresses some level of endorsement, for example inclusion in a \"critic's pick\" blog, a\n\"Like\" or \"+1\" on a social network. It can be considered the [[result]] of an [[EndorseAction]] in which the [[object]] of the action is rated positively by\nsome [[agent]]. As is common elsewhere in schema.org, it is sometimes more useful to describe the results of such an action without explicitly describing the [[Action]].\n\nAn [[EndorsementRating]] may be part of a numeric scale or organized system, but this is not required: having an explicit type for indicating a positive,\nendorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive.\n",
    :rdfs/label #xsd/string "EndorsementRating",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Rating :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Rating :schema/Intangible :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1293"}})
 
@@ -4890,7 +4892,7 @@
     "Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'.",
    :rdfs/label #xsd/string "Energy",
    :rdfs/subClassOf
-   [:schema/Quantity :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Quantity :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def EnergyConsumptionDetails
   "EnergyConsumptionDetails represents information related to the energy efficiency of a product that consumes energy. The information that can be provided is based on international regulations such as for example [EU directive 2017/1369](https://eur-lex.europa.eu/eli/reg/2017/1369/oj) for energy labeling and the [Energy labeling rule](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/energy-water-use-labeling-consumer) under the Energy Policy and Conservation Act (EPCA) in the US."
@@ -4900,7 +4902,7 @@
    #xsd/string
     "EnergyConsumptionDetails represents information related to the energy efficiency of a product that consumes energy. The information that can be provided is based on international regulations such as for example [EU directive 2017/1369](https://eur-lex.europa.eu/eli/reg/2017/1369/oj) for energy labeling and the [Energy labeling rule](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/energy-water-use-labeling-consumer) under the Energy Policy and Conservation Act (EPCA) in the US.",
    :rdfs/label #xsd/string "EnergyConsumptionDetails",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2670"}})
@@ -4914,7 +4916,7 @@
     "Enumerates energy efficiency levels (also known as \"classes\" or \"ratings\") and certifications that are part of several international energy efficiency standards.",
    :rdfs/label #xsd/string "EnergyEfficiencyEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2670"}})
@@ -4924,10 +4926,10 @@
   {:db/ident        :schema/EnergyStarCertified,
    :rdf/type        [:schema/EnergyStarEnergyEfficiencyEnumeration
                      :schema/Enumeration
+                     :schema/Thing
                      :rdfs/Resource
                      :schema/EnergyEfficiencyEnumeration
-                     :schema/Intangible
-                     :schema/Thing],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string "Represents EnergyStar certification.",
    :rdfs/label      #xsd/string "EnergyStarCertified",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -4943,9 +4945,9 @@
    :rdfs/label #xsd/string "EnergyStarEnergyEfficiencyEnumeration",
    :rdfs/subClassOf [:schema/EnergyEfficiencyEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2670"}})
@@ -4959,7 +4961,7 @@
     "Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities.",
    :rdfs/label #xsd/string "EngineSpecification",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"}})
@@ -4969,9 +4971,9 @@
   {:db/ident        :schema/EnrollingByInvitation,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Enrolling participants by invitation only.",
    :rdfs/label      #xsd/string "EnrollingByInvitation",
@@ -4984,10 +4986,10 @@
    :rdfs/comment    #xsd/string "A business providing entertainment.",
    :rdfs/label      #xsd/string "EntertainmentBusiness",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def EntryPoint
   "An entry point, within some Web-based protocol."
@@ -4996,7 +4998,7 @@
    :rdfs/comment       #xsd/string
                         "An entry point, within some Web-based protocol.",
    :rdfs/label         #xsd/string "EntryPoint",
-   :rdfs/subClassOf    [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf    [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/ActionCollabClass"}})
 
@@ -5040,7 +5042,7 @@
     "An EventAttendanceModeEnumeration value is one of potentially several modes of organising an event, relating to whether it is online or offline.",
    :rdfs/label #xsd/string "EventAttendanceModeEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1842"}})
@@ -5049,11 +5051,11 @@
   "The event has been cancelled. If the event has multiple startDate values, all are assumed to be cancelled. Either startDate or previousStartDate may be used to specify the event's cancelled date(s)."
   {:db/ident :schema/EventCancelled,
    :rdf/type [:schema/EventStatusType
-              :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The event has been cancelled. If the event has multiple startDate values, all are assumed to be cancelled. Either startDate or previousStartDate may be used to specify the event's cancelled date(s).",
@@ -5063,11 +5065,11 @@
   "Indicates that the event was changed to allow online participation. See [[eventAttendanceMode]] for specifics of whether it is now fully or partially online."
   {:db/ident :schema/EventMovedOnline,
    :rdf/type [:schema/EventStatusType
-              :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "Indicates that the event was changed to allow online participation. See [[eventAttendanceMode]] for specifics of whether it is now fully or partially online.",
@@ -5077,11 +5079,11 @@
   "The event has been postponed and no new date has been set. The event's previousStartDate should be set."
   {:db/ident :schema/EventPostponed,
    :rdf/type [:schema/EventStatusType
-              :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The event has been postponed and no new date has been set. The event's previousStartDate should be set.",
@@ -5091,11 +5093,11 @@
   "The event has been rescheduled. The event's previousStartDate should be set to the old date and the startDate should be set to the event's new date. (If the event has been rescheduled multiple times, the previousStartDate property may be repeated.)"
   {:db/ident :schema/EventRescheduled,
    :rdf/type [:schema/EventStatusType
-              :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The event has been rescheduled. The event's previousStartDate should be set to the old date and the startDate should be set to the event's new date. (If the event has been rescheduled multiple times, the previousStartDate property may be repeated.)",
@@ -5110,17 +5112,17 @@
     "A reservation for an event like a concert, sporting event, or lecture.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
    :rdfs/label #xsd/string "EventReservation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Reservation :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Reservation :schema/Intangible :schema/Thing]})
 
 (def EventScheduled
   "The event is taking place or has taken place on the startDate as scheduled. Use of this value is optional, as it is assumed by default."
   {:db/ident :schema/EventScheduled,
    :rdf/type [:schema/EventStatusType
-              :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The event is taking place or has taken place on the startDate as scheduled. Use of this value is optional, as it is assumed by default.",
@@ -5137,8 +5139,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Series
                      :schema/Event
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/447"}})
@@ -5154,8 +5156,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EventVenue
   "An event venue."
@@ -5164,18 +5166,18 @@
    :rdfs/comment    #xsd/string "An event venue.",
    :rdfs/label      #xsd/string "EventVenue",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def EvidenceLevelA
   "Data derived from multiple randomized clinical trials or meta-analyses."
   {:db/ident :schema/EvidenceLevelA,
    :rdf/type [:schema/MedicalEvidenceLevel
-              :schema/Enumeration
-              :rdfs/Resource
-              :schema/Intangible
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
+              :rdfs/Resource
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -5187,10 +5189,10 @@
   "Data derived from a single randomized trial, or nonrandomized studies."
   {:db/ident :schema/EvidenceLevelB,
    :rdf/type [:schema/MedicalEvidenceLevel
-              :schema/Enumeration
-              :rdfs/Resource
-              :schema/Intangible
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
+              :rdfs/Resource
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -5202,10 +5204,10 @@
   "Only consensus opinion of experts, case studies, or standard-of-care."
   {:db/ident :schema/EvidenceLevelC,
    :rdf/type [:schema/MedicalEvidenceLevel
-              :schema/Enumeration
-              :rdfs/Resource
-              :schema/Intangible
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
+              :rdfs/Resource
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -5218,9 +5220,9 @@
   {:db/ident :schema/ExampleMeasurementMethodEnum,
    :rdf/type [:schema/MeasurementMethodEnum
               :rdfs/Resource
+              :schema/Intangible
               :schema/Thing
-              :schema/Enumeration
-              :schema/Intangible],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "An example [[MeasurementMethodEnum]] (to remove when real enums are added).",
@@ -5238,8 +5240,8 @@
    :rdfs/label         #xsd/string "ExchangeRateSpecification",
    :rdfs/subClassOf    [:rdfs/Resource
                         :schema/StructuredValue
-                        :schema/Thing
-                        :schema/Intangible],
+                        :schema/Intangible
+                        :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"},
    :schema/isPartOf    {:rdfa/uri "http://pending.schema.org"},
    :schema/source      {:rdfa/uri
@@ -5249,10 +5251,10 @@
   "Specifies that a refund can be done as an exchange for the same product."
   {:db/ident :schema/ExchangeRefund,
    :rdf/type [:schema/RefundTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
               :schema/Enumeration
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Specifies that a refund can be done as an exchange for the same product.",
@@ -5270,7 +5272,7 @@
     "The act of participating in exertive activity for the purposes of improving health and fitness.",
    :rdfs/label #xsd/string "ExerciseAction",
    :rdfs/subClassOf
-   [:schema/PlayAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/PlayAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ExerciseGym
   "A gym."
@@ -5279,11 +5281,11 @@
    :rdfs/comment    #xsd/string "A gym.",
    :rdfs/label      #xsd/string "ExerciseGym",
    :rdfs/subClassOf [:schema/SportsActivityLocation
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ExercisePlan
   "Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician."
@@ -5295,10 +5297,10 @@
    :rdfs/label #xsd/string "ExercisePlan",
    :rdfs/subClassOf [:schema/PhysicalActivity
                      :schema/CreativeWork
-                     :schema/Thing
-                     :schema/MedicalEntity
                      :rdfs/Resource
-                     :schema/LifestyleModification],
+                     :schema/MedicalEntity
+                     :schema/LifestyleModification
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def ExhibitionEvent
@@ -5309,19 +5311,19 @@
    #xsd/string
     "Event type: Exhibition event, e.g. at a museum, library, archive, tradeshow, ...",
    :rdfs/label #xsd/string "ExhibitionEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def Eye
   "Eye or ophthalmological function assessment with clinical examination."
   {:db/ident :schema/Eye,
    :rdf/type [:schema/PhysicalExam
+              :schema/MedicalProcedure
               :schema/MedicalEnumeration
-              :schema/Enumeration
-              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/MedicalProcedure
-              :schema/MedicalEntity],
+              :rdfs/Resource
+              :schema/MedicalEntity
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Eye or ophthalmological function assessment with clinical examination.",
@@ -5337,7 +5339,7 @@
     "A [[FAQPage]] is a [[WebPage]] presenting one or more \"[Frequently asked questions](https://en.wikipedia.org/wiki/FAQ)\" (see also [[QAPage]]).",
    :rdfs/label #xsd/string "FAQPage",
    :rdfs/subClassOf
-   [:schema/WebPage :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/WebPage :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1723"}})
 
@@ -5345,9 +5347,9 @@
   "A designation by the US FDA signifying that adequate and well-controlled studies have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (and there is no evidence of risk in later trimesters)."
   {:db/ident :schema/FDAcategoryA,
    :rdf/type [:schema/DrugPregnancyCategory
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
               :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5360,9 +5362,9 @@
   "A designation by the US FDA signifying that animal reproduction studies have failed to demonstrate a risk to the fetus and there are no adequate and well-controlled studies in pregnant women."
   {:db/ident :schema/FDAcategoryB,
    :rdf/type [:schema/DrugPregnancyCategory
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
               :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5375,9 +5377,9 @@
   "A designation by the US FDA signifying that animal reproduction studies have shown an adverse effect on the fetus and there are no adequate and well-controlled studies in humans, but potential benefits may warrant use of the drug in pregnant women despite potential risks."
   {:db/ident :schema/FDAcategoryC,
    :rdf/type [:schema/DrugPregnancyCategory
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
               :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5390,9 +5392,9 @@
   "A designation by the US FDA signifying that there is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies in humans, but potential benefits may warrant use of the drug in pregnant women despite potential risks."
   {:db/ident :schema/FDAcategoryD,
    :rdf/type [:schema/DrugPregnancyCategory
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
               :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5405,9 +5407,9 @@
   "A designation by the US FDA signifying that studies in animals or humans have demonstrated fetal abnormalities and/or there is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience, and the risks involved in use of the drug in pregnant women clearly outweigh potential benefits."
   {:db/ident :schema/FDAcategoryX,
    :rdf/type [:schema/DrugPregnancyCategory
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
               :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5420,9 +5422,9 @@
   "A designation that the drug in question has not been assigned a pregnancy category designation by the US FDA."
   {:db/ident :schema/FDAnotEvaluated,
    :rdf/type [:schema/DrugPregnancyCategory
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
               :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5439,9 +5441,9 @@
    :rdfs/label      #xsd/string "FMRadioChannel",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/RadioChannel
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/BroadcastChannel],
+                     :schema/BroadcastChannel
+                     :schema/Thing],
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1004"}})
 
@@ -5449,11 +5451,11 @@
   "An action that failed to complete. The action's error property and the HTTP return code contain more information about the failure."
   {:db/ident :schema/FailedActionStatus,
    :rdf/type [:schema/ActionStatusType
-              :schema/Thing
               :rdfs/Resource
-              :schema/StatusEnumeration
               :schema/Enumeration
-              :schema/Intangible],
+              :schema/StatusEnumeration
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "An action that failed to complete. The action's error property and the HTTP return code contain more information about the failure.",
@@ -5473,19 +5475,19 @@
    :rdfs/comment    #xsd/string "A fast-food restaurant.",
    :rdfs/label      #xsd/string "FastFoodRestaurant",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Female
   "The female gender."
   {:db/ident     :schema/Female,
    :rdf/type     [:schema/GenderType
+                  :rdfs/Resource
                   :schema/Enumeration
                   :schema/Thing
-                  :rdfs/Resource
                   :schema/Intangible],
    :rdfs/comment #xsd/string "The female gender.",
    :rdfs/label   #xsd/string "Female"})
@@ -5496,7 +5498,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Festival.",
    :rdfs/label      #xsd/string "Festival",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def FilmAction
   "The act of capturing sound and moving images on film, video, or digitally."
@@ -5507,7 +5509,7 @@
     "The act of capturing sound and moving images on film, video, or digitally.",
    :rdfs/label #xsd/string "FilmAction",
    :rdfs/subClassOf
-   [:schema/CreateAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/CreateAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def FinancialProduct
   "A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry."
@@ -5518,7 +5520,7 @@
     "A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry.",
    :rdfs/label #xsd/string "FinancialProduct",
    :rdfs/subClassOf
-   [:schema/Service :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Service :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def FinancialService
@@ -5528,10 +5530,10 @@
    :rdfs/comment    #xsd/string "Financial services business.",
    :rdfs/label      #xsd/string "FinancialService",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def FindAction
   "The act of finding an object.\\n\\nRelated actions:\\n\\n* [[SearchAction]]: FindAction is generally lead by a SearchAction, but not necessarily."
@@ -5551,20 +5553,20 @@
    :rdfs/label      #xsd/string "FireStation",
    :rdfs/subClassOf [:schema/EmergencyService
                      :schema/CivicStructure
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Flexibility
   "Physical activity that is engaged in to improve joint and muscle flexibility."
   {:db/ident :schema/Flexibility,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Physical activity that is engaged in to improve joint and muscle flexibility.",
@@ -5579,8 +5581,8 @@
    :rdfs/label      #xsd/string "Flight",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Trip
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def FlightReservation
   "A reservation for air travel.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]]."
@@ -5591,7 +5593,7 @@
     "A reservation for air travel.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
    :rdfs/label #xsd/string "FlightReservation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Reservation :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Reservation :schema/Intangible :schema/Thing]})
 
 (def FloatClass
   "Data type: Floating number."
@@ -5609,7 +5611,7 @@
    #xsd/string
     "A FloorPlan is an explicit representation of a collection of similar accommodations, allowing the provision of common information (room counts, sizes, layout diagrams) and offers for rental or sale. In typical use, some [[ApartmentComplex]] has an [[accommodationFloorPlan]] which is a [[FloorPlan]].  A FloorPlan is always in the context of a particular place, either a larger [[ApartmentComplex]] or a single [[Apartment]]. The visual/spatial aspects of a floor plan (i.e. room layout, [see wikipedia](https://en.wikipedia.org/wiki/Floor_plan)) can be indicated using [[image]]. ",
    :rdfs/label #xsd/string "FloorPlan",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2373"}})
@@ -5621,11 +5623,11 @@
    :rdfs/comment    #xsd/string "A florist.",
    :rdfs/label      #xsd/string "Florist",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def FollowAction
   "The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates polled from.\\n\\nRelated actions:\\n\\n* [[BefriendAction]]: Unlike BefriendAction, FollowAction implies that the connection is *not* necessarily reciprocal.\\n* [[SubscribeAction]]: Unlike SubscribeAction, FollowAction implies that the follower acts as an active agent constantly/actively polling for updates.\\n* [[RegisterAction]]: Unlike RegisterAction, FollowAction implies that the agent is interested in continuing receiving updates from the object.\\n* [[JoinAction]]: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.\\n* [[TrackAction]]: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it)."
@@ -5636,7 +5638,7 @@
     "The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates polled from.\\n\\nRelated actions:\\n\\n* [[BefriendAction]]: Unlike BefriendAction, FollowAction implies that the connection is *not* necessarily reciprocal.\\n* [[SubscribeAction]]: Unlike SubscribeAction, FollowAction implies that the follower acts as an active agent constantly/actively polling for updates.\\n* [[RegisterAction]]: Unlike RegisterAction, FollowAction implies that the agent is interested in continuing receiving updates from the object.\\n* [[JoinAction]]: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.\\n* [[TrackAction]]: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).",
    :rdfs/label #xsd/string "FollowAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def FoodEstablishment
   "A food-related business."
@@ -5645,10 +5647,10 @@
    :rdfs/comment    #xsd/string "A food-related business.",
    :rdfs/label      #xsd/string "FoodEstablishment",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def FoodEstablishmentReservation
   "A reservation to dine at a food-related business.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
@@ -5659,7 +5661,7 @@
     "A reservation to dine at a food-related business.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.",
    :rdfs/label #xsd/string "FoodEstablishmentReservation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Reservation :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Reservation :schema/Intangible :schema/Thing]})
 
 (def FoodEvent
   "Event type: Food event."
@@ -5667,7 +5669,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Food event.",
    :rdfs/label      #xsd/string "FoodEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def FoodService
   "A food service, like breakfast, lunch, or dinner."
@@ -5677,7 +5679,7 @@
                   "A food service, like breakfast, lunch, or dinner.",
    :rdfs/label #xsd/string "FoodService",
    :rdfs/subClassOf
-   [:schema/Service :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Service :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -5685,11 +5687,11 @@
   "Four-wheel drive is a transmission layout where the engine primarily drives two wheels with a part-time four-wheel drive capability."
   {:db/ident :schema/FourWheelDriveConfiguration,
    :rdf/type [:schema/DriveWheelConfigurationValue
-              :rdfs/Resource
-              :schema/Thing
               :schema/QualitativeValue
+              :schema/Enumeration
+              :rdfs/Resource
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Four-wheel drive is a transmission layout where the engine primarily drives two wheels with a part-time four-wheel drive capability.",
@@ -5702,10 +5704,10 @@
   "Specifies that product returns are free of charge for the customer."
   {:db/ident :schema/FreeReturn,
    :rdf/type [:schema/ReturnFeesEnumeration
-              :schema/Intangible
               :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Specifies that product returns are free of charge for the customer.",
@@ -5718,9 +5720,9 @@
   "The day of the week between Thursday and Saturday."
   {:db/ident      :schema/Friday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string
                    "The day of the week between Thursday and Saturday.",
@@ -5731,11 +5733,11 @@
   "Front-wheel drive is a transmission layout where the engine drives the front wheels."
   {:db/ident :schema/FrontWheelDriveConfiguration,
    :rdf/type [:schema/DriveWheelConfigurationValue
-              :rdfs/Resource
-              :schema/Thing
               :schema/QualitativeValue
+              :schema/Enumeration
+              :rdfs/Resource
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Front-wheel drive is a transmission layout where the engine drives the front wheels.",
@@ -5748,9 +5750,9 @@
   "Indicates full game availability."
   {:db/ident        :schema/FullGameAvailability,
    :rdf/type        [:schema/GameAvailabilityEnumeration
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration
                      :schema/Intangible],
    :rdfs/comment    #xsd/string "Indicates full game availability.",
    :rdfs/label      #xsd/string "FullGameAvailability",
@@ -5762,10 +5764,10 @@
   "Specifies that a refund can be done in the full amount the customer paid for the product."
   {:db/ident :schema/FullRefund,
    :rdf/type [:schema/RefundTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
               :schema/Enumeration
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Specifies that a refund can be done in the full amount the customer paid for the product.",
@@ -5783,7 +5785,7 @@
     "A FundingAgency is an organization that implements one or more [[FundingScheme]]s and manages\n    the granting process (via [[Grant]]s, typically [[MonetaryGrant]]s).\n    A funding agency is not always required for grant funding, e.g. philanthropic giving, corporate sponsorship etc.\n    \nExamples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...\n    ",
    :rdfs/label #xsd/string "FundingAgency",
    :rdfs/subClassOf
-   [:schema/Project :schema/Organization :schema/Thing :rdfs/Resource],
+   [:schema/Project :rdfs/Resource :schema/Organization :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source [{:rdfa/uri "http://schema.org/docs/collab/FundInfoCollab"}
                    {:rdfa/uri
@@ -5807,11 +5809,11 @@
   "Pathogenic fungus."
   {:db/ident        :schema/Fungus,
    :rdf/type        [:schema/InfectiousAgentClass
-                     :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :rdfs/Resource
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Pathogenic fungus.",
    :rdfs/label      #xsd/string "Fungus",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -5823,11 +5825,11 @@
    :rdfs/comment    #xsd/string "A furniture store.",
    :rdfs/label      #xsd/string "FurnitureStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Game
   "The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting."
@@ -5837,7 +5839,7 @@
    #xsd/string
     "The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting.",
    :rdfs/label #xsd/string "Game",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def GameAvailabilityEnumeration
   "For a [[VideoGame]], such as used with a [[PlayGameAction]], an enumeration of the kind of game availability offered. "
@@ -5848,7 +5850,7 @@
     "For a [[VideoGame]], such as used with a [[PlayGameAction]], an enumeration of the kind of game availability offered. ",
    :rdfs/label #xsd/string "GameAvailabilityEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/3058"}})
@@ -5862,7 +5864,7 @@
     "Indicates whether this game is multi-player, co-op or single-player.",
    :rdfs/label #xsd/string "GamePlayMode",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing]})
 
 (def GameServer
   "Server that provides game interaction in a multiplayer game."
@@ -5882,8 +5884,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def GardenStore
   "A garden store."
@@ -5892,11 +5894,11 @@
    :rdfs/comment    #xsd/string "A garden store.",
    :rdfs/label      #xsd/string "GardenStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def GasStation
   "A gas station."
@@ -5905,20 +5907,20 @@
    :rdfs/comment    #xsd/string "A gas station.",
    :rdfs/label      #xsd/string "GasStation",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Gastroenterologic
   "A specific branch of medical science that pertains to diagnosis and treatment of disorders of digestive system."
   {:db/ident :schema/Gastroenterologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -5934,9 +5936,9 @@
    :rdfs/comment    #xsd/string "Residence type: Gated community.",
    :rdfs/label      #xsd/string "GatedResidenceCommunity",
    :rdfs/subClassOf [:schema/Residence
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def GenderType
   "An enumeration of genders."
@@ -5945,9 +5947,9 @@
    :rdfs/comment    #xsd/string "An enumeration of genders.",
    :rdfs/label      #xsd/string "GenderType",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Gene
   "A discrete unit of inheritance which affects one or more biological traits (Source: [https://en.wikipedia.org/wiki/Gene](https://en.wikipedia.org/wiki/Gene)). Examples include FOXP2 (Forkhead box protein P2), SCARNA21 (small Cajal body-specific RNA 21), A- (agouti genotype)."
@@ -5968,19 +5970,19 @@
    :rdfs/comment    #xsd/string "A general contractor.",
    :rdfs/label      #xsd/string "GeneralContractor",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def GenericWebPlatform
   "Represents the generic notion of the Web Platform. More specific codes include [[MobileWebPlatform]] and [[DesktopWebPlatform]], as an incomplete list. "
   {:db/ident :schema/GenericWebPlatform,
    :rdf/type [:schema/DigitalPlatformEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Intangible
+              :schema/Enumeration
               :schema/Thing],
    :rdfs/comment
    #xsd/string
@@ -5994,10 +5996,10 @@
   "A specific branch of medical science that pertains to hereditary transmission and the variation of inherited characteristics and disorders."
   {:db/ident :schema/Genetic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -6010,13 +6012,13 @@
   "Genitourinary system function assessment with clinical examination."
   {:db/ident :schema/Genitourinary,
    :rdf/type [:schema/PhysicalExam
+              :schema/MedicalProcedure
               :schema/MedicalEnumeration
-              :schema/Enumeration
-              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/MedicalProcedure
-              :schema/MedicalEntity],
+              :rdfs/Resource
+              :schema/MedicalEntity
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Genitourinary system function assessment with clinical examination.",
@@ -6032,10 +6034,10 @@
     "A GeoCircle is a GeoShape representing a circular geographic area. As it is a GeoShape\n          it provides the simple textual property 'circle', but also allows the combination of postalCode alongside geoRadius.\n          The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.\n       ",
    :rdfs/label #xsd/string "GeoCircle",
    :rdfs/subClassOf [:schema/GeoShape
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue]})
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing]})
 
 (def GeoCoordinates
   "The geographic coordinates of a place or event."
@@ -6045,9 +6047,9 @@
                      "The geographic coordinates of a place or event.",
    :rdfs/label      #xsd/string "GeoCoordinates",
    :rdfs/subClassOf [:schema/StructuredValue
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def GeoShape
   "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points."
@@ -6058,7 +6060,7 @@
     "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.",
    :rdfs/label #xsd/string "GeoShape",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/rNews"}})
 
 (def GeospatialGeometry
@@ -6078,10 +6080,10 @@
   "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged."
   {:db/ident :schema/Geriatric,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -6089,21 +6091,21 @@
     "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged.",
    :rdfs/label #xsd/string "Geriatric",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def GettingAccessHealthAspect
   "Content that discusses practical and policy aspects for getting access to specific kinds of healthcare (e.g. distribution mechanisms for vaccines)."
   {:db/ident :schema/GettingAccessHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content that discusses practical and policy aspects for getting access to specific kinds of healthcare (e.g. distribution mechanisms for vaccines).",
@@ -6121,16 +6123,16 @@
     "The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.\\n\\nRelated actions:\\n\\n* [[TakeAction]]: Reciprocal of GiveAction.\\n* [[SendAction]]: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).",
    :rdfs/label #xsd/string "GiveAction",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def GlutenFreeDiet
   "A diet exclusive of gluten."
   {:db/ident     :schema/GlutenFreeDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet exclusive of gluten.",
    :rdfs/label   #xsd/string "GlutenFreeDiet"})
 
@@ -6141,11 +6143,11 @@
    :rdfs/comment    #xsd/string "A golf course.",
    :rdfs/label      #xsd/string "GolfCourse",
    :rdfs/subClassOf [:schema/SportsActivityLocation
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def GovernmentBenefitsType
   "GovernmentBenefitsType enumerates several kinds of government benefits to support the COVID-19 situation. Note that this structure may not capture all benefits offered."
@@ -6156,7 +6158,7 @@
     "GovernmentBenefitsType enumerates several kinds of government benefits to support the COVID-19 situation. Note that this structure may not capture all benefits offered.",
    :rdfs/label #xsd/string "GovernmentBenefitsType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2534"}})
@@ -6169,8 +6171,8 @@
    :rdfs/label      #xsd/string "GovernmentBuilding",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CivicStructure
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def GovernmentOffice
   "A government office&#x2014;for example, an IRS or DMV office."
@@ -6180,10 +6182,10 @@
    #xsd/string "A government office&#x2014;for example, an IRS or DMV office.",
    :rdfs/label #xsd/string "GovernmentOffice",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def GovernmentOrganization
   "A governmental organization or agency."
@@ -6201,8 +6203,8 @@
    :rdfs/label      #xsd/string "GovernmentPermit",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Permit
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def GovernmentService
   "A service provided by a government organization, e.g. food stamps, veterans benefits, etc."
@@ -6213,7 +6215,7 @@
     "A service provided by a government organization, e.g. food stamps, veterans benefits, etc.",
    :rdfs/label #xsd/string "GovernmentService",
    :rdfs/subClassOf
-   [:schema/Service :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Service :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def Grant
   "A grant, typically financial or otherwise quantifiable, of resources. Typically a [[funder]] sponsors some [[MonetaryAmount]] to an [[Organization]] or [[Person]],\n    sometimes not necessarily via a dedicated or long-lived [[Project]], resulting in one or more outputs, or [[fundedItem]]s. For financial sponsorship, indicate the [[funder]] of a [[MonetaryGrant]]. For non-financial support, indicate [[sponsor]] of [[Grant]]s of resources (e.g. office space).\n\nGrants support  activities directed towards some agreed collective goals, often but not always organized as [[Project]]s. Long-lived projects are sometimes sponsored by a variety of grants over time, but it is also common for a project to be associated with a single grant.\n\nThe amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]].\n    "
@@ -6233,10 +6235,10 @@
   "Book format: GraphicNovel. May represent a bound collection of ComicIssue instances."
   {:db/ident :schema/GraphicNovel,
    :rdf/type [:schema/BookFormatType
-              :schema/Thing
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Book format: GraphicNovel. May represent a bound collection of ComicIssue instances.",
@@ -6250,20 +6252,20 @@
    :rdfs/comment    #xsd/string "A grocery store.",
    :rdfs/label      #xsd/string "GroceryStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def GroupBoardingPolicy
   "The airline boards by groups based on check-in time, priority, etc."
   {:db/ident :schema/GroupBoardingPolicy,
    :rdf/type [:schema/BoardingPolicyType
-              :schema/Enumeration
-              :schema/Thing
               :rdfs/Resource
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Thing
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "The airline boards by groups based on check-in time, priority, etc.",
@@ -6286,10 +6288,10 @@
   "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system."
   {:db/ident :schema/Gynecologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -6297,11 +6299,11 @@
     "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system.",
    :rdfs/label #xsd/string "Gynecologic",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def HVACBusiness
@@ -6313,11 +6315,11 @@
     "A business that provides Heating, Ventilation and Air Conditioning services.",
    :rdfs/label #xsd/string "HVACBusiness",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Hackathon
   "A [hackathon](https://en.wikipedia.org/wiki/Hackathon) event."
@@ -6338,20 +6340,20 @@
    :rdfs/comment    #xsd/string "A hair salon.",
    :rdfs/label      #xsd/string "HairSalon",
    :rdfs/subClassOf [:schema/HealthAndBeautyBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HalalDiet
   "A diet conforming to Islamic dietary practices."
   {:db/ident     :schema/HalalDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet conforming to Islamic dietary practices.",
    :rdfs/label   #xsd/string "HalalDiet"})
 
@@ -6359,10 +6361,10 @@
   "Book format: Hardcover."
   {:db/ident     :schema/Hardcover,
    :rdf/type     [:schema/BookFormatType
-                  :schema/Thing
-                  :schema/Enumeration
                   :rdfs/Resource
-                  :schema/Intangible],
+                  :schema/Enumeration
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Book format: Hardcover.",
    :rdfs/label   #xsd/string "Hardcover"})
 
@@ -6373,23 +6375,23 @@
    :rdfs/comment    #xsd/string "A hardware store.",
    :rdfs/label      #xsd/string "HardwareStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Head
   "Head assessment with clinical examination."
   {:db/ident        :schema/Head,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Head assessment with clinical examination.",
    :rdfs/label      #xsd/string "Head",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -6401,10 +6403,10 @@
    :rdfs/comment    #xsd/string "Health and beauty.",
    :rdfs/label      #xsd/string "HealthAndBeautyBusiness",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HealthAspectEnumeration
   "HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]]."
@@ -6415,7 +6417,7 @@
     "HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]].",
    :rdfs/label #xsd/string "HealthAspectEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2374"}})
@@ -6424,10 +6426,10 @@
   "HealthCare: this is a benefit for health care."
   {:db/ident        :schema/HealthCare,
    :rdf/type        [:schema/GovernmentBenefitsType
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/Enumeration
-                     :rdfs/Resource],
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "HealthCare: this is a benefit for health care.",
    :rdfs/label      #xsd/string "HealthCare",
@@ -6443,11 +6445,11 @@
    :rdfs/label      #xsd/string "HealthClub",
    :rdfs/subClassOf [:schema/SportsActivityLocation
                      :schema/HealthAndBeautyBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HealthInsurancePlan
   "A US-style health insurance plan, including PPOs, EPOs, and HMOs. "
@@ -6470,7 +6472,7 @@
    #xsd/string
     "A description of costs to the patient under a given network or formulary.",
    :rdfs/label #xsd/string "HealthPlanCostSharingSpecification",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1062"}})
@@ -6508,7 +6510,7 @@
     "[[HealthTopicContent]] is [[WebContent]] that is about some aspect of a health topic, e.g. a condition, its symptoms or treatments. Such content may be comprised of several parts or sections and use different types of media. Multiple instances of [[WebContent]] (and hence [[HealthTopicContent]]) can be related using [[hasPart]] / [[isPartOf]] where there is some kind of content hierarchy, and their content described with [[about]] and [[mentions]] e.g. building upon the existing [[MedicalCondition]] vocabulary.\n  ",
    :rdfs/label #xsd/string "HealthTopicContent",
    :rdfs/subClassOf
-   [:schema/WebContent :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/WebContent :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2374"}})
@@ -6518,9 +6520,9 @@
   {:db/ident :schema/HealthcareConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Item is a pharmaceutical (e.g., a prescription or OTC drug) or a restricted medical device.",
@@ -6533,10 +6535,10 @@
   "Uses devices to support users with hearing impairments."
   {:db/ident     :schema/HearingImpairedSupported,
    :rdf/type     [:schema/ContactPointOption
-                  :schema/Intangible
-                  :schema/Enumeration
                   :rdfs/Resource
-                  :schema/Thing],
+                  :schema/Enumeration
+                  :schema/Thing
+                  :schema/Intangible],
    :rdfs/comment #xsd/string
                   "Uses devices to support users with hearing impairments.",
    :rdfs/label   #xsd/string "HearingImpairedSupported"})
@@ -6545,10 +6547,10 @@
   "A specific branch of medical science that pertains to diagnosis and treatment of disorders of blood and blood producing organs."
   {:db/ident :schema/Hematologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -6564,20 +6566,20 @@
    :rdfs/comment    #xsd/string "A high school.",
    :rdfs/label      #xsd/string "HighSchool",
    :rdfs/subClassOf [:schema/EducationalOrganization
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HinduDiet
   "A diet conforming to Hindu dietary practices, in particular, beef-free."
   {:db/ident :schema/HinduDiet,
    :rdf/type [:schema/RestrictedDiet
-              :schema/Intangible
               :schema/Enumeration
-              :schema/Thing
-              :rdfs/Resource],
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "A diet conforming to Hindu dietary practices, in particular, beef-free.",
@@ -6591,9 +6593,9 @@
    :rdfs/label      #xsd/string "HinduTemple",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/PlaceOfWorship
-                     :schema/Thing
+                     :schema/CivicStructure
                      :schema/Place
-                     :schema/CivicStructure]})
+                     :schema/Thing]})
 
 (def HobbyShop
   "A store that sells materials useful or necessary for various hobbies."
@@ -6605,10 +6607,10 @@
    :rdfs/label #xsd/string "HobbyShop",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Store
-                     :schema/Organization
-                     :schema/Thing
                      :schema/Place
-                     :schema/LocalBusiness]})
+                     :schema/LocalBusiness
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HomeAndConstructionBusiness
   "A construction business.\\n\\nA HomeAndConstructionBusiness is a [[LocalBusiness]] that provides services around homes and buildings.\\n\\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s)."
@@ -6619,10 +6621,10 @@
     "A construction business.\\n\\nA HomeAndConstructionBusiness is a [[LocalBusiness]] that provides services around homes and buildings.\\n\\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).",
    :rdfs/label #xsd/string "HomeAndConstructionBusiness",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HomeGoodsStore
   "A home goods store."
@@ -6631,21 +6633,21 @@
    :rdfs/comment    #xsd/string "A home goods store.",
    :rdfs/label      #xsd/string "HomeGoodsStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Homeopathic
   "A system of medicine based on the principle that a disease can be cured by a substance that produces similar symptoms in healthy people."
   {:db/ident :schema/Homeopathic,
    :rdf/type [:schema/MedicineSystem
               :schema/MedicalEnumeration
-              :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "A system of medicine based on the principle that a disease can be cured by a substance that produces similar symptoms in healthy people.",
@@ -6661,11 +6663,11 @@
    :rdfs/subClassOf [:schema/MedicalOrganization
                      :schema/EmergencyService
                      :schema/CivicStructure
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Hostel
   "A hostel - cheap accommodation, often in shared dormitories.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -6676,11 +6678,11 @@
     "A hostel - cheap accommodation, often in shared dormitories.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "Hostel",
    :rdfs/subClassOf [:schema/LodgingBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Hotel
   "A hotel is an establishment that provides lodging paid on a short-term basis (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -6691,11 +6693,11 @@
     "A hotel is an establishment that provides lodging paid on a short-term basis (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "Hotel",
    :rdfs/subClassOf [:schema/LodgingBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -6710,8 +6712,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Room
                      :schema/Accommodation
-                     :schema/Thing
-                     :schema/Place],
+                     :schema/Place
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -6724,7 +6726,7 @@
     "A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/House\">http://en.wikipedia.org/wiki/House</a>).",
    :rdfs/label #xsd/string "House",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Accommodation :schema/Thing :schema/Place],
+   [:rdfs/Resource :schema/Accommodation :schema/Place :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -6735,20 +6737,20 @@
    :rdfs/comment    #xsd/string "A house painting service.",
    :rdfs/label      #xsd/string "HousePainter",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def HowItWorksHealthAspect
   "Content that discusses and explains how a particular health-related topic works, e.g. in terms of mechanisms and underlying science."
   {:db/ident :schema/HowItWorksHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content that discusses and explains how a particular health-related topic works, e.g. in terms of mechanisms and underlying science.",
@@ -6761,10 +6763,10 @@
   "Information about how or where to find a topic. Also may contain location data that can be used for where to look for help if the topic is observed."
   {:db/ident :schema/HowOrWhereHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Information about how or where to find a topic. Also may contain location data that can be used for where to look for help if the topic is observed.",
@@ -6794,8 +6796,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/ListItem
                      :schema/CreativeWork
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def HowToItem
   "An item used as either a tool or supply when performing the instructions for how to achieve a result."
@@ -6806,7 +6808,7 @@
     "An item used as either a tool or supply when performing the instructions for how to achieve a result.",
    :rdfs/label #xsd/string "HowToItem",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/ListItem :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/ListItem :schema/Intangible :schema/Thing]})
 
 (def HowToSection
   "A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe)."
@@ -6819,9 +6821,9 @@
    :rdfs/subClassOf [:schema/ListItem
                      :schema/ItemList
                      :schema/CreativeWork
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def HowToStep
   "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items."
@@ -6834,9 +6836,9 @@
    :rdfs/subClassOf [:schema/ListItem
                      :schema/ItemList
                      :schema/CreativeWork
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def HowToSupply
   "A supply consumed when performing the instructions for how to achieve a result."
@@ -6847,10 +6849,10 @@
     "A supply consumed when performing the instructions for how to achieve a result.",
    :rdfs/label #xsd/string "HowToSupply",
    :rdfs/subClassOf [:schema/HowToItem
-                     :schema/Thing
                      :schema/ListItem
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def HowToTip
   "An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection)."
@@ -6862,9 +6864,9 @@
    :rdfs/label #xsd/string "HowToTip",
    :rdfs/subClassOf [:schema/ListItem
                      :schema/CreativeWork
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def HowToTool
   "A tool used (but not consumed) when performing instructions for how to achieve a result."
@@ -6875,10 +6877,10 @@
     "A tool used (but not consumed) when performing instructions for how to achieve a result.",
    :rdfs/label #xsd/string "HowToTool",
    :rdfs/subClassOf [:schema/HowToItem
-                     :schema/Thing
                      :schema/ListItem
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def HyperToc
   "A HyperToc represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. Items in the table of contents are indicated using the [[tocEntry]] property, and typed [[HyperTocEntry]]. For cases where the same larger work is split into multiple files, [[associatedMedia]] can be used on individual [[HyperTocEntry]] items."
@@ -6888,7 +6890,7 @@
    #xsd/string
     "A HyperToc represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. Items in the table of contents are indicated using the [[tocEntry]] property, and typed [[HyperTocEntry]]. For cases where the same larger work is split into multiple files, [[associatedMedia]] can be used on individual [[HyperTocEntry]] items.",
    :rdfs/label #xsd/string "HyperToc",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2766"}})
@@ -6910,9 +6912,9 @@
   "Represents the broad notion of iOS-based operating systems."
   {:db/ident :schema/IOSPlatform,
    :rdf/type [:schema/DigitalPlatformEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Intangible
+              :schema/Enumeration
               :schema/Thing],
    :rdfs/comment #xsd/string
                   "Represents the broad notion of iOS-based operating systems.",
@@ -6928,11 +6930,11 @@
    :rdfs/comment    #xsd/string "An ice cream shop.",
    :rdfs/label      #xsd/string "IceCreamShop",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def IgnoreAction
   "The act of intentionally disregarding the object. An agent ignores an object."
@@ -6943,7 +6945,7 @@
     "The act of intentionally disregarding the object. An agent ignores an object.",
    :rdfs/label #xsd/string "IgnoreAction",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/AssessAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ImageGallery
   "Web page type: Image gallery page."
@@ -6953,10 +6955,10 @@
    :rdfs/label      #xsd/string "ImageGallery",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MediaGallery
-                     :schema/Thing
-                     :schema/CreativeWork
                      :schema/CollectionPage
-                     :schema/WebPage]})
+                     :schema/CreativeWork
+                     :schema/WebPage
+                     :schema/Thing]})
 
 (def ImageObject
   "An image file."
@@ -6966,9 +6968,9 @@
    :rdfs/comment        #xsd/string "An image file.",
    :rdfs/label          #xsd/string "ImageObject",
    :rdfs/subClassOf     [:schema/MediaObject
-                         :schema/Thing
                          :rdfs/Resource
-                         :schema/CreativeWork]})
+                         :schema/CreativeWork
+                         :schema/Thing]})
 
 (def ImageObjectSnapshot
   "A specific and exact (byte-for-byte) version of an [[ImageObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata (e.g. XMP, EXIF) the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity."
@@ -6979,10 +6981,10 @@
     "A specific and exact (byte-for-byte) version of an [[ImageObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata (e.g. XMP, EXIF) the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.",
    :rdfs/label #xsd/string "ImageObjectSnapshot",
    :rdfs/subClassOf [:schema/ImageObject
-                     :schema/Thing
-                     :schema/MediaObject
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/MediaObject
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2450"}})
@@ -6996,7 +6998,7 @@
     "Any medical imaging modality typically used for diagnostic purposes.",
    :rdfs/label #xsd/string "ImagingTest",
    :rdfs/subClassOf
-   [:schema/MedicalTest :schema/Thing :schema/MedicalEntity :rdfs/Resource],
+   [:schema/MedicalTest :rdfs/Resource :schema/MedicalEntity :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def InForce
@@ -7020,8 +7022,8 @@
   "Indicates that the item is in stock."
   {:db/ident     :schema/InStock,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item is in stock.",
@@ -7031,8 +7033,8 @@
   "Indicates that the item is available only at physical locations."
   {:db/ident :schema/InStoreOnly,
    :rdf/type [:schema/ItemAvailability
-              :schema/Enumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
               :schema/Thing],
    :rdfs/comment
@@ -7048,7 +7050,7 @@
    #xsd/string
     "A single, identifiable product instance (e.g. a laptop with a particular serial number).",
    :rdfs/label #xsd/string "IndividualProduct",
-   :rdfs/subClassOf [:schema/Product :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Product :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -7056,10 +7058,10 @@
   "Something in medical science that pertains to infectious diseases, i.e. caused by bacterial, viral, fungal or parasitic infections."
   {:db/ident :schema/Infectious,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -7079,8 +7081,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def InfectiousDisease
@@ -7093,8 +7095,8 @@
    :rdfs/label #xsd/string "InfectiousDisease",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MedicalCondition
-                     :schema/Thing
-                     :schema/MedicalEntity],
+                     :schema/MedicalEntity
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def InformAction
@@ -7106,19 +7108,19 @@
     "The act of notifying someone of information pertinent to them, with no expectation of a response.",
    :rdfs/label #xsd/string "InformAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def IngredientsHealthAspect
   "Content discussing ingredients-related aspects of a health topic."
   {:db/ident :schema/IngredientsHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content discussing ingredients-related aspects of a health topic.",
@@ -7136,10 +7138,10 @@
     "The act of adding at a specific location in an ordered collection.",
    :rdfs/label #xsd/string "InsertAction",
    :rdfs/subClassOf [:schema/AddAction
-                     :schema/Thing
-                     :schema/UpdateAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/UpdateAction
+                     :schema/Thing]})
 
 (def InstallAction
   "The act of installing an application."
@@ -7148,18 +7150,18 @@
    :rdfs/comment    #xsd/string "The act of installing an application.",
    :rdfs/label      #xsd/string "InstallAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Installment
   "Represents the installment pricing component of the total price for an offered product."
   {:db/ident :schema/Installment,
    :rdf/type [:schema/PriceComponentTypeEnumeration
-              :schema/Enumeration
+              :schema/Intangible
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Represents the installment pricing component of the total price for an offered product.",
@@ -7175,11 +7177,11 @@
    :rdfs/comment    #xsd/string "An Insurance agency.",
    :rdfs/label      #xsd/string "InsuranceAgency",
    :rdfs/subClassOf [:schema/FinancialService
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Intangible
   "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."
@@ -7206,7 +7208,7 @@
    :rdfs/comment #xsd/string
                   "The act of interacting with another person or organization.",
    :rdfs/label #xsd/string "InteractAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def InteractionCounter
   "A summary of how users have interacted with this CreativeWork. In most cases, authors will use a subtype to specify the specific type of interaction."
@@ -7217,17 +7219,17 @@
     "A summary of how users have interacted with this CreativeWork. In most cases, authors will use a subtype to specify the specific type of interaction.",
    :rdfs/label #xsd/string "InteractionCounter",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def InternationalTrial
   "An international trial."
   {:db/ident        :schema/InternationalTrial,
    :rdf/type        [:schema/MedicalTrialDesign
-                     :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible
                      :schema/MedicalEnumeration
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "An international trial.",
    :rdfs/label      #xsd/string "InternationalTrial",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -7239,10 +7241,10 @@
    :rdfs/comment    #xsd/string "An internet cafe.",
    :rdfs/label      #xsd/string "InternetCafe",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def InvestmentFund
   "A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets."
@@ -7253,11 +7255,11 @@
     "A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets.",
    :rdfs/label #xsd/string "InvestmentFund",
    :rdfs/subClassOf [:schema/InvestmentOrDeposit
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :schema/FinancialProduct
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/FinancialProduct
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -7272,10 +7274,10 @@
     "A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return.",
    :rdfs/label #xsd/string "InvestmentOrDeposit",
    :rdfs/subClassOf [:schema/FinancialProduct
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def InviteAction
@@ -7287,10 +7289,10 @@
     "The act of asking someone to attend an event. Reciprocal of RsvpAction.",
    :rdfs/label #xsd/string "InviteAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Invoice
   "A statement of the money due for goods or services; a bill."
@@ -7305,8 +7307,8 @@
   "Represents the invoice price of an offered product."
   {:db/ident        :schema/InvoicePrice,
    :rdf/type        [:schema/PriceTypeEnumeration
-                     :schema/Thing
                      :rdfs/Resource
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible],
    :rdfs/comment    #xsd/string
@@ -7325,8 +7327,8 @@
    :rdfs/label      #xsd/string "ItemAvailability",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ItemList
   "A list of items of any sort&#x2014;for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting."
@@ -7343,8 +7345,8 @@
   {:db/ident     :schema/ItemListOrderAscending,
    :rdf/type     [:schema/ItemListOrderType
                   :schema/Enumeration
-                  :schema/Thing
                   :rdfs/Resource
+                  :schema/Thing
                   :schema/Intangible],
    :rdfs/comment #xsd/string
                   "An ItemList ordered with lower values listed first.",
@@ -7355,8 +7357,8 @@
   {:db/ident     :schema/ItemListOrderDescending,
    :rdf/type     [:schema/ItemListOrderType
                   :schema/Enumeration
-                  :schema/Thing
                   :rdfs/Resource
+                  :schema/Thing
                   :schema/Intangible],
    :rdfs/comment #xsd/string
                   "An ItemList ordered with higher values listed first.",
@@ -7371,15 +7373,15 @@
     "Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.",
    :rdfs/label #xsd/string "ItemListOrderType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def ItemListUnordered
   "An ItemList ordered with no explicit order."
   {:db/ident     :schema/ItemListUnordered,
    :rdf/type     [:schema/ItemListOrderType
                   :schema/Enumeration
-                  :schema/Thing
                   :rdfs/Resource
+                  :schema/Thing
                   :schema/Intangible],
    :rdfs/comment #xsd/string "An ItemList ordered with no explicit order.",
    :rdfs/label   #xsd/string "ItemListUnordered"})
@@ -7393,7 +7395,7 @@
     "A page devoted to a single item, such as a particular product or hotel.",
    :rdfs/label #xsd/string "ItemPage",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/WebPage :schema/Thing :schema/CreativeWork]})
+   [:rdfs/Resource :schema/WebPage :schema/CreativeWork :schema/Thing]})
 
 (def JewelryStore
   "A jewelry store."
@@ -7402,11 +7404,11 @@
    :rdfs/comment    #xsd/string "A jewelry store.",
    :rdfs/label      #xsd/string "JewelryStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def JobPosting
   "A listing that describes a job opening in a certain organization."
@@ -7416,7 +7418,7 @@
    #xsd/string
     "A listing that describes a job opening in a certain organization.",
    :rdfs/label #xsd/string "JobPosting",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def JoinAction
   "An agent joins an event/group with participants/friends at a location.\\n\\nRelated actions:\\n\\n* [[RegisterAction]]: Unlike RegisterAction, JoinAction refers to joining a group/team of people.\\n* [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\\n* [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates."
@@ -7427,7 +7429,7 @@
     "An agent joins an event/group with participants/friends at a location.\\n\\nRelated actions:\\n\\n* [[RegisterAction]]: Unlike RegisterAction, JoinAction refers to joining a group/team of people.\\n* [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\\n* [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.",
    :rdfs/label #xsd/string "JoinAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Joint
   "The anatomical location at which two or more bones make contact."
@@ -7438,19 +7440,19 @@
     "The anatomical location at which two or more bones make contact.",
    :rdfs/label #xsd/string "Joint",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def KosherDiet
   "A diet conforming to Jewish dietary practices."
   {:db/ident     :schema/KosherDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet conforming to Jewish dietary practices.",
    :rdfs/label   #xsd/string "KosherDiet"})
 
@@ -7458,10 +7460,10 @@
   "A medical science pertaining to chemical, hematological, immunologic, microscopic, or bacteriological diagnostic analyses or research."
   {:db/ident :schema/LaboratoryScience,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -7477,9 +7479,9 @@
    :rdfs/comment    #xsd/string "A lake (for example, Lake Pontrachain).",
    :rdfs/label      #xsd/string "LakeBodyOfWater",
    :rdfs/subClassOf [:schema/BodyOfWater
-                     :schema/Thing
-                     :schema/Place
                      :rdfs/Resource
+                     :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def Landform
@@ -7490,7 +7492,7 @@
    #xsd/string
     "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.",
    :rdfs/label #xsd/string "Landform",
-   :rdfs/subClassOf [:schema/Place :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Place :rdfs/Resource :schema/Thing]})
 
 (def LandmarksOrHistoricalBuildings
   "An historical landmark or building."
@@ -7508,14 +7510,14 @@
    #xsd/string
     "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) can be used via the [[alternateName]] property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using [[ComputerLanguage]].",
    :rdfs/label #xsd/string "Language",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def LaserDiscFormat
   "LaserDiscFormat."
   {:db/ident           :schema/LaserDiscFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "LaserDiscFormat.",
@@ -7544,16 +7546,16 @@
     "An agent leaves an event / group with participants/friends at a location.\\n\\nRelated actions:\\n\\n* [[JoinAction]]: The antonym of LeaveAction.\\n* [[UnRegisterAction]]: Unlike UnRegisterAction, LeaveAction implies leaving a group/team of people rather than a service.",
    :rdfs/label #xsd/string "LeaveAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def LeftHandDriving
   "The steering position is on the left side of the vehicle (viewed from the main direction of driving)."
   {:db/ident :schema/LeftHandDriving,
    :rdf/type [:schema/SteeringPositionValue
-              :rdfs/Resource
-              :schema/Thing
               :schema/QualitativeValue
+              :rdfs/Resource
               :schema/Intangible
+              :schema/Thing
               :schema/Enumeration],
    :rdfs/comment
    #xsd/string
@@ -7573,9 +7575,9 @@
    :rdfs/label #xsd/string "LegalForceStatus",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/ELI"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -7591,10 +7593,10 @@
     "A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\\n\\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).",
    :rdfs/label #xsd/string "LegalService",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def LegalValueLevel
   "A list of possible levels for the legal validity of a legislation."
@@ -7605,7 +7607,7 @@
     "A list of possible levels for the legal validity of a legislation.",
    :rdfs/label #xsd/string "LegalValueLevel",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/ELI"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -7637,9 +7639,9 @@
    :rdfs/label #xsd/string "LegislationObject",
    :rdfs/subClassOf [:schema/MediaObject
                      :schema/Legislation
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/ELI"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -7654,19 +7656,19 @@
    #xsd/string "A legislative building&#x2014;for example, the state capitol.",
    :rdfs/label #xsd/string "LegislativeBuilding",
    :rdfs/subClassOf [:schema/GovernmentBuilding
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def LeisureTimeActivity
   "Any physical activity engaged in for recreational purposes. Examples may include ballroom dancing, roller skating, canoeing, fishing, etc."
   {:db/ident :schema/LeisureTimeActivity,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Any physical activity engaged in for recreational purposes. Examples may include ballroom dancing, roller skating, canoeing, fishing, etc.",
@@ -7682,7 +7684,7 @@
     "The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.\\n\\nRelated actions:\\n\\n* [[BorrowAction]]: Reciprocal of LendAction.",
    :rdfs/label #xsd/string "LendAction",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Library
   "A library."
@@ -7691,10 +7693,10 @@
    :rdfs/comment    #xsd/string "A library.",
    :rdfs/label      #xsd/string "Library",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def LibrarySystem
   "A [[LibrarySystem]] is a collaborative system amongst several libraries."
@@ -7717,7 +7719,7 @@
    #xsd/string
     "A process of care involving exercise, changes to diet, fitness routines, and other lifestyle changes aimed at improving a health condition.",
    :rdfs/label #xsd/string "LifestyleModification",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Ligament
@@ -7729,9 +7731,9 @@
     "A short band of tough, flexible, fibrous connective tissue that functions to connect multiple bones, cartilages, and structurally support joints.",
    :rdfs/label #xsd/string "Ligament",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def LikeAction
@@ -7743,17 +7745,17 @@
     "The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants.",
    :rdfs/label #xsd/string "LikeAction",
    :rdfs/subClassOf [:schema/ReactAction
-                     :schema/Thing
-                     :schema/AssessAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/AssessAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def LimitedAvailability
   "Indicates that the item has limited availability."
   {:db/ident     :schema/LimitedAvailability,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string
@@ -7767,8 +7769,8 @@
               :rdfs/Resource
               :schema/Thing
               :schema/Enumeration
-              :schema/NonprofitType
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/NonprofitType],
    :rdfs/comment
    #xsd/string
     "LimitedByGuaranteeCharity: Non-profit type referring to a charitable company that is limited by guarantee (UK).",
@@ -7786,7 +7788,7 @@
     "A Role that represents a Web link, e.g. as expressed via the 'url' property. Its linkRelationship property can indicate URL-based and plain textual link types, e.g. those in IANA link registry or others such as 'amphtml'. This structure provides a placeholder where details from HTML's link element can be represented outside of HTML, e.g. in JSON-LD feeds.",
    :rdfs/label #xsd/string "LinkRole",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Role :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Role :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1045"}})
@@ -7800,11 +7802,11 @@
     "A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits.",
    :rdfs/label #xsd/string "LiquorStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ListItem
   "An list item, e.g. a step in a checklist or how-to description."
@@ -7820,8 +7822,8 @@
   "Represents the list price (the price a product is actually advertised for) of an offered product."
   {:db/ident :schema/ListPrice,
    :rdf/type [:schema/PriceTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -7840,8 +7842,8 @@
    :rdfs/label      #xsd/string "ListenAction",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/ConsumeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def LiteraryEvent
   "Event type: Literary event."
@@ -7849,16 +7851,16 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Literary event.",
    :rdfs/label      #xsd/string "LiteraryEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def LiveAlbum
   "LiveAlbum."
   {:db/ident           :schema/LiveAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "LiveAlbum.",
    :rdfs/label         #xsd/string "LiveAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -7872,20 +7874,20 @@
     "A [[LiveBlogPosting]] is a [[BlogPosting]] intended to provide a rolling textual coverage of an ongoing event through continuous updates.",
    :rdfs/label #xsd/string "LiveBlogPosting",
    :rdfs/subClassOf [:schema/BlogPosting
-                     :schema/Thing
-                     :schema/Article
-                     :schema/SocialMediaPosting
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/SocialMediaPosting
+                     :schema/Article
+                     :schema/Thing]})
 
 (def LivingWithHealthAspect
   "Information about coping or life related to the topic."
   {:db/ident        :schema/LivingWithHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string
                      "Information about coping or life related to the topic.",
    :rdfs/label      #xsd/string "LivingWithHealthAspect",
@@ -7902,10 +7904,10 @@
     "A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges.",
    :rdfs/label #xsd/string "LoanOrCredit",
    :rdfs/subClassOf [:schema/FinancialProduct
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def LocalBusiness
@@ -7930,10 +7932,10 @@
     "Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.",
    :rdfs/label #xsd/string "LocationFeatureSpecification",
    :rdfs/subClassOf [:schema/PropertyValue
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue],
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -7941,10 +7943,10 @@
   "A DeliveryMethod in which an item is made available via locker."
   {:db/ident :schema/LockerDelivery,
    :rdf/type [:schema/DeliveryMethod
-              :rdfs/Resource
-              :schema/Thing
               :schema/Enumeration
-              :schema/Intangible],
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "A DeliveryMethod in which an item is made available via locker.",
@@ -7958,10 +7960,10 @@
    :rdfs/label      #xsd/string "Locksmith",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :schema/LocalBusiness
                      :schema/Place
-                     :schema/LocalBusiness]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def LodgingBusiness
   "A lodging business, such as a motel, hotel, or inn."
@@ -7971,10 +7973,10 @@
                      "A lodging business, such as a motel, hotel, or inn.",
    :rdfs/label      #xsd/string "LodgingBusiness",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def LodgingReservation
   "A reservation for lodging at a hotel, motel, inn, etc.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
@@ -7985,16 +7987,16 @@
     "A reservation for lodging at a hotel, motel, inn, etc.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.",
    :rdfs/label #xsd/string "LodgingReservation",
    :rdfs/subClassOf
-   [:schema/Reservation :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Reservation :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def Longitudinal
   "Unlike cross-sectional studies, longitudinal studies track the same people, and therefore the differences observed in those people are less likely to be the result of cultural differences across generations. Longitudinal studies are also used in medicine to uncover predictors of certain diseases."
   {:db/ident :schema/Longitudinal,
    :rdf/type [:schema/MedicalObservationalStudyDesign
-              :schema/Intangible
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible
               :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
@@ -8010,18 +8012,18 @@
                      "The act of being defeated in a competitive activity.",
    :rdfs/label      #xsd/string "LoseAction",
    :rdfs/subClassOf [:schema/AchieveAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def LowCalorieDiet
   "A diet focused on reduced calorie intake."
   {:db/ident     :schema/LowCalorieDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet focused on reduced calorie intake.",
    :rdfs/label   #xsd/string "LowCalorieDiet"})
 
@@ -8029,10 +8031,10 @@
   "A diet focused on reduced fat and cholesterol intake."
   {:db/ident     :schema/LowFatDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "A diet focused on reduced fat and cholesterol intake.",
    :rdfs/label   #xsd/string "LowFatDiet"})
@@ -8041,10 +8043,10 @@
   "A diet appropriate for people with lactose intolerance."
   {:db/ident     :schema/LowLactoseDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "A diet appropriate for people with lactose intolerance.",
    :rdfs/label   #xsd/string "LowLactoseDiet"})
@@ -8053,10 +8055,10 @@
   "A diet focused on reduced sodium intake."
   {:db/ident     :schema/LowSaltDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet focused on reduced sodium intake.",
    :rdfs/label   #xsd/string "LowSaltDiet"})
 
@@ -8064,13 +8066,13 @@
   "Lung and respiratory system clinical examination."
   {:db/ident        :schema/Lung,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Lung and respiratory system clinical examination.",
    :rdfs/label      #xsd/string "Lung",
@@ -8085,10 +8087,10 @@
     "A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart.",
    :rdfs/label #xsd/string "LymphaticVessel",
    :rdfs/subClassOf [:schema/Vessel
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/AnatomicalStructure
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MRI
@@ -8096,10 +8098,10 @@
   {:db/ident        :schema/MRI,
    :rdf/type        [:schema/MedicalImagingTechnique
                      :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Magnetic resonance imaging.",
    :rdfs/label      #xsd/string "MRI",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -8108,8 +8110,8 @@
   "Represents the manufacturer suggested retail price (\"MSRP\") of an offered product."
   {:db/ident :schema/MSRP,
    :rdf/type [:schema/PriceTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -8124,9 +8126,9 @@
   "The male gender."
   {:db/ident     :schema/Male,
    :rdf/type     [:schema/GenderType
+                  :rdfs/Resource
                   :schema/Enumeration
                   :schema/Thing
-                  :rdfs/Resource
                   :schema/Intangible],
    :rdfs/comment #xsd/string "The male gender.",
    :rdfs/label   #xsd/string "Male"})
@@ -8150,7 +8152,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "A map.",
    :rdfs/label      #xsd/string "Map",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def MapCategoryType
   "An enumeration of several kinds of Map."
@@ -8159,9 +8161,9 @@
    :rdfs/comment    #xsd/string "An enumeration of several kinds of Map.",
    :rdfs/label      #xsd/string "MapCategoryType",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def MarryAction
   "The act of marrying a person."
@@ -8170,9 +8172,9 @@
    :rdfs/comment    #xsd/string "The act of marrying a person.",
    :rdfs/label      #xsd/string "MarryAction",
    :rdfs/subClassOf [:schema/InteractAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Mass
   "Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'."
@@ -8183,7 +8185,7 @@
     "Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'.",
    :rdfs/label #xsd/string "Mass",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Quantity :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Quantity :schema/Intangible :schema/Thing]})
 
 (def MathSolver
   "A math solver which is capable of solving a subset of mathematical problems."
@@ -8207,20 +8209,20 @@
     "The maximum dosing schedule considered safe for a drug or supplement as recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.",
    :rdfs/label #xsd/string "MaximumDoseSchedule",
    :rdfs/subClassOf [:schema/DoseSchedule
-                     :schema/Thing
-                     :schema/MedicalEntity
                      :rdfs/Resource
-                     :schema/MedicalIntangible],
+                     :schema/MedicalIntangible
+                     :schema/MedicalEntity
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MayTreatHealthAspect
   "Related topics may be treated by a Topic."
   {:db/ident        :schema/MayTreatHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string "Related topics may be treated by a Topic.",
    :rdfs/label      #xsd/string "MayTreatHealthAspect",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -8236,8 +8238,8 @@
    :rdfs/label      #xsd/string "MeasurementMethodEnum",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/2564"}})
@@ -8251,7 +8253,7 @@
     "Enumeration of common measurement types (or dimensions), for example \"chest\" for a person, \"inseam\" for pants, \"gauge\" for screws, or \"wheel\" for bicycles.",
    :rdfs/label #xsd/string "MeasurementTypeEnumeration",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -8265,10 +8267,10 @@
     "Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.",
    :rdfs/label #xsd/string "MediaGallery",
    :rdfs/subClassOf [:schema/CollectionPage
-                     :schema/Thing
                      :rdfs/Resource
                      :schema/CreativeWork
-                     :schema/WebPage]})
+                     :schema/WebPage
+                     :schema/Thing]})
 
 (def MediaManipulationRatingEnumeration
   " Codes for use with the [[mediaAuthenticityCategory]] property, indicating the authenticity of a media object (in the context of how it was published or shared). In general these codes are not mutually exclusive, although some combinations (such as 'original' versus 'transformed', 'edited' and 'staged') would be contradictory if applied in the same [[MediaReview]]. Note that the application of these codes is with regard to a piece of media shared or published in a particular context."
@@ -8279,7 +8281,7 @@
     " Codes for use with the [[mediaAuthenticityCategory]] property, indicating the authenticity of a media object (in the context of how it was published or shared). In general these codes are not mutually exclusive, although some combinations (such as 'original' versus 'transformed', 'edited' and 'staged') would be contradictory if applied in the same [[MediaReview]]. Note that the application of these codes is with regard to a piece of media shared or published in a particular context.",
    :rdfs/label #xsd/string "MediaManipulationRatingEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2450"}})
@@ -8303,7 +8305,7 @@
     "A [[MediaReview]] is a more specialized form of Review dedicated to the evaluation of media content online, typically in the context of fact-checking and misinformation.\n    For more general reviews of media in the broader sense, use [[UserReview]], [[CriticReview]] or other [[Review]] types. This definition is\n    a work in progress. While the [[MediaManipulationRatingEnumeration]] list reflects significant community review amongst fact-checkers and others working\n    to combat misinformation, the specific structures for representing media objects, their versions and publication context, are still evolving. Similarly, best practices for the relationship between [[MediaReview]] and [[ClaimReview]] markup have not yet been finalized.",
    :rdfs/label #xsd/string "MediaReview",
    :rdfs/subClassOf
-   [:schema/Review :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/Review :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2450"}})
@@ -8316,7 +8318,7 @@
    #xsd/string
     "Represents an item or group of closely related items treated as a unit for the sake of evaluation in a [[MediaReview]]. Authorship etc. apply to the items rather than to the curation/grouping or reviewing party.",
    :rdfs/label #xsd/string "MediaReviewItem",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2450"}})
@@ -8329,7 +8331,7 @@
    #xsd/string
     "A subscription which allows a user to access media including audio, video, books, etc.",
    :rdfs/label #xsd/string "MediaSubscription",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1741"}})
 
@@ -8341,9 +8343,9 @@
    :rdfs/label      #xsd/string "MedicalAudience",
    :rdfs/subClassOf [:schema/PeopleAudience
                      :schema/Audience
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalAudienceType
@@ -8355,9 +8357,9 @@
    :rdfs/label #xsd/string "MedicalAudienceType",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalBusiness
@@ -8369,10 +8371,10 @@
     "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include different businesses run by health professionals.",
    :rdfs/label #xsd/string "MedicalBusiness",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalCause
@@ -8383,7 +8385,7 @@
    #xsd/string
     "The causative agent(s) that are responsible for the pathophysiologic process that eventually results in a medical condition, symptom or sign. In this schema, unless otherwise specified this is meant to be the proximate cause of the medical condition, symptom or sign. The proximate cause is defined as the causative agent that most directly results in the medical condition, symptom or sign. For example, the HIV virus could be considered a cause of AIDS. Or in a diagnostic context, if a patient fell and sustained a hip fracture and two days later sustained a pulmonary embolism which eventuated in a cardiac arrest, the cause of the cardiac arrest (the proximate cause) would be the pulmonary embolism and not the fall. Medical causes can include cardiovascular, chemical, dermatologic, endocrine, environmental, gastroenterologic, genetic, hematologic, gynecologic, iatrogenic, infectious, musculoskeletal, neurologic, nutritional, obstetric, oncologic, otolaryngologic, pharmacologic, psychiatric, pulmonary, renal, rheumatologic, toxic, traumatic, or urologic causes; medical conditions can be causes as well.",
    :rdfs/label #xsd/string "MedicalCause",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalClinic
@@ -8396,11 +8398,11 @@
    :rdfs/label #xsd/string "MedicalClinic",
    :rdfs/subClassOf [:schema/MedicalOrganization
                      :schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalCode
@@ -8411,11 +8413,11 @@
    :rdfs/label      #xsd/string "MedicalCode",
    :rdfs/subClassOf [:schema/MedicalIntangible
                      :schema/CategoryCode
-                     :schema/Thing
+                     :rdfs/Resource
+                     :schema/DefinedTerm
                      :schema/Intangible
                      :schema/MedicalEntity
-                     :rdfs/Resource
-                     :schema/DefinedTerm],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalCondition
@@ -8426,7 +8428,7 @@
    #xsd/string
     "Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.",
    :rdfs/label #xsd/string "MedicalCondition",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalConditionStage
@@ -8437,9 +8439,9 @@
                      "A stage of a medical condition, such as 'Stage IIIa'.",
    :rdfs/label      #xsd/string "MedicalConditionStage",
    :rdfs/subClassOf [:schema/MedicalIntangible
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalContraindication
@@ -8450,7 +8452,7 @@
    #xsd/string
     "A condition or factor that serves as a reason to withhold a certain medical therapy. Contraindications can be absolute (there are no reasonable circumstances for undertaking a course of action) or relative (the patient is at higher risk of complications, but these risks may be outweighed by other considerations or mitigated by other measures).",
    :rdfs/label #xsd/string "MedicalContraindication",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalDevice
@@ -8463,7 +8465,7 @@
    #xsd/string
     "Any object used in a medical capacity, such as to diagnose or treat a patient.",
    :rdfs/label #xsd/string "MedicalDevice",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalDevicePurpose
@@ -8477,8 +8479,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalEntity
@@ -8501,7 +8503,7 @@
     "Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice.",
    :rdfs/label #xsd/string "MedicalEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalEvidenceLevel
@@ -8513,9 +8515,9 @@
    :rdfs/label #xsd/string "MedicalEvidenceLevel",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalGuideline
@@ -8526,7 +8528,7 @@
    #xsd/string
     "Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statement that denotes how to diagnose and treat a particular condition. Note: this type should be used to tag the actual guideline recommendation; if the guideline recommendation occurs in a larger scholarly article, use MedicalScholarlyArticle to tag the overall article, not this type. Note also: the organization making the recommendation should be captured in the recognizingAuthority base property of MedicalEntity.",
    :rdfs/label #xsd/string "MedicalGuideline",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalGuidelineContraindication
@@ -8538,9 +8540,9 @@
     "A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.",
    :rdfs/label #xsd/string "MedicalGuidelineContraindication",
    :rdfs/subClassOf [:schema/MedicalGuideline
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalGuidelineRecommendation
@@ -8552,9 +8554,9 @@
     "A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound.",
    :rdfs/label #xsd/string "MedicalGuidelineRecommendation",
    :rdfs/subClassOf [:schema/MedicalGuideline
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalImagingTechnique
@@ -8567,9 +8569,9 @@
    :rdfs/label #xsd/string "MedicalImagingTechnique",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalIndication
@@ -8580,7 +8582,7 @@
    #xsd/string
     "A condition or factor that indicates use of a medical therapy, including signs, symptoms, risk factors, anatomical states, etc.",
    :rdfs/label #xsd/string "MedicalIndication",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalIntangible
@@ -8591,7 +8593,7 @@
    #xsd/string
     "A utility class that serves as the umbrella for a number of 'intangible' things in the medical space.",
    :rdfs/label #xsd/string "MedicalIntangible",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalObservationalStudy
@@ -8603,7 +8605,7 @@
     "An observational study is a type of medical study that attempts to infer the possible effect of a treatment through observation of a cohort of subjects over a period of time. In an observational study, the assignment of subjects into treatment groups versus control groups is outside the control of the investigator. This is in contrast with controlled studies, such as the randomized controlled trials represented by MedicalTrial, where each subject is randomly assigned to a treatment group or a control group before the start of the treatment.",
    :rdfs/label #xsd/string "MedicalObservationalStudy",
    :rdfs/subClassOf
-   [:schema/MedicalStudy :schema/Thing :schema/MedicalEntity :rdfs/Resource],
+   [:schema/MedicalStudy :rdfs/Resource :schema/MedicalEntity :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalObservationalStudyDesign
@@ -8616,9 +8618,9 @@
    :rdfs/label #xsd/string "MedicalObservationalStudyDesign",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalOrganization
@@ -8629,7 +8631,7 @@
    #xsd/string
     "A medical organization (physical or not), such as hospital, institution or clinic.",
    :rdfs/label #xsd/string "MedicalOrganization",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing]})
 
 (def MedicalProcedure
   "A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques."
@@ -8641,7 +8643,7 @@
    #xsd/string
     "A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.",
    :rdfs/label #xsd/string "MedicalProcedure",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalProcedureType
@@ -8654,9 +8656,9 @@
    :rdfs/label #xsd/string "MedicalProcedureType",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalResearcher
@@ -8664,10 +8666,10 @@
   {:db/ident        :schema/MedicalResearcher,
    :rdf/type        [:schema/MedicalAudienceType
                      :schema/Intangible
-                     :rdfs/Resource
-                     :schema/MedicalEnumeration
                      :schema/Thing
-                     :schema/Enumeration],
+                     :schema/Enumeration
+                     :rdfs/Resource
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Medical researchers.",
    :rdfs/label      #xsd/string "MedicalResearcher",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -8681,9 +8683,9 @@
     "A complex mathematical calculation requiring an online calculator, used to assess prognosis. Note: use the url property of Thing to record any URLs for online calculators.",
    :rdfs/label #xsd/string "MedicalRiskCalculator",
    :rdfs/subClassOf [:schema/MedicalRiskEstimator
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalRiskEstimator
@@ -8694,7 +8696,7 @@
    #xsd/string
     "Any rule set or interactive tool for estimating the risk of developing a complication or condition.",
    :rdfs/label #xsd/string "MedicalRiskEstimator",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalRiskFactor
@@ -8705,7 +8707,7 @@
    #xsd/string
     "A risk factor is anything that increases a person's likelihood of developing or contracting a disease, medical condition, or complication.",
    :rdfs/label #xsd/string "MedicalRiskFactor",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalRiskScore
@@ -8717,9 +8719,9 @@
     "A simple system that adds up the number of risk factors to yield a score that is associated with prognosis, e.g. CHAD score, TIMI risk score.",
    :rdfs/label #xsd/string "MedicalRiskScore",
    :rdfs/subClassOf [:schema/MedicalRiskEstimator
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalScholarlyArticle
@@ -8729,10 +8731,10 @@
    :rdfs/comment    #xsd/string "A scholarly article in the medical domain.",
    :rdfs/label      #xsd/string "MedicalScholarlyArticle",
    :rdfs/subClassOf [:schema/ScholarlyArticle
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalSign
@@ -8744,9 +8746,9 @@
     "Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination.",
    :rdfs/label #xsd/string "MedicalSign",
    :rdfs/subClassOf [:schema/MedicalSignOrSymptom
-                     :schema/Thing
-                     :schema/MedicalEntity
                      :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Thing
                      :schema/MedicalCondition],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
@@ -8759,9 +8761,9 @@
     "Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective.",
    :rdfs/label #xsd/string "MedicalSignOrSymptom",
    :rdfs/subClassOf [:schema/MedicalCondition
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalSpecialty
@@ -8776,8 +8778,8 @@
                      :schema/Specialty
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalStudy
@@ -8788,7 +8790,7 @@
    #xsd/string
     "A medical study is an umbrella type covering all kinds of research studies relating to human medicine or health, including observational studies and interventional trials and registries, randomized, controlled or not. When the specific type of study is known, use one of the extensions of this type, such as MedicalTrial or MedicalObservationalStudy. Also, note that this type should be used to mark up data that describes the study itself; to tag an article that publishes the results of a study, use MedicalScholarlyArticle. Note: use the code property of MedicalEntity to store study IDs, e.g. clinicaltrials.gov ID.",
    :rdfs/label #xsd/string "MedicalStudy",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalStudyStatus
@@ -8801,8 +8803,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalSymptom
@@ -8814,9 +8816,9 @@
     "Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue.",
    :rdfs/label #xsd/string "MedicalSymptom",
    :rdfs/subClassOf [:schema/MedicalSignOrSymptom
-                     :schema/Thing
-                     :schema/MedicalEntity
                      :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Thing
                      :schema/MedicalCondition],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
@@ -8827,7 +8829,7 @@
    :rdfs/comment
    #xsd/string "Any medical test, typically performed for diagnostic purposes.",
    :rdfs/label #xsd/string "MedicalTest",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalTestPanel
@@ -8838,9 +8840,9 @@
                      "Any collection of tests commonly ordered together.",
    :rdfs/label      #xsd/string "MedicalTestPanel",
    :rdfs/subClassOf [:schema/MedicalTest
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalTherapy
@@ -8852,10 +8854,10 @@
     "Any medical intervention designed to prevent, treat, and cure human diseases and medical conditions, including both curative and palliative therapies. Medical therapies are typically processes of care relying upon pharmacotherapy, behavioral therapy, supportive therapy (with fluid or nutrition for example), or detoxification (e.g. hemodialysis) aimed at improving or preventing a health condition.",
    :rdfs/label #xsd/string "MedicalTherapy",
    :rdfs/subClassOf [:schema/TherapeuticProcedure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :schema/MedicalProcedure
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :schema/MedicalProcedure],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalTrial
@@ -8867,7 +8869,7 @@
     "A medical trial is a type of medical study that uses a scientific process to compare the safety and efficacy of medical therapies or medical procedures. In general, medical trials are controlled and subjects are allocated at random to the different treatment and/or control groups.",
    :rdfs/label #xsd/string "MedicalTrial",
    :rdfs/subClassOf
-   [:schema/MedicalStudy :schema/Thing :schema/MedicalEntity :rdfs/Resource],
+   [:schema/MedicalStudy :rdfs/Resource :schema/MedicalEntity :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicalTrialDesign
@@ -8879,9 +8881,9 @@
    :rdfs/label         #xsd/string "MedicalTrialDesign",
    :rdfs/subClassOf    [:schema/MedicalEnumeration
                         :schema/Enumeration
-                        :schema/Thing
+                        :rdfs/Resource
                         :schema/Intangible
-                        :rdfs/Resource],
+                        :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/WikiDoc"},
    :schema/isPartOf    {:rdfa/uri "http://health-lifesci.schema.org"}})
 
@@ -8892,9 +8894,9 @@
    :rdfs/comment    #xsd/string "A web page that provides medical information.",
    :rdfs/label      #xsd/string "MedicalWebPage",
    :rdfs/subClassOf [:schema/WebPage
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MedicineSystem
@@ -8905,9 +8907,9 @@
    :rdfs/label      #xsd/string "MedicineSystem",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MeetingRoom
@@ -8919,10 +8921,10 @@
     "A meeting room, conference room, or conference hall is a room provided for singular events such as business conferences and meetings (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Conference_hall\">http://en.wikipedia.org/wiki/Conference_hall</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "MeetingRoom",
    :rdfs/subClassOf [:schema/Room
+                     :rdfs/Resource
                      :schema/Accommodation
-                     :schema/Thing
                      :schema/Place
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -8933,11 +8935,11 @@
    :rdfs/comment    #xsd/string "A men's clothing store.",
    :rdfs/label      #xsd/string "MensClothingStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Menu
   "A structured representation of food or drink items available from a FoodEstablishment."
@@ -8947,7 +8949,7 @@
    #xsd/string
     "A structured representation of food or drink items available from a FoodEstablishment.",
    :rdfs/label #xsd/string "Menu",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def MenuItem
   "A food or drink item listed in a menu or menu section."
@@ -8976,9 +8978,9 @@
                      "Enumerates several kinds of product return policies.",
    :rdfs/label      #xsd/string "MerchantReturnEnumeration",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/2288"}})
@@ -8987,10 +8989,10 @@
   "Specifies that there is a finite window for product returns."
   {:db/ident :schema/MerchantReturnFiniteReturnWindow,
    :rdf/type [:schema/MerchantReturnEnumeration
-              :schema/Thing
-              :rdfs/Resource
               :schema/Intangible
-              :schema/Enumeration],
+              :rdfs/Resource
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string "Specifies that there is a finite window for product returns.",
    :rdfs/label #xsd/string "MerchantReturnFiniteReturnWindow",
@@ -9002,10 +9004,10 @@
   "Specifies that product returns are not permitted."
   {:db/ident        :schema/MerchantReturnNotPermitted,
    :rdf/type        [:schema/MerchantReturnEnumeration
-                     :schema/Thing
-                     :rdfs/Resource
                      :schema/Intangible
-                     :schema/Enumeration],
+                     :rdfs/Resource
+                     :schema/Enumeration
+                     :schema/Thing],
    :rdfs/comment    #xsd/string
                      "Specifies that product returns are not permitted.",
    :rdfs/label      #xsd/string "MerchantReturnNotPermitted",
@@ -9021,7 +9023,7 @@
    #xsd/string
     "A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]].",
    :rdfs/label #xsd/string "MerchantReturnPolicy",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2288"}})
@@ -9043,10 +9045,10 @@
   "Specifies that there is an unlimited window for product returns."
   {:db/ident :schema/MerchantReturnUnlimitedWindow,
    :rdf/type [:schema/MerchantReturnEnumeration
-              :schema/Thing
-              :rdfs/Resource
               :schema/Intangible
-              :schema/Enumeration],
+              :rdfs/Resource
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Specifies that there is an unlimited window for product returns.",
@@ -9059,10 +9061,10 @@
   "Specifies that a product return policy is not provided."
   {:db/ident        :schema/MerchantReturnUnspecified,
    :rdf/type        [:schema/MerchantReturnEnumeration
-                     :schema/Thing
-                     :rdfs/Resource
                      :schema/Intangible
-                     :schema/Enumeration],
+                     :rdfs/Resource
+                     :schema/Enumeration
+                     :schema/Thing],
    :rdfs/comment    #xsd/string
                      "Specifies that a product return policy is not provided.",
    :rdfs/label      #xsd/string "MerchantReturnUnspecified",
@@ -9089,20 +9091,20 @@
     "A middle school (typically for children aged around 11-14, although this varies somewhat).",
    :rdfs/label #xsd/string "MiddleSchool",
    :rdfs/subClassOf [:schema/EducationalOrganization
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Midwifery
   "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives."
   {:db/ident :schema/Midwifery,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -9110,19 +9112,19 @@
     "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives.",
    :rdfs/label #xsd/string "Midwifery",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def MinimumAdvertisedPrice
   "Represents the minimum advertised price (\"MAP\") (as dictated by the manufacturer) of an offered product."
   {:db/ident :schema/MinimumAdvertisedPrice,
    :rdf/type [:schema/PriceTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -9137,10 +9139,10 @@
   "Content about common misconceptions and myths that are related to a topic."
   {:db/ident :schema/MisconceptionsHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content about common misconceptions and myths that are related to a topic.",
@@ -9153,10 +9155,10 @@
   "MixedEventAttendanceMode - an event that is conducted as a combination of both offline and online modes."
   {:db/ident :schema/MixedEventAttendanceMode,
    :rdf/type [:schema/EventAttendanceModeEnumeration
-              :rdfs/Resource
-              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource
+              :schema/Thing
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "MixedEventAttendanceMode - an event that is conducted as a combination of both offline and online modes.",
@@ -9170,9 +9172,9 @@
   {:db/ident           :schema/MixtapeAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "MixtapeAlbum.",
    :rdfs/label         #xsd/string "MixtapeAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -9187,8 +9189,8 @@
    :rdfs/label #xsd/string "MobileApplication",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/SoftwareApplication
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MobilePhoneStore
   "A store that sells mobile phones and related accessories."
@@ -9198,19 +9200,19 @@
                   "A store that sells mobile phones and related accessories.",
    :rdfs/label #xsd/string "MobilePhoneStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MobileWebPlatform
   "Represents the broad notion of 'mobile' browsers as a Web Platform."
   {:db/ident :schema/MobileWebPlatform,
    :rdf/type [:schema/DigitalPlatformEnumeration
-              :schema/Enumeration
               :rdfs/Resource
               :schema/Intangible
+              :schema/Enumeration
               :schema/Thing],
    :rdfs/comment
    #xsd/string
@@ -9228,7 +9230,7 @@
    #xsd/string
     "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.",
    :rdfs/label #xsd/string "MolecularEntity",
-   :rdfs/subClassOf [:schema/BioChemEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/BioChemEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri "http://bioschemas.org"}})
 
@@ -9236,9 +9238,9 @@
   "The day of the week between Sunday and Tuesday."
   {:db/ident      :schema/Monday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string "The day of the week between Sunday and Tuesday.",
    :rdfs/label    #xsd/string "Monday",
@@ -9253,7 +9255,7 @@
     "A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use [[PriceSpecification]] Types to describe the price of an Offer, Invoice, etc.",
    :rdfs/label #xsd/string "MonetaryAmount",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def MonetaryAmountDistribution
@@ -9265,9 +9267,9 @@
    :rdfs/label      #xsd/string "MonetaryAmountDistribution",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/QuantitativeValueDistribution
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/StructuredValue],
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1698"}})
 
@@ -9278,9 +9280,9 @@
    :rdfs/comment    #xsd/string "A monetary grant.",
    :rdfs/label      #xsd/string "MonetaryGrant",
    :rdfs/subClassOf [:schema/Grant
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   [{:rdfa/uri "http://schema.org/docs/collab/FundInfoCollab"}
                      {:rdfa/uri
@@ -9295,7 +9297,7 @@
     "The act of transferring money from one place to another place. This may occur electronically or physically.",
    :rdfs/label #xsd/string "MoneyTransfer",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action],
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -9310,11 +9312,11 @@
     "A loan in which property or real estate is used as collateral. (A loan securitized against some real estate.)",
    :rdfs/label #xsd/string "MortgageLoan",
    :rdfs/subClassOf [:schema/LoanOrCredit
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :schema/FinancialProduct
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/FinancialProduct
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -9328,9 +9330,9 @@
    :rdfs/label      #xsd/string "Mosque",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/PlaceOfWorship
-                     :schema/Thing
+                     :schema/CivicStructure
                      :schema/Place
-                     :schema/CivicStructure]})
+                     :schema/Thing]})
 
 (def Motel
   "A motel.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -9341,11 +9343,11 @@
     "A motel.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "Motel",
    :rdfs/subClassOf [:schema/LodgingBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Motorcycle
   "A motorcycle or motorbike is a single-track, two-wheeled motor vehicle."
@@ -9356,7 +9358,7 @@
     "A motorcycle or motorbike is a single-track, two-wheeled motor vehicle.",
    :rdfs/label #xsd/string "Motorcycle",
    :rdfs/subClassOf
-   [:schema/Vehicle :schema/Thing :rdfs/Resource :schema/Product],
+   [:schema/Vehicle :rdfs/Resource :schema/Product :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"},
@@ -9369,11 +9371,11 @@
    :rdfs/comment    #xsd/string "A motorcycle dealer.",
    :rdfs/label      #xsd/string "MotorcycleDealer",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MotorcycleRepair
   "A motorcycle repair shop."
@@ -9382,11 +9384,11 @@
    :rdfs/comment    #xsd/string "A motorcycle repair shop.",
    :rdfs/label      #xsd/string "MotorcycleRepair",
    :rdfs/subClassOf [:schema/AutomotiveBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MotorizedBicycle
   "A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling."
@@ -9397,7 +9399,7 @@
     "A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.",
    :rdfs/label #xsd/string "MotorizedBicycle",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Vehicle :schema/Thing :schema/Product],
+   [:rdfs/Resource :schema/Vehicle :schema/Product :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"},
@@ -9411,9 +9413,9 @@
                      "A mountain, like Mount Whitney or Mount Everest.",
    :rdfs/label      #xsd/string "Mountain",
    :rdfs/subClassOf [:schema/Landform
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def MoveAction
   "The act of an agent relocating to a place.\\n\\nRelated actions:\\n\\n* [[TransferAction]]: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object."
@@ -9423,7 +9425,7 @@
    #xsd/string
     "The act of an agent relocating to a place.\\n\\nRelated actions:\\n\\n* [[TransferAction]]: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.",
    :rdfs/label #xsd/string "MoveAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def Movie
   "A movie."
@@ -9431,7 +9433,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "A movie.",
    :rdfs/label      #xsd/string "Movie",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def MovieClip
   "A short segment/part of a movie."
@@ -9440,9 +9442,9 @@
    :rdfs/comment    #xsd/string "A short segment/part of a movie.",
    :rdfs/label      #xsd/string "MovieClip",
    :rdfs/subClassOf [:schema/Clip
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MovieRentalStore
   "A movie rental store."
@@ -9451,11 +9453,11 @@
    :rdfs/comment    #xsd/string "A movie rental store.",
    :rdfs/label      #xsd/string "MovieRentalStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MovieSeries
   "A series of movies. Included movies can be indicated with the hasPart property."
@@ -9466,11 +9468,11 @@
     "A series of movies. Included movies can be indicated with the hasPart property.",
    :rdfs/label #xsd/string "MovieSeries",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series]})
+                     :schema/Thing]})
 
 (def MovieTheater
   "A movie theater."
@@ -9480,11 +9482,11 @@
    :rdfs/label      #xsd/string "MovieTheater",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
                      :schema/CivicStructure
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MovingCompany
   "A moving company."
@@ -9493,21 +9495,21 @@
    :rdfs/comment    #xsd/string "A moving company.",
    :rdfs/label      #xsd/string "MovingCompany",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MultiCenterTrial
   "A trial that takes place at multiple centers."
   {:db/ident        :schema/MultiCenterTrial,
    :rdf/type        [:schema/MedicalTrialDesign
-                     :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible
                      :schema/MedicalEnumeration
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "A trial that takes place at multiple centers.",
    :rdfs/label      #xsd/string "MultiCenterTrial",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -9516,10 +9518,10 @@
   "Play mode: MultiPlayer. Requiring or allowing multiple human players to play simultaneously."
   {:db/ident :schema/MultiPlayer,
    :rdf/type [:schema/GamePlayMode
-              :schema/Intangible
-              :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/Intangible
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "Play mode: MultiPlayer. Requiring or allowing multiple human players to play simultaneously.",
@@ -9529,11 +9531,11 @@
   "Multicellular parasite that causes an infection."
   {:db/ident        :schema/MulticellularParasite,
    :rdf/type        [:schema/InfectiousAgentClass
-                     :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :rdfs/Resource
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string
                      "Multicellular parasite that causes an infection.",
    :rdfs/label      #xsd/string "MulticellularParasite",
@@ -9548,19 +9550,19 @@
     "A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.",
    :rdfs/label #xsd/string "Muscle",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Musculoskeletal
   "A specific branch of medical science that pertains to diagnosis and treatment of disorders of muscles, ligaments and skeletal system."
   {:db/ident :schema/Musculoskeletal,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -9573,13 +9575,13 @@
   "Musculoskeletal system clinical examination."
   {:db/ident        :schema/MusculoskeletalExam,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Musculoskeletal system clinical examination.",
    :rdfs/label      #xsd/string "MusculoskeletalExam",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -9591,9 +9593,9 @@
    :rdfs/comment    #xsd/string "A museum.",
    :rdfs/label      #xsd/string "Museum",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def MusicAlbum
   "A collection of music tracks."
@@ -9603,8 +9605,8 @@
    :rdfs/label      #xsd/string "MusicAlbum",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MusicPlaylist
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MusicAlbumProductionType
   "Classification of the album by its type of content: soundtrack, live album, studio album, etc."
@@ -9615,7 +9617,7 @@
     "Classification of the album by its type of content: soundtrack, live album, studio album, etc.",
    :rdfs/label #xsd/string "MusicAlbumProductionType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
 
 (def MusicAlbumReleaseType
@@ -9626,7 +9628,7 @@
    #xsd/string "The kind of release which this album is: single, EP or album.",
    :rdfs/label #xsd/string "MusicAlbumReleaseType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
 
 (def MusicComposition
@@ -9644,7 +9646,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Music event.",
    :rdfs/label      #xsd/string "MusicEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def MusicGroup
   "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician."
@@ -9655,7 +9657,7 @@
     "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.",
    :rdfs/label #xsd/string "MusicGroup",
    :rdfs/subClassOf
-   [:schema/PerformingGroup :schema/Organization :schema/Thing :rdfs/Resource]})
+   [:schema/PerformingGroup :rdfs/Resource :schema/Organization :schema/Thing]})
 
 (def MusicPlaylist
   "A collection of music tracks in playlist form."
@@ -9683,7 +9685,7 @@
                   "A MusicRelease is a specific release of a music album.",
    :rdfs/label #xsd/string "MusicRelease",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/MusicPlaylist :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/MusicPlaylist :schema/CreativeWork :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
 
 (def MusicReleaseFormatType
@@ -9695,7 +9697,7 @@
     "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).",
    :rdfs/label #xsd/string "MusicReleaseFormatType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
 
 (def MusicStore
@@ -9705,11 +9707,11 @@
    :rdfs/comment    #xsd/string "A music store.",
    :rdfs/label      #xsd/string "MusicStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MusicVenue
   "A music venue."
@@ -9718,9 +9720,9 @@
    :rdfs/comment    #xsd/string "A music venue.",
    :rdfs/label      #xsd/string "MusicVenue",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def MusicVideoObject
   "A music video file."
@@ -9730,8 +9732,8 @@
    :rdfs/label      #xsd/string "MusicVideoObject",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MediaObject
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def NGO
   "Organization: Non-governmental Organization."
@@ -9752,8 +9754,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/NonprofitType
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2543"}})
@@ -9765,20 +9767,20 @@
    :rdfs/comment    #xsd/string "A nail salon.",
    :rdfs/label      #xsd/string "NailSalon",
    :rdfs/subClassOf [:schema/HealthAndBeautyBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def NarcoticConsideration
   "Item is a narcotic as defined by the [1961 UN convention](https://www.incb.org/incb/en/narcotic-drugs/Yellowlist/yellow-list.html), for example marijuana or heroin."
   {:db/ident :schema/NarcoticConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Item is a narcotic as defined by the [1961 UN convention](https://www.incb.org/incb/en/narcotic-drugs/Yellowlist/yellow-list.html), for example marijuana or heroin.",
@@ -9791,13 +9793,13 @@
   "Neck assessment with clinical examination."
   {:db/ident        :schema/Neck,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Neck assessment with clinical examination.",
    :rdfs/label      #xsd/string "Neck",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -9811,22 +9813,22 @@
     "A common pathway for the electrochemical nerve impulses that are transmitted along each of the axons.",
    :rdfs/label #xsd/string "Nerve",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Neuro
   "Neurological system clinical examination."
   {:db/ident        :schema/Neuro,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Neurological system clinical examination.",
    :rdfs/label      #xsd/string "Neuro",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -9835,10 +9837,10 @@
   "A specific branch of medical science that studies the nerves and nervous system and its respective disease states."
   {:db/ident :schema/Neurologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -9851,10 +9853,10 @@
   "Indicates that the item is new."
   {:db/ident     :schema/NewCondition,
    :rdf/type     [:schema/OfferItemCondition
+                  :rdfs/Resource
                   :schema/Enumeration
                   :schema/Intangible
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item is new.",
    :rdfs/label   #xsd/string "NewCondition"})
 
@@ -9867,7 +9869,7 @@
     "A NewsArticle is an article whose content reports news, or provides background context and supporting materials for understanding the news.\n\nA more detailed overview of [schema.org News markup](/docs/news.html) is also available.\n",
    :rdfs/label #xsd/string "NewsArticle",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Article :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/Article :schema/CreativeWork :schema/Thing],
    :schema/contributor [{:rdfa/uri "http://schema.org/docs/collab/rNews"}
                         {:rdfa/uri "http://schema.org/docs/collab/TP"}]})
 
@@ -9894,11 +9896,11 @@
    :rdfs/label #xsd/string "Newspaper",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Periodical
-                     :schema/Thing
-                     :schema/CreativeWorkSeries
                      :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series],
+                     :schema/CreativeWorkSeries
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://bib.schema.org"},
    :schema/source {:rdfa/uri "http://www.productontology.org/id/Newspaper"}})
 
@@ -9909,21 +9911,21 @@
    :rdfs/comment    #xsd/string "A nightclub or discotheque.",
    :rdfs/label      #xsd/string "NightClub",
    :rdfs/subClassOf [:schema/EntertainmentBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def NoninvasiveProcedure
   "A type of medical procedure that involves noninvasive techniques."
   {:db/ident :schema/NoninvasiveProcedure,
    :rdf/type [:schema/MedicalProcedureType
-              :schema/MedicalEnumeration
+              :schema/Thing
               :schema/Enumeration
-              :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource
+              :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
     "A type of medical procedure that involves noninvasive techniques.",
@@ -9934,11 +9936,11 @@
   "Nonprofit501a: Non-profit type referring to Farmers’ Cooperative Associations."
   {:db/ident :schema/Nonprofit501a,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501a: Non-profit type referring to Farmers’ Cooperative Associations.",
@@ -9951,11 +9953,11 @@
   "Nonprofit501c1: Non-profit type referring to Corporations Organized Under Act of Congress, including Federal Credit Unions and National Farm Loan Associations."
   {:db/ident :schema/Nonprofit501c1,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c1: Non-profit type referring to Corporations Organized Under Act of Congress, including Federal Credit Unions and National Farm Loan Associations.",
@@ -9968,11 +9970,11 @@
   "Nonprofit501c10: Non-profit type referring to Domestic Fraternal Societies and Associations."
   {:db/ident :schema/Nonprofit501c10,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c10: Non-profit type referring to Domestic Fraternal Societies and Associations.",
@@ -9985,11 +9987,11 @@
   "Nonprofit501c11: Non-profit type referring to Teachers' Retirement Fund Associations."
   {:db/ident :schema/Nonprofit501c11,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c11: Non-profit type referring to Teachers' Retirement Fund Associations.",
@@ -10002,11 +10004,11 @@
   "Nonprofit501c12: Non-profit type referring to Benevolent Life Insurance Associations, Mutual Ditch or Irrigation Companies, Mutual or Cooperative Telephone Companies."
   {:db/ident :schema/Nonprofit501c12,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c12: Non-profit type referring to Benevolent Life Insurance Associations, Mutual Ditch or Irrigation Companies, Mutual or Cooperative Telephone Companies.",
@@ -10019,11 +10021,11 @@
   "Nonprofit501c13: Non-profit type referring to Cemetery Companies."
   {:db/ident :schema/Nonprofit501c13,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c13: Non-profit type referring to Cemetery Companies.",
@@ -10036,11 +10038,11 @@
   "Nonprofit501c14: Non-profit type referring to State-Chartered Credit Unions, Mutual Reserve Funds."
   {:db/ident :schema/Nonprofit501c14,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c14: Non-profit type referring to State-Chartered Credit Unions, Mutual Reserve Funds.",
@@ -10053,11 +10055,11 @@
   "Nonprofit501c15: Non-profit type referring to Mutual Insurance Companies or Associations."
   {:db/ident :schema/Nonprofit501c15,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c15: Non-profit type referring to Mutual Insurance Companies or Associations.",
@@ -10070,11 +10072,11 @@
   "Nonprofit501c16: Non-profit type referring to Cooperative Organizations to Finance Crop Operations."
   {:db/ident :schema/Nonprofit501c16,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c16: Non-profit type referring to Cooperative Organizations to Finance Crop Operations.",
@@ -10087,11 +10089,11 @@
   "Nonprofit501c17: Non-profit type referring to Supplemental Unemployment Benefit Trusts."
   {:db/ident :schema/Nonprofit501c17,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c17: Non-profit type referring to Supplemental Unemployment Benefit Trusts.",
@@ -10104,11 +10106,11 @@
   "Nonprofit501c18: Non-profit type referring to Employee Funded Pension Trust (created before 25 June 1959)."
   {:db/ident :schema/Nonprofit501c18,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c18: Non-profit type referring to Employee Funded Pension Trust (created before 25 June 1959).",
@@ -10121,11 +10123,11 @@
   "Nonprofit501c19: Non-profit type referring to Post or Organization of Past or Present Members of the Armed Forces."
   {:db/ident :schema/Nonprofit501c19,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c19: Non-profit type referring to Post or Organization of Past or Present Members of the Armed Forces.",
@@ -10138,11 +10140,11 @@
   "Nonprofit501c2: Non-profit type referring to Title-holding Corporations for Exempt Organizations."
   {:db/ident :schema/Nonprofit501c2,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c2: Non-profit type referring to Title-holding Corporations for Exempt Organizations.",
@@ -10155,11 +10157,11 @@
   "Nonprofit501c20: Non-profit type referring to Group Legal Services Plan Organizations."
   {:db/ident :schema/Nonprofit501c20,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c20: Non-profit type referring to Group Legal Services Plan Organizations.",
@@ -10172,11 +10174,11 @@
   "Nonprofit501c21: Non-profit type referring to Black Lung Benefit Trusts."
   {:db/ident :schema/Nonprofit501c21,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c21: Non-profit type referring to Black Lung Benefit Trusts.",
@@ -10189,11 +10191,11 @@
   "Nonprofit501c22: Non-profit type referring to Withdrawal Liability Payment Funds."
   {:db/ident :schema/Nonprofit501c22,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c22: Non-profit type referring to Withdrawal Liability Payment Funds.",
@@ -10206,11 +10208,11 @@
   "Nonprofit501c23: Non-profit type referring to Veterans Organizations."
   {:db/ident :schema/Nonprofit501c23,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c23: Non-profit type referring to Veterans Organizations.",
@@ -10223,11 +10225,11 @@
   "Nonprofit501c24: Non-profit type referring to Section 4049 ERISA Trusts."
   {:db/ident :schema/Nonprofit501c24,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c24: Non-profit type referring to Section 4049 ERISA Trusts.",
@@ -10240,11 +10242,11 @@
   "Nonprofit501c25: Non-profit type referring to Real Property Title-Holding Corporations or Trusts with Multiple Parents."
   {:db/ident :schema/Nonprofit501c25,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c25: Non-profit type referring to Real Property Title-Holding Corporations or Trusts with Multiple Parents.",
@@ -10257,11 +10259,11 @@
   "Nonprofit501c26: Non-profit type referring to State-Sponsored Organizations Providing Health Coverage for High-Risk Individuals."
   {:db/ident :schema/Nonprofit501c26,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c26: Non-profit type referring to State-Sponsored Organizations Providing Health Coverage for High-Risk Individuals.",
@@ -10274,11 +10276,11 @@
   "Nonprofit501c27: Non-profit type referring to State-Sponsored Workers' Compensation Reinsurance Organizations."
   {:db/ident :schema/Nonprofit501c27,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c27: Non-profit type referring to State-Sponsored Workers' Compensation Reinsurance Organizations.",
@@ -10291,11 +10293,11 @@
   "Nonprofit501c28: Non-profit type referring to National Railroad Retirement Investment Trusts."
   {:db/ident :schema/Nonprofit501c28,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c28: Non-profit type referring to National Railroad Retirement Investment Trusts.",
@@ -10308,11 +10310,11 @@
   "Nonprofit501c3: Non-profit type referring to Religious, Educational, Charitable, Scientific, Literary, Testing for Public Safety, Fostering National or International Amateur Sports Competition, or Prevention of Cruelty to Children or Animals Organizations."
   {:db/ident :schema/Nonprofit501c3,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c3: Non-profit type referring to Religious, Educational, Charitable, Scientific, Literary, Testing for Public Safety, Fostering National or International Amateur Sports Competition, or Prevention of Cruelty to Children or Animals Organizations.",
@@ -10325,11 +10327,11 @@
   "Nonprofit501c4: Non-profit type referring to Civic Leagues, Social Welfare Organizations, and Local Associations of Employees."
   {:db/ident :schema/Nonprofit501c4,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c4: Non-profit type referring to Civic Leagues, Social Welfare Organizations, and Local Associations of Employees.",
@@ -10342,11 +10344,11 @@
   "Nonprofit501c5: Non-profit type referring to Labor, Agricultural and Horticultural Organizations."
   {:db/ident :schema/Nonprofit501c5,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c5: Non-profit type referring to Labor, Agricultural and Horticultural Organizations.",
@@ -10359,11 +10361,11 @@
   "Nonprofit501c6: Non-profit type referring to Business Leagues, Chambers of Commerce, Real Estate Boards."
   {:db/ident :schema/Nonprofit501c6,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c6: Non-profit type referring to Business Leagues, Chambers of Commerce, Real Estate Boards.",
@@ -10376,11 +10378,11 @@
   "Nonprofit501c7: Non-profit type referring to Social and Recreational Clubs."
   {:db/ident :schema/Nonprofit501c7,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c7: Non-profit type referring to Social and Recreational Clubs.",
@@ -10393,11 +10395,11 @@
   "Nonprofit501c8: Non-profit type referring to Fraternal Beneficiary Societies and Associations."
   {:db/ident :schema/Nonprofit501c8,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c8: Non-profit type referring to Fraternal Beneficiary Societies and Associations.",
@@ -10410,11 +10412,11 @@
   "Nonprofit501c9: Non-profit type referring to Voluntary Employee Beneficiary Associations."
   {:db/ident :schema/Nonprofit501c9,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501c9: Non-profit type referring to Voluntary Employee Beneficiary Associations.",
@@ -10427,11 +10429,11 @@
   "Nonprofit501d: Non-profit type referring to Religious and Apostolic Associations."
   {:db/ident :schema/Nonprofit501d,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501d: Non-profit type referring to Religious and Apostolic Associations.",
@@ -10444,11 +10446,11 @@
   "Nonprofit501e: Non-profit type referring to Cooperative Hospital Service Organizations."
   {:db/ident :schema/Nonprofit501e,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501e: Non-profit type referring to Cooperative Hospital Service Organizations.",
@@ -10461,11 +10463,11 @@
   "Nonprofit501f: Non-profit type referring to Cooperative Service Organizations."
   {:db/ident :schema/Nonprofit501f,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501f: Non-profit type referring to Cooperative Service Organizations.",
@@ -10478,11 +10480,11 @@
   "Nonprofit501k: Non-profit type referring to Child Care Organizations."
   {:db/ident :schema/Nonprofit501k,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501k: Non-profit type referring to Child Care Organizations.",
@@ -10495,11 +10497,11 @@
   "Nonprofit501n: Non-profit type referring to Charitable Risk Pools."
   {:db/ident :schema/Nonprofit501n,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501n: Non-profit type referring to Charitable Risk Pools.",
@@ -10512,11 +10514,11 @@
   "Nonprofit501q: Non-profit type referring to Credit Counseling Organizations."
   {:db/ident :schema/Nonprofit501q,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit501q: Non-profit type referring to Credit Counseling Organizations.",
@@ -10529,11 +10531,11 @@
   "Nonprofit527: Non-profit type referring to political organizations."
   {:db/ident :schema/Nonprofit527,
    :rdf/type [:schema/USNonprofitType
-              :schema/NonprofitType
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Intangible
-              :schema/Enumeration],
+              :schema/NonprofitType
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Nonprofit527: Non-profit type referring to political organizations.",
@@ -10547,10 +10549,10 @@
   {:db/ident :schema/NonprofitANBI,
    :rdf/type [:schema/NLNonprofitType
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible
               :schema/NonprofitType
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "NonprofitANBI: Non-profit type referring to a Public Benefit Organization (NL).",
@@ -10564,10 +10566,10 @@
   {:db/ident :schema/NonprofitSBBI,
    :rdf/type [:schema/NLNonprofitType
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible
               :schema/NonprofitType
-              :schema/Enumeration],
+              :schema/Thing
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "NonprofitSBBI: Non-profit type referring to a Social Interest Promoting Institution (NL).",
@@ -10585,7 +10587,7 @@
     "NonprofitType enumerates several kinds of official non-profit types of which a non-profit organization can be.",
    :rdfs/label #xsd/string "NonprofitType",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2543"}})
@@ -10594,13 +10596,13 @@
   "Nose function assessment with clinical examination."
   {:db/ident        :schema/Nose,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Nose function assessment with clinical examination.",
    :rdfs/label      #xsd/string "Nose",
@@ -10629,9 +10631,9 @@
   {:db/ident        :schema/NotYetRecruiting,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Not yet recruiting.",
    :rdfs/label      #xsd/string "NotYetRecruiting",
@@ -10644,11 +10646,11 @@
    :rdfs/comment    #xsd/string "A notary.",
    :rdfs/label      #xsd/string "Notary",
    :rdfs/subClassOf [:schema/LegalService
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def NoteDigitalDocument
   "A file containing a note, primarily for the author."
@@ -10658,9 +10660,9 @@
                      "A file containing a note, primarily for the author.",
    :rdfs/label      #xsd/string "NoteDigitalDocument",
    :rdfs/subClassOf [:schema/DigitalDocument
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def NumberClass
   "Data type: Number.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator."
@@ -10676,10 +10678,10 @@
   "A health profession of a person formally educated and trained in the care of the sick or infirm person."
   {:db/ident :schema/Nursing,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -10687,11 +10689,11 @@
     "A health profession of a person formally educated and trained in the care of the sick or infirm person.",
    :rdfs/label #xsd/string "Nursing",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def NutritionInformation
@@ -10702,18 +10704,18 @@
    :rdfs/label      #xsd/string "NutritionInformation",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/StructuredValue
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def OTC
   "The character of a medical substance, typically a medicine, of being available over the counter or not."
   {:db/ident :schema/OTC,
    :rdf/type [:schema/DrugPrescriptionStatus
-              :schema/Thing
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Intangible
-              :schema/MedicalEnumeration],
+              :schema/MedicalEnumeration
+              :schema/Enumeration
+              :schema/Thing
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "The character of a medical substance, typically a medicine, of being available over the counter or not.",
@@ -10731,8 +10733,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/QuantitativeValue
                      :schema/Intangible
-                     :schema/Thing
-                     :schema/StructuredValue],
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2291"}})
@@ -10741,10 +10743,10 @@
   "An observational study design."
   {:db/ident        :schema/Observational,
    :rdf/type        [:schema/MedicalObservationalStudyDesign
-                     :schema/Intangible
-                     :schema/Enumeration
                      :rdfs/Resource
                      :schema/Thing
+                     :schema/Enumeration
+                     :schema/Intangible
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "An observational study design.",
    :rdfs/label      #xsd/string "Observational",
@@ -10754,10 +10756,10 @@
   "A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child."
   {:db/ident :schema/Obstetric,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -10765,11 +10767,11 @@
     "A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child.",
    :rdfs/label #xsd/string "Obstetric",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Occupation
@@ -10788,10 +10790,10 @@
   "Any physical activity engaged in for job-related purposes. Examples may include waiting tables, maid service, carrying a mailbag, picking fruits or vegetables, construction work, etc."
   {:db/ident :schema/OccupationalActivity,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Any physical activity engaged in for job-related purposes. Examples may include waiting tables, maid service, carrying a mailbag, picking fruits or vegetables, construction work, etc.",
@@ -10806,7 +10808,7 @@
    #xsd/string
     "Indicates employment-related experience requirements, e.g. [[monthsOfExperience]].",
    :rdfs/label #xsd/string "OccupationalExperienceRequirements",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2681"}})
@@ -10820,11 +10822,11 @@
     "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems.",
    :rdfs/label #xsd/string "OccupationalTherapy",
    :rdfs/subClassOf [:schema/MedicalTherapy
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/MedicalProcedure
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :schema/MedicalProcedure],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def OceanBodyOfWater
@@ -10834,9 +10836,9 @@
    :rdfs/comment    #xsd/string "An ocean (for example, the Pacific).",
    :rdfs/label      #xsd/string "OceanBodyOfWater",
    :rdfs/subClassOf [:schema/BodyOfWater
-                     :schema/Thing
-                     :schema/Place
                      :rdfs/Resource
+                     :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def Offer
@@ -10860,7 +10862,7 @@
     "An OfferCatalog is an ItemList that contains related Offers and/or further OfferCatalogs that are offeredBy the same provider.",
    :rdfs/label #xsd/string "OfferCatalog",
    :rdfs/subClassOf
-   [:schema/ItemList :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/ItemList :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def OfferForLease
   "An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out something, i.e. an [[Offer]] whose\n  [[businessFunction]] is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts.\n  "
@@ -10871,7 +10873,7 @@
     "An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out something, i.e. an [[Offer]] whose\n  [[businessFunction]] is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts.\n  ",
    :rdfs/label #xsd/string "OfferForLease",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Offer :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Offer :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2348"}})
@@ -10885,7 +10887,7 @@
     "An [[OfferForPurchase]] in Schema.org represents an [[Offer]] to sell something, i.e. an [[Offer]] whose\n  [[businessFunction]] is [sell](http://purl.org/goodrelations/v1#Sell.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts.\n  ",
    :rdfs/label #xsd/string "OfferForPurchase",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Offer :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Offer :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2348"}})
@@ -10898,8 +10900,8 @@
    :rdfs/label      #xsd/string "OfferItemCondition",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def OfferShippingDetails
   "OfferShippingDetails represents information about shipping destinations.\n\nMultiple of these entities can be used to represent different shipping rates for different destinations:\n\nOne entity for Alaska/Hawaii. A different one for continental US. A different one for all France.\n\nMultiple of these entities can be used to represent different shipping costs and delivery times.\n\nTwo entities that are identical but differ in rate and time:\n\nE.g. Cheaper and slower: $5 in 5-7 days\nor Fast and expensive: $15 in 1-2 days."
@@ -10910,7 +10912,7 @@
     "OfferShippingDetails represents information about shipping destinations.\n\nMultiple of these entities can be used to represent different shipping rates for different destinations:\n\nOne entity for Alaska/Hawaii. A different one for continental US. A different one for all France.\n\nMultiple of these entities can be used to represent different shipping costs and delivery times.\n\nTwo entities that are identical but differ in rate and time:\n\nE.g. Cheaper and slower: $5 in 5-7 days\nor Fast and expensive: $15 in 1-2 days.",
    :rdfs/label #xsd/string "OfferShippingDetails",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2506"}})
@@ -10923,19 +10925,19 @@
    :rdfs/label      #xsd/string "OfficeEquipmentStore",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Store
-                     :schema/Organization
-                     :schema/Thing
                      :schema/Place
-                     :schema/LocalBusiness]})
+                     :schema/LocalBusiness
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def OfficialLegalValue
   "All the documents published by an official publisher should have at least the legal value level \"OfficialLegalValue\". This indicates that the document was published by an organisation with the public task of making it available (e.g. a consolidated version of an EU directive published by the EU Office of Publications)."
   {:db/ident :schema/OfficialLegalValue,
    :rdf/type [:schema/LegalValueLevel
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "All the documents published by an official publisher should have at least the legal value level \"OfficialLegalValue\". This indicates that the document was published by an organisation with the public task of making it available (e.g. a consolidated version of an EU directive published by the EU Office of Publications).",
@@ -10950,10 +10952,10 @@
   "OfflineEventAttendanceMode - an event that is primarily conducted offline. "
   {:db/ident :schema/OfflineEventAttendanceMode,
    :rdf/type [:schema/EventAttendanceModeEnumeration
-              :rdfs/Resource
-              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource
+              :schema/Thing
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "OfflineEventAttendanceMode - an event that is primarily conducted offline. ",
@@ -10967,10 +10969,10 @@
   {:db/ident :schema/OfflinePermanently,
    :rdf/type [:schema/GameServerStatus
               :rdfs/Resource
+              :schema/StatusEnumeration
               :schema/Thing
-              :schema/Intangible
               :schema/Enumeration
-              :schema/StatusEnumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Game server status: OfflinePermanently. Server is offline and not available.",
@@ -10981,10 +10983,10 @@
   {:db/ident :schema/OfflineTemporarily,
    :rdf/type [:schema/GameServerStatus
               :rdfs/Resource
+              :schema/StatusEnumeration
               :schema/Thing
-              :schema/Intangible
               :schema/Enumeration
-              :schema/StatusEnumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Game server status: OfflineTemporarily. Server is offline now but it can be online soon.",
@@ -10999,16 +11001,16 @@
     "A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand.",
    :rdfs/label #xsd/string "OnDemandEvent",
    :rdfs/subClassOf
-   [:schema/PublicationEvent :schema/Event :schema/Thing :rdfs/Resource]})
+   [:schema/PublicationEvent :rdfs/Resource :schema/Event :schema/Thing]})
 
 (def OnSitePickup
   "A DeliveryMethod in which an item is collected on site, e.g. in a store or at a box office."
   {:db/ident :schema/OnSitePickup,
    :rdf/type [:schema/DeliveryMethod
-              :rdfs/Resource
-              :schema/Thing
               :schema/Enumeration
-              :schema/Intangible],
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "A DeliveryMethod in which an item is collected on site, e.g. in a store or at a box office.",
@@ -11018,10 +11020,10 @@
   "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention."
   {:db/ident :schema/Oncologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -11029,21 +11031,21 @@
     "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention.",
    :rdfs/label #xsd/string "Oncologic",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def OneTimePayments
   "OneTimePayments: this is a benefit for one-time payments for individuals."
   {:db/ident :schema/OneTimePayments,
    :rdf/type [:schema/GovernmentBenefitsType
+              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/Enumeration
-              :rdfs/Resource],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "OneTimePayments: this is a benefit for one-time payments for individuals.",
@@ -11057,10 +11059,10 @@
   {:db/ident     :schema/Online,
    :rdf/type     [:schema/GameServerStatus
                   :rdfs/Resource
+                  :schema/StatusEnumeration
                   :schema/Thing
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/StatusEnumeration],
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "Game server status: Online. Server is available.",
    :rdfs/label   #xsd/string "Online"})
 
@@ -11072,7 +11074,7 @@
    #xsd/string
     "A particular online business, either standalone or the online part of a broader organization. Examples include an eCommerce site, an online travel booking site, an online learning site, an online logistics and shipping provider, an online (virtual) doctor, etc.",
    :rdfs/label #xsd/string "OnlineBusiness",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/3028"}})
@@ -11081,10 +11083,10 @@
   "OnlineEventAttendanceMode - an event that is primarily conducted online. "
   {:db/ident :schema/OnlineEventAttendanceMode,
    :rdf/type [:schema/EventAttendanceModeEnumeration
-              :rdfs/Resource
-              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource
+              :schema/Thing
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "OnlineEventAttendanceMode - an event that is primarily conducted online. ",
@@ -11098,10 +11100,10 @@
   {:db/ident :schema/OnlineFull,
    :rdf/type [:schema/GameServerStatus
               :rdfs/Resource
+              :schema/StatusEnumeration
               :schema/Thing
-              :schema/Intangible
               :schema/Enumeration
-              :schema/StatusEnumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Game server status: OnlineFull. Server is online but unavailable. The maximum number of players has reached.",
@@ -11111,8 +11113,8 @@
   "Indicates that the item is available only online."
   {:db/ident     :schema/OnlineOnly,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string
@@ -11126,9 +11128,9 @@
    :rdfs/comment    #xsd/string "An eCommerce site.",
    :rdfs/label      #xsd/string "OnlineStore",
    :rdfs/subClassOf [:schema/OnlineBusiness
+                     :rdfs/Resource
                      :schema/Organization
-                     :schema/Thing
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/3028"}})
@@ -11137,11 +11139,11 @@
   "A trial design in which the researcher knows the full details of the treatment, and so does the patient."
   {:db/ident :schema/OpenTrial,
    :rdf/type [:schema/MedicalTrialDesign
-              :schema/Enumeration
-              :schema/Thing
-              :schema/Intangible
               :schema/MedicalEnumeration
-              :rdfs/Resource],
+              :schema/Thing
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "A trial design in which the researcher knows the full details of the treatment, and so does the patient.",
@@ -11157,7 +11159,7 @@
     "A structured value providing information about the opening hours of a place or a certain service inside a place.\\n\\n\nThe place is __open__ if the [[opens]] property is specified, and __closed__ otherwise.\\n\\nIf the value for the [[closes]] property is less than the value for the [[opens]] property then the hour range is assumed to span over the next day.\n      ",
    :rdfs/label #xsd/string "OpeningHoursSpecification",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -11171,9 +11173,9 @@
    :rdfs/label #xsd/string "OpinionNewsArticle",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/NewsArticle
-                     :schema/Thing
+                     :schema/CreativeWork
                      :schema/Article
-                     :schema/CreativeWork],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -11188,21 +11190,21 @@
     "A store that sells reading glasses and similar devices for improving vision.",
    :rdfs/label #xsd/string "Optician",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Optometric
   "The science or practice of testing visual acuity and prescribing corrective lenses."
   {:db/ident :schema/Optometric,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -11210,11 +11212,11 @@
     "The science or practice of testing visual acuity and prescribing corrective lenses.",
    :rdfs/label #xsd/string "Optometric",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Order
@@ -11236,17 +11238,17 @@
     "An agent orders an object/product/service to be delivered/sent.",
    :rdfs/label #xsd/string "OrderAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/TradeAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/TradeAction :schema/Action :schema/Thing]})
 
 (def OrderCancelled
   "OrderStatus representing cancellation of an order."
   {:db/ident     :schema/OrderCancelled,
    :rdf/type     [:schema/OrderStatus
-                  :schema/StatusEnumeration
-                  :rdfs/Resource
-                  :schema/Thing
                   :schema/Intangible
-                  :schema/Enumeration],
+                  :rdfs/Resource
+                  :schema/StatusEnumeration
+                  :schema/Enumeration
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "OrderStatus representing cancellation of an order.",
    :rdfs/label   #xsd/string "OrderCancelled"})
@@ -11255,11 +11257,11 @@
   "OrderStatus representing successful delivery of an order."
   {:db/ident     :schema/OrderDelivered,
    :rdf/type     [:schema/OrderStatus
-                  :schema/StatusEnumeration
-                  :rdfs/Resource
-                  :schema/Thing
                   :schema/Intangible
-                  :schema/Enumeration],
+                  :rdfs/Resource
+                  :schema/StatusEnumeration
+                  :schema/Enumeration
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "OrderStatus representing successful delivery of an order.",
    :rdfs/label   #xsd/string "OrderDelivered"})
@@ -11268,11 +11270,11 @@
   "OrderStatus representing that an order is in transit."
   {:db/ident     :schema/OrderInTransit,
    :rdf/type     [:schema/OrderStatus
-                  :schema/StatusEnumeration
-                  :rdfs/Resource
-                  :schema/Thing
                   :schema/Intangible
-                  :schema/Enumeration],
+                  :rdfs/Resource
+                  :schema/StatusEnumeration
+                  :schema/Enumeration
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "OrderStatus representing that an order is in transit.",
    :rdfs/label   #xsd/string "OrderInTransit"})
@@ -11291,11 +11293,11 @@
   "OrderStatus representing that payment is due on an order."
   {:db/ident     :schema/OrderPaymentDue,
    :rdf/type     [:schema/OrderStatus
-                  :schema/StatusEnumeration
-                  :rdfs/Resource
-                  :schema/Thing
                   :schema/Intangible
-                  :schema/Enumeration],
+                  :rdfs/Resource
+                  :schema/StatusEnumeration
+                  :schema/Enumeration
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "OrderStatus representing that payment is due on an order.",
    :rdfs/label   #xsd/string "OrderPaymentDue"})
@@ -11304,11 +11306,11 @@
   "OrderStatus representing availability of an order for pickup."
   {:db/ident :schema/OrderPickupAvailable,
    :rdf/type [:schema/OrderStatus
-              :schema/StatusEnumeration
-              :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :rdfs/Resource
+              :schema/StatusEnumeration
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string "OrderStatus representing availability of an order for pickup.",
    :rdfs/label #xsd/string "OrderPickupAvailable"})
@@ -11317,11 +11319,11 @@
   "OrderStatus representing that there is a problem with the order."
   {:db/ident :schema/OrderProblem,
    :rdf/type [:schema/OrderStatus
-              :schema/StatusEnumeration
-              :rdfs/Resource
-              :schema/Thing
               :schema/Intangible
-              :schema/Enumeration],
+              :rdfs/Resource
+              :schema/StatusEnumeration
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "OrderStatus representing that there is a problem with the order.",
@@ -11331,11 +11333,11 @@
   "OrderStatus representing that an order is being processed."
   {:db/ident     :schema/OrderProcessing,
    :rdf/type     [:schema/OrderStatus
-                  :schema/StatusEnumeration
-                  :rdfs/Resource
-                  :schema/Thing
                   :schema/Intangible
-                  :schema/Enumeration],
+                  :rdfs/Resource
+                  :schema/StatusEnumeration
+                  :schema/Enumeration
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "OrderStatus representing that an order is being processed.",
    :rdfs/label   #xsd/string "OrderProcessing"})
@@ -11344,11 +11346,11 @@
   "OrderStatus representing that an order has been returned."
   {:db/ident     :schema/OrderReturned,
    :rdf/type     [:schema/OrderStatus
-                  :schema/StatusEnumeration
-                  :rdfs/Resource
-                  :schema/Thing
                   :schema/Intangible
-                  :schema/Enumeration],
+                  :rdfs/Resource
+                  :schema/StatusEnumeration
+                  :schema/Enumeration
+                  :schema/Thing],
    :rdfs/comment #xsd/string
                   "OrderStatus representing that an order has been returned.",
    :rdfs/label   #xsd/string "OrderReturned"})
@@ -11361,9 +11363,9 @@
    :rdfs/label      #xsd/string "OrderStatus",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Organization
   "An organization such as a school, NGO, corporation, club, etc."
@@ -11383,7 +11385,7 @@
     "A subclass of Role used to describe roles within organizations.",
    :rdfs/label #xsd/string "OrganizationRole",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Role :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Role :schema/Intangible :schema/Thing]})
 
 (def OrganizeAction
   "The act of manipulating/administering/supervising/controlling one or more objects."
@@ -11393,14 +11395,14 @@
    #xsd/string
     "The act of manipulating/administering/supervising/controlling one or more objects.",
    :rdfs/label #xsd/string "OrganizeAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def OriginalMediaContent
   "Content coded 'as original media content' in a [[MediaReview]], considered in the context of how it was published or shared.\n\nFor a [[VideoObject]] to be 'original': No evidence the footage has been misleadingly altered or manipulated, though it may contain false or misleading claims.\n\nFor an [[ImageObject]] to be 'original': No evidence the image has been misleadingly altered or manipulated, though it may still contain false or misleading claims.\n\nFor an [[ImageObject]] with embedded text to be 'original': No evidence the image has been misleadingly altered or manipulated, though it may still contain false or misleading claims.\n\nFor an [[AudioObject]] to be 'original': No evidence the audio has been misleadingly altered or manipulated, though it may contain false or misleading claims.\n"
   {:db/ident :schema/OriginalMediaContent,
    :rdf/type [:schema/MediaManipulationRatingEnumeration
-              :rdfs/Resource
               :schema/Thing
+              :rdfs/Resource
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -11415,10 +11417,10 @@
   "Specifies that the customer must pay the original shipping costs when returning a product."
   {:db/ident :schema/OriginalShippingFees,
    :rdf/type [:schema/ReturnFeesEnumeration
-              :schema/Intangible
               :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Specifies that the customer must pay the original shipping costs when returning a product.",
@@ -11432,10 +11434,10 @@
   {:db/ident :schema/Osteopathic,
    :rdf/type [:schema/MedicineSystem
               :schema/MedicalEnumeration
-              :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "A system of medicine focused on promoting the body's innate ability to heal itself.",
@@ -11446,10 +11448,10 @@
   "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states."
   {:db/ident :schema/Otolaryngologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -11457,19 +11459,19 @@
     "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states.",
    :rdfs/label #xsd/string "Otolaryngologic",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def OutOfStock
   "Indicates that the item is out of stock."
   {:db/ident     :schema/OutOfStock,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item is out of stock.",
@@ -11482,20 +11484,20 @@
    :rdfs/comment    #xsd/string "An outlet store.",
    :rdfs/label      #xsd/string "OutletStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def OverviewHealthAspect
   "Overview of the content. Contains a summarized view of the topic with the most relevant information for an introduction."
   {:db/ident :schema/OverviewHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Overview of the content. Contains a summarized view of the topic with the most relevant information for an introduction.",
@@ -11513,7 +11515,7 @@
     "A structured value providing information about when a certain organization or person owned a certain product.",
    :rdfs/label #xsd/string "OwnershipInfo",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -11522,10 +11524,10 @@
   {:db/ident        :schema/PET,
    :rdf/type        [:schema/MedicalImagingTechnique
                      :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Positron emission tomography imaging.",
    :rdfs/label      #xsd/string "PET",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -11534,10 +11536,10 @@
   "PaidLeave: this is a benefit for paid leave."
   {:db/ident        :schema/PaidLeave,
    :rdf/type        [:schema/GovernmentBenefitsType
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/Enumeration
-                     :rdfs/Resource],
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "PaidLeave: this is a benefit for paid leave.",
    :rdfs/label      #xsd/string "PaidLeave",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -11553,7 +11555,7 @@
     "The act of producing a painting, typically with paint and canvas as instruments.",
    :rdfs/label #xsd/string "PaintAction",
    :rdfs/subClassOf
-   [:schema/CreateAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/CreateAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Painting
   "A painting."
@@ -11561,7 +11563,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "A painting.",
    :rdfs/label      #xsd/string "Painting",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def PalliativeProcedure
   "A medical procedure intended primarily for palliative purposes, aimed at relieving the symptoms of an underlying health condition."
@@ -11573,20 +11575,20 @@
    :rdfs/label #xsd/string "PalliativeProcedure",
    :rdfs/subClassOf [:schema/MedicalTherapy
                      :schema/MedicalProcedure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Paperback
   "Book format: Paperback."
   {:db/ident     :schema/Paperback,
    :rdf/type     [:schema/BookFormatType
-                  :schema/Thing
-                  :schema/Enumeration
                   :rdfs/Resource
-                  :schema/Intangible],
+                  :schema/Enumeration
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Book format: Paperback.",
    :rdfs/label   #xsd/string "Paperback"})
 
@@ -11604,10 +11606,10 @@
   "A private parcel service as the delivery mode available for a certain offer.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#DHL\\n* http://purl.org/goodrelations/v1#FederalExpress\\n* http://purl.org/goodrelations/v1#UPS\n      "
   {:db/ident :schema/ParcelService,
    :rdf/type [:schema/DeliveryMethod
-              :rdfs/Resource
-              :schema/Thing
               :schema/Enumeration
-              :schema/Intangible],
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "A private parcel service as the delivery mode available for a certain offer.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#DHL\\n* http://purl.org/goodrelations/v1#FederalExpress\\n* http://purl.org/goodrelations/v1#UPS\n      ",
@@ -11625,18 +11627,18 @@
    :rdfs/label #xsd/string "ParentAudience",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/PeopleAudience
-                     :schema/Thing
+                     :schema/Audience
                      :schema/Intangible
-                     :schema/Audience]})
+                     :schema/Thing]})
 
 (def ParentalSupport
   "ParentalSupport: this is a benefit for parental support."
   {:db/ident        :schema/ParentalSupport,
    :rdf/type        [:schema/GovernmentBenefitsType
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/Enumeration
-                     :rdfs/Resource],
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "ParentalSupport: this is a benefit for parental support.",
    :rdfs/label      #xsd/string "ParentalSupport",
@@ -11651,9 +11653,9 @@
    :rdfs/comment    #xsd/string "A park.",
    :rdfs/label      #xsd/string "Park",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def ParkingFacility
   "A parking lot or other parking facility."
@@ -11663,17 +11665,17 @@
    :rdfs/label      #xsd/string "ParkingFacility",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CivicStructure
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def ParkingMap
   "A parking map."
   {:db/ident     :schema/ParkingMap,
    :rdf/type     [:schema/MapCategoryType
-                  :schema/Intangible
                   :schema/Thing
                   :rdfs/Resource
-                  :schema/Enumeration],
+                  :schema/Enumeration
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "A parking map.",
    :rdfs/label   #xsd/string "ParkingMap"})
 
@@ -11700,10 +11702,10 @@
   "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness."
   {:db/ident :schema/Pathology,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -11721,7 +11723,7 @@
     "A medical test performed by a laboratory that typically involves examination of a tissue sample by a pathologist.",
    :rdfs/label #xsd/string "PathologyTest",
    :rdfs/subClassOf
-   [:schema/MedicalTest :schema/Thing :schema/MedicalEntity :rdfs/Resource],
+   [:schema/MedicalTest :rdfs/Resource :schema/MedicalEntity :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Patient
@@ -11736,20 +11738,20 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Person
                      :schema/MedicalAudience
-                     :schema/Thing
+                     :schema/Audience
                      :schema/Intangible
-                     :schema/PeopleAudience
-                     :schema/Audience],
+                     :schema/Thing
+                     :schema/PeopleAudience],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PatientExperienceHealthAspect
   "Content about the real life experience of patients or people that have lived a similar experience about the topic. May be forums, topics, Q-and-A and related material."
   {:db/ident :schema/PatientExperienceHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content about the real life experience of patients or people that have lived a similar experience about the topic. May be forums, topics, Q-and-A and related material.",
@@ -11767,11 +11769,11 @@
     "A shop that will buy, or lend money against the security of, personal possessions.",
    :rdfs/label #xsd/string "PawnShop",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PayAction
   "An agent pays a price to a participant."
@@ -11780,19 +11782,19 @@
    :rdfs/comment    #xsd/string "An agent pays a price to a participant.",
    :rdfs/label      #xsd/string "PayAction",
    :rdfs/subClassOf [:schema/TradeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def PaymentAutomaticallyApplied
   "An automatic payment system is in place and will be used."
   {:db/ident     :schema/PaymentAutomaticallyApplied,
    :rdf/type     [:schema/PaymentStatusType
-                  :schema/Intangible
+                  :schema/Thing
+                  :schema/Enumeration
                   :schema/StatusEnumeration
                   :rdfs/Resource
-                  :schema/Thing
-                  :schema/Enumeration],
+                  :schema/Intangible],
    :rdfs/comment #xsd/string
                   "An automatic payment system is in place and will be used.",
    :rdfs/label   #xsd/string "PaymentAutomaticallyApplied"})
@@ -11808,10 +11810,10 @@
    :rdfs/subClassOf [:schema/PaymentMethod
                      :schema/FinancialProduct
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def PaymentChargeSpecification
@@ -11823,10 +11825,10 @@
     "The costs of settling the payment using a particular payment method.",
    :rdfs/label #xsd/string "PaymentChargeSpecification",
    :rdfs/subClassOf [:schema/PriceSpecification
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue],
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -11834,11 +11836,11 @@
   "The payment has been received and processed."
   {:db/ident     :schema/PaymentComplete,
    :rdf/type     [:schema/PaymentStatusType
-                  :schema/Intangible
+                  :schema/Thing
+                  :schema/Enumeration
                   :schema/StatusEnumeration
                   :rdfs/Resource
-                  :schema/Thing
-                  :schema/Enumeration],
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "The payment has been received and processed.",
    :rdfs/label   #xsd/string "PaymentComplete"})
 
@@ -11846,11 +11848,11 @@
   "The payee received the payment, but it was declined for some reason."
   {:db/ident :schema/PaymentDeclined,
    :rdf/type [:schema/PaymentStatusType
-              :schema/Intangible
+              :schema/Thing
+              :schema/Enumeration
               :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "The payee received the payment, but it was declined for some reason.",
@@ -11860,11 +11862,11 @@
   "The payment is due, but still within an acceptable time to be received."
   {:db/ident :schema/PaymentDue,
    :rdf/type [:schema/PaymentStatusType
-              :schema/Intangible
+              :schema/Thing
+              :schema/Enumeration
               :schema/StatusEnumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "The payment is due, but still within an acceptable time to be received.",
@@ -11879,7 +11881,7 @@
     "A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#ByBankTransferInAdvance\\n* http://purl.org/goodrelations/v1#ByInvoice\\n* http://purl.org/goodrelations/v1#Cash\\n* http://purl.org/goodrelations/v1#CheckInAdvance\\n* http://purl.org/goodrelations/v1#COD\\n* http://purl.org/goodrelations/v1#DirectDebit\\n* http://purl.org/goodrelations/v1#GoogleCheckout\\n* http://purl.org/goodrelations/v1#PayPal\\n* http://purl.org/goodrelations/v1#PaySwarm\n        ",
    :rdfs/label #xsd/string "PaymentMethod",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -11887,11 +11889,11 @@
   "The payment is due and considered late."
   {:db/ident     :schema/PaymentPastDue,
    :rdf/type     [:schema/PaymentStatusType
-                  :schema/Intangible
+                  :schema/Thing
+                  :schema/Enumeration
                   :schema/StatusEnumeration
                   :rdfs/Resource
-                  :schema/Thing
-                  :schema/Enumeration],
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "The payment is due and considered late.",
    :rdfs/label   #xsd/string "PaymentPastDue"})
 
@@ -11904,10 +11906,10 @@
     "A Service to transfer funds from a person or organization to a beneficiary person or organization.",
    :rdfs/label #xsd/string "PaymentService",
    :rdfs/subClassOf [:schema/FinancialProduct
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"}})
 
 (def PaymentStatusType
@@ -11920,18 +11922,18 @@
    :rdfs/label #xsd/string "PaymentStatusType",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Pediatric
   "A specific branch of medical science that specializes in the care of infants, children and adolescents."
   {:db/ident :schema/Pediatric,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -11939,11 +11941,11 @@
     "A specific branch of medical science that specializes in the care of infants, children and adolescents.",
    :rdfs/label #xsd/string "Pediatric",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PeopleAudience
@@ -11955,17 +11957,17 @@
     "A set of characteristics belonging to people, e.g. who compose an item's target audience.",
    :rdfs/label #xsd/string "PeopleAudience",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Audience :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Audience :schema/Intangible :schema/Thing]})
 
 (def PercutaneousProcedure
   "A type of medical procedure that involves percutaneous techniques, where access to organs or tissue is achieved via needle-puncture of the skin. For example, catheter-based procedures like stent delivery."
   {:db/ident :schema/PercutaneousProcedure,
    :rdf/type [:schema/MedicalProcedureType
-              :schema/MedicalEnumeration
+              :schema/Thing
               :schema/Enumeration
-              :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource
+              :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
     "A type of medical procedure that involves percutaneous techniques, where access to organs or tissue is achieved via needle-puncture of the skin. For example, catheter-based procedures like stent delivery.",
@@ -11979,9 +11981,9 @@
    :rdfs/comment    #xsd/string "The act of participating in performance arts.",
    :rdfs/label      #xsd/string "PerformAction",
    :rdfs/subClassOf [:schema/PlayAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def PerformanceRole
   "A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc."
@@ -11992,7 +11994,7 @@
     "A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.",
    :rdfs/label #xsd/string "PerformanceRole",
    :rdfs/subClassOf
-   [:schema/Role :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Role :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def PerformingArtsTheater
   "A theater or other performing art center."
@@ -12001,9 +12003,9 @@
    :rdfs/comment    #xsd/string "A theater or other performing art center.",
    :rdfs/label      #xsd/string "PerformingArtsTheater",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def PerformingGroup
   "A performance group, such as a band, an orchestra, or a circus."
@@ -12013,7 +12015,7 @@
    #xsd/string
     "A performance group, such as a band, an orchestra, or a circus.",
    :rdfs/label #xsd/string "PerformingGroup",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing]})
 
 (def Periodical
   "A publication in any medium issued in successive parts bearing numerical or chronological designations and intended to continue indefinitely, such as a magazine, scholarly journal, or newspaper.\\n\\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html)."
@@ -12025,11 +12027,11 @@
     "A publication in any medium issued in successive parts bearing numerical or chronological designations and intended to continue indefinitely, such as a magazine, scholarly journal, or newspaper.\\n\\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).",
    :rdfs/label #xsd/string "Periodical",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series],
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/bibex"}})
 
 (def Permit
@@ -12039,7 +12041,7 @@
    :rdfs/comment    #xsd/string
                      "A permit issued by an organization, e.g. a parking pass.",
    :rdfs/label      #xsd/string "Permit",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def Person
   "A person (alive, dead, undead, or fictional)."
@@ -12059,11 +12061,11 @@
    :rdfs/comment    #xsd/string "A pet store.",
    :rdfs/label      #xsd/string "PetStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Pharmacy
   "A pharmacy or drugstore."
@@ -12073,20 +12075,20 @@
    :rdfs/label      #xsd/string "Pharmacy",
    :rdfs/subClassOf [:schema/MedicalOrganization
                      :schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PharmacySpecialty
   "The practice or art and science of preparing and dispensing drugs and medicines."
   {:db/ident :schema/PharmacySpecialty,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12111,7 +12113,7 @@
    #xsd/string "The act of capturing still images of objects using a camera.",
    :rdfs/label #xsd/string "PhotographAction",
    :rdfs/subClassOf
-   [:schema/CreateAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/CreateAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def PhysicalActivity
   "Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan."
@@ -12122,9 +12124,9 @@
     "Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan.",
    :rdfs/label #xsd/string "PhysicalActivity",
    :rdfs/subClassOf [:schema/LifestyleModification
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PhysicalActivityCategory
@@ -12136,7 +12138,7 @@
     "Categories of physical activity, organized by physiologic classification.",
    :rdfs/label #xsd/string "PhysicalActivityCategory",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PhysicalExam
@@ -12150,10 +12152,10 @@
    :rdfs/subClassOf [:schema/MedicalProcedure
                      :schema/MedicalEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PhysicalTherapy
@@ -12165,11 +12167,11 @@
     "A process of progressive physical care and rehabilitation aimed at improving a health condition.",
    :rdfs/label #xsd/string "PhysicalTherapy",
    :rdfs/subClassOf [:schema/MedicalTherapy
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/MedicalProcedure
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :schema/MedicalProcedure],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Physician
@@ -12180,20 +12182,20 @@
    :rdfs/label      #xsd/string "Physician",
    :rdfs/subClassOf [:schema/MedicalOrganization
                      :schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Physiotherapy
   "The practice of treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery."
   {:db/ident :schema/Physiotherapy,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12201,11 +12203,11 @@
     "The practice of treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery.",
    :rdfs/label #xsd/string "Physiotherapy",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Place
@@ -12225,17 +12227,17 @@
                   "Place of worship, such as a church, synagogue, or mosque.",
    :rdfs/label #xsd/string "PlaceOfWorship",
    :rdfs/subClassOf
-   [:schema/CivicStructure :schema/Thing :schema/Place :rdfs/Resource]})
+   [:schema/CivicStructure :rdfs/Resource :schema/Place :schema/Thing]})
 
 (def PlaceboControlledTrial
   "A placebo-controlled trial design."
   {:db/ident        :schema/PlaceboControlledTrial,
    :rdf/type        [:schema/MedicalTrialDesign
-                     :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible
                      :schema/MedicalEnumeration
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "A placebo-controlled trial design.",
    :rdfs/label      #xsd/string "PlaceboControlledTrial",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -12249,16 +12251,16 @@
     "The act of planning the execution of an event/task/action/reservation/plan to a future date.",
    :rdfs/label #xsd/string "PlanAction",
    :rdfs/subClassOf
-   [:schema/OrganizeAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/OrganizeAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def PlasticSurgery
   "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means."
   {:db/ident :schema/PlasticSurgery,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12266,11 +12268,11 @@
     "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means.",
    :rdfs/label #xsd/string "PlasticSurgery",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Play
@@ -12294,7 +12296,7 @@
    #xsd/string
     "The act of playing/exercising/training/performing for enjoyment, leisure, recreation, competition or exercise.\\n\\nRelated actions:\\n\\n* [[ListenAction]]: Unlike ListenAction (which is under ConsumeAction), PlayAction refers to performing for an audience or at an event, rather than consuming music.\\n* [[WatchAction]]: Unlike WatchAction (which is under ConsumeAction), PlayAction refers to showing/displaying for an audience or at an event, rather than consuming visual content.",
    :rdfs/label #xsd/string "PlayAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def PlayGameAction
   "The act of playing a video game."
@@ -12303,9 +12305,9 @@
    :rdfs/comment    #xsd/string "The act of playing a video game.",
    :rdfs/label      #xsd/string "PlayGameAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action],
+                     :schema/Action
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/3058"}})
@@ -12317,9 +12319,9 @@
    :rdfs/comment    #xsd/string "A playground.",
    :rdfs/label      #xsd/string "Playground",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Plumber
   "A plumbing service."
@@ -12328,11 +12330,11 @@
    :rdfs/comment    #xsd/string "A plumbing service.",
    :rdfs/label      #xsd/string "Plumber",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PodcastEpisode
   "A single episode of a podcast series."
@@ -12342,8 +12344,8 @@
    :rdfs/label      #xsd/string "PodcastEpisode",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Episode
-                     :schema/Thing
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/373"}})
@@ -12358,8 +12360,8 @@
    :rdfs/label #xsd/string "PodcastSeason",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CreativeWorkSeason
-                     :schema/Thing
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/373"}})
@@ -12374,10 +12376,10 @@
    :rdfs/label #xsd/string "PodcastSeries",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CreativeWorkSeries
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/373"}})
@@ -12386,10 +12388,10 @@
   "Podiatry is the care of the human foot, especially the diagnosis and treatment of foot disorders."
   {:db/ident :schema/Podiatric,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12397,11 +12399,11 @@
     "Podiatry is the care of the human foot, especially the diagnosis and treatment of foot disorders.",
    :rdfs/label #xsd/string "Podiatric",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PoliceStation
@@ -12412,11 +12414,11 @@
    :rdfs/label      #xsd/string "PoliceStation",
    :rdfs/subClassOf [:schema/EmergencyService
                      :schema/CivicStructure
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PoliticalParty
   "Organization: Political Party."
@@ -12436,8 +12438,8 @@
    :rdfs/label      #xsd/string "Pond",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/BodyOfWater
-                     :schema/Thing
                      :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def PostOffice
@@ -12448,10 +12450,10 @@
    :rdfs/label      #xsd/string "PostOffice",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/GovernmentOffice
-                     :schema/Organization
-                     :schema/Thing
                      :schema/Place
-                     :schema/LocalBusiness]})
+                     :schema/LocalBusiness
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PostalAddress
   "The mailing address."
@@ -12460,10 +12462,10 @@
    :rdfs/comment    #xsd/string "The mailing address.",
    :rdfs/label      #xsd/string "PostalAddress",
    :rdfs/subClassOf [:schema/ContactPoint
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue]})
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing]})
 
 (def PostalCodeRangeSpecification
   "Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively."
@@ -12474,7 +12476,7 @@
     "Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively.",
    :rdfs/label #xsd/string "PostalCodeRangeSpecification",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2506"}})
@@ -12496,11 +12498,11 @@
   "A description of an action that is supported."
   {:db/ident     :schema/PotentialActionStatus,
    :rdf/type     [:schema/ActionStatusType
-                  :schema/Thing
                   :rdfs/Resource
-                  :schema/StatusEnumeration
                   :schema/Enumeration
-                  :schema/Intangible],
+                  :schema/StatusEnumeration
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A description of an action that is supported.",
    :rdfs/label   #xsd/string "PotentialActionStatus"})
 
@@ -12508,8 +12510,8 @@
   "Indicates that the item is available for pre-order."
   {:db/ident     :schema/PreOrder,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string
@@ -12525,7 +12527,7 @@
     "An agent orders a (not yet released) object/product/service to be delivered/sent.",
    :rdfs/label #xsd/string "PreOrderAction",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/Thing :rdfs/Resource :schema/Action],
+   [:schema/TradeAction :rdfs/Resource :schema/Action :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1125"}})
 
@@ -12533,8 +12535,8 @@
   "Indicates that the item is available for ordering and delivery before general availability."
   {:db/ident :schema/PreSale,
    :rdf/type [:schema/ItemAvailability
-              :schema/Enumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
               :schema/Thing],
    :rdfs/comment
@@ -12546,10 +12548,10 @@
   "Content discussing pregnancy-related aspects of a health topic."
   {:db/ident :schema/PregnancyHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Content discussing pregnancy-related aspects of a health topic.",
@@ -12568,10 +12570,10 @@
    :rdfs/label #xsd/string "PrependAction",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/InsertAction
-                     :schema/Thing
                      :schema/AddAction
+                     :schema/Action
                      :schema/UpdateAction
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Preschool
   "A preschool."
@@ -12580,21 +12582,21 @@
    :rdfs/comment    #xsd/string "A preschool.",
    :rdfs/label      #xsd/string "Preschool",
    :rdfs/subClassOf [:schema/EducationalOrganization
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PrescriptionOnly
   "Available by prescription only."
   {:db/ident        :schema/PrescriptionOnly,
    :rdf/type        [:schema/DrugPrescriptionStatus
-                     :schema/Thing
-                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Intangible
-                     :schema/MedicalEnumeration],
+                     :schema/MedicalEnumeration
+                     :schema/Enumeration
+                     :schema/Thing
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string "Available by prescription only.",
    :rdfs/label      #xsd/string "PrescriptionOnly",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -12608,17 +12610,17 @@
    :rdfs/label      #xsd/string "PresentationDigitalDocument",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/DigitalDocument
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def PreventionHealthAspect
   "Information about actions or measures that can be taken to avoid getting the topic or reaching a critical situation related to the topic."
   {:db/ident :schema/PreventionHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Information about actions or measures that can be taken to avoid getting the topic or reaching a critical situation related to the topic.",
@@ -12636,9 +12638,9 @@
     "An indication for preventing an underlying condition, symptom, etc.",
    :rdfs/label #xsd/string "PreventionIndication",
    :rdfs/subClassOf [:schema/MedicalIndication
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PriceComponentTypeEnumeration
@@ -12650,7 +12652,7 @@
     "Enumerates different price components that together make up the total price for an offered product.",
    :rdfs/label #xsd/string "PriceComponentTypeEnumeration",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2689"}})
@@ -12664,7 +12666,7 @@
     "A structured value representing a price or price range. Typically, only the subclasses of this type are used for markup. It is recommended to use [[MonetaryAmount]] to describe independent amounts of money such as a salary, credit card limits, etc.",
    :rdfs/label #xsd/string "PriceSpecification",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -12677,7 +12679,7 @@
     "Enumerates different price types, for example list price, invoice price, and sale price.",
    :rdfs/label #xsd/string "PriceTypeEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2712"}})
@@ -12686,10 +12688,10 @@
   "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary."
   {:db/ident :schema/PrimaryCare,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12697,22 +12699,22 @@
     "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary.",
    :rdfs/label #xsd/string "PrimaryCare",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Prion
   "A prion is an infectious agent composed of protein in a misfolded form."
   {:db/ident :schema/Prion,
    :rdf/type [:schema/InfectiousAgentClass
-              :rdfs/Resource
-              :schema/MedicalEnumeration
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource
+              :schema/MedicalEnumeration],
    :rdfs/comment
    #xsd/string
     "A prion is an infectious agent composed of protein in a misfolded form.",
@@ -12741,9 +12743,9 @@
    :rdfs/label #xsd/string "ProductCollection",
    :rdfs/subClassOf [:schema/Product
                      :schema/Collection
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2597"}})
@@ -12756,7 +12758,7 @@
    #xsd/string
     "A ProductGroup represents a group of [[Product]]s that vary only in certain well-described ways, such as by [[size]], [[color]], [[material]] etc.\n\nWhile a ProductGroup itself is not directly offered for sale, the various varying products that it represents can be. The ProductGroup serves as a prototype or template, standing in for all of the products who have an [[isVariantOf]] relationship to it. As such, properties (including additional types) can be applied to the ProductGroup to represent characteristics shared by each of the (possibly very many) variants. Properties that reference a ProductGroup are not included in this mechanism; neither are the following specific properties [[variesBy]], [[hasVariant]], [[url]]. ",
    :rdfs/label #xsd/string "ProductGroup",
-   :rdfs/subClassOf [:schema/Product :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Product :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1797"}})
@@ -12769,7 +12771,7 @@
    #xsd/string
     "A datasheet or vendor specification of a product (in the sense of a prototypical description).",
    :rdfs/label #xsd/string "ProductModel",
-   :rdfs/subClassOf [:schema/Product :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Product :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -12782,10 +12784,10 @@
     "Original definition: \"provider of professional services.\"\\n\\nThe general [[ProfessionalService]] type for local businesses was deprecated due to confusion with [[Service]]. For reference, the types that it included were: [[Dentist]],\n        [[AccountingService]], [[Attorney]], [[Notary]], as well as types for several kinds of [[HomeAndConstructionBusiness]]: [[Electrician]], [[GeneralContractor]],\n        [[HousePainter]], [[Locksmith]], [[Plumber]], [[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype of [[Attorney]].",
    :rdfs/label #xsd/string "ProfessionalService",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ProfilePage
   "Web page type: Profile page."
@@ -12794,18 +12796,18 @@
    :rdfs/comment    #xsd/string "Web page type: Profile page.",
    :rdfs/label      #xsd/string "ProfilePage",
    :rdfs/subClassOf [:schema/WebPage
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def PrognosisHealthAspect
   "Typical progression and happenings of life course of the topic."
   {:db/ident :schema/PrognosisHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Typical progression and happenings of life course of the topic.",
@@ -12832,7 +12834,7 @@
    #xsd/string
     "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim.\nUse properties from [[Organization]], [[subOrganization]]/[[parentOrganization]] to indicate project sub-structures. \n   ",
    :rdfs/label #xsd/string "Project",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source [{:rdfa/uri "http://schema.org/docs/collab/FundInfoCollab"}
                    {:rdfa/uri
@@ -12870,7 +12872,7 @@
     "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.\\n\\n Always use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.\n    ",
    :rdfs/label #xsd/string "PropertyValue",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -12900,11 +12902,11 @@
   "Single-celled organism that causes an infection."
   {:db/ident        :schema/Protozoa,
    :rdf/type        [:schema/InfectiousAgentClass
-                     :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :rdfs/Resource
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string
                      "Single-celled organism that causes an infection.",
    :rdfs/label      #xsd/string "Protozoa",
@@ -12914,10 +12916,10 @@
   "A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies."
   {:db/ident :schema/Psychiatric,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12925,11 +12927,11 @@
     "A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies.",
    :rdfs/label #xsd/string "Psychiatric",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PsychologicalTreatment
@@ -12941,20 +12943,20 @@
     "A process of care relying upon counseling, dialogue and communication  aimed at improving a mental health condition without use of drugs.",
    :rdfs/label #xsd/string "PsychologicalTreatment",
    :rdfs/subClassOf [:schema/TherapeuticProcedure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :schema/MedicalProcedure
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :schema/MedicalProcedure],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PublicHealth
   "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine."
   {:db/ident :schema/PublicHealth,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -12962,20 +12964,20 @@
     "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine.",
    :rdfs/label #xsd/string "PublicHealth",
    :rdfs/subClassOf [:schema/MedicalBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def PublicHolidays
   "This stands for any day that is a public holiday; it is a placeholder for all official public holidays in some particular location. While not technically a \"day of the week\", it can be used with [[OpeningHoursSpecification]]. In the context of an opening hours specification it can be used to indicate opening hours on public holidays, overriding general opening hours for the day of the week on which a public holiday occurs."
   {:db/ident :schema/PublicHolidays,
    :rdf/type [:schema/DayOfWeek
-              :schema/Thing
-              :schema/Enumeration
               :rdfs/Resource
+              :schema/Enumeration
+              :schema/Thing
               :schema/Intangible],
    :rdfs/comment
    #xsd/string
@@ -12991,11 +12993,11 @@
    :rdfs/comment    #xsd/string "A public swimming pool.",
    :rdfs/label      #xsd/string "PublicSwimmingPool",
    :rdfs/subClassOf [:schema/SportsActivityLocation
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def PublicToilet
   "A public toilet is a room or small building containing one or more toilets (and possibly also urinals) which is available for use by the general public, or by customers or employees of certain businesses."
@@ -13006,7 +13008,7 @@
     "A public toilet is a room or small building containing one or more toilets (and possibly also urinals) which is available for use by the general public, or by customers or employees of certain businesses.",
    :rdfs/label #xsd/string "PublicToilet",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/CivicStructure :schema/Thing :schema/Place],
+   [:rdfs/Resource :schema/CivicStructure :schema/Place :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1624"}})
@@ -13019,7 +13021,7 @@
    #xsd/string
     "A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.",
    :rdfs/label #xsd/string "PublicationEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def PublicationIssue
   "A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles.\\n\\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html)."
@@ -13048,10 +13050,10 @@
   "A specific branch of medical science that pertains to the study of the respiratory system and its respective disease states."
   {:db/ident :schema/Pulmonary,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -13069,7 +13071,7 @@
     "A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs).",
    :rdfs/label #xsd/string "QAPage",
    :rdfs/subClassOf
-   [:schema/WebPage :schema/Thing :rdfs/Resource :schema/CreativeWork]})
+   [:schema/WebPage :rdfs/Resource :schema/CreativeWork :schema/Thing]})
 
 (def QualitativeValue
   "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'."
@@ -13080,7 +13082,7 @@
     "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'.",
    :rdfs/label #xsd/string "QualitativeValue",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -13093,7 +13095,7 @@
     " A point value or interval for product characteristics and other purposes.",
    :rdfs/label #xsd/string "QuantitativeValue",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -13104,9 +13106,9 @@
    :rdfs/comment    #xsd/string "A statistical distribution of values.",
    :rdfs/label      #xsd/string "QuantitativeValueDistribution",
    :rdfs/subClassOf [:schema/StructuredValue
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/1698"}})
 
@@ -13129,7 +13131,7 @@
     "A specific question - e.g. from a user seeking answers online, or collected in a Frequently Asked Questions (FAQ) document.",
    :rdfs/label #xsd/string "Question",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Comment :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/Comment :schema/CreativeWork :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/QAStackExchange"}})
 
@@ -13142,8 +13144,8 @@
    :rdfs/label      #xsd/string "Quiz",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/LearningResource
-                     :schema/Thing
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/2611"}})
@@ -13170,7 +13172,7 @@
     "An agent quotes/estimates/appraises an object/product/service with a price at a location/store.",
    :rdfs/label #xsd/string "QuoteAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/TradeAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/TradeAction :schema/Action :schema/Thing]})
 
 (def RVPark
   "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like."
@@ -13181,7 +13183,7 @@
     "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like.",
    :rdfs/label #xsd/string "RVPark",
    :rdfs/subClassOf
-   [:schema/CivicStructure :schema/Thing :schema/Place :rdfs/Resource]})
+   [:schema/CivicStructure :rdfs/Resource :schema/Place :schema/Thing]})
 
 (def RadiationTherapy
   "A process of care using radiation aimed at improving a health condition."
@@ -13192,11 +13194,11 @@
     "A process of care using radiation aimed at improving a health condition.",
    :rdfs/label #xsd/string "RadiationTherapy",
    :rdfs/subClassOf [:schema/MedicalTherapy
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/MedicalProcedure
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :schema/MedicalProcedure],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def RadioBroadcastService
@@ -13208,10 +13210,10 @@
     "A delivery service through which radio content is provided via broadcast over the air or online.",
    :rdfs/label #xsd/string "RadioBroadcastService",
    :rdfs/subClassOf [:schema/BroadcastService
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Service
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2109"}})
@@ -13225,7 +13227,7 @@
     "A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup.",
    :rdfs/label #xsd/string "RadioChannel",
    :rdfs/subClassOf
-   [:schema/BroadcastChannel :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/BroadcastChannel :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def RadioClip
   "A short radio program or a segment/part of a radio program."
@@ -13235,7 +13237,7 @@
                   "A short radio program or a segment/part of a radio program.",
    :rdfs/label #xsd/string "RadioClip",
    :rdfs/subClassOf
-   [:schema/Clip :schema/Thing :rdfs/Resource :schema/CreativeWork]})
+   [:schema/Clip :rdfs/Resource :schema/CreativeWork :schema/Thing]})
 
 (def RadioEpisode
   "A radio episode which can be part of a series or season."
@@ -13245,9 +13247,9 @@
                      "A radio episode which can be part of a series or season.",
    :rdfs/label      #xsd/string "RadioEpisode",
    :rdfs/subClassOf [:schema/Episode
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def RadioSeason
   "Season dedicated to radio broadcast and associated online delivery."
@@ -13258,9 +13260,9 @@
     "Season dedicated to radio broadcast and associated online delivery.",
    :rdfs/label #xsd/string "RadioSeason",
    :rdfs/subClassOf [:schema/CreativeWorkSeason
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def RadioSeries
   "CreativeWorkSeries dedicated to radio broadcast and associated online delivery."
@@ -13272,10 +13274,10 @@
    :rdfs/label #xsd/string "RadioSeries",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CreativeWorkSeries
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series]})
+                     :schema/Thing]})
 
 (def RadioStation
   "A radio station."
@@ -13284,10 +13286,10 @@
    :rdfs/comment    #xsd/string "A radio station.",
    :rdfs/label      #xsd/string "RadioStation",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Radiography
   "Radiography is an imaging technique that uses electromagnetic radiation other than visible light, especially X-rays, to view the internal structure of a non-uniformly composed and opaque object such as the human body."
@@ -13295,10 +13297,10 @@
    :rdf/type [:schema/MedicalSpecialty
               :schema/MedicalImagingTechnique
               :rdfs/Resource
-              :schema/MedicalEnumeration
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
+              :schema/MedicalEnumeration
               :schema/Specialty],
    :rdfs/comment
    #xsd/string
@@ -13310,11 +13312,11 @@
   "A randomized trial design."
   {:db/ident        :schema/RandomizedTrial,
    :rdf/type        [:schema/MedicalTrialDesign
-                     :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible
                      :schema/MedicalEnumeration
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "A randomized trial design.",
    :rdfs/label      #xsd/string "RandomizedTrial",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -13338,7 +13340,7 @@
     "The act of responding instinctively and emotionally to an object, expressing a sentiment.",
    :rdfs/label #xsd/string "ReactAction",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/AssessAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ReadAction
   "The act of consuming written content."
@@ -13347,17 +13349,17 @@
    :rdfs/comment    #xsd/string "The act of consuming written content.",
    :rdfs/label      #xsd/string "ReadAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def ReadPermission
   "Permission to read or view the document."
   {:db/ident     :schema/ReadPermission,
    :rdf/type     [:schema/DigitalDocumentPermissionType
-                  :schema/Thing
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
+                  :schema/Thing
                   :schema/Intangible],
    :rdfs/comment #xsd/string "Permission to read or view the document.",
    :rdfs/label   #xsd/string "ReadPermission"})
@@ -13369,10 +13371,10 @@
    :rdfs/comment    #xsd/string "A real-estate agent.",
    :rdfs/label      #xsd/string "RealEstateAgent",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def RealEstateListing
   "A [[RealEstateListing]] is a listing that describes one or more real-estate [[Offer]]s (whose [[businessFunction]] is typically to lease out, or to sell).\n  The [[RealEstateListing]] type itself represents the overall listing, as manifested in some [[WebPage]].\n  "
@@ -13383,7 +13385,7 @@
     "A [[RealEstateListing]] is a listing that describes one or more real-estate [[Offer]]s (whose [[businessFunction]] is typically to lease out, or to sell).\n  The [[RealEstateListing]] type itself represents the overall listing, as manifested in some [[WebPage]].\n  ",
    :rdfs/label #xsd/string "RealEstateListing",
    :rdfs/subClassOf
-   [:schema/WebPage :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/WebPage :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2348"}})
@@ -13392,11 +13394,11 @@
   "Real-wheel drive is a transmission layout where the engine drives the rear wheels."
   {:db/ident :schema/RearWheelDriveConfiguration,
    :rdf/type [:schema/DriveWheelConfigurationValue
-              :rdfs/Resource
-              :schema/Thing
               :schema/QualitativeValue
+              :schema/Enumeration
+              :rdfs/Resource
               :schema/Intangible
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Real-wheel drive is a transmission layout where the engine drives the rear wheels.",
@@ -13414,7 +13416,7 @@
     "The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.\\n\\nRelated actions:\\n\\n* [[SendAction]]: The reciprocal of ReceiveAction.\\n* [[TakeAction]]: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).",
    :rdfs/label #xsd/string "ReceiveAction",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Recipe
   "A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via [[suitableForDiet]]. The [[keywords]] property can also be used to add more detail."
@@ -13425,7 +13427,7 @@
     "A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via [[suitableForDiet]]. The [[keywords]] property can also be used to add more detail.",
    :rdfs/label #xsd/string "Recipe",
    :rdfs/subClassOf
-   [:schema/HowTo :schema/Thing :rdfs/Resource :schema/CreativeWork]})
+   [:schema/HowTo :rdfs/Resource :schema/CreativeWork :schema/Thing]})
 
 (def Recommendation
   "[[Recommendation]] is a type of [[Review]] that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A [[Guide]] may list multiple recommendations for different categories. For example, in a [[Guide]] about which TVs to buy, the author may have several [[Recommendation]]s."
@@ -13436,7 +13438,7 @@
     "[[Recommendation]] is a type of [[Review]] that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A [[Guide]] may list multiple recommendations for different categories. For example, in a [[Guide]] about which TVs to buy, the author may have several [[Recommendation]]s.",
    :rdfs/label #xsd/string "Recommendation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Review :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/Review :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2405"}})
@@ -13450,10 +13452,10 @@
     "A recommended dosing schedule for a drug or supplement as prescribed or recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.",
    :rdfs/label #xsd/string "RecommendedDoseSchedule",
    :rdfs/subClassOf [:schema/DoseSchedule
-                     :schema/Thing
-                     :schema/MedicalEntity
                      :rdfs/Resource
-                     :schema/MedicalIntangible],
+                     :schema/MedicalIntangible
+                     :schema/MedicalEntity
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Recruiting
@@ -13461,9 +13463,9 @@
   {:db/ident        :schema/Recruiting,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Recruiting participants.",
    :rdfs/label      #xsd/string "Recruiting",
@@ -13476,19 +13478,19 @@
    :rdfs/comment    #xsd/string "A recycling center.",
    :rdfs/label      #xsd/string "RecyclingCenter",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ReducedRelevanceForChildrenConsideration
   "A general code for cases where relevance to children is reduced, e.g. adult education, mortgages, retirement-related products, etc."
   {:db/ident :schema/ReducedRelevanceForChildrenConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "A general code for cases where relevance to children is reduced, e.g. adult education, mortgages, retirement-related products, etc.",
@@ -13505,9 +13507,9 @@
                      "Enumerates several kinds of product return refund types.",
    :rdfs/label      #xsd/string "RefundTypeEnumeration",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/2288"}})
@@ -13516,10 +13518,10 @@
   "Indicates that the item is refurbished."
   {:db/ident     :schema/RefurbishedCondition,
    :rdf/type     [:schema/OfferItemCondition
+                  :rdfs/Resource
                   :schema/Enumeration
                   :schema/Intangible
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item is refurbished.",
    :rdfs/label   #xsd/string "RefurbishedCondition"})
 
@@ -13532,16 +13534,16 @@
     "The act of registering to be a user of a service, product or web page.\\n\\nRelated actions:\\n\\n* [[JoinAction]]: Unlike JoinAction, RegisterAction implies you are registering to be a user of a service, *not* a group/team of people.\\n* [[FollowAction]]: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.\\n* [[SubscribeAction]]: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.",
    :rdfs/label #xsd/string "RegisterAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Registry
   "A registry-based study design."
   {:db/ident        :schema/Registry,
    :rdf/type        [:schema/MedicalObservationalStudyDesign
-                     :schema/Intangible
-                     :schema/Enumeration
                      :rdfs/Resource
                      :schema/Thing
+                     :schema/Enumeration
+                     :schema/Intangible
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "A registry-based study design.",
    :rdfs/label      #xsd/string "Registry",
@@ -13551,11 +13553,11 @@
   "The drug's cost represents the maximum reimbursement paid by an insurer for the drug."
   {:db/ident :schema/ReimbursementCap,
    :rdf/type [:schema/DrugCostCategory
-              :schema/Enumeration
+              :schema/MedicalEnumeration
               :rdfs/Resource
-              :schema/Intangible
               :schema/Thing
-              :schema/MedicalEnumeration],
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "The drug's cost represents the maximum reimbursement paid by an insurer for the drug.",
@@ -13572,18 +13574,18 @@
    :rdfs/label #xsd/string "RejectAction",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/AllocateAction
-                     :schema/Thing
                      :schema/OrganizeAction
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def RelatedTopicsHealthAspect
   "Other prominent or relevant topics tied to the main topic."
   {:db/ident :schema/RelatedTopicsHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment #xsd/string
                   "Other prominent or relevant topics tied to the main topic.",
    :rdfs/label #xsd/string "RelatedTopicsHealthAspect",
@@ -13596,9 +13598,9 @@
   {:db/ident           :schema/RemixAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "RemixAlbum.",
    :rdfs/label         #xsd/string "RemixAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -13607,10 +13609,10 @@
   "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states."
   {:db/ident :schema/Renal,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -13628,7 +13630,7 @@
     "The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment.",
    :rdfs/label #xsd/string "RentAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/TradeAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/TradeAction :schema/Action :schema/Thing]})
 
 (def RentalCarReservation
   "A reservation for a rental car.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
@@ -13639,7 +13641,7 @@
     "A reservation for a rental car.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.",
    :rdfs/label #xsd/string "RentalCarReservation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Reservation :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Reservation :schema/Intangible :schema/Thing]})
 
 (def RentalVehicleUsage
   "Indicates the usage of the vehicle as a rental car."
@@ -13647,8 +13649,8 @@
    :rdf/type [:schema/CarUsageType
               :schema/Enumeration
               :schema/Intangible
-              :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :rdfs/Resource],
    :rdfs/comment #xsd/string
                   "Indicates the usage of the vehicle as a rental car.",
    :rdfs/label #xsd/string "RentalVehicleUsage",
@@ -13665,8 +13667,8 @@
    :rdfs/label         #xsd/string "RepaymentSpecification",
    :rdfs/subClassOf    [:rdfs/Resource
                         :schema/StructuredValue
-                        :schema/Thing
-                        :schema/Intangible],
+                        :schema/Intangible
+                        :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/FIBO"},
    :schema/isPartOf    {:rdfa/uri "http://pending.schema.org"},
    :schema/source      {:rdfa/uri
@@ -13681,7 +13683,7 @@
     "The act of editing a recipient by replacing an old object with a new object.",
    :rdfs/label #xsd/string "ReplaceAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/UpdateAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/UpdateAction :schema/Action :schema/Thing]})
 
 (def ReplyAction
   "The act of responding to a question/message asked/sent by the object. Related to [[AskAction]].\\n\\nRelated actions:\\n\\n* [[AskAction]]: Appears generally as an origin of a ReplyAction."
@@ -13692,10 +13694,10 @@
     "The act of responding to a question/message asked/sent by the object. Related to [[AskAction]].\\n\\nRelated actions:\\n\\n* [[AskAction]]: Appears generally as an origin of a ReplyAction.",
    :rdfs/label #xsd/string "ReplyAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Report
   "A Report generated by governmental or non-governmental organization."
@@ -13706,7 +13708,7 @@
     "A Report generated by governmental or non-governmental organization.",
    :rdfs/label #xsd/string "Report",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Article :schema/Thing :schema/CreativeWork]})
+   [:rdfs/Resource :schema/Article :schema/CreativeWork :schema/Thing]})
 
 (def ReportageNewsArticle
   "The [[ReportageNewsArticle]] type is a subtype of [[NewsArticle]] representing\n news articles which are the result of journalistic news reporting conventions.\n\nIn practice many news publishers produce a wide variety of article types, many of which might be considered a [[NewsArticle]] but not a [[ReportageNewsArticle]]. For example, opinion pieces, reviews, analysis, sponsored or satirical articles, or articles that combine several of these elements.\n\nThe [[ReportageNewsArticle]] type is based on a stricter ideal for \"news\" as a work of journalism, with articles based on factual information either observed or verified by the author, or reported and verified from knowledgeable sources.  This often includes perspectives from multiple viewpoints on a particular issue (distinguishing news reports from public relations or propaganda).  News reports in the [[ReportageNewsArticle]] sense de-emphasize the opinion of the author, with commentary and value judgements typically expressed elsewhere.\n\nA [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].\n"
@@ -13717,10 +13719,10 @@
     "The [[ReportageNewsArticle]] type is a subtype of [[NewsArticle]] representing\n news articles which are the result of journalistic news reporting conventions.\n\nIn practice many news publishers produce a wide variety of article types, many of which might be considered a [[NewsArticle]] but not a [[ReportageNewsArticle]]. For example, opinion pieces, reviews, analysis, sponsored or satirical articles, or articles that combine several of these elements.\n\nThe [[ReportageNewsArticle]] type is based on a stricter ideal for \"news\" as a work of journalism, with articles based on factual information either observed or verified by the author, or reported and verified from knowledgeable sources.  This often includes perspectives from multiple viewpoints on a particular issue (distinguishing news reports from public relations or propaganda).  News reports in the [[ReportageNewsArticle]] sense de-emphasize the opinion of the author, with commentary and value judgements typically expressed elsewhere.\n\nA [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].\n",
    :rdfs/label #xsd/string "ReportageNewsArticle",
    :rdfs/subClassOf [:schema/NewsArticle
-                     :schema/Thing
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -13735,10 +13737,10 @@
     "A patient-reported or observed dosing schedule for a drug or supplement.",
    :rdfs/label #xsd/string "ReportedDoseSchedule",
    :rdfs/subClassOf [:schema/DoseSchedule
-                     :schema/Thing
-                     :schema/MedicalEntity
                      :rdfs/Resource
-                     :schema/MedicalIntangible],
+                     :schema/MedicalIntangible
+                     :schema/MedicalEntity
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def ResearchOrganization
@@ -13749,7 +13751,7 @@
    #xsd/string
     "A Research Organization (e.g. scientific institute, research company).",
    :rdfs/label #xsd/string "ResearchOrganization",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2877"}})
@@ -13761,9 +13763,9 @@
    :rdfs/comment    #xsd/string "A Research project.",
    :rdfs/label      #xsd/string "ResearchProject",
    :rdfs/subClassOf [:schema/Project
+                     :rdfs/Resource
                      :schema/Organization
-                     :schema/Thing
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   [{:rdfa/uri "http://schema.org/docs/collab/FundInfoCollab"}
                      {:rdfa/uri
@@ -13777,8 +13779,8 @@
    :rdfs/label      #xsd/string "Researcher",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Audience
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Reservation
   "Describes a reservation for travel, dining or an event. Some reservations require tickets. \\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use [[Offer]]."
@@ -13794,11 +13796,11 @@
   "The status for a previously confirmed reservation that is now cancelled."
   {:db/ident :schema/ReservationCancelled,
    :rdf/type [:schema/ReservationStatusType
-              :schema/Intangible
-              :schema/StatusEnumeration
-              :schema/Enumeration
               :schema/Thing
-              :rdfs/Resource],
+              :schema/Enumeration
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The status for a previously confirmed reservation that is now cancelled.",
@@ -13808,11 +13810,11 @@
   "The status of a confirmed reservation."
   {:db/ident     :schema/ReservationConfirmed,
    :rdf/type     [:schema/ReservationStatusType
-                  :schema/Intangible
-                  :schema/StatusEnumeration
-                  :schema/Enumeration
                   :schema/Thing
-                  :rdfs/Resource],
+                  :schema/Enumeration
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/StatusEnumeration],
    :rdfs/comment #xsd/string "The status of a confirmed reservation.",
    :rdfs/label   #xsd/string "ReservationConfirmed"})
 
@@ -13820,11 +13822,11 @@
   "The status of a reservation on hold pending an update like credit card number or flight changes."
   {:db/ident :schema/ReservationHold,
    :rdf/type [:schema/ReservationStatusType
-              :schema/Intangible
-              :schema/StatusEnumeration
-              :schema/Enumeration
               :schema/Thing
-              :rdfs/Resource],
+              :schema/Enumeration
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The status of a reservation on hold pending an update like credit card number or flight changes.",
@@ -13839,17 +13841,17 @@
     "A group of multiple reservations with common values for all sub-reservations.",
    :rdfs/label #xsd/string "ReservationPackage",
    :rdfs/subClassOf
-   [:schema/Reservation :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Reservation :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def ReservationPending
   "The status of a reservation when a request has been sent, but not confirmed."
   {:db/ident :schema/ReservationPending,
    :rdf/type [:schema/ReservationStatusType
-              :schema/Intangible
-              :schema/StatusEnumeration
-              :schema/Enumeration
               :schema/Thing
-              :rdfs/Resource],
+              :schema/Enumeration
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/StatusEnumeration],
    :rdfs/comment
    #xsd/string
     "The status of a reservation when a request has been sent, but not confirmed.",
@@ -13863,9 +13865,9 @@
    :rdfs/label      #xsd/string "ReservationStatusType",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def ReserveAction
   "Reserving a concrete object.\\n\\nRelated actions:\\n\\n* [[ScheduleAction]]: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation."
@@ -13876,10 +13878,10 @@
     "Reserving a concrete object.\\n\\nRelated actions:\\n\\n* [[ScheduleAction]]: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.",
    :rdfs/label #xsd/string "ReserveAction",
    :rdfs/subClassOf [:schema/PlanAction
-                     :schema/Thing
-                     :schema/OrganizeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/OrganizeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Reservoir
   "A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir."
@@ -13890,9 +13892,9 @@
     "A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir.",
    :rdfs/label #xsd/string "Reservoir",
    :rdfs/subClassOf [:schema/BodyOfWater
-                     :schema/Thing
-                     :schema/Place
                      :rdfs/Resource
+                     :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def Residence
@@ -13912,11 +13914,11 @@
     "A resort is a place used for relaxation or recreation, attracting visitors for holidays or vacations. Resorts are places, towns or sometimes commercial establishments operated by a single company (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Resort\">http://en.wikipedia.org/wiki/Resort</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n    ",
    :rdfs/label #xsd/string "Resort",
    :rdfs/subClassOf [:schema/LodgingBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource],
+                     :schema/Organization
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -13924,10 +13926,10 @@
   "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)."
   {:db/ident :schema/RespiratoryTherapy,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -13935,11 +13937,11 @@
     "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease).",
    :rdfs/label #xsd/string "RespiratoryTherapy",
    :rdfs/subClassOf [:schema/MedicalTherapy
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/MedicalProcedure
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :schema/MedicalProcedure],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Restaurant
@@ -13949,20 +13951,20 @@
    :rdfs/comment    #xsd/string "A restaurant.",
    :rdfs/label      #xsd/string "Restaurant",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def RestockingFees
   "Specifies that the customer must pay a restocking fee when returning a product."
   {:db/ident :schema/RestockingFees,
    :rdf/type [:schema/ReturnFeesEnumeration
-              :schema/Intangible
               :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Specifies that the customer must pay a restocking fee when returning a product.",
@@ -13980,16 +13982,16 @@
     "A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons. ",
    :rdfs/label #xsd/string "RestrictedDiet",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def ResultsAvailable
   "Results are available."
   {:db/ident        :schema/ResultsAvailable,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Results are available.",
    :rdfs/label      #xsd/string "ResultsAvailable",
@@ -14000,9 +14002,9 @@
   {:db/ident        :schema/ResultsNotAvailable,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Results are not available.",
    :rdfs/label      #xsd/string "ResultsNotAvailable",
@@ -14017,17 +14019,17 @@
     "The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer).",
    :rdfs/label #xsd/string "ResumeAction",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/ControlAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Retail
   "The drug's cost represents the retail cost of the drug."
   {:db/ident        :schema/Retail,
    :rdf/type        [:schema/DrugCostCategory
-                     :schema/Enumeration
+                     :schema/MedicalEnumeration
                      :rdfs/Resource
-                     :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalEnumeration],
+                     :schema/Enumeration
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string
                      "The drug's cost represents the retail cost of the drug.",
    :rdfs/label      #xsd/string "Retail",
@@ -14042,7 +14044,7 @@
     "The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).",
    :rdfs/label #xsd/string "ReturnAction",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ReturnAtKiosk
   "Specifies that product returns must be made at a kiosk."
@@ -14078,10 +14080,10 @@
   "Specifies that product returns must be paid for, and are the responsibility of, the customer."
   {:db/ident :schema/ReturnFeesCustomerResponsibility,
    :rdf/type [:schema/ReturnFeesEnumeration
-              :schema/Intangible
               :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Specifies that product returns must be paid for, and are the responsibility of, the customer.",
@@ -14098,7 +14100,7 @@
    #xsd/string "Enumerates several kinds of policies for product return fees.",
    :rdfs/label #xsd/string "ReturnFeesEnumeration",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Enumeration :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2288"}})
@@ -14122,10 +14124,10 @@
   "Indicated that creating a return label is the responsibility of the customer."
   {:db/ident :schema/ReturnLabelCustomerResponsibility,
    :rdf/type [:schema/ReturnLabelSourceEnumeration
-              :schema/Intangible
               :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Indicated that creating a return label is the responsibility of the customer.",
@@ -14138,10 +14140,10 @@
   "Indicated that a return label must be downloaded and printed by the customer."
   {:db/ident :schema/ReturnLabelDownloadAndPrint,
    :rdf/type [:schema/ReturnLabelSourceEnumeration
-              :schema/Intangible
               :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Indicated that a return label must be downloaded and printed by the customer.",
@@ -14154,10 +14156,10 @@
   "Specifies that a return label will be provided by the seller in the shipping box."
   {:db/ident :schema/ReturnLabelInBox,
    :rdf/type [:schema/ReturnLabelSourceEnumeration
-              :schema/Intangible
               :rdfs/Resource
               :schema/Thing
-              :schema/Enumeration],
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Specifies that a return label will be provided by the seller in the shipping box.",
@@ -14174,7 +14176,7 @@
    #xsd/string "Enumerates several types of return labels for product returns.",
    :rdfs/label #xsd/string "ReturnLabelSourceEnumeration",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2880"}})
@@ -14187,9 +14189,9 @@
                      "Enumerates several types of product return methods.",
    :rdfs/label      #xsd/string "ReturnMethodEnumeration",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/2880"}})
@@ -14198,10 +14200,10 @@
   "Specifies that the customer must pay the return shipping costs when returning a product."
   {:db/ident :schema/ReturnShippingFees,
    :rdf/type [:schema/ReturnFeesEnumeration
-              :schema/Intangible
               :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Specifies that the customer must pay the return shipping costs when returning a product.",
@@ -14218,7 +14220,7 @@
    #xsd/string
     "A review of an item - for example, of a restaurant, movie, or store.",
    :rdfs/label #xsd/string "Review",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def ReviewAction
   "The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review."
@@ -14229,7 +14231,7 @@
     "The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.",
    :rdfs/label #xsd/string "ReviewAction",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/AssessAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def ReviewNewsArticle
   "A [[NewsArticle]] and [[CriticReview]] providing a professional critic's assessment of a service, product, performance, or artistic or literary work."
@@ -14241,11 +14243,11 @@
    :rdfs/label #xsd/string "ReviewNewsArticle",
    :rdfs/subClassOf [:schema/NewsArticle
                      :schema/CriticReview
-                     :schema/Thing
                      :schema/Review
-                     :schema/Article
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/CreativeWork
+                     :schema/Article
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -14255,10 +14257,10 @@
   "A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases."
   {:db/ident :schema/Rheumatologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -14271,10 +14273,10 @@
   "The steering position is on the right side of the vehicle (viewed from the main direction of driving)."
   {:db/ident :schema/RightHandDriving,
    :rdf/type [:schema/SteeringPositionValue
-              :rdfs/Resource
-              :schema/Thing
               :schema/QualitativeValue
+              :rdfs/Resource
               :schema/Intangible
+              :schema/Thing
               :schema/Enumeration],
    :rdfs/comment
    #xsd/string
@@ -14288,10 +14290,10 @@
   "Information about the risk factors and possible complications that may follow a topic."
   {:db/ident :schema/RisksOrComplicationsHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Information about the risk factors and possible complications that may follow a topic.",
@@ -14308,9 +14310,9 @@
                      "A river (for example, the broad majestic Shannon).",
    :rdfs/label      #xsd/string "RiverBodyOfWater",
    :rdfs/subClassOf [:schema/BodyOfWater
-                     :schema/Thing
-                     :schema/Place
                      :rdfs/Resource
+                     :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def Role
@@ -14330,11 +14332,11 @@
    :rdfs/comment    #xsd/string "A roofing contractor.",
    :rdfs/label      #xsd/string "RoofingContractor",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Room
   "A room is a distinguishable space within a structure, usually separated from other spaces by interior walls (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Room\">http://en.wikipedia.org/wiki/Room</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -14345,7 +14347,7 @@
     "A room is a distinguishable space within a structure, usually separated from other spaces by interior walls (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Room\">http://en.wikipedia.org/wiki/Room</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "Room",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Accommodation :schema/Thing :schema/Place],
+   [:rdfs/Resource :schema/Accommodation :schema/Place :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -14358,11 +14360,11 @@
     "The act of notifying an event organizer as to whether you expect to attend the event.",
    :rdfs/label #xsd/string "RsvpAction",
    :rdfs/subClassOf [:schema/InformAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
+                     :schema/InteractAction
                      :schema/CommunicateAction
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def RsvpResponseMaybe
   "The invitee may or may not attend."
@@ -14395,7 +14397,7 @@
     "RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request.",
    :rdfs/label #xsd/string "RsvpResponseType",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing]})
 
 (def RsvpResponseYes
   "The invitee will attend."
@@ -14412,8 +14414,8 @@
   "Represents the suggested retail price (\"SRP\") of an offered product."
   {:db/ident :schema/SRP,
    :rdf/type [:schema/PriceTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -14428,10 +14430,10 @@
   "Content about the safety-related aspects of a health topic."
   {:db/ident :schema/SafetyHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment #xsd/string
                   "Content about the safety-related aspects of a health topic.",
    :rdfs/label #xsd/string "SafetyHealthAspect",
@@ -14451,8 +14453,8 @@
   "Represents a sale price (usually active for a limited period) of an offered product."
   {:db/ident :schema/SalePrice,
    :rdf/type [:schema/PriceTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -14467,8 +14469,8 @@
   "Content coded 'satire or parody content' in a [[MediaReview]], considered in the context of how it was published or shared.\n\nFor a [[VideoObject]] to be 'satire or parody content': A video that was created as political or humorous commentary and is presented in that context. (Reshares of satire/parody content that do not include relevant context are more likely to fall under the “missing context” rating.)\n\nFor an [[ImageObject]] to be 'satire or parody content': An image that was created as political or humorous commentary and is presented in that context. (Reshares of satire/parody content that do not include relevant context are more likely to fall under the “missing context” rating.)\n\nFor an [[ImageObject]] with embedded text to be 'satire or parody content': An image that was created as political or humorous commentary and is presented in that context. (Reshares of satire/parody content that do not include relevant context are more likely to fall under the “missing context” rating.)\n\nFor an [[AudioObject]] to be 'satire or parody content': Audio that was created as political or humorous commentary and is presented in that context. (Reshares of satire/parody content that do not include relevant context are more likely to fall under the “missing context” rating.)\n"
   {:db/ident :schema/SatireOrParodyContent,
    :rdf/type [:schema/MediaManipulationRatingEnumeration
-              :rdfs/Resource
               :schema/Thing
+              :rdfs/Resource
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -14488,7 +14490,7 @@
     "An [[Article]] whose content is primarily [[satirical]](https://en.wikipedia.org/wiki/Satire) in nature, i.e. unlikely to be literally true. A satirical article is sometimes but not necessarily also a [[NewsArticle]]. [[ScholarlyArticle]]s are also sometimes satirized.",
    :rdfs/label #xsd/string "SatiricalArticle",
    :rdfs/subClassOf
-   [:schema/Article :schema/Thing :rdfs/Resource :schema/CreativeWork],
+   [:schema/Article :rdfs/Resource :schema/CreativeWork :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/TP"},
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -14498,9 +14500,9 @@
   "The day of the week between Friday and Sunday."
   {:db/ident      :schema/Saturday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string "The day of the week between Friday and Sunday.",
    :rdfs/label    #xsd/string "Saturday",
@@ -14514,7 +14516,7 @@
    #xsd/string
     "A schedule defines a repeating time period used to describe a regularly occurring [[Event]]. At a minimum a schedule will specify [[repeatFrequency]] which describes the interval between occurrences of the event. Additional information can be provided to specify the schedule more precisely.\n      This includes identifying the day(s) of the week or month when the recurring event will take place, in addition to its start and end time. Schedules may also\n      have start and end dates to indicate when they are active, e.g. to define a limited calendar of events.",
    :rdfs/label #xsd/string "Schedule",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1457"}})
@@ -14528,10 +14530,10 @@
     "Scheduling future actions, events, or tasks.\\n\\nRelated actions:\\n\\n* [[ReserveAction]]: Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task, etc) towards a time slot / spatial allocation.",
    :rdfs/label #xsd/string "ScheduleAction",
    :rdfs/subClassOf [:schema/PlanAction
-                     :schema/Thing
-                     :schema/OrganizeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/OrganizeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def ScholarlyArticle
   "A scholarly article."
@@ -14541,8 +14543,8 @@
    :rdfs/label      #xsd/string "ScholarlyArticle",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def School
   "A school."
@@ -14551,11 +14553,11 @@
    :rdfs/comment    #xsd/string "A school.",
    :rdfs/label      #xsd/string "School",
    :rdfs/subClassOf [:schema/EducationalOrganization
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :schema/CivicStructure
                      :rdfs/Resource
-                     :schema/CivicStructure]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def SchoolDistrict
   "A School District is an administrative area for the administration of schools."
@@ -14566,7 +14568,7 @@
     "A School District is an administrative area for the administration of schools.",
    :rdfs/label #xsd/string "SchoolDistrict",
    :rdfs/subClassOf
-   [:schema/AdministrativeArea :schema/Thing :schema/Place :rdfs/Resource],
+   [:schema/AdministrativeArea :rdfs/Resource :schema/Place :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2500"}})
@@ -14577,16 +14579,16 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "A screening of a movie or other video.",
    :rdfs/label      #xsd/string "ScreeningEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def ScreeningHealthAspect
   "Content about how to screen or further filter a topic."
   {:db/ident        :schema/ScreeningHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string
                      "Content about how to screen or further filter a topic.",
    :rdfs/label      #xsd/string "ScreeningHealthAspect",
@@ -14609,9 +14611,9 @@
    :rdfs/comment    #xsd/string "A sea (for example, the Caspian sea).",
    :rdfs/label      #xsd/string "SeaBodyOfWater",
    :rdfs/subClassOf [:schema/BodyOfWater
-                     :schema/Thing
-                     :schema/Place
                      :rdfs/Resource
+                     :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def SearchAction
@@ -14622,7 +14624,7 @@
    #xsd/string
     "The act of searching for an object.\\n\\nRelated actions:\\n\\n* [[FindAction]]: SearchAction generally leads to a FindAction, but not necessarily.",
    :rdfs/label #xsd/string "SearchAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def SearchRescueOrganization
   "A Search and Rescue organization of some kind."
@@ -14631,7 +14633,7 @@
    :rdfs/comment    #xsd/string
                      "A Search and Rescue organization of some kind.",
    :rdfs/label      #xsd/string "SearchRescueOrganization",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/3052"}})
@@ -14644,8 +14646,8 @@
    :rdfs/label      #xsd/string "SearchResultsPage",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/WebPage
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Season
   "A media season, e.g. TV, radio, video game etc."
@@ -14665,16 +14667,16 @@
    #xsd/string
     "Used to describe a seat, such as a reserved seat in an event reservation.",
    :rdfs/label #xsd/string "Seat",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def SeatingMap
   "A seating map."
   {:db/ident     :schema/SeatingMap,
    :rdf/type     [:schema/MapCategoryType
-                  :schema/Intangible
                   :schema/Thing
                   :rdfs/Resource
-                  :schema/Enumeration],
+                  :schema/Enumeration
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "A seating map.",
    :rdfs/label   #xsd/string "SeatingMap"})
 
@@ -14682,10 +14684,10 @@
   "Information about questions that may be asked, when to see a professional, measures before seeing a doctor or content about the first consultation."
   {:db/ident :schema/SeeDoctorHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Information about questions that may be asked, when to see a professional, measures before seeing a doctor or content about the first consultation.",
@@ -14711,10 +14713,10 @@
   "Self care actions or measures that can be taken to sooth, health or avoid a topic. This may be carried at home and can be carried/managed by the person itself."
   {:db/ident :schema/SelfCareHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "Self care actions or measures that can be taken to sooth, health or avoid a topic. This may be carried at home and can be carried/managed by the person itself.",
@@ -14730,10 +14732,10 @@
    :rdfs/comment    #xsd/string "A self-storage facility.",
    :rdfs/label      #xsd/string "SelfStorage",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def SellAction
   "The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction."
@@ -14744,7 +14746,7 @@
     "The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction.",
    :rdfs/label #xsd/string "SellAction",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TradeAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def SendAction
   "The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:\\n\\n* [[ReceiveAction]]: The reciprocal of SendAction.\\n* [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you)."
@@ -14755,7 +14757,7 @@
     "The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:\\n\\n* [[ReceiveAction]]: The reciprocal of SendAction.\\n* [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).",
    :rdfs/label #xsd/string "SendAction",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/TransferAction :schema/Thing :schema/Action]})
+   [:rdfs/Resource :schema/TransferAction :schema/Action :schema/Thing]})
 
 (def Series
   "A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also [[CreativeWorkSeries]], [[EventSeries]]."
@@ -14765,7 +14767,7 @@
    #xsd/string
     "A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also [[CreativeWorkSeries]], [[EventSeries]].",
    :rdfs/label #xsd/string "Series",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def Service
   "A service provided by an organization, e.g. delivery service, print services, etc."
@@ -14785,16 +14787,16 @@
    #xsd/string
     "A means for accessing a service, e.g. a government office location, web site, or phone number.",
    :rdfs/label #xsd/string "ServiceChannel",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing]})
 
 (def SexualContentConsideration
   "The item contains sexually oriented content such as nudity, suggestive or explicit material, or related online services, or is intended to enhance sexual activity. Examples: Erotic videos or magazine, sexual enhancement devices, sex toys."
   {:db/ident :schema/SexualContentConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "The item contains sexually oriented content such as nudity, suggestive or explicit material, or related online services, or is intended to enhance sexual activity. Examples: Erotic videos or magazine, sexual enhancement devices, sex toys.",
@@ -14812,10 +14814,10 @@
     "The act of distributing content to people for their amusement or edification.",
    :rdfs/label #xsd/string "ShareAction",
    :rdfs/subClassOf [:schema/CommunicateAction
-                     :schema/Thing
-                     :schema/InteractAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/InteractAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def SheetMusic
   "Printed music, as opposed to performed or recorded music."
@@ -14838,7 +14840,7 @@
     "ShippingDeliveryTime provides various pieces of information about delivery times for shipping.",
    :rdfs/label #xsd/string "ShippingDeliveryTime",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2506"}})
@@ -14852,7 +14854,7 @@
     "A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for [[shippingLabel]].",
    :rdfs/label #xsd/string "ShippingRateSettings",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2506"}})
@@ -14864,11 +14866,11 @@
    :rdfs/comment    #xsd/string "A shoe store.",
    :rdfs/label      #xsd/string "ShoeStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ShoppingCenter
   "A shopping center or mall."
@@ -14877,10 +14879,10 @@
    :rdfs/comment    #xsd/string "A shopping center or mall.",
    :rdfs/label      #xsd/string "ShoppingCenter",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def ShortStory
   "Short story or tale. A brief work of literature, usually written in narrative prose."
@@ -14890,7 +14892,7 @@
    #xsd/string
     "Short story or tale. A brief work of literature, usually written in narrative prose.",
    :rdfs/label #xsd/string "ShortStory",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1976"}})
@@ -14899,10 +14901,10 @@
   "Side effects that can be observed from the usage of the topic."
   {:db/ident :schema/SideEffectsHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string "Side effects that can be observed from the usage of the topic.",
    :rdfs/label #xsd/string "SideEffectsHealthAspect",
@@ -14914,11 +14916,11 @@
   "A trial design in which the researcher knows which treatment the patient was randomly assigned to but the patient does not."
   {:db/ident :schema/SingleBlindedTrial,
    :rdf/type [:schema/MedicalTrialDesign
-              :schema/Enumeration
-              :schema/Thing
-              :schema/Intangible
               :schema/MedicalEnumeration
-              :rdfs/Resource],
+              :schema/Thing
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "A trial design in which the researcher knows which treatment the patient was randomly assigned to but the patient does not.",
@@ -14929,11 +14931,11 @@
   "A trial that takes place at a single center."
   {:db/ident        :schema/SingleCenterTrial,
    :rdf/type        [:schema/MedicalTrialDesign
-                     :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible
                      :schema/MedicalEnumeration
-                     :rdfs/Resource],
+                     :schema/Thing
+                     :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "A trial that takes place at a single center.",
    :rdfs/label      #xsd/string "SingleCenterTrial",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -14945,19 +14947,19 @@
    :rdfs/comment    #xsd/string "Residence type: Single-family home.",
    :rdfs/label      #xsd/string "SingleFamilyResidence",
    :rdfs/subClassOf [:schema/House
+                     :rdfs/Resource
                      :schema/Accommodation
-                     :schema/Thing
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def SinglePlayer
   "Play mode: SinglePlayer. Which is played by a lone player."
   {:db/ident     :schema/SinglePlayer,
    :rdf/type     [:schema/GamePlayMode
-                  :schema/Intangible
-                  :rdfs/Resource
                   :schema/Thing
-                  :schema/Enumeration],
+                  :schema/Enumeration
+                  :schema/Intangible
+                  :rdfs/Resource],
    :rdfs/comment #xsd/string
                   "Play mode: SinglePlayer. Which is played by a lone player.",
    :rdfs/label   #xsd/string "SinglePlayer"})
@@ -14966,9 +14968,9 @@
   "SingleRelease."
   {:db/ident           :schema/SingleRelease,
    :rdf/type           [:schema/MusicAlbumReleaseType
-                        :schema/Enumeration
-                        :rdfs/Resource
                         :schema/Intangible
+                        :rdfs/Resource
+                        :schema/Enumeration
                         :schema/Thing],
    :rdfs/comment       #xsd/string "SingleRelease.",
    :rdfs/label         #xsd/string "SingleRelease",
@@ -14981,9 +14983,9 @@
    :rdfs/comment    #xsd/string "A navigation element of the page.",
    :rdfs/label      #xsd/string "SiteNavigationElement",
    :rdfs/subClassOf [:schema/WebPageElement
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def SizeGroupEnumeration
   "Enumerates common size groups for various product categories."
@@ -14993,7 +14995,7 @@
    #xsd/string "Enumerates common size groups for various product categories.",
    :rdfs/label #xsd/string "SizeGroupEnumeration",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -15009,8 +15011,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/QualitativeValue
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -15024,7 +15026,7 @@
     "Enumerates common size systems for different categories of products, for example \"EN-13402\" or \"UK\" for wearables or \"Imperial\" for screws.",
    :rdfs/label #xsd/string "SizeSystemEnumeration",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -15033,9 +15035,9 @@
   "Imperial size system."
   {:db/ident        :schema/SizeSystemImperial,
    :rdf/type        [:schema/SizeSystemEnumeration
+                     :schema/Intangible
                      :rdfs/Resource
                      :schema/Enumeration
-                     :schema/Intangible
                      :schema/Thing],
    :rdfs/comment    #xsd/string "Imperial size system.",
    :rdfs/label      #xsd/string "SizeSystemImperial",
@@ -15047,9 +15049,9 @@
   "Metric size system."
   {:db/ident        :schema/SizeSystemMetric,
    :rdf/type        [:schema/SizeSystemEnumeration
+                     :schema/Intangible
                      :rdfs/Resource
                      :schema/Enumeration
-                     :schema/Intangible
                      :schema/Thing],
    :rdfs/comment    #xsd/string "Metric size system.",
    :rdfs/label      #xsd/string "SizeSystemMetric",
@@ -15065,24 +15067,24 @@
    :rdfs/label      #xsd/string "SkiResort",
    :rdfs/subClassOf [:schema/SportsActivityLocation
                      :schema/Resort
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/LodgingBusiness
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/LodgingBusiness
+                     :schema/Thing]})
 
 (def Skin
   "Skin assessment with clinical examination."
   {:db/ident        :schema/Skin,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Skin assessment with clinical examination.",
    :rdfs/label      #xsd/string "Skin",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -15093,7 +15095,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Social event.",
    :rdfs/label      #xsd/string "SocialEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def SocialMediaPosting
   "A post to a social media platform, including blog posts, tweets, Facebook posts, etc."
@@ -15104,7 +15106,7 @@
     "A post to a social media platform, including blog posts, tweets, Facebook posts, etc.",
    :rdfs/label #xsd/string "SocialMediaPosting",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Article :schema/Thing :schema/CreativeWork]})
+   [:rdfs/Resource :schema/Article :schema/CreativeWork :schema/Thing]})
 
 (def SoftwareApplication
   "A software application."
@@ -15112,7 +15114,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "A software application.",
    :rdfs/label      #xsd/string "SoftwareApplication",
-   :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/CreativeWork :rdfs/Resource :schema/Thing]})
 
 (def SoftwareSourceCode
   "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."
@@ -15128,8 +15130,8 @@
   "Indicates that the item has sold out."
   {:db/ident     :schema/SoldOut,
    :rdf/type     [:schema/ItemAvailability
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
                   :schema/Intangible
                   :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item has sold out.",
@@ -15143,7 +15145,7 @@
    #xsd/string
     "The action that takes in a math expression and directs users to a page potentially capable of solving/simplifying that expression.",
    :rdfs/label #xsd/string "SolveMathAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2740"}})
@@ -15155,7 +15157,7 @@
    :rdfs/comment
    #xsd/string "A placeholder for multiple similar products of the same kind.",
    :rdfs/label #xsd/string "SomeProducts",
-   :rdfs/subClassOf [:schema/Product :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Product :rdfs/Resource :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -15164,9 +15166,9 @@
   {:db/ident           :schema/SoundtrackAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "SoundtrackAlbum.",
    :rdfs/label         #xsd/string "SoundtrackAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -15205,16 +15207,16 @@
     "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.",
    :rdfs/label #xsd/string "Specialty",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing]})
 
 (def SpeechPathology
   "The scientific study and treatment of defects, disorders, and malfunctions of speech and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia or delayed language acquisition."
   {:db/ident :schema/SpeechPathology,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -15228,9 +15230,9 @@
   {:db/ident           :schema/SpokenWordAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "SpokenWordAlbum.",
    :rdfs/label         #xsd/string "SpokenWordAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -15242,11 +15244,11 @@
    :rdfs/comment    #xsd/string "A sporting goods store.",
    :rdfs/label      #xsd/string "SportingGoodsStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def SportsActivityLocation
   "A sports location, such as a playing field."
@@ -15255,10 +15257,10 @@
    :rdfs/comment    #xsd/string "A sports location, such as a playing field.",
    :rdfs/label      #xsd/string "SportsActivityLocation",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def SportsClub
   "A sports club."
@@ -15267,11 +15269,11 @@
    :rdfs/comment    #xsd/string "A sports club.",
    :rdfs/label      #xsd/string "SportsClub",
    :rdfs/subClassOf [:schema/SportsActivityLocation
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def SportsEvent
   "Event type: Sports event."
@@ -15298,9 +15300,9 @@
    :rdfs/comment    #xsd/string "Organization: Sports team.",
    :rdfs/label      #xsd/string "SportsTeam",
    :rdfs/subClassOf [:schema/SportsOrganization
+                     :rdfs/Resource
                      :schema/Organization
-                     :schema/Thing
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def SpreadsheetDigitalDocument
   "A spreadsheet file."
@@ -15309,9 +15311,9 @@
    :rdfs/comment    #xsd/string "A spreadsheet file.",
    :rdfs/label      #xsd/string "SpreadsheetDigitalDocument",
    :rdfs/subClassOf [:schema/DigitalDocument
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def StadiumOrArena
   "A stadium."
@@ -15321,18 +15323,18 @@
    :rdfs/label      #xsd/string "StadiumOrArena",
    :rdfs/subClassOf [:schema/SportsActivityLocation
                      :schema/CivicStructure
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def StagedContent
   "Content coded 'staged content' in a [[MediaReview]], considered in the context of how it was published or shared.\n\nFor a [[VideoObject]] to be 'staged content': A video that has been created using actors or similarly contrived.\n\nFor an [[ImageObject]] to be 'staged content': An image that was created using actors or similarly contrived, such as a screenshot of a fake tweet.\n\nFor an [[ImageObject]] with embedded text to be 'staged content': An image that was created using actors or similarly contrived, such as a screenshot of a fake tweet.\n\nFor an [[AudioObject]] to be 'staged content': Audio that has been created using actors or similarly contrived.\n"
   {:db/ident :schema/StagedContent,
    :rdf/type [:schema/MediaManipulationRatingEnumeration
-              :rdfs/Resource
               :schema/Thing
+              :rdfs/Resource
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -15347,10 +15349,10 @@
   "Stages that can be observed from a topic."
   {:db/ident        :schema/StagesHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string "Stages that can be observed from a topic.",
    :rdfs/label      #xsd/string "StagesHealthAspect",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -15364,9 +15366,9 @@
    :rdfs/comment    #xsd/string "A state or province of a country.",
    :rdfs/label      #xsd/string "State",
    :rdfs/subClassOf [:schema/AdministrativeArea
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Statement
   "A statement about something, for example a fun or interesting fact. If known, the main entity this statement is about can be indicated using mainEntity. For more formal claims (e.g. in Fact Checking), consider using [[Claim]] instead. Use the [[text]] property to capture the text of the statement."
@@ -15403,7 +15405,7 @@
     "[[StatisticalVariable]] represents any type of statistical metric that can be measured at a place and time. The usage pattern for [[StatisticalVariable]] is typically expressed using [[Observation]] with an explicit [[populationType]], which is a type, typically drawn from Schema.org. Each [[StatisticalVariable]] is marked as a [[ConstraintNode]], meaning that some properties (those listed using [[constraintProperty]]) serve in this setting solely to define the statistical variable rather than literally describe a specific person, place or thing. For example, a [[StatisticalVariable]] Median_Height_Person_Female representing the median height of women, could be written as follows: the population type is [[Person]]; the measuredProperty [[height]]; the [[statType]] [[median]]; the [[gender]] [[Female]]. It is important to note that there are many kinds of scientific quantitative observation which are not fully, perfectly or unambiguously described following this pattern, or with solely Schema.org terminology. The approach taken here is designed to allow partial, incremental or minimal description of [[StatisticalVariable]]s, and the use of detailed sets of entity and property IDs from external repositories. The [[measurementMethod]], [[unitCode]] and [[unitText]] properties can also be used to clarify the specific nature and notation of an observed measurement. ",
    :rdfs/label #xsd/string "StatisticalVariable",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/ConstraintNode :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/ConstraintNode :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2564"}})
@@ -15416,9 +15418,9 @@
                      "Lists or enumerations dealing with status types.",
    :rdfs/label      #xsd/string "StatusEnumeration",
    :rdfs/subClassOf [:schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/source   {:rdfa/uri
                      "https://github.com/schemaorg/schemaorg/issues/2604"}})
 
@@ -15431,8 +15433,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/QualitativeValue
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/contributor
    {:rdfa/uri
     "http://schema.org/docs/collab/Automotive_Ontology_Working_Group"}})
@@ -15444,19 +15446,19 @@
    :rdfs/comment    #xsd/string "A retail good store.",
    :rdfs/label      #xsd/string "Store",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def StoreCreditRefund
   "Specifies that the customer receives a store credit as refund when returning a product."
   {:db/ident :schema/StoreCreditRefund,
    :rdf/type [:schema/RefundTypeEnumeration
-              :schema/Thing
               :rdfs/Resource
               :schema/Enumeration
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Specifies that the customer receives a store credit as refund when returning a product.",
@@ -15469,10 +15471,10 @@
   "Physical activity that is engaged in to improve muscle and bone strength. Also referred to as resistance training."
   {:db/ident :schema/StrengthTraining,
    :rdf/type [:schema/PhysicalActivityCategory
-              :schema/Enumeration
+              :schema/Thing
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "Physical activity that is engaged in to improve muscle and bone strength. Also referred to as resistance training.",
@@ -15494,9 +15496,9 @@
   {:db/ident           :schema/StudioAlbum,
    :rdf/type           [:schema/MusicAlbumProductionType
                         :schema/Enumeration
+                        :rdfs/Resource
                         :schema/Intangible
-                        :schema/Thing
-                        :rdfs/Resource],
+                        :schema/Thing],
    :rdfs/comment       #xsd/string "StudioAlbum.",
    :rdfs/label         #xsd/string "StudioAlbum",
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/MBZ"}})
@@ -15510,16 +15512,16 @@
     "The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates pushed to.\\n\\nRelated actions:\\n\\n* [[FollowAction]]: Unlike FollowAction, SubscribeAction implies that the subscriber acts as a passive agent being constantly/actively pushed for updates.\\n* [[RegisterAction]]: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.\\n* [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.",
    :rdfs/label #xsd/string "SubscribeAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Subscription
   "Represents the subscription pricing component of the total price for an offered product."
   {:db/ident :schema/Subscription,
    :rdf/type [:schema/PriceComponentTypeEnumeration
-              :schema/Enumeration
+              :schema/Intangible
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Represents the subscription pricing component of the total price for an offered product.",
@@ -15538,7 +15540,7 @@
    #xsd/string
     "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.",
    :rdfs/label #xsd/string "Substance",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def SubwayStation
@@ -15548,9 +15550,9 @@
    :rdfs/comment    #xsd/string "A subway station.",
    :rdfs/label      #xsd/string "SubwayStation",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def Suite
   "A suite in a hotel or other public accommodation, denotes a class of luxury accommodations, the key feature of which is multiple rooms (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Suite_(hotel)\">http://en.wikipedia.org/wiki/Suite_(hotel)</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
@@ -15561,7 +15563,7 @@
     "A suite in a hotel or other public accommodation, denotes a class of luxury accommodations, the key feature of which is multiple rooms (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Suite_(hotel)\">http://en.wikipedia.org/wiki/Suite_(hotel)</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n",
    :rdfs/label #xsd/string "Suite",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Accommodation :schema/Thing :schema/Place],
+   [:rdfs/Resource :schema/Accommodation :schema/Place :schema/Thing],
    :schema/contributor
    {:rdfa/uri "http://schema.org/docs/collab/STI_Accommodation_Ontology"}})
 
@@ -15569,9 +15571,9 @@
   "The day of the week between Saturday and Monday."
   {:db/ident      :schema/Sunday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string
                    "The day of the week between Saturday and Monday.",
@@ -15586,17 +15588,17 @@
    #xsd/string
     "Anatomical features that can be observed by sight (without dissection), including the form and proportions of the human body as well as surface landmarks that correspond to deeper subcutaneous structures. Superficial anatomy plays an important role in sports medicine, phlebotomy, and other medical specialties as underlying anatomical structures can be identified through surface palpation. For example, during back surgery, superficial anatomy can be used to palpate and count vertebrae to find the site of incision. Or in phlebotomy, superficial anatomy can be used to locate an underlying vein; for example, the median cubital vein can be located by palpating the borders of the cubital fossa (such as the epicondyles of the humerus) and then looking for the superficial signs of the vein, such as size, prominence, ability to refill after depression, and feel of surrounding tissue support. As another example, in a subluxation (dislocation) of the glenohumeral joint, the bony structure becomes pronounced with the deltoid muscle failing to cover the glenohumeral joint allowing the edges of the scapula to be superficially visible. Here, the superficial anatomy is the visible edges of the scapula, implying the underlying dislocation of the joint (the related anatomical structure).",
    :rdfs/label #xsd/string "SuperficialAnatomy",
-   :rdfs/subClassOf [:schema/MedicalEntity :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/MedicalEntity :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Surgical
   "A specific branch of medical science that pertains to treating diseases, injuries and deformities by manual and instrumental means."
   {:db/ident :schema/Surgical,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -15616,9 +15618,9 @@
     "A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.",
    :rdfs/label #xsd/string "SurgicalProcedure",
    :rdfs/subClassOf [:schema/MedicalProcedure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def SuspendAction
@@ -15630,16 +15632,16 @@
     "The act of momentarily pausing a device or application (e.g. pause music playback or pause a timer).",
    :rdfs/label #xsd/string "SuspendAction",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/ControlAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def Suspended
   "Suspended."
   {:db/ident        :schema/Suspended,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Suspended.",
    :rdfs/label      #xsd/string "Suspended",
@@ -15654,7 +15656,7 @@
     "A syllabus that describes the material covered in a course, often with several such sections per [[Course]] so that a distinct [[timeRequired]] can be provided for that section of the [[Course]].",
    :rdfs/label #xsd/string "Syllabus",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/LearningResource :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/LearningResource :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/3281"}})
@@ -15663,10 +15665,10 @@
   "Symptoms or related symptoms of a Topic."
   {:db/ident        :schema/SymptomsHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string "Symptoms or related symptoms of a Topic.",
    :rdfs/label      #xsd/string "SymptomsHealthAspect",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -15681,9 +15683,9 @@
    :rdfs/label      #xsd/string "Synagogue",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/PlaceOfWorship
-                     :schema/Thing
+                     :schema/CivicStructure
                      :schema/Place
-                     :schema/CivicStructure]})
+                     :schema/Thing]})
 
 (def TVClip
   "A short TV program or a segment/part of a TV program."
@@ -15693,9 +15695,9 @@
                      "A short TV program or a segment/part of a TV program.",
    :rdfs/label      #xsd/string "TVClip",
    :rdfs/subClassOf [:schema/Clip
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def TVEpisode
   "A TV episode which can be part of a series or season."
@@ -15706,8 +15708,8 @@
    :rdfs/label      #xsd/string "TVEpisode",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Episode
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def TVSeason
   "Season dedicated to TV broadcast and associated online delivery."
@@ -15719,8 +15721,8 @@
    :rdfs/label #xsd/string "TVSeason",
    :rdfs/subClassOf [:schema/CreativeWorkSeason
                      :schema/CreativeWork
-                     :schema/Thing
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :schema/Thing]})
 
 (def TVSeries
   "CreativeWorkSeries dedicated to TV broadcast and associated online delivery."
@@ -15733,9 +15735,9 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/CreativeWorkSeries
                      :schema/CreativeWork
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/Series
+                     :schema/Thing]})
 
 (def Table
   "A table on a Web page."
@@ -15744,9 +15746,9 @@
    :rdfs/comment    #xsd/string "A table on a Web page.",
    :rdfs/label      #xsd/string "Table",
    :rdfs/subClassOf [:schema/WebPageElement
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def TakeAction
   "The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\\n\\nRelated actions:\\n\\n* [[GiveAction]]: The reciprocal of TakeAction.\\n* [[ReceiveAction]]: Unlike ReceiveAction, TakeAction implies that ownership has been transferred."
@@ -15757,7 +15759,7 @@
     "The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\\n\\nRelated actions:\\n\\n* [[GiveAction]]: The reciprocal of TakeAction.\\n* [[ReceiveAction]]: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.",
    :rdfs/label #xsd/string "TakeAction",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TransferAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def TattooParlor
   "A tattoo parlor."
@@ -15766,11 +15768,11 @@
    :rdfs/comment    #xsd/string "A tattoo parlor.",
    :rdfs/label      #xsd/string "TattooParlor",
    :rdfs/subClassOf [:schema/HealthAndBeautyBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Taxi
   "A taxi."
@@ -15779,9 +15781,9 @@
    :rdfs/comment        #xsd/string "A taxi.",
    :rdfs/label          #xsd/string "Taxi",
    :rdfs/subClassOf     [:schema/Service
-                         :schema/Thing
+                         :rdfs/Resource
                          :schema/Intangible
-                         :rdfs/Resource],
+                         :schema/Thing],
    :schema/supersededBy :schema/TaxiService})
 
 (def TaxiReservation
@@ -15793,7 +15795,7 @@
     "A reservation for a taxi.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
    :rdfs/label #xsd/string "TaxiReservation",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Reservation :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Reservation :schema/Intangible :schema/Thing]})
 
 (def TaxiService
   "A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled."
@@ -15804,7 +15806,7 @@
     "A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled.",
    :rdfs/label #xsd/string "TaxiService",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Service :schema/Thing :schema/Intangible]})
+   [:rdfs/Resource :schema/Service :schema/Intangible :schema/Thing]})
 
 (def TaxiStand
   "A taxi stand."
@@ -15813,9 +15815,9 @@
    :rdfs/comment    #xsd/string "A taxi stand.",
    :rdfs/label      #xsd/string "TaxiStand",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def TaxiVehicleUsage
   "Indicates the usage of the car as a taxi."
@@ -15823,8 +15825,8 @@
    :rdf/type [:schema/CarUsageType
               :schema/Enumeration
               :schema/Intangible
-              :rdfs/Resource
-              :schema/Thing],
+              :schema/Thing
+              :rdfs/Resource],
    :rdfs/comment #xsd/string "Indicates the usage of the car as a taxi.",
    :rdfs/label #xsd/string "TaxiVehicleUsage",
    :schema/contributor
@@ -15853,7 +15855,7 @@
     "A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.",
    :rdfs/label #xsd/string "TechArticle",
    :rdfs/subClassOf
-   [:schema/Article :schema/Thing :rdfs/Resource :schema/CreativeWork]})
+   [:schema/Article :rdfs/Resource :schema/CreativeWork :schema/Thing]})
 
 (def TelevisionChannel
   "A unique instance of a television BroadcastService on a CableOrSatelliteService lineup."
@@ -15864,7 +15866,7 @@
     "A unique instance of a television BroadcastService on a CableOrSatelliteService lineup.",
    :rdfs/label #xsd/string "TelevisionChannel",
    :rdfs/subClassOf
-   [:schema/BroadcastChannel :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/BroadcastChannel :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def TelevisionStation
   "A television station."
@@ -15873,10 +15875,10 @@
    :rdfs/comment    #xsd/string "A television station.",
    :rdfs/label      #xsd/string "TelevisionStation",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def TennisComplex
   "A tennis complex."
@@ -15885,20 +15887,20 @@
    :rdfs/comment    #xsd/string "A tennis complex.",
    :rdfs/label      #xsd/string "TennisComplex",
    :rdfs/subClassOf [:schema/SportsActivityLocation
-                     :schema/Organization
-                     :schema/Thing
-                     :schema/Place
+                     :rdfs/Resource
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Place
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Terminated
   "Terminated."
   {:db/ident        :schema/Terminated,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Terminated.",
    :rdfs/label      #xsd/string "Terminated",
@@ -15919,9 +15921,9 @@
    :rdfs/comment    #xsd/string "A file composed primarily of text.",
    :rdfs/label      #xsd/string "TextDigitalDocument",
    :rdfs/subClassOf [:schema/DigitalDocument
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def TextObject
   "A text file. The text can be unformatted or contain markup, html, etc."
@@ -15933,7 +15935,7 @@
     "A text file. The text can be unformatted or contain markup, html, etc.",
    :rdfs/label #xsd/string "TextObject",
    :rdfs/subClassOf
-   [:schema/MediaObject :schema/Thing :rdfs/Resource :schema/CreativeWork]})
+   [:schema/MediaObject :rdfs/Resource :schema/CreativeWork :schema/Thing]})
 
 (def TheaterEvent
   "Event type: Theater performance."
@@ -15941,7 +15943,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Theater performance.",
    :rdfs/label      #xsd/string "TheaterEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def TheaterGroup
   "A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre."
@@ -15952,17 +15954,17 @@
     "A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.",
    :rdfs/label #xsd/string "TheaterGroup",
    :rdfs/subClassOf
-   [:schema/PerformingGroup :schema/Organization :schema/Thing :rdfs/Resource]})
+   [:schema/PerformingGroup :rdfs/Resource :schema/Organization :schema/Thing]})
 
 (def Therapeutic
   "A medical device used for therapeutic purposes."
   {:db/ident        :schema/Therapeutic,
    :rdf/type        [:schema/MedicalDevicePurpose
-                     :rdfs/Resource
-                     :schema/Enumeration
+                     :schema/MedicalEnumeration
                      :schema/Thing
+                     :schema/Enumeration
                      :schema/Intangible
-                     :schema/MedicalEnumeration],
+                     :rdfs/Resource],
    :rdfs/comment    #xsd/string
                      "A medical device used for therapeutic purposes.",
    :rdfs/label      #xsd/string "Therapeutic",
@@ -15979,9 +15981,9 @@
     "A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition.",
    :rdfs/label #xsd/string "TherapeuticProcedure",
    :rdfs/subClassOf [:schema/MedicalProcedure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def Thesis
@@ -16008,13 +16010,13 @@
   "Throat assessment with  clinical examination."
   {:db/ident        :schema/Throat,
    :rdf/type        [:schema/PhysicalExam
+                     :schema/MedicalProcedure
                      :schema/MedicalEnumeration
-                     :schema/Enumeration
-                     :rdfs/Resource
                      :schema/Intangible
                      :schema/Thing
-                     :schema/MedicalProcedure
-                     :schema/MedicalEntity],
+                     :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Throat assessment with  clinical examination.",
    :rdfs/label      #xsd/string "Throat",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -16023,9 +16025,9 @@
   "The day of the week between Wednesday and Friday."
   {:db/ident      :schema/Thursday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string
                    "The day of the week between Wednesday and Friday.",
@@ -16050,9 +16052,9 @@
                      "The act of reaching a draw in a competitive activity.",
    :rdfs/label      #xsd/string "TieAction",
    :rdfs/subClassOf [:schema/AchieveAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Time
   "A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm] (see [XML schema for details](http://www.w3.org/TR/xmlschema-2/#time))."
@@ -16073,7 +16075,7 @@
     "The act of giving money voluntarily to a beneficiary in recognition of services rendered.",
    :rdfs/label #xsd/string "TipAction",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/TradeAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def TireShop
   "A tire shop."
@@ -16082,20 +16084,20 @@
    :rdfs/comment    #xsd/string "A tire shop.",
    :rdfs/label      #xsd/string "TireShop",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def TobaccoNicotineConsideration
   "Item contains tobacco and/or nicotine, for example cigars, cigarettes, chewing tobacco, e-cigarettes, or hookahs."
   {:db/ident :schema/TobaccoNicotineConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Item contains tobacco and/or nicotine, for example cigars, cigarettes, chewing tobacco, e-cigarettes, or hookahs.",
@@ -16108,10 +16110,10 @@
   "The associated telephone number is toll free."
   {:db/ident     :schema/TollFree,
    :rdf/type     [:schema/ContactPointOption
-                  :schema/Intangible
-                  :schema/Enumeration
                   :rdfs/Resource
-                  :schema/Thing],
+                  :schema/Enumeration
+                  :schema/Thing
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "The associated telephone number is toll free.",
    :rdfs/label   #xsd/string "TollFree"})
 
@@ -16123,7 +16125,7 @@
    #xsd/string
     "A tourist attraction.  In principle any Thing can be a [[TouristAttraction]], from a [[Mountain]] and [[LandmarksOrHistoricalBuildings]] to a [[LocalBusiness]].  This Type can be used on its own to describe a general [[TouristAttraction]], or be used as an [[additionalType]] to add tourist attraction properties to any other type.  (See examples below)",
    :rdfs/label #xsd/string "TouristAttraction",
-   :rdfs/subClassOf [:schema/Place :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Place :rdfs/Resource :schema/Thing],
    :schema/contributor [{:rdfa/uri "http://schema.org/docs/collab/Tourism"}
                         {:rdfa/uri
                          "http://schema.org/docs/collab/IIT-CNR.it"}]})
@@ -16151,9 +16153,9 @@
    :rdfs/label      #xsd/string "TouristInformationCenter",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/LocalBusiness
+                     :schema/Place
                      :schema/Organization
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def TouristTrip
   "A tourist trip. A created itinerary of visits to one or more places of interest ([[TouristAttraction]]/[[TouristDestination]]) often linked by a similar theme, geographic area, or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors.\n  (See examples below.)"
@@ -16164,7 +16166,7 @@
     "A tourist trip. A created itinerary of visits to one or more places of interest ([[TouristAttraction]]/[[TouristDestination]]) often linked by a similar theme, geographic area, or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors.\n  (See examples below.)",
    :rdfs/label #xsd/string "TouristTrip",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Trip :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Trip :schema/Intangible :schema/Thing],
    :schema/contributor [{:rdfa/uri "http://schema.org/docs/collab/Tourism"}
                         {:rdfa/uri "http://schema.org/docs/collab/IIT-CNR.it"}],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -16175,10 +16177,10 @@
   "A specific branch of medical science that is concerned with poisons, their nature, effects and detection and involved in the treatment of poisoning."
   {:db/ident :schema/Toxicologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -16194,11 +16196,11 @@
    :rdfs/comment    #xsd/string "A toy store.",
    :rdfs/label      #xsd/string "ToyStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def TrackAction
   "An agent tracks an object for updates.\\n\\nRelated actions:\\n\\n* [[FollowAction]]: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.\\n* [[SubscribeAction]]: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects."
@@ -16209,7 +16211,7 @@
     "An agent tracks an object for updates.\\n\\nRelated actions:\\n\\n* [[FollowAction]]: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.\\n* [[SubscribeAction]]: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.",
    :rdfs/label #xsd/string "TrackAction",
    :rdfs/subClassOf
-   [:schema/FindAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/FindAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def TradeAction
   "The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment."
@@ -16219,17 +16221,17 @@
    #xsd/string
     "The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment.",
    :rdfs/label #xsd/string "TradeAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def TraditionalChinese
   "A system of medicine based on common theoretical concepts that originated in China and evolved over thousands of years, that uses herbs, acupuncture, exercise, massage, dietary therapy, and other methods to treat a wide range of conditions."
   {:db/ident :schema/TraditionalChinese,
    :rdf/type [:schema/MedicineSystem
               :schema/MedicalEnumeration
-              :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "A system of medicine based on common theoretical concepts that originated in China and evolved over thousands of years, that uses herbs, acupuncture, exercise, massage, dietary therapy, and other methods to treat a wide range of conditions.",
@@ -16245,7 +16247,7 @@
     "A reservation for train travel.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
    :rdfs/label #xsd/string "TrainReservation",
    :rdfs/subClassOf
-   [:schema/Reservation :schema/Thing :schema/Intangible :rdfs/Resource]})
+   [:schema/Reservation :rdfs/Resource :schema/Intangible :schema/Thing]})
 
 (def TrainStation
   "A train station."
@@ -16254,9 +16256,9 @@
    :rdfs/comment    #xsd/string "A train station.",
    :rdfs/label      #xsd/string "TrainStation",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def TrainTrip
   "A trip on a commercial train line."
@@ -16265,9 +16267,9 @@
    :rdfs/comment    #xsd/string "A trip on a commercial train line.",
    :rdfs/label      #xsd/string "TrainTrip",
    :rdfs/subClassOf [:schema/Trip
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def TransferAction
   "The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another."
@@ -16283,8 +16285,8 @@
   "Content coded 'transformed content' in a [[MediaReview]], considered in the context of how it was published or shared.\n\nFor a [[VideoObject]] to be 'transformed content':  or all of the video has been manipulated to transform the footage itself. This category includes using tools like the Adobe Suite to change the speed of the video, add or remove visual elements or dub audio. Deepfakes are also a subset of transformation.\n\nFor an [[ImageObject]] to be 'transformed content': Adding or deleting visual elements to give the image a different meaning with the intention to mislead.\n\nFor an [[ImageObject]] with embedded text to be 'transformed content': Adding or deleting visual elements to give the image a different meaning with the intention to mislead.\n\nFor an [[AudioObject]] to be 'transformed content': Part or all of the audio has been manipulated to alter the words or sounds, or the audio has been synthetically generated, such as to create a sound-alike voice.\n"
   {:db/ident :schema/TransformedContent,
    :rdf/type [:schema/MediaManipulationRatingEnumeration
-              :rdfs/Resource
               :schema/Thing
+              :rdfs/Resource
               :schema/Enumeration
               :schema/Intangible],
    :rdfs/comment
@@ -16299,10 +16301,10 @@
   "A transit map."
   {:db/ident     :schema/TransitMap,
    :rdf/type     [:schema/MapCategoryType
-                  :schema/Intangible
                   :schema/Thing
                   :rdfs/Resource
-                  :schema/Enumeration],
+                  :schema/Enumeration
+                  :schema/Intangible],
    :rdfs/comment #xsd/string "A transit map.",
    :rdfs/label   #xsd/string "TransitMap"})
 
@@ -16315,7 +16317,7 @@
     "The act of traveling from a fromLocation to a destination by a specified mode of transport, optionally with participants.",
    :rdfs/label #xsd/string "TravelAction",
    :rdfs/subClassOf
-   [:schema/MoveAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/MoveAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def TravelAgency
   "A travel agency."
@@ -16324,10 +16326,10 @@
    :rdfs/comment    #xsd/string "A travel agency.",
    :rdfs/label      #xsd/string "TravelAgency",
    :rdfs/subClassOf [:schema/LocalBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def TreatmentIndication
   "An indication for treating an underlying condition, symptom, etc."
@@ -16338,19 +16340,19 @@
     "An indication for treating an underlying condition, symptom, etc.",
    :rdfs/label #xsd/string "TreatmentIndication",
    :rdfs/subClassOf [:schema/MedicalIndication
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def TreatmentsHealthAspect
   "Treatments or related therapies for a Topic."
   {:db/ident        :schema/TreatmentsHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string "Treatments or related therapies for a Topic.",
    :rdfs/label      #xsd/string "TreatmentsHealthAspect",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -16372,11 +16374,11 @@
   "A trial design in which neither the researcher, the person administering the therapy nor the patient knows the details of the treatment the patient was randomly assigned to."
   {:db/ident :schema/TripleBlindedTrial,
    :rdf/type [:schema/MedicalTrialDesign
-              :schema/Enumeration
-              :schema/Thing
-              :schema/Intangible
               :schema/MedicalEnumeration
-              :rdfs/Resource],
+              :schema/Thing
+              :rdfs/Resource
+              :schema/Intangible
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "A trial design in which neither the researcher, the person administering the therapy nor the patient knows the details of the treatment the patient was randomly assigned to.",
@@ -16394,9 +16396,9 @@
   "The day of the week between Monday and Wednesday."
   {:db/ident      :schema/Tuesday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string
                    "The day of the week between Monday and Wednesday.",
@@ -16412,7 +16414,7 @@
     "A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.",
    :rdfs/label #xsd/string "TypeAndQuantityNode",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/StructuredValue :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/StructuredValue :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -16420,10 +16422,10 @@
   "Categorization and other types related to a topic."
   {:db/ident        :schema/TypesHealthAspect,
    :rdf/type        [:schema/HealthAspectEnumeration
-                     :schema/Intangible
+                     :schema/Enumeration
                      :schema/Thing
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Intangible],
    :rdfs/comment    #xsd/string
                      "Categorization and other types related to a topic.",
    :rdfs/label      #xsd/string "TypesHealthAspect",
@@ -16442,8 +16444,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/NonprofitType
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2543"}})
@@ -16455,8 +16457,8 @@
                      :rdfs/Resource
                      :schema/Thing
                      :schema/Enumeration
-                     :schema/NonprofitType
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/NonprofitType],
    :rdfs/comment    #xsd/string
                      "UKTrust: Non-profit type referring to a UK trust.",
    :rdfs/label      #xsd/string "UKTrust",
@@ -16482,9 +16484,9 @@
    :rdfs/label #xsd/string "USNonprofitType",
    :rdfs/subClassOf [:schema/NonprofitType
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2543"}})
@@ -16494,10 +16496,10 @@
   {:db/ident        :schema/Ultrasound,
    :rdf/type        [:schema/MedicalImagingTechnique
                      :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Ultrasound imaging.",
    :rdfs/label      #xsd/string "Ultrasound",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -16511,16 +16513,16 @@
     "The act of un-registering from a service.\\n\\nRelated actions:\\n\\n* [[RegisterAction]]: antonym of UnRegisterAction.\\n* [[LeaveAction]]: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.",
    :rdfs/label #xsd/string "UnRegisterAction",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/Thing :rdfs/Resource :schema/Action]})
+   [:schema/InteractAction :rdfs/Resource :schema/Action :schema/Thing]})
 
 (def UnclassifiedAdultConsideration
   "The item is suitable only for adults, without indicating why. Due to widespread use of \"adult\" as a euphemism for \"sexual\", many such items are likely suited also for the SexualContentConsideration code."
   {:db/ident :schema/UnclassifiedAdultConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "The item is suitable only for adults, without indicating why. Due to widespread use of \"adult\" as a euphemism for \"sexual\", many such items are likely suited also for the SexualContentConsideration code.",
@@ -16533,10 +16535,10 @@
   "UnemploymentSupport: this is a benefit for unemployment support."
   {:db/ident :schema/UnemploymentSupport,
    :rdf/type [:schema/GovernmentBenefitsType
+              :rdfs/Resource
               :schema/Intangible
               :schema/Thing
-              :schema/Enumeration
-              :rdfs/Resource],
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "UnemploymentSupport: this is a benefit for unemployment support.",
@@ -16552,8 +16554,8 @@
               :rdfs/Resource
               :schema/Thing
               :schema/Enumeration
-              :schema/NonprofitType
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/NonprofitType],
    :rdfs/comment
    #xsd/string
     "UnincorporatedAssociationCharity: Non-profit type referring to a charitable company that is not incorporated (UK).",
@@ -16571,10 +16573,10 @@
     "The price asked for a given offer by the respective organization or person.",
    :rdfs/label #xsd/string "UnitPriceSpecification",
    :rdfs/subClassOf [:schema/PriceSpecification
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
-                     :schema/StructuredValue],
+                     :schema/Intangible
+                     :schema/StructuredValue
+                     :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -16582,10 +16584,10 @@
   "Indicates that a document has no particular or special standing (e.g. a republication of a law by a private publisher)."
   {:db/ident :schema/UnofficialLegalValue,
    :rdf/type [:schema/LegalValueLevel
-              :schema/Enumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Enumeration
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "Indicates that a document has no particular or special standing (e.g. a republication of a law by a private publisher).",
@@ -16604,16 +16606,16 @@
    #xsd/string
     "The act of managing by changing/editing the state of the object.",
    :rdfs/label #xsd/string "UpdateAction",
-   :rdfs/subClassOf [:schema/Action :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Action :rdfs/Resource :schema/Thing]})
 
 (def Urologic
   "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system."
   {:db/ident :schema/Urologic,
    :rdf/type [:schema/MedicalSpecialty
+              :schema/Intangible
+              :schema/Enumeration
               :schema/Specialty
               :rdfs/Resource
-              :schema/Enumeration
-              :schema/Intangible
               :schema/Thing
               :schema/MedicalEnumeration],
    :rdfs/comment
@@ -16626,10 +16628,10 @@
   "Content about how, when, frequency and dosage of a topic."
   {:db/ident :schema/UsageOrScheduleHealthAspect,
    :rdf/type [:schema/HealthAspectEnumeration
-              :schema/Intangible
+              :schema/Enumeration
               :schema/Thing
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Intangible],
    :rdfs/comment #xsd/string
                   "Content about how, when, frequency and dosage of a topic.",
    :rdfs/label #xsd/string "UsageOrScheduleHealthAspect",
@@ -16645,18 +16647,18 @@
                      "The act of applying an object to its intended purpose.",
    :rdfs/label      #xsd/string "UseAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def UsedCondition
   "Indicates that the item is used."
   {:db/ident     :schema/UsedCondition,
    :rdf/type     [:schema/OfferItemCondition
+                  :rdfs/Resource
                   :schema/Enumeration
                   :schema/Intangible
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :schema/Thing],
    :rdfs/comment #xsd/string "Indicates that the item is used.",
    :rdfs/label   #xsd/string "UsedCondition"})
 
@@ -16669,7 +16671,7 @@
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
    :rdfs/label #xsd/string "UserBlocks",
    :rdfs/subClassOf
-   [:schema/UserInteraction :schema/Event :schema/Thing :rdfs/Resource],
+   [:schema/UserInteraction :rdfs/Resource :schema/Event :schema/Thing],
    :schema/supersededBy :schema/InteractionCounter})
 
 (def UserCheckins
@@ -16681,7 +16683,7 @@
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
    :rdfs/label #xsd/string "UserCheckins",
    :rdfs/subClassOf
-   [:schema/UserInteraction :schema/Event :schema/Thing :rdfs/Resource],
+   [:schema/UserInteraction :rdfs/Resource :schema/Event :schema/Thing],
    :schema/supersededBy :schema/InteractionCounter})
 
 (def UserComments
@@ -16693,7 +16695,7 @@
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
    :rdfs/label #xsd/string "UserComments",
    :rdfs/subClassOf
-   [:schema/UserInteraction :schema/Event :schema/Thing :rdfs/Resource],
+   [:schema/UserInteraction :rdfs/Resource :schema/Event :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/rNews"},
    :schema/supersededBy :schema/InteractionCounter})
 
@@ -16717,7 +16719,7 @@
    #xsd/string
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
    :rdfs/label #xsd/string "UserInteraction",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing],
    :schema/supersededBy :schema/InteractionCounter})
 
 (def UserLikes
@@ -16729,7 +16731,7 @@
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
    :rdfs/label #xsd/string "UserLikes",
    :rdfs/subClassOf
-   [:schema/UserInteraction :schema/Event :schema/Thing :rdfs/Resource],
+   [:schema/UserInteraction :rdfs/Resource :schema/Event :schema/Thing],
    :schema/supersededBy :schema/InteractionCounter})
 
 (def UserPageVisits
@@ -16741,7 +16743,7 @@
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
    :rdfs/label #xsd/string "UserPageVisits",
    :rdfs/subClassOf
-   [:schema/UserInteraction :schema/Event :schema/Thing :rdfs/Resource],
+   [:schema/UserInteraction :rdfs/Resource :schema/Event :schema/Thing],
    :schema/supersededBy :schema/InteractionCounter})
 
 (def UserPlays
@@ -16777,7 +16779,7 @@
     "A review created by an end-user (e.g. consumer, purchaser, attendee etc.), in contrast with [[CriticReview]].",
    :rdfs/label #xsd/string "UserReview",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Review :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/Review :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1589"}})
@@ -16803,20 +16805,20 @@
     "A kind of lodging business that focuses on renting single properties for limited time.",
    :rdfs/label #xsd/string "VacationRental",
    :rdfs/subClassOf [:schema/LodgingBusiness
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def VeganDiet
   "A diet exclusive of all animal products."
   {:db/ident     :schema/VeganDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet exclusive of all animal products.",
    :rdfs/label   #xsd/string "VeganDiet"})
 
@@ -16824,10 +16826,10 @@
   "A diet exclusive of animal meat."
   {:db/ident     :schema/VegetarianDiet,
    :rdf/type     [:schema/RestrictedDiet
-                  :schema/Intangible
                   :schema/Enumeration
-                  :schema/Thing
-                  :rdfs/Resource],
+                  :rdfs/Resource
+                  :schema/Intangible
+                  :schema/Thing],
    :rdfs/comment #xsd/string "A diet exclusive of animal meat.",
    :rdfs/label   #xsd/string "VegetarianDiet"})
 
@@ -16850,20 +16852,20 @@
     "A type of blood vessel that specifically carries blood to the heart.",
    :rdfs/label #xsd/string "Vein",
    :rdfs/subClassOf [:schema/Vessel
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/AnatomicalStructure
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def VenueMap
   "A venue map (e.g. for malls, auditoriums, museums, etc.)."
   {:db/ident     :schema/VenueMap,
    :rdf/type     [:schema/MapCategoryType
-                  :schema/Intangible
                   :schema/Thing
                   :rdfs/Resource
-                  :schema/Enumeration],
+                  :schema/Enumeration
+                  :schema/Intangible],
    :rdfs/comment #xsd/string
                   "A venue map (e.g. for malls, auditoriums, museums, etc.).",
    :rdfs/label   #xsd/string "VenueMap"})
@@ -16877,9 +16879,9 @@
     "A component of the human body circulatory system comprised of an intricate network of hollow tubes that transport blood throughout the entire body.",
    :rdfs/label #xsd/string "Vessel",
    :rdfs/subClassOf [:schema/AnatomicalStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/MedicalEntity
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def VeterinaryCare
@@ -16889,9 +16891,9 @@
    :rdfs/comment    #xsd/string "A vet's office.",
    :rdfs/label      #xsd/string "VeterinaryCare",
    :rdfs/subClassOf [:schema/MedicalOrganization
+                     :rdfs/Resource
                      :schema/Organization
-                     :schema/Thing
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
 (def VideoGallery
@@ -16901,11 +16903,11 @@
    :rdfs/comment    #xsd/string "Web page type: Video gallery page.",
    :rdfs/label      #xsd/string "VideoGallery",
    :rdfs/subClassOf [:schema/MediaGallery
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork
                      :schema/CollectionPage
-                     :schema/WebPage]})
+                     :schema/CreativeWork
+                     :schema/WebPage
+                     :schema/Thing]})
 
 (def VideoGame
   "A video game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device."
@@ -16918,8 +16920,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/SoftwareApplication
                      :schema/Game
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def VideoGameClip
   "A short segment/part of a video game."
@@ -16928,9 +16930,9 @@
    :rdfs/comment    #xsd/string "A short segment/part of a video game.",
    :rdfs/label      #xsd/string "VideoGameClip",
    :rdfs/subClassOf [:schema/Clip
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def VideoGameSeries
   "A video game series."
@@ -16939,11 +16941,11 @@
    :rdfs/comment    #xsd/string "A video game series.",
    :rdfs/label      #xsd/string "VideoGameSeries",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
-                     :schema/Thing
-                     :schema/Intangible
                      :rdfs/Resource
+                     :schema/Intangible
+                     :schema/Series
                      :schema/CreativeWork
-                     :schema/Series]})
+                     :schema/Thing]})
 
 (def VideoObject
   "A video file."
@@ -16953,8 +16955,8 @@
    :rdfs/label         #xsd/string "VideoObject",
    :rdfs/subClassOf    [:rdfs/Resource
                         :schema/MediaObject
-                        :schema/Thing
-                        :schema/CreativeWork],
+                        :schema/CreativeWork
+                        :schema/Thing],
    :schema/contributor {:rdfa/uri "http://schema.org/docs/collab/rNews"}})
 
 (def VideoObjectSnapshot
@@ -16966,10 +16968,10 @@
     "A specific and exact (byte-for-byte) version of a [[VideoObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.",
    :rdfs/label #xsd/string "VideoObjectSnapshot",
    :rdfs/subClassOf [:schema/VideoObject
-                     :schema/Thing
-                     :schema/MediaObject
                      :rdfs/Resource
-                     :schema/CreativeWork],
+                     :schema/MediaObject
+                     :schema/CreativeWork
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2450"}})
@@ -16981,16 +16983,16 @@
    :rdfs/comment    #xsd/string "The act of consuming static visual content.",
    :rdfs/label      #xsd/string "ViewAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def VinylFormat
   "VinylFormat."
   {:db/ident           :schema/VinylFormat,
    :rdf/type           [:schema/MusicReleaseFormatType
-                        :schema/Thing
                         :rdfs/Resource
+                        :schema/Thing
                         :schema/Enumeration
                         :schema/Intangible],
    :rdfs/comment       #xsd/string "VinylFormat.",
@@ -17002,9 +17004,9 @@
   {:db/ident        :schema/ViolenceConsideration,
    :rdf/type        [:schema/AdultOrientedEnumeration
                      :rdfs/Resource
+                     :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Item shows or promotes violence.",
    :rdfs/label      #xsd/string "ViolenceConsideration",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17019,7 +17021,7 @@
    #xsd/string
     "An online or virtual location for attending events. For example, one may attend an online seminar or educational event. While a virtual location may be used as the location of an event, virtual locations should not be confused with physical locations in the real world.",
    :rdfs/label #xsd/string "VirtualLocation",
-   :rdfs/subClassOf [:schema/Intangible :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Intangible :rdfs/Resource :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1842"}})
@@ -17028,11 +17030,11 @@
   "Pathogenic virus that causes viral infection."
   {:db/ident        :schema/Virus,
    :rdf/type        [:schema/InfectiousAgentClass
-                     :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :rdfs/Resource
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Pathogenic virus that causes viral infection.",
    :rdfs/label      #xsd/string "Virus",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -17043,7 +17045,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #xsd/string "Event type: Visual arts event.",
    :rdfs/label      #xsd/string "VisualArtsEvent",
-   :rdfs/subClassOf [:schema/Event :schema/Thing :rdfs/Resource]})
+   :rdfs/subClassOf [:schema/Event :rdfs/Resource :schema/Thing]})
 
 (def VisualArtwork
   "A work of art that is primarily visual in character."
@@ -17063,10 +17065,10 @@
     "Vital signs are measures of various physiological functions in order to assess the most basic body functions.",
    :rdfs/label #xsd/string "VitalSign",
    :rdfs/subClassOf [:schema/MedicalSign
-                     :schema/Thing
-                     :schema/MedicalSignOrSymptom
-                     :schema/MedicalEntity
                      :rdfs/Resource
+                     :schema/MedicalEntity
+                     :schema/MedicalSignOrSymptom
+                     :schema/Thing
                      :schema/MedicalCondition],
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
 
@@ -17078,8 +17080,8 @@
    :rdfs/label      #xsd/string "Volcano",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/Landform
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def VoteAction
   "The act of expressing a preference from a fixed/finite/structured set of choices/options."
@@ -17090,10 +17092,10 @@
     "The act of expressing a preference from a fixed/finite/structured set of choices/options.",
    :rdfs/label #xsd/string "VoteAction",
    :rdfs/subClassOf [:schema/ChooseAction
-                     :schema/Thing
-                     :schema/AssessAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/AssessAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def WPAdBlock
   "An advertising section of the page."
@@ -17102,9 +17104,9 @@
    :rdfs/comment    #xsd/string "An advertising section of the page.",
    :rdfs/label      #xsd/string "WPAdBlock",
    :rdfs/subClassOf [:schema/WebPageElement
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def WPFooter
   "The footer section of the page."
@@ -17113,9 +17115,9 @@
    :rdfs/comment    #xsd/string "The footer section of the page.",
    :rdfs/label      #xsd/string "WPFooter",
    :rdfs/subClassOf [:schema/WebPageElement
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def WPHeader
   "The header section of the page."
@@ -17124,9 +17126,9 @@
    :rdfs/comment    #xsd/string "The header section of the page.",
    :rdfs/label      #xsd/string "WPHeader",
    :rdfs/subClassOf [:schema/WebPageElement
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def WPSideBar
   "A sidebar section of the page."
@@ -17135,9 +17137,9 @@
    :rdfs/comment    #xsd/string "A sidebar section of the page.",
    :rdfs/label      #xsd/string "WPSideBar",
    :rdfs/subClassOf [:schema/WebPageElement
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def WantAction
   "The act of expressing a desire about the object. An agent wants an object."
@@ -17149,9 +17151,9 @@
    :rdfs/label #xsd/string "WantAction",
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/ReactAction
-                     :schema/Thing
                      :schema/AssessAction
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def WarrantyPromise
   "A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product."
@@ -17162,7 +17164,7 @@
     "A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.",
    :rdfs/label #xsd/string "WarrantyPromise",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/StructuredValue :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -17175,7 +17177,7 @@
     "A range of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.\\n\\nCommonly used values:\\n\\n* http://purl.org/goodrelations/v1#Labor-BringIn\\n* http://purl.org/goodrelations/v1#PartsAndLabor-BringIn\\n* http://purl.org/goodrelations/v1#PartsAndLabor-PickUp\n      ",
    :rdfs/label #xsd/string "WarrantyScope",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/Enumeration :schema/Thing :schema/Intangible],
+   [:rdfs/Resource :schema/Enumeration :schema/Intangible :schema/Thing],
    :schema/contributor {:rdfa/uri
                         "http://schema.org/docs/collab/GoodRelationsClass"}})
 
@@ -17187,9 +17189,9 @@
                      "The act of consuming dynamic/moving visual content.",
    :rdfs/label      #xsd/string "WatchAction",
    :rdfs/subClassOf [:schema/ConsumeAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Waterfall
   "A waterfall, like Niagara."
@@ -17198,9 +17200,9 @@
    :rdfs/comment    #xsd/string "A waterfall, like Niagara.",
    :rdfs/label      #xsd/string "Waterfall",
    :rdfs/subClassOf [:schema/BodyOfWater
-                     :schema/Thing
-                     :schema/Place
                      :rdfs/Resource
+                     :schema/Place
+                     :schema/Thing
                      :schema/Landform]})
 
 (def WeaponConsideration
@@ -17208,9 +17210,9 @@
   {:db/ident :schema/WeaponConsideration,
    :rdf/type [:schema/AdultOrientedEnumeration
               :rdfs/Resource
+              :schema/Enumeration
               :schema/Intangible
-              :schema/Thing
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string
     "The item is intended to induce bodily harm, for example guns, mace, combat knives, brass knuckles, nail or other bombs, and spears.",
@@ -17226,19 +17228,19 @@
    :rdfs/comment    #xsd/string "The act of dressing oneself in clothing.",
    :rdfs/label      #xsd/string "WearAction",
    :rdfs/subClassOf [:schema/UseAction
-                     :schema/Thing
-                     :schema/ConsumeAction
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/ConsumeAction
+                     :schema/Action
+                     :schema/Thing]})
 
 (def WearableMeasurementBack
   "Measurement of the back section, for example of a jacket"
   {:db/ident        :schema/WearableMeasurementBack,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the back section, for example of a jacket",
@@ -17251,10 +17253,10 @@
   "Measurement of the chest/bust section, for example of a suit"
   {:db/ident :schema/WearableMeasurementChestOrBust,
    :rdf/type [:schema/WearableMeasurementTypeEnumeration
+              :schema/Thing
               :schema/MeasurementTypeEnumeration
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing
               :schema/Enumeration],
    :rdfs/comment
    #xsd/string "Measurement of the chest/bust section, for example of a suit",
@@ -17267,10 +17269,10 @@
   "Measurement of the collar, for example of a shirt"
   {:db/ident        :schema/WearableMeasurementCollar,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the collar, for example of a shirt",
@@ -17283,10 +17285,10 @@
   "Measurement of the cup, for example of a bra"
   {:db/ident        :schema/WearableMeasurementCup,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string "Measurement of the cup, for example of a bra",
    :rdfs/label      #xsd/string "WearableMeasurementCup",
@@ -17298,10 +17300,10 @@
   "Measurement of the height, for example the heel height of a shoe"
   {:db/ident :schema/WearableMeasurementHeight,
    :rdf/type [:schema/WearableMeasurementTypeEnumeration
+              :schema/Thing
               :schema/MeasurementTypeEnumeration
               :rdfs/Resource
               :schema/Intangible
-              :schema/Thing
               :schema/Enumeration],
    :rdfs/comment
    #xsd/string
@@ -17315,10 +17317,10 @@
   "Measurement of the hip section, for example of a skirt"
   {:db/ident        :schema/WearableMeasurementHips,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the hip section, for example of a skirt",
@@ -17331,10 +17333,10 @@
   "Measurement of the inseam, for example of pants"
   {:db/ident        :schema/WearableMeasurementInseam,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the inseam, for example of pants",
@@ -17347,10 +17349,10 @@
   "Represents the length, for example of a dress"
   {:db/ident        :schema/WearableMeasurementLength,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string "Represents the length, for example of a dress",
    :rdfs/label      #xsd/string "WearableMeasurementLength",
@@ -17362,10 +17364,10 @@
   "Measurement of the outside leg, for example of pants"
   {:db/ident        :schema/WearableMeasurementOutsideLeg,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the outside leg, for example of pants",
@@ -17378,10 +17380,10 @@
   "Measurement of the sleeve length, for example of a shirt"
   {:db/ident        :schema/WearableMeasurementSleeve,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the sleeve length, for example of a shirt",
@@ -17400,8 +17402,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :schema/MeasurementTypeEnumeration
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -17410,10 +17412,10 @@
   "Measurement of the waist section, for example of pants"
   {:db/ident        :schema/WearableMeasurementWaist,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the waist section, for example of pants",
@@ -17426,10 +17428,10 @@
   "Measurement of the width, for example of shoes"
   {:db/ident        :schema/WearableMeasurementWidth,
    :rdf/type        [:schema/WearableMeasurementTypeEnumeration
+                     :schema/Thing
                      :schema/MeasurementTypeEnumeration
                      :rdfs/Resource
                      :schema/Intangible
-                     :schema/Thing
                      :schema/Enumeration],
    :rdfs/comment    #xsd/string
                      "Measurement of the width, for example of shoes",
@@ -17442,11 +17444,11 @@
   "Size group \"Big\" for wearables."
   {:db/ident        :schema/WearableSizeGroupBig,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Big\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupBig",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17457,11 +17459,11 @@
   "Size group \"Boys\" for wearables."
   {:db/ident        :schema/WearableSizeGroupBoys,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Boys\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupBoys",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17478,9 +17480,9 @@
    :rdfs/label #xsd/string "WearableSizeGroupEnumeration",
    :rdfs/subClassOf [:schema/SizeGroupEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -17489,11 +17491,11 @@
   "Size group \"Extra Short\" for wearables."
   {:db/ident        :schema/WearableSizeGroupExtraShort,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Extra Short\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupExtraShort",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17504,11 +17506,11 @@
   "Size group \"Extra Tall\" for wearables."
   {:db/ident        :schema/WearableSizeGroupExtraTall,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Extra Tall\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupExtraTall",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17519,11 +17521,11 @@
   "Size group \"Girls\" for wearables."
   {:db/ident        :schema/WearableSizeGroupGirls,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Girls\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupGirls",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17534,11 +17536,11 @@
   "Size group \"Husky\" (or \"Stocky\") for wearables."
   {:db/ident        :schema/WearableSizeGroupHusky,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string
                      "Size group \"Husky\" (or \"Stocky\") for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupHusky",
@@ -17550,11 +17552,11 @@
   "Size group \"Infants\" for wearables."
   {:db/ident        :schema/WearableSizeGroupInfants,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Infants\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupInfants",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17565,11 +17567,11 @@
   "Size group \"Juniors\" for wearables."
   {:db/ident        :schema/WearableSizeGroupJuniors,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Juniors\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupJuniors",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17580,11 +17582,11 @@
   "Size group \"Maternity\" for wearables."
   {:db/ident        :schema/WearableSizeGroupMaternity,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Maternity\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupMaternity",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17595,11 +17597,11 @@
   "Size group \"Mens\" for wearables."
   {:db/ident        :schema/WearableSizeGroupMens,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Mens\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupMens",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17610,11 +17612,11 @@
   "Size group \"Misses\" (also known as \"Missy\") for wearables."
   {:db/ident :schema/WearableSizeGroupMisses,
    :rdf/type [:schema/WearableSizeGroupEnumeration
-              :schema/Thing
               :schema/SizeGroupEnumeration
               :schema/Intangible
+              :schema/Enumeration
               :rdfs/Resource
-              :schema/Enumeration],
+              :schema/Thing],
    :rdfs/comment
    #xsd/string "Size group \"Misses\" (also known as \"Missy\") for wearables.",
    :rdfs/label #xsd/string "WearableSizeGroupMisses",
@@ -17626,11 +17628,11 @@
   "Size group \"Petite\" for wearables."
   {:db/ident        :schema/WearableSizeGroupPetite,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Petite\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupPetite",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17641,11 +17643,11 @@
   "Size group \"Plus\" for wearables."
   {:db/ident        :schema/WearableSizeGroupPlus,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Plus\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupPlus",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17656,11 +17658,11 @@
   "Size group \"Regular\" for wearables."
   {:db/ident        :schema/WearableSizeGroupRegular,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Regular\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupRegular",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17671,11 +17673,11 @@
   "Size group \"Short\" for wearables."
   {:db/ident        :schema/WearableSizeGroupShort,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Short\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupShort",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17686,11 +17688,11 @@
   "Size group \"Tall\" for wearables."
   {:db/ident        :schema/WearableSizeGroupTall,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Tall\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupTall",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17701,11 +17703,11 @@
   "Size group \"Womens\" for wearables."
   {:db/ident        :schema/WearableSizeGroupWomens,
    :rdf/type        [:schema/WearableSizeGroupEnumeration
-                     :schema/Thing
                      :schema/SizeGroupEnumeration
                      :schema/Intangible
+                     :schema/Enumeration
                      :rdfs/Resource
-                     :schema/Enumeration],
+                     :schema/Thing],
    :rdfs/comment    #xsd/string "Size group \"Womens\" for wearables.",
    :rdfs/label      #xsd/string "WearableSizeGroupWomens",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17717,10 +17719,10 @@
   {:db/ident        :schema/WearableSizeSystemAU,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Australian size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemAU",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17732,10 +17734,10 @@
   {:db/ident        :schema/WearableSizeSystemBR,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Brazilian size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemBR",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17747,10 +17749,10 @@
   {:db/ident        :schema/WearableSizeSystemCN,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Chinese size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemCN",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17762,10 +17764,10 @@
   {:db/ident        :schema/WearableSizeSystemContinental,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Continental size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemContinental",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17777,10 +17779,10 @@
   {:db/ident        :schema/WearableSizeSystemDE,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "German size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemDE",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17792,10 +17794,10 @@
   {:db/ident :schema/WearableSizeSystemEN13402,
    :rdf/type [:schema/WearableSizeSystemEnumeration
               :rdfs/Resource
-              :schema/Thing
-              :schema/Enumeration
               :schema/SizeSystemEnumeration
-              :schema/Intangible],
+              :schema/Intangible
+              :schema/Thing
+              :schema/Enumeration],
    :rdfs/comment
    #xsd/string
     "EN 13402 (joint European standard for size labelling of clothes).",
@@ -17813,9 +17815,9 @@
    :rdfs/label #xsd/string "WearableSizeSystemEnumeration",
    :rdfs/subClassOf [:schema/SizeSystemEnumeration
                      :schema/Enumeration
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
@@ -17825,10 +17827,10 @@
   {:db/ident        :schema/WearableSizeSystemEurope,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "European size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemEurope",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17840,10 +17842,10 @@
   {:db/ident        :schema/WearableSizeSystemFR,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "French size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemFR",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17855,10 +17857,10 @@
   {:db/ident        :schema/WearableSizeSystemGS1,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "GS1 (formerly NRF) size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemGS1",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17870,10 +17872,10 @@
   {:db/ident        :schema/WearableSizeSystemIT,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Italian size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemIT",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17885,10 +17887,10 @@
   {:db/ident        :schema/WearableSizeSystemJP,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Japanese size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemJP",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17900,10 +17902,10 @@
   {:db/ident        :schema/WearableSizeSystemMX,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "Mexican size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemMX",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17915,10 +17917,10 @@
   {:db/ident        :schema/WearableSizeSystemUK,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "United Kingdom size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemUK",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17930,10 +17932,10 @@
   {:db/ident        :schema/WearableSizeSystemUS,
    :rdf/type        [:schema/WearableSizeSystemEnumeration
                      :rdfs/Resource
-                     :schema/Thing
-                     :schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Intangible],
+                     :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration],
    :rdfs/comment    #xsd/string "United States size system for wearables.",
    :rdfs/label      #xsd/string "WearableSizeSystemUS",
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -17949,7 +17951,7 @@
     "An application programming interface accessible over Web/Internet technologies.",
    :rdfs/label #xsd/string "WebAPI",
    :rdfs/subClassOf
-   [:schema/Service :schema/Thing :schema/Intangible :rdfs/Resource],
+   [:schema/Service :rdfs/Resource :schema/Intangible :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/1423"}})
@@ -17961,9 +17963,9 @@
    :rdfs/comment    #xsd/string "Web applications.",
    :rdfs/label      #xsd/string "WebApplication",
    :rdfs/subClassOf [:schema/SoftwareApplication
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def WebContent
   "WebContent is a type representing all [[WebPage]], [[WebSite]] and [[WebPageElement]] content. It is sometimes the case that detailed distinctions between Web pages, sites and their parts are not always important or obvious. The  [[WebContent]] type makes it easier to describe Web-addressable content without requiring such distinctions to always be stated. (The intent is that the existing types [[WebPage]], [[WebSite]] and [[WebPageElement]] will eventually be declared as subtypes of [[WebContent]].)"
@@ -18010,9 +18012,9 @@
   "The day of the week between Tuesday and Thursday."
   {:db/ident      :schema/Wednesday,
    :rdf/type      [:schema/DayOfWeek
-                   :schema/Thing
-                   :schema/Enumeration
                    :rdfs/Resource
+                   :schema/Enumeration
+                   :schema/Thing
                    :schema/Intangible],
    :rdfs/comment  #xsd/string
                    "The day of the week between Tuesday and Thursday.",
@@ -18024,10 +18026,10 @@
   {:db/ident :schema/WesternConventional,
    :rdf/type [:schema/MedicineSystem
               :schema/MedicalEnumeration
-              :rdfs/Resource
+              :schema/Thing
               :schema/Enumeration
               :schema/Intangible
-              :schema/Thing],
+              :rdfs/Resource],
    :rdfs/comment
    #xsd/string
     "The conventional Western system of medicine, that aims to apply the best available evidence gained from the scientific method to clinical decision making. Also known as conventional or Western medicine.",
@@ -18038,11 +18040,11 @@
   "The drug's cost represents the wholesale acquisition cost of the drug."
   {:db/ident :schema/Wholesale,
    :rdf/type [:schema/DrugCostCategory
-              :schema/Enumeration
+              :schema/MedicalEnumeration
               :rdfs/Resource
-              :schema/Intangible
               :schema/Thing
-              :schema/MedicalEnumeration],
+              :schema/Enumeration
+              :schema/Intangible],
    :rdfs/comment
    #xsd/string
     "The drug's cost represents the wholesale acquisition cost of the drug.",
@@ -18056,11 +18058,11 @@
    :rdfs/comment    #xsd/string "A wholesale store.",
    :rdfs/label      #xsd/string "WholesaleStore",
    :rdfs/subClassOf [:schema/Store
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def WinAction
   "The act of achieving victory in a competitive activity."
@@ -18070,9 +18072,9 @@
                      "The act of achieving victory in a competitive activity.",
    :rdfs/label      #xsd/string "WinAction",
    :rdfs/subClassOf [:schema/AchieveAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Winery
   "A winery."
@@ -18081,20 +18083,20 @@
    :rdfs/comment    #xsd/string "A winery.",
    :rdfs/label      #xsd/string "Winery",
    :rdfs/subClassOf [:schema/FoodEstablishment
-                     :schema/Organization
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
                      :schema/LocalBusiness
-                     :rdfs/Resource]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def Withdrawn
   "Withdrawn."
   {:db/ident        :schema/Withdrawn,
    :rdf/type        [:schema/MedicalStudyStatus
                      :rdfs/Resource
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
+                     :schema/Thing
+                     :schema/Enumeration
                      :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "Withdrawn.",
    :rdfs/label      #xsd/string "Withdrawn",
@@ -18109,9 +18111,9 @@
     "A program with both an educational and employment component. Typically based at a workplace and structured around work-based learning, with the aim of instilling competencies related to an occupation. WorkBasedProgram is used to distinguish programs such as apprenticeships from school, college or other classroom based educational programs.",
    :rdfs/label #xsd/string "WorkBasedProgram",
    :rdfs/subClassOf [:schema/EducationalOccupationalProgram
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Intangible
-                     :rdfs/Resource],
+                     :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2289"}})
@@ -18124,7 +18126,7 @@
    #xsd/string
     "A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying.",
    :rdfs/label #xsd/string "WorkersUnion",
-   :rdfs/subClassOf [:schema/Organization :schema/Thing :rdfs/Resource],
+   :rdfs/subClassOf [:schema/Organization :rdfs/Resource :schema/Thing],
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/243"}})
 
@@ -18136,17 +18138,17 @@
                      "The act of authoring written creative content.",
    :rdfs/label      #xsd/string "WriteAction",
    :rdfs/subClassOf [:schema/CreateAction
-                     :schema/Thing
                      :rdfs/Resource
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def WritePermission
   "Permission to write or edit the document."
   {:db/ident     :schema/WritePermission,
    :rdf/type     [:schema/DigitalDocumentPermissionType
-                  :schema/Thing
-                  :schema/Enumeration
                   :rdfs/Resource
+                  :schema/Enumeration
+                  :schema/Thing
                   :schema/Intangible],
    :rdfs/comment #xsd/string "Permission to write or edit the document.",
    :rdfs/label   #xsd/string "WritePermission"})
@@ -18169,10 +18171,10 @@
   {:db/ident        :schema/XRay,
    :rdf/type        [:schema/MedicalImagingTechnique
                      :rdfs/Resource
-                     :schema/MedicalEnumeration
+                     :schema/Thing
                      :schema/Enumeration
                      :schema/Intangible
-                     :schema/Thing],
+                     :schema/MedicalEnumeration],
    :rdfs/comment    #xsd/string "X-ray imaging.",
    :rdfs/label      #xsd/string "XRay",
    :schema/isPartOf {:rdfa/uri "http://health-lifesci.schema.org"}})
@@ -18181,10 +18183,10 @@
   "The airline boards by zones of the plane."
   {:db/ident     :schema/ZoneBoardingPolicy,
    :rdf/type     [:schema/BoardingPolicyType
-                  :schema/Enumeration
-                  :schema/Thing
                   :rdfs/Resource
-                  :schema/Intangible],
+                  :schema/Intangible
+                  :schema/Thing
+                  :schema/Enumeration],
    :rdfs/comment #xsd/string "The airline boards by zones of the plane.",
    :rdfs/label   #xsd/string "ZoneBoardingPolicy"})
 
@@ -18195,9 +18197,9 @@
    :rdfs/comment    #xsd/string "A zoo.",
    :rdfs/label      #xsd/string "Zoo",
    :rdfs/subClassOf [:schema/CivicStructure
-                     :schema/Thing
+                     :rdfs/Resource
                      :schema/Place
-                     :rdfs/Resource]})
+                     :schema/Thing]})
 
 (def about
   "The subject matter of the content."
@@ -19311,6 +19313,7 @@
    :schema/rangeIncludes :schema/PaymentMethod})
 
 (def archiveHeld
+  "Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept or maintained by an [[ArchiveOrganization]]."
   {:db/ident :schema/archiveHeld,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -21289,6 +21292,7 @@
    :schema/supersededBy :schema/targetCollection})
 
 (def collectionSize
+  "The number of items in the [[Collection]]."
   {:db/ident :schema/collectionSize,
    :rdf/type :rdf/Property,
    :rdfs/comment #xsd/langString
@@ -25919,6 +25923,7 @@
    :schema/rangeIncludes [:schema/Person :schema/Organization]})
 
 (def holdingArchive
+  "[[ArchiveOrganization]] that holds, keeps or maintains the [[ArchiveComponent]]."
   {:db/ident :schema/holdingArchive,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -27127,6 +27132,7 @@
    :schema/rangeIncludes [:schema/Text :schema/ItemListOrderType]})
 
 (def itemLocation
+  "Current location of the item."
   {:db/ident :schema/itemLocation,
    :rdf/type :rdf/Property,
    :rdfs/comment #xsd/langString "Current location of the item.@en",
@@ -28160,6 +28166,7 @@
    :schema/rangeIncludes [:schema/URL :schema/Text :schema/Product]})
 
 (def materialExtent
+  "The quantity of the materials being described or an expression of the physical space they occupy."
   {:db/ident :schema/materialExtent,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -36073,7 +36080,7 @@
     "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]].",
    :rdfs/label #xsd/string "3DModel",
    :rdfs/subClassOf
-   [:rdfs/Resource :schema/MediaObject :schema/Thing :schema/CreativeWork],
+   [:rdfs/Resource :schema/MediaObject :schema/CreativeWork :schema/Thing],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
                    "https://github.com/schemaorg/schemaorg/issues/2140"}})

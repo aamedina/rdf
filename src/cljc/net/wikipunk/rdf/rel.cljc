@@ -66,12 +66,12 @@
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
+      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be ambivalent of another without that person knowing the first."}
     {:dc11/creator #xsd/string "Ian Davis",
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be ambivalent of another without that person knowing the first."}]})
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}]})
 
 (def ancestorOf
   "Ancestor Of"
@@ -90,12 +90,12 @@
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
+      "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant ancestors."}
     {:dc11/creator #xsd/string "Ian Davis",
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant ancestors."}]})
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}]})
 
 (def antagonistOf
   "Antagonist Of"
@@ -480,16 +480,16 @@
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
-    {:dc11/creator #xsd/string "Ian Davis",
-     :dc11/date    #xsd/string "2010-02-09",
-     :rdf/value    #xsd/string
-                    "Assert that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}
+      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to know of another without that person knowing the first."}
     {:dc11/creator #xsd/string "Ian Davis",
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to know of another without that person knowing the first."}]})
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
+    {:dc11/creator #xsd/string "Ian Davis",
+     :dc11/date #xsd/string "2010-02-09",
+     :rdf/value #xsd/string
+                 "Assert that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}]})
 
 (def lifePartnerOf
   "Life Partner of"
@@ -580,14 +580,14 @@
    #xsd/langString "A person who lives in the same locality as this person.@en",
    :skos/historyNote
    [{:dc11/creator #xsd/string "Ian Davis",
+     :dc11/date    #xsd/string "2010-02-09",
+     :rdf/value    #xsd/string
+                    "Removed assertion that this property is transitive."}
+    {:dc11/creator #xsd/string "Ian Davis",
      :dc11/date #xsd/string "2010-02-09",
      :rdf/value
      #xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
-    {:dc11/creator #xsd/string "Ian Davis",
-     :dc11/date    #xsd/string "2010-02-09",
-     :rdf/value    #xsd/string
-                    "Removed assertion that this property is transitive."}]})
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}]})
 
 (def parentOf
   "Parent Of"

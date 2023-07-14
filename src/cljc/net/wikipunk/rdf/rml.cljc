@@ -43,10 +43,10 @@
                      {:owl/onProperty :rml/referenceFormulation,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type       :owl/Restriction}
-                     :owl/Thing
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty :rml/iterator,
-                      :rdf/type       :owl/Restriction}]})
+                      :rdf/type       :owl/Restriction}
+                     :owl/Thing]})
 
 (def LogicalSource
   "Represents a logical source."
@@ -111,14 +111,14 @@
 
 (def logicalTarget
   "Represents the logical target to where triples are exported to. This can be a pointer to any dataset."
-  {:db/ident    :rml/logicalTarget,
-   :rdf/type    :owl/ObjectProperty,
+  {:db/ident :rml/logicalTarget,
+   :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    #xsd/langString
-   "Represents the logical target to where triples are exported to. This can be a pointer to any dataset.@en",
+    "Represents the logical target to where triples are exported to. This can be a pointer to any dataset.@en",
    :rdfs/domain :rr/TriplesMap,
-   :rdfs/label  #xsd/string "logical target",
-   :rdfs/range  [:void/Dataset :dcat/Dataset]})
+   :rdfs/label #xsd/string "logical target",
+   :rdfs/range [:void/Dataset :dcat/Dataset]})
 
 (def query
   "A valid query."

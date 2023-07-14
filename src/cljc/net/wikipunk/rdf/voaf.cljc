@@ -122,7 +122,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocommons/voaf"},
    :rdfs/label [#xsd/langString "étend@fr" #xsd/langString "extends@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
+   :rdfs/subPropertyOf [:voaf/reliesOn :dcterms/references :void/vocabulary],
    :vs/term_status #xsd/string "stable"})
 
 (def generalizes
@@ -142,7 +142,7 @@
    :rdfs/label [#xsd/langString "généralise@fr"
                 #xsd/langString "generalizes@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
+   :rdfs/subPropertyOf [:voaf/reliesOn :dcterms/references :void/vocabulary],
    :vs/term_status #xsd/string "stable"})
 
 (def hasDisjunctionsWith
@@ -162,7 +162,7 @@
    :rdfs/label [#xsd/langString "a des disjonctions avec@fr"
                 #xsd/langString "has disjunctions with@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
+   :rdfs/subPropertyOf [:voaf/reliesOn :dcterms/references :void/vocabulary],
    :vs/term_status #xsd/string "testing"})
 
 (def hasEquivalencesWith
@@ -182,7 +182,7 @@
    :rdfs/label [#xsd/langString "a des équivalences avec@fr"
                 #xsd/langString "has equivalences with@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
+   :rdfs/subPropertyOf [:voaf/reliesOn :dcterms/references :void/vocabulary],
    :vs/term_status #xsd/string "testing"})
 
 (def inDataset
@@ -216,7 +216,7 @@
    :rdfs/label [#xsd/langString "vocabulaire de métadonnées@fr"
                 #xsd/langString "metadata vocabulary@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
+   :rdfs/subPropertyOf [:voaf/reliesOn :dcterms/references :void/vocabulary],
    :vs/term_status #xsd/string "stable"})
 
 (def occurrences
@@ -349,7 +349,7 @@
    :rdfs/label [#xsd/langString "specializes@en"
                 #xsd/langString "spécialise@fr"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
+   :rdfs/subPropertyOf [:voaf/reliesOn :dcterms/references :void/vocabulary],
    :vs/term_status #xsd/string "stable"})
 
 (def toDoList

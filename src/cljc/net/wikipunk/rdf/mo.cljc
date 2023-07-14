@@ -45,7 +45,7 @@
    :rdfs/comment     #xsd/string "\n        An analog signal.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       #xsd/string "analogue signal",
-   :rdfs/subClassOf  [:mo/Signal :frbr/Expression :mo/MusicalExpression],
+   :rdfs/subClassOf  [:mo/Signal :mo/MusicalExpression :frbr/Expression],
    :vs/term_status   #xsd/string "stable"})
 
 (def Arrangement
@@ -195,7 +195,7 @@
    :rdfs/comment     #xsd/string "\n        A digital signal\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       #xsd/string "digital signal",
-   :rdfs/subClassOf  [:mo/Signal :frbr/Expression :mo/MusicalExpression],
+   :rdfs/subClassOf  [:mo/Signal :mo/MusicalExpression :frbr/Expression],
    :vs/term_status   #xsd/string "stable"})
 
 (def ED2K

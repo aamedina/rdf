@@ -1,4 +1,5 @@
 (ns net.wikipunk.rdf.odrl
+  "The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model."
   {:dcat/downloadURL "https://www.w3.org/ns/odrl/2/ODRL22.jsonld",
    :dcterms/contributor
    #xsd/string "W3C Permissions & Obligations Expression Working Group",
@@ -34,6 +35,7 @@
   (:refer-clojure :exclude [and count derive or print read use]))
 
 (def Action
+  "Action"
   {:db/ident :odrl/Action,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -45,6 +47,7 @@
     "Actions may be allowed by Permissions, disallowed by Prohibitions, or made mandatory by Duties.@en"})
 
 (def Agreement
+  "Agreement"
   {:db/ident :odrl/Agreement,
    :owl/disjointWith
    [:odrl/Assertion :odrl/Offer :odrl/Ticket :odrl/Privacy :odrl/Request],
@@ -60,6 +63,7 @@
     "An Agreement Policy MUST contain at least one Permission or Prohibition rule, a Party with Assigner function, and a Party with Assignee function (in the same Permission or Prohibition). The Agreement Policy will grant the terms of the Policy from the Assigner to the Assignee.@en"})
 
 (def All
+  "All"
   {:db/ident :odrl/All,
    :owl/deprecated true,
    :rdf/type
@@ -75,6 +79,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def All2ndConnections
+  "All Second-level Connections"
   {:db/ident :odrl/All2ndConnections,
    :owl/deprecated true,
    :rdf/type
@@ -90,6 +95,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def AllConnections
+  "All First-Level Connections"
   {:db/ident :odrl/AllConnections,
    :owl/deprecated true,
    :rdf/type
@@ -105,6 +111,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def AllGroups
+  "All Group Connections"
   {:db/ident :odrl/AllGroups,
    :owl/deprecated true,
    :rdf/type
@@ -120,6 +127,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def Assertion
+  "Assertion"
   {:db/ident :odrl/Assertion,
    :owl/disjointWith [:odrl/Offer :odrl/Privacy :odrl/Request :odrl/Ticket],
    :rdf/type [:rdfs/Class :owl/Class :skos/Concept],
@@ -135,6 +143,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def Asset
+  "Asset"
   {:db/ident :odrl/Asset,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -148,6 +157,7 @@
     "The Asset entity can be any form of identifiable resource, such as data/information, content/media, applications, or services. Furthermore, it can be used to represent other Asset entities that are needed to undertake the Policy expression, such as with the Duty entity. To describe more details about the Asset, it is recommended to use Dublin Core [[dcterms]] elements or other content metadata.@en"})
 
 (def AssetCollection
+  "Asset Collection"
   {:db/ident         :odrl/AssetCollection,
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -157,6 +167,7 @@
                       "An Asset that is collection of individual resources@en"})
 
 (def AssetScope
+  "Asset Scope"
   {:db/ident :odrl/AssetScope,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
@@ -169,6 +180,7 @@
     "Instances of the AssetScope class represent the terms for the scope property of Assets.@en"})
 
 (def ConflictTerm
+  "Conflict Strategy Preference"
   {:db/ident :odrl/ConflictTerm,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -182,6 +194,7 @@
     "Instances of ConflictTerm describe strategies for resolving conflicts.@en"})
 
 (def Constraint
+  "Constraint"
   {:db/ident :odrl/Constraint,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -192,6 +205,7 @@
     "A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.@en"})
 
 (def Duty
+  "Duty"
   {:db/ident         :odrl/Duty,
    :owl/disjointWith [:odrl/Permission :odrl/Prohibition],
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
@@ -201,6 +215,7 @@
    :skos/definition  #xsd/langString "The obligation to perform an Action@en"})
 
 (def Group
+  "Group"
   {:db/ident :odrl/Group,
    :owl/deprecated true,
    :rdf/type
@@ -213,6 +228,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def Individual
+  "Individual"
   {:db/ident :odrl/Individual,
    :owl/deprecated true,
    :rdf/type
@@ -224,6 +240,7 @@
     "Specifies that the scope of the relationship is the single Party individual.@en"})
 
 (def LeftOperand
+  "Left Operand"
   {:db/ident :odrl/LeftOperand,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -236,6 +253,7 @@
     "Instances of the LeftOperand class are used as the leftOperand of a Constraint.@en"})
 
 (def LogicalConstraint
+  "Logical Constraint"
   {:db/ident :odrl/LogicalConstraint,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -246,6 +264,7 @@
     "A logical expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.@en"})
 
 (def Offer
+  "Offer"
   {:db/ident :odrl/Offer,
    :owl/disjointWith
    [:odrl/Agreement :odrl/Privacy :odrl/Ticket :odrl/Request :odrl/Assertion],
@@ -261,6 +280,7 @@
     "An Offer Policy MUST contain at least one Permission or Prohibition rule and a Party with Assigner function (in the same Permission or Prohibition). The Offer Policy MAY contain a Party with Assignee function, but MUST not grant any privileges to that Party.@en"})
 
 (def Operator
+  "Operator"
   {:db/ident :odrl/Operator,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -272,6 +292,7 @@
     "Instances of the Operator class representing relational operators.@en"})
 
 (def Party
+  "Party"
   {:db/ident :odrl/Party,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -294,6 +315,7 @@
     "The Party entity could be a person, group of people, organisation, or agent. An agent is a person or thing that takes an active role or produces a specified effect. To describe more details about the Party, it is recommended to use W3C vCard Ontology [[vcard-rdf]] or FOAF Vocabulary [[foaf]].@en"})
 
 (def PartyCollection
+  "Party Collection"
   {:db/ident         :odrl/PartyCollection,
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -313,6 +335,7 @@
                       "A Party that is a group of individual entities@en"})
 
 (def PartyScope
+  "Party Scope"
   {:db/ident :odrl/PartyScope,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
@@ -325,6 +348,7 @@
     "Instances of the PartyScope class represent the terms for the scope property of Parties.@en"})
 
 (def Permission
+  "Permission"
   {:db/ident         :odrl/Permission,
    :owl/disjointWith [:odrl/Duty :odrl/Prohibition],
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
@@ -335,6 +359,7 @@
                       "The ability to perform an Action over an Asset.@en"})
 
 (def Policy
+  "Policy"
   {:db/ident :odrl/Policy,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -345,6 +370,7 @@
    :skos/note #xsd/langString "A Policy may contain multiple Rules.@en"})
 
 (def Privacy
+  "Privacy Policy"
   {:db/ident :odrl/Privacy,
    :owl/disjointWith
    [:odrl/Assertion :odrl/Ticket :odrl/Offer :odrl/Agreement :odrl/Request],
@@ -361,6 +387,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def Prohibition
+  "Prohibition"
   {:db/ident         :odrl/Prohibition,
    :owl/disjointWith [:odrl/Permission :odrl/Duty],
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
@@ -371,6 +398,7 @@
                       "The inability to perform an Action over an Asset.@en"})
 
 (def Request
+  "Request"
   {:db/ident :odrl/Request,
    :owl/disjointWith
    [:odrl/Assertion :odrl/Agreement :odrl/Privacy :odrl/Ticket :odrl/Offer],
@@ -387,6 +415,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def RightOperand
+  "Right Operand"
   {:db/ident :odrl/RightOperand,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -399,6 +428,7 @@
     "Instances of the RightOperand class are used as the rightOperand of a Constraint.@en"})
 
 (def Rule
+  "Rule"
   {:db/ident :odrl/Rule,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -410,6 +440,7 @@
    :skos/note #xsd/langString "Rule is an abstract concept.@en"})
 
 (def Set
+  "Set"
   {:db/ident :odrl/Set,
    :owl/disjointWith [:odrl/Ticket
                       :odrl/Offer
@@ -428,6 +459,7 @@
     "A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is the default Policy subclass. The Set is aimed at scenarios where there is an open criteria for the semantics of the policy expressions and typically refined by other systems/profiles that process the information at a later time. No privileges are granted to any Party (if defined).@en"})
 
 (def Ticket
+  "Ticket"
   {:db/ident :odrl/Ticket,
    :owl/disjointWith
    [:odrl/Agreement :odrl/Privacy :odrl/Request :odrl/Offer :odrl/Assertion],
@@ -444,6 +476,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def UndefinedTerm
+  "Undefined Term"
   {:db/ident :odrl/UndefinedTerm,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
@@ -458,6 +491,7 @@
     "Instances of UndefinedTerm describe strategies for processing unsupported actions.@en"})
 
 (def absolutePosition
+  "Absolute Asset Position"
   {:db/ident :odrl/absolutePosition,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -472,6 +506,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def absoluteSize
+  "Absolute Asset Size"
   {:db/ident :odrl/absoluteSize,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -486,6 +521,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def absoluteSpatialPosition
+  "Absolute Spatial Asset Position"
   {:db/ident :odrl/absoluteSpatialPosition,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -501,6 +537,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def absoluteTemporalPosition
+  "Absolute Temporal Asset Position"
   {:db/ident :odrl/absoluteTemporalPosition,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -516,6 +553,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def acceptTracking
+  "Accept Tracking"
   {:db/ident :odrl/acceptTracking,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -529,6 +567,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def action
+  "Has Action"
   {:db/ident :odrl/action,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Rule :odrl/Policy],
@@ -541,6 +580,7 @@
     "The operation relating to the Asset for which the Rule is being subjected.@en"})
 
 (def actionConcepts
+  "Action"
   {:db/ident       :odrl/actionConcepts,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/implies :odrl/includedIn :odrl/action :odrl/Action],
@@ -548,6 +588,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def actions
+  "Actions for Rules"
   {:db/ident       :odrl/actions,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/transfer :odrl/use],
@@ -555,6 +596,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def actionsCommon
+  "Actions for Rules"
   {:db/ident       :odrl/actionsCommon,
    :rdf/type       :skos/Collection,
    :skos/member    [:cc/DerivativeWorks
@@ -610,9 +652,10 @@
    :skos/scopeNote #xsd/langString "ODRL Common Vocabulary Terms@en"})
 
 (def adHocShare
+  "Ad-hoc sharing"
   {:db/ident :odrl/adHocShare,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Ad-hoc sharing@en",
    :skos/definition
@@ -623,6 +666,7 @@
     "This original term and URI from the OMA specification should be used: http://www.openmobilealliance.com/oma-dd/adhoc-share .@en"})
 
 (def aggregate
+  "Aggregate"
   {:db/ident :odrl/aggregate,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -634,6 +678,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def and
+  "And"
   {:db/ident :odrl/and,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -647,6 +692,7 @@
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances.@en"})
 
 (def andSequence
+  "And Sequence"
   {:db/ident :odrl/andSequence,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -660,9 +706,10 @@
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances. The order of the list MUST be preserved. The andSequence operator is an example where there may be temporal conditional requirements between the operands. This may lead to situations where the outcome is unresolvable, such as deadlock if one of the Constraints is unable to be satisfied. ODRL Processing systems SHOULD plan for these scenarios and implement mechanisms to resolve them.@en"})
 
 (def annotate
+  "Annotate"
   {:db/ident :odrl/annotate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Annotate@en",
    :skos/definition
@@ -671,6 +718,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def anonymize
+  "Anonymize"
   {:db/ident :odrl/anonymize,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -684,6 +732,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def append
+  "Append"
   {:db/ident         :odrl/append,
    :owl/deprecated   true,
    :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -694,6 +743,7 @@
    :skos/exactMatch  :odrl/modify})
 
 (def appendTo
+  "Append To"
   {:db/ident :odrl/appendTo,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -705,9 +755,10 @@
    :skos/exactMatch :odrl/modify})
 
 (def archive
+  "Archive"
   {:db/ident :odrl/archive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Archive@en",
    :skos/definition #xsd/langString
@@ -717,6 +768,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def assetConcepts
+  "Asset"
   {:db/ident       :odrl/assetConcepts,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/AssetCollection :odrl/Asset],
@@ -724,6 +776,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def assetParty
+  "Asset and Party"
   {:db/ident       :odrl/assetParty,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/source :odrl/partOf],
@@ -731,6 +784,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def assetRelations
+  "Asset Relations"
   {:db/ident       :odrl/assetRelations,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/hasPolicy :odrl/target],
@@ -738,6 +792,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def assetRelationsCommon
+  "Asset Relations"
   {:db/ident       :odrl/assetRelationsCommon,
    :rdf/type       :skos/Collection,
    :skos/member    :odrl/output,
@@ -745,6 +800,7 @@
    :skos/scopeNote #xsd/langString "ODRL Common Vocabulary Terms@en"})
 
 (def assignee
+  "Assignee"
   {:db/ident           :odrl/assignee,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain        {:owl/unionOf [:odrl/Rule :odrl/Policy],
@@ -757,6 +813,7 @@
                         "The Party is the recipient of the Rule.@en"})
 
 (def assigneeOf
+  "Assignee Of"
   {:db/ident :odrl/assigneeOf,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Party,
@@ -771,6 +828,7 @@
     "When assigneeOf has been asserted between a metadata expression and an ODRL Policy, the Party being identified MUST be inferred to undertake the assignee functional role of all the Rules of that Policy.@en"})
 
 (def assigner
+  "Assigner"
   {:db/ident           :odrl/assigner,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain        {:owl/unionOf [:odrl/Rule :odrl/Policy],
@@ -783,6 +841,7 @@
                         "The Party is the issuer of the Rule.@en"})
 
 (def assignerOf
+  "Assigner Of"
   {:db/ident :odrl/assignerOf,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Party,
@@ -797,9 +856,10 @@
     "When assignerOf has been asserted between a metadata expression and an ODRL Policy, the Party being identified MUST be inferred to undertake the assigner functional role of all the Rules of that Policy.@en"})
 
 (def attachPolicy
+  "Attach policy"
   {:db/ident         :odrl/attachPolicy,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Attach policy@en",
    :skos/definition  #xsd/langString
@@ -807,9 +867,10 @@
    :skos/exactMatch  :cc/Notice})
 
 (def attachSource
+  "Attach source"
   {:db/ident :odrl/attachSource,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Attach source@en",
    :skos/definition
@@ -818,9 +879,10 @@
    :skos/exactMatch :cc/SourceCode})
 
 (def attribute
+  "Attribute"
   {:db/ident :odrl/attribute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Attribute@en",
    :skos/definition #xsd/langString "To attribute the use of the Asset.@en",
@@ -830,6 +892,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def attributedParty
+  "Attributed Party"
   {:db/ident           :odrl/attributedParty,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -841,6 +904,7 @@
    :skos/scopeNote     #xsd/langString "Non-Normative@en"})
 
 (def attributingParty
+  "Attributing Party"
   {:db/ident           :odrl/attributingParty,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -853,9 +917,10 @@
    :skos/scopeNote     #xsd/langString "Non-Normative@en"})
 
 (def commercialize
+  "Commercialize"
   {:db/ident :odrl/commercialize,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Commercialize@en",
    :skos/definition #xsd/langString
@@ -863,9 +928,10 @@
    :skos/exactMatch :cc/CommercialUse})
 
 (def compensate
+  "Compensate"
   {:db/ident :odrl/compensate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Compensate@en",
    :skos/definition
@@ -877,6 +943,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def compensatedParty
+  "Compensated Party"
   {:db/ident :odrl/compensatedParty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -889,6 +956,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def compensatingParty
+  "Compensating Party"
   {:db/ident :odrl/compensatingParty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -901,6 +969,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def concurrentUse
+  "Concurrent Use"
   {:db/ident :odrl/concurrentUse,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -912,6 +981,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def conflict
+  "Handle Policy Conflicts"
   {:db/ident :odrl/conflict,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Policy,
@@ -924,6 +994,7 @@
                "If no strategy is specified, the default is invalid.@en"})
 
 (def conflictConcepts
+  "Policy Conflict Strategy"
   {:db/ident :odrl/conflictConcepts,
    :rdf/type :skos/Collection,
    :skos/member
@@ -932,6 +1003,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def consentedParty
+  "Consented Party"
   {:db/ident :odrl/consentedParty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -943,6 +1015,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def consentingParty
+  "Consenting Party"
   {:db/ident :odrl/consentingParty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -954,6 +1027,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def consequence
+  "Consequence"
   {:db/ident :odrl/consequence,
    :rdf/type [:skos/Concept :rdf/Property :owl/ObjectProperty],
    :rdfs/domain :odrl/Duty,
@@ -969,6 +1043,7 @@
     "The consequence property is utilised to express the repercussions of not fulfilling an agreed Policy obligation or duty for a Permission. If either of these fails to be fulfilled, then this will result in the consequence Duty also becoming a new requirement, meaning that the original obligation or duty, as well as the consequence Duty must all be fulfilled@en"})
 
 (def constraint
+  "Has Constraint"
   {:db/ident :odrl/constraint,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Policy :odrl/Rule],
@@ -983,6 +1058,7 @@
     "Constraints on Rules are used to determine if a rule is Active or not. Example: the Permission rule is only active during the year 2018.@en"})
 
 (def constraintLeftOperandCommon
+  "Constraint Left Operands"
   {:db/ident       :odrl/constraintLeftOperandCommon,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/resolution
@@ -1021,6 +1097,7 @@
    :skos/scopeNote #xsd/langString "ODRL Common Vocabulary Terms@en"})
 
 (def constraintLogicalOperands
+  "Logical Constraint Operands"
   {:db/ident       :odrl/constraintLogicalOperands,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/andSequence :odrl/and :odrl/xone :odrl/or],
@@ -1028,6 +1105,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def constraintRelationalOperators
+  "Constraint Operators"
   {:db/ident       :odrl/constraintRelationalOperators,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/gteq
@@ -1046,6 +1124,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def constraintRightOpCommon
+  "Constraint Right Operands"
   {:db/ident       :odrl/constraintRightOpCommon,
    :rdf/type       :skos/Collection,
    :skos/member    :odrl/policyUsage,
@@ -1053,6 +1132,7 @@
    :skos/scopeNote #xsd/langString "ODRL Common Vocabulary Terms@en"})
 
 (def constraints
+  "Constraint"
   {:db/ident       :odrl/constraints,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/constraint
@@ -1072,6 +1152,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def contractedParty
+  "Contracted Party"
   {:db/ident           :odrl/contractedParty,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1081,6 +1162,7 @@
    :skos/scopeNote     #xsd/langString "Non-Normative@en"})
 
 (def contractingParty
+  "Contracting Party"
   {:db/ident           :odrl/contractingParty,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1091,6 +1173,7 @@
    :skos/scopeNote     #xsd/langString "Non-Normative@en"})
 
 (def copy
+  "Copy"
   {:db/ident :odrl/copy,
    :owl/deprecated true,
    :owl/sameAs :odrl/reproduce,
@@ -1102,6 +1185,7 @@
    :skos/exactMatch :odrl/reproduce})
 
 (def core
+  "ODRL Core Profile"
   {:db/ident         :odrl/core,
    :rdf/type         [:skos/Concept :owl/Thing],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1109,6 +1193,7 @@
    :skos/definition  #xsd/langString "Identifier for the ODRL Core Profile@en"})
 
 (def count
+  "Count"
   {:db/ident :odrl/count,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1119,6 +1204,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def dataType
+  "Datatype"
   {:db/ident :odrl/dataType,
    :rdf/type [:skos/Concept :rdf/Property],
    :rdfs/domain :odrl/Constraint,
@@ -1133,6 +1219,7 @@
     "In RDF encodings, use of the rdf:datatype MUST be used. In JSON-LD encoding, the use of @type MUST be used.@en"})
 
 (def dateTime
+  "Datetime"
   {:db/ident :odrl/dateTime,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1147,6 +1234,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def delayPeriod
+  "Delay Period"
   {:db/ident :odrl/delayPeriod,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1161,9 +1249,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def delete
+  "Delete"
   {:db/ident :odrl/delete,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Delete@en",
    :skos/definition
@@ -1175,6 +1264,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def deliveryChannel
+  "Delivery Channel"
   {:db/ident :odrl/deliveryChannel,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1189,6 +1279,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def deprecatedTerms
+  "Deprecated Terms"
   {:db/ident       :odrl/deprecatedTerms,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/shareAlike
@@ -1235,9 +1326,10 @@
    :skos/prefLabel #xsd/langString "Deprecated Terms@en"})
 
 (def derive
+  "Derive"
   {:db/ident :odrl/derive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Derive@en",
    :skos/definition
@@ -1249,6 +1341,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def device
+  "Device"
   {:db/ident :odrl/device,
    :owl/deprecated true,
    :rdf/type
@@ -1262,6 +1355,7 @@
    :skos/note #xsd/string "See System Device."})
 
 (def digitize
+  "Digitize"
   {:db/ident :odrl/digitize,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1273,6 +1367,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def display
+  "Display"
   {:db/ident :odrl/display,
    :odrl/includedIn :odrl/play,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1286,6 +1381,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def distribute
+  "Distribute"
   {:db/ident :odrl/distribute,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1298,6 +1394,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def duties
+  "Duty"
   {:db/ident :odrl/duties,
    :rdf/type :skos/Collection,
    :skos/member
@@ -1306,6 +1403,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def duty
+  "Has Duty"
   {:db/ident :odrl/duty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Permission,
@@ -1319,6 +1417,7 @@
     "A Duty is a pre-condition which must be fulfilled in order to receive the Permission.@en"})
 
 (def elapsedTime
+  "Elapsed Time"
   {:db/ident :odrl/elapsedTime,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1333,6 +1432,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def ensureExclusivity
+  "Ensure Exclusivity"
   {:db/ident :odrl/ensureExclusivity,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1346,6 +1446,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def eq
+  "Equal to"
   {:db/ident :odrl/eq,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1355,6 +1456,7 @@
     "Indicating that a given value equals the right operand of the Constraint.@en"})
 
 (def event
+  "Event"
   {:db/ident :odrl/event,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1369,9 +1471,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def execute
+  "Execute"
   {:db/ident :odrl/execute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Execute@en",
    :skos/definition #xsd/langString "To run the computer program Asset.@en",
@@ -1381,9 +1484,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def export
+  "Export"
   {:db/ident         :odrl/export,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Export@en",
    :skos/definition  #xsd/langString
@@ -1391,6 +1495,7 @@
    :skos/exactMatch  :odrl/transform})
 
 (def extract
+  "Extract"
   {:db/ident :odrl/extract,
    :odrl/includedIn :odrl/reproduce,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1405,6 +1510,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def extractChar
+  "Extract character"
   {:db/ident :odrl/extractChar,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1418,9 +1524,10 @@
     "This original term and URI from the ONIX specification should be used: http://www.editeur.org/onix-pl/extract-char .@en"})
 
 (def extractPage
+  "Extract page"
   {:db/ident :odrl/extractPage,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Extract page@en",
    :skos/definition
@@ -1431,9 +1538,10 @@
     "This original term and URI from the ONIX specification should be used: http://www.editeur.org/onix-pl/extract-page .@en"})
 
 (def extractWord
+  "Extract word"
   {:db/ident :odrl/extractWord,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Extract word@en",
    :skos/definition
@@ -1444,6 +1552,7 @@
     "This original term and URI from the ONIX specification should be used: http://www.editeur.org/onix-pl/extract-word .@en"})
 
 (def failure
+  "Failure"
   {:db/ident :odrl/failure,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Rule,
@@ -1458,6 +1567,7 @@
     "The parent property to sub-properties that express explicit failure contexts.@en"})
 
 (def fileFormat
+  "File Format"
   {:db/ident :odrl/fileFormat,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1470,6 +1580,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def function
+  "Function"
   {:db/ident :odrl/function,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Rule :odrl/Policy],
@@ -1482,9 +1593,10 @@
     "Function is an abstract property whose sub-properties define the functional roles which may be fulfilled by a party in relation to a Rule.@en"})
 
 (def give
+  "Give"
   {:db/ident :odrl/give,
    :odrl/includedIn :odrl/transfer,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Give@en",
    :skos/definition
@@ -1493,9 +1605,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def grantUse
+  "Grant Use"
   {:db/ident :odrl/grantUse,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Grant Use@en",
    :skos/definition #xsd/langString
@@ -1506,6 +1619,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def gt
+  "Greater than"
   {:db/ident :odrl/gt,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1515,6 +1629,7 @@
     "Indicating that a given value is greater than the right operand of the Constraint.@en"})
 
 (def gteq
+  "Greater than or equal to"
   {:db/ident :odrl/gteq,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1524,6 +1639,7 @@
     "Indicating that a given value is greater than or equal to the right operand of the Constraint.@en"})
 
 (def hasPart
+  "Has part"
   {:db/ident :odrl/hasPart,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1533,6 +1649,7 @@
     "A set-based operator indicating that a given value contains the right operand of the Constraint.@en"})
 
 (def hasPolicy
+  "Target Policy"
   {:db/ident :odrl/hasPolicy,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Asset,
@@ -1547,6 +1664,7 @@
     "The Asset being identified MUST be inferred to be the target Asset of all of the Rules of the Policy.@en"})
 
 (def ignore
+  "Ignore Undefined Actions"
   {:db/ident :odrl/ignore,
    :owl/deprecated true,
    :rdf/type
@@ -1560,6 +1678,7 @@
                "Used to support actions not known to the policy system.@en"})
 
 (def implies
+  "Implies"
   {:db/ident :odrl/implies,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Action,
@@ -1574,6 +1693,7 @@
     "The property asserts that an instance of Action entails that the other instance of Action is not prohibited.@en"})
 
 (def include
+  "Include"
   {:db/ident :odrl/include,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1587,6 +1707,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def includedIn
+  "Included In"
   {:db/ident :odrl/includedIn,
    :rdf/type
    [:owl/ObjectProperty :owl/TransitiveProperty :rdf/Property :skos/Concept],
@@ -1602,9 +1723,10 @@
     "The purpose is to explicitly assert that the semantics of the referenced instance of an other Action encompasses (includes) the semantics of this instance of Action. The includedIn property is transitive, and as such, the Actions form ancestor relationships.@en"})
 
 (def index
+  "Index"
   {:db/ident :odrl/index,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Index@en",
    :skos/definition #xsd/langString "To record the Asset in an index.@en",
@@ -1614,6 +1736,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def industry
+  "Industry Context"
   {:db/ident :odrl/industry,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1626,9 +1749,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def inform
+  "Inform"
   {:db/ident :odrl/inform,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Inform@en",
    :skos/definition
@@ -1639,6 +1763,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def informedParty
+  "Informed Party"
   {:db/ident           :odrl/informedParty,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1651,6 +1776,7 @@
    :skos/scopeNote     #xsd/langString "Non-Normative@en"})
 
 (def informingParty
+  "Informing Party"
   {:db/ident           :odrl/informingParty,
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1663,6 +1789,7 @@
    :skos/scopeNote     #xsd/langString "Non-Normative@en"})
 
 (def inheritAllowed
+  "Inheritance Allowed"
   {:db/ident         :odrl/inheritAllowed,
    :owl/deprecated   true,
    :rdf/type         [:skos/Concept :owl/DatatypeProperty :rdf/Property],
@@ -1673,6 +1800,7 @@
    :skos/note        #xsd/langString "A boolean value.@en"})
 
 (def inheritFrom
+  "Inherits From"
   {:db/ident :odrl/inheritFrom,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Policy,
@@ -1686,6 +1814,7 @@
                "The child policy will inherit Rules from the parent policy@en"})
 
 (def inheritRelation
+  "Inherit Relation"
   {:db/ident :odrl/inheritRelation,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
@@ -1697,6 +1826,7 @@
     "For example, this may indicate the business scenario, such as subscription, or prior arrangements between the parties (that are not machine representable).@en"})
 
 (def install
+  "Install"
   {:db/ident :odrl/install,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1708,6 +1838,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def invalid
+  "Void Policy"
   {:db/ident :odrl/invalid,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/ConflictTerm :rdfs/Resource],
@@ -1719,6 +1850,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def isA
+  "Is a"
   {:db/ident :odrl/isA,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1728,6 +1860,7 @@
     "A set-based operator indicating that a given value is an instance of the right operand of the Constraint.@en"})
 
 (def isAllOf
+  "Is all of"
   {:db/ident :odrl/isAllOf,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1737,6 +1870,7 @@
     "A set-based operator indicating that a given value is all of the right operand of the Constraint.@en"})
 
 (def isAnyOf
+  "Is any of"
   {:db/ident :odrl/isAnyOf,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1746,6 +1880,7 @@
     "A set-based operator indicating that a given value is any of the right operand of the Constraint.@en"})
 
 (def isNoneOf
+  "Is none of"
   {:db/ident :odrl/isNoneOf,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1755,6 +1890,7 @@
     "A set-based operator indicating that a given value is none of the right operand of the Constraint.@en"})
 
 (def isPartOf
+  "Is part of"
   {:db/ident :odrl/isPartOf,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1764,6 +1900,7 @@
     "A set-based operator indicating that a given value is contained by the right operand of the Constraint.@en"})
 
 (def language
+  "Language"
   {:db/ident :odrl/language,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1777,9 +1914,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def lease
+  "Lease"
   {:db/ident :odrl/lease,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Lease@en",
    :skos/definition
@@ -1787,6 +1925,7 @@
     "The act of making available the asset to a third-party for a fixed period of time with exchange of value.@en"})
 
 (def leftOperand
+  "Has Left Operand"
   {:db/ident         :odrl/leftOperand,
    :rdf/type         [:skos/Concept :rdf/Property],
    :rdfs/domain      :odrl/Constraint,
@@ -1797,6 +1936,7 @@
                       "The left operand in a constraint expression.@en"})
 
 (def lend
+  "Lend"
   {:db/ident :odrl/lend,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1807,9 +1947,10 @@
     "The act of making available the asset to a third-party for a fixed period of time without exchange of value.@en"})
 
 (def license
+  "License"
   {:db/ident :odrl/license,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "License@en",
    :skos/definition
@@ -1818,6 +1959,7 @@
    :skos/exactMatch :odrl/grantUse})
 
 (def logicalConstraints
+  "Logical Constraint"
   {:db/ident       :odrl/logicalConstraints,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/operand :odrl/LogicalConstraint],
@@ -1825,6 +1967,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def lt
+  "Less than"
   {:db/ident :odrl/lt,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1834,6 +1977,7 @@
     "Indicating that a given value is less than the right operand of the Constraint.@en"})
 
 (def lteq
+  "Less than or equal to"
   {:db/ident :odrl/lteq,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1843,6 +1987,7 @@
     "Indicating that a given value is less than or equal to the right operand of the Constraint.@en"})
 
 (def media
+  "Media Context"
   {:db/ident :odrl/media,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1857,6 +2002,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def meteredTime
+  "Metered Time"
   {:db/ident :odrl/meteredTime,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -1871,6 +2017,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def modify
+  "Modify"
   {:db/ident :odrl/modify,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1885,9 +2032,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def move
+  "Move"
   {:db/ident :odrl/move,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Move@en",
    :skos/definition
@@ -1899,6 +2047,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def neq
+  "Not equal to"
   {:db/ident :odrl/neq,
    :rdf/type [:skos/Concept :owl/NamedIndividual :odrl/Operator :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1908,6 +2057,7 @@
     "Indicating that a given value is not equal to the right operand of the Constraint.@en"})
 
 (def nextPolicy
+  "Next Policy"
   {:db/ident :odrl/nextPolicy,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -1920,6 +2070,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def obligation
+  "Obligation"
   {:db/ident         :odrl/obligation,
    :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain      :odrl/Policy,
@@ -1932,9 +2083,10 @@
                       "The Duty is a requirement which must be fulfilled.@en"})
 
 (def obtainConsent
+  "Obtain Consent"
   {:db/ident :odrl/obtainConsent,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Obtain Consent@en",
    :skos/definition
@@ -1946,6 +2098,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def operand
+  "Operand"
   {:db/ident :odrl/operand,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/LogicalConstraint,
@@ -1959,6 +2112,7 @@
     "Sub-properties of operand are used for Logical Constraints.@en"})
 
 (def operator
+  "Has Operator"
   {:db/ident :odrl/operator,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain :odrl/Constraint,
@@ -1970,6 +2124,7 @@
     "The operator function applied to operands of a Constraint@en"})
 
 (def or
+  "Or"
   {:db/ident :odrl/or,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -1983,6 +2138,7 @@
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances.@en"})
 
 (def output
+  "Output"
   {:db/ident :odrl/output,
    :rdf/type [:rdf/Property :skos/Concept :owl/ObjectProperty],
    :rdfs/domain :odrl/Rule,
@@ -1996,6 +2152,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def partOf
+  "Part Of"
   {:db/ident :odrl/partOf,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Asset :odrl/Party],
@@ -2009,6 +2166,7 @@
     "Identifies an Asset/PartyCollection that the Asset/Party is a member of.@en"})
 
 (def partyConcepts
+  "Party"
   {:db/ident       :odrl/partyConcepts,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/PartyCollection :odrl/Party],
@@ -2016,6 +2174,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def partyRoles
+  "Party Functions"
   {:db/ident       :odrl/partyRoles,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/assignerOf
@@ -2026,6 +2185,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def partyRolesCommon
+  "Party Functions"
   {:db/ident       :odrl/partyRolesCommon,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/consentingParty
@@ -2044,9 +2204,10 @@
    :skos/scopeNote #xsd/langString "ODRL Common Vocabulary Terms@en"})
 
 (def pay
+  "Pay"
   {:db/ident :odrl/pay,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Pay@en",
    :skos/definition
@@ -2055,6 +2216,7 @@
    :skos/exactMatch :odrl/compensate})
 
 (def payAmount
+  "Payment Amount"
   {:db/ident :odrl/payAmount,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2069,6 +2231,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def payeeParty
+  "Payee Party"
   {:db/ident         :odrl/payeeParty,
    :owl/deprecated   true,
    :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
@@ -2080,6 +2243,7 @@
    :skos/scopeNote   #xsd/langString "Non-Normative@en"})
 
 (def percentage
+  "Asset Percentage"
   {:db/ident :odrl/percentage,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2092,6 +2256,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def perm
+  "Prefer Permissions"
   {:db/ident         :odrl/perm,
    :rdf/type         [:skos/Concept
                       :owl/NamedIndividual
@@ -2105,6 +2270,7 @@
                       "Used to determine policy conflict outcomes.@en"})
 
 (def permission
+  "Has Permission"
   {:db/ident         :odrl/permission,
    :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain      :odrl/Policy,
@@ -2115,6 +2281,7 @@
                       "Relates an individual Permission to a Policy.@en"})
 
 (def permissions
+  "Permission"
   {:db/ident       :odrl/permissions,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/permission :odrl/Permission],
@@ -2122,9 +2289,10 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def play
+  "Play"
   {:db/ident :odrl/play,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Play@en",
    :skos/definition
@@ -2136,6 +2304,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def policyConcepts
+  "Policy"
   {:db/ident       :odrl/policyConcepts,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/inheritFrom :odrl/profile :odrl/uid :odrl/Policy],
@@ -2143,6 +2312,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def policySubClasses
+  "Policy Subclasses"
   {:db/ident       :odrl/policySubClasses,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/Set :odrl/Offer :odrl/Agreement],
@@ -2150,6 +2320,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def policySubClassesCommon
+  "Policy Subclasses"
   {:db/ident       :odrl/policySubClassesCommon,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/Ticket :odrl/Request :odrl/Privacy :odrl/Assertion],
@@ -2157,6 +2328,7 @@
    :skos/scopeNote #xsd/langString "ODRL Common Vocabulary Terms@en"})
 
 (def policyUsage
+  "Policy Rule Usage"
   {:db/ident :odrl/policyUsage,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/RightOperand :rdfs/Resource],
@@ -2171,9 +2343,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def present
+  "Present"
   {:db/ident         :odrl/present,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Present@en",
    :skos/definition  #xsd/langString "To publicly perform the Asset.@en",
@@ -2182,9 +2355,10 @@
    :skos/scopeNote   #xsd/langString "Non-Normative@en"})
 
 (def preview
+  "Preview"
   {:db/ident         :odrl/preview,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Preview@en",
    :skos/definition  #xsd/langString
@@ -2193,9 +2367,10 @@
                       "Use a time constraint with the appropriate action.@en"})
 
 (def print
+  "Print"
   {:db/ident :odrl/print,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Print@en",
    :skos/definition
@@ -2207,6 +2382,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def product
+  "Product Context"
   {:db/ident :odrl/product,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2220,6 +2396,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def profile
+  "Profile"
   {:db/ident :odrl/profile,
    :rdf/type [:skos/Concept :rdf/Property],
    :rdfs/domain :odrl/Policy,
@@ -2233,6 +2410,7 @@
     "The profile property is mandatory if the Policy is using an ODRL Profile.@en"})
 
 (def prohibit
+  "Prefer Prohibitions"
   {:db/ident         :odrl/prohibit,
    :rdf/type         [:skos/Concept
                       :owl/NamedIndividual
@@ -2246,6 +2424,7 @@
                       "Used to determine policy conflict outcomes.@en"})
 
 (def prohibition
+  "Has Prohibition"
   {:db/ident         :odrl/prohibition,
    :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain      :odrl/Policy,
@@ -2256,6 +2435,7 @@
                       "Relates an individual Prohibition to a Policy.@en"})
 
 (def prohibitions
+  "Prohibition"
   {:db/ident       :odrl/prohibitions,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/prohibition :odrl/Prohibition],
@@ -2263,6 +2443,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def proximity
+  "proximity"
   {:db/ident :odrl/proximity,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/DatatypeProperty :rdf/Property],
@@ -2275,6 +2456,7 @@
     "This original term and URI from the OMA specification should be used: http://www.openmobilealliance.com/oma-dd/proximity .@en"})
 
 (def purpose
+  "Purpose"
   {:db/ident :odrl/purpose,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2287,6 +2469,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def read
+  "Read"
   {:db/ident :odrl/read,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2299,6 +2482,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def recipient
+  "Recipient"
   {:db/ident :odrl/recipient,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2313,6 +2497,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def refinement
+  "Refinement"
   {:db/ident :odrl/refinement,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain
@@ -2330,6 +2515,7 @@
     "Example: the Action print is only permitted on 50% of the asset.@en"})
 
 (def relation
+  "Relation"
   {:db/ident :odrl/relation,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Rule :odrl/Policy],
@@ -2345,6 +2531,7 @@
     "Sub-properties of relation are used to define the nature of that link.@en"})
 
 (def relativePosition
+  "Relative Asset Position"
   {:db/ident :odrl/relativePosition,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2359,6 +2546,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def relativeSize
+  "Relative Asset Size"
   {:db/ident :odrl/relativeSize,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2373,6 +2561,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def relativeSpatialPosition
+  "Relative Spatial Asset Position"
   {:db/ident :odrl/relativeSpatialPosition,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2386,6 +2575,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def relativeTemporalPosition
+  "Relative Temporal Asset Position"
   {:db/ident :odrl/relativeTemporalPosition,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2401,6 +2591,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def remedy
+  "Remedy"
   {:db/ident :odrl/remedy,
    :rdf/type [:rdf/Property :owl/ObjectProperty :skos/Concept],
    :rdfs/domain :odrl/Prohibition,
@@ -2415,6 +2606,7 @@
     "The remedy property expresses an agreed Duty that must be fulfilled in case that a Prohibition has been violated by being exercised.@en"})
 
 (def reproduce
+  "Reproduce"
   {:db/ident :odrl/reproduce,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2426,6 +2618,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def resolution
+  "Rendition Resolution"
   {:db/ident         :odrl/resolution,
    :rdf/type         [:skos/Concept
                       :owl/NamedIndividual
@@ -2440,9 +2633,10 @@
    :skos/scopeNote   #xsd/langString "Non-Normative@en"})
 
 (def reviewPolicy
+  "Review Policy"
   {:db/ident :odrl/reviewPolicy,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Review Policy@en",
    :skos/definition #xsd/langString
@@ -2453,6 +2647,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def rightOperand
+  "Has Right Operand"
   {:db/ident :odrl/rightOperand,
    :rdf/type [:skos/Concept :owl/DatatypeProperty :rdf/Property],
    :rdfs/domain :odrl/Constraint,
@@ -2468,6 +2663,7 @@
     "When used with set-based operators, a list of values may be used.@en"})
 
 (def rightOperandReference
+  "Has Right Operand Reference"
   {:db/ident :odrl/rightOperandReference,
    :rdf/type [:skos/Concept :rdf/Property],
    :rdfs/domain :odrl/Constraint,
@@ -2481,6 +2677,7 @@
     "An IRI that MUST be dereferenced to obtain the actual right operand value. When used with set-based operators, a list of IRIs may be used@en"})
 
 (def ruleConcepts
+  "Rule"
   {:db/ident       :odrl/ruleConcepts,
    :rdf/type       :skos/Collection,
    :skos/member    [:odrl/failure :odrl/function :odrl/relation :odrl/Rule],
@@ -2488,6 +2685,7 @@
    :skos/scopeNote #xsd/langString "ODRL Core Vocabulary Terms@en"})
 
 (def scope
+  "Scope"
   {:db/ident :odrl/scope,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
@@ -2500,6 +2698,7 @@
                "Used to define scopes for Assets and Parties.@en"})
 
 (def secondaryUse
+  "Secondary Use"
   {:db/ident :odrl/secondaryUse,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2510,6 +2709,7 @@
     "The act of using the asset for a purpose other than the purpose it was intended for.@en"})
 
 (def sell
+  "Sell"
   {:db/ident :odrl/sell,
    :odrl/includedIn :odrl/transfer,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2521,9 +2721,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def share
+  "Share"
   {:db/ident :odrl/share,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Share@en",
    :skos/definition
@@ -2532,9 +2733,10 @@
    :skos/exactMatch :cc/Sharing})
 
 (def shareAlike
+  "Share-alike"
   {:db/ident :odrl/shareAlike,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Share-alike@en",
    :skos/definition
@@ -2543,6 +2745,7 @@
    :skos/exactMatch :cc/ShareAlike})
 
 (def source
+  "Source"
   {:db/ident :odrl/source,
    :rdf/type [:skos/Concept :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/AssetCollection :odrl/PartyCollection],
@@ -2555,6 +2758,7 @@
     "Used by AssetCollection and PartyCollection when constraints are applied.@en"})
 
 (def spatial
+  "Geospatial Named Area"
   {:db/ident :odrl/spatial,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2569,6 +2773,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def spatialCoordinates
+  "Geospatial Coordinates"
   {:db/ident :odrl/spatialCoordinates,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2584,6 +2789,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def status
+  "Status"
   {:db/ident :odrl/status,
    :rdf/type [:skos/Concept :rdf/Property],
    :rdfs/domain :odrl/Constraint,
@@ -2594,6 +2800,7 @@
     "the value generated from the leftOperand action or a value related to the leftOperand set as the reference for the comparison.@en"})
 
 (def stream
+  "Stream"
   {:db/ident :odrl/stream,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2606,6 +2813,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def support
+  "Support Undefined Actions"
   {:db/ident :odrl/support,
    :owl/deprecated true,
    :rdf/type
@@ -2619,6 +2827,7 @@
                "Used to support actions not known to the policy system.@en"})
 
 (def synchronize
+  "Synchronize"
   {:db/ident :odrl/synchronize,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2630,6 +2839,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def system
+  "System"
   {:db/ident :odrl/system,
    :owl/deprecated true,
    :rdf/type
@@ -2643,6 +2853,7 @@
    :skos/note #xsd/string "See System Device"})
 
 (def systemDevice
+  "System Device"
   {:db/ident :odrl/systemDevice,
    :rdf/type
    [:skos/Concept :odrl/LeftOperand :owl/NamedIndividual :rdfs/Resource],
@@ -2658,6 +2869,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def target
+  "Target"
   {:db/ident :odrl/target,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Rule :odrl/Policy],
@@ -2671,9 +2883,10 @@
     "The target property indicates the Asset that is the primary subject to which the Rule action directly applies.@en"})
 
 (def textToSpeech
+  "Text-to-speech"
   {:db/ident :odrl/textToSpeech,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Text-to-speech@en",
    :skos/definition #xsd/langString "To have a text Asset read out loud.@en",
@@ -2683,6 +2896,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def timeInterval
+  "Recurring Time Interval"
   {:db/ident :odrl/timeInterval,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2697,6 +2911,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def timedCount
+  "Timed Count"
   {:db/ident :odrl/timedCount,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/DatatypeProperty :rdf/Property],
@@ -2711,6 +2926,7 @@
     "This original term and URI from the OMA specification should be used: http://www.openmobilealliance.com/oma-dd/timed-count .@en"})
 
 (def trackedParty
+  "Tracked Party"
   {:db/ident :odrl/trackedParty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -2723,6 +2939,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def trackingParty
+  "Tracking Party"
   {:db/ident :odrl/trackingParty,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -2734,6 +2951,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def transfer
+  "Transfer Ownership"
   {:db/ident :odrl/transfer,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -2742,9 +2960,10 @@
    #xsd/langString "To transfer the ownership of the Asset in perpetuity.@en"})
 
 (def transform
+  "Transform"
   {:db/ident :odrl/transform,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Transform@en",
    :skos/definition #xsd/langString
@@ -2755,9 +2974,10 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def translate
+  "Translate"
   {:db/ident :odrl/translate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Translate@en",
    :skos/definition
@@ -2768,6 +2988,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def uid
+  "Unique Identifier"
   {:db/ident :odrl/uid,
    :rdf/type [:skos/Concept :rdf/Property],
    :rdfs/domain {:owl/unionOf [:odrl/Policy
@@ -2785,6 +3006,7 @@
     "Used by the Policy, Rule, Asset, Party, Constraint, and Logical Constraint Classes.@en"})
 
 (def undefined
+  "Handle Undefined Term"
   {:db/ident :odrl/undefined,
    :owl/deprecated true,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
@@ -2798,6 +3020,7 @@
                "If no strategy is specified, the default is invalid.@en"})
 
 (def uninstall
+  "Uninstall"
   {:db/ident :odrl/uninstall,
    :odrl/includedIn :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
@@ -2812,6 +3035,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def unit
+  "Unit"
   {:db/ident :odrl/unit,
    :rdf/type :rdf/Property,
    :rdfs/domain :odrl/Constraint,
@@ -2822,6 +3046,7 @@
     "The unit of measurement of the value of the rightOperand or rightOperandReference of a Constraint.@en"})
 
 (def unitOfCount
+  "Unit Of Count"
   {:db/ident :odrl/unitOfCount,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2836,6 +3061,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def use
+  "Use"
   {:db/ident :odrl/use,
    :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
@@ -2846,6 +3072,7 @@
     "Use is the most generic action for all non-third-party usage. More specific types of the use action can be expressed by more targetted actions.@en"})
 
 (def version
+  "Version"
   {:db/ident :odrl/version,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2858,6 +3085,7 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def virtualLocation
+  "Virtual IT Communication Location"
   {:db/ident :odrl/virtualLocation,
    :rdf/type
    [:skos/Concept :owl/NamedIndividual :odrl/LeftOperand :rdfs/Resource],
@@ -2871,33 +3099,37 @@
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def watermark
+  "Watermark"
   {:db/ident         :odrl/watermark,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Watermark@en",
    :skos/definition  #xsd/langString "To apply a watermark to the Asset.@en",
    :skos/scopeNote   #xsd/langString "Non-Normative@en"})
 
 (def write
+  "Write"
   {:db/ident         :odrl/write,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Write@en",
    :skos/definition  #xsd/langString "The act of writing to the Asset.@en",
    :skos/exactMatch  :odrl/modify})
 
 (def writeTo
+  "Write to"
   {:db/ident         :odrl/writeTo,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Write to@en",
    :skos/definition  #xsd/langString "The act of adding data to the Asset.@en",
    :skos/exactMatch  :odrl/modify})
 
 (def xone
+  "Only One"
   {:db/ident :odrl/xone,
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},

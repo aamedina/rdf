@@ -3,9 +3,9 @@
   {:dc11/title #xsd/string "Web Annotation Ontology",
    :dcterms/creator [{:foaf/name #xsd/string "Robert Sanderson",
                       :rdf/type  :foaf/Person}
-                     {:foaf/name #xsd/string "Benjamin Young",
-                      :rdf/type  :foaf/Person}
                      {:foaf/name #xsd/string "Paolo Ciccarese",
+                      :rdf/type  :foaf/Person}
+                     {:foaf/name #xsd/string "Benjamin Young",
                       :rdf/type  :foaf/Person}],
    :dcterms/modified #xsd/string "2016-11-12T21:28:11Z",
    :owl/versionInfo #xsd/string "2016-11-12T21:28:11Z",
@@ -309,7 +309,7 @@
 (def assessing
   "The motivation for when the user intends to provide an assessment about the Target resource."
   {:db/ident :oa/assessing,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to provide an assessment about the Target resource.",
@@ -331,7 +331,7 @@
 (def bookmarking
   "The motivation for when the user intends to create a bookmark to the Target or part thereof."
   {:db/ident :oa/bookmarking,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to create a bookmark to the Target or part thereof.",
@@ -382,7 +382,7 @@
 (def describing
   "The motivation for when the user intends to describe the Target, as opposed to a comment about them."
   {:db/ident :oa/describing,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to describe the Target, as opposed to a comment about them.",
@@ -535,7 +535,7 @@
 (def identifying
   "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target."
   {:db/ident :oa/identifying,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.",
@@ -545,7 +545,7 @@
 (def linking
   "The motivation for when the user intends to link to a resource related to the Target."
   {:db/ident :oa/linking,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to link to a resource related to the Target.",
@@ -608,7 +608,7 @@
 (def questioning
   "The motivation for when the user intends to ask a question about the Target."
   {:db/ident :oa/questioning,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to ask a question about the Target.",
@@ -639,7 +639,7 @@
 (def replying
   "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource."
   {:db/ident :oa/replying,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    #xsd/string
     "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource.",

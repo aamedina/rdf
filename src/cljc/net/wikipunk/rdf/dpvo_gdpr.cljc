@@ -285,8 +285,8 @@
    :rdfs/label #xsd/langString "Art 46(2-b) Binding Corporate Rules (BCR)@en",
    :rdfs/subClassOf [:dpvo-gdpr/BindingCorporateRules
                      :dpvo/DataTransferLegalBasis
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo-gdpr/DataTransferTool],
+                     :dpvo-gdpr/DataTransferTool
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def A46-2-c
@@ -310,10 +310,10 @@
                 "Art 46(2-c) Standard Contractual Clauses (SCC) by EC@en",
    :rdfs/subClassOf [:dpvo-gdpr/SCCByCommission
                      :dpvo/DataTransferLegalBasis
+                     :dpvo-gdpr/DataTransferTool
                      :dpvo/Contract
                      :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo-gdpr/DataTransferTool],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def A46-2-d
@@ -337,10 +337,10 @@
                 "Art 46(2-d) Standard Contractual Clauses (SCC) by DPA@en",
    :rdfs/subClassOf [:dpvo-gdpr/SCCBySupervisoryAuthority
                      :dpvo/DataTransferLegalBasis
+                     :dpvo-gdpr/DataTransferTool
                      :dpvo/Contract
                      :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo-gdpr/DataTransferTool],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def A46-2-e

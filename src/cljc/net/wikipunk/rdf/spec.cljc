@@ -1,17 +1,15 @@
 (ns net.wikipunk.rdf.spec
-  {:owl/minCardinality #xsd/integer 0,
-   :owl/onProperty     :spec/class,
-   :rdf/ns-prefix-map  {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
-                        "dc11" "http://purl.org/dc/elements/1.1/",
-                        "owl"  "http://www.w3.org/2002/07/owl#",
-                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                        "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
-                        "xhv"  "http://www.w3.org/1999/xhtml",
-                        "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type           :owl/Restriction,
-   :rdfa/prefix        "spec",
-   :rdfa/uri           "8ee072e3355cfaf56f2515108a0e19af"}
+  {:rdf/ns-prefix-map {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
+                       "dc11" "http://purl.org/dc/elements/1.1/",
+                       "owl"  "http://www.w3.org/2002/07/owl#",
+                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                       "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
+                       "xhv"  "http://www.w3.org/1999/xhtml",
+                       "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type          :rdfa/PrefixMapping,
+   :rdfa/prefix       "spec",
+   :rdfa/uri          "http://www.w3.org/2002/12/cal/icalSpec#"}
   (:refer-clojure :exclude [class comment repeat sequence]))
 
 (def Valarm
@@ -23,28 +21,28 @@
     "Provide a grouping of component properties that define an alarm.",
    :rdfs/label #xsd/string "VALARM",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/duration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/summary,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/trigger,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/repeat,
+                      :owl/onProperty     :spec/attach,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/action,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/attendee,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attach,
+                      :owl/onProperty     :spec/summary,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/repeat,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/duration,
                       :rdf/type           :owl/Restriction}]})
 
 (def Value_CAL-ADDRESS
@@ -80,94 +78,94 @@
     "Provide a grouping of component properties that describe an event.",
    :rdfs/label #xsd/string "VEVENT",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/priority,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/attach,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/sequence,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/uid,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/attendee,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/contact,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/dtstart,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/class,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/location,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/trigger,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/dtstamp,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/resources,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/lastModified,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/exrule,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/status,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/class,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/rdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/priority,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/comment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/trigger,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/organizer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/duration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/contact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/categories,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/resources,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/requestStatus,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/uid,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/summary,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/relatedTo,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/sequence,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/transp,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/created,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/dtstart,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/location,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/dtend,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/dtstamp,
+                      :owl/onProperty     :spec/rrule,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/rrule,
+                      :owl/onProperty     :spec/status,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/relatedTo,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/categories,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/requestStatus,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/created,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/summary,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/geo,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attach,
+                      :owl/onProperty     :spec/rdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/transp,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/duration,
                       :rdf/type           :owl/Restriction}]})
 
 (def Vfreebusy
@@ -179,10 +177,25 @@
     "Provide a grouping of component properties that describe either a request for free/busy time, describe a response to a request for free/busy time or describe a published set of busy time.",
    :rdfs/label #xsd/string "VFREEBUSY",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/attendee,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/requestStatus,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/uid,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/dtend,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/duration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/freebusy,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/organizer,
@@ -191,28 +204,13 @@
                       :owl/onProperty     :spec/dtstart,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/dtstamp,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/requestStatus,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/contact,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/freebusy,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/comment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/duration,
+                      :owl/onProperty     :spec/url,
                       :rdf/type           :owl/Restriction}]})
 
 (def Vjournal
@@ -224,10 +222,40 @@
     "Provide a grouping of component properties that describe a journal entry.",
    :rdfs/label #xsd/string "VJOURNAL",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/requestStatus,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/rdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/attach,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/comment,
+                      :owl/onProperty     :spec/exrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/attendee,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/created,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/lastModified,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/rrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/categories,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/sequence,
@@ -236,55 +264,25 @@
                       :owl/onProperty     :spec/relatedTo,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/status,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/rdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/lastModified,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/contact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/class,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/organizer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/created,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/requestStatus,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/categories,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/exrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/summary,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/rrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/description,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/dtstamp,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/status,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/summary,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/uid,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/class,
                       :rdf/type           :owl/Restriction}]})
 
 (def Vtimezone
@@ -296,34 +294,34 @@
     "Provide a grouping of component properties that defines a time zone.",
    :rdfs/label #xsd/string "VTIMEZONE",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/tzoffsetfrom,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/lastModified,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/comment,
+                      :owl/onProperty     :spec/dtstart,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/tzid,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/dtstart,
+                      :owl/onProperty     :spec/tzoffsetfrom,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/rrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/tzname,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/tzurl,
+                      :owl/onProperty     :spec/tzoffsetto,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/rdate,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/tzoffsetto,
+                      :owl/onProperty     :spec/tzurl,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/tzname,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/rrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/lastModified,
                       :rdf/type           :owl/Restriction}]})
 
 (def Vtodo
@@ -335,88 +333,28 @@
     "Provide a grouping of calendar properties that describe a to-do.",
    :rdfs/label #xsd/string "VTODO",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/location,
+                      :owl/onProperty     :spec/contact,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/dtstamp,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/categories,
+                      :owl/onProperty     :spec/exrule,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/due,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/lastModified,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/uid,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/status,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/resources,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/created,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/organizer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/comment,
+                      :owl/onProperty     :spec/dtstart,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/relatedTo,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/trigger,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/duration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/rrule,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/sequence,
+                      :owl/onProperty     :spec/lastModified,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/geo,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/completed,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/contact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/exrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/priority,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/percentComplete,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/class,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/rdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/attach,
+                      :owl/onProperty     :spec/comment,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
                       :owl/onProperty     :spec/requestStatus,
@@ -425,7 +363,67 @@
                       :owl/onProperty     :spec/summary,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/integer 0,
-                      :owl/onProperty     :spec/dtstart,
+                      :owl/onProperty     :spec/sequence,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/attendee,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/geo,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/due,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/duration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/resources,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/location,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/status,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/categories,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/percentComplete,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/uid,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/completed,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/trigger,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/class,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/rdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/priority,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/created,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/integer 0,
+                      :owl/onProperty     :spec/attach,
                       :rdf/type           :owl/Restriction}]})
 
 (def X-

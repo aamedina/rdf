@@ -1,24 +1,16 @@
 (ns net.wikipunk.rdf.ldp
   "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace."
-  {:dcterms/created #xsd/date #inst "2015-02-26T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name #xsd/string "Ashok Malhotra"}
-                     {:foaf/name #xsd/string "Steve Speicher"}
-                     {:foaf/name #xsd/string "John Arwe"}],
+  {:dcat/downloadURL "resources/ldp.rdf",
    :dcterms/description
    #xsd/string
     "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.",
-   :dcterms/publisher {:rdfa/uri "http://www.w3.org/data#W3C"},
    :dcterms/title #xsd/string "The W3C Linked Data Platform (LDP) Vocabulary",
-   :foaf/maker {:foaf/homepage {:rdfa/uri "http://www.w3.org/2012/ldp"}},
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "foaf" "http://xmlns.com/foaf/0.1/",
                        "ldp" "http://www.w3.org/ns/ldp#",
                        "owl" "http://www.w3.org/2002/07/owl#",
                        "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "vann" "http://purl.org/vocab/vann/",
-                       "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                       "xsd" "http://www.w3.org/2001/XMLSchema#"},
+                       "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "ldp",
    :rdfa/uri "http://www.w3.org/ns/ldp#",
@@ -31,9 +23,7 @@
                   {:rdfa/uri "http://www.w3.org/TR/ldp-ucr/"}
                   {:rdfa/uri "http://www.w3.org/2012/ldp"}
                   {:rdfa/uri "http://www.w3.org/2011/09/LinkedData/"}
-                  {:rdfa/uri "http://www.w3.org/TR/ldp-paging/"}],
-   :vann/preferredNamespacePrefix #xsd/string "ldp",
-   :vann/preferredNamespaceUri #xsd/string "http://www.w3.org/ns/ldp#"})
+                  {:rdfa/uri "http://www.w3.org/TR/ldp-paging/"}]})
 
 (def Ascending
   "Ascending order."
@@ -54,7 +44,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label #xsd/string "BasicContainer",
    :rdfs/subClassOf
-   [:ldp/Container :rdfs/Resource :ldp/Resource :ldp/RDFSource],
+   [:ldp/Container :ldp/Resource :ldp/RDFSource :rdfs/Resource],
    :vs/term_status #xsd/string "stable"})
 
 (def Container
@@ -66,7 +56,7 @@
     "A Linked Data Platform RDF Source (LDP-RS) that also conforms to additional patterns and conventions for managing membership. Readers should refer to the specification defining this ontology for the list of behaviors associated with it.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label #xsd/string "Container",
-   :rdfs/subClassOf [:ldp/RDFSource :rdfs/Resource :ldp/Resource],
+   :rdfs/subClassOf [:ldp/RDFSource :ldp/Resource :rdfs/Resource],
    :vs/term_status #xsd/string "stable"})
 
 (def Descending
@@ -88,7 +78,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label #xsd/string "DirectContainer",
    :rdfs/subClassOf
-   [:ldp/Container :rdfs/Resource :ldp/Resource :ldp/RDFSource],
+   [:ldp/Container :ldp/Resource :ldp/RDFSource :rdfs/Resource],
    :vs/term_status #xsd/string "stable"})
 
 (def IndirectContainer
@@ -101,7 +91,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label #xsd/string "IndirectContainer",
    :rdfs/subClassOf
-   [:ldp/Container :rdfs/Resource :ldp/Resource :ldp/RDFSource],
+   [:ldp/Container :ldp/Resource :ldp/RDFSource :rdfs/Resource],
    :vs/term_status #xsd/string "stable"})
 
 (def MemberSubject

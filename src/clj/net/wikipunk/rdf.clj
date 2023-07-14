@@ -796,6 +796,10 @@
   [^Node_Literal node]
   (lstr/->LangStr (.getLiteralValue node) (.getLiteralLanguage node)))
 
+(defmethod rdf-literal :xsd/anyURI
+  [^Node_Literal node]
+  {:rdfa/uri (.getLiteralValue node)})
+
 (defmethod rdf-literal :default
   [^Node_Literal node]
   (let [uri (.getLiteralDatatypeURI node)]

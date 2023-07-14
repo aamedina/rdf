@@ -1,23 +1,23 @@
 (ns net.wikipunk.rdf.org
-  {:dcterms/contributor [{:foaf/mbox #xsd/string "giorgia.lodi@agid.gov.it",
-                          :foaf/name #xsd/string "Giorgia Lodi"}
-                         {:foaf/mbox #xsd/string "dave@epimorphics.com",
-                          :foaf/name #xsd/string "Dave Reynolds"}
+  {:dcterms/contributor [{:foaf/mbox #xsd/string "ogiraldo@fi.upm.es",
+                          :foaf/name #xsd/string "Olga Ximena Giraldo"}
                          {:foaf/mbox #xsd/string "mpoveda@fi.upm.es",
                           :foaf/name #xsd/string "María Poveda Villalón"}
-                         {:foaf/mbox #xsd/string "antonio.maccioni@agid.gov.it",
-                          :foaf/name #xsd/string "Antonio Maccioni"}
-                         {:foaf/mbox #xsd/string "emontiel@fi.upm.es",
-                          :foaf/name #xsd/string "Elena Montiel Ponsoda"}
                          {:foaf/mbox #xsd/string "lupe@fi.upm.es",
                           :foaf/name #xsd/string "Guadalupe Aguado de Cea"}
+                         {:foaf/mbox #xsd/string "giorgia.lodi@agid.gov.it",
+                          :foaf/name #xsd/string "Giorgia Lodi"}
                          {:foaf/homepage
                           {:rdfa/uri "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
                           :foaf/name #xsd/string "Shuji Kamitsuna"}
+                         {:foaf/mbox #xsd/string "dave@epimorphics.com",
+                          :foaf/name #xsd/string "Dave Reynolds"}
+                         {:foaf/mbox #xsd/string "emontiel@fi.upm.es",
+                          :foaf/name #xsd/string "Elena Montiel Ponsoda"}
+                         {:foaf/mbox #xsd/string "antonio.maccioni@agid.gov.it",
+                          :foaf/name #xsd/string "Antonio Maccioni"}
                          {:foaf/mbox #xsd/string "dguardiola@quinode.fr",
-                          :foaf/name #xsd/string "Dominique Guardiola"}
-                         {:foaf/mbox #xsd/string "ogiraldo@fi.upm.es",
-                          :foaf/name #xsd/string "Olga Ximena Giraldo"}],
+                          :foaf/name #xsd/string "Dominique Guardiola"}],
    :dcterms/created #xsd/date #inst "2010-05-28T00:00:00.000-04:00",
    :dcterms/license {:rdfa/uri
                      "http://www.opendatacommons.org/licenses/pddl/1.0/"},
@@ -106,7 +106,7 @@
                 #xsd/langString "Formal Organization@en"
                 #xsd/langString "Organizzazione formale@it"],
    :rdfs/subClassOf
-   [:org/Organization :foaf/Organization :foaf/Agent :rdfs/Resource]})
+   [:org/Organization :foaf/Organization :rdfs/Resource :foaf/Agent]})
 
 (def Head
   {:db/ident :org/Head,
@@ -198,7 +198,7 @@
                 #xsd/langString "Collaborazione@it"
                 #xsd/langString "proyecto de cooperación empresarial@es"
                 #xsd/langString "Endeavour@en"],
-   :rdfs/subClassOf [:org/Organization :foaf/Agent :rdfs/Resource]})
+   :rdfs/subClassOf [:org/Organization :rdfs/Resource :foaf/Agent]})
 
 (def OrganizationalUnit
   {:db/ident :org/OrganizationalUnit,
@@ -219,7 +219,7 @@
                 #xsd/langString "unidad organizativa@es"
                 #xsd/langString "Unité opérationnelle@fr"
                 #xsd/langString "Unità Organizzativa@it"],
-   :rdfs/subClassOf [:org/Organization :foaf/Agent :rdfs/Resource]})
+   :rdfs/subClassOf [:org/Organization :rdfs/Resource :foaf/Agent]})
 
 (def Post
   {:db/ident :org/Post,

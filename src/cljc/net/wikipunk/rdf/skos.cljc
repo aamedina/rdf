@@ -1,4 +1,5 @@
 (ns net.wikipunk.rdf.skos
+  "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."
   {:dcterms/contributor
    [#xsd/string "Participants in W3C's Semantic Web Deployment Working Group."
     #xsd/string "Nikki Rogers"
@@ -21,6 +22,7 @@
    :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/TR/skos-reference/"}})
 
 (def Collection
+  "Collection"
   {:db/ident :skos/Collection,
    :owl/disjointWith [:skos/ConceptScheme :skos/Concept],
    :rdf/type :owl/Class,
@@ -36,6 +38,7 @@
     "Labelled collections can be used where you would like a set of concepts to be displayed under a 'node label' in the hierarchy.@en"})
 
 (def Concept
+  "Concept"
   {:db/ident         :skos/Concept,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -45,6 +48,7 @@
                       "An idea or notion; a unit of thought.@en"})
 
 (def ConceptScheme
+  "Concept Scheme"
   {:db/ident :skos/ConceptScheme,
    :owl/disjointWith :skos/Concept,
    :rdf/type :owl/Class,
@@ -68,6 +72,7 @@
     "A concept scheme may be defined to include concepts from different sources.@en"})
 
 (def OrderedCollection
+  "Ordered Collection"
   {:db/ident :skos/OrderedCollection,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -86,6 +91,7 @@
     "Ordered collections can be used where you would like a set of concepts to be displayed in a specific order, and optionally under a 'node label'.@en"})
 
 (def altLabel
+  "alternative label"
   {:db/ident :skos/altLabel,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/comment
@@ -107,6 +113,7 @@
      "Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).@en"]})
 
 (def broadMatch
+  "has broader match"
   {:db/ident :skos/broadMatch,
    :owl/inverseOf :skos/narrowMatch,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -114,8 +121,8 @@
    :rdfs/label #xsd/langString "has broader match@en",
    :rdfs/subPropertyOf [:skos/broader
                         :skos/mappingRelation
-                        :skos/broaderTransitive
-                        :skos/semanticRelation],
+                        :skos/semanticRelation
+                        :skos/broaderTransitive],
    :skos/definition
    #xsd/langString
     "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en",
@@ -124,6 +131,7 @@
     "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en"})
 
 (def broader
+  "Broader concepts are typically rendered as parents in a concept hierarchy (tree)."
   {:db/ident :skos/broader,
    :owl/inverseOf :skos/narrower,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -146,6 +154,7 @@
     "By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.@en"})
 
 (def broaderTransitive
+  "has broader transitive"
   {:db/ident :skos/broaderTransitive,
    :owl/inverseOf :skos/narrowerTransitive,
    :rdf/type [:rdf/Property :owl/TransitiveProperty :owl/ObjectProperty],
@@ -165,6 +174,7 @@
     "By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.@en"})
 
 (def changeNote
+  "change note"
   {:db/ident           :skos/changeNote,
    :rdf/type           [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -176,6 +186,7 @@
                         "A note about a modification to a concept.@en"})
 
 (def closeMatch
+  "has close match"
   {:db/ident :skos/closeMatch,
    :rdf/type [:rdf/Property :owl/SymmetricProperty :owl/ObjectProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -189,6 +200,7 @@
     "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.@en"})
 
 (def definition
+  "definition"
   {:db/ident :skos/definition,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -202,6 +214,7 @@
     "A statement or formal explanation of the meaning of a concept.@en"})
 
 (def editorialNote
+  "editorial note"
   {:db/ident :skos/editorialNote,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -215,6 +228,7 @@
     "A note for an editor, translator or maintainer of the vocabulary.@en"})
 
 (def exactMatch
+  "skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch."
   {:db/ident :skos/exactMatch,
    :rdf/type [:rdf/Property
               :owl/TransitiveProperty
@@ -235,6 +249,7 @@
     "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.@en"})
 
 (def example
+  "example"
   {:db/ident           :skos/example,
    :rdf/type           [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy   {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -245,6 +260,7 @@
                         "An example of the use of a concept.@en"})
 
 (def hasTopConcept
+  "has top concept"
   {:db/ident :skos/hasTopConcept,
    :owl/inverseOf :skos/topConceptOf,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -260,6 +276,7 @@
     "Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.@en"})
 
 (def hiddenLabel
+  "hidden label"
   {:db/ident :skos/hiddenLabel,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/comment
@@ -278,6 +295,7 @@
     "A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.@en"})
 
 (def historyNote
+  "history note"
   {:db/ident :skos/historyNote,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -289,6 +307,7 @@
                "A note about the past state/use/meaning of a concept.@en"})
 
 (def inScheme
+  "is in scheme"
   {:db/ident :skos/inScheme,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -307,6 +326,7 @@
     "A concept may be a member of more than one concept scheme.@en"})
 
 (def mappingRelation
+  "These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice."
   {:db/ident :skos/mappingRelation,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -323,6 +343,7 @@
     "Relates two concepts coming, by convention, from different schemes, and that have comparable meanings@en"})
 
 (def member
+  "has member"
   {:db/ident         :skos/member,
    :rdf/type         [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain      :skos/Collection,
@@ -336,6 +357,7 @@
                       "Relates a collection to one of its members.@en"})
 
 (def memberList
+  "For any resource, every item in the list given as the value of the\n      skos:memberList property is also a value of the skos:member property."
   {:db/ident :skos/memberList,
    :rdf/type [:rdf/Property :owl/FunctionalProperty :owl/ObjectProperty],
    :rdfs/comment
@@ -353,6 +375,7 @@
     "Relates an ordered collection to the RDF list containing its members.@en"})
 
 (def narrowMatch
+  "has narrower match"
   {:db/ident :skos/narrowMatch,
    :owl/inverseOf :skos/broadMatch,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -360,8 +383,8 @@
    :rdfs/label #xsd/langString "has narrower match@en",
    :rdfs/subPropertyOf [:skos/narrower
                         :skos/mappingRelation
-                        :skos/narrowerTransitive
-                        :skos/semanticRelation],
+                        :skos/semanticRelation
+                        :skos/narrowerTransitive],
    :skos/definition
    #xsd/langString
     "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en",
@@ -370,6 +393,7 @@
     "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en"})
 
 (def narrower
+  "Narrower concepts are typically rendered as children in a concept hierarchy (tree)."
   {:db/ident :skos/narrower,
    :owl/inverseOf :skos/broader,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -392,6 +416,7 @@
     "By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.@en"})
 
 (def narrowerTransitive
+  "has narrower transitive"
   {:db/ident :skos/narrowerTransitive,
    :owl/inverseOf :skos/broaderTransitive,
    :rdf/type [:rdf/Property :owl/TransitiveProperty :owl/ObjectProperty],
@@ -411,6 +436,7 @@
     "By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.@en"})
 
 (def notation
+  "notation"
   {:db/ident :skos/notation,
    :rdf/type [:rdf/Property :owl/DatatypeProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -428,6 +454,7 @@
     "By convention, skos:notation is used with a typed literal in the object position of the triple.@en"})
 
 (def note
+  "note"
   {:db/ident :skos/note,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -442,6 +469,7 @@
     "This property may be used directly, or as a super-property for more specific note types.@en"})
 
 (def prefLabel
+  "preferred label"
   {:db/ident :skos/prefLabel,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/comment
@@ -462,6 +490,7 @@
     "The preferred lexical label for a resource, in a given language.@en"})
 
 (def related
+  "skos:related is disjoint with skos:broaderTransitive"
   {:db/ident :skos/related,
    :rdf/type [:rdf/Property :owl/SymmetricProperty :owl/ObjectProperty],
    :rdfs/comment #xsd/langString
@@ -477,6 +506,7 @@
     "Relates a concept to a concept with which there is an associative semantic relationship.@en"})
 
 (def relatedMatch
+  "has related match"
   {:db/ident :skos/relatedMatch,
    :rdf/type [:rdf/Property :owl/SymmetricProperty :owl/ObjectProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -491,6 +521,7 @@
     "skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.@en"})
 
 (def scopeNote
+  "scope note"
   {:db/ident :skos/scopeNote,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
@@ -504,6 +535,7 @@
     "A note that helps to clarify the meaning and/or the use of a concept.@en"})
 
 (def semanticRelation
+  "is in semantic relation with"
   {:db/ident :skos/semanticRelation,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :skos/Concept,
@@ -521,6 +553,7 @@
     "This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.@en"})
 
 (def topConceptOf
+  "is top concept in scheme"
   {:db/ident :skos/topConceptOf,
    :owl/inverseOf :skos/hasTopConcept,
    :rdf/type [:rdf/Property :owl/ObjectProperty],

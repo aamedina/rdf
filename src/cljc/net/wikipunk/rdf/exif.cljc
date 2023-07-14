@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.exif
-  {:rdf/ns-prefix-map {"dc11"    "http://purl.org/dc/elements/1.1/",
+  {:dcat/downloadURL  "resources/exif.rdf",
+   :rdf/ns-prefix-map {"dc11"    "http://purl.org/dc/elements/1.1/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "ex"      "http://example.org/",
                        "exif"    "http://www.w3.org/2003/12/exif/ns#",
@@ -220,7 +221,7 @@
      "The date and time when the image was stored as digital data. If, for example, an image was captured by DSC and at the same time the file was recorded, then the DateTimeOriginal and DateTimeDigitized will have the same contents.@en"],
    :rdfs/label #xsd/langString "DateTimeDigitized@en",
    :rdfs/subPropertyOf
-   [:exif/date :exif/dateAndOrTime :exif/exifAttribute :dc11/date]})
+   [:exif/date :exif/dateAndOrTime :dc11/date :exif/exifAttribute]})
 
 (def dateTimeOriginal
   "DateTimeOriginal"
@@ -233,7 +234,7 @@
      "The date and time when the original image data was generated. For a DSC the date and time the picture was taken are recorded.@en"],
    :rdfs/label #xsd/langString "DateTimeOriginal@en",
    :rdfs/subPropertyOf
-   [:exif/date :exif/dateAndOrTime :exif/exifAttribute :dc11/date]})
+   [:exif/date :exif/dateAndOrTime :dc11/date :exif/exifAttribute]})
 
 (def deviceSettingDescription
   "Information on the picture-taking conditions of a particular camera model. The tag is used only to indicate the picture-taking conditions in the reader."
@@ -547,7 +548,7 @@
     "date and time information relative to UTC (Coordinated Universal Time). The record format is \"YYYY:MM:DD\" while converted to W3C-DTF to use in RDF@en",
    :rdfs/label #xsd/langString "GPSDateStamp@en",
    :rdfs/subPropertyOf
-   [:exif/date :exif/gpsInfo :exif/exifAttribute :dc11/date]})
+   [:exif/date :exif/gpsInfo :dc11/date :exif/exifAttribute]})
 
 (def gpsDestBearing
   "The bearing to the destination point. The range of values is from 0.00 to 359.99."
@@ -921,7 +922,7 @@
     "Image height. The number of rows of image data. In JPEG compressed data a JPEG marker is used.@en",
    :rdfs/label #xsd/langString "ImageLength@en",
    :rdfs/subPropertyOf
-   [:exif/height :exif/imageDataStruct :exif/length :exif/exifAttribute]})
+   [:exif/height :exif/imageDataStruct :exif/exifAttribute :exif/length]})
 
 (def imageUniqueID
   "An identifier assigned uniquely to each image. It is recorded as an ASCII string equivalent to hexadecimal notation and 128-bit fixed length."
@@ -1593,7 +1594,7 @@
      "The distance to the subject, given in meters. Note that if the numerator of the recorded value is FFFFFFFF.H, Infinity shall be indicated; and if the numerator is 0, Distance unknown shall be indicated.@en"],
    :rdfs/label #xsd/langString "SubjectDistance@en",
    :rdfs/subPropertyOf
-   [:exif/meter :exif/pictTaking :exif/length :exif/exifAttribute]})
+   [:exif/meter :exif/pictTaking :exif/exifAttribute :exif/length]})
 
 (def subjectDistanceRange
   "The distance to the subject, such as Macro, Close View or Distant View."

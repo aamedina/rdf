@@ -116,7 +116,8 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def exif
-  {:rdfa/uri    "http://www.w3.org/2003/12/exif/ns#"
+  {:dcat/downloadURL "resources/exif.rdf"
+   :rdfa/uri    "http://www.w3.org/2003/12/exif/ns#"
    :rdfa/prefix "exif"
    :rdf/type    :rdfa/PrefixMapping})
 
@@ -127,7 +128,8 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def gen
-  {:rdfa/uri    "http://www.w3.org/2006/gen/ont#"
+  {:dcat/downloadURL "resources/gen.rdf"
+   :rdfa/uri    "http://www.w3.org/2006/gen/ont#"
    :rdfa/prefix "gen"
    :rdf/type    :rdfa/PrefixMapping})
 
@@ -276,7 +278,8 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def sioc.types
-  {:rdfa/uri    "http://rdfs.org/sioc/types#",
+  {:dcat/downloadURL "resources/sioc.types.rdf"
+   :rdfa/uri    "http://rdfs.org/sioc/types#",
    :rdfa/prefix "sioc.types",
    :rdf/type    :rdfa/PrefixMapping
    :rdf/ns-prefix-map

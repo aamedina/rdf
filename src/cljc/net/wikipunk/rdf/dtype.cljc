@@ -22,16 +22,16 @@
                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
    :rdfs/label #xsd/string "Codelist",
    :rdfs/subClassOf [:dtype/Enumeration
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/value,
                       :rdf/type          :owl/Restriction}
-                     :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}],
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}],
    :vaem/comment
    #xsd/string
     "A codelist is a controlled vocabulary of terms that are used to represent permissible values of a variable in information systems. The representaiton of codes in \"dtype\" has been influenced by CCTS and UBL."})
@@ -48,17 +48,17 @@
                      {:owl/allValuesFrom :dtype/CodeList,
                       :owl/onProperty    :dtype/compositeOf,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/value,
                       :rdf/type          :owl/Restriction}
-                     :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/defaultValue,
                       :rdf/type          :owl/Restriction}
-                     :dtype/Enumeration],
+                     :dtype/Enumeration
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}],
    :vaem/comment
    #xsd/string
     "A composite codelist is a codelist made up of other codelists. It does not introduce any new codes."})
@@ -71,27 +71,27 @@
    :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
    :rdfs/label #xsd/string "Derived Code List",
-   :rdfs/subClassOf [:dtype/CodeList
-                     {:owl/allValuesFrom :dtype/CodeList,
-                      :owl/onProperty    :dtype/derivedFrom,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/derivedFrom,
+                      :rdf/type           :owl/Restriction}
+                     :dtype/CodeList
                      {:owl/allValuesFrom :dtype/ValueReference,
                       :owl/onProperty    :dtype/hasMember,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/derivedFrom,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
+                     {:owl/allValuesFrom :dtype/CodeList,
+                      :owl/onProperty    :dtype/derivedFrom,
                       :rdf/type          :owl/Restriction}
                      :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/defaultValue,
                       :rdf/type          :owl/Restriction}
-                     :dtype/Enumeration],
+                     :dtype/Enumeration
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}],
    :vaem/comment
    #xsd/string
     "A derived codelist is a sublist of another codelist. The members that it has must be members of the source list."})
@@ -107,28 +107,28 @@
                       {:rdfa/uri
                        "http://www.linkedmodel.org/1.1/schema/dtype"}],
    :rdfs/label #xsd/string "DTYPE Enumerated value",
-   :rdfs/subClassOf [{:owl/minCardinality #xsd/nonNegativeInteger 0,
+   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/code,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/order,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :vaem/url,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/code,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dtype/position,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :dtype/value,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/order,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type        :owl/Restriction}]})
 
 (def Enumeration
   "DTYPE Enumeration"
@@ -163,17 +163,17 @@
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/hasMember,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/value,
                       :rdf/type          :owl/Restriction}
-                     :owl/Thing
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/defaultValue,
                       :rdf/type          :owl/Restriction}
-                     :dtype/Enumeration],
+                     :dtype/Enumeration
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}],
    :vaem/comment
    #xsd/string "A simple codelist is one made up only of enumerated values."})
 
