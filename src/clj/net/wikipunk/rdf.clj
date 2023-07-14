@@ -1574,7 +1574,7 @@
   (require from to)
   (import-from (find-ns from) (find-ns to)))
 
-(defmethod import-from [:owl/Ontology :owl/Ontology]
+(defmethod import-from [clojure.lang.Namespace clojure.lang.Namespace]
   [from to]
   (->> (vals (ns-map from))
        (filter (comp :private meta))
@@ -1583,10 +1583,6 @@
                (intern to
                        (:name (meta v))
                        (merge (some-> (get (ns-publics to) (:name (meta v))) deref) @v))))))
-
-(derive clojure.lang.Namespace :owl/Ontology)
-(derive clojure.lang.Namespace :rdfa/PrefixMapping)
-(derive :rdfa/PrefixMapping :owl/Ontology)
 
 (defn ns-graph
   "Return a graph of all the namespaces in the current system."
