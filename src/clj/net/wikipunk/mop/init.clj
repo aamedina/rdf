@@ -6,21 +6,20 @@
    [clojure.set :as set]
    [clojure.string :as str]
    [clojure.walk :as walk]
-   [net.wikipunk.mop :as mop :refer [isa? ancestors descendants parents]]
+   [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf :as rdf]
    [net.wikipunk.boot]
    [net.wikipunk.ext]
-   [taoensso.nippy :as nippy])
-  (:refer-clojure :exclude [isa? ancestors descendants parents]))
+   [taoensso.nippy :as nippy]))
 
 (defmethod mop/find-class-using-env :default
   [ident env]
-  (rdf/find-ns-metaobject ident))
+  (mop/find-class-using-env ident nil))
 
 (defmethod mop/find-class-using-env [clojure.lang.Keyword xtdb.node.XtdbNode]
   [ident env]
   (or (xt/entity (xt/db env) ident)
-      (rdf/find-ns-metaobject ident)))
+      (mop/find-class-using-env ident nil)))
 
 (defmethod mop/make-instance :rdfs/Class
   [class & {:as initargs}]
@@ -164,22 +163,6 @@
   [class]
   nil)
 
-#_(into #{}
-        (comp
-          (map first)
-          (map mop/find-class))
-        (xt/q (xt/db mop/*env*)
-              '{:find  [?e]
-                :in    [$ ?class]
-                :where [[?e :rdfs/domain ?domain]
-                        (or-join [?domain ?class]
-                                 [(== ?domain ?class)]
-                                 (and [(get ?domain :owl/unionOf) ?unionOf]
-                                      [(some? ?unionOf)]                              
-                                      [(identity ?unionOf) [?unionClass ...]]
-                                      [(== ?unionClass ?class)]))]}
-              (:db/ident class)))
-
 (defmethod mop/class-direct-slots clojure.lang.IPersistentMap
   [class]
   nil)
@@ -190,143 +173,80 @@
                maxCardinality
                allValuesFrom
                someValuesFrom]
-    :as class}]
-  ;; TODO: figure out the following restrictions...
-  
-  ;; The value constraint owl:allValuesFrom is a built-in OWL property
-  ;; that links a restriction class to either a class description or a
-  ;; data range. A restriction containing an owl:allValuesFrom
-  ;; constraint is used to describe a class of all individuals for
-  ;; which all values of the property under consideration are either
-  ;; members of the class extension of the class description or are
-  ;; data values within the specified data range. In other words, it
-  ;; defines a class of individuals x for which holds that if the pair
-  ;; (x,y) is an instance of P (the property concerned), then y should
-  ;; be an instance of the class description or a value in the data
-  ;; range, respectively.
+    :as       class}]
+  #{onProperty}
+  #_[(cond-> {:db/ident onProperty}
+       allValuesFrom  (update :rdfs/range (fnil conj #{}) allValuesFrom)
+       someValuesFrom (update :rdfs/range (fnil conj #{}) someValuesFrom)
+       minCardinality (assoc :owl/minCardinality minCardinality)
+       maxCardinality (assoc :owl/maxCardinality maxCardinality))])
 
-  ;; This example describes an anonymous OWL class of all individuals
-  ;; for which the hasParent property only has values of class
-  ;; Human. Note that this class description does not state that the
-  ;; property always has values of this class; just that this is true
-  ;; for individuals that belong to the class extension of the
-  ;; anonymous restriction class.
+;; To determine the direct slots of an :rdfs/Class:
 
-  ;; NOTE: In OWL Lite the only type of class description allowed as
-  ;; object of owl:allValuesFrom is a class name.
-
-  ;; An owl:allValuesFrom constraint is analogous to the universal
-  ;; (for-all) quantifier of Predicate logic - for each instance of
-  ;; the class that is being described, every value for P must fulfill
-  ;; the constraint. Also notice that the correspondence of
-  ;; owl:allValuesFrom with the universal quantifier means that an
-  ;; owl:allValuesFrom constraint for a property P is trivially
-  ;; satisfied for an individual that has no value for property P at
-  ;; all. To see why this is so, observe that the owl:allValuesFrom
-  ;; constraint demands that all values of P should be of type T, and
-  ;; if no such values exist, the constraint is trivially true.
-
-  ;;   A simple example:
-
-  ;; {:rdf/type :owl/Restriction
-  ;;  :owl/onProperty :hasParent
-  ;;  :owl/allValuesFrom :Human}
-
-
-  ;; The value constraint owl:someValuesFrom is a built-in OWL
-  ;; property that links a restriction class to a class description or
-  ;; a data range. A restriction containing an owl:someValuesFrom
-  ;; constraint describes a class of all individuals for which at
-  ;; least one value of the property concerned is an instance of the
-  ;; class description or a data value in the data range. In other
-  ;; words, it defines a class of individuals x for which there is at
-  ;; least one y (either an instance of the class description or value
-  ;; of the data range) such that the pair (x,y) is an instance of
-  ;; P. This does not exclude that there are other instances (x,y') of
-  ;; P for which y' does not belong to the class description or data
-  ;; range.
-
-  ;;   The following example defines a class of individuals which have
-  ;;   at least one parent who is a physician:
-
-  ;; {:rdf/type :owl/Restriction
-  ;;  :owl/onProperty :hasParent
-  ;;  :owl/someValuesFrom :Physician}
-
-  ;; The owl:someValuesFrom constraint is analogous to the existential
-  ;; quantifier of Predicate logic - for each instance of the class
-  ;; that is being defined, there exists at least one value for P that
-  ;; fulfills the constraint.
-
-  ;; NOTE: In OWL Lite the only type of class description allowed as
-  ;; object of owl:someValuesFrom is a class name.
-
-  [(cond-> {:db/ident onProperty}
-     allValuesFrom (update :rdfs/range (fnil conj #{}) allValuesFrom)
-     someValuesFrom (update :rdfs/range (fnil conj #{}) someValuesFrom)
-     minCardinality (assoc :owl/minCardinality minCardinality)
-     maxCardinality (assoc :owl/maxCardinality maxCardinality))])
+;; 1. When the Universal Translator is started it assembles some
+;; multimethod hierarchies of RDF metaobjects. The :rdfs/domain
+;; hierarchy relates all properties that declare classes in either
+;; :rdfs/domain or :schema/domainIncludes.
 
 (defmethod mop/class-direct-slots :rdfs/Class
-  [{:db/keys [ident]
-    :mop/keys [classDirectSlots]
+  [{:db/keys   [ident]
+    :mop/keys  [classDirectSlots]
     :rdfs/keys [subClassOf]
-    :owl/keys [intersectionOf unionOf]
-    :as class}]
+    :owl/keys  [intersectionOf unionOf]
+    :as        class}]
   (or (not-empty classDirectSlots)
-      (when-some [slots (seq (concat (and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
-                                     (some->> (filter map? (concat intersectionOf
-                                                                   unionOf
-                                                                   (when-not (keyword? subClassOf)
-                                                                     subClassOf)))
-                                              (mapcat mop/class-direct-slots)
-                                              (map rdf/direct-slot-definition)
-                                              (group-by :db/ident)
-                                              (vals)
-                                              (reduce (fn [slots maps]
-                                                        (conj slots (update (reduce merge maps)
-                                                                            :rdfs/domain (fnil conj #{})
-                                                                            ident)))
-                                                      []))))]
-        (let [idx (group-by :db/ident slots)]
-          (not-empty (into []
-                           (comp (map :db/ident)
-                                 (distinct)
-                                 (remove #(isa? % :owl/DeprecatedProperty))
-                                 (map #(first (get idx %))))
-                           slots))))))
+      (not-empty (set/union (descendants (:rdfs/domain rdf/*metaobjects*) ident)
+                            (reduce set/union (map mop/class-direct-slots intersectionOf))
+                            (reduce set/union (map mop/class-direct-slots unionOf))
+                            #_(reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf)))))
+      #_(when-some [slots (seq (concat #_(and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
+                                       (descendants (:rdfs/domain rdf/*metaobjects*) ident)
+                                       (some->> (filter map? (concat intersectionOf
+                                                                     unionOf
+                                                                     (when-not (keyword? subClassOf)
+                                                                       subClassOf)))
+                                                (mapcat mop/class-direct-slots)
+                                                (map rdf/direct-slot-definition)
+                                                (group-by :db/ident)
+                                                (vals)
+                                                (reduce (fn [slots maps]
+                                                          (conj slots (update (reduce merge maps)
+                                                                              :rdfs/domain (fnil conj #{})
+                                                                              ident)))
+                                                        []))))]
+          (let [idx (group-by :db/ident slots)]
+            (not-empty (into []
+                             (comp (map :db/ident)
+                                   (distinct)
+                                   (remove #(isa? % :owl/DeprecatedProperty))
+                                   (map #(first (get idx %))))
+                             slots))))))
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
   (:mop/classDefaultInitargs class {}))
 
+#_(defmethod mop/class-slots :owl/NamedIndividual
+  [{:db/keys   [ident]
+    :rdfs/keys [subClassOf]
+    :owl/keys  [intersectionOf unionOf]
+    :as        class}])
+
 (defmethod mop/class-slots :rdfs/Class
-  [class]
-  (:mop/classSlots class (mop/compute-slots class)))
+  [{:mop/keys [classSlots] :as class}]
+  (if (seq classSlots)
+    (set classSlots)
+    (mop/compute-slots class)))
 
 (defmethod mop/add-direct-subclass [:rdfs/Class :rdfs/Class]
   [superclass subclass]
-  (xt/submit-tx mop/*env*
-                [[::xt/put (update subclass
-                                   :rdfs/subClassOf
-                                   conj
-                                   (:db/ident superclass))]
-                 [::xt/put (update superclass
-                                   :mop/classDirectSubclasses
-                                   conj
-                                   (:db/ident subclass))]]))
+  (throw (ex-info "mop/add-direct-subclass is not implemented" {:superclass superclass
+                                                                :subclass   subclass})))
 
 (defmethod mop/remove-direct-subclass [:rdfs/Class :rdfs/Class]
   [superclass subclass]
-  (xt/submit-tx mop/*env*
-                [[::xt/put (update subclass
-                                   :rdfs/subClassOf
-                                   #(into [] (remove #{%2}) %1)
-                                   (:db/ident superclass))]
-                 [::xt/put (update superclass
-                                   :mop/classDirectSubclasses
-                                   disj
-                                   (:db/ident subclass))]]))
+  (throw (ex-info "mop/remove-direct-subclass is not implemented" {:superclass superclass
+                                                                   :subclass   subclass})))
 
 (defmethod mop/ensure-class-using-class nil
   [class class-name & {:keys [direct-default-initargs
@@ -384,7 +304,6 @@
   [class env]
   (try
     (xt/submit-tx env [[::xt/put (rdf/freezable class)]])
-    #_(xt/sync env)
     (catch Throwable ex
       (throw (ex-info (.getMessage ex) {:class class} ex)))))
 
@@ -395,14 +314,21 @@
           classDirectDefaultInitargs
           (map mop/class-direct-default-initargs
                (keep mop/find-class (rest classPrecedenceList)))))
-(comment
-  (xt/q (xt/db mop/*env*)
-        '{:find  [?class-direct-slots]
-          :in    [$ ?class]
-          :where [[?class :rdfs/subClassOf ?e]
-                  [?e :mop/classDirectSlots ?class-direct-slots]
-                  [?e :mop/classDirectSubclasses ?class-direct-subclasses]]}
-        :schema/Movie))
+
+;; To compute all slots for a class:
+
+;; 1. Compute the direct slots for each class in its class-precedence-list.
+;; 2. Combine all of the slots into a single set.
+
+#_(defmethod mop/compute-slots :owl/NamedIndividual
+    [{:db/keys   [ident]
+      :rdf/keys  [type]
+      :rdfs/keys [subClassOf]
+      :owl/keys  [deprecated equivalentClass]
+      :as        class}]
+    (mop/class-direct-slots ident))
+
+#_(remove-method mop/compute-slots :owl/NamedIndividual)
 
 (defmethod mop/compute-slots :rdfs/Class
   [{:mop/keys  [classPrecedenceList
@@ -412,31 +338,46 @@
     :rdfs/keys [subClassOf]
     :owl/keys  [deprecated equivalentClass]
     :as        class}]
-  (->> (filter keyword? (concat (take-while (complement (cond
-                                                          (isa? ident :owl/NamedIndividual)
-                                                          #{:owl/NamedIndividual :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
+  (case ident
+    :rdfs/Class
+    (mop/class-direct-slots :rdfs/Class)
 
-                                                          (isa? ident :owl/Class)
-                                                          #{:owl/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
+    :owl/Class
+    (set/union (mop/class-direct-slots :rdfs/Class)
+               (mop/class-direct-slots :owl/Class))
 
-                                                          (identical? ident :rdfs/Class)
-                                                          #{:rdfs/Resource}
+    (->> (mop/compute-class-precedence-list class) ;; compute the class precedence list
+         (take-while (complement #{:owl/Class :rdfs/Class})) ;; remove metaclasses from the list
+         (map mop/class-direct-slots) ;; get the direct slots of each class
+         (reduce set/union) ;; combine them into a single set
+         ))
+  
+  
+  #_(->> (filter keyword? (concat (take-while (complement (cond
+                                                            (isa? ident :owl/NamedIndividual)
+                                                            #{:owl/NamedIndividual :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
 
-                                                          (identical? ident :rdfs/Resource)
-                                                          #{}
+                                                            (isa? ident :owl/Class)
+                                                            #{:owl/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
 
-                                                          :else
-                                                          #{:rdfs/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}))
-                                            (or classPrecedenceList
-                                                (mop/compute-class-precedence-list class)))
-                                (remove #{:rdfs/Resource} subClassOf)
-                                equivalentClass))
-       (mapcat mop/class-direct-slots)
-       (remove (fn [{:db/keys [ident] :rdf/keys [type]}] (some #(isa? % :owl/AnnotationProperty) type)))
-       (filter (fn [{:rdfs/keys [domain] :as slot}]
-                 (some #(isa? ident %) domain)))
-       (group-by :db/ident)
-       (mapv #(mop/compute-effective-slot-definition class (key %) (val %)))))
+                                                            (identical? ident :rdfs/Class)
+                                                            #{:rdfs/Resource}
+
+                                                            (identical? ident :rdfs/Resource)
+                                                            #{}
+
+                                                            :else
+                                                            #{:rdfs/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}))
+                                              (or classPrecedenceList
+                                                  (mop/compute-class-precedence-list class)))
+                                  (remove #{:rdfs/Resource} subClassOf)
+                                  equivalentClass))
+         (mapcat mop/class-direct-slots)
+         (remove (fn [{:db/keys [ident] :rdf/keys [type]}] (some #(isa? % :owl/AnnotationProperty) type)))
+         (filter (fn [{:rdfs/keys [domain] :as slot}]
+                   (some #(isa? ident %) domain)))
+         (group-by :db/ident)
+         (mapv #(mop/compute-effective-slot-definition class (key %) (val %)))))
 
 (defmethod mop/slot-definition-initfunction :rdfs/Class
   [slot]
@@ -469,23 +410,7 @@
   ;; semantics. Should effective slot definitions incorporate all of
   ;; that computed property precedence information? Probably? I think
   ;; so...?
-  (reduce merge direct-slot-definitions)
-  #_(reduce (fn [effective-slot-def direct-slot-def]
-            (cond-> (-> effective-slot-def
-                        (update :mop/slotInitargs
-                                (fnil into #{})
-                                (mop/slot-definition-initargs direct-slot-def)))
-              (nil? (:db/ident effective-slot-def))
-              (assoc :db/ident (mop/slot-definition-name direct-slot-def))
-
-              (nil? (:mop/slotInitform effective-slot-def))
-              (assoc :mop/slotInitform (mop/slot-definition-initform direct-slot-def)
-                     :mop/slotInitfunction (mop/slot-definition-initfunction direct-slot-def))
-
-              (nil? (:mop/slotAllocation effective-slot-def))
-              (assoc :mop/slotAllocation (mop/slot-definition-allocation direct-slot-def))))
-          {:db/ident slot}
-          direct-slot-definitions))
+  (reduce merge direct-slot-definitions))
 
 (defmethod mop/validate-superclass [:rdfs/Class :rdfs/Class]
   [class superclass]
@@ -534,19 +459,19 @@
 
 (defmethod mop/class-direct-superclasses :rdfs/Class
   [{:rdfs/keys [subClassOf]}]
-  (filter keyword? subClassOf))
+  (->> subClassOf
+       (filter keyword?)
+       ;; Everything is an :rdfs/Resource in this protocol and we are
+       ;; not concerned with tautological inferences.
+       (remove #{:rdfs/Resource})))
 
 (defmethod mop/class-direct-subclasses :rdfs/Class
-  [{:db/keys [ident]
+  [{:db/keys  [ident]
     :mop/keys [classDirectSubclasses]}]
   (or classDirectSubclasses
       (into #{}
-            (map first)
-            (xt/q (xt/db mop/*env*)
-                  '{:find  [?e]
-                    :in    [$ ?class]
-                    :where [[?e :rdfs/subClassOf ?class]]}
-                  ident))))
+            (filter #(some #{ident} (mop/class-direct-superclasses %)))
+            (descendants ident))))
 
 (defmethod mop/compute-class-precedence-list :default
   [_]
@@ -568,9 +493,9 @@
           (mop/allocate-instance initargs)))
 
 #_(defmethod mop/change-class clojure.lang.Keyword
-  [instance new-class & {:as initargs}]
-  (some-> (mop/find-class instance)
-          (mop/change-class new-class initargs)))
+    [instance new-class & {:as initargs}]
+    (some-> (mop/find-class instance)
+            (mop/change-class new-class initargs)))
 
 (defmethod mop/class-default-initargs clojure.lang.Keyword
   [class]
@@ -656,7 +581,7 @@
   [class class-name &
    {:keys [direct-default-initargs direct-slots direct-superclasses name
            metaclass],
-    :as initargs}]
+    :as   initargs}]
   (some-> (mop/find-class class)
           (mop/ensure-class-using-class class-name initargs)))
 
@@ -804,11 +729,15 @@
   [instance added-slots discarded-slots property-list & {:as initargs}]
   (some-> (mop/find-class instance)
           (mop/update-instance-for-redefined-class added-slots
-                                               discarded-slots
-                                               property-list
-                                               initargs)))
+                                                   discarded-slots
+                                                   property-list
+                                                   initargs)))
 
 (defmethod mop/validate-superclass clojure.lang.Keyword
   [class superclass]
   (some-> (mop/find-class class)
           (mop/validate-superclass superclass)))
+
+(defmethod mop/type-of clojure.lang.Namespace
+  [ns]
+  (mop/type-of (meta ns)))

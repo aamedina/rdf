@@ -1,5 +1,4 @@
 (ns net.wikipunk.rdf.ogc
-  "http://ogp.me/ns/class#"
   {:dcat/downloadURL
    "https://raw.githubusercontent.com/facebookarchive/open-graph-protocol/master/ns/ogp.me.rdf",
    :rdf/ns-prefix-map {"bibo"  "http://purl.org/ontology/bibo/",
@@ -19,82 +18,82 @@
    :rdfa/uri "http://ogp.me/ns/class#"})
 
 (def boolean_str
-  "A string representation of a true or false value. The lexical space contains: \"true\", \"false\", \"1\", and \"0\"."
+  "A string representation of a true or false value.  The lexical space contains: \"true\", \"false\", \"1\", and \"0\"."
   {:db/ident :ogc/boolean_str,
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A string representation of a true or false value.  The lexical space contains: \"true\", \"false\", \"1\", and \"0\".@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "boolean string@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "boolean string@en-US",
    :rdfs/subClassOf :xsd/string})
 
 (def date_time_str
-  "A string representation of a temporal value composed of a date (year, month, day) and an optional time component (hours, minutes). The lexical space is defined by ISO 8601."
+  "A string representation of a temporal value composed of a date (year, month, day) and an optional time component (hours, minutes).  The lexical space is defined by ISO 8601."
   {:db/ident :ogc/date_time_str,
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A string representation of a temporal value composed of a date (year, month, day) and an optional time component (hours, minutes).  The lexical space is defined by ISO 8601.@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "date/time string@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "date/time string@en-US",
    :rdfs/subClassOf :xsd/string})
 
 (def determiner_str
   "The lexical space: \"\", \"the\", \"a\", \"an\", and \"auto\"."
   {:db/ident :ogc/determiner_str,
-   :owl/oneOf [{:xsd/string ""}
-               {:xsd/string "the"}
-               {:xsd/string "a"}
-               {:xsd/string "an"}
-               {:xsd/string "auto"}],
+   :owl/oneOf [#xsd/string ""
+               #xsd/string "the"
+               #xsd/string "a"
+               #xsd/string "an"
+               #xsd/string "auto"],
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The lexical space: \"\", \"the\", \"a\", \"an\", and \"auto\".@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "determiner@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "determiner@en-US",
    :rdfs/subClassOf :xsd/string})
 
 (def float_str
-  "A string representation of a 64-bit signed floating point number. Example lexical values include \"1.234\", \"-1.234\", \"1.2e3\", \"-1.2e3\", and \"7E-10\"."
+  "A string representation of a 64-bit signed floating point number.  Example lexical values include \"1.234\", \"-1.234\", \"1.2e3\", \"-1.2e3\", and \"7E-10\"."
   {:db/ident :ogc/float_str,
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A string representation of a 64-bit signed floating point number.  Example lexical values include \"1.234\", \"-1.234\", \"1.2e3\", \"-1.2e3\", and \"7E-10\".@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "float string@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "float string@en-US",
    :rdfs/subClassOf :xsd/string})
 
 (def integer_str
-  "A string representation of a 32-bit signed integer. Example lexical values include \"1234\" and \"-123\"."
+  "A string representation of a 32-bit signed integer.  Example lexical values include \"1234\" and \"-123\"."
   {:db/ident :ogc/integer_str,
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A string representation of a 32-bit signed integer.  Example lexical values include \"1234\" and \"-123\".@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "integer string@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "integer string@en-US",
    :rdfs/subClassOf :xsd/string})
 
 (def mime_type_str
   "Valid mime type strings (e.g., \"application/mp3\")."
   {:db/ident :ogc/mime_type_str,
    :rdf/type :rdfs/Datatype,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "Valid mime type strings (e.g., \"application/mp3\").@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "mime type string@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "mime type string@en-US",
    :rdfs/subClassOf :xsd/string})
 
 (def string
   "A string of Unicode characters."
   {:db/ident         :ogc/string,
    :rdf/type         :rdfs/Datatype,
-   :rdfs/comment     #voc/lstr "A string of Unicode characters.@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label       #voc/lstr "Unicode string@en-US",
+   :rdfs/comment     #xsd/langString "A string of Unicode characters.@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label       #xsd/langString "Unicode string@en-US",
    :rdfs/subClassOf  :xsd/string})
 
 (def url
@@ -102,8 +101,8 @@
   {:db/ident :ogc/url,
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A string of Unicode characters forming a valid URL having the http or https scheme.@en-US",
-   :rdfs/isDefinedBy "http://ogp.me/ns/class#",
-   :rdfs/label #voc/lstr "URL@en-US",
+   :rdfs/isDefinedBy {:rdfa/uri "http://ogp.me/ns/class#"},
+   :rdfs/label #xsd/langString "URL@en-US",
    :rdfs/subClassOf [:ogc/string :xsd/string]})

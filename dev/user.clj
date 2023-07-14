@@ -8,9 +8,16 @@
    [clojure.tools.reader]
    [com.stuartsierra.component.user-helpers :refer [dev go reset]]))
 
+(alter-var-root #'*default-data-reader-fn* (constantly tagged-literal))
+
+(defmethod print-dup clojure.lang.TaggedLiteral
+  [x ^java.io.Writer w]
+  (.write w (str "#" (:tag x) " " (pr-str (:form x)))))
+
 ;; tools.namespace reads Clojure code using tools.reader which binds
 ;; *data-readers* separately from the standard Clojure reader
 (alter-var-root #'clojure.tools.reader/*data-readers* (constantly *data-readers*))
+(alter-var-root #'clojure.tools.reader/*default-data-reader-fn* (constantly tagged-literal))
 
 (clojure.tools.namespace.repl/set-refresh-dirs "dev" "src")
 

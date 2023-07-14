@@ -46,31 +46,75 @@
    (org.apache.jena.shared PrefixMapping)))
 
 (defprotocol LinkedData
-  (sniff [x] "Follow your nose."))
+  "This is a protocol for parsing RDF models. 
 
-(defprotocol Parsable
+  Usually, the input is a map like so:
+
+  The :rdfa/uri is used to download the model is a :dcat/downloadURL
+  is not provided. The :rdfa/prefix is used to bind @base URI of the
+  RDF model to that prefix.
+
+  {:rdfa/uri \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
+   :rdfa/prefix \"rdf\" 
+   ;; used to override the :rdfa/uri for downloading a RDF model
+   :dcat/downloadURL \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
+   ;; optionally force Jena to parse a specific format
+   :format :turtle 
+   ;; optional and used to override the models
+   specified prefixes which becomes invaluable when the source model
+   has odd prefixes for standard vocabularies
+   :rdf/ns-prefix-map {...}}
+
+  (Note: not all keys are required. You can try just passing the URL
+  of the model.)"
   (parse [x]
     "Parses source using Apache Jena's RDFParser and converts it to
   Clojure data using Aristotle.
 
-  Adapted from arachne.aristotle.graph/graph->clj")
+  Adapted from arachne.aristotle.graph/graph->clj
+
+ Options:
+ :emit -- set to false to prevent emitting the namespace
+ :recurse -- set to number of recursive calls you are willing to make for linked data
+ :reasoner -- set to your preferred org.apache.jena.reasoner.Reasoner
+ instance or nil for no reasoning (defaults to RDFSSimpleReasoner)
+ :private -- set to truthy value to emit ^:private vars, but inspect
+ the namespace after to make sure there are no var name conflicts
+ :slash -- If a vocab term has a slash in its name you should set this to true (edge case for D3FEND).")
   (graph [x]
-    "Returns Jena Graph from x."))
+    "Returns Jena Graph from x.")
+  (sniff [x]
+    "Follow your nose.")
+  (emit [x arg-map]
+    "Write Clojure namespace after parsing x with arg-map."))
 
-(defprotocol NamespaceSpitter
-  (emit [x arg-map]))
-
-(def ^:dynamic *indexes*
-  "A map of useful indexes across metaobjects."
-  {})
+(def ^:dynamic *metaobjects*
+  "Contains a map of multimethod hierarchies derived from loaded
+  metaobjects when the Universal Translator was started."
+  nil)
 
 (def ^:dynamic *ns-aliases*
   "Configured by `make-boot-context` holding a map of namespace
-  aliases."
+  aliases mapping prefixes to delays which when dereferenced return a
+  Clojure namespace or nil if none could be found."
   {})
 
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *target* "src/cljc/net/wikipunk/rdf/")
+
+(def ^:dynamic *slash*
+  "generate keywords with _SLASH_ in name (used for D3FEND)"
+  nil)
+
+(def ^:dynamic *graph*
+  "Bound to the apache jena graph during parsing."
+  nil)
+
+(def ^:dynamic *recurse* 2)
+
+(def ^:dynamic *private*
+  "bind to true if you want private vars to be emitted"
+  nil)
 
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
@@ -94,18 +138,42 @@
     (-> (name ident)
         (symbol))))
 
-(defn make-boot-context
-  "a function which configures an Aristotle registry for bootstrapping
-  RDF data."
+(defn ns-contexts
+  "Returns a sequence of Clojure namespaces that are JSON-LD
+  contexts.
+
+  Namespaces which are JSON-LD contexts contain public vars which
+  correspond to e.g, :rdfa/PrefixMapping instances to declare prefix
+  mappings for each context.
+
+  (ns your.namespace.boot
+    {:rdf/type :jsonld/Context})
+
+  (def preferredNamespacePrefix
+    {:rdf/type :rdfa/PrefixMapping
+     :rdfa/prefix \"preferredNamespacePrefix\"
+     :rdfa/uri \"preferredNamespaceURI\"}"
   []
-  (let [ns-prefixes (->> (all-ns)
-                         (filter #(= (:rdf/type (meta %)) :jsonld/Context))
-                         (map #(str/replace % #"boot$" "rdf")))]
+  (filter #(isa? (mop/type-of %) :jsonld/Context) (all-ns)))
+
+(defn make-boot-context
+  "A function which configures an Aristotle registry for bootstrapping
+  RDF data.
+
+  For each JSON-LD context namespace you require before calling this
+  function, its public vars are enumerated declaring what prefix
+  mappings are being \"booted\" by this context.
+
+  The name of the namespace is used to resolve the Clojure namespaces
+  emitted from these prefix mappings."
+  []
+  (let [ns-prefixes (->> (ns-contexts)
+                         (map #(str (str/join "." (pop (str/split (str %) #"\."))) ".rdf"))
+                         (distinct))]
     (transduce
       (comp
-        (filter #(= (:rdf/type (meta %)) :jsonld/Context))
-        (map ns-publics)
-        (mapcat vals)
+        (map ns-publics) 
+        (mapcat vals)    
         (map deref)
         (map (juxt :rdfa/prefix :rdfa/uri)))
       (completing
@@ -121,9 +189,15 @@
                       (fn [ns-aliases]
                         (assoc ns-aliases
                                prefix
-                               (some #(when-some [ns (find-ns (symbol (str % "." prefix)))]
-                                        ns)
-                                     ns-prefixes)))))))
+                               (delay
+                                 (some (fn [ns-prefix]
+                                         (let [ns-name (symbol (str ns-prefix "." prefix))]
+                                           (try
+                                             (require ns-name)
+                                             (find-ns ns-name)
+                                             (catch java.io.FileNotFoundException ex
+                                               nil))))
+                                       ns-prefixes))))))))
       {:registry   (reg/add-prefix {:prefixes  {}
                                     :prefixes' {}
                                     :aliases   {}
@@ -132,7 +206,7 @@
                                    "dcterms"
                                    "http://purl.org/dc/terms/")
        :ns-aliases {}}
-      (all-ns))))
+      (ns-contexts))))
 
 (defn deriving
   "a function which derives ident from each of its parents in the
@@ -156,10 +230,16 @@
     :owl/sameAs
     :rdfs/domain
     :rdfs/range
+    :schema/domainIncludes
+    :schema/rangeIncludes
     :skos/broader
     :skos/narrower})
 
-(declare find-ns-metaobject)
+(defmulti all-metaobjects
+  "A multimethod to enable finding all metaobjects in an environment. 
+
+  By default Clojure namespaces are searched."
+  (fn [env] (mop/type-of env)))
 
 (defn all-ns-metaobjects
   "Searches Clojure namespaces for metaobjects.
@@ -196,6 +276,10 @@
   ([env]
    (all-ns-metaobjects)))
 
+(defmethod all-metaobjects :default
+  [_]
+  (all-ns-metaobjects))
+
 (defn make-class-hierarchy
   "The make-class-hierarchy function creates a hierarchy of classes
   based on the :rdf/type metadata for all namespaces in the current
@@ -203,7 +287,7 @@
 
   The resulting class hierarchy is returned."
   ([]
-   (make-class-hierarchy (all-ns-metaobjects)))
+   (make-class-hierarchy (all-metaobjects mop/*env*)))
   ([metaobjects]
    (reduce (fn [h {:db/keys   [ident]
                    :rdf/keys  [type]
@@ -219,7 +303,8 @@
                (deriving h entity (concat (filter keyword? type)
                                           (filter keyword? subClassOf)
                                           (filter keyword? equivalentClass)
-                                          (filter keyword? (mapcat :owl/unionOf (filter map? subClassOf)))))
+                                          (filter keyword? (mapcat (some-fn :owl/unionOf :owl/intersectionOf)
+                                                                   (filter map? subClassOf)))))
                h))
            (make-hierarchy)
            metaobjects)))
@@ -243,23 +328,69 @@
   property to the hierarchy. Finally, it returns the hierarchy of
   properties."
   ([classes]
-   (make-property-hierarchy classes (all-ns-metaobjects)))
+   (make-property-hierarchy classes (all-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
-     (fn [h {:db/keys   [ident]
-             :rdf/keys  [type]
-             :rdfs/keys [subPropertyOf]
-             :owl/keys  [equivalentProperty]
-             :as        entity}]
-       (if (or subPropertyOf
-               equivalentProperty
-               (some #(isa? classes % :rdf/Property) type))
-         (deriving h entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
-                                    (filter keyword? subPropertyOf)
-                                    (filter keyword? equivalentProperty)))
-         h))
+     (fn [h {:db/keys     [ident]
+             :rdf/keys    [type]
+             :rdfs/keys   [subPropertyOf domain range]
+             :schema/keys [domainIncludes rangeIncludes]
+             :owl/keys    [equivalentProperty]
+             :as          entity}]
+       (cond-> h
+         (or subPropertyOf
+             equivalentProperty
+             (some #(isa? classes % :rdf/Property) type))
+         (deriving entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
+                                  (filter keyword? subPropertyOf)
+                                  (filter keyword? equivalentProperty)))))
      (make-hierarchy)
      metaobjects)))
+
+(defn make-domain-hierarchy
+  "Creates a multimethod hierarchy deriving named classes which are
+  declared in the :rdfs/domain or :schema/domainIncludes of some
+  :rdf/Property."
+  ([classes]
+   (make-domain-hierarchy classes (all-metaobjects mop/*env*)))
+  ([classes metaobjects]
+   (reduce
+     (fn [h {:db/keys     [ident]
+             :rdf/keys    [type]
+             :rdfs/keys   [subPropertyOf domain range]
+             :schema/keys [domainIncludes rangeIncludes]
+             :owl/keys    [equivalentProperty]
+             :as          entity}]
+       (let [domain'     (concat domain domainIncludes)
+             domain-keys (filter keyword? domain')]
+         (cond-> h
+           (or domain domainIncludes)
+           (deriving entity (concat domain-keys
+                                    (->> (remove keyword? domain')
+                                         (keep (some-fn :owl/unionOf :owl/intersectionOf))
+                                         (filter keyword?)))))))
+     (make-hierarchy)
+     (filter (some-fn :rdfs/domain :schema/domainIncludes) metaobjects))))
+
+(defn make-range-hierarchy
+  "Creates a multimethod hierarchy deriving named classes which are
+  declared in the :rdfs/range or :schema/rangeIncludes of some
+  :rdf/Property."
+  ([classes]
+   (make-range-hierarchy classes (all-metaobjects mop/*env*)))
+  ([classes metaobjects]
+   (reduce
+     (fn [h {:db/keys     [ident]
+             :rdf/keys    [type]
+             :rdfs/keys   [subPropertyOf domain range]
+             :schema/keys [domainIncludes rangeIncludes]
+             :owl/keys    [equivalentProperty]
+             :as          entity}]
+       (cond-> h
+         (or range rangeIncludes)
+         (deriving entity (filter keyword? (concat range rangeIncludes)))))
+     (make-hierarchy)
+     (filter (some-fn :rdfs/range :schema/rangeIncludes) metaobjects))))
 
 (defn make-metaobject-hierarchy
   "The make-metaobject-hierarchy function takes in two arguments,
@@ -276,7 +407,7 @@
 
     A hierarchy of metaobjects derived from the input RDF classes and properties."
   ([classes properties]
-   (make-metaobject-hierarchy classes properties (all-ns-metaobjects)))
+   (make-metaobject-hierarchy classes properties (all-metaobjects mop/*env*)))
   ([classes properties metaobjects]
    (reduce
      (fn [h {:db/keys   [ident]
@@ -317,20 +448,18 @@
      metaobjects)))
 
 (defn make-hierarchies
-  "Returns a map of hierarchies used to derive the `mop/*metaobjects*`
-  multimethod hierarchy from a sequence of metaobjects."
-  ([] (make-hierarchies (all-ns-metaobjects)))
+  "Returns a map of hierarchies used to derive the global multimethod
+  hierarchy from a sequence of metaobjects."
+  ([] (make-hierarchies (all-metaobjects mop/*env*)))
   ([xs]
    (let [classes     (make-class-hierarchy xs)
          properties  (make-property-hierarchy classes xs)
          metaobjects (make-metaobject-hierarchy classes properties xs)]
-     {:classes     classes
-      :properties  properties
-      :metaobjects metaobjects})))
-
-(defmethod mop/make-hierarchy-using-env :default
-  [env]
-  (:metaobjects (make-hierarchies)))
+     {:rdfs/Resource metaobjects
+      :rdfs/Class    classes
+      :rdf/Property  properties
+      :rdfs/domain   (make-domain-hierarchy classes xs)
+      :rdfs/range    (make-range-hierarchy classes xs)})))
 
 (declare finalize setup-indexes)
 
@@ -362,10 +491,19 @@
     (str form "@" (lstr/lang form))
     form))
 
+(defn unroll-tagged-literals
+  "unrolls tagged-literals forms"
+  [form]
+  (if (tagged-literal? form)
+    (:form form)
+    form))
+
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
   [mo]
-  (->> (walk/prewalk unroll-langString (assoc mo :xt/id (:db/ident mo)))
+  (->> (assoc mo :xt/id (:db/ident mo))
+       (walk/prewalk unroll-langString)
+       (walk/prewalk unroll-tagged-literals)
        (walk/postwalk (fn [form]
                         (cond
                           (map? form)
@@ -380,28 +518,30 @@
 
 (defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db]
   com/Lifecycle
-  (start [this]
+  (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
-              *target*    (or target *target*)]            
-      (let [all-metaobjects               (all-ns-metaobjects)
+              *target*    (or target *target*)]
+      (require (or init-ns 'net.wikipunk.mop.init))
+      (let [all                           (all-metaobjects (when-not node
+                                                             ;; when a :db has been provided and we are not bootstrapping with XTDB then use the :db as the environment to find metaobjects
+                                                             db))
             node                          (when config (xt/start-node config))
             {:keys [registry ns-aliases]} (make-boot-context)
-            {:keys [metaobjects]}         (make-hierarchies all-metaobjects)]
+            hierarchies                   (make-hierarchies all)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
-        (alter-var-root #'*ns-aliases* (constantly ns-aliases))
-        (alter-var-root #'mop/*metaobjects* (constantly metaobjects))        
+        (alter-var-root #'*ns-aliases* (constantly ns-aliases))        
+        (alter-var-root #'*metaobjects* (constantly hierarchies))
+        (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         (when db
           (alter-var-root #'mop/*env* (constantly db)))
         (when node
-          (alter-var-root #'mop/*env* (constantly node)))
-        (require (or init-ns 'net.wikipunk.mop.init))
-        (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
+          (alter-var-root #'mop/*env* (constantly node)))        
         (when node
           (try
             (xt/submit-tx node (into []
                                      (map (juxt (constantly ::xt/put) freezable))
-                                     all-metaobjects))
+                                     all))
             (xt/sync node)            
             (finalize)
             (catch Throwable ex
@@ -413,7 +553,7 @@
       (.close ^java.io.Closeable node))
     (assoc this :node nil))
 
-  NamespaceSpitter
+  LinkedData
   (emit [_ arg-map]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]
@@ -558,18 +698,18 @@
   [^org.apache.jena.datatypes.xsd.XSDDuration x ^java.io.Writer writer]
   (print-method (str x) writer))
 
-(def ^:dynamic *slash*
-  "generate keywords with _SLASH_ in name (used for D3FEND)"
-  nil)
+(defmethod print-method ont_app.vocabulary.lstr.LangStr
+  [^ont_app.vocabulary.lstr.LangStr literal ^java.io.Writer w]
+  (.write w (pr-str (tagged-literal 'xsd/langString  (str literal "@" (.lang literal))))))
 
 (defn- lookup-prefix
   "Construct a keyword from an IRI using the prefix tree, returns nil if not possible."
   [registry iri]
   (when-let [prefix (#'reg/longest-prefix (keys registry) iri)]
-    (let [fragment (subs iri (count prefix))
+    (let [fragment     (subs iri (count prefix))
           fragment-seq (str/split fragment #"/")
           registration (get registry prefix)
-          wild? (= "*" (last registration))]
+          wild?        (= "*" (last registration))]
       (if (not wild?)
         (if (= 1 (count fragment-seq))
           (keyword (str/join "." registration) fragment)
@@ -635,6 +775,34 @@
                        (catch Throwable ex
                          (name k)))))))
 
+(extend-protocol arachne.aristotle.graph/AsNode
+  clojure.lang.BigInt
+  (node [obj]
+    (org.apache.jena.graph.NodeFactory/createLiteralByValue (biginteger obj) XSDDatatype/XSDinteger)))
+
+(defmulti rdf-literal
+  "When parsing org.apache.jena.graph.Node_Literal instances construct
+  an appropriate tagged literal so that Clojure can read and write
+  values of this type.
+
+  Idea: Support reading tagged RDF literals by binding to preferred
+  `clojure.core/*data-readers*`."
+  (fn [^Node_Literal node]
+    (if-some [uri (.getLiteralDatatypeURI node)]
+      (kw uri)
+      (class (.getLiteralValue node)))))
+
+(defmethod rdf-literal :rdf/langString
+  [^Node_Literal node]
+  (lstr/->LangStr (.getLiteralValue node) (.getLiteralLanguage node)))
+
+(defmethod rdf-literal :default
+  [^Node_Literal node]
+  (let [uri (.getLiteralDatatypeURI node)]
+    (if (instance? BaseDatatype$TypedValue (.getLiteralValue node))
+      (tagged-literal (symbol (kw uri)) (.-lexicalValue (.getLiteralValue node)))
+      (tagged-literal (symbol (kw uri)) (.getLiteralValue node)))))
+
 (extend-protocol g/AsClojureData
   Node_URI
   (data [n]
@@ -643,25 +811,11 @@
 
   Node_Blank
   (data [n]
-    {:rdf/blank (.getLabelString (.getBlankNodeId n))})
+    {:db/id (.getLabelString (.getBlankNodeId n))})
 
   Node_Literal
   (data [n]
-    (try
-      (if (= XSDDatatype/XSDdateTime (.getLiteralDatatype n))
-        (.getTime (.asCalendar ^XSDDateTime (.getLiteralValue n)))
-        (if-let [lang (not-empty (.getLiteralLanguage n))]
-          (lstr/->LangStr (.getLiteralValue n) lang)
-          #_(if (str/starts-with? lang "en")
-              (.getLiteralValue n)
-              (lstr/->LangStr (.getLiteralValue n) lang))
-          (let [value (.getLiteralValue n)]
-            (if (instance? BaseDatatype$TypedValue value)
-              (.-lexicalValue value)
-              value))))
-      (catch org.apache.jena.datatypes.DatatypeFormatException ex
-        (log/warn (.getMessage ex))
-        (str n))))
+    (rdf-literal n))
 
   Node_Triple
   (data [node]
@@ -674,6 +828,8 @@
 (defn iri
   "returns IRI for ident using aristotle's registry"
   [ident]
+  (assert @(get *ns-aliases* (namespace ident))
+          (str ident ": the namespace has not been booted by a JSON-LD context"))
   (reg/iri (keyword (namespace ident)
                     (let [n (-> (name ident)
                                 (str/replace #"^\|" "")
@@ -700,7 +856,7 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner      (or (:reasoner md) (ReasonerRegistry/getRDFSSimpleReasoner))
+  (let [reasoner      (:reasoner md (ReasonerRegistry/getRDFSSimpleReasoner))
         g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind reasoner g)
                         g)
@@ -728,8 +884,18 @@
                                                  (remove (fn [^Triple t] 
                                                            (= (.getSubject t) (.getObject t))) 
                                                          triples) 
-                                                 triples)] ; Remove the self-reference triple if it exists.
-                                   (into {:db/ident (g/data subject)}
+                                                 triples) ; Remove the self-reference triple if it exists.
+                                       iri     (g/data subject)] 
+                                   (into (cond
+                                           (keyword? iri)
+                                           {:db/ident iri}
+                                           (map? iri)
+                                           iri
+                                           (and (string? iri) (str/starts-with? iri "http"))
+                                           {:rdfa/uri iri}
+                                           (string? iri)
+                                           {:db/id iri}
+                                           :else (throw (ex-info "Could not generate IRI for Node." {:subject iri})))
                                          (map (fn [[pred triples]]
                                                 (let [k       (g/data pred)
                                                       objects (mapv #(g/data (.getObject ^Triple %)) triples)]
@@ -738,124 +904,50 @@
                                                        objects)])))
                                          (group-by #(.getPredicate ^Triple %) triples))))))))))
 
-(def ^:dynamic *graph*
-  "Bound to the apache jena graph during parsing."
-  nil)
-
-(extend-protocol Parsable
-  clojure.lang.IPersistentMap
-  (parse [md]
-    (binding [*graph* (graph md)]
-      (parse-with-meta *graph* md)))
-  (graph [md]
-    (let [{:rdfa/keys [uri prefix]
-           :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
-           :dcat/keys [downloadURL]
-           :rdf/keys  [value]
-           :keys      [format]} md
-          parser                (if value
-                             (doto (RDFParser/fromString value)
-                               (.lang (get a/formats (or format :ttl))))
-                             (RDFParser/source (or downloadURL uri)))]
-      (try
-        (.toGraph parser)
-        (catch org.apache.jena.riot.RiotException ex
-          ;; if an appropriate content-type cannot be inferred try Turtle
-          (try
-            (.toGraph (doto parser (.lang Lang/TTL)))
-            (catch org.apache.jena.riot.RiotException ex
-              ;; ...try RDF/XML?
-              (try
-                (.toGraph (doto parser (.lang Lang/RDFXML)))
-                (catch org.apache.jena.riot.RiotException ex
-                  ;; ...try N3?
-                  (try
-                    (.toGraph (doto parser (.lang Lang/N3)))
-                    (catch org.apache.jena.riot.RiotException ex
-                      ;; ...try JSONLD?
-                      (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
-
-  clojure.lang.Keyword
-  (parse [ident]
-    (when-some [url (iri ident)]
-      (parse {:rdfa/prefix      (namespace ident)
-              :dcat/downloadURL url})))
-  (graph [ident]
-    (when-some [url (iri ident)]
-      (graph {:rdfa/prefix      (namespace ident)
-              :dcat/downloadURL url})))
-
-  clojure.lang.Named
-  (parse [ident]
-    (if (qualified-ident? ident)
-      (some-> (resolve ident) deref parse)
-      (some-> (find-ns ident) meta parse)))
-  (graph [ident]
-    (if (qualified-ident? ident)
-      (some-> (resolve ident) deref graph)
-      (some-> (find-ns ident) meta graph)))
-
-  clojure.lang.Namespace
-  (parse [ns]
-    (parse (meta ns)))
-  (graph [ns]
-    (graph (meta ns)))
-
-  String
-  (parse [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))
-      (parse {:dcat/downloadURL s})
-      (parse {:rdf/value s})))
-  (graph [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))
-      (graph {:dcat/downloadURL s})
-      (graph {:rdf/value s})))
-
-  java.net.URI
-  (parse [uri]
-    (parse {:dcat/downloadURL (str uri)}))
-  (graph [uri]
-    (graph {:dcat/downloadURL (str uri)}))
-
-  java.net.URL
-  (parse [url]
-    (parse {:dcat/downloadURL (str url)}))
-  (graph [url]
-    (graph {:dcat/downloadURL (str url)}))
-
-  Graph
-  (parse [g]
-    (binding [*graph* g]
-      (parse-with-meta g nil)))
-  (graph [g] g))
-
 (def mem-parse (memo/memo parse))
+
+(defn bnode?
+  "Checks if a value is a blank node."
+  [val]
+  (and (map? val) (:db/id val)))
+
+(defn get-definition
+  "Retrieves the definition of a blank node from the graph."
+  [graph bnode-id]
+  (some #(= (:db/id %) bnode-id) graph))
+
+(defn replace-bnode
+  "Replaces a blank node with its definition, if it exists."
+  [graph node]
+  (if (bnode? node)
+    (or (get-definition graph (:db/id node)) node)
+    node))
+
+(defn replace-bnodes-in-val
+  "Replaces all blank nodes in a value with their definitions."
+  [graph val]
+  (cond
+    (vector? val) (mapv #(replace-bnodes-in-val graph %) val)
+    (bnode? val)  (replace-bnode graph val)
+    :else         val))
+
+(defn replace-bnodes
+  "Replaces all blank nodes recursively with their definitions."
+  [graph]
+  (let [bnode-definitions (into {} (map (juxt :db/id identity) graph))]
+    (walk/postwalk
+      (fn [node]
+        (if (and (map? node) (:db/id node))
+          (get bnode-definitions (:db/id node) node)
+          node))
+      graph)))
 
 (defn walk-blanks
   "Replaces blank nodes with their values."
   ([index form]
-   (walk-blanks index form #{:rdfs/subClassOf :rdfs/subPropertyOf}))
-  ([index form keys]
-   (if-some [_ (:rdf/blank form)]
-     (let [node (get index form)]
-       (reduce (fn [n k]
-                 (if (contains? n k)
-                   (let [value     (get n k)
-                         new-value (cond
-                                     (= value form)
-                                     nil
-                                     (when (sequential? value)
-                                       (some #(= form %) value))
-                                     (not-empty (into [] (remove #(= form %) value)))
-                                     :else value)]
-                     (if (nil? new-value)
-                       (dissoc n k)
-                       (assoc n k new-value)))
-                   n))
-               node
-               keys))
+   (if-some [id (:db/id form)]
+     (let [node (get index id)]
+       (walk/postwalk #(walk-blanks (dissoc index id) %) node))
      form)))
 
 (defn walk-dcterms
@@ -887,23 +979,6 @@
     (into (vector-of :byte) form)
     form))
 
-(defn walk-seeAlso
-  "Turns :rdfs/seeAlso forms into strings"
-  [form]
-  (if (and (map? form)
-           (contains? form :rdfs/seeAlso))
-    (let [seeAlso  (:rdfs/seeAlso form)
-          seeAlso  (if (sequential? seeAlso)
-                     seeAlso
-                     [seeAlso])
-          seeAlso' (mapv (fn [x]
-                           (if (keyword? x)
-                             (iri x)
-                             x))
-                         seeAlso)]
-      (assoc form :rdfs/seeAlso (filterv string? seeAlso')))
-    form))
-
 (defprotocol Box
   (box [val] "boxes the value"))
 
@@ -915,15 +990,19 @@
   Number
   (box [n]
     (cond
-      (float? n)
+      (double? n)
       {:xsd/double n}
+      (float? n)
+      {:xsd/float n}
+      (instance? Integer n)
+      {:xsd/int n}
       (int? n)
       {:xsd/long n}
       (decimal? n)
       {:xsd/decimal n}
       (integer? n)
       {:xsd/integer (bigint n)}
-      :else {:owl/real (bigdec n)}))
+      :else {:xsd/decimal (bigdec n)}))
 
   String
   (box [s]
@@ -937,14 +1016,15 @@
 
   clojure.lang.IPersistentMap
   (box [m]
-    ;; special case coerce these to doubles 
+    ;; special case coerce these to doubles
     (if (some #{:xsd/minExclusive :xsd/minInclusive
                 :xsd/maxExclusive :xsd/maxInclusive
                 :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
                 :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
               (keys m))
       (reduce #(update %1 %2 (fn [x]
-                               (if (string? x)
+                               (cond
+                                 (string? x)
                                  (try
                                    (double (Long/parseLong x))
                                    (catch Throwable ex
@@ -952,7 +1032,11 @@
                                        (Double/parseDouble x)
                                        (catch Throwable ex
                                          (double (read-string (str "0x" x)))))))
-                                 (double x))))
+                                 (number? x)
+                                 (double x)
+
+                                 (tagged-literal? x)
+                                 (double (:form x)))))
               m (filter #{:xsd/minExclusive :xsd/minInclusive
                           :xsd/maxExclusive :xsd/maxInclusive
                           :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
@@ -972,85 +1056,84 @@
 
 (defmulti box-values
   "Boxes multi-value typed literals for Datomic :db.type/ref."
-  mop/type-of
-  :hierarchy #'mop/*metaobjects*)
+  mop/type-of)
 
 (defmethod box-values :default
   [form]
   (if (map? form)
-    (cond-> (box form)
-      (:owl/deprecated form)
-      (update :owl/deprecated boolean)
+      (cond-> (box form)
+        (:owl/deprecated form)
+        (update :owl/deprecated boolean)
       
-      (some? (:owl/hasValue form))
-      (box-value update :owl/hasValue)
+        (some? (:owl/hasValue form))
+        (box-value update :owl/hasValue)
 
-      (some? (:rdf/value form))
-      (box-value update :rdf/value)
+        (some? (:rdf/value form))
+        (box-value update :rdf/value)
 
-      (some? (:qudt/value form))
-      (box-value update :qudt/value)
+        (some? (:qudt/value form))
+        (box-value update :qudt/value)
 
-      (some? (:qudt/conversionMultiplier form))
-      (box-value update :qudt/conversionMultiplier)
+        (some? (:qudt/conversionMultiplier form))
+        (box-value update :qudt/conversionMultiplier)
 
-      (some? (:qudt/conversionOffset form))
-      (box-value update :qudt/conversionOffset)
+        (some? (:qudt/conversionOffset form))
+        (box-value update :qudt/conversionOffset)
 
-      (some? (:qudt/dimensionExponentForLength form))
-      (box-value update :qudt/dimensionExponentForLength)
+        (some? (:qudt/dimensionExponentForLength form))
+        (box-value update :qudt/dimensionExponentForLength)
 
-      (some? (:qudt/dimensionExponentForMass form))
-      (box-value update :qudt/dimensionExponentForMass)
+        (some? (:qudt/dimensionExponentForMass form))
+        (box-value update :qudt/dimensionExponentForMass)
 
-      (some? (:qudt/dimensionExponentForAmountOfSubstance form))
-      (box-value update :qudt/dimensionExponentForAmountOfSubstance)
+        (some? (:qudt/dimensionExponentForAmountOfSubstance form))
+        (box-value update :qudt/dimensionExponentForAmountOfSubstance)
 
-      (some? (:qudt/dimensionExponentForElectricCurrent form))
-      (box-value update :qudt/dimensionExponentForElectricCurrent)
+        (some? (:qudt/dimensionExponentForElectricCurrent form))
+        (box-value update :qudt/dimensionExponentForElectricCurrent)
 
-      (some? (:qudt/dimensionExponentForLuminousIntensity form))
-      (box-value update :qudt/dimensionExponentForLuminousIntensity)
+        (some? (:qudt/dimensionExponentForLuminousIntensity form))
+        (box-value update :qudt/dimensionExponentForLuminousIntensity)
 
-      (some? (:qudt/dimensionExponentForThermodynamicTemperature form))
-      (box-value update :qudt/dimensionExponentForThermodynamicTemperature)
+        (some? (:qudt/dimensionExponentForThermodynamicTemperature form))
+        (box-value update :qudt/dimensionExponentForThermodynamicTemperature)
 
-      (some? (:qudt/dimensionExponentForTime form))
-      (box-value update :qudt/dimensionExponentForTime)
+        (some? (:qudt/dimensionExponentForTime form))
+        (box-value update :qudt/dimensionExponentForTime)
       
-      (some? (:dtype/value form))
-      (box-value update :dtype/value)
+        (some? (:dtype/value form))
+        (box-value update :dtype/value)
 
-      (seq (:owl/oneOf form))
-      (box-value update :owl/oneOf)
+        (some? (:jsonschema/enum form))
+        (box-value update :jsonschema/enum)
 
-      (seq (:owl/withRestrictions form))
-      (box-value update :owl/withRestrictions)
+        (seq (:owl/oneOf form))
+        (box-value update :owl/oneOf)
 
-      (some? (:jsonschema/default form))
-      (box-value update :jsonschema/default)
+        (seq (:owl/withRestrictions form))
+        (box-value update :owl/withRestrictions)
 
-      (some? (:jsonschema/const form))
-      (box-value update :jsonschema/const)
+        (some? (:jsonschema/default form))
+        (box-value update :jsonschema/default)
 
-      (some? (:d3f/version form))
-      (box-value update :d3f/version)
+        (some? (:jsonschema/const form))
+        (box-value update :jsonschema/const)
 
-      (some? (:dcterms/hasPart form))
-      (box-value update :dcterms/hasPart)
+        (some? (:d3f/version form))
+        (box-value update :d3f/version)
 
-      (some? (:rdfs/isDefinedBy form))
-      (box-value update :rdfs/isDefinedBy)
+        (some? (:dcterms/hasPart form))
+        (box-value update :dcterms/hasPart)
 
-      (some? (:rdfs/seeAlso form))
-      (box-value update :rdfs/seeAlso))
-    form))
+        (some? (:dcterms/creator form))
+        (box-value update :dcterms/creator)
 
-(def ^:dynamic *recurse* 2)
+        (some? (:rdfs/isDefinedBy form))
+        (box-value update :rdfs/isDefinedBy)
 
-(def ^:dynamic *private*
-  "bind to true if you want private vars to be emitted"
-  nil)
+        (some? (:rdfs/seeAlso form))
+        (box-value update :rdfs/seeAlso))
+      form))
 
 (defn unroll-forms
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1060,8 +1143,8 @@
         prefix         (or (:rdfa/prefix md)
                            (:vann/preferredNamespacePrefix md)
                            (some-> (:ns md) ns-name #(str/split #"\.") peek))
-        model-by-ident (update-vals (group-by :db/ident model) first)
-        index          (update-vals model-by-ident #(dissoc % :db/ident))
+        model-by-ident (update-vals (group-by (some-fn :db/id :db/ident) model) first)
+        index          (update-vals model-by-ident #(dissoc % :db/id))
         forms          (->> index
                             (walk/prewalk (partial walk-blanks index))
                             (walk/postwalk walk-dcterms)
@@ -1118,14 +1201,11 @@
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)
                         (filter (fn [form]
-                                  (some #(or (isa? mop/*metaobjects* % :owl/Ontology)
-                                             (isa? mop/*metaobjects* % :voaf/Vocabulary)
-                                             (isa? mop/*metaobjects* % :madsrdf/MADSScheme))
-                                        (if (coll? (:rdf/type form))
-                                          (:rdf/type form)
-                                          [(:rdf/type form)])))))
-        the-ont    (or (first ontologies)
-                       (first (filter :rdfa/uri (remove public? forms))))
+                                  (let [t (mop/type-of form)]
+                                    (or (isa? t :owl/Ontology)
+                                        (isa? t :voaf/Vocabulary)
+                                        (isa? t :madsrdf/MADSScheme))))))
+        the-ont    (first ontologies)
         forms      (filter #(keyword? (:db/ident %)) forms)
         publics    (filter public? forms)
         privates   (->> (remove public? forms)
@@ -1137,37 +1217,62 @@
                      (when *private* (sort-by :db/ident privates)))
       (merge md the-ont))))
 
-(defn rdf-doc
-  "Returns docstring for v."
-  [v]  
-  (let [docstring (or (some-> (:db/doc v))
-                      (:lv2/documentation v)
-                      (:dcterms/abstract v)
-                      (:dcterms/description v)
-                      (:dc11/description v)
-                      (:skos/definition v)
-                      (:prov/definition v)
-                      (:prov/editorsDefinition v)
-                      (:madsrdf/definitionNote v)
-                      (:madsrdf/authoritativeLabel v)
-                      (:d3fend/definition v)
-                      (:d3fend/d3fend-comment v)
-                      (:d3fend/kb-article v)
-                      (:d3fend/control-name v)
-                      (:rdfs/comment v)
-                      (:skos/prefLabel v)                      
-                      (:rdfs/label v))
-        docstring (if (vector? docstring)
-                    (if (every? string? docstring)
-                      (str/join \newline docstring)
-                      (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
-                                 (get (group-by lstr/lang (remove string? docstring)) "en-US")
-                                 (seq (filter string? docstring)))))
-                    docstring)
-        docstring (if (map? docstring)
-                    (:rdf/value docstring "")
-                    docstring)]
-    (str docstring)))
+(defmulti rdf-doc
+  "`rdf-doc` is a multimethod that dispatches on the type of its
+  argument. It has various methods defined for different types and
+  keys, each returning a docstring for the corresponding value in the
+  map. It defaults to returning `nil` when a method for a given type
+  or key is not defined."
+  (fn [x]
+    (cond
+      (map-entry? x)
+      (key x)
+
+      (indexed? x)
+      (nth x 0)
+
+      :else (type x))))
+
+(defmethod rdf-doc :default [_] nil)
+(defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
+(defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x] (str x))
+(defmethod rdf-doc String [x] x)
+(defmethod rdf-doc :rdfs/label [[k v]] (rdf-doc v))
+(defmethod rdf-doc :rdfs/comment [[k v]] (rdf-doc v))
+(defmethod rdf-doc :d3f/definition [[k v]] (rdf-doc v))
+(defmethod rdf-doc :rdf/Property [[k v]] (rdf-doc v))
+(defmethod rdf-doc :d3f/todo [_] nil)
+(defmethod rdf-doc :d3f/kb-article [_] nil)
+(defmethod rdf-doc :dc11/description [[k v]] (rdf-doc v))
+(defmethod rdf-doc :dc11/title [[k v]] (rdf-doc v))
+
+(prefer-method rdf-doc :rdfs/comment :rdfs/label)
+(prefer-method rdf-doc :d3f/definition :rdfs/comment)
+(prefer-method rdf-doc :d3f/definition :rdfs/label)
+(prefer-method rdf-doc :dc11/description :rdfs/comment)
+(prefer-method rdf-doc :dc11/title :rdfs/label)
+
+(defn get-prefs
+  "Returns a sequence of dispatching keywords on multifn sorted by
+  preference."
+  [multifn]
+  (let [prefs (sort (comp > isa?) (keys (prefers multifn)))
+        kws   (->> (methods multifn)
+                   (keys)
+                   (filter qualified-keyword?)
+                   (filter #(isa? (:rdf/Property *metaobjects*) % :rdf/Property))
+                   (remove (conj (mop/class-direct-subclasses :rdf/Property) :rdf/Property)))]
+    (distinct (concat prefs kws))))
+
+(defn get-doc
+  "Returns the docstring for the first key-value pair in the map where
+  the key is a subclass of a preferred key."
+  [m]
+  (let [prefs (get-prefs rdf-doc)]
+    (some (fn [pref]            
+            (when-some [kv (first (filter #(isa? (key %) pref) m))]
+              (rdf-doc kv)))
+          prefs)))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1180,8 +1285,8 @@
                         ;; todo: refactor this into a multimethod
                         (pmap (fn [form]
                                 (if (and (pos? *recurse*)
-                                         (some #(or (isa? mop/*metaobjects* % :skos/Concept)
-                                                    (isa? mop/*metaobjects* % :skos/ConceptScheme))
+                                         (some #(or (isa? % :skos/Concept)
+                                                    (isa? % :skos/ConceptScheme))
                                                (if (sequential? (:rdf/type form))
                                                  (:rdf/type form)
                                                  [(:rdf/type form)])))
@@ -1224,7 +1329,7 @@
                                             :else sym)
                                       sym       (if (:private v) (with-meta sym {:private true}) sym)
                                       v         (if (:private v) (dissoc v :private) v)
-                                      docstring (rdf-doc v)  
+                                      docstring (get-doc v)
                                       v         (cond-> (assoc v :db/ident k)
                                                   (and (nil? (:rdf/type v))
                                                        (:rdfs/subClassOf v))
@@ -1238,40 +1343,14 @@
                                     (list 'def sym v))))))]
     (if prefix
       (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
-              ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
-                                    (:dcterms/abstract md)
-                                    (:dcterms/description md)
-                                    (:dcterms/title md)
-                                    (:madsrdf/definitionNote md)
-                                    (:rdfs/comment md)
-                                    (:rdfs/label md)
-                                    (:rdfa/uri md)
-                                    (:doc md))
-                      docstring (if (vector? docstring)
-                                  (if (every? string? docstring)
-                                    (str/join \newline docstring)
-                                    (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
-                                               (get (group-by lstr/lang (remove string? docstring)) "en-US")
-                                               (seq (filter string? docstring)))))
-                                  docstring)
-                      docstring (if (map? docstring)
-                                  (:rdf/value docstring)
-                                  docstring)
-                      docstring (when docstring
-                                  (str/trim (str/replace docstring #"\s+" " ")))]
+              ~@(let [docstring (or (get-doc md) (:doc md))]
                   (when docstring
-                    [docstring]))              
-              ~(dissoc (cond-> md
-                         (:lv2/project md)
-                         (update :lv2/project #(dissoc % :lv2/documentation)))
-                       :doc)
+                    [docstring]))
+              ~(dissoc md :doc)
               ~@(when (seq exclusions)
                   [(list :refer-clojure :exclude exclusions)]))
             forms)
       forms)))
-
-(def mem-unroll
-  (memo/memo unroll-forms))
 
 (defn emit-ns
   "Emits a model to a Clojure namespace using metadata map."
@@ -1310,36 +1389,6 @@
                       (newline))))))))
     (zprint/zprint (unroll-forms model))))
 
-(extend-protocol NamespaceSpitter
-  clojure.lang.IPersistentCollection
-  (emit [xs arg-map]
-    (dorun (pmap #(try
-                    (emit % arg-map)
-                    (catch Throwable ex
-                      (println % (.getMessage ex))))
-                 xs)))
-
-  String
-  (emit [s arg-map]
-    (emit {:dcat/downloadURL s} arg-map))
-
-  clojure.lang.Named
-  (emit [n arg-map]
-    (when-some [x (if (qualified-ident? n)
-                    (some-> (resolve (symbol n)) deref)
-                    (find-ns (symbol n)))]
-      (emit x arg-map)))
-  
-  clojure.lang.IPersistentMap
-  (emit [x arg-map]
-    (let [model (parse x)
-          md    (meta model)]
-      (emit-ns model md arg-map)))
-
-  clojure.lang.Namespace
-  (emit [ns arg-map]
-    (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map)))
-
 (defn find-obo-metaobject
   "Find a metaobject in the OBO namespace."
   [ident]
@@ -1361,12 +1410,13 @@
             (throw (ex-info "Could not resolve OBO metaobject" {:ident ident}))))
         nil))))
 
-(defn find-ns-metaobject
-  "Finds a metaobject by namespace-qualified keyword identity by
-  looking up its namespace in the system's registry and attempting to
-  resolve the name as a Var in that namespace, requiring it when
-  necessary."
-  [ident]
+;; Finds a metaobject by namespace-qualified keyword identity by
+;; looking up its namespace in the system's registry and attempting to
+;; resolve the name as a Var in that namespace, requiring it when
+;; necessary.
+
+(defmethod mop/find-class-using-env [clojure.lang.Keyword nil]
+  [ident _]
   (when (qualified-keyword? ident)
     (when-some [var (if (= (namespace ident) "obo")
                       (find-obo-metaobject ident)
@@ -1403,7 +1453,7 @@
   (when-some [metaobject (mop/find-class ident)]
     (println "-------------------------")
     (println (:db/ident metaobject))
-    (when-some [doc (rdf-doc metaobject)]
+    (when-some [doc (get-doc metaobject)]
       (println " " doc))
     (when-some [supers (next (mop/compute-class-precedence-list metaobject))]
       (println "  isa?")
@@ -1434,6 +1484,7 @@
       :else                                  nil)))
 
 (defn unroll-blank
+  "used to add :db/id's to blank nodes"
   [form]
   (if (and (map? form)
            (and (not (contains? form :rdfa/uri))
@@ -1443,75 +1494,26 @@
     form))
 
 (defn unroll-missing-uris
+  "not sure if this is needed"
   [form]
   (if (sequential? form)
     (filterv (some-fn keyword? map?) form)
     form))
 
-(defn- unroll-term
-  [x]
-  (cond
-    (keyword? x) #{x}
-    
-    (map? x) (into #{} (or (:owl/unionOf x)
-                           (:owl/oneOf x)
-                           (some-> (:owl/intersectionOf x) (hash-set))))
-    
-    (coll? x) (into #{} (mapcat unroll-term) x)
-
-    :else #{}))
-
-(defn direct-slot-definition
-  [x]
-  (reduce (fn [mo term]
-            (if (contains? mo term)
-              (let [mo' (update mo term unroll-term)]
-                (if (get mo' term)
-                  mo'
-                  (dissoc mo' term)))
-              mo))
-          (set/rename-keys
-            (cond
-              (qualified-keyword? x)
-              (mop/find-class x)
-              (map? x)
-              x
-              :else (throw (ex-info "cannot coerce x to direct-slot-definition" {:x x})))
-            {:schema/domainIncludes :rdfs/domain
-             :schema/rangeIncludes  :rdfs/range})
-          [:rdf/type
-           :rdfs/domain
-           :rdfs/range
-           :rdfs/subPropertyOf]))
-
-(defn setup-indexes
-  ([]
-   (setup-indexes mop/*metaobjects*))
-  ([h]
-   (let [slots (into []
-                     (comp
-                       (filter #(some #{:owl/ObjectProperty
-                                        :owl/DatatypeProperty
-                                        :owl/AnnotationProperty
-                                        :owl/TransitiveProperty
-                                        :owl/SymmetricProperty
-                                        :owl/FunctionalProperty
-                                        :rdf/Property}
-                                      (:rdf/type %))))
-                     (pmap direct-slot-definition (descendants h :rdf/Property)))]
-     {:slots/by-domain
-      (reduce-kv (fn [m domain slots]
-                   (reduce (fn [m k]
-                             (update m k (fnil into #{}) slots))
-                           m domain))
-                 {}
-                 (group-by :rdfs/domain slots))})))
-
-
 (defn finalize
   "Finalizes all of the loaded classes."
   ([]
-   (finalize true (conj (descendants mop/*metaobjects* :rdfs/Class) :rdfs/Class)))
+   (finalize true (conj (set/union (set/difference (descendants :rdfs/Class)
+                                                   (descendants :rdf/Property)
+                                                   (descendants :owl/NamedIndividual)
+                                                   (descendants :skos/Concept)
+                                                   (descendants :owl/Thing))
+                                   (mop/class-direct-subclasses :rdf/Property))
+                        :rdfs/Class
+                        :rdf/Property
+                        :owl/NamedIndividual
+                        :skos/Concept
+                        :owl/Thing)))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
@@ -1523,8 +1525,6 @@
                    (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
-
-(def ^:dynamic ^:deprecated *datafy-mop* true)
 
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
@@ -1559,55 +1559,10 @@
 
       :else (find-ns (symbol ident)))))
 
-(extend-protocol LinkedData
-  clojure.lang.Sequential
-  (sniff [coll]
-    (pmap #(sniff %) coll))
-
-  String
-  (sniff [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))      
-      (sniff {:dcat/downloadURL s})
-      (let [model (sniff {:rdf/value s})]
-        (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
-  
-  clojure.lang.IPersistentMap
-  (sniff [m]
-    (let [model (mem-parse m)]
-      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
-
-  clojure.lang.Keyword
-  (sniff [k]
-    (try
-      (when-some [model (mem-parse k)]
-        (let [forms (mapv #(dissoc % :private) (unroll-forms model))
-              idx   (group-by :db/ident forms)]
-          (if-some [val (get idx k)]
-            (with-meta (first val)
-              (merge (meta model)
-                     (update-vals (dissoc idx k) first)))
-            (with-meta (peek forms)
-              (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
-      (catch Throwable ex
-        (log/debug (.getMessage ex)))))
-
-  java.net.URI
-  (sniff [uri]
-    (sniff {:dcat/downloadURL (str uri)}))
-
-  java.net.URL
-  (sniff [url]
-    (sniff {:dcat/downloadURL (str url)}))
-
-  nil
-  (sniff [_] nil))
-
 (defmulti import-from
   "Import metaobjects `from` into `to`"
   (fn [from to]
-    [(mop/type-of from) (mop/type-of to)])
-  :hierarchy #'mop/*metaobjects*)
+    [(mop/type-of from) (mop/type-of to)]))
 
 (defmethod import-from [String String]
   [from to]
@@ -1629,65 +1584,6 @@
                        (:name (meta v))
                        (merge (some-> (get (ns-publics to) (:name (meta v))) deref) @v))))))
 
-(defn parse-rdf*
-  "Parse RDF* metadata from x."
-  [x]
-  (let [model (parse x)]
-    (->> (group-by (comp :rdf/subject :db/ident) model)
-         (reduce-kv (fn [forms k v]
-                      (conj forms (reduce (fn [m x]
-                                            (-> m
-                                                (assoc (:rdf/predicate (:db/ident x))
-                                                       (:rdf/object (:db/ident x)))
-                                                (vary-meta assoc
-                                                           [(:rdf/subject (:db/ident x))
-                                                            (:rdf/predicate (:db/ident x))
-                                                            (:rdf/object (:db/ident x))]
-                                                           (dissoc x :db/ident))))
-                                          {:db/ident k}
-                                          v)))
-                    (with-meta [] (meta model))))))
-
-(defn emit-rdf*
-  "Emit Clojure namespace with subjects annotated with metadata using
-  RDF*.
-
-  You may have to add :refer-clojure :exclude [exclusions] to
-  generated ns metadata."
-  [x & {:as arg-map}]
-  (let [model (parse-rdf* x)
-        md    (meta model)]
-    (if-some [prefix (or (:prefix arg-map)
-                         (:rdfa/prefix md)
-                         (:vann/preferredNamespacePrefix md))]
-      (spit (str (or (:target arg-map) *target*)
-                 (namespace-munge (str/replace prefix #"\." "/"))
-                 ".cljc")
-            (binding [*print-namespace-maps* nil
-                      *print-meta*           true]
-              (let [forms (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
-                                  ~(or (:doc md) "RDF*")
-                                  ~(merge md arg-map))
-                                (map (fn [m]
-                                       (list 'def (with-meta (symbol (name (:db/ident m))) (meta m)) m))
-                                     model))]
-                (with-out-str
-                  (doseq [form forms]
-                    (zprint/zprint form {:map    {:justify?      true
-                                                  :nl-separator? false
-                                                  :hang?         true
-                                                  :indent        0
-                                                  :sort-in-code? true
-                                                  :force-nl?     true}
-                                         :vector {:wrap? false}})
-                    (newline))))))
-      (zprint/zprint model))))
-
-(extend-protocol arachne.aristotle.graph/AsNode
-  clojure.lang.BigInt
-  (node [obj]
-    (arachne.aristotle.graph/node (bigdec obj))))
-
 (defn ns-graph
   "Return a graph of all the namespaces in the current system."
   ([]
@@ -1708,7 +1604,7 @@
                                             m))
                                         {} form)
                              form))
-                         (all-ns-metaobjects)))))
+                         (all-metaobjects)))))
 
 (defn ns-idents
   "Returns a set of keywords used in the public metaobjects of this namespace."
@@ -1725,3 +1621,148 @@
                           mo))
           (map deref (vals (ns-publics ns))))
     @idents))
+
+(extend-protocol LinkedData
+  java.util.List
+  (emit [xs arg-map]
+    (dorun (pmap #(try
+                    (emit % arg-map)
+                    (catch Throwable ex
+                      (println % (.getMessage ex))))
+                 xs)))
+  (sniff [xs]
+    (pmap #(sniff %) xs))
+  
+  clojure.lang.IPersistentMap
+  (parse [md]
+    (binding [*graph*   (graph md)
+              *slash*   (:slash md)
+              *private* (:private md)
+              *recurse* (:recurse md 0)]
+      (parse-with-meta *graph* md)))
+  (graph [md]
+    (let [{:rdfa/keys [uri prefix]
+           :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
+           :dcat/keys [downloadURL]
+           :rdf/keys  [value]
+           :keys      [format]} md
+          parser                (if value
+                                  (doto (RDFParser/fromString value)
+                                    (.lang (get a/formats (or format :ttl))))
+                                  (RDFParser/source (or downloadURL uri)))]
+      (try
+        (.toGraph parser)
+        (catch org.apache.jena.riot.RiotException ex
+          ;; if an appropriate content-type cannot be inferred try Turtle
+          (try
+            (.toGraph (doto parser (.lang Lang/TTL)))
+            (catch org.apache.jena.riot.RiotException ex
+              ;; ...try RDF/XML?
+              (try
+                (.toGraph (doto parser (.lang Lang/RDFXML)))
+                (catch org.apache.jena.riot.RiotException ex
+                  ;; ...try N3?
+                  (try
+                    (.toGraph (doto parser (.lang Lang/N3)))
+                    (catch org.apache.jena.riot.RiotException ex
+                      ;; ...try JSONLD?
+                      (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
+  (emit [x arg-map]
+    (when (:emit x true)
+      (let [model (parse x)
+            md    (meta model)]
+        (emit-ns model md arg-map))))
+  (sniff [m]
+    (let [model (mem-parse m)]
+      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
+
+  clojure.lang.Keyword
+  (parse [ident]
+    (when-some [url (iri ident)]
+      (parse {:rdfa/prefix      (namespace ident)
+              :dcat/downloadURL url})))
+  (graph [ident]
+    (when-some [url (iri ident)]
+      (graph {:rdfa/prefix      (namespace ident)
+              :dcat/downloadURL url})))
+  (sniff [k]
+    (try
+      (when-some [model (mem-parse k)]
+        (let [forms (mapv #(dissoc % :private) (unroll-forms model))
+              idx   (group-by :db/ident forms)]
+          (if-some [val (get idx k)]
+            (with-meta (first val)
+              (merge (meta model)
+                     (update-vals (dissoc idx k) first)))
+            (with-meta (peek forms)
+              (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
+      (catch Throwable ex
+        (log/debug (.getMessage ex)))))
+
+  clojure.lang.Named
+  (parse [ident]
+    (if (qualified-ident? ident)
+      (some-> (resolve ident) deref parse)
+      (some-> (find-ns ident) meta parse)))
+  (graph [ident]
+    (if (qualified-ident? ident)
+      (some-> (resolve ident) deref graph)
+      (some-> (find-ns ident) meta graph)))
+  (emit [n arg-map]
+    (when-some [x (if (qualified-ident? n)
+                    (some-> (resolve (symbol n)) deref)
+                    (find-ns (symbol n)))]
+      (emit x arg-map)))
+
+  clojure.lang.Namespace
+  (parse [ns]
+    (parse (meta ns)))
+  (graph [ns]
+    (graph (meta ns)))
+  (emit [ns arg-map]
+    (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map))
+
+  String
+  (parse [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))
+      (parse {:dcat/downloadURL s})
+      (parse {:rdf/value s})))
+  (graph [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))
+      (graph {:dcat/downloadURL s})
+      (graph {:rdf/value s})))
+  (emit [s arg-map]
+    (emit {:dcat/downloadURL s} arg-map))
+  (sniff [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))      
+      (sniff {:dcat/downloadURL s})
+      (let [model (sniff {:rdf/value s})]
+        (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
+
+  java.net.URI
+  (parse [uri]
+    (parse {:dcat/downloadURL (str uri)}))
+  (graph [uri]
+    (graph {:dcat/downloadURL (str uri)}))
+  (sniff [uri]
+    (sniff {:dcat/downloadURL (str uri)}))
+
+  java.net.URL
+  (parse [url]
+    (parse {:dcat/downloadURL (str url)}))
+  (graph [url]
+    (graph {:dcat/downloadURL (str url)}))
+  (sniff [url]
+    (sniff {:dcat/downloadURL (str url)}))
+
+  Graph
+  (parse [g]
+    (binding [*graph* g]
+      (parse-with-meta g nil)))
+  (graph [g] g)
+
+  nil
+  (sniff [_] nil))

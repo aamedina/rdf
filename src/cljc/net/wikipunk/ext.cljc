@@ -26,13 +26,14 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def bio
-  {:dcat/downloadURL "https://vocab.org/bio/schema.rdf"
+  {:dcat/downloadURL "resources/bio.rdf"
    :rdfa/uri         "http://purl.org/vocab/bio/0.1/"
    :rdfa/prefix      "bio"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def cnt
-  {:rdfa/uri    "http://www.w3.org/2011/content#"
+  {:dcat/downloadURL "resources/content.rdf"
+   :rdfa/uri    "http://www.w3.org/2011/content#"
    :rdfa/prefix "cnt"
    :rdf/type    :rdfa/PrefixMapping})
 
@@ -52,26 +53,52 @@
 (def disco
   {:rdfa/uri    "http://rdf-vocabulary.ddialliance.org/discovery#"
    :rdfa/prefix "disco",
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def dpvo
   "Data Privacy Vocabulary OWL"
-  {:rdfa/uri         "https://w3id.org/dpv/dpv-owl#"
+  {:dcat/downloadURL "resources/dpv-owl/dpv.ttl"
+   :rdfa/uri         "https://w3id.org/dpv/dpv-owl#"
    :rdfa/prefix      "dpvo",
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :rdf/ns-prefix-map
+   {"dcat"    "http://www.w3.org/ns/dcat#",
+    "dcterms" "http://purl.org/dc/terms/",
+    "dpv"     "https://w3id.org/dpv#",
+    "dpvo"    "https://w3id.org/dpv/dpv-owl#",
+    "foaf"    "http://xmlns.com/foaf/0.1/",
+    "owl"     "http://www.w3.org/2002/07/owl#",
+    "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+    "skos"    "http://www.w3.org/2004/02/skos/core#",
+    "vann"    "http://purl.org/vocab/vann/",
+    "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
 
 (def dpvo-pd
-  {:rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-pd#"
+  {:dcat/downloadURL "resources/dpv-owl/dpv-pd/dpv-pd.ttl"
+   :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-pd#"
    :rdfa/prefix "dpvo-pd",
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
+                       "dpvo"    "https://w3id.org/dpv/dpv-owl#",
+                       "dpvo-pd" "https://w3id.org/dpv/dpv-owl/dpv-pd#",
+                       "owl"     "http://www.w3.org/2002/07/owl#",
+                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                       "vann"    "http://purl.org/vocab/vann/",
+                       "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                       "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
 
 (def dpvo-gdpr
-  {:rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#"
+  {:dcat/downloadURL "resources/dpv-owl/dpv-gdpr/dpv-gdpr.ttl"
+   :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#"
    :rdfa/prefix "dpvo-gdpr",
    :rdf/type    :rdfa/PrefixMapping})
 
 (def dpvo-risk
-  {:rdfa/uri    "https://w3id.org/dpv/dpv-owl/risk#"
+  {:dcat/downloadURL "resources/dpv-owl/risk/risk.ttl"
+   :rdfa/uri    "https://w3id.org/dpv/dpv-owl/risk#"
    :rdfa/prefix "dpvo-risk",
    :rdf/type    :rdfa/PrefixMapping})
 
@@ -94,7 +121,7 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def frbr
-  {:dcat/downloadURL "https://vocab.org/frbr/frbr-core-20050810.rdf"
+  {:dcat/downloadURL "resources/frbr-core-20050810.rdf"
    :rdfa/uri         "http://purl.org/vocab/frbr/core#"
    :rdfa/prefix      "frbr"
    :rdf/type         :rdfa/PrefixMapping})
@@ -120,7 +147,8 @@
   "JSON Schema in RDF"
   {:rdfa/uri    "https://www.w3.org/2019/wot/json-schema#"
    :rdfa/prefix "jsonschema",
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :dcat/downloadURL "resources/json-schema.ttl"})
 
 (def ore
   {:rdfa/uri    "http://www.openarchives.org/ore/terms/"
@@ -141,7 +169,8 @@
 (def spin
   {:rdfa/uri    "http://spinrdf.org/spin#"
    :rdfa/prefix "spin"
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def sp
   {:rdfa/uri    "http://spinrdf.org/sp#"
@@ -151,7 +180,8 @@
 (def spl
   {:rdfa/uri    "http://spinrdf.org/spl#"
    :rdfa/prefix "spl"
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def svcs
   {:rdfa/uri         "http://rdfs.org/sioc/services#"
@@ -165,20 +195,26 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def voaf
-  {:dcat/downloadURL "https://lov.linkeddata.es/vocommons/voaf/v2.3/voaf_v2.3.rdf"
+  {:dcat/downloadURL "resources/voaf.ttl"
    :rdfa/uri         "http://purl.org/vocommons/voaf#"
    :rdfa/prefix      "voaf"
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"cc" "http://creativecommons.org/ns#",
+                       "dcterms" "http://purl.org/dc/terms/",
+                       "foaf" "http://xmlns.com/foaf/0.1/",
+                       "frbr" "http://purl.org/vocab/frbr/core#",
+                       "owl" "http://www.w3.org/2002/07/owl#",
+                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                       "spin" "http://spinrdf.org/spin#",
+                       "spinsp" "http://spinrdf.org/sp#",
+                       "vann" "http://purl.org/vocab/vann/",
+                       "voaf" "http://purl.org/vocommons/voaf#",
+                       "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"}})
 
 (def vs
   {:rdfa/uri    "http://www.w3.org/2003/06/sw-vocab-status/ns#"
    :rdfa/prefix "vs",
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def vaem
-  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/vaem/versions/2014-08-11.n3"
-   :rdfa/uri    "http://www.linkedmodel.org/schema/vaem#"
-   :rdfa/prefix "vaem",
    :rdf/type    :rdfa/PrefixMapping})
 
 (def vann
@@ -189,10 +225,10 @@
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
 (def d3f
-  {:dcat/downloadURL "resources/d3fend-full.owl"
-   :rdfa/uri    "http://d3fend.mitre.org/ontologies/d3fend.owl#"
-   :rdfa/prefix "d3f"
-   :rdf/type    :rdfa/PrefixMapping
+  {:dcat/downloadURL  "resources/d3fend-full.owl"
+   :rdfa/uri          "http://d3fend.mitre.org/ontologies/d3fend.owl#"
+   :rdfa/prefix       "d3f"
+   :rdf/type          :rdfa/PrefixMapping
    :rdf/ns-prefix-map {"d3f"
                        "http://d3fend.mitre.org/ontologies/d3fend.owl#",
                        "dcterms" "http://purl.org/dc/terms/",
@@ -201,7 +237,8 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"    "http://www.w3.org/2004/02/skos/core#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"}
-   :reasoner :none})
+   :reasoner          nil
+   :slash             true})
 
 (def shacl
   {:rdfa/uri    "http://www.w3.org/ns/shacl#"
@@ -215,10 +252,17 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def voag
-  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/voag/versions/2012-11-01.n3"
-   :rdfa/uri         "http://voag.linkedmodel.org/voag#"
+  {:dcat/downloadURL "resources/voag.ttl"
+   :rdfa/uri         "http://voag.linkedmodel.org/schema/voag#"
    :rdfa/prefix      "voag"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def vaem
+  {:dcat/downloadURL "resources/vaem_2014-08-11.n3"
+   :rdfa/uri    "http://www.linkedmodel.org/schema/vaem#"
+   :rdfa/prefix "vaem",
+   :rdf/type    :rdfa/PrefixMapping
+   :reasoner nil})
 
 (def daq
   {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/daq/versions/2015-04-01.n3"
@@ -226,7 +270,7 @@
    :rdfa/prefix      "daq"
    :rdfa/uri         "http://purl.org/eis/vocab/daq#"})
 
-(def ibis
+#_(def ibis
   {:rdfa/uri    "http://purl.org/ibis#",
    :rdfa/prefix "ibis",
    :rdf/type    :rdfa/PrefixMapping})
@@ -243,7 +287,6 @@
     "doap" "http://usefulinc.com/ns/doap#",
     "exif" "http://www.w3.org/2003/12/exif/ns/",
     "foaf" "http://xmlns.com/foaf/0.1/",
-    "ibis" "http://purl.org/ibis#",
     "owl" "http://www.w3.org/2002/07/owl#",
     "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
@@ -370,7 +413,8 @@
   {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/ov/versions/2011-11-25.n3"
    :rdfa/prefix      "ov"
    :rdfa/uri         "http://open.vocab.org/terms/"
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit             false})
 
 #_(def dbo
   {:rdf/type    :rdfa/PrefixMapping
@@ -622,18 +666,21 @@
 (def mop
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "https://wikipunk.net/mop/"
-   :rdfa/prefix "mop"})
+   :rdfa/prefix "mop"
+   :emit false})
 
 (def eli
-  {:rdf/type   :rdfa/PrefixMapping
+  {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://data.europa.eu/eli/ontology#"
-   :rdfa/prefix "eli"})
+   :rdfa/prefix "eli"
+   :emit false})
 
 (def frbroo
   {:dcat/downloadURL "http://iflastandards.info/ns/fr/frbr/frbroo.xml"
    :rdf/type   :rdfa/PrefixMapping
    :rdfa/uri    "http://iflastandards.info/ns/fr/frbr/frbroo/"
-   :rdfa/prefix "frbroo"})
+   :rdfa/prefix "frbroo"
+   :emit false})
 
 (def rml
   {:rdf/type    :rdfa/PrefixMapping
@@ -643,9 +690,11 @@
 (def rmlt
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://semweb.mmlab.be/ns/rml-target#"
-   :rdfa/prefix "rmlt"})
+   :rdfa/prefix "rmlt"
+   :emit false})
 
 (def ql
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://semweb.mmlab.be/ns/ql#"
-   :rdfa/prefix "ql"})
+   :rdfa/prefix "ql"
+   :emit false})

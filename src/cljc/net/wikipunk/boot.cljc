@@ -1,18 +1,12 @@
 (ns net.wikipunk.boot
   "RDFa Core Initial Context"
-  {:rdf/type :jsonld/Context}
+  {:rdf/type         :jsonld/Context
+   :dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"}
   (:refer-clojure :exclude [time keys]))
-
-(def initial-context
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"
-   :prefixes         #{"as" "cc" "csvw" "ctag" "dc" "dc11" "dcat" "dcterms" "dqv" "duv" "foaf" "gr"
-                       "grddl" "ical" "jsonld" "ldp" "ma" "oa" "odrl" "og" "org" "owl" "prov" "qb"
-                       "rdf" "rdfa" "rdfs" "rev" "rif" "rr" "schema" "sd" "sioc" "skos" "skosxl"
-                       "sosa" "ssn" "time" "v" "vcard" "void" "wdr" "wdrs" "xhv" "xml" "xsd"}})
 
 (def as
   "Activity Vocabulary"
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl"   
+  {:dcat/downloadURL "resources/activitystreams2.ttl"
    :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
    :rdfa/prefix      "as",
    :rdfs/isDefinedBy {:rdfa/uri
@@ -97,7 +91,8 @@
    :rdfa/prefix      "gr",
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.heppnetz.de/ontologies/goodrelations/v1"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit false})
 
 (def grddl
   "GRDDL"
@@ -116,15 +111,37 @@
 
 (def ical
   "iCalendar terms in RDF"
-  {:dcat/downloadURL "https://www.w3.org/2002/12/cal/icaltzd.rdf"
-   :rdfa/uri         "http://www.w3.org/2002/12/cal/icaltzd#",
-   :rdfa/prefix      "cal",
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2002/12/cal/icaltzd#"},
-   :rdf/type         :rdfa/PrefixMapping})
+  {:dcat/downloadURL  "https://www.w3.org/2002/12/cal/icaltzd.rdf"
+   :rdfa/uri          "http://www.w3.org/2002/12/cal/icaltzd#",
+   :rdfa/prefix       "cal",
+   :rdfs/isDefinedBy  {:rdfa/uri "http://www.w3.org/2002/12/cal/icaltzd#"},
+   :rdf/type          :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
+                       "dc11" "http://purl.org/dc/elements/1.1/",
+                       "xsd"  "http://www.w3.org/2001/XMLSchema#",
+                       "xhv"  "http://www.w3.org/1999/xhtml",
+                       "owl"  "http://www.w3.org/2002/07/owl#",
+                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                       "spec" "http://www.w3.org/2002/12/cal/icalSpec#"}})
+
+(def ical-spec
+  {:rdfa/uri          "http://www.w3.org/2002/12/cal/icalSpec#",
+   :rdfa/prefix       "spec",
+   :rdf/type          :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
+                       "dc11" "http://purl.org/dc/elements/1.1/",
+                       "xsd"  "http://www.w3.org/2001/XMLSchema#",
+                       "xhv"  "http://www.w3.org/1999/xhtml",
+                       "owl"  "http://www.w3.org/2002/07/owl#",
+                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                       "spec" "http://www.w3.org/2002/12/cal/icalSpec#"}})
 
 (def jsonld
   "JSON-LD"
-  {:rdfa/uri         "http://www.w3.org/ns/json-ld#",
+  {:dcat/downloadURL "https://github.com/w3c/json-ld-wg/raw/main/ns/json-ld.jsonld"
+   :rdfa/uri         "http://www.w3.org/ns/json-ld#",
    :rdfa/prefix      "jsonld",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/json-ld/"},
    :rdf/type         :rdfa/PrefixMapping})
@@ -180,7 +197,8 @@
    :rdfa/prefix "owl",
    :rdfs/isDefinedBy
    {:rdfa/uri "http://www.w3.org/TR/2009/REC-owl2-overview-20091027/"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :reasoner nil})
 
 (def prov
   "Provenance Vocabulary"
@@ -218,7 +236,8 @@
    :rdfa/prefix      "rdfs",
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.w3.org/TR/2004/REC-rdf-mt-20040210/"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :reasoner nil})
 
 (def rev
   "RDF Review Vocabulary"
@@ -234,7 +253,8 @@
    :rdfa/prefix "rif",
    :rdfs/isDefinedBy
    {:rdfa/uri "http://www.w3.org/TR/2010/NOTE-rif-overview-20100622/"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def rr
   "R2RML"
@@ -318,7 +338,8 @@
    :rdfs/isDefinedBy
    {:rdfa/uri
     "http://www.google.com/support/webmasters/bin/answer.py?answer=99170"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def vcard
   "vCard in RDF"
@@ -341,7 +362,8 @@
    :rdfa/prefix "wdr",
    :rdfs/isDefinedBy
    {:rdfa/uri "http://www.w3.org/TR/2009/REC-powder-formal-20090901/"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def wdrs
   "POWDER-S"
@@ -364,7 +386,8 @@
   {:rdfa/uri         "http://www.w3.org/XML/1998/namespace",
    :rdfa/prefix      "xml",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/REC-xml-names/"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit             false})
 
 (def xsd
   "XML Schema Datatypes"
@@ -372,4 +395,5 @@
    :rdfa/uri         "http://www.w3.org/2001/XMLSchema#",
    :rdfa/prefix      "xsd",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/xmlschema-2/"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit             false})
