@@ -1355,39 +1355,42 @@
 (defn emit-ns
   "Emits a model to a Clojure namespace using metadata map."
   [model md arg-map]
-  (if-some [prefix (or (:prefix arg-map)
-                       (:rdfa/prefix md)
-                       (:vann/preferredNamespacePrefix md))]
-    (spit (str (or (:target arg-map) *target*)
-               (namespace-munge (str/replace prefix #"\." "/"))
-               ".cljc")
-          (binding [*print-namespace-maps* nil
-                    *print-meta*           true]
-            (let [forms (unroll-ns model)]
-              (try
-                (zprint/zprint-file-str  (apply str forms)
-                                         "file:"
-                                         {:parse  {:interpose "\n\n"}
-                                          :map    {:justify?      true
-                                                   :nl-separator? false
-                                                   :hang?         true
-                                                   :indent        0
-                                                   :sort-in-code? true
-                                                   :force-nl?     true}
-                                          :vector {:wrap? false}})
-                (catch Throwable ex
-                  ;; sometimes zprint has trouble with otherwise fine files
-                  (with-out-str
-                    (doseq [form forms]
-                      (zprint/zprint form {:map    {:justify?      true
-                                                    :nl-separator? false
-                                                    :hang?         true
-                                                    :indent        0
-                                                    :sort-in-code? true
-                                                    :force-nl?     true}
-                                           :vector {:wrap? false}})
-                      (newline))))))))
-    (zprint/zprint (unroll-forms model))))
+  (binding [*slash*   (:slash md)
+            *private* (:private md)
+            *recurse* (:recurse md 0)]
+    (if-some [prefix (or (:prefix arg-map)
+                         (:rdfa/prefix md)
+                         (:vann/preferredNamespacePrefix md))]
+      (spit (str (or (:target arg-map) *target*)
+                 (namespace-munge (str/replace prefix #"\." "/"))
+                 ".cljc")
+            (binding [*print-namespace-maps* nil
+                      *print-meta*           true]
+              (let [forms (unroll-ns model)]
+                (try
+                  (zprint/zprint-file-str  (apply str forms)
+                                           "file:"
+                                           {:parse  {:interpose "\n\n"}
+                                            :map    {:justify?      true
+                                                     :nl-separator? false
+                                                     :hang?         true
+                                                     :indent        0
+                                                     :sort-in-code? true
+                                                     :force-nl?     true}
+                                            :vector {:wrap? false}})
+                  (catch Throwable ex
+                    ;; sometimes zprint has trouble with otherwise fine files
+                    (with-out-str
+                      (doseq [form forms]
+                        (zprint/zprint form {:map    {:justify?      true
+                                                      :nl-separator? false
+                                                      :hang?         true
+                                                      :indent        0
+                                                      :sort-in-code? true
+                                                      :force-nl?     true}
+                                             :vector {:wrap? false}})
+                        (newline))))))))
+      (zprint/zprint (unroll-forms model)))))
 
 (defn find-obo-metaobject
   "Find a metaobject in the OBO namespace."
