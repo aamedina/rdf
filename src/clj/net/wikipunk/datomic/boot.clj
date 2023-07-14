@@ -11,6 +11,7 @@
    [net.wikipunk.rdf :as rdf]   
    [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf.as]
+   [net.wikipunk.rdf.bibo]
    [net.wikipunk.rdf.cc]
    [net.wikipunk.rdf.csvw]
    [net.wikipunk.rdf.ctag]
