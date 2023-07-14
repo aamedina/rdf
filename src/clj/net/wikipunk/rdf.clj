@@ -154,7 +154,7 @@
      :rdfa/prefix \"preferredNamespacePrefix\"
      :rdfa/uri \"preferredNamespaceURI\"}"
   []
-  (filter #(isa? (mop/type-of %) :jsonld/Context) (all-ns)))
+  (filter #(isa? (mop/type-of (meta %)) :jsonld/Context) (all-ns)))
 
 (defn make-boot-context
   "A function which configures an Aristotle registry for bootstrapping
