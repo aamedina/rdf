@@ -155,16 +155,11 @@ are resolved. It can be one of three values:
 
 ## wikipunk.net extensions
 * [net.wikipunk/openai](https://github.com/aamedina/openai)
+* [net.wikipunk/qdrant](https://github.com/aamedina/qdrant)
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
-* [net.wikipunk/punk](https://github.com/aamedina/punk)
-* [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
-* [net.wikipunk/loc](https://github.com/aamedina/loc)
-* [net.wikipunk/omg](https://github.com/aamedina/omg)
 * [net.wikipunk/fibo](https://github.com/aamedina/fibo)
-* [net.wikipunk/auto](https://github.com/aamedina/auto)
-* [net.wikipunk/lv2](https://github.com/aamedina/lv2)
-* [net.wikipunk/framebase](https://github.com/aamedina/framebase)
 * [net.wikipunk/ssvc](https://github.com/aamedina/ssvc)
+* [net.wikipunk/lv2](https://github.com/aamedina/lv2)
 
 ### credits
 https://github.com/arachne-framework/aristotle

@@ -1584,6 +1584,9 @@
                        (:name (meta v))
                        (merge (some-> (get (ns-publics to) (:name (meta v))) deref) @v))))))
 
+(derive clojure.lang.Namespace :owl/Ontology)
+(derive clojure.lang.Namespace :rdfa/PrefixMapping)
+
 (defn ns-graph
   "Return a graph of all the namespaces in the current system."
   ([]
