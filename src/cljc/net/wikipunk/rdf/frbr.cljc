@@ -1,7 +1,6 @@
 (ns net.wikipunk.rdf.frbr
   "Expression of Core FRBR Concepts in RDF"
-  {:cc/license {:rdfa/uri "http://creativecommons.org/licenses/by/2.0/uk/"},
-   :dc11/contributor #xsd/string "Bruce D'Arcus",
+  {:dc11/contributor #xsd/string "Bruce D'Arcus",
    :dc11/creator [#xsd/string "Ian Davis <http://purl.org/NET/iand>"
                   #xsd/string "Richard Newman"],
    :dc11/date #xsd/date #inst "2005-08-10T00:00:00.000-04:00",
@@ -10,9 +9,8 @@
    :dc11/title #xsd/langString "Expression of Core FRBR Concepts in RDF@en",
    :dcat/downloadURL "resources/frbr-core-20050810.rdf",
    :dcterms/hasFormat
-   [{:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"}
-    {:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.html"}],
-   :dcterms/isVersionOf {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   [{:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.html"}
+    {:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"}],
    :dcterms/issued #xsd/date #inst "2005-07-15T00:00:00.000-04:00",
    :dcterms/replaces {:rdfa/uri
                       "http://purl.org/vocab/frbr/frbr-core-20050809"},
@@ -27,18 +25,14 @@
                        "skos"     "http://www.w3.org/2004/02/skos/core#",
                        "vann"     "http://purl.org/vocab/vann/",
                        "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type [:owl/Ontology :cc/Work],
+   :rdf/type :owl/Ontology,
    :rdfa/prefix "frbr",
-   :rdfa/uri
-   "file:///home/adrian/src/wikipunk/rdf/resources/frbr-core-20050810.rdf",
+   :rdfa/uri "http://purl.org/vocab/frbr/core#",
    :rdfs/comment
    [#xsd/langString
-     "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    @en"
+     "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    @en"
     #xsd/langString
-     "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    @en"],
-   :skos/example
-   {:rdfa/uri
-    "file:///home/adrian/src/wikipunk/rdf/resources/frbr-example-film-20050809.html"},
+     "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    @en"],
    :vann/preferredNamespacePrefix #xsd/string "frbr",
    :vann/preferredNamespaceUri #xsd/string "http://purl.org/vocab/frbr/core#"}
   (:refer-clojure :exclude [complement]))

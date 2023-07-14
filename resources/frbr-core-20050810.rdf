@@ -19,7 +19,7 @@
 	 xmlns:cc="http://web.resource.org/cc/"
 	 xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
 	 xmlns:skos="http://www.w3.org/2004/02/skos/core#">
-  <owl:Ontology rdf:about="">
+  <owl:Ontology rdf:about="http://purl.org/vocab/frbr/core#">
     <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-08-10</dc:date>
     <dc:title xml:lang="en">Expression of Core FRBR Concepts in RDF</dc:title>
     <rdfs:comment xml:lang="en">
@@ -64,8 +64,6 @@
 	</dc:format>
       </dctype:Text>
     </dct:hasFormat>
-
-    <skos:example rdf:resource="./frbr-example-film-20050809.html"/>
 
     <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-07-15</dct:issued>
 
