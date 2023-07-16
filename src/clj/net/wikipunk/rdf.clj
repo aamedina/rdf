@@ -1157,7 +1157,10 @@
         (box-value update :rdfs/seeAlso)
 
         (some? (:cmns-av/adaptedFrom form))
-        (box-value update :cmns-av/adaptedFrom))
+        (box-value update :cmns-av/adaptedFrom)
+
+        (some? (:dcterms/source form))
+        (box-value update :dcterms/source))
       form))
 
 (defn unroll-forms
