@@ -72,6 +72,10 @@ src/cljc/net/wikipunk/boot.cljc.
 
 ### :dev
 
+#### Requirements
+* [Clojure CLI](https://clojure.org/guides/install_clojure)
+* [Datomic dev-local](https://docs.datomic.com/cloud/dev-local.html)
+
 ``` shell
 clojure -A:dev
 ```
