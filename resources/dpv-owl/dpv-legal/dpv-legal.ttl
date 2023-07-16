@@ -1,5 +1,4 @@
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dpv-legal: <https://w3id.org/dpv/dpv-legal#> .
 @prefix dpvo: <https://w3id.org/dpv/dpv-owl#> .
 @prefix dpvo-gdpr: <https://w3id.org/dpv/dpv-owl/dpv-gdpr#> .
 @prefix dpvo-legal: <https://w3id.org/dpv/dpv-owl/dpv-legal#> .
@@ -328,7 +327,7 @@ dpvo-legal:AustraliaandNewZealand a owl:NamedIndividual,
     rdfs:label "AustraliaandNewZealand"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -337,7 +336,7 @@ dpvo-legal:Caribbean a owl:NamedIndividual,
     rdfs:label "Caribbean"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -346,7 +345,7 @@ dpvo-legal:CentralAmerica a owl:NamedIndividual,
     rdfs:label "CentralAmerica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -355,7 +354,7 @@ dpvo-legal:CentralAsia a owl:NamedIndividual,
     rdfs:label "CentralAsia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia ;
+    dct:isPartOf dpvo-legal:Asia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -364,7 +363,7 @@ dpvo-legal:ChannelIslands a owl:NamedIndividual,
     rdfs:label "ChannelIslands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -385,7 +384,7 @@ dpvo-legal:EasternAfrica a owl:NamedIndividual,
     rdfs:label "EasternAfrica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -394,7 +393,7 @@ dpvo-legal:EasternAsia a owl:NamedIndividual,
     rdfs:label "EasternAsia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia ;
+    dct:isPartOf dpvo-legal:Asia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -403,7 +402,7 @@ dpvo-legal:EasternEurope a owl:NamedIndividual,
     rdfs:label "EasternEurope"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -438,7 +437,7 @@ dpvo-legal:LatinAmericaandtheCaribbean a owl:NamedIndividual,
     rdfs:label "LatinAmericaandtheCaribbean"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas ;
+    dct:isPartOf dpvo-legal:Americas ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -447,7 +446,7 @@ dpvo-legal:Melanesia a owl:NamedIndividual,
     rdfs:label "Melanesia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -456,7 +455,7 @@ dpvo-legal:Micronesia a owl:NamedIndividual,
     rdfs:label "Micronesia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -465,7 +464,7 @@ dpvo-legal:MiddleAfrica a owl:NamedIndividual,
     rdfs:label "MiddleAfrica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -474,7 +473,7 @@ dpvo-legal:NorthernAfrica a owl:NamedIndividual,
     rdfs:label "NorthernAfrica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa ;
+    dct:isPartOf dpvo-legal:Africa ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -483,7 +482,7 @@ dpvo-legal:NorthernAmerica a owl:NamedIndividual,
     rdfs:label "NorthernAmerica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas ;
+    dct:isPartOf dpvo-legal:Americas ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -492,7 +491,7 @@ dpvo-legal:NorthernEurope a owl:NamedIndividual,
     rdfs:label "NorthernEurope"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -501,7 +500,7 @@ dpvo-legal:Polynesia a owl:NamedIndividual,
     rdfs:label "Polynesia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -510,7 +509,7 @@ dpvo-legal:SouthAmerica a owl:NamedIndividual,
     rdfs:label "SouthAmerica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -519,7 +518,7 @@ dpvo-legal:SoutheasternAsia a owl:NamedIndividual,
     rdfs:label "SoutheasternAsia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia ;
+    dct:isPartOf dpvo-legal:Asia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -528,7 +527,7 @@ dpvo-legal:SouthernAfrica a owl:NamedIndividual,
     rdfs:label "SouthernAfrica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -537,7 +536,7 @@ dpvo-legal:SouthernAsia a owl:NamedIndividual,
     rdfs:label "SouthernAsia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia ;
+    dct:isPartOf dpvo-legal:Asia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -546,7 +545,7 @@ dpvo-legal:SouthernEurope a owl:NamedIndividual,
     rdfs:label "SouthernEurope"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -555,7 +554,7 @@ dpvo-legal:SubSaharanAfrica a owl:NamedIndividual,
     rdfs:label "SubSaharanAfrica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa ;
+    dct:isPartOf dpvo-legal:Africa ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -568,7 +567,7 @@ dpvo-legal:US-AK a owl:NamedIndividual,
     rdfs:label "Alaska"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -577,7 +576,7 @@ dpvo-legal:US-AL a owl:NamedIndividual,
     rdfs:label "Alabama"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -586,7 +585,7 @@ dpvo-legal:US-AR a owl:NamedIndividual,
     rdfs:label "Arkansas"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -595,7 +594,7 @@ dpvo-legal:US-AS a owl:NamedIndividual,
     rdfs:label "American Samoa"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -604,7 +603,7 @@ dpvo-legal:US-AZ a owl:NamedIndividual,
     rdfs:label "Arizona"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -637,7 +636,7 @@ dpvo-legal:US-DC a owl:NamedIndividual,
     rdfs:label "District of Columbia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -646,7 +645,7 @@ dpvo-legal:US-DE a owl:NamedIndividual,
     rdfs:label "Delaware"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -655,7 +654,7 @@ dpvo-legal:US-FL a owl:NamedIndividual,
     rdfs:label "Florida"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -664,7 +663,7 @@ dpvo-legal:US-GA a owl:NamedIndividual,
     rdfs:label "Georgia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -673,7 +672,7 @@ dpvo-legal:US-GU a owl:NamedIndividual,
     rdfs:label "Guam"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -682,7 +681,7 @@ dpvo-legal:US-HI a owl:NamedIndividual,
     rdfs:label "Hawaii"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -691,7 +690,7 @@ dpvo-legal:US-IA a owl:NamedIndividual,
     rdfs:label "Iowa"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -700,7 +699,7 @@ dpvo-legal:US-ID a owl:NamedIndividual,
     rdfs:label "Idaho"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -709,7 +708,7 @@ dpvo-legal:US-IL a owl:NamedIndividual,
     rdfs:label "Illinois"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -718,7 +717,7 @@ dpvo-legal:US-IN a owl:NamedIndividual,
     rdfs:label "Indiana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -727,7 +726,7 @@ dpvo-legal:US-KS a owl:NamedIndividual,
     rdfs:label "Kansas"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -736,7 +735,7 @@ dpvo-legal:US-KY a owl:NamedIndividual,
     rdfs:label "Kentucky"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -745,7 +744,7 @@ dpvo-legal:US-LA a owl:NamedIndividual,
     rdfs:label "Louisiana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -754,7 +753,7 @@ dpvo-legal:US-MA a owl:NamedIndividual,
     rdfs:label "Massachusetts"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -763,7 +762,7 @@ dpvo-legal:US-MD a owl:NamedIndividual,
     rdfs:label "Maryland"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -772,7 +771,7 @@ dpvo-legal:US-ME a owl:NamedIndividual,
     rdfs:label "Maine"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -781,7 +780,7 @@ dpvo-legal:US-MI a owl:NamedIndividual,
     rdfs:label "Michigan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -790,7 +789,7 @@ dpvo-legal:US-MN a owl:NamedIndividual,
     rdfs:label "Minnesota"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -799,7 +798,7 @@ dpvo-legal:US-MO a owl:NamedIndividual,
     rdfs:label "Missouri"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -808,7 +807,7 @@ dpvo-legal:US-MP a owl:NamedIndividual,
     rdfs:label "Northern Mariana Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -817,7 +816,7 @@ dpvo-legal:US-MS a owl:NamedIndividual,
     rdfs:label "Mississippi"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -826,7 +825,7 @@ dpvo-legal:US-MT a owl:NamedIndividual,
     rdfs:label "Montana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -835,7 +834,7 @@ dpvo-legal:US-NC a owl:NamedIndividual,
     rdfs:label "North Carolina"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -844,7 +843,7 @@ dpvo-legal:US-ND a owl:NamedIndividual,
     rdfs:label "North Dakota"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -853,7 +852,7 @@ dpvo-legal:US-NE a owl:NamedIndividual,
     rdfs:label "Nebraska"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -862,7 +861,7 @@ dpvo-legal:US-NH a owl:NamedIndividual,
     rdfs:label "New Hampshire"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -871,7 +870,7 @@ dpvo-legal:US-NJ a owl:NamedIndividual,
     rdfs:label "New Jersey"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -880,7 +879,7 @@ dpvo-legal:US-NM a owl:NamedIndividual,
     rdfs:label "New Mexico"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -889,7 +888,7 @@ dpvo-legal:US-NY a owl:NamedIndividual,
     rdfs:label "New York"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -898,7 +897,7 @@ dpvo-legal:US-OH a owl:NamedIndividual,
     rdfs:label "Ohio"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -907,7 +906,7 @@ dpvo-legal:US-OK a owl:NamedIndividual,
     rdfs:label "Oklahoma"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -916,7 +915,7 @@ dpvo-legal:US-OR a owl:NamedIndividual,
     rdfs:label "Oregon"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -925,7 +924,7 @@ dpvo-legal:US-PA a owl:NamedIndividual,
     rdfs:label "Pennsylvania"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -934,7 +933,7 @@ dpvo-legal:US-PR a owl:NamedIndividual,
     rdfs:label "Puerto Rico"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -943,7 +942,7 @@ dpvo-legal:US-RI a owl:NamedIndividual,
     rdfs:label "Rhode Island"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -952,7 +951,7 @@ dpvo-legal:US-SC a owl:NamedIndividual,
     rdfs:label "South Carolina"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -961,7 +960,7 @@ dpvo-legal:US-SD a owl:NamedIndividual,
     rdfs:label "South Dakota"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -970,7 +969,7 @@ dpvo-legal:US-TN a owl:NamedIndividual,
     rdfs:label "Tennessee"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -979,7 +978,7 @@ dpvo-legal:US-TX a owl:NamedIndividual,
     rdfs:label "Texas"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -988,18 +987,18 @@ dpvo-legal:US-UM a owl:NamedIndividual,
     rdfs:label "United States Minor Outlying Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
-dpvo-legal:US-VC dpvo:hasAuthority dpvo-legal:DPA-US-VC .
+dpvo-legal:US-VA dpvo:hasAuthority dpvo-legal:DPA-US-VA .
 
 dpvo-legal:US-VI a owl:NamedIndividual,
         dpvo:Region ;
     rdfs:label "U.S. Virgin Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1008,7 +1007,7 @@ dpvo-legal:US-VT a owl:NamedIndividual,
     rdfs:label "Vermont"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1017,7 +1016,7 @@ dpvo-legal:US-WA a owl:NamedIndividual,
     rdfs:label "Washington"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1026,7 +1025,7 @@ dpvo-legal:US-WI a owl:NamedIndividual,
     rdfs:label "Wisconsin"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1035,7 +1034,7 @@ dpvo-legal:US-WV a owl:NamedIndividual,
     rdfs:label "West Virginia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1044,7 +1043,7 @@ dpvo-legal:US-WY a owl:NamedIndividual,
     rdfs:label "Wyoming"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1053,7 +1052,7 @@ dpvo-legal:WesternAfrica a owl:NamedIndividual,
     rdfs:label "WesternAfrica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1062,7 +1061,7 @@ dpvo-legal:WesternAsia a owl:NamedIndividual,
     rdfs:label "WesternAsia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia ;
+    dct:isPartOf dpvo-legal:Asia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1071,7 +1070,7 @@ dpvo-legal:WesternEurope a owl:NamedIndividual,
     rdfs:label "WesternEurope"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -1080,8 +1079,8 @@ dpvo-legal:AE a owl:NamedIndividual,
     rdfs:label "United Arab Emirates"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AE"^^xsd:string ;
@@ -1094,8 +1093,8 @@ dpvo-legal:AF a owl:NamedIndividual,
     rdfs:label "Afghanistan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AF"^^xsd:string ;
@@ -1108,8 +1107,8 @@ dpvo-legal:AL a owl:NamedIndividual,
     rdfs:label "Albania"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AL"^^xsd:string ;
@@ -1122,8 +1121,8 @@ dpvo-legal:AM a owl:NamedIndividual,
     rdfs:label "Armenia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AM"^^xsd:string ;
@@ -1136,8 +1135,8 @@ dpvo-legal:AS a owl:NamedIndividual,
     rdfs:label "American Samoa"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AS"^^xsd:string ;
@@ -1150,8 +1149,8 @@ dpvo-legal:AU a owl:NamedIndividual,
     rdfs:label "Australia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:AustraliaandNewZealand,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:AustraliaandNewZealand,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AU"^^xsd:string ;
@@ -1164,8 +1163,8 @@ dpvo-legal:AX a owl:NamedIndividual,
     rdfs:label "Åland Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AX"^^xsd:string ;
@@ -1178,8 +1177,8 @@ dpvo-legal:AZ a owl:NamedIndividual,
     rdfs:label "Azerbaijan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AZ"^^xsd:string ;
@@ -1192,8 +1191,8 @@ dpvo-legal:BA a owl:NamedIndividual,
     rdfs:label "Bosnia and Herzegovina"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BA"^^xsd:string ;
@@ -1206,8 +1205,8 @@ dpvo-legal:BD a owl:NamedIndividual,
     rdfs:label "Bangladesh"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BD"^^xsd:string ;
@@ -1220,8 +1219,8 @@ dpvo-legal:BH a owl:NamedIndividual,
     rdfs:label "Bahrain"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BH"^^xsd:string ;
@@ -1234,8 +1233,8 @@ dpvo-legal:BM a owl:NamedIndividual,
     rdfs:label "Bermuda"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:NorthernAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:NorthernAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BM"^^xsd:string ;
@@ -1248,8 +1247,8 @@ dpvo-legal:BN a owl:NamedIndividual,
     rdfs:label "Brunei Darussalam"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BN"^^xsd:string ;
@@ -1262,8 +1261,8 @@ dpvo-legal:BT a owl:NamedIndividual,
     rdfs:label "Bhutan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BT"^^xsd:string ;
@@ -1276,8 +1275,8 @@ dpvo-legal:BY a owl:NamedIndividual,
     rdfs:label "Belarus"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BY"^^xsd:string ;
@@ -1290,8 +1289,8 @@ dpvo-legal:CC a owl:NamedIndividual,
     rdfs:label "Cocos (Keeling) Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:AustraliaandNewZealand,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:AustraliaandNewZealand,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CC"^^xsd:string ;
@@ -1304,8 +1303,8 @@ dpvo-legal:CK a owl:NamedIndividual,
     rdfs:label "Cook Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CK"^^xsd:string ;
@@ -1318,8 +1317,8 @@ dpvo-legal:CN a owl:NamedIndividual,
     rdfs:label "China"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CN"^^xsd:string ;
@@ -1332,8 +1331,8 @@ dpvo-legal:CX a owl:NamedIndividual,
     rdfs:label "Christmas Island"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:AustraliaandNewZealand,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:AustraliaandNewZealand,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CX"^^xsd:string ;
@@ -1873,7 +1872,7 @@ dpvo-legal:DPA-US-UT a owl:NamedIndividual,
     dpvo:hasJurisdiction dpvo-legal:US-UT ;
     dpvo:hasLaw dpvo-legal:US-UT-UCPA .
 
-dpvo-legal:DPA-US-VC a owl:NamedIndividual,
+dpvo-legal:DPA-US-VA a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
     rdfs:label "Virginia Attorney General"@en ;
     dct:created "2022-11-23"^^xsd:date ;
@@ -1881,7 +1880,7 @@ dpvo-legal:DPA-US-VC a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.oag.state.va.us"^^xsd:anyURI ;
-    dpvo:hasJurisdiction dpvo-legal:US-VC ;
+    dpvo:hasJurisdiction dpvo-legal:US-VA ;
     dpvo:hasLaw dpvo-legal:US-VA-VCDPA .
 
 dpvo-legal:DPV-LI a owl:NamedIndividual,
@@ -1909,8 +1908,8 @@ dpvo-legal:DZ a owl:NamedIndividual,
     rdfs:label "Algeria"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "DZ"^^xsd:string ;
@@ -1923,8 +1922,8 @@ dpvo-legal:EG a owl:NamedIndividual,
     rdfs:label "Egypt"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "EG"^^xsd:string ;
@@ -1937,8 +1936,8 @@ dpvo-legal:EH a owl:NamedIndividual,
     rdfs:label "Western Sahara"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "EH"^^xsd:string ;
@@ -1951,8 +1950,8 @@ dpvo-legal:FJ a owl:NamedIndividual,
     rdfs:label "Fiji"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Melanesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Melanesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "FJ"^^xsd:string ;
@@ -1965,8 +1964,8 @@ dpvo-legal:FM a owl:NamedIndividual,
     rdfs:label "Micronesia (Federated States of)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "FM"^^xsd:string ;
@@ -1979,8 +1978,8 @@ dpvo-legal:GE a owl:NamedIndividual,
     rdfs:label "Georgia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GE"^^xsd:string ;
@@ -1993,8 +1992,8 @@ dpvo-legal:GI a owl:NamedIndividual,
     rdfs:label "Gibraltar"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GI"^^xsd:string ;
@@ -2007,8 +2006,8 @@ dpvo-legal:GL a owl:NamedIndividual,
     rdfs:label "Greenland"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:NorthernAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:NorthernAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GL"^^xsd:string ;
@@ -2021,8 +2020,8 @@ dpvo-legal:GU a owl:NamedIndividual,
     rdfs:label "Guam"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GU"^^xsd:string ;
@@ -2035,8 +2034,8 @@ dpvo-legal:HK a owl:NamedIndividual,
     rdfs:label "China, Hong Kong Special Administrative Region"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "HK"^^xsd:string ;
@@ -2049,8 +2048,8 @@ dpvo-legal:HM a owl:NamedIndividual,
     rdfs:label "Heard Island and McDonald Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:AustraliaandNewZealand,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:AustraliaandNewZealand,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "HM"^^xsd:string ;
@@ -2063,8 +2062,8 @@ dpvo-legal:ID a owl:NamedIndividual,
     rdfs:label "Indonesia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ID"^^xsd:string ;
@@ -2077,8 +2076,8 @@ dpvo-legal:IN a owl:NamedIndividual,
     rdfs:label "India"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "IN"^^xsd:string ;
@@ -2091,8 +2090,8 @@ dpvo-legal:IQ a owl:NamedIndividual,
     rdfs:label "Iraq"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "IQ"^^xsd:string ;
@@ -2105,8 +2104,8 @@ dpvo-legal:IR a owl:NamedIndividual,
     rdfs:label "Iran (Islamic Republic of)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "IR"^^xsd:string ;
@@ -2119,8 +2118,8 @@ dpvo-legal:JO a owl:NamedIndividual,
     rdfs:label "Jordan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "JO"^^xsd:string ;
@@ -2133,8 +2132,8 @@ dpvo-legal:KG a owl:NamedIndividual,
     rdfs:label "Kyrgyzstan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:CentralAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:CentralAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KG"^^xsd:string ;
@@ -2147,8 +2146,8 @@ dpvo-legal:KH a owl:NamedIndividual,
     rdfs:label "Cambodia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KH"^^xsd:string ;
@@ -2161,8 +2160,8 @@ dpvo-legal:KI a owl:NamedIndividual,
     rdfs:label "Kiribati"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KI"^^xsd:string ;
@@ -2175,8 +2174,8 @@ dpvo-legal:KP a owl:NamedIndividual,
     rdfs:label "Democratic People's Republic of Korea"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KP"^^xsd:string ;
@@ -2189,8 +2188,8 @@ dpvo-legal:KR a owl:NamedIndividual,
     rdfs:label "Republic of Korea"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KR"^^xsd:string ;
@@ -2203,8 +2202,8 @@ dpvo-legal:KW a owl:NamedIndividual,
     rdfs:label "Kuwait"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KW"^^xsd:string ;
@@ -2217,8 +2216,8 @@ dpvo-legal:KZ a owl:NamedIndividual,
     rdfs:label "Kazakhstan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:CentralAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:CentralAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KZ"^^xsd:string ;
@@ -2231,8 +2230,8 @@ dpvo-legal:LA a owl:NamedIndividual,
     rdfs:label "Lao People's Democratic Republic"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LA"^^xsd:string ;
@@ -2245,8 +2244,8 @@ dpvo-legal:LB a owl:NamedIndividual,
     rdfs:label "Lebanon"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LB"^^xsd:string ;
@@ -2259,8 +2258,8 @@ dpvo-legal:LK a owl:NamedIndividual,
     rdfs:label "Sri Lanka"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LK"^^xsd:string ;
@@ -2273,8 +2272,8 @@ dpvo-legal:LY a owl:NamedIndividual,
     rdfs:label "Libya"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LY"^^xsd:string ;
@@ -2287,8 +2286,8 @@ dpvo-legal:MA a owl:NamedIndividual,
     rdfs:label "Morocco"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MA"^^xsd:string ;
@@ -2301,8 +2300,8 @@ dpvo-legal:MC a owl:NamedIndividual,
     rdfs:label "Monaco"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MC"^^xsd:string ;
@@ -2315,8 +2314,8 @@ dpvo-legal:MD a owl:NamedIndividual,
     rdfs:label "Republic of Moldova"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MD"^^xsd:string ;
@@ -2329,8 +2328,8 @@ dpvo-legal:ME a owl:NamedIndividual,
     rdfs:label "Montenegro"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ME"^^xsd:string ;
@@ -2343,8 +2342,8 @@ dpvo-legal:MH a owl:NamedIndividual,
     rdfs:label "Marshall Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MH"^^xsd:string ;
@@ -2357,8 +2356,8 @@ dpvo-legal:MK a owl:NamedIndividual,
     rdfs:label "North Macedonia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MK"^^xsd:string ;
@@ -2371,8 +2370,8 @@ dpvo-legal:MM a owl:NamedIndividual,
     rdfs:label "Myanmar"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MM"^^xsd:string ;
@@ -2385,8 +2384,8 @@ dpvo-legal:MN a owl:NamedIndividual,
     rdfs:label "Mongolia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MN"^^xsd:string ;
@@ -2399,8 +2398,8 @@ dpvo-legal:MO a owl:NamedIndividual,
     rdfs:label "China, Macao Special Administrative Region"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MO"^^xsd:string ;
@@ -2413,8 +2412,8 @@ dpvo-legal:MP a owl:NamedIndividual,
     rdfs:label "Northern Mariana Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MP"^^xsd:string ;
@@ -2427,8 +2426,8 @@ dpvo-legal:MV a owl:NamedIndividual,
     rdfs:label "Maldives"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MV"^^xsd:string ;
@@ -2441,8 +2440,8 @@ dpvo-legal:MY a owl:NamedIndividual,
     rdfs:label "Malaysia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MY"^^xsd:string ;
@@ -2455,8 +2454,8 @@ dpvo-legal:NC a owl:NamedIndividual,
     rdfs:label "New Caledonia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Melanesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Melanesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NC"^^xsd:string ;
@@ -2469,8 +2468,8 @@ dpvo-legal:NF a owl:NamedIndividual,
     rdfs:label "Norfolk Island"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:AustraliaandNewZealand,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:AustraliaandNewZealand,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NF"^^xsd:string ;
@@ -2483,8 +2482,8 @@ dpvo-legal:NP a owl:NamedIndividual,
     rdfs:label "Nepal"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NP"^^xsd:string ;
@@ -2497,8 +2496,8 @@ dpvo-legal:NR a owl:NamedIndividual,
     rdfs:label "Nauru"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NR"^^xsd:string ;
@@ -2511,8 +2510,8 @@ dpvo-legal:NU a owl:NamedIndividual,
     rdfs:label "Niue"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NU"^^xsd:string ;
@@ -2525,8 +2524,8 @@ dpvo-legal:OM a owl:NamedIndividual,
     rdfs:label "Oman"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "OM"^^xsd:string ;
@@ -2539,8 +2538,8 @@ dpvo-legal:PF a owl:NamedIndividual,
     rdfs:label "French Polynesia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PF"^^xsd:string ;
@@ -2553,8 +2552,8 @@ dpvo-legal:PG a owl:NamedIndividual,
     rdfs:label "Papua New Guinea"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Melanesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Melanesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PG"^^xsd:string ;
@@ -2567,8 +2566,8 @@ dpvo-legal:PH a owl:NamedIndividual,
     rdfs:label "Philippines"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PH"^^xsd:string ;
@@ -2581,8 +2580,8 @@ dpvo-legal:PK a owl:NamedIndividual,
     rdfs:label "Pakistan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SouthernAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SouthernAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PK"^^xsd:string ;
@@ -2595,8 +2594,8 @@ dpvo-legal:PM a owl:NamedIndividual,
     rdfs:label "Saint Pierre and Miquelon"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:NorthernAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:NorthernAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PM"^^xsd:string ;
@@ -2609,8 +2608,8 @@ dpvo-legal:PN a owl:NamedIndividual,
     rdfs:label "Pitcairn"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PN"^^xsd:string ;
@@ -2623,8 +2622,8 @@ dpvo-legal:PS a owl:NamedIndividual,
     rdfs:label "State of Palestine"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PS"^^xsd:string ;
@@ -2637,8 +2636,8 @@ dpvo-legal:PW a owl:NamedIndividual,
     rdfs:label "Palau"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PW"^^xsd:string ;
@@ -2651,8 +2650,8 @@ dpvo-legal:QA a owl:NamedIndividual,
     rdfs:label "Qatar"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "QA"^^xsd:string ;
@@ -2665,8 +2664,8 @@ dpvo-legal:RS a owl:NamedIndividual,
     rdfs:label "Serbia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "RS"^^xsd:string ;
@@ -2679,8 +2678,8 @@ dpvo-legal:RU a owl:NamedIndividual,
     rdfs:label "Russian Federation"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "RU"^^xsd:string ;
@@ -2693,8 +2692,8 @@ dpvo-legal:SA a owl:NamedIndividual,
     rdfs:label "Saudi Arabia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SA"^^xsd:string ;
@@ -2707,8 +2706,8 @@ dpvo-legal:SB a owl:NamedIndividual,
     rdfs:label "Solomon Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Melanesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Melanesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SB"^^xsd:string ;
@@ -2721,8 +2720,8 @@ dpvo-legal:SD a owl:NamedIndividual,
     rdfs:label "Sudan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SD"^^xsd:string ;
@@ -2735,8 +2734,8 @@ dpvo-legal:SG a owl:NamedIndividual,
     rdfs:label "Singapore"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SG"^^xsd:string ;
@@ -2749,8 +2748,8 @@ dpvo-legal:SJ a owl:NamedIndividual,
     rdfs:label "Svalbard and Jan Mayen Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SJ"^^xsd:string ;
@@ -2763,8 +2762,8 @@ dpvo-legal:SM a owl:NamedIndividual,
     rdfs:label "San Marino"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SM"^^xsd:string ;
@@ -2777,8 +2776,8 @@ dpvo-legal:SY a owl:NamedIndividual,
     rdfs:label "Syrian Arab Republic"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SY"^^xsd:string ;
@@ -2791,8 +2790,8 @@ dpvo-legal:TH a owl:NamedIndividual,
     rdfs:label "Thailand"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TH"^^xsd:string ;
@@ -2805,8 +2804,8 @@ dpvo-legal:TJ a owl:NamedIndividual,
     rdfs:label "Tajikistan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:CentralAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:CentralAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TJ"^^xsd:string ;
@@ -2819,8 +2818,8 @@ dpvo-legal:TK a owl:NamedIndividual,
     rdfs:label "Tokelau"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TK"^^xsd:string ;
@@ -2833,8 +2832,8 @@ dpvo-legal:TL a owl:NamedIndividual,
     rdfs:label "Timor-Leste"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TL"^^xsd:string ;
@@ -2847,8 +2846,8 @@ dpvo-legal:TM a owl:NamedIndividual,
     rdfs:label "Turkmenistan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:CentralAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:CentralAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TM"^^xsd:string ;
@@ -2861,8 +2860,8 @@ dpvo-legal:TN a owl:NamedIndividual,
     rdfs:label "Tunisia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:NorthernAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:NorthernAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TN"^^xsd:string ;
@@ -2875,8 +2874,8 @@ dpvo-legal:TO a owl:NamedIndividual,
     rdfs:label "Tonga"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TO"^^xsd:string ;
@@ -2889,8 +2888,8 @@ dpvo-legal:TR a owl:NamedIndividual,
     rdfs:label "Turkey"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TR"^^xsd:string ;
@@ -2903,8 +2902,8 @@ dpvo-legal:TV a owl:NamedIndividual,
     rdfs:label "Tuvalu"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TV"^^xsd:string ;
@@ -2917,8 +2916,8 @@ dpvo-legal:UA a owl:NamedIndividual,
     rdfs:label "Ukraine"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "UA"^^xsd:string ;
@@ -2931,8 +2930,8 @@ dpvo-legal:UM a owl:NamedIndividual,
     rdfs:label "United States Minor Outlying Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Micronesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Micronesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "UM"^^xsd:string ;
@@ -2945,8 +2944,8 @@ dpvo-legal:US a owl:NamedIndividual,
     rdfs:label "United States of America"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:NorthernAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:NorthernAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "US"^^xsd:string ;
@@ -3009,7 +3008,7 @@ dpvo-legal:US-VA a owl:NamedIndividual,
     rdfs:label "Virginia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasLaw dpvo-legal:US-VA-VCDPA .
@@ -3024,7 +3023,7 @@ dpvo-legal:US-VA-VCDPA a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     foaf:homepage "https://lis.virginia.gov/cgi-bin/legp604.exe?212+sum+HB2307"^^xsd:anyURI ;
-    dpvo:hasAuthority dpvo-legal:DPA-US-VC ;
+    dpvo:hasAuthority dpvo-legal:DPA-US-VA ;
     dpvo:hasJurisdiction dpvo-legal:US-VA .
 
 dpvo-legal:UZ a owl:NamedIndividual,
@@ -3032,8 +3031,8 @@ dpvo-legal:UZ a owl:NamedIndividual,
     rdfs:label "Uzbekistan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:CentralAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:CentralAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "UZ"^^xsd:string ;
@@ -3046,8 +3045,8 @@ dpvo-legal:VA a owl:NamedIndividual,
     rdfs:label "Holy See"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VA"^^xsd:string ;
@@ -3060,8 +3059,8 @@ dpvo-legal:VN a owl:NamedIndividual,
     rdfs:label "Viet Nam"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:SoutheasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:SoutheasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VN"^^xsd:string ;
@@ -3074,8 +3073,8 @@ dpvo-legal:VU a owl:NamedIndividual,
     rdfs:label "Vanuatu"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Melanesia,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:Melanesia,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VU"^^xsd:string ;
@@ -3088,8 +3087,8 @@ dpvo-legal:WF a owl:NamedIndividual,
     rdfs:label "Wallis and Futuna Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "WF"^^xsd:string ;
@@ -3102,8 +3101,8 @@ dpvo-legal:WS a owl:NamedIndividual,
     rdfs:label "Samoa"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Oceania,
-        dpv-legal:Polynesia ;
+    dct:isPartOf dpvo-legal:Oceania,
+        dpvo-legal:Polynesia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "WS"^^xsd:string ;
@@ -3116,8 +3115,8 @@ dpvo-legal:YE a owl:NamedIndividual,
     rdfs:label "Yemen"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "YE"^^xsd:string ;
@@ -3125,7 +3124,7 @@ dpvo-legal:YE a owl:NamedIndividual,
     dpvo-legal:iso_numeric "887"^^xsd:string ;
     dpvo-legal:un_m49 "887"^^xsd:string .
 
-dpv-legal:ChannelIslands dct:hasPart dpvo-legal:GG,
+dpvo-legal:ChannelIslands dct:hasPart dpvo-legal:GG,
         dpvo-legal:JE,
         dpvo-legal:Sark .
 
@@ -3134,8 +3133,8 @@ dpvo-legal:AD a owl:NamedIndividual,
     rdfs:label "Andorra"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AD"^^xsd:string ;
@@ -3148,9 +3147,9 @@ dpvo-legal:AG a owl:NamedIndividual,
     rdfs:label "Antigua and Barbuda"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AG"^^xsd:string ;
@@ -3163,9 +3162,9 @@ dpvo-legal:AI a owl:NamedIndividual,
     rdfs:label "Anguilla"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AI"^^xsd:string ;
@@ -3178,9 +3177,9 @@ dpvo-legal:AO a owl:NamedIndividual,
     rdfs:label "Angola"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AO"^^xsd:string ;
@@ -3193,9 +3192,9 @@ dpvo-legal:AW a owl:NamedIndividual,
     rdfs:label "Aruba"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AW"^^xsd:string ;
@@ -3208,9 +3207,9 @@ dpvo-legal:BB a owl:NamedIndividual,
     rdfs:label "Barbados"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BB"^^xsd:string ;
@@ -3223,9 +3222,9 @@ dpvo-legal:BF a owl:NamedIndividual,
     rdfs:label "Burkina Faso"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BF"^^xsd:string ;
@@ -3238,9 +3237,9 @@ dpvo-legal:BI a owl:NamedIndividual,
     rdfs:label "Burundi"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BI"^^xsd:string ;
@@ -3253,9 +3252,9 @@ dpvo-legal:BJ a owl:NamedIndividual,
     rdfs:label "Benin"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BJ"^^xsd:string ;
@@ -3268,9 +3267,9 @@ dpvo-legal:BL a owl:NamedIndividual,
     rdfs:label "Saint Barthélemy"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BL"^^xsd:string ;
@@ -3283,9 +3282,9 @@ dpvo-legal:BO a owl:NamedIndividual,
     rdfs:label "Bolivia (Plurinational State of)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BO"^^xsd:string ;
@@ -3298,9 +3297,9 @@ dpvo-legal:BQ a owl:NamedIndividual,
     rdfs:label "Bonaire, Sint Eustatius and Saba"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BQ"^^xsd:string ;
@@ -3313,9 +3312,9 @@ dpvo-legal:BR a owl:NamedIndividual,
     rdfs:label "Brazil"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BR"^^xsd:string ;
@@ -3328,9 +3327,9 @@ dpvo-legal:BS a owl:NamedIndividual,
     rdfs:label "Bahamas"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BS"^^xsd:string ;
@@ -3343,9 +3342,9 @@ dpvo-legal:BV a owl:NamedIndividual,
     rdfs:label "Bouvet Island"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BV"^^xsd:string ;
@@ -3358,9 +3357,9 @@ dpvo-legal:BW a owl:NamedIndividual,
     rdfs:label "Botswana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SouthernAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SouthernAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BW"^^xsd:string ;
@@ -3373,9 +3372,9 @@ dpvo-legal:BZ a owl:NamedIndividual,
     rdfs:label "Belize"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "BZ"^^xsd:string ;
@@ -3388,8 +3387,8 @@ dpvo-legal:CA a owl:NamedIndividual,
     rdfs:label "Canada"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:NorthernAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:NorthernAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CA"^^xsd:string ;
@@ -3402,9 +3401,9 @@ dpvo-legal:CD a owl:NamedIndividual,
     rdfs:label "Democratic Republic of the Congo"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CD"^^xsd:string ;
@@ -3417,9 +3416,9 @@ dpvo-legal:CF a owl:NamedIndividual,
     rdfs:label "Central African Republic"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CF"^^xsd:string ;
@@ -3432,9 +3431,9 @@ dpvo-legal:CG a owl:NamedIndividual,
     rdfs:label "Congo"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CG"^^xsd:string ;
@@ -3447,8 +3446,8 @@ dpvo-legal:CH a owl:NamedIndividual,
     rdfs:label "Switzerland"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CH"^^xsd:string ;
@@ -3461,9 +3460,9 @@ dpvo-legal:CI a owl:NamedIndividual,
     rdfs:label "Côte d’Ivoire"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CI"^^xsd:string ;
@@ -3476,9 +3475,9 @@ dpvo-legal:CL a owl:NamedIndividual,
     rdfs:label "Chile"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CL"^^xsd:string ;
@@ -3491,9 +3490,9 @@ dpvo-legal:CM a owl:NamedIndividual,
     rdfs:label "Cameroon"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CM"^^xsd:string ;
@@ -3506,9 +3505,9 @@ dpvo-legal:CO a owl:NamedIndividual,
     rdfs:label "Colombia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CO"^^xsd:string ;
@@ -3521,9 +3520,9 @@ dpvo-legal:CR a owl:NamedIndividual,
     rdfs:label "Costa Rica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CR"^^xsd:string ;
@@ -3536,9 +3535,9 @@ dpvo-legal:CU a owl:NamedIndividual,
     rdfs:label "Cuba"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CU"^^xsd:string ;
@@ -3551,9 +3550,9 @@ dpvo-legal:CV a owl:NamedIndividual,
     rdfs:label "Cabo Verde"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CV"^^xsd:string ;
@@ -3566,9 +3565,9 @@ dpvo-legal:CW a owl:NamedIndividual,
     rdfs:label "Curaçao"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "CW"^^xsd:string ;
@@ -3595,9 +3594,9 @@ dpvo-legal:DJ a owl:NamedIndividual,
     rdfs:label "Djibouti"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "DJ"^^xsd:string ;
@@ -3610,9 +3609,9 @@ dpvo-legal:DM a owl:NamedIndividual,
     rdfs:label "Dominica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "DM"^^xsd:string ;
@@ -3625,9 +3624,9 @@ dpvo-legal:DO a owl:NamedIndividual,
     rdfs:label "Dominican Republic"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "DO"^^xsd:string ;
@@ -3664,9 +3663,9 @@ dpvo-legal:EC a owl:NamedIndividual,
     rdfs:label "Ecuador"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "EC"^^xsd:string ;
@@ -3679,9 +3678,9 @@ dpvo-legal:ER a owl:NamedIndividual,
     rdfs:label "Eritrea"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ER"^^xsd:string ;
@@ -3694,9 +3693,9 @@ dpvo-legal:ET a owl:NamedIndividual,
     rdfs:label "Ethiopia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ET"^^xsd:string ;
@@ -3709,9 +3708,9 @@ dpvo-legal:FK a owl:NamedIndividual,
     rdfs:label "Falkland Islands (Malvinas)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "FK"^^xsd:string ;
@@ -3724,8 +3723,8 @@ dpvo-legal:FO a owl:NamedIndividual,
     rdfs:label "Faroe Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "FO"^^xsd:string ;
@@ -3738,9 +3737,9 @@ dpvo-legal:GA a owl:NamedIndividual,
     rdfs:label "Gabon"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GA"^^xsd:string ;
@@ -3753,9 +3752,9 @@ dpvo-legal:GD a owl:NamedIndividual,
     rdfs:label "Grenada"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GD"^^xsd:string ;
@@ -3768,9 +3767,9 @@ dpvo-legal:GF a owl:NamedIndividual,
     rdfs:label "French Guiana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GF"^^xsd:string ;
@@ -3783,9 +3782,9 @@ dpvo-legal:GH a owl:NamedIndividual,
     rdfs:label "Ghana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GH"^^xsd:string ;
@@ -3798,9 +3797,9 @@ dpvo-legal:GM a owl:NamedIndividual,
     rdfs:label "Gambia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GM"^^xsd:string ;
@@ -3813,9 +3812,9 @@ dpvo-legal:GN a owl:NamedIndividual,
     rdfs:label "Guinea"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GN"^^xsd:string ;
@@ -3828,9 +3827,9 @@ dpvo-legal:GP a owl:NamedIndividual,
     rdfs:label "Guadeloupe"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GP"^^xsd:string ;
@@ -3843,9 +3842,9 @@ dpvo-legal:GQ a owl:NamedIndividual,
     rdfs:label "Equatorial Guinea"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GQ"^^xsd:string ;
@@ -3858,9 +3857,9 @@ dpvo-legal:GS a owl:NamedIndividual,
     rdfs:label "South Georgia and the South Sandwich Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GS"^^xsd:string ;
@@ -3873,9 +3872,9 @@ dpvo-legal:GT a owl:NamedIndividual,
     rdfs:label "Guatemala"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GT"^^xsd:string ;
@@ -3888,9 +3887,9 @@ dpvo-legal:GW a owl:NamedIndividual,
     rdfs:label "Guinea-Bissau"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GW"^^xsd:string ;
@@ -3903,9 +3902,9 @@ dpvo-legal:GY a owl:NamedIndividual,
     rdfs:label "Guyana"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GY"^^xsd:string ;
@@ -3918,9 +3917,9 @@ dpvo-legal:HN a owl:NamedIndividual,
     rdfs:label "Honduras"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "HN"^^xsd:string ;
@@ -3933,9 +3932,9 @@ dpvo-legal:HT a owl:NamedIndividual,
     rdfs:label "Haiti"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "HT"^^xsd:string ;
@@ -3948,8 +3947,8 @@ dpvo-legal:IL a owl:NamedIndividual,
     rdfs:label "Israel"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "IL"^^xsd:string ;
@@ -3962,8 +3961,8 @@ dpvo-legal:IM a owl:NamedIndividual,
     rdfs:label "Isle of Man"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "IM"^^xsd:string ;
@@ -3976,9 +3975,9 @@ dpvo-legal:IO a owl:NamedIndividual,
     rdfs:label "British Indian Ocean Territory"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "IO"^^xsd:string ;
@@ -3991,8 +3990,8 @@ dpvo-legal:IS a owl:NamedIndividual,
     rdfs:label "Iceland"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-IS ;
@@ -4006,9 +4005,9 @@ dpvo-legal:JM a owl:NamedIndividual,
     rdfs:label "Jamaica"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "JM"^^xsd:string ;
@@ -4021,8 +4020,8 @@ dpvo-legal:JP a owl:NamedIndividual,
     rdfs:label "Japan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:EasternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:EasternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "JP"^^xsd:string ;
@@ -4035,9 +4034,9 @@ dpvo-legal:KE a owl:NamedIndividual,
     rdfs:label "Kenya"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KE"^^xsd:string ;
@@ -4050,9 +4049,9 @@ dpvo-legal:KM a owl:NamedIndividual,
     rdfs:label "Comoros"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KM"^^xsd:string ;
@@ -4065,9 +4064,9 @@ dpvo-legal:KN a owl:NamedIndividual,
     rdfs:label "Saint Kitts and Nevis"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KN"^^xsd:string ;
@@ -4080,9 +4079,9 @@ dpvo-legal:KY a owl:NamedIndividual,
     rdfs:label "Cayman Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "KY"^^xsd:string ;
@@ -4095,9 +4094,9 @@ dpvo-legal:LC a owl:NamedIndividual,
     rdfs:label "Saint Lucia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LC"^^xsd:string ;
@@ -4110,8 +4109,8 @@ dpvo-legal:LI a owl:NamedIndividual,
     rdfs:label "Liechtenstein"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPV-LI ;
@@ -4125,9 +4124,9 @@ dpvo-legal:LR a owl:NamedIndividual,
     rdfs:label "Liberia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LR"^^xsd:string ;
@@ -4140,9 +4139,9 @@ dpvo-legal:LS a owl:NamedIndividual,
     rdfs:label "Lesotho"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SouthernAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SouthernAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "LS"^^xsd:string ;
@@ -4155,9 +4154,9 @@ dpvo-legal:MF a owl:NamedIndividual,
     rdfs:label "Saint Martin (French Part)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MF"^^xsd:string ;
@@ -4170,9 +4169,9 @@ dpvo-legal:MG a owl:NamedIndividual,
     rdfs:label "Madagascar"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MG"^^xsd:string ;
@@ -4185,9 +4184,9 @@ dpvo-legal:ML a owl:NamedIndividual,
     rdfs:label "Mali"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ML"^^xsd:string ;
@@ -4200,9 +4199,9 @@ dpvo-legal:MQ a owl:NamedIndividual,
     rdfs:label "Martinique"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MQ"^^xsd:string ;
@@ -4215,9 +4214,9 @@ dpvo-legal:MR a owl:NamedIndividual,
     rdfs:label "Mauritania"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MR"^^xsd:string ;
@@ -4230,9 +4229,9 @@ dpvo-legal:MS a owl:NamedIndividual,
     rdfs:label "Montserrat"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MS"^^xsd:string ;
@@ -4245,9 +4244,9 @@ dpvo-legal:MU a owl:NamedIndividual,
     rdfs:label "Mauritius"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MU"^^xsd:string ;
@@ -4260,9 +4259,9 @@ dpvo-legal:MW a owl:NamedIndividual,
     rdfs:label "Malawi"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MW"^^xsd:string ;
@@ -4275,9 +4274,9 @@ dpvo-legal:MX a owl:NamedIndividual,
     rdfs:label "Mexico"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MX"^^xsd:string ;
@@ -4290,9 +4289,9 @@ dpvo-legal:MZ a owl:NamedIndividual,
     rdfs:label "Mozambique"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "MZ"^^xsd:string ;
@@ -4305,9 +4304,9 @@ dpvo-legal:NA a owl:NamedIndividual,
     rdfs:label "Namibia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SouthernAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SouthernAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NA"^^xsd:string ;
@@ -4320,9 +4319,9 @@ dpvo-legal:NE a owl:NamedIndividual,
     rdfs:label "Niger"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NE"^^xsd:string ;
@@ -4335,9 +4334,9 @@ dpvo-legal:NG a owl:NamedIndividual,
     rdfs:label "Nigeria"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NG"^^xsd:string ;
@@ -4350,9 +4349,9 @@ dpvo-legal:NI a owl:NamedIndividual,
     rdfs:label "Nicaragua"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NI"^^xsd:string ;
@@ -4365,8 +4364,8 @@ dpvo-legal:NO a owl:NamedIndividual,
     rdfs:label "Norway"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPV-NO ;
@@ -4380,8 +4379,8 @@ dpvo-legal:NZ a owl:NamedIndividual,
     rdfs:label "New Zealand"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:AustraliaandNewZealand,
-        dpv-legal:Oceania ;
+    dct:isPartOf dpvo-legal:AustraliaandNewZealand,
+        dpvo-legal:Oceania ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "NZ"^^xsd:string ;
@@ -4394,9 +4393,9 @@ dpvo-legal:PA a owl:NamedIndividual,
     rdfs:label "Panama"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PA"^^xsd:string ;
@@ -4409,9 +4408,9 @@ dpvo-legal:PE a owl:NamedIndividual,
     rdfs:label "Peru"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PE"^^xsd:string ;
@@ -4424,9 +4423,9 @@ dpvo-legal:PR a owl:NamedIndividual,
     rdfs:label "Puerto Rico"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PR"^^xsd:string ;
@@ -4439,9 +4438,9 @@ dpvo-legal:PY a owl:NamedIndividual,
     rdfs:label "Paraguay"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "PY"^^xsd:string ;
@@ -4454,9 +4453,9 @@ dpvo-legal:RE a owl:NamedIndividual,
     rdfs:label "Réunion"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "RE"^^xsd:string ;
@@ -4469,9 +4468,9 @@ dpvo-legal:RW a owl:NamedIndividual,
     rdfs:label "Rwanda"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "RW"^^xsd:string ;
@@ -4484,9 +4483,9 @@ dpvo-legal:SC a owl:NamedIndividual,
     rdfs:label "Seychelles"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SC"^^xsd:string ;
@@ -4499,9 +4498,9 @@ dpvo-legal:SH a owl:NamedIndividual,
     rdfs:label "Saint Helena"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SH"^^xsd:string ;
@@ -4514,9 +4513,9 @@ dpvo-legal:SL a owl:NamedIndividual,
     rdfs:label "Sierra Leone"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SL"^^xsd:string ;
@@ -4529,9 +4528,9 @@ dpvo-legal:SN a owl:NamedIndividual,
     rdfs:label "Senegal"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SN"^^xsd:string ;
@@ -4544,9 +4543,9 @@ dpvo-legal:SO a owl:NamedIndividual,
     rdfs:label "Somalia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SO"^^xsd:string ;
@@ -4559,9 +4558,9 @@ dpvo-legal:SR a owl:NamedIndividual,
     rdfs:label "Suriname"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SR"^^xsd:string ;
@@ -4574,9 +4573,9 @@ dpvo-legal:SS a owl:NamedIndividual,
     rdfs:label "South Sudan"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SS"^^xsd:string ;
@@ -4589,9 +4588,9 @@ dpvo-legal:ST a owl:NamedIndividual,
     rdfs:label "Sao Tome and Principe"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ST"^^xsd:string ;
@@ -4604,9 +4603,9 @@ dpvo-legal:SV a owl:NamedIndividual,
     rdfs:label "El Salvador"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:CentralAmerica,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:CentralAmerica,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SV"^^xsd:string ;
@@ -4619,9 +4618,9 @@ dpvo-legal:SX a owl:NamedIndividual,
     rdfs:label "Sint Maarten (Dutch part)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SX"^^xsd:string ;
@@ -4634,9 +4633,9 @@ dpvo-legal:SZ a owl:NamedIndividual,
     rdfs:label "Eswatini"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SouthernAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SouthernAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "SZ"^^xsd:string ;
@@ -4649,9 +4648,9 @@ dpvo-legal:Sark a owl:NamedIndividual,
     rdfs:label "Sark"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:ChannelIslands,
-        dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:ChannelIslands,
+        dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
@@ -4660,9 +4659,9 @@ dpvo-legal:TC a owl:NamedIndividual,
     rdfs:label "Turks and Caicos Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TC"^^xsd:string ;
@@ -4675,9 +4674,9 @@ dpvo-legal:TD a owl:NamedIndividual,
     rdfs:label "Chad"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:MiddleAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:MiddleAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TD"^^xsd:string ;
@@ -4690,9 +4689,9 @@ dpvo-legal:TF a owl:NamedIndividual,
     rdfs:label "French Southern Territories"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TF"^^xsd:string ;
@@ -4705,9 +4704,9 @@ dpvo-legal:TG a owl:NamedIndividual,
     rdfs:label "Togo"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SubSaharanAfrica,
-        dpv-legal:WesternAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SubSaharanAfrica,
+        dpvo-legal:WesternAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TG"^^xsd:string ;
@@ -4720,9 +4719,9 @@ dpvo-legal:TT a owl:NamedIndividual,
     rdfs:label "Trinidad and Tobago"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TT"^^xsd:string ;
@@ -4735,9 +4734,9 @@ dpvo-legal:TZ a owl:NamedIndividual,
     rdfs:label "United Republic of Tanzania"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "TZ"^^xsd:string ;
@@ -4750,9 +4749,9 @@ dpvo-legal:UG a owl:NamedIndividual,
     rdfs:label "Uganda"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "UG"^^xsd:string ;
@@ -4765,7 +4764,7 @@ dpvo-legal:US-CA a owl:NamedIndividual,
     rdfs:label "California"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasLaw dpvo-legal:US-CA-CCPA,
@@ -4776,7 +4775,7 @@ dpvo-legal:US-CO a owl:NamedIndividual,
     rdfs:label "Colorado"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-CO ;
@@ -4787,7 +4786,7 @@ dpvo-legal:US-CT a owl:NamedIndividual,
     rdfs:label "Connecticut"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-CT ;
@@ -4798,7 +4797,7 @@ dpvo-legal:US-NV a owl:NamedIndividual,
     rdfs:label "Nevada"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-NV ;
@@ -4809,7 +4808,7 @@ dpvo-legal:US-UT a owl:NamedIndividual,
     rdfs:label "Utah"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:US ;
+    dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-UT ;
@@ -4820,9 +4819,9 @@ dpvo-legal:VC a owl:NamedIndividual,
     rdfs:label "Saint Vincent and the Grenadines"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VC"^^xsd:string ;
@@ -4835,9 +4834,9 @@ dpvo-legal:VE a owl:NamedIndividual,
     rdfs:label "Venezuela (Bolivarian Republic of)"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VE"^^xsd:string ;
@@ -4850,9 +4849,9 @@ dpvo-legal:VG a owl:NamedIndividual,
     rdfs:label "British Virgin Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VG"^^xsd:string ;
@@ -4865,9 +4864,9 @@ dpvo-legal:VI a owl:NamedIndividual,
     rdfs:label "United States Virgin Islands"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:Caribbean,
-        dpv-legal:LatinAmericaandtheCaribbean ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:Caribbean,
+        dpvo-legal:LatinAmericaandtheCaribbean ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "VI"^^xsd:string ;
@@ -4880,9 +4879,9 @@ dpvo-legal:YT a owl:NamedIndividual,
     rdfs:label "Mayotte"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "YT"^^xsd:string ;
@@ -4895,9 +4894,9 @@ dpvo-legal:ZA a owl:NamedIndividual,
     rdfs:label "South Africa"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:SouthernAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:SouthernAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ZA"^^xsd:string ;
@@ -4910,9 +4909,9 @@ dpvo-legal:ZM a owl:NamedIndividual,
     rdfs:label "Zambia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ZM"^^xsd:string ;
@@ -4925,9 +4924,9 @@ dpvo-legal:ZW a owl:NamedIndividual,
     rdfs:label "Zimbabwe"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Africa,
-        dpv-legal:EasternAfrica,
-        dpv-legal:SubSaharanAfrica ;
+    dct:isPartOf dpvo-legal:Africa,
+        dpvo-legal:EasternAfrica,
+        dpvo-legal:SubSaharanAfrica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "ZW"^^xsd:string ;
@@ -4940,9 +4939,9 @@ dpvo-legal:AR a owl:NamedIndividual,
     rdfs:label "Argentina"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "AR"^^xsd:string ;
@@ -4955,7 +4954,7 @@ dpvo-legal:DE-BW a owl:NamedIndividual,
     rdfs:label "Baden-Württemberg"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasLaw dpvo-legal:DE-BDSG,
@@ -4967,7 +4966,7 @@ dpvo-legal:DE-RP a owl:NamedIndividual,
     rdfs:label "Rhineland-Palatinate"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasLaw dpvo-legal:DE-BDSG,
@@ -5204,9 +5203,9 @@ dpvo-legal:GG a owl:NamedIndividual,
     rdfs:label "Guernsey"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:ChannelIslands,
-        dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:ChannelIslands,
+        dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "GG"^^xsd:string ;
@@ -5219,9 +5218,9 @@ dpvo-legal:JE a owl:NamedIndividual,
     rdfs:label "Jersey"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:ChannelIslands,
-        dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:ChannelIslands,
+        dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "JE"^^xsd:string ;
@@ -5234,9 +5233,9 @@ dpvo-legal:UY a owl:NamedIndividual,
     rdfs:label "Uruguay"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:Americas,
-        dpv-legal:LatinAmericaandtheCaribbean,
-        dpv-legal:SouthAmerica ;
+    dct:isPartOf dpvo-legal:Americas,
+        dpvo-legal:LatinAmericaandtheCaribbean,
+        dpvo-legal:SouthAmerica ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo-legal:iso_alpha2 "UY"^^xsd:string ;
@@ -5244,25 +5243,25 @@ dpvo-legal:UY a owl:NamedIndividual,
     dpvo-legal:iso_numeric "858"^^xsd:string ;
     dpvo-legal:un_m49 "858"^^xsd:string .
 
-dpv-legal:CentralAsia dct:hasPart dpvo-legal:KG,
+dpvo-legal:CentralAsia dct:hasPart dpvo-legal:KG,
         dpvo-legal:KZ,
         dpvo-legal:TJ,
         dpvo-legal:TM,
         dpvo-legal:UZ .
 
-dpv-legal:Melanesia dct:hasPart dpvo-legal:FJ,
+dpvo-legal:Melanesia dct:hasPart dpvo-legal:FJ,
         dpvo-legal:NC,
         dpvo-legal:PG,
         dpvo-legal:SB,
         dpvo-legal:VU .
 
-dpv-legal:NorthernAmerica dct:hasPart dpvo-legal:BM,
+dpvo-legal:NorthernAmerica dct:hasPart dpvo-legal:BM,
         dpvo-legal:CA,
         dpvo-legal:GL,
         dpvo-legal:PM,
         dpvo-legal:US .
 
-dpv-legal:SouthernAfrica dct:hasPart dpvo-legal:BW,
+dpvo-legal:SouthernAfrica dct:hasPart dpvo-legal:BW,
         dpvo-legal:LS,
         dpvo-legal:NA,
         dpvo-legal:SZ,
@@ -5273,7 +5272,7 @@ dpvo-legal:DE-BB a owl:NamedIndividual,
     rdfs:label "Brandenburg"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-BB ;
@@ -5286,7 +5285,7 @@ dpvo-legal:DE-BE a owl:NamedIndividual,
     rdfs:label "Berlin"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-BE ;
@@ -5299,7 +5298,7 @@ dpvo-legal:DE-HB a owl:NamedIndividual,
     rdfs:label "Bremen"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-HB ;
@@ -5312,7 +5311,7 @@ dpvo-legal:DE-HE a owl:NamedIndividual,
     rdfs:label "Hesse"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-HE ;
@@ -5325,7 +5324,7 @@ dpvo-legal:DE-HH a owl:NamedIndividual,
     rdfs:label "Hamburg"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-HH ;
@@ -5338,7 +5337,7 @@ dpvo-legal:DE-MV a owl:NamedIndividual,
     rdfs:label "Mecklenburg-Western-Pomerania"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-MV ;
@@ -5351,7 +5350,7 @@ dpvo-legal:DE-NI a owl:NamedIndividual,
     rdfs:label "Lower-Saxony"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-NI ;
@@ -5364,7 +5363,7 @@ dpvo-legal:DE-NW a owl:NamedIndividual,
     rdfs:label "North-Rhine Westphalia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-NW ;
@@ -5377,7 +5376,7 @@ dpvo-legal:DE-SH a owl:NamedIndividual,
     rdfs:label "Schleswig-Holstein"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-SH ;
@@ -5390,7 +5389,7 @@ dpvo-legal:DE-SL a owl:NamedIndividual,
     rdfs:label "Saarland"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-SL ;
@@ -5403,7 +5402,7 @@ dpvo-legal:DE-SN a owl:NamedIndividual,
     rdfs:label "Saxony"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-SN ;
@@ -5416,7 +5415,7 @@ dpvo-legal:DE-ST a owl:NamedIndividual,
     rdfs:label "Saxony-Anhalt"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-ST ;
@@ -5429,7 +5428,7 @@ dpvo-legal:DE-TH a owl:NamedIndividual,
     rdfs:label "Thuringia"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-TH ;
@@ -5452,7 +5451,7 @@ dpvo-legal:DPA-DE-RP a owl:NamedIndividual,
         dpvo-legal:DE-RP-LDSG,
         dpvo-legal:EU-GDPR .
 
-dpv-legal:AustraliaandNewZealand dct:hasPart dpvo-legal:AU,
+dpvo-legal:AustraliaandNewZealand dct:hasPart dpvo-legal:AU,
         dpvo-legal:CC,
         dpvo-legal:CX,
         dpvo-legal:HM,
@@ -5464,7 +5463,7 @@ dpvo-legal:DE-BY a owl:NamedIndividual,
     rdfs:label "Bavaria"@en ;
     dct:created "2022-03-30"^^xsd:date ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
-    dct:isPartOf dpv-legal:DE ;
+    dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-BY-non-public,
@@ -5473,7 +5472,7 @@ dpvo-legal:DE-BY a owl:NamedIndividual,
         dpvo-legal:DE-BY-BayDSG,
         dpvo-legal:EU-GDPR .
 
-dpv-legal:EasternAsia dct:hasPart dpvo-legal:CN,
+dpvo-legal:EasternAsia dct:hasPart dpvo-legal:CN,
         dpvo-legal:HK,
         dpvo-legal:JP,
         dpvo-legal:KP,
@@ -5481,7 +5480,7 @@ dpv-legal:EasternAsia dct:hasPart dpvo-legal:CN,
         dpvo-legal:MN,
         dpvo-legal:MO .
 
-dpv-legal:NorthernAfrica dct:hasPart dpvo-legal:DZ,
+dpvo-legal:NorthernAfrica dct:hasPart dpvo-legal:DZ,
         dpvo-legal:EG,
         dpvo-legal:EH,
         dpvo-legal:LY,
@@ -5489,7 +5488,7 @@ dpv-legal:NorthernAfrica dct:hasPart dpvo-legal:DZ,
         dpvo-legal:SD,
         dpvo-legal:TN .
 
-dpv-legal:CentralAmerica dct:hasPart dpvo-legal:BZ,
+dpvo-legal:CentralAmerica dct:hasPart dpvo-legal:BZ,
         dpvo-legal:CR,
         dpvo-legal:GT,
         dpvo-legal:HN,
@@ -5498,7 +5497,7 @@ dpv-legal:CentralAmerica dct:hasPart dpvo-legal:BZ,
         dpvo-legal:PA,
         dpvo-legal:SV .
 
-dpv-legal:Micronesia dct:hasPart dpvo-legal:FM,
+dpvo-legal:Micronesia dct:hasPart dpvo-legal:FM,
         dpvo-legal:GU,
         dpvo-legal:KI,
         dpvo-legal:MH,
@@ -5507,7 +5506,7 @@ dpv-legal:Micronesia dct:hasPart dpvo-legal:FM,
         dpvo-legal:PW,
         dpvo-legal:UM .
 
-dpv-legal:MiddleAfrica dct:hasPart dpvo-legal:AO,
+dpvo-legal:MiddleAfrica dct:hasPart dpvo-legal:AO,
         dpvo-legal:CD,
         dpvo-legal:CF,
         dpvo-legal:CG,
@@ -5517,7 +5516,7 @@ dpv-legal:MiddleAfrica dct:hasPart dpvo-legal:AO,
         dpvo-legal:ST,
         dpvo-legal:TD .
 
-dpv-legal:SouthernAsia dct:hasPart dpvo-legal:AF,
+dpvo-legal:SouthernAsia dct:hasPart dpvo-legal:AF,
         dpvo-legal:BD,
         dpvo-legal:BT,
         dpvo-legal:IN,
@@ -5527,7 +5526,7 @@ dpv-legal:SouthernAsia dct:hasPart dpvo-legal:AF,
         dpvo-legal:NP,
         dpvo-legal:PK .
 
-dpv-legal:WesternEurope dct:hasPart dpvo-legal:AT,
+dpvo-legal:WesternEurope dct:hasPart dpvo-legal:AT,
         dpvo-legal:BE,
         dpvo-legal:CH,
         dpvo-legal:DE,
@@ -5537,7 +5536,7 @@ dpv-legal:WesternEurope dct:hasPart dpvo-legal:AT,
         dpvo-legal:MC,
         dpvo-legal:NL .
 
-dpv-legal:EasternEurope dct:hasPart dpvo-legal:BG,
+dpvo-legal:EasternEurope dct:hasPart dpvo-legal:BG,
         dpvo-legal:BY,
         dpvo-legal:CZ,
         dpvo-legal:HU,
@@ -5548,7 +5547,7 @@ dpv-legal:EasternEurope dct:hasPart dpvo-legal:BG,
         dpvo-legal:SK,
         dpvo-legal:UA .
 
-dpv-legal:Polynesia dct:hasPart dpvo-legal:AS,
+dpvo-legal:Polynesia dct:hasPart dpvo-legal:AS,
         dpvo-legal:CK,
         dpvo-legal:NU,
         dpvo-legal:PF,
@@ -5566,8 +5565,8 @@ dpvo-legal:GB a owl:NamedIndividual,
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
     dct:hasPart dpvo-legal:EEA31,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-GB ;
@@ -5578,7 +5577,7 @@ dpvo-legal:GB a owl:NamedIndividual,
     dpvo-legal:iso_numeric "826"^^xsd:string ;
     dpvo-legal:un_m49 "826"^^xsd:string .
 
-dpv-legal:SoutheasternAsia dct:hasPart dpvo-legal:BN,
+dpvo-legal:SoutheasternAsia dct:hasPart dpvo-legal:BN,
         dpvo-legal:ID,
         dpvo-legal:KH,
         dpvo-legal:LA,
@@ -5590,7 +5589,7 @@ dpv-legal:SoutheasternAsia dct:hasPart dpvo-legal:BN,
         dpvo-legal:TL,
         dpvo-legal:VN .
 
-dpv-legal:DE dct:hasPart dpvo-legal:DE-BB,
+dpvo-legal:DE dct:hasPart dpvo-legal:DE-BB,
         dpvo-legal:DE-BE,
         dpvo-legal:DE-BW,
         dpvo-legal:DE-BY,
@@ -5607,7 +5606,7 @@ dpv-legal:DE dct:hasPart dpvo-legal:DE-BB,
         dpvo-legal:DE-ST,
         dpvo-legal:DE-TH .
 
-dpv-legal:SouthAmerica dct:hasPart dpvo-legal:AR,
+dpvo-legal:SouthAmerica dct:hasPart dpvo-legal:AR,
         dpvo-legal:BO,
         dpvo-legal:BR,
         dpvo-legal:BV,
@@ -5624,7 +5623,7 @@ dpv-legal:SouthAmerica dct:hasPart dpvo-legal:AR,
         dpvo-legal:UY,
         dpvo-legal:VE .
 
-dpv-legal:SouthernEurope dct:hasPart dpvo-legal:AD,
+dpvo-legal:SouthernEurope dct:hasPart dpvo-legal:AD,
         dpvo-legal:AL,
         dpvo-legal:BA,
         dpvo-legal:ES,
@@ -5652,8 +5651,8 @@ dpvo-legal:AT a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-AT ;
@@ -5674,8 +5673,8 @@ dpvo-legal:BE a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-BE ;
@@ -5696,8 +5695,8 @@ dpvo-legal:BG a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-BG ;
@@ -5718,8 +5717,8 @@ dpvo-legal:CY a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Asia,
-        dpv-legal:WesternAsia ;
+    dct:isPartOf dpvo-legal:Asia,
+        dpvo-legal:WesternAsia ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-CY ;
@@ -5740,8 +5739,8 @@ dpvo-legal:CZ a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-CZ ;
@@ -5762,8 +5761,8 @@ dpvo-legal:DK a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DK ;
@@ -5784,8 +5783,8 @@ dpvo-legal:EE a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-EE ;
@@ -5806,8 +5805,8 @@ dpvo-legal:ES a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-ES ;
@@ -5828,8 +5827,8 @@ dpvo-legal:FI a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-FI ;
@@ -5850,8 +5849,8 @@ dpvo-legal:FR a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-FR ;
@@ -5872,8 +5871,8 @@ dpvo-legal:GR a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-GR ;
@@ -5894,8 +5893,8 @@ dpvo-legal:HR a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-HR ;
@@ -5916,8 +5915,8 @@ dpvo-legal:HU a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-HU ;
@@ -5938,8 +5937,8 @@ dpvo-legal:IE a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-IE ;
@@ -5960,8 +5959,8 @@ dpvo-legal:IT a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-IT ;
@@ -5982,8 +5981,8 @@ dpvo-legal:LT a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-LT ;
@@ -6004,8 +6003,8 @@ dpvo-legal:LU a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-LU ;
@@ -6026,8 +6025,8 @@ dpvo-legal:LV a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-LV ;
@@ -6048,8 +6047,8 @@ dpvo-legal:MT a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-MT ;
@@ -6070,8 +6069,8 @@ dpvo-legal:NL a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-NL ;
@@ -6092,8 +6091,8 @@ dpvo-legal:PL a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-PL ;
@@ -6114,8 +6113,8 @@ dpvo-legal:PT a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-PT ;
@@ -6136,8 +6135,8 @@ dpvo-legal:RO a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-RO ;
@@ -6158,8 +6157,8 @@ dpvo-legal:SE a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:NorthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:NorthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-SE ;
@@ -6180,8 +6179,8 @@ dpvo-legal:SI a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:SouthernEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:SouthernEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-SI ;
@@ -6202,8 +6201,8 @@ dpvo-legal:SK a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:EasternEurope,
-        dpv-legal:Europe ;
+    dct:isPartOf dpvo-legal:EasternEurope,
+        dpvo-legal:Europe ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-SK ;
@@ -6213,7 +6212,7 @@ dpvo-legal:SK a owl:NamedIndividual,
     dpvo-legal:iso_numeric "703"^^xsd:string ;
     dpvo-legal:un_m49 "703"^^xsd:string .
 
-dpv-legal:WesternAfrica dct:hasPart dpvo-legal:BF,
+dpvo-legal:WesternAfrica dct:hasPart dpvo-legal:BF,
         dpvo-legal:BJ,
         dpvo-legal:CI,
         dpvo-legal:CV,
@@ -6242,8 +6241,8 @@ dpvo-legal:DE a owl:NamedIndividual,
         dpvo-legal:EU,
         dpvo-legal:EU27,
         dpvo-legal:EU28 ;
-    dct:isPartOf dpv-legal:Europe,
-        dpv-legal:WesternEurope ;
+    dct:isPartOf dpvo-legal:Europe,
+        dpvo-legal:WesternEurope ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE ;
@@ -6254,7 +6253,7 @@ dpvo-legal:DE a owl:NamedIndividual,
     dpvo-legal:iso_numeric "276"^^xsd:string ;
     dpvo-legal:un_m49 "276"^^xsd:string .
 
-dpv-legal:NorthernEurope dct:hasPart dpvo-legal:AX,
+dpvo-legal:NorthernEurope dct:hasPart dpvo-legal:AX,
         dpvo-legal:ChannelIslands,
         dpvo-legal:DK,
         dpvo-legal:EE,
@@ -6273,7 +6272,7 @@ dpv-legal:NorthernEurope dct:hasPart dpvo-legal:AX,
         dpvo-legal:SJ,
         dpvo-legal:Sark .
 
-dpv-legal:WesternAsia dct:hasPart dpvo-legal:AE,
+dpvo-legal:WesternAsia dct:hasPart dpvo-legal:AE,
         dpvo-legal:AM,
         dpvo-legal:AZ,
         dpvo-legal:BH,
@@ -6292,7 +6291,7 @@ dpv-legal:WesternAsia dct:hasPart dpvo-legal:AE,
         dpvo-legal:TR,
         dpvo-legal:YE .
 
-dpv-legal:EasternAfrica dct:hasPart dpvo-legal:BI,
+dpvo-legal:EasternAfrica dct:hasPart dpvo-legal:BI,
         dpvo-legal:DJ,
         dpvo-legal:ER,
         dpvo-legal:ET,
@@ -6315,7 +6314,7 @@ dpv-legal:EasternAfrica dct:hasPart dpvo-legal:BI,
         dpvo-legal:ZM,
         dpvo-legal:ZW .
 
-dpv-legal:Caribbean dct:hasPart dpvo-legal:AG,
+dpvo-legal:Caribbean dct:hasPart dpvo-legal:AG,
         dpvo-legal:AI,
         dpvo-legal:AW,
         dpvo-legal:BB,
@@ -6674,7 +6673,7 @@ dpvo-legal:EU28 a owl:NamedIndividual,
         dpvo-legal:SI,
         dpvo-legal:SK .
 
-dpv-legal:Oceania dct:hasPart dpvo-legal:AS,
+dpvo-legal:Oceania dct:hasPart dpvo-legal:AS,
         dpvo-legal:AU,
         dpvo-legal:AustraliaandNewZealand,
         dpvo-legal:CC,
@@ -6820,7 +6819,7 @@ dpvo-legal:EU a owl:NamedIndividual,
         dpvo-legal:SI,
         dpvo-legal:SK .
 
-dpv-legal:Asia dct:hasPart dpvo-legal:AE,
+dpvo-legal:Asia dct:hasPart dpvo-legal:AE,
         dpvo-legal:AF,
         dpvo-legal:AM,
         dpvo-legal:AZ,
@@ -6876,7 +6875,7 @@ dpv-legal:Asia dct:hasPart dpvo-legal:AE,
         dpvo-legal:WesternAsia,
         dpvo-legal:YE .
 
-dpv-legal:LatinAmericaandtheCaribbean dct:hasPart dpvo-legal:AG,
+dpvo-legal:LatinAmericaandtheCaribbean dct:hasPart dpvo-legal:AG,
         dpvo-legal:AI,
         dpvo-legal:AR,
         dpvo-legal:AW,
@@ -6932,7 +6931,7 @@ dpv-legal:LatinAmericaandtheCaribbean dct:hasPart dpvo-legal:AG,
         dpvo-legal:VG,
         dpvo-legal:VI .
 
-dpv-legal:Europe dct:hasPart dpvo-legal:AD,
+dpvo-legal:Europe dct:hasPart dpvo-legal:AD,
         dpvo-legal:AL,
         dpvo-legal:AT,
         dpvo-legal:AX,
@@ -6989,7 +6988,7 @@ dpv-legal:Europe dct:hasPart dpvo-legal:AD,
         dpvo-legal:VA,
         dpvo-legal:WesternEurope .
 
-dpv-legal:SubSaharanAfrica dct:hasPart dpvo-legal:AO,
+dpvo-legal:SubSaharanAfrica dct:hasPart dpvo-legal:AO,
         dpvo-legal:BF,
         dpvo-legal:BI,
         dpvo-legal:BJ,
@@ -7047,7 +7046,7 @@ dpv-legal:SubSaharanAfrica dct:hasPart dpvo-legal:AO,
         dpvo-legal:ZM,
         dpvo-legal:ZW .
 
-dpv-legal:US dct:hasPart dpvo-legal:US-AK,
+dpvo-legal:US dct:hasPart dpvo-legal:US-AK,
         dpvo-legal:US-AL,
         dpvo-legal:US-AR,
         dpvo-legal:US-AS,
@@ -7105,7 +7104,7 @@ dpv-legal:US dct:hasPart dpvo-legal:US-AK,
         dpvo-legal:US-WV,
         dpvo-legal:US-WY .
 
-dpv-legal:Americas dct:hasPart dpvo-legal:AG,
+dpvo-legal:Americas dct:hasPart dpvo-legal:AG,
         dpvo-legal:AI,
         dpvo-legal:AR,
         dpvo-legal:AW,
@@ -7165,7 +7164,7 @@ dpv-legal:Americas dct:hasPart dpvo-legal:AG,
         dpvo-legal:VG,
         dpvo-legal:VI .
 
-dpv-legal:Africa dct:hasPart dpvo-legal:AO,
+dpvo-legal:Africa dct:hasPart dpvo-legal:AO,
         dpvo-legal:BF,
         dpvo-legal:BI,
         dpvo-legal:BJ,

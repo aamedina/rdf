@@ -11,7 +11,7 @@ dpvo-tech:Cookie a owl:Class ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
     dct:description "A HTTP or web or internet cookie"@en ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:subClassOf dpvo-tech:LocalStorage ;
+    rdfs:subClassOf dpvo-tech:DataStorageTechnology ;
     sw:term_status "accepted"@en .
 
 dpvo-tech:Database a owl:Class ;

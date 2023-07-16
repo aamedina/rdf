@@ -21,7 +21,6 @@
    :owl/imports {:rdfa/uri "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "dpv-tech" "https://w3id.org/dpv/dpv-tech#",
                        "dpvo" "https://w3id.org/dpv/dpv-owl#",
                        "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
                        "owl" "http://www.w3.org/2002/07/owl#",
@@ -121,7 +120,9 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "Cookie@en",
-   :rdfs/subClassOf     :dpvo-tech/LocalStorage,
+   :rdfs/subClassOf     [:dpvo-tech/DataStorageTechnology
+                         :dpvo-tech/DataTechnology
+                         :dpvo/Technology],
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def CovertSurveillanceTechnology
@@ -309,8 +310,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label #xsd/langString "Database@en",
    :rdfs/subClassOf [:dpvo-tech/DataStorageTechnology
-                     :dpvo/Technology
-                     :dpvo-tech/DataTechnology],
+                     :dpvo-tech/DataTechnology
+                     :dpvo/Technology],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DetectionSecurityTechnology
@@ -342,8 +343,8 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label #xsd/langString "File System@en",
    :rdfs/subClassOf [:dpvo-tech/DataStorageTechnology
-                     :dpvo/Technology
-                     :dpvo-tech/DataTechnology],
+                     :dpvo-tech/DataTechnology
+                     :dpvo/Technology],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def FixedUse
@@ -426,10 +427,10 @@
    :rdfs/label #xsd/langString "Identity Wallet@en",
    :rdfs/subClassOf [:dpvo-tech/IdentityManagementTechnology
                      :dpvo-tech/DataStorageTechnology
-                     :dpvo/Technology
                      :dpvo-tech/IdentityTechnology
+                     :dpvo-tech/ManagementTechnology
                      :dpvo-tech/DataTechnology
-                     :dpvo-tech/ManagementTechnology],
+                     :dpvo/Technology],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def Internet
@@ -458,8 +459,6 @@
    :rdfs/label #xsd/langString "Local Network@en",
    :rdfs/subClassOf [:dpvo-tech/Networking :dpvo-tech/CommunicationMechanism],
    :vs/term_status #xsd/langString "accepted@en"})
-
-(def LocalStorage {:db/ident :dpvo-tech/LocalStorage})
 
 (def ManagementTechnology
   "Technology that enables or provides management"
@@ -619,9 +618,9 @@
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label #xsd/langString "Personal Information Management System@en",
    :rdfs/subClassOf [:dpvo-tech/DataManagementTechnology
-                     :dpvo/Technology
+                     :dpvo-tech/ManagementTechnology
                      :dpvo-tech/DataTechnology
-                     :dpvo-tech/ManagementTechnology],
+                     :dpvo/Technology],
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def PreventionSecurityTechnology
@@ -880,7 +879,7 @@
    :rdfs/domain :dpvo/Technology,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label #xsd/langString "has communication mechanism@en",
-   :rdfs/range :dpv-tech/CommunicationMechanism,
+   :rdfs/range :dpvo-tech/CommunicationMechanism,
    :vs/term_status #xsd/langString "changed@en"})
 
 (def hasDeveloper
@@ -894,8 +893,8 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "has developer@en",
-   :rdfs/range          :dpv-tech/TechnologyDeveloper,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyDeveloper,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasProvider
@@ -909,8 +908,8 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "has provider@en",
-   :rdfs/range          :dpv-tech/TechnologyProvider,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyProvider,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasProvisionMethod
@@ -924,7 +923,7 @@
    :rdfs/domain :dpvo/Technology,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label #xsd/langString "has provision method@en",
-   :rdfs/range :dpv-tech/TechnologyProvisionMethod,
+   :rdfs/range :dpvo-tech/TechnologyProvisionMethod,
    :vs/term_status #xsd/langString "changed@en"})
 
 (def hasSubject
@@ -938,8 +937,8 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "has subject@en",
-   :rdfs/range          :dpv-tech/TechnologySubject,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologySubject,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasTRL
@@ -953,7 +952,7 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "has TRL@en",
-   :rdfs/range          :dpv-tech/TechnologyReadinessLevel,
+   :rdfs/range          :dpvo-tech/TechnologyReadinessLevel,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasTechnologyActor
@@ -967,7 +966,7 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "has technology actor@en",
-   :rdfs/range          :dpv-tech/TechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyActor,
    :vs/term_status      #xsd/langString "accepted@en"})
 
 (def hasUser
@@ -981,6 +980,6 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#"},
    :rdfs/label          #xsd/langString "has user@en",
-   :rdfs/range          :dpv-tech/TechnologyUser,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyUser,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})

@@ -1,5 +1,5 @@
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dpv-tech: <https://w3id.org/dpv/dpv-tech#> .
+@prefix dpvo-tech: <https://w3id.org/dpv/dpv-owl/dpv-tech#> .
 @prefix dpvo: <https://w3id.org/dpv/dpv-owl#> .
 @prefix dpvo-rights-eu: <https://w3id.org/dpv/dpv-owl/rights/eu#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -90,10 +90,10 @@ dpvo-rights-eu:A14-RightToEducation a owl:NamedIndividual,
   rdfs:isDefinedBy dpvo-rights-eu: ;
   sw:term_status "accepted"@en .
 
-dpvo-rights-eu:A15-FreedomToChooseOccuprationEngageWork a owl:NamedIndividual,
+dpvo-rights-eu:A15-FreedomToChooseOccupationEngageWork a owl:NamedIndividual,
     dpvo-rights-eu:EUFundamentalRights,
     dpvo-rights-eu:T2-Freedoms ;
-  rdfs:label "A15 Freedom To Choose Occupration Engage Work"@en ;
+  rdfs:label "A15 Freedom To Choose Occupation Engage Work"@en ;
   dct:created "2022-07-09"^^xsd:date ;
   dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
 
@@ -627,8 +627,8 @@ dpvo-rights-eu:hasDeveloper a rdf:Property,
   dct:modified "2022-10-21"^^xsd:date ;
   rdfs:domain dpvo:Technology ;
   rdfs:isDefinedBy dpvo-rights-eu: ;
-  rdfs:range dpv-tech:TechnologyDeveloper ;
-  rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+  rdfs:range dpvo-tech:TechnologyDeveloper ;
+  rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
   sw:term_status "changed"@en .
 
 dpvo-rights-eu:hasProvider a rdf:Property,
@@ -640,8 +640,8 @@ dpvo-rights-eu:hasProvider a rdf:Property,
   dct:modified "2022-10-21"^^xsd:date ;
   rdfs:domain dpvo:Technology ;
   rdfs:isDefinedBy dpvo-rights-eu: ;
-  rdfs:range dpv-tech:TechnologyProvider ;
-  rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+  rdfs:range dpvo-tech:TechnologyProvider ;
+  rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
   sw:term_status "changed"@en .
 
 dpvo-rights-eu:hasSubject a rdf:Property,
@@ -653,8 +653,8 @@ dpvo-rights-eu:hasSubject a rdf:Property,
   dct:modified "2022-10-21"^^xsd:date ;
   rdfs:domain dpvo:Technology ;
   rdfs:isDefinedBy dpvo-rights-eu: ;
-  rdfs:range dpv-tech:TechnologySubject ;
-  rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+  rdfs:range dpvo-tech:TechnologySubject ;
+  rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
   sw:term_status "changed"@en .
 
 dpvo-rights-eu:hasUser a rdf:Property,
@@ -666,8 +666,8 @@ dpvo-rights-eu:hasUser a rdf:Property,
   dct:modified "2022-10-21"^^xsd:date ;
   rdfs:domain dpvo:Technology ;
   rdfs:isDefinedBy dpvo-rights-eu: ;
-  rdfs:range dpv-tech:TechnologyUser ;
-  rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+  rdfs:range dpvo-tech:TechnologyUser ;
+  rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
   sw:term_status "changed"@en .
 
 dpvo-rights-eu:T6-Justice a owl:Class ;

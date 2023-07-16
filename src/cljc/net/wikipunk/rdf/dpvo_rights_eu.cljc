@@ -18,10 +18,10 @@
    :owl/imports {:rdfa/uri "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "dpv-tech" "https://w3id.org/dpv/dpv-tech#",
                        "dpvo" "https://w3id.org/dpv/dpv-owl#",
                        "dpvo-rights-eu"
                        "https://w3id.org/dpv/dpv-owl/rights/eu#",
+                       "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
                        "owl" "http://www.w3.org/2002/07/owl#",
                        "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
@@ -125,9 +125,9 @@
    :rdfs/label       #xsd/langString "A14 Right To Education@en",
    :vs/term_status   #xsd/langString "accepted@en"})
 
-(def A15-FreedomToChooseOccuprationEngageWork
-  "A15 Freedom To Choose Occupration Engage Work"
-  {:db/ident         :dpvo-rights-eu/A15-FreedomToChooseOccuprationEngageWork,
+(def A15-FreedomToChooseOccupationEngageWork
+  "A15 Freedom To Choose Occupation Engage Work"
+  {:db/ident         :dpvo-rights-eu/A15-FreedomToChooseOccupationEngageWork,
    :dcterms/created  #xsd/date #inst "2022-07-09T00:00:00.000-04:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/source   {:rdfa/uri
@@ -138,7 +138,7 @@
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label       #xsd/langString
-                      "A15 Freedom To Choose Occupration Engage Work@en",
+                      "A15 Freedom To Choose Occupation Engage Work@en",
    :vs/term_status   #xsd/langString "accepted@en"})
 
 (def A16-FreedomToConductBusiness
@@ -983,8 +983,8 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label          #xsd/langString "has developer@en",
-   :rdfs/range          :dpv-tech/TechnologyDeveloper,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyDeveloper,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasProvider
@@ -998,8 +998,8 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label          #xsd/langString "has provider@en",
-   :rdfs/range          :dpv-tech/TechnologyProvider,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyProvider,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasSubject
@@ -1013,8 +1013,8 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label          #xsd/langString "has subject@en",
-   :rdfs/range          :dpv-tech/TechnologySubject,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologySubject,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})
 
 (def hasUser
@@ -1028,6 +1028,6 @@
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label          #xsd/langString "has user@en",
-   :rdfs/range          :dpv-tech/TechnologyUser,
-   :rdfs/subPropertyOf  :dpv-tech/hasTechnologyActor,
+   :rdfs/range          :dpvo-tech/TechnologyUser,
+   :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      #xsd/langString "changed@en"})

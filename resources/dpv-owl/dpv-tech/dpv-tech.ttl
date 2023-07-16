@@ -1,5 +1,4 @@
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dpv-tech: <https://w3id.org/dpv/dpv-tech#> .
 @prefix dpvo: <https://w3id.org/dpv/dpv-owl#> .
 @prefix dpvo-tech: <https://w3id.org/dpv/dpv-owl/dpv-tech#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -69,7 +68,7 @@ dpvo-tech:Cookie a owl:Class ;
     dct:creator "Harshvardhan J. Pandit"^^xsd:string ;
     dct:description "A HTTP or web or internet cookie"@en ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:subClassOf dpvo-tech:LocalStorage ;
+    rdfs:subClassOf dpvo-tech:DataStorageTechnology ;
     sw:term_status "accepted"@en .
 
 dpvo-tech:CovertSurveillanceTechnology a owl:Class ;
@@ -473,7 +472,7 @@ dpvo-tech:hasCommunicationMechanism a rdf:Property,
     dct:description "Indicates communication mechanisms used or provided by technology"@en ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:CommunicationMechanism ;
+    rdfs:range dpvo-tech:CommunicationMechanism ;
     sw:term_status "changed"@en .
 
 dpvo-tech:hasDeveloper a rdf:Property,
@@ -485,8 +484,8 @@ dpvo-tech:hasDeveloper a rdf:Property,
     dct:modified "2022-10-21"^^xsd:date ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologyDeveloper ;
-    rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+    rdfs:range dpvo-tech:TechnologyDeveloper ;
+    rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
     sw:term_status "changed"@en .
 
 dpvo-tech:hasProvider a rdf:Property,
@@ -498,8 +497,8 @@ dpvo-tech:hasProvider a rdf:Property,
     dct:modified "2022-10-21"^^xsd:date ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologyProvider ;
-    rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+    rdfs:range dpvo-tech:TechnologyProvider ;
+    rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
     sw:term_status "changed"@en .
 
 dpvo-tech:hasProvisionMethod a rdf:Property,
@@ -510,7 +509,7 @@ dpvo-tech:hasProvisionMethod a rdf:Property,
     dct:description "Specifies the provision or usage method of technology"@en ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologyProvisionMethod ;
+    rdfs:range dpvo-tech:TechnologyProvisionMethod ;
     sw:term_status "changed"@en .
 
 dpvo-tech:hasSubject a rdf:Property,
@@ -522,8 +521,8 @@ dpvo-tech:hasSubject a rdf:Property,
     dct:modified "2022-10-21"^^xsd:date ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologySubject ;
-    rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+    rdfs:range dpvo-tech:TechnologySubject ;
+    rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
     sw:term_status "changed"@en .
 
 dpvo-tech:hasTRL a rdf:Property,
@@ -534,7 +533,7 @@ dpvo-tech:hasTRL a rdf:Property,
     dct:description "Indicates technology maturity level"@en ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologyReadinessLevel ;
+    rdfs:range dpvo-tech:TechnologyReadinessLevel ;
     sw:term_status "changed"@en .
 
 dpvo-tech:hasTechnologyActor a rdf:Property,
@@ -545,7 +544,7 @@ dpvo-tech:hasTechnologyActor a rdf:Property,
     dct:description "Indicates an actor associated with technology"@en ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologyActor ;
+    rdfs:range dpvo-tech:TechnologyActor ;
     sw:term_status "accepted"@en .
 
 dpvo-tech:hasUser a rdf:Property,
@@ -557,8 +556,8 @@ dpvo-tech:hasUser a rdf:Property,
     dct:modified "2022-10-21"^^xsd:date ;
     rdfs:domain dpvo:Technology ;
     rdfs:isDefinedBy dpvo-tech: ;
-    rdfs:range dpv-tech:TechnologyUser ;
-    rdfs:subPropertyOf dpv-tech:hasTechnologyActor ;
+    rdfs:range dpvo-tech:TechnologyUser ;
+    rdfs:subPropertyOf dpvo-tech:hasTechnologyActor ;
     sw:term_status "changed"@en .
 
 dpvo-tech:Application a owl:Class ;
