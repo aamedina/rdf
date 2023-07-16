@@ -137,7 +137,8 @@
   {:dcat/downloadURL "resources/exif.rdf"
    :rdfa/uri    "http://www.w3.org/2003/12/exif/ns#"
    :rdfa/prefix "exif"
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :reasoner nil})
 
 (def frbr
   {:dcat/downloadURL "resources/frbr-core-20050810.rdf"

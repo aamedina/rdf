@@ -491,12 +491,62 @@
     (str form "@" (lstr/lang form))
     form))
 
+(defmulti infer-datomic-type
+  "Tries to infer the Datomic type of a property by looking at its
+  declared range unless a type is provided in the RDF model. Defaults
+  to :db.type/ref."
+  (fn [x] (if (map? x) (mop/type-of x) x)))
+
+(defmulti infer-datomic-cardinality
+  "Tries to infer the Datomic cardinality by assuming it is a many
+  attribute unless overridden."
+  (fn [x] (if (map? x) (mop/type-of x) x)))
+
+(defmulti infer-datomic-unique
+  "Tries to infer the Datomic uniqueness. When it returns nothing
+  there should be no uniqueness constraint."
+  (fn [x] (if (map? x) (mop/type-of x) x)))
+
+(declare box)
+
 (defn unroll-tagged-literals
   "unrolls tagged-literals forms"
   [form]
   (if (tagged-literal? form)
-    (:form form)
+    (let [{:keys [tag form]} form]
+      (case (infer-datomic-type (keyword tag))
+        :db.type/string  (if (map? form)
+                           (or (:rdfa/uri form) (pr-str form))
+                           (str form))
+        :db.type/long    (long form)
+        :db.type/double  (double form)
+        :db.type/instant (if (string? form)
+                           (clojure.instant/read-instant-date form)
+                           form)
+        :db.type/ref     (if-not (or (map? form) (keyword? form))
+                           (box form)
+                           form)
+        :db.type/bigint  (if (int? form) form (bigint form))
+        :db.type/bigdec  (bigdec form)
+        form))
     form))
+
+(comment
+  (case (infer-datomic-type k)
+    :db.type/string  (if (map? v)
+                       (or (:rdfa/uri v) (pr-str v))
+                       (str v))
+    :db.type/long    (long v)
+    :db.type/double  (double v)
+    :db.type/instant (if (string? v)
+                       (clojure.instant/read-instant-date v)
+                       v)
+    :db.type/ref     (if-not (or (map? v) (keyword? v))
+                       (box v)
+                       v)
+    :db.type/bigint  (bigint v)
+    :db.type/bigdec  (bigdec v)
+    v))
 
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
@@ -1104,7 +1154,10 @@
         (box-value update :rdfs/isDefinedBy)
 
         (some? (:rdfs/seeAlso form))
-        (box-value update :rdfs/seeAlso))
+        (box-value update :rdfs/seeAlso)
+
+        (some? (:cmns-av/adaptedFrom form))
+        (box-value update :cmns-av/adaptedFrom))
       form))
 
 (defn unroll-forms
@@ -1478,19 +1531,19 @@
 (defn finalize
   "Finalizes all of the loaded classes."
   ([]
-   (finalize true (conj (set/union (set/difference (descendants :rdfs/Class)
-                                                   (descendants :rdf/Property)
-                                                   (descendants :owl/NamedIndividual)
-                                                   (descendants :skos/Concept)
-                                                   (descendants :owl/Thing)
-                                                   (descendants :jsonschema/DataSchema))
-                                   (mop/class-direct-subclasses :rdf/Property)
-                                   (mop/class-direct-subclasses :jsonschema/DataSchema))
-                        :rdfs/Class
-                        :rdf/Property
-                        :owl/NamedIndividual
-                        :skos/Concept
-                        :owl/Thing)))
+   (mop/finalize-inheritance :rdfs/Class)
+   (mop/finalize-inheritance :rdf/Property)
+   (mop/finalize-inheritance :owl/NamedIndividual)
+   (mop/finalize-inheritance :skos/Concept)
+   (mop/finalize-inheritance :owl/Thing)
+   (finalize true (set/union (set/difference (descendants :rdfs/Class)
+                                             (descendants :rdf/Property)
+                                             (descendants :owl/NamedIndividual)
+                                             (descendants :skos/Concept)
+                                             (descendants :owl/Thing)
+                                             (descendants :jsonschema/DataSchema))
+                             (mop/class-direct-subclasses :rdf/Property)
+                             (mop/class-direct-subclasses :jsonschema/DataSchema))))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]

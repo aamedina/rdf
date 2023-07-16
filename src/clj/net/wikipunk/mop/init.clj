@@ -459,7 +459,9 @@
 
 (defmethod mop/class-direct-superclasses :rdfs/Class
   [{:rdfs/keys [subClassOf]}]
-  (->> subClassOf
+  (->> (if (and (coll? subClassOf) (not (map? subClassOf)))
+         subClassOf
+         [subClassOf])
        (filter keyword?)
        ;; Everything is an :rdfs/Resource in this protocol and we are
        ;; not concerned with tautological inferences.

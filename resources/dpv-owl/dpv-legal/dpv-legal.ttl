@@ -1531,7 +1531,7 @@ dpvo-legal:DPA-AT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://dsb.gv.at"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:AT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-BE a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1542,7 +1542,7 @@ dpvo-legal:DPA-BE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.dataprotectionauthority.be/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:BE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-BG a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1553,7 +1553,7 @@ dpvo-legal:DPA-BG a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.cpdp.bg/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:BG ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-CY a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1564,7 +1564,7 @@ dpvo-legal:DPA-CY a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.dataprotection.gov.cy/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:CY ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-CZ a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1575,7 +1575,7 @@ dpvo-legal:DPA-CZ a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.uoou.cz/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:CZ ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-DK a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1586,7 +1586,7 @@ dpvo-legal:DPA-DK a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.datatilsynet.dk/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DK ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-EE a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1597,7 +1597,7 @@ dpvo-legal:DPA-EE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.aki.ee/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:EE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-ES a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1608,7 +1608,7 @@ dpvo-legal:DPA-ES a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.aepd.es/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:ES ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-EU-EDPS a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1618,7 +1618,7 @@ dpvo-legal:DPA-EU-EDPS a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://edps.europa.eu/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:EU ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-FI a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1629,7 +1629,7 @@ dpvo-legal:DPA-FI a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://tietosuoja.fi/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:FI ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-FR a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1640,7 +1640,7 @@ dpvo-legal:DPA-FR a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.cnil.fr/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:FR ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-GR a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1651,7 +1651,7 @@ dpvo-legal:DPA-GR a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://dpa.gr"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:GR ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-HR a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1662,7 +1662,7 @@ dpvo-legal:DPA-HR a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.azop.hr/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:HR ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-HU a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1673,7 +1673,7 @@ dpvo-legal:DPA-HU a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.naih.hu/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:HU ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-IE a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1684,7 +1684,7 @@ dpvo-legal:DPA-IE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.dataprotection.ie"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:IE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-IS a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1694,7 +1694,7 @@ dpvo-legal:DPA-IS a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.dpa.is/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:IS ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-IT a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1705,7 +1705,7 @@ dpvo-legal:DPA-IT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.garanteprivacy.it/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:IT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-LT a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1716,7 +1716,7 @@ dpvo-legal:DPA-LT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://ada.lt"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:LT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-LU a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1727,7 +1727,7 @@ dpvo-legal:DPA-LU a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://cnpd.public.lu"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:LU ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-LV a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1738,7 +1738,7 @@ dpvo-legal:DPA-LV a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.dvi.gov.lv/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:LV ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-MT a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1749,7 +1749,7 @@ dpvo-legal:DPA-MT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://idpc.org.mt"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:MT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-NL a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1760,7 +1760,7 @@ dpvo-legal:DPA-NL a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://autoriteitpersoonsgegevens.nl"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:NL ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-PL a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1771,7 +1771,7 @@ dpvo-legal:DPA-PL a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://uodo.gov.pl/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:PL ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-PT a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1782,7 +1782,7 @@ dpvo-legal:DPA-PT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.cnpd.pt"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:PT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-RO a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1793,7 +1793,7 @@ dpvo-legal:DPA-RO a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.dataprotection.ro/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:RO ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-SE a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1804,7 +1804,7 @@ dpvo-legal:DPA-SE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.imy.se/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:SE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-SI a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1815,7 +1815,7 @@ dpvo-legal:DPA-SI a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.ip-rs.si/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:SI ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-SK a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1826,7 +1826,7 @@ dpvo-legal:DPA-SK a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.dataprotection.gov.sk/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:SK ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-US-CO a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1837,7 +1837,7 @@ dpvo-legal:DPA-US-CO a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://coag.gov"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:US-CO ;
-    dpvo:hasLaw dpvo-legal:US-CO-CPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-CO-CPA .
 
 dpvo-legal:DPA-US-CT a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1848,7 +1848,7 @@ dpvo-legal:DPA-US-CT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://portal.ct.gov/AG"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:US-CT ;
-    dpvo:hasLaw dpvo-legal:US-CT-CTPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-CT-CTPA .
 
 dpvo-legal:DPA-US-NV a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1859,7 +1859,7 @@ dpvo-legal:DPA-US-NV a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://ag.nv.gov/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:US-NV ;
-    dpvo:hasLaw dpvo-legal:US-NV-NPICICA .
+    dpvo:hasApplicableLaw dpvo-legal:US-NV-NPICICA .
 
 dpvo-legal:DPA-US-UT a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1870,7 +1870,7 @@ dpvo-legal:DPA-US-UT a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://attorneygeneral.utah.gov/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:US-UT ;
-    dpvo:hasLaw dpvo-legal:US-UT-UCPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-UT-UCPA .
 
 dpvo-legal:DPA-US-VA a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1881,7 +1881,7 @@ dpvo-legal:DPA-US-VA a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.oag.state.va.us"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:US-VA ;
-    dpvo:hasLaw dpvo-legal:US-VA-VCDPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-VA-VCDPA .
 
 dpvo-legal:DPV-LI a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1891,7 +1891,7 @@ dpvo-legal:DPV-LI a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutzstelle.li/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:LI ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPV-NO a owl:NamedIndividual,
         dpvo:DataProtectionAuthority ;
@@ -1901,7 +1901,7 @@ dpvo-legal:DPV-NO a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datatilsynet.no/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:NO ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR .
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR .
 
 dpvo-legal:DZ a owl:NamedIndividual,
         dpvo:Country ;
@@ -3011,7 +3011,7 @@ dpvo-legal:US-VA a owl:NamedIndividual,
     dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
-    dpvo:hasLaw dpvo-legal:US-VA-VCDPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-VA-VCDPA .
 
 dpvo-legal:US-VA-VCDPA a owl:NamedIndividual,
         dpvo:Law ;
@@ -3643,7 +3643,7 @@ dpvo-legal:DPA-DE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "http://www.bfdi.bund.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:EU-GDPR .
 
 dpvo-legal:DPA-GB a owl:NamedIndividual,
@@ -3655,7 +3655,7 @@ dpvo-legal:DPA-GB a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://ico.org.uk/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:GB ;
-    dpvo:hasLaw dpvo-legal:UK-DPA-2018,
+    dpvo:hasApplicableLaw dpvo-legal:UK-DPA-2018,
         dpvo-legal:UK-GDPR .
 
 dpvo-legal:EC a owl:NamedIndividual,
@@ -4767,7 +4767,7 @@ dpvo-legal:US-CA a owl:NamedIndividual,
     dct:isPartOf dpvo-legal:US ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
-    dpvo:hasLaw dpvo-legal:US-CA-CCPA,
+    dpvo:hasApplicableLaw dpvo-legal:US-CA-CCPA,
         dpvo-legal:US-CA-CPRA .
 
 dpvo-legal:US-CO a owl:NamedIndividual,
@@ -4779,7 +4779,7 @@ dpvo-legal:US-CO a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-CO ;
-    dpvo:hasLaw dpvo-legal:US-CO-CPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-CO-CPA .
 
 dpvo-legal:US-CT a owl:NamedIndividual,
         dpvo:Region ;
@@ -4790,7 +4790,7 @@ dpvo-legal:US-CT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-CT ;
-    dpvo:hasLaw dpvo-legal:US-CT-CTPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-CT-CTPA .
 
 dpvo-legal:US-NV a owl:NamedIndividual,
         dpvo:Region ;
@@ -4801,7 +4801,7 @@ dpvo-legal:US-NV a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-NV ;
-    dpvo:hasLaw dpvo-legal:US-NV-NPICICA .
+    dpvo:hasApplicableLaw dpvo-legal:US-NV-NPICICA .
 
 dpvo-legal:US-UT a owl:NamedIndividual,
         dpvo:Region ;
@@ -4812,7 +4812,7 @@ dpvo-legal:US-UT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-US-UT ;
-    dpvo:hasLaw dpvo-legal:US-UT-UCPA .
+    dpvo:hasApplicableLaw dpvo-legal:US-UT-UCPA .
 
 dpvo-legal:VC a owl:NamedIndividual,
         dpvo:Country ;
@@ -4957,7 +4957,7 @@ dpvo-legal:DE-BW a owl:NamedIndividual,
     dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BW-LDSG,
         dpvo-legal:EU-GDPR .
 
@@ -4969,7 +4969,7 @@ dpvo-legal:DE-RP a owl:NamedIndividual,
     dct:isPartOf dpvo-legal:DE ;
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-RP-LDSG,
         dpvo-legal:EU-GDPR .
 
@@ -4984,7 +4984,7 @@ dpvo-legal:DPA-DE-BB a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.lda.brandenburg.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-BB ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BE-BbgDSG,
         dpvo-legal:EU-GDPR .
 
@@ -4999,7 +4999,7 @@ dpvo-legal:DPA-DE-BE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz-berlin.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-BE ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BE-BlnDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5014,7 +5014,7 @@ dpvo-legal:DPA-DE-BY-non-public a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.lda.bayern.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-BY ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BY-BayDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5029,7 +5029,7 @@ dpvo-legal:DPA-DE-BY-public a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz-bayern.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-BY ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BY-BayDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5044,7 +5044,7 @@ dpvo-legal:DPA-DE-HB a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz.bremen.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-HB ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-HB-BremDSGVOAG,
         dpvo-legal:EU-GDPR .
 
@@ -5059,7 +5059,7 @@ dpvo-legal:DPA-DE-HE a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz.hessen.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-HE ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-HE-HDISG,
         dpvo-legal:EU-GDPR .
 
@@ -5074,7 +5074,7 @@ dpvo-legal:DPA-DE-HH a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz-hamburg.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-HH ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-HH-HmbDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5089,7 +5089,7 @@ dpvo-legal:DPA-DE-MV a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz-mv.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-MV ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-MV-DSG,
         dpvo-legal:EU-GDPR .
 
@@ -5104,7 +5104,7 @@ dpvo-legal:DPA-DE-NI a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.lfd.niedersachsen.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-NI ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-NI-NDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5119,7 +5119,7 @@ dpvo-legal:DPA-DE-NW a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.ldi.nrw.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-NW ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-NW-DSG,
         dpvo-legal:EU-GDPR .
 
@@ -5134,7 +5134,7 @@ dpvo-legal:DPA-DE-SH a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutzzentrum.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-SH ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-SH-LDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5149,7 +5149,7 @@ dpvo-legal:DPA-DE-SL a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.datenschutz.saarland.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-SL ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-SL-SDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5164,7 +5164,7 @@ dpvo-legal:DPA-DE-SN a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.saechsdsb.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-SN ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-SN-SächsDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5179,7 +5179,7 @@ dpvo-legal:DPA-DE-ST a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://datenschutz.sachsen-anhalt.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-ST ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-LSA-DSG,
         dpvo-legal:EU-GDPR .
 
@@ -5194,7 +5194,7 @@ dpvo-legal:DPA-DE-TH a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     foaf:homepage "https://www.tlfdi.de/"^^xsd:anyURI ;
     dpvo:hasJurisdiction dpvo-legal:DE-TH ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-TH-ThürDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5276,7 +5276,7 @@ dpvo-legal:DE-BB a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-BB ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BE-BbgDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5289,7 +5289,7 @@ dpvo-legal:DE-BE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-BE ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BE-BlnDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5302,7 +5302,7 @@ dpvo-legal:DE-HB a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-HB ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-HB-BremDSGVOAG,
         dpvo-legal:EU-GDPR .
 
@@ -5315,7 +5315,7 @@ dpvo-legal:DE-HE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-HE ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-HE-HDISG,
         dpvo-legal:EU-GDPR .
 
@@ -5328,7 +5328,7 @@ dpvo-legal:DE-HH a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-HH ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-HH-HmbDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5341,7 +5341,7 @@ dpvo-legal:DE-MV a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-MV ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-MV-DSG,
         dpvo-legal:EU-GDPR .
 
@@ -5354,7 +5354,7 @@ dpvo-legal:DE-NI a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-NI ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-NI-NDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5367,7 +5367,7 @@ dpvo-legal:DE-NW a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-NW ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-NW-DSG,
         dpvo-legal:EU-GDPR .
 
@@ -5380,7 +5380,7 @@ dpvo-legal:DE-SH a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-SH ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-SH-LDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5393,7 +5393,7 @@ dpvo-legal:DE-SL a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-SL ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-SL-SDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5406,7 +5406,7 @@ dpvo-legal:DE-SN a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-SN ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-SN-SächsDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5419,7 +5419,7 @@ dpvo-legal:DE-ST a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-ST ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-LSA-DSG,
         dpvo-legal:EU-GDPR .
 
@@ -5432,7 +5432,7 @@ dpvo-legal:DE-TH a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-TH ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-TH-ThürDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5447,7 +5447,7 @@ dpvo-legal:DPA-DE-RP a owl:NamedIndividual,
     foaf:homepage "https://www.datenschutz.rlp.de/"^^xsd:anyURI ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-RP ;
     dpvo:hasJurisdiction dpvo-legal:DPA-DE-RP ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-RP-LDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5468,7 +5468,7 @@ dpvo-legal:DE-BY a owl:NamedIndividual,
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE-BY-non-public,
         dpvo-legal:DPA-DE-BY-public ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:DE-BY-BayDSG,
         dpvo-legal:EU-GDPR .
 
@@ -5570,7 +5570,7 @@ dpvo-legal:GB a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-GB ;
-    dpvo:hasLaw dpvo-legal:GB-DPA,
+    dpvo:hasApplicableLaw dpvo-legal:GB-DPA,
         dpvo-legal:GB-GDPR ;
     dpvo-legal:iso_alpha2 "GB"^^xsd:string ;
     dpvo-legal:iso_alpha3 "GBR"^^xsd:string ;
@@ -5656,7 +5656,7 @@ dpvo-legal:AT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-AT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "AT"^^xsd:string ;
     dpvo-legal:iso_alpha3 "AUT"^^xsd:string ;
     dpvo-legal:iso_numeric "40"^^xsd:string ;
@@ -5678,7 +5678,7 @@ dpvo-legal:BE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-BE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "BE"^^xsd:string ;
     dpvo-legal:iso_alpha3 "BEL"^^xsd:string ;
     dpvo-legal:iso_numeric "56"^^xsd:string ;
@@ -5700,7 +5700,7 @@ dpvo-legal:BG a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-BG ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "BG"^^xsd:string ;
     dpvo-legal:iso_alpha3 "BGR"^^xsd:string ;
     dpvo-legal:iso_numeric "100"^^xsd:string ;
@@ -5722,7 +5722,7 @@ dpvo-legal:CY a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-CY ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "CY"^^xsd:string ;
     dpvo-legal:iso_alpha3 "CYP"^^xsd:string ;
     dpvo-legal:iso_numeric "196"^^xsd:string ;
@@ -5744,7 +5744,7 @@ dpvo-legal:CZ a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-CZ ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "CZ"^^xsd:string ;
     dpvo-legal:iso_alpha3 "CZE"^^xsd:string ;
     dpvo-legal:iso_numeric "203"^^xsd:string ;
@@ -5766,7 +5766,7 @@ dpvo-legal:DK a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DK ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "DK"^^xsd:string ;
     dpvo-legal:iso_alpha3 "DNK"^^xsd:string ;
     dpvo-legal:iso_numeric "208"^^xsd:string ;
@@ -5788,7 +5788,7 @@ dpvo-legal:EE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-EE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "EE"^^xsd:string ;
     dpvo-legal:iso_alpha3 "EST"^^xsd:string ;
     dpvo-legal:iso_numeric "233"^^xsd:string ;
@@ -5810,7 +5810,7 @@ dpvo-legal:ES a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-ES ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "ES"^^xsd:string ;
     dpvo-legal:iso_alpha3 "ESP"^^xsd:string ;
     dpvo-legal:iso_numeric "724"^^xsd:string ;
@@ -5832,7 +5832,7 @@ dpvo-legal:FI a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-FI ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "FI"^^xsd:string ;
     dpvo-legal:iso_alpha3 "FIN"^^xsd:string ;
     dpvo-legal:iso_numeric "246"^^xsd:string ;
@@ -5854,7 +5854,7 @@ dpvo-legal:FR a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-FR ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "FR"^^xsd:string ;
     dpvo-legal:iso_alpha3 "FRA"^^xsd:string ;
     dpvo-legal:iso_numeric "250"^^xsd:string ;
@@ -5876,7 +5876,7 @@ dpvo-legal:GR a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-GR ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "GR"^^xsd:string ;
     dpvo-legal:iso_alpha3 "GRC"^^xsd:string ;
     dpvo-legal:iso_numeric "300"^^xsd:string ;
@@ -5898,7 +5898,7 @@ dpvo-legal:HR a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-HR ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "HR"^^xsd:string ;
     dpvo-legal:iso_alpha3 "HRV"^^xsd:string ;
     dpvo-legal:iso_numeric "191"^^xsd:string ;
@@ -5920,7 +5920,7 @@ dpvo-legal:HU a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-HU ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "HU"^^xsd:string ;
     dpvo-legal:iso_alpha3 "HUN"^^xsd:string ;
     dpvo-legal:iso_numeric "348"^^xsd:string ;
@@ -5942,7 +5942,7 @@ dpvo-legal:IE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-IE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "IE"^^xsd:string ;
     dpvo-legal:iso_alpha3 "IRL"^^xsd:string ;
     dpvo-legal:iso_numeric "372"^^xsd:string ;
@@ -5964,7 +5964,7 @@ dpvo-legal:IT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-IT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "IT"^^xsd:string ;
     dpvo-legal:iso_alpha3 "ITA"^^xsd:string ;
     dpvo-legal:iso_numeric "380"^^xsd:string ;
@@ -5986,7 +5986,7 @@ dpvo-legal:LT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-LT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "LT"^^xsd:string ;
     dpvo-legal:iso_alpha3 "LTU"^^xsd:string ;
     dpvo-legal:iso_numeric "440"^^xsd:string ;
@@ -6008,7 +6008,7 @@ dpvo-legal:LU a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-LU ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "LU"^^xsd:string ;
     dpvo-legal:iso_alpha3 "LUX"^^xsd:string ;
     dpvo-legal:iso_numeric "442"^^xsd:string ;
@@ -6030,7 +6030,7 @@ dpvo-legal:LV a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-LV ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "LV"^^xsd:string ;
     dpvo-legal:iso_alpha3 "LVA"^^xsd:string ;
     dpvo-legal:iso_numeric "428"^^xsd:string ;
@@ -6052,7 +6052,7 @@ dpvo-legal:MT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-MT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "MT"^^xsd:string ;
     dpvo-legal:iso_alpha3 "MLT"^^xsd:string ;
     dpvo-legal:iso_numeric "470"^^xsd:string ;
@@ -6074,7 +6074,7 @@ dpvo-legal:NL a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-NL ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "NL"^^xsd:string ;
     dpvo-legal:iso_alpha3 "NLD"^^xsd:string ;
     dpvo-legal:iso_numeric "528"^^xsd:string ;
@@ -6096,7 +6096,7 @@ dpvo-legal:PL a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-PL ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "PL"^^xsd:string ;
     dpvo-legal:iso_alpha3 "POL"^^xsd:string ;
     dpvo-legal:iso_numeric "616"^^xsd:string ;
@@ -6118,7 +6118,7 @@ dpvo-legal:PT a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-PT ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "PT"^^xsd:string ;
     dpvo-legal:iso_alpha3 "PRT"^^xsd:string ;
     dpvo-legal:iso_numeric "620"^^xsd:string ;
@@ -6140,7 +6140,7 @@ dpvo-legal:RO a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-RO ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "RO"^^xsd:string ;
     dpvo-legal:iso_alpha3 "ROU"^^xsd:string ;
     dpvo-legal:iso_numeric "642"^^xsd:string ;
@@ -6162,7 +6162,7 @@ dpvo-legal:SE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-SE ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "SE"^^xsd:string ;
     dpvo-legal:iso_alpha3 "SWE"^^xsd:string ;
     dpvo-legal:iso_numeric "752"^^xsd:string ;
@@ -6184,7 +6184,7 @@ dpvo-legal:SI a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-SI ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "SI"^^xsd:string ;
     dpvo-legal:iso_alpha3 "SVN"^^xsd:string ;
     dpvo-legal:iso_numeric "705"^^xsd:string ;
@@ -6206,7 +6206,7 @@ dpvo-legal:SK a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-SK ;
-    dpvo:hasLaw dpvo-legal:EU-GDPR ;
+    dpvo:hasApplicableLaw dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "SK"^^xsd:string ;
     dpvo-legal:iso_alpha3 "SVK"^^xsd:string ;
     dpvo-legal:iso_numeric "703"^^xsd:string ;
@@ -6246,7 +6246,7 @@ dpvo-legal:DE a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en ;
     dpvo:hasAuthority dpvo-legal:DPA-DE ;
-    dpvo:hasLaw dpvo-legal:DE-BDSG,
+    dpvo:hasApplicableLaw dpvo-legal:DE-BDSG,
         dpvo-legal:EU-GDPR ;
     dpvo-legal:iso_alpha2 "DE"^^xsd:string ;
     dpvo-legal:iso_alpha3 "DEU"^^xsd:string ;

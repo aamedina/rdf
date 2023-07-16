@@ -247,8 +247,8 @@
    :dpvo-legal/iso_alpha3  "AUT",
    :dpvo-legal/iso_numeric "40",
    :dpvo-legal/un_m49      "40",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-AT,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -854,8 +854,8 @@
    :dpvo-legal/iso_alpha3  "BEL",
    :dpvo-legal/iso_numeric "56",
    :dpvo-legal/un_m49      "56",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-BE,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -898,8 +898,8 @@
    :dpvo-legal/iso_alpha3  "BGR",
    :dpvo-legal/iso_numeric "100",
    :dpvo-legal/un_m49      "100",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-BG,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -1514,8 +1514,8 @@
    :dpvo-legal/iso_alpha3  "CYP",
    :dpvo-legal/iso_numeric "196",
    :dpvo-legal/un_m49      "196",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-CY,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -1539,8 +1539,8 @@
    :dpvo-legal/iso_alpha3  "CZE",
    :dpvo-legal/iso_numeric "203",
    :dpvo-legal/un_m49      "203",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-CZ,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -1663,8 +1663,8 @@
    :dpvo-legal/iso_alpha3  "DEU",
    :dpvo-legal/iso_numeric "276",
    :dpvo-legal/un_m49      "276",
+   :dpvo/hasApplicableLaw  [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :dpvo/hasAuthority      :dpvo-legal/DPA-DE,
-   :dpvo/hasLaw            [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -1674,18 +1674,18 @@
 
 (def DE-BB
   "Brandenburg"
-  {:db/ident          :dpvo-legal/DE-BB,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-BB,
-   :dpvo/hasLaw       [:dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-BE-BbgDSG],
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Brandenburg@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-BB,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BE-BbgDSG
+                           :dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-BDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-BB,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Brandenburg@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-BDSG
   {:db/ident             :dpvo-legal/DE-BDSG,
@@ -1742,18 +1742,18 @@
 
 (def DE-BE
   "Berlin"
-  {:db/ident          :dpvo-legal/DE-BE,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-BE,
-   :dpvo/hasLaw       [:dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-BE-BlnDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Berlin@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-BE,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-BDSG
+                           :dpvo-legal/DE-BE-BlnDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-BE,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Berlin@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-BE-BbgDSG
   {:db/ident :dpvo-legal/DE-BE-BbgDSG,
@@ -1790,17 +1790,17 @@
 
 (def DE-BW
   "Baden-Württemberg"
-  {:db/ident         :dpvo-legal/DE-BW,
-   :dcterms/created  #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf :dpvo-legal/DE,
-   :dpvo/hasLaw      [:dpvo-legal/EU-GDPR
-                      :dpvo-legal/DE-BDSG
-                      :dpvo-legal/DE-BW-LDSG],
-   :rdf/type         [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Baden-Württemberg@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-BW,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BDSG
+                           :dpvo-legal/DE-BW-LDSG
+                           :dpvo-legal/EU-GDPR],
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Baden-Württemberg@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-BW-LDSG
   {:db/ident :dpvo-legal/DE-BW-LDSG,
@@ -1819,19 +1819,19 @@
 
 (def DE-BY
   "Bavaria"
-  {:db/ident          :dpvo-legal/DE-BY,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority [:dpvo-legal/DPA-DE-BY-non-public
-                       :dpvo-legal/DPA-DE-BY-public],
-   :dpvo/hasLaw       [:dpvo-legal/DE-BY-BayDSG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-BDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Bavaria@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-BY,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BDSG
+                           :dpvo-legal/DE-BY-BayDSG
+                           :dpvo-legal/EU-GDPR],
+   :dpvo/hasAuthority     [:dpvo-legal/DPA-DE-BY-non-public
+                           :dpvo-legal/DPA-DE-BY-public],
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Bavaria@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-BY-BayDSG
   {:db/ident :dpvo-legal/DE-BY-BayDSG,
@@ -1852,18 +1852,18 @@
 
 (def DE-HB
   "Bremen"
-  {:db/ident          :dpvo-legal/DE-HB,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-HB,
-   :dpvo/hasLaw       [:dpvo-legal/DE-HB-BremDSGVOAG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-BDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Bremen@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-HB,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-BDSG
+                           :dpvo-legal/DE-HB-BremDSGVOAG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HB,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Bremen@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-HB-BremDSGVOAG
   {:db/ident :dpvo-legal/DE-HB-BremDSGVOAG,
@@ -1886,18 +1886,18 @@
 
 (def DE-HE
   "Hesse"
-  {:db/ident          :dpvo-legal/DE-HE,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-HE,
-   :dpvo/hasLaw       [:dpvo-legal/DE-HE-HDISG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-BDSG],
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Hesse@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-HE,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BDSG
+                           :dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-HE-HDISG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HE,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Hesse@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-HE-HDISG
   {:db/ident :dpvo-legal/DE-HE-HDISG,
@@ -1920,18 +1920,18 @@
 
 (def DE-HH
   "Hamburg"
-  {:db/ident          :dpvo-legal/DE-HH,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-HH,
-   :dpvo/hasLaw       [:dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-HH-HmbDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Hamburg@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-HH,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-HH-HmbDSG
+                           :dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-BDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HH,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Hamburg@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-HH-HmbDSG
   {:db/ident :dpvo-legal/DE-HH-HmbDSG,
@@ -1969,18 +1969,18 @@
 
 (def DE-MV
   "Mecklenburg-Western-Pomerania"
-  {:db/ident          :dpvo-legal/DE-MV,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-MV,
-   :dpvo/hasLaw       [:dpvo-legal/DE-MV-DSG
-                       :dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR],
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Mecklenburg-Western-Pomerania@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-MV,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-MV-DSG
+                           :dpvo-legal/DE-BDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-MV,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Mecklenburg-Western-Pomerania@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-MV-DSG
   {:db/ident :dpvo-legal/DE-MV-DSG,
@@ -2003,18 +2003,18 @@
 
 (def DE-NI
   "Lower-Saxony"
-  {:db/ident          :dpvo-legal/DE-NI,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-NI,
-   :dpvo/hasLaw       [:dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-NI-NDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Lower-Saxony@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-NI,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BDSG
+                           :dpvo-legal/DE-NI-NDSG
+                           :dpvo-legal/EU-GDPR],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-NI,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Lower-Saxony@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-NI-NDSG
   {:db/ident :dpvo-legal/DE-NI-NDSG,
@@ -2035,18 +2035,18 @@
 
 (def DE-NW
   "North-Rhine Westphalia"
-  {:db/ident          :dpvo-legal/DE-NW,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-NW,
-   :dpvo/hasLaw       [:dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-NW-DSG
-                       :dpvo-legal/DE-BDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "North-Rhine Westphalia@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-NW,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-NW-DSG
+                           :dpvo-legal/DE-BDSG
+                           :dpvo-legal/EU-GDPR],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-NW,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "North-Rhine Westphalia@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-NW-DSG
   {:db/ident :dpvo-legal/DE-NW-DSG,
@@ -2067,17 +2067,17 @@
 
 (def DE-RP
   "Rhineland-Palatinate"
-  {:db/ident         :dpvo-legal/DE-RP,
-   :dcterms/created  #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf :dpvo-legal/DE,
-   :dpvo/hasLaw      [:dpvo-legal/DE-RP-LDSG
-                      :dpvo-legal/DE-BDSG
-                      :dpvo-legal/EU-GDPR],
-   :rdf/type         [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Rhineland-Palatinate@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-RP,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-RP-LDSG
+                           :dpvo-legal/DE-BDSG],
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Rhineland-Palatinate@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-RP-LDSG
   {:db/ident :dpvo-legal/DE-RP-LDSG,
@@ -2096,18 +2096,18 @@
 
 (def DE-SH
   "Schleswig-Holstein"
-  {:db/ident          :dpvo-legal/DE-SH,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-SH,
-   :dpvo/hasLaw       [:dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-SH-LDSG],
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Schleswig-Holstein@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-SH,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BDSG
+                           :dpvo-legal/DE-SH-LDSG
+                           :dpvo-legal/EU-GDPR],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SH,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Schleswig-Holstein@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-SH-LDSG
   {:db/ident :dpvo-legal/DE-SH-LDSG,
@@ -2130,18 +2130,18 @@
 
 (def DE-SL
   "Saarland"
-  {:db/ident          :dpvo-legal/DE-SL,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-SL,
-   :dpvo/hasLaw       [:dpvo-legal/DE-SL-SDSG
-                       :dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Saarland@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-SL,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-SL-SDSG
+                           :dpvo-legal/DE-BDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SL,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Saarland@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-SL-SDSG
   {:db/ident :dpvo-legal/DE-SL-SDSG,
@@ -2160,18 +2160,18 @@
 
 (def DE-SN
   "Saxony"
-  {:db/ident          :dpvo-legal/DE-SN,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-SN,
-   :dpvo/hasLaw       [:dpvo-legal/DE-SN-SächsDSG
-                       :dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR],
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Saxony@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-SN,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-BDSG
+                           :dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-SN-SächsDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SN,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Saxony@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-SN-SächsDSG
   {:db/ident :dpvo-legal/DE-SN-SächsDSG,
@@ -2193,33 +2193,33 @@
 
 (def DE-ST
   "Saxony-Anhalt"
-  {:db/ident          :dpvo-legal/DE-ST,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-ST,
-   :dpvo/hasLaw       [:dpvo-legal/EU-GDPR
-                       :dpvo-legal/DE-LSA-DSG
-                       :dpvo-legal/DE-BDSG],
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Saxony-Anhalt@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-ST,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-LSA-DSG
+                           :dpvo-legal/DE-BDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-ST,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Saxony-Anhalt@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-TH
   "Thuringia"
-  {:db/ident          :dpvo-legal/DE-TH,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/DE,
-   :dpvo/hasAuthority :dpvo-legal/DPA-DE-TH,
-   :dpvo/hasLaw       [:dpvo-legal/DE-TH-ThürDSG
-                       :dpvo-legal/DE-BDSG
-                       :dpvo-legal/EU-GDPR],
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Thuringia@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DE-TH,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/DE,
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-TH-ThürDSG
+                           :dpvo-legal/EU-GDPR
+                           :dpvo-legal/DE-BDSG],
+   :dpvo/hasAuthority     :dpvo-legal/DPA-DE-TH,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Thuringia@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DE-TH-ThürDSG
   {:db/ident :dpvo-legal/DE-TH-ThürDSG,
@@ -2272,8 +2272,8 @@
    :dpvo-legal/iso_alpha3  "DNK",
    :dpvo-legal/iso_numeric "208",
    :dpvo-legal/un_m49      "208",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-DK,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2321,80 +2321,81 @@
 
 (def DPA-AT
   "Austrian Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPA-AT,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/AT,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://dsb.gv.at"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Austrian Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-AT,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/AT,
+   :foaf/homepage         {:rdfa/uri "https://dsb.gv.at"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Austrian Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-BE
   "Belgian Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPA-BE,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/BE,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.dataprotectionauthority.be/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Belgian Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-BE,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/BE,
+   :foaf/homepage         {:rdfa/uri "https://www.dataprotectionauthority.be/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Belgian Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-BG
   "Commission for Personal Data Protection"
-  {:db/ident             :dpvo-legal/DPA-BG,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/BG,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.cpdp.bg/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Commission for Personal Data Protection@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-BG,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/BG,
+   :foaf/homepage         {:rdfa/uri "https://www.cpdp.bg/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Commission for Personal Data Protection@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-CY
   "Commissioner for Personal Data Protection"
-  {:db/ident             :dpvo-legal/DPA-CY,
-   :dcterms/created      #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/CY,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://www.dataprotection.gov.cy/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Commissioner for Personal Data Protection@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-CY,
+   :dcterms/created       #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/CY,
+   :foaf/homepage         {:rdfa/uri "http://www.dataprotection.gov.cy/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Commissioner for Personal Data Protection@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-CZ
   "Office for Personal Data Protection"
-  {:db/ident             :dpvo-legal/DPA-CZ,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/CZ,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.uoou.cz/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Office for Personal Data Protection@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-CZ,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/CZ,
+   :foaf/homepage         {:rdfa/uri "https://www.uoou.cz/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Office for Personal Data Protection@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-DE
   "The Federal Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE,
-   :dpvo/hasLaw [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :foaf/homepage {:rdfa/uri "http://www.bfdi.bund.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2408,9 +2409,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BE-BbgDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-BB,
-   :dpvo/hasLaw
-   [:dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BE-BbgDSG],
    :foaf/homepage {:rdfa/uri "https://www.lda.brandenburg.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2426,9 +2427,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BE-BlnDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-BE,
-   :dpvo/hasLaw
-   [:dpvo-legal/DE-BE-BlnDSG :dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR],
    :foaf/homepage {:rdfa/uri "https://www.datenschutz-berlin.de/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2444,9 +2445,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG :dpvo-legal/DE-BY-BayDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
-   :dpvo/hasLaw
-   [:dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BY-BayDSG],
    :foaf/homepage {:rdfa/uri "https://www.lda.bayern.de/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2460,9 +2461,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
-   :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
-   :dpvo/hasLaw
+   :dpvo/hasApplicableLaw
    [:dpvo-legal/DE-BY-BayDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
+   :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
    :foaf/homepage {:rdfa/uri "https://www.datenschutz-bayern.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2476,9 +2477,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-HB-BremDSGVOAG :dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR],
    :dpvo/hasJurisdiction :dpvo-legal/DE-HB,
-   :dpvo/hasLaw
-   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-HB-BremDSGVOAG :dpvo-legal/DE-BDSG],
    :foaf/homepage {:rdfa/uri "https://www.datenschutz.bremen.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2494,9 +2495,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-HE-HDISG :dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR],
    :dpvo/hasJurisdiction :dpvo-legal/DE-HE,
-   :dpvo/hasLaw
-   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG :dpvo-legal/DE-HE-HDISG],
    :foaf/homepage {:rdfa/uri "https://www.datenschutz.hessen.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2512,9 +2513,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
-   :dpvo/hasJurisdiction :dpvo-legal/DE-HH,
-   :dpvo/hasLaw
+   :dpvo/hasApplicableLaw
    [:dpvo-legal/EU-GDPR :dpvo-legal/DE-HH-HmbDSG :dpvo-legal/DE-BDSG],
+   :dpvo/hasJurisdiction :dpvo-legal/DE-HH,
    :foaf/homepage {:rdfa/uri "https://www.datenschutz-hamburg.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2530,8 +2531,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-MV-DSG :dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR],
    :dpvo/hasJurisdiction :dpvo-legal/DE-MV,
-   :dpvo/hasLaw [:dpvo-legal/DE-MV-DSG :dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR],
    :foaf/homepage {:rdfa/uri "https://www.datenschutz-mv.de/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2547,9 +2549,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-NI-NDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-NI,
-   :dpvo/hasLaw
-   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-NI-NDSG :dpvo-legal/DE-BDSG],
    :foaf/homepage {:rdfa/uri "https://www.lfd.niedersachsen.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2564,8 +2566,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-NW-DSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-NW,
-   :dpvo/hasLaw [:dpvo-legal/DE-BDSG :dpvo-legal/DE-NW-DSG :dpvo-legal/EU-GDPR],
    :foaf/homepage {:rdfa/uri "https://www.ldi.nrw.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2580,8 +2583,8 @@
   {:db/ident :dpvo-legal/DPA-DE-RP,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasLaw
-   [:dpvo-legal/DE-RP-LDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BDSG :dpvo-legal/DE-RP-LDSG :dpvo-legal/EU-GDPR],
    :foaf/homepage {:rdfa/uri "https://www.datenschutz.rlp.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2597,9 +2600,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-SH-LDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-SH,
-   :dpvo/hasLaw
-   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG :dpvo-legal/DE-SH-LDSG],
    :foaf/homepage {:rdfa/uri "https://www.datenschutzzentrum.de/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2615,9 +2618,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-BDSG :dpvo-legal/DE-SL-SDSG :dpvo-legal/EU-GDPR],
    :dpvo/hasJurisdiction :dpvo-legal/DE-SL,
-   :dpvo/hasLaw
-   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG :dpvo-legal/DE-SL-SDSG],
    :foaf/homepage {:rdfa/uri "https://www.datenschutz.saarland.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2629,31 +2632,31 @@
    :vs/term_status #xsd/langString "accepted@en"})
 
 (def DPA-DE-SN
-  {:db/ident             :dpvo-legal/DPA-DE-SN,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      [{:xsd/string "Julian Flake"}
-                          {:xsd/string "Harshvardhan J. Pandit"}],
-   :dpvo/hasJurisdiction :dpvo-legal/DE-SN,
-   :dpvo/hasLaw          [:dpvo-legal/DE-BDSG
-                          :dpvo-legal/DE-SN-SächsDSG
-                          :dpvo-legal/EU-GDPR],
-   :foaf/homepage        {:rdfa/uri "https://www.saechsdsb.de/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           [#xsd/langString
-                           "Die Sächsische Datenschutzbeauftragte@de"
-                          #xsd/langString
-                           "The Saxon data protection officer@en"],
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-DE-SN,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       [{:xsd/string "Julian Flake"}
+                           {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw [:dpvo-legal/DE-SN-SächsDSG
+                           :dpvo-legal/DE-BDSG
+                           :dpvo-legal/EU-GDPR],
+   :dpvo/hasJurisdiction  :dpvo-legal/DE-SN,
+   :foaf/homepage         {:rdfa/uri "https://www.saechsdsb.de/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            [#xsd/langString
+                            "Die Sächsische Datenschutzbeauftragte@de"
+                           #xsd/langString
+                            "The Saxon data protection officer@en"],
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-DE-ST
   {:db/ident :dpvo-legal/DPA-DE-ST,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Julian Flake"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/DE-LSA-DSG :dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-ST,
-   :dpvo/hasLaw
-   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-LSA-DSG :dpvo-legal/DE-BDSG],
    :foaf/homepage {:rdfa/uri "https://datenschutz.sachsen-anhalt.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2668,9 +2671,9 @@
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Julian Flake"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
+   :dpvo/hasApplicableLaw
+   [:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG :dpvo-legal/DE-TH-ThürDSG],
    :dpvo/hasJurisdiction :dpvo-legal/DE-TH,
-   :dpvo/hasLaw
-   [:dpvo-legal/DE-TH-ThürDSG :dpvo-legal/DE-BDSG :dpvo-legal/EU-GDPR],
    :foaf/homepage {:rdfa/uri "https://www.tlfdi.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2683,79 +2686,79 @@
 
 (def DPA-DK
   "Danish Data Protection Agency"
-  {:db/ident             :dpvo-legal/DPA-DK,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/DK,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://www.datatilsynet.dk/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Danish Data Protection Agency@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-DK,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/DK,
+   :foaf/homepage         {:rdfa/uri "http://www.datatilsynet.dk/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Danish Data Protection Agency@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-EE
   "Estonian Data Protection Inspectorate"
-  {:db/ident             :dpvo-legal/DPA-EE,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/EE,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://www.aki.ee/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Estonian Data Protection Inspectorate@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-EE,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/EE,
+   :foaf/homepage         {:rdfa/uri "http://www.aki.ee/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Estonian Data Protection Inspectorate@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-ES
   "Spanish Data Protection Agency (AEPD)"
-  {:db/ident             :dpvo-legal/DPA-ES,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/ES,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.aepd.es/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Spanish Data Protection Agency (AEPD)@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-ES,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/ES,
+   :foaf/homepage         {:rdfa/uri "https://www.aepd.es/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Spanish Data Protection Agency (AEPD)@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-EU-EDPS
   "European Data Protection Supervisor"
-  {:db/ident             :dpvo-legal/DPA-EU-EDPS,
-   :dcterms/created      #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
-   :dpvo/hasJurisdiction :dpvo-legal/EU,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://edps.europa.eu/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "European Data Protection Supervisor@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-EU-EDPS,
+   :dcterms/created       #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/EU,
+   :foaf/homepage         {:rdfa/uri "https://edps.europa.eu/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "European Data Protection Supervisor@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-FI
   "Office of the Data Protection Ombudsman"
-  {:db/ident             :dpvo-legal/DPA-FI,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/FI,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://tietosuoja.fi/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Office of the Data Protection Ombudsman@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-FI,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/FI,
+   :foaf/homepage         {:rdfa/uri "https://tietosuoja.fi/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Office of the Data Protection Ombudsman@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-FR
   "National Commission on Informatics and Liberty (CNIL)"
   {:db/ident :dpvo-legal/DPA-FR,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/FR,
-   :dpvo/hasLaw :dpvo-legal/EU-GDPR,
    :foaf/homepage {:rdfa/uri "https://www.cnil.fr/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2765,52 +2768,53 @@
 
 (def DPA-GB
   "Information Commissioner's Office"
-  {:db/ident             :dpvo-legal/DPA-GB,
-   :dcterms/created      #xsd/date #inst "2022-07-20T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/GB,
-   :dpvo/hasLaw          [:dpvo-legal/UK-GDPR :dpvo-legal/UK-DPA-2018],
-   :foaf/homepage        {:rdfa/uri "https://ico.org.uk/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Information Commissioner's Office@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-GB,
+   :dcterms/created       #xsd/date #inst "2022-07-20T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw [:dpvo-legal/GB-DPA :dpvo-legal/GB-GDPR],
+   :dpvo/hasJurisdiction  :dpvo-legal/GB,
+   :foaf/homepage         {:rdfa/uri "https://ico.org.uk/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Information Commissioner's Office@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-GR
   "Hellenic Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPA-GR,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/GR,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://dpa.gr"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Hellenic Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-GR,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/GR,
+   :foaf/homepage         {:rdfa/uri "http://dpa.gr"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Hellenic Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-HR
   "Croatian Personal Data Protection Agency"
-  {:db/ident             :dpvo-legal/DPA-HR,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/HR,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://www.azop.hr/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Croatian Personal Data Protection Agency@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-HR,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/HR,
+   :foaf/homepage         {:rdfa/uri "http://www.azop.hr/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Croatian Personal Data Protection Agency@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-HU
   "Hungarian National Authority for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-HU,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/HU,
-   :dpvo/hasLaw :dpvo-legal/EU-GDPR,
    :foaf/homepage {:rdfa/uri "http://www.naih.hu/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2821,91 +2825,91 @@
 
 (def DPA-IE
   "Data Protection Commission (DPC)"
-  {:db/ident             :dpvo-legal/DPA-IE,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/IE,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://www.dataprotection.ie"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Data Protection Commission (DPC)@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-IE,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/IE,
+   :foaf/homepage         {:rdfa/uri "http://www.dataprotection.ie"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Data Protection Commission (DPC)@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-IS
   "Icelandic Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPA-IS,
-   :dcterms/created      #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
-   :dpvo/hasJurisdiction :dpvo-legal/IS,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.dpa.is/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Icelandic Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-IS,
+   :dcterms/created       #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/IS,
+   :foaf/homepage         {:rdfa/uri "https://www.dpa.is/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Icelandic Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-IT
   "Data Protection Commission"
-  {:db/ident             :dpvo-legal/DPA-IT,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/IT,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.garanteprivacy.it/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Data Protection Commission@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-IT,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/IT,
+   :foaf/homepage         {:rdfa/uri "https://www.garanteprivacy.it/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Data Protection Commission@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-LT
   "State Data Protection Inspectorate"
-  {:db/ident             :dpvo-legal/DPA-LT,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/LT,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://ada.lt"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "State Data Protection Inspectorate@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-LT,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/LT,
+   :foaf/homepage         {:rdfa/uri "https://ada.lt"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "State Data Protection Inspectorate@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-LU
   "National Commission for Data Protection"
-  {:db/ident             :dpvo-legal/DPA-LU,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/LU,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://cnpd.public.lu"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "National Commission for Data Protection@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-LU,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/LU,
+   :foaf/homepage         {:rdfa/uri "https://cnpd.public.lu"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "National Commission for Data Protection@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-LV
   "Data State Inspectorate"
-  {:db/ident             :dpvo-legal/DPA-LV,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/LV,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "http://www.dvi.gov.lv/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Data State Inspectorate@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-LV,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/LV,
+   :foaf/homepage         {:rdfa/uri "http://www.dvi.gov.lv/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Data State Inspectorate@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-MT
   "Office of the Information and Data Protection Commissioner"
   {:db/ident :dpvo-legal/DPA-MT,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/MT,
-   :dpvo/hasLaw :dpvo-legal/EU-GDPR,
    :foaf/homepage {:rdfa/uri "https://idpc.org.mt"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2915,51 +2919,51 @@
 
 (def DPA-NL
   "Dutch Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPA-NL,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/NL,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://autoriteitpersoonsgegevens.nl"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Dutch Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-NL,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/NL,
+   :foaf/homepage         {:rdfa/uri "https://autoriteitpersoonsgegevens.nl"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Dutch Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-PL
   "Personal Data Protection Office"
-  {:db/ident             :dpvo-legal/DPA-PL,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/PL,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://uodo.gov.pl/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Personal Data Protection Office@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-PL,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/PL,
+   :foaf/homepage         {:rdfa/uri "https://uodo.gov.pl/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Personal Data Protection Office@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-PT
   "Comissão Nacional de Protecção de Dados"
-  {:db/ident             :dpvo-legal/DPA-PT,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/PT,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.cnpd.pt"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Comissão Nacional de Protecção de Dados@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-PT,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/PT,
+   :foaf/homepage         {:rdfa/uri "https://www.cnpd.pt"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Comissão Nacional de Protecção de Dados@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-RO
   "National Supervisory Authority for Personal Data Processing"
   {:db/ident :dpvo-legal/DPA-RO,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/RO,
-   :dpvo/hasLaw :dpvo-legal/EU-GDPR,
    :foaf/homepage {:rdfa/uri "http://www.dataprotection.ro/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -2970,25 +2974,25 @@
 
 (def DPA-SE
   "Swedish Authority for Privacy Protection"
-  {:db/ident             :dpvo-legal/DPA-SE,
-   :dcterms/created      #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
-   :dpvo/hasJurisdiction :dpvo-legal/SE,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.imy.se/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Swedish Authority for Privacy Protection@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-SE,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/SE,
+   :foaf/homepage         {:rdfa/uri "https://www.imy.se/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Swedish Authority for Privacy Protection@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-SI
   "Information Commissioner of the Republic of Slovenia"
   {:db/ident :dpvo-legal/DPA-SI,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/SI,
-   :dpvo/hasLaw :dpvo-legal/EU-GDPR,
    :foaf/homepage {:rdfa/uri "https://www.ip-rs.si/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -3001,8 +3005,8 @@
   {:db/ident :dpvo-legal/DPA-SK,
    :dcterms/created #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/SK,
-   :dpvo/hasLaw :dpvo-legal/EU-GDPR,
    :foaf/homepage {:rdfa/uri "http://www.dataprotection.gov.sk/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -3012,94 +3016,94 @@
 
 (def DPA-US-CO
   "Colorado Attorney General"
-  {:db/ident             :dpvo-legal/DPA-US-CO,
-   :dcterms/created      #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
-   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
-   :dpvo/hasJurisdiction :dpvo-legal/US-CO,
-   :dpvo/hasLaw          :dpvo-legal/US-CO-CPA,
-   :foaf/homepage        {:rdfa/uri "https://coag.gov"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Colorado Attorney General@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-US-CO,
+   :dcterms/created       #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
+   :dpvo/hasApplicableLaw :dpvo-legal/US-CO-CPA,
+   :dpvo/hasJurisdiction  :dpvo-legal/US-CO,
+   :foaf/homepage         {:rdfa/uri "https://coag.gov"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Colorado Attorney General@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-US-CT
   "Connecticut Attorney General"
-  {:db/ident             :dpvo-legal/DPA-US-CT,
-   :dcterms/created      #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
-   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
-   :dpvo/hasJurisdiction :dpvo-legal/US-CT,
-   :dpvo/hasLaw          :dpvo-legal/US-CT-CTPA,
-   :foaf/homepage        {:rdfa/uri "https://portal.ct.gov/AG"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Connecticut Attorney General@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-US-CT,
+   :dcterms/created       #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
+   :dpvo/hasApplicableLaw :dpvo-legal/US-CT-CTPA,
+   :dpvo/hasJurisdiction  :dpvo-legal/US-CT,
+   :foaf/homepage         {:rdfa/uri "https://portal.ct.gov/AG"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Connecticut Attorney General@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-US-NV
   "Nevada Attorney General"
-  {:db/ident             :dpvo-legal/DPA-US-NV,
-   :dcterms/created      #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
-   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
-   :dpvo/hasJurisdiction :dpvo-legal/US-NV,
-   :dpvo/hasLaw          :dpvo-legal/US-NV-NPICICA,
-   :foaf/homepage        {:rdfa/uri "https://ag.nv.gov/"},
-   :rdf/type             [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Nevada Attorney General@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-US-NV,
+   :dcterms/created       #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
+   :dpvo/hasApplicableLaw :dpvo-legal/US-NV-NPICICA,
+   :dpvo/hasJurisdiction  :dpvo-legal/US-NV,
+   :foaf/homepage         {:rdfa/uri "https://ag.nv.gov/"},
+   :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Nevada Attorney General@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-US-UT
   "Utah Attorney General"
-  {:db/ident             :dpvo-legal/DPA-US-UT,
-   :dcterms/created      #xsd/date #inst "2022-11-22T00:00:00.000-05:00",
-   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
-   :dpvo/hasJurisdiction :dpvo-legal/US-UT,
-   :dpvo/hasLaw          :dpvo-legal/US-UT-UCPA,
-   :foaf/homepage        {:rdfa/uri "https://attorneygeneral.utah.gov/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Utah Attorney General@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-US-UT,
+   :dcterms/created       #xsd/date #inst "2022-11-22T00:00:00.000-05:00",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
+   :dpvo/hasApplicableLaw :dpvo-legal/US-UT-UCPA,
+   :dpvo/hasJurisdiction  :dpvo-legal/US-UT,
+   :foaf/homepage         {:rdfa/uri "https://attorneygeneral.utah.gov/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Utah Attorney General@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPA-US-VA
   "Virginia Attorney General"
-  {:db/ident             :dpvo-legal/DPA-US-VA,
-   :dcterms/created      #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
-   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
-   :dpvo/hasJurisdiction :dpvo-legal/US-VA,
-   :dpvo/hasLaw          :dpvo-legal/US-VA-VCDPA,
-   :foaf/homepage        {:rdfa/uri "https://www.oag.state.va.us"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Virginia Attorney General@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPA-US-VA,
+   :dcterms/created       #xsd/date #inst "2022-11-23T00:00:00.000-05:00",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
+   :dpvo/hasApplicableLaw :dpvo-legal/US-VA-VCDPA,
+   :dpvo/hasJurisdiction  :dpvo-legal/US-VA,
+   :foaf/homepage         {:rdfa/uri "https://www.oag.state.va.us"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Virginia Attorney General@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPV-LI
   "Liechtenstein Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPV-LI,
-   :dcterms/created      #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
-   :dpvo/hasJurisdiction :dpvo-legal/LI,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.datenschutzstelle.li/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Liechtenstein Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPV-LI,
+   :dcterms/created       #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/LI,
+   :foaf/homepage         {:rdfa/uri "https://www.datenschutzstelle.li/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Liechtenstein Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DPV-NO
   "Norwegian Data Protection Authority"
-  {:db/ident             :dpvo-legal/DPV-NO,
-   :dcterms/created      #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
-   :dpvo/hasJurisdiction :dpvo-legal/NO,
-   :dpvo/hasLaw          :dpvo-legal/EU-GDPR,
-   :foaf/homepage        {:rdfa/uri "https://www.datatilsynet.no/"},
-   :rdf/type             [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
-                          "Norwegian Data Protection Authority@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/DPV-NO,
+   :dcterms/created       #xsd/date #inst "2023-06-16T00:00:00.000-04:00",
+   :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
+   :dpvo/hasJurisdiction  :dpvo-legal/NO,
+   :foaf/homepage         {:rdfa/uri "https://www.datatilsynet.no/"},
+   :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString
+                           "Norwegian Data Protection Authority@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def DZ
   "DZ"
@@ -3153,8 +3157,8 @@
    :dpvo-legal/iso_alpha3  "EST",
    :dpvo-legal/iso_numeric "233",
    :dpvo-legal/un_m49      "233",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-EE,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -3442,8 +3446,8 @@
    :dpvo-legal/iso_alpha3  "ESP",
    :dpvo-legal/iso_numeric "724",
    :dpvo-legal/un_m49      "724",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-ES,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -3694,8 +3698,8 @@
                       :dpvo-legal/SK
                       :dpvo-legal/IE
                       :dpvo-legal/FR
-                      :dpvo-legal/GR
                       :dpvo-legal/HR
+                      :dpvo-legal/GR
                       :dpvo-legal/LV
                       :dpvo-legal/ES
                       :dpvo-legal/BE
@@ -3944,8 +3948,8 @@
    :dpvo-legal/iso_alpha3  "FIN",
    :dpvo-legal/iso_numeric "246",
    :dpvo-legal/un_m49      "246",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-FI,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -4040,8 +4044,8 @@
    :dpvo-legal/iso_alpha3  "FRA",
    :dpvo-legal/iso_numeric "250",
    :dpvo-legal/un_m49      "250",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-FR,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -4079,8 +4083,8 @@
    :dpvo-legal/iso_alpha3 "GBR",
    :dpvo-legal/iso_numeric "826",
    :dpvo-legal/un_m49 "826",
+   :dpvo/hasApplicableLaw [:dpvo-legal/GB-GDPR :dpvo-legal/GB-DPA],
    :dpvo/hasAuthority :dpvo-legal/DPA-GB,
-   :dpvo/hasLaw [:dpvo-legal/GB-DPA :dpvo-legal/GB-GDPR],
    :rdf/type [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #xsd/langString
@@ -4343,8 +4347,8 @@
    :dpvo-legal/iso_alpha3  "GRC",
    :dpvo-legal/iso_numeric "300",
    :dpvo-legal/un_m49      "300",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-GR,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -4518,8 +4522,8 @@
    :dpvo-legal/iso_alpha3  "HRV",
    :dpvo-legal/iso_numeric "191",
    :dpvo-legal/un_m49      "191",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-HR,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -4562,8 +4566,8 @@
    :dpvo-legal/iso_alpha3  "HUN",
    :dpvo-legal/iso_numeric "348",
    :dpvo-legal/un_m49      "348",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-HU,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -4604,8 +4608,8 @@
    :dpvo-legal/iso_alpha3  "IRL",
    :dpvo-legal/iso_numeric "372",
    :dpvo-legal/un_m49      "372",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-IE,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -4751,8 +4755,8 @@
    :dpvo-legal/iso_alpha3  "ITA",
    :dpvo-legal/iso_numeric "380",
    :dpvo-legal/un_m49      "380",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-IT,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -5171,8 +5175,8 @@
    :dpvo-legal/iso_alpha3  "LTU",
    :dpvo-legal/iso_numeric "440",
    :dpvo-legal/un_m49      "440",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-LT,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -5196,8 +5200,8 @@
    :dpvo-legal/iso_alpha3  "LUX",
    :dpvo-legal/iso_numeric "442",
    :dpvo-legal/un_m49      "442",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-LU,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -5221,8 +5225,8 @@
    :dpvo-legal/iso_alpha3  "LVA",
    :dpvo-legal/iso_numeric "428",
    :dpvo-legal/un_m49      "428",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-LV,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -5614,8 +5618,8 @@
    :dpvo-legal/iso_alpha3  "MLT",
    :dpvo-legal/iso_numeric "470",
    :dpvo-legal/un_m49      "470",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-MT,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -5912,8 +5916,8 @@
    :dpvo-legal/iso_alpha3  "NLD",
    :dpvo-legal/iso_numeric "528",
    :dpvo-legal/un_m49      "528",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-NL,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -6250,8 +6254,8 @@
    :dpvo-legal/iso_alpha3  "POL",
    :dpvo-legal/iso_numeric "616",
    :dpvo-legal/un_m49      "616",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-PL,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -6345,8 +6349,8 @@
    :dpvo-legal/iso_alpha3  "PRT",
    :dpvo-legal/iso_numeric "620",
    :dpvo-legal/un_m49      "620",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-PT,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -6463,8 +6467,8 @@
    :dpvo-legal/iso_alpha3  "ROU",
    :dpvo-legal/iso_numeric "642",
    :dpvo-legal/un_m49      "642",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-RO,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -6611,8 +6615,8 @@
    :dpvo-legal/iso_alpha3  "SWE",
    :dpvo-legal/iso_numeric "752",
    :dpvo-legal/un_m49      "752",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-SE,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -6672,8 +6676,8 @@
    :dpvo-legal/iso_alpha3  "SVN",
    :dpvo-legal/iso_numeric "705",
    :dpvo-legal/un_m49      "705",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-SI,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -6714,8 +6718,8 @@
    :dpvo-legal/iso_alpha3  "SVK",
    :dpvo-legal/iso_numeric "703",
    :dpvo-legal/un_m49      "703",
+   :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-SK,
-   :dpvo/hasLaw            :dpvo-legal/EU-GDPR,
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7431,14 +7435,6 @@
    :skos/altLabel          ["UG" "UGA" "800"],
    :vs/term_status         #xsd/langString "accepted@en"})
 
-(def UK-DPA-2018
-  {:db/ident :dpvo-legal/UK-DPA-2018,
-   :dpvo/hasAuthority :dpvo-legal/DPA-GB})
-
-(def UK-GDPR
-  {:db/ident :dpvo-legal/UK-GDPR,
-   :dpvo/hasAuthority :dpvo-legal/DPA-GB})
-
 (def UM
   "UM"
   {:db/ident               :dpvo-legal/UM,
@@ -7588,15 +7584,15 @@
 
 (def US-CA
   "California"
-  {:db/ident         :dpvo-legal/US-CA,
-   :dcterms/created  #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf :dpvo-legal/US,
-   :dpvo/hasLaw      [:dpvo-legal/US-CA-CPRA :dpvo-legal/US-CA-CCPA],
-   :rdf/type         [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "California@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/US-CA,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/US,
+   :dpvo/hasApplicableLaw [:dpvo-legal/US-CA-CPRA :dpvo-legal/US-CA-CCPA],
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "California@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def US-CA-CCPA
   "California Consumer Privacy Act (CCPA)"
@@ -7636,16 +7632,16 @@
 
 (def US-CO
   "Colorado"
-  {:db/ident          :dpvo-legal/US-CO,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/US,
-   :dpvo/hasAuthority :dpvo-legal/DPA-US-CO,
-   :dpvo/hasLaw       :dpvo-legal/US-CO-CPA,
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Colorado@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/US-CO,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/US,
+   :dpvo/hasApplicableLaw :dpvo-legal/US-CO-CPA,
+   :dpvo/hasAuthority     :dpvo-legal/DPA-US-CO,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Colorado@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def US-CO-CPA
   "Colorado Privacy Act (CPA)"
@@ -7667,16 +7663,16 @@
 
 (def US-CT
   "Connecticut"
-  {:db/ident          :dpvo-legal/US-CT,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/US,
-   :dpvo/hasAuthority :dpvo-legal/DPA-US-CT,
-   :dpvo/hasLaw       :dpvo-legal/US-CT-CTPA,
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Connecticut@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/US-CT,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/US,
+   :dpvo/hasApplicableLaw :dpvo-legal/US-CT-CTPA,
+   :dpvo/hasAuthority     :dpvo-legal/DPA-US-CT,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Connecticut@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def US-CT-CTPA
   "Connecticut Data Privacy Act (CTPA)"
@@ -8007,16 +8003,16 @@
 
 (def US-NV
   "Nevada"
-  {:db/ident          :dpvo-legal/US-NV,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/US,
-   :dpvo/hasAuthority :dpvo-legal/DPA-US-NV,
-   :dpvo/hasLaw       :dpvo-legal/US-NV-NPICICA,
-   :rdf/type          [:dpvo/Region :owl/NamedIndividual],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Nevada@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/US-NV,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/US,
+   :dpvo/hasApplicableLaw :dpvo-legal/US-NV-NPICICA,
+   :dpvo/hasAuthority     :dpvo-legal/DPA-US-NV,
+   :rdf/type              [:dpvo/Region :owl/NamedIndividual],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Nevada@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def US-NV-NPICICA
   "Nevada Privacy of Information Collected on the Internet from Consumers Act (NPICICA)"
@@ -8171,16 +8167,16 @@
 
 (def US-UT
   "Utah"
-  {:db/ident          :dpvo-legal/US-UT,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/US,
-   :dpvo/hasAuthority :dpvo-legal/DPA-US-UT,
-   :dpvo/hasLaw       :dpvo-legal/US-UT-UCPA,
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Utah@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/US-UT,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/US,
+   :dpvo/hasApplicableLaw :dpvo-legal/US-UT-UCPA,
+   :dpvo/hasAuthority     :dpvo-legal/DPA-US-UT,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Utah@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def US-UT-UCPA
   "Utah Consumer Privacy Act (UCPA)"
@@ -8198,16 +8194,16 @@
 
 (def US-VA
   "Virginia"
-  {:db/ident          :dpvo-legal/US-VA,
-   :dcterms/created   #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
-   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/isPartOf  :dpvo-legal/US,
-   :dpvo/hasAuthority :dpvo-legal/DPA-US-VA,
-   :dpvo/hasLaw       :dpvo-legal/US-VA-VCDPA,
-   :rdf/type          [:owl/NamedIndividual :dpvo/Region],
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "Virginia@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+  {:db/ident              :dpvo-legal/US-VA,
+   :dcterms/created       #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/isPartOf      :dpvo-legal/US,
+   :dpvo/hasApplicableLaw :dpvo-legal/US-VA-VCDPA,
+   :dpvo/hasAuthority     :dpvo-legal/DPA-US-VA,
+   :rdf/type              [:owl/NamedIndividual :dpvo/Region],
+   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/label            #xsd/langString "Virginia@en",
+   :vs/term_status        #xsd/langString "accepted@en"})
 
 (def US-VA-VCDPA
   "Virginia Consumer Data Protection Act (VCDPA)"
