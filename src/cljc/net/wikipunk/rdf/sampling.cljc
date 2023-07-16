@@ -22,17 +22,16 @@
    :skos/definition
    #xsd/langString
     "Members of this class indicate the nature of a relationship between two samples@en",
-   :skos/example
-   [#xsd/string "Adjacent flight-line"
-    #xsd/string "Probe spot on polished specimen"
-    #xsd/string "Pixel within image or scene"
-    #xsd/string "Sub-sample with grain size smaller than specified seive mesh"
-    #xsd/string "Males"
-    #xsd/string "Females"
-    #xsd/string "Station along a traverse"
-    #xsd/string "Specimen taken from borehole"
-    #xsd/string "Split of core sample"
-    #xsd/string "Juveniles"]})
+   :skos/example ["Adjacent flight-line"
+                  "Probe spot on polished specimen"
+                  "Pixel within image or scene"
+                  "Sub-sample with grain size smaller than specified seive mesh"
+                  "Males"
+                  "Females"
+                  "Station along a traverse"
+                  "Specimen taken from borehole"
+                  "Split of core sample"
+                  "Juveniles"]})
 
 (def SampleRelationship
   "Sample relationship"

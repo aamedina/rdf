@@ -1,11 +1,10 @@
 (ns net.wikipunk.rdf.frbr
   "Expression of Core FRBR Concepts in RDF"
-  {:dc11/contributor #xsd/string "Bruce D'Arcus",
-   :dc11/creator [#xsd/string "Ian Davis <http://purl.org/NET/iand>"
-                  #xsd/string "Richard Newman"],
+  {:dc11/contributor "Bruce D'Arcus",
+   :dc11/creator ["Ian Davis <http://purl.org/NET/iand>" "Richard Newman"],
    :dc11/date #xsd/date #inst "2005-08-10T00:00:00.000-04:00",
-   :dc11/identifier #xsd/string "http://purl.org/vocab/frbr/frbr-core-20050810",
-   :dc11/rights #xsd/string "Copyright © 2005 Richard Newman and Ian Davis",
+   :dc11/identifier "http://purl.org/vocab/frbr/frbr-core-20050810",
+   :dc11/rights "Copyright © 2005 Richard Newman and Ian Davis",
    :dc11/title #xsd/langString "Expression of Core FRBR Concepts in RDF@en",
    :dcat/downloadURL "resources/frbr-core-20050810.rdf",
    :dcterms/hasFormat
@@ -33,8 +32,8 @@
      "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    @en"
     #xsd/langString
      "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    @en"],
-   :vann/preferredNamespacePrefix #xsd/string "frbr",
-   :vann/preferredNamespaceUri #xsd/string "http://purl.org/vocab/frbr/core#"}
+   :vann/preferredNamespacePrefix "frbr",
+   :vann/preferredNamespaceUri "http://purl.org/vocab/frbr/core#"}
   (:refer-clojure :exclude [complement]))
 
 (def Concept

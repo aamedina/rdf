@@ -71,10 +71,10 @@
     "To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a \"check-in\")@en",
    :rdfs/label #xsd/langString "Arrive@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Activity
                      {:owl/maxCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :as/object,
                       :rdf/type           :owl/Restriction}
-                     :as/Activity
                      :as/Object]})
 
 (def Article
@@ -279,8 +279,7 @@
   {:db/ident :as/Move,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/string
-    "The actor is moving the object. The target specifies where the object is moving to. The origin specifies where the object is moving from.",
+   "The actor is moving the object. The target specifies where the object is moving to. The origin specifies where the object is moving from.",
    :rdfs/label #xsd/langString "Move@en",
    :rdfs/subClassOf [:as/Activity :as/Object]})
 
@@ -341,6 +340,7 @@
    :rdfs/label      #xsd/langString "OrderedCollectionPage@en",
    :rdfs/subClassOf [:as/CollectionPage
                      :as/OrderedCollection
+                     :as/Collection
                      {:owl/intersectionOf [:as/Collection
                                            {:owl/allValuesFrom
                                             {:owl/intersectionOf
@@ -355,7 +355,6 @@
                                             :owl/onProperty :as/items,
                                             :rdf/type :owl/Restriction}],
                       :rdf/type :owl/Class}
-                     :as/Collection
                      :as/Object]})
 
 (def OrderedItems
@@ -425,10 +424,10 @@
    :rdfs/comment    #xsd/langString "A question of any sort.@en",
    :rdfs/label      #xsd/langString "Question@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Activity
                      {:owl/maxCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :as/object,
                       :rdf/type           :owl/Restriction}
-                     :as/Activity
                      :as/Object]})
 
 (def Read
@@ -502,14 +501,13 @@
   {:db/ident :as/Travel,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/string
-    "The actor is traveling to the target. The origin specifies where the actor is traveling from.",
+   "The actor is traveling to the target. The origin specifies where the actor is traveling from.",
    :rdfs/label #xsd/langString "Travel@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Activity
                      {:owl/maxCardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty     :as/object,
                       :rdf/type           :owl/Restriction}
-                     :as/Activity
                      :as/Object]})
 
 (def Undo
@@ -1197,12 +1195,12 @@
     "Identifies the unit of measurement used by the radius, altitude and accuracy properties. The value can be expressed either as one of a set of predefined units or as a well-known common URI that identifies units.@en",
    :rdfs/domain :as/Place,
    :rdfs/label #xsd/langString "units@en",
-   :rdfs/range {:owl/unionOf [{:owl/oneOf [#xsd/string "inches"
-                                           #xsd/string "feet"
-                                           #xsd/string "miles"
-                                           #xsd/string "cm"
-                                           #xsd/string "m"
-                                           #xsd/string "km"],
+   :rdfs/range {:owl/unionOf [{:owl/oneOf [{:xsd/string "inches"}
+                                           {:xsd/string "feet"}
+                                           {:xsd/string "miles"}
+                                           {:xsd/string "cm"}
+                                           {:xsd/string "m"}
+                                           {:xsd/string "km"}],
                                :rdf/type  :rdfs/Datatype}
                               :xsd/anyURI],
                 :rdf/type    :rdfs/Datatype}})

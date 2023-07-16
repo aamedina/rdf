@@ -59,3 +59,6 @@
   [& body]
   `(do (@user/reveal (do ~@body))
        true))
+
+(comment
+  (def boot-db (db/test-bootstrap (:db system))))

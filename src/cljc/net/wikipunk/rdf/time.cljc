@@ -35,18 +35,12 @@
     {:rdfa/uri
      "http://www.semantic-web-journal.net/content/time-ontology-extended-non-gregorian-calendar-applications"}],
    :skos/changeNote
-   [#xsd/string
-     "2016-12-20 - adjust range of time:timeZone to time:TimeZone, moved up from the tzont ontology.  "
-    #xsd/string
-     "2016-06-15 - initial update of OWL-Time - modified to support arbitrary temporal reference systems. "
-    #xsd/string
-     "2017-02 - intervalIn, intervalDisjoint, monthOfYear added; TemporalUnit subclass of TemporalDuration"
-    #xsd/string
-     "2021-01-27 - clarified definition and label for time:after and time:before"
-    #xsd/string
-     "2016-12-20 - restore time:Year and time:January which were present in the 2006 version of the ontology, but now marked \"deprecated\". "
-    #xsd/string
-     "2017-04-06 - hasTime, hasXSDDuration added; Number removed; all duration elements changed to xsd:decimal"],
+   ["2016-12-20 - adjust range of time:timeZone to time:TimeZone, moved up from the tzont ontology.  "
+    "2016-06-15 - initial update of OWL-Time - modified to support arbitrary temporal reference systems. "
+    "2017-02 - intervalIn, intervalDisjoint, monthOfYear added; TemporalUnit subclass of TemporalDuration"
+    "2021-01-27 - clarified definition and label for time:after and time:before"
+    "2016-12-20 - restore time:Year and time:January which were present in the 2006 version of the ontology, but now marked \"deprecated\". "
+    "2017-04-06 - hasTime, hasXSDDuration added; Number removed; all duration elements changed to xsd:decimal"],
    :skos/historyNote
    #xsd/langString
     "Update of OWL-Time ontology, extended to support general temporal reference systems. \n\nOntology engineering by Simon J D Cox@en"}
@@ -62,10 +56,7 @@
      "Description of date and time structured with separate values for the various elements of a calendar-clock system. The temporal reference system is fixed to Gregorian Calendar, and the range of year, month, day properties restricted to corresponding XML Schema types xsd:gYear, xsd:gMonth and xsd:gDay, respectively.@en"],
    :rdfs/label [#xsd/langString "descripción de fecha-tiempo@es"
                 #xsd/langString "Date-Time description@en"],
-   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/gMonth,
-                      :owl/onProperty    :time/month,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gYear,
+   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/gYear,
                       :owl/onProperty    :time/year,
                       :rdf/type          :owl/Restriction}
                      {:owl/hasValue
@@ -73,49 +64,52 @@
                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gMonth,
+                      :owl/onProperty    :time/month,
+                      :rdf/type          :owl/Restriction}
+                     :time/GeneralDateTimeDescription
                      {:owl/allValuesFrom :xsd/gDay,
                       :owl/onProperty    :time/day,
                       :rdf/type          :owl/Restriction}
-                     :time/GeneralDateTimeDescription
-                     :time/TemporalPosition
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/year,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/week,
+                      :owl/onProperty     :time/dayOfYear,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/minute,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/monthOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/dayOfYear,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/hour,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/timeZone,
+                      :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :time/hasTRS,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/second,
+                      :owl/onProperty     :time/week,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/day,
+                      :owl/onProperty     :time/timeZone,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/minute,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/year,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/hour,
+                      :rdf/type           :owl/Restriction}
+                     :time/TemporalPosition
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/second,
                       :rdf/type           :owl/Restriction}],
    :skos/definition
    [#xsd/langString
@@ -134,7 +128,7 @@
    :rdfs/label [#xsd/langString "intervalo de fecha-hora@es"
                 #xsd/langString "Date-time interval@en"],
    :rdfs/subClassOf
-   [:time/ProperInterval :time/Interval :time/TemporalEntity :owl/Thing],
+   [:time/ProperInterval :time/TemporalEntity :owl/Thing :time/Interval],
    :skos/definition
    [#xsd/langString
      "DateTimeInterval is a subclass of ProperInterval, defined using the multi-element DateTimeDescription.@en"
@@ -173,12 +167,11 @@
      "Duration of a temporal extent expressed as a number scaled by a temporal unit@en"
     #xsd/langString
      "Duración de una extensión temporal expresada como un número escalado por una unidad temporal.@es"],
-   :rdfs/label [#xsd/string "duración de tiempo"
-                #xsd/langString "Time duration@en"],
-   :rdfs/subClassOf [{:owl/cardinality #xsd/nonNegativeInteger 1,
+   :rdfs/label ["duración de tiempo" #xsd/langString "Time duration@en"],
+   :rdfs/subClassOf [:time/TemporalDuration
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :time/unitType,
                       :rdf/type        :owl/Restriction}
-                     :time/TemporalDuration
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :time/numericDuration,
                       :rdf/type        :owl/Restriction}],
@@ -204,34 +197,35 @@
    :rdfs/label [#xsd/langString "descripción de duración@es"
                 #xsd/langString "Duration description@en"],
    :rdfs/subClassOf [{:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/seconds,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/years,
+                      :owl/onProperty    :time/weeks,
                       :rdf/type          :owl/Restriction}
                      {:owl/hasValue
                       {:rdfa/uri
                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
-                     :time/GeneralDurationDescription
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/hours,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/weeks,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/months,
+                      :owl/onProperty    :time/years,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/minutes,
                       :rdf/type          :owl/Restriction}
+                     :time/GeneralDurationDescription
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/months,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/hours,
+                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/days,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/seconds,
+                      :rdf/type          :owl/Restriction}
+                     :time/TemporalDuration
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/hours,
+                      :owl/onProperty     :time/years,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/days,
@@ -246,14 +240,13 @@
                       :owl/onProperty     :time/weeks,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/seconds,
-                      :rdf/type           :owl/Restriction}
-                     :time/TemporalDuration
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/minutes,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/years,
+                      :owl/onProperty     :time/hours,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/seconds,
                       :rdf/type           :owl/Restriction}],
    :skos/definition
    [#xsd/langString
@@ -294,55 +287,53 @@
    :rdfs/label [#xsd/langString "descripción de fecha-hora generalizada@es"
                 #xsd/langString "Generalized date-time description@en"],
    :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/day,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/month,
+                      :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/second,
                       :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/dayOfWeek,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/week,
+                      :owl/onProperty     :time/monthOfYear,
                       :rdf/type           :owl/Restriction}
                      :time/TemporalPosition
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/timeZone,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/monthOfYear,
+                      :owl/onProperty     :time/minute,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/day,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/year,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/hour,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/minute,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/dayOfYear,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/week,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/hour,
+                      :rdf/type           :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :time/hasTRS,
                       :rdf/type        :owl/Restriction}],
    :skos/definition
-   [#xsd/string
-     "Descripción de fecha y hora estructurada con valores separados para los distintos elementos de un sistema calendario-reloj."
+   ["Descripción de fecha y hora estructurada con valores separados para los distintos elementos de un sistema calendario-reloj."
     #xsd/langString
      "Description of date and time structured with separate values for the various elements of a calendar-clock system@en"],
    :skos/note
    [#xsd/langString
      "Algunas combinaciones de propiedades son redundantes - por ejemplo, dentro de un 'año' especificado si se proporciona 'día del año' entonces 'día' y 'mes' se pueden computar, y viceversa. Los valores individuales deberían ser consistentes entre ellos y con el calendario, indicado a través del valor de la propiedad 'tiene TRS'.@es"
-    #xsd/string
-     "Some combinations of properties are redundant - for example, within a specified :year if :dayOfYear is provided then :day and :month can be computed, and vice versa. Individual values should be consistent with each other and the calendar, indicated through the value of the :hasTRS property."]})
+    "Some combinations of properties are redundant - for example, within a specified :year if :dayOfYear is provided then :day and :month can be computed, and vice versa. Individual values should be consistent with each other and the calendar, indicated through the value of the :hasTRS property."]})
 
 (def GeneralDurationDescription
   {:db/ident :time/GeneralDurationDescription,
@@ -358,27 +349,27 @@
                       :owl/onProperty     :time/minutes,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/weeks,
+                      :owl/onProperty     :time/months,
                       :rdf/type           :owl/Restriction}
-                     :time/TemporalDuration
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/hours,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/seconds,
                       :rdf/type           :owl/Restriction}
+                     :time/TemporalDuration
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/months,
+                      :owl/onProperty     :time/years,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/weeks,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/days,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/years,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}],
+                      :owl/onProperty     :time/hours,
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    [#xsd/langString
      "Description of temporal extent structured with separate values for the various elements of a calendar-clock system.@en"
@@ -423,19 +414,41 @@
   {:db/ident :time/January,
    :owl/deprecated true,
    :rdf/type [:owl/DeprecatedClass :owl/Class],
-   :rdfs/label #xsd/string "January",
-   :rdfs/subClassOf [{:owl/hasValue   #xsd/string "--01",
+   :rdfs/label "January",
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/string "--01"},
                       :owl/onProperty :time/month,
                       :rdf/type       :owl/Restriction}
                      {:owl/hasValue   :time/unitMonth,
                       :owl/onProperty :time/unitType,
                       :rdf/type       :owl/Restriction}
                      :time/DateTimeDescription
-                     :time/TemporalPosition
-                     :time/GeneralDateTimeDescription
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/year,
+                      :owl/onProperty     :time/dayOfYear,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gDay,
+                      :owl/onProperty    :time/day,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/month,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gYear,
+                      :owl/onProperty    :time/year,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gMonth,
+                      :owl/onProperty    :time/month,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/monthOfYear,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/dayOfWeek,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/day,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/week,
                       :rdf/type           :owl/Restriction}
@@ -445,50 +458,27 @@
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/month,
+                      :owl/onProperty     :time/timeZone,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/minute,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gDay,
-                      :owl/onProperty    :time/day,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/monthOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gMonth,
-                      :owl/onProperty    :time/month,
-                      :rdf/type          :owl/Restriction}
+                     :time/GeneralDateTimeDescription
                      {:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :time/unitType,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/dayOfYear,
+                      :owl/onProperty     :time/minute,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/dayOfWeek,
+                      :owl/onProperty     :time/year,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gYear,
-                      :owl/onProperty    :time/year,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/hour,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/timeZone,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}
+                     :time/TemporalPosition
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/second,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}],
    :skos/historyNote
-   #xsd/string
-    "This class was present in the 2006 version of OWL-Time. It was presented as an example of how DateTimeDescription could be specialized, but does not belong in the revised ontology. "})
+   "This class was present in the 2006 version of OWL-Time. It was presented as an example of how DateTimeDescription could be specialized, but does not belong in the revised ontology. "})
 
 (def Monday
   {:db/ident       :time/Monday,
@@ -515,13 +505,10 @@
    :rdfs/label [#xsd/langString "Month of year@en"
                 #xsd/langString "mes del año@es"],
    :rdfs/subClassOf [{:owl/cardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty  :time/second,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty  :time/minute,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty  :time/year,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty  :time/hour,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 0,
                       :owl/onProperty  :time/day,
@@ -533,66 +520,69 @@
                       :owl/onProperty  :time/week,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty  :time/second,
+                      :owl/onProperty  :time/hour,
                       :rdf/type        :owl/Restriction}
-                     :time/DateTimeDescription
                      {:owl/hasValue   :time/unitMonth,
                       :owl/onProperty :time/unitType,
                       :rdf/type       :owl/Restriction}
-                     :time/TemporalPosition
-                     :time/GeneralDateTimeDescription
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/year,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/week,
-                      :rdf/type           :owl/Restriction}
+                     :time/DateTimeDescription
+                     {:owl/cardinality #xsd/nonNegativeInteger 0,
+                      :owl/onProperty  :time/year,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :xsd/gMonth,
                       :owl/onProperty    :time/month,
                       :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/dayOfYear,
+                      :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gYear,
-                      :owl/onProperty    :time/year,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/hour,
+                      :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/week,
+                      :rdf/type           :owl/Restriction}
                      {:owl/hasValue
                       {:rdfa/uri
                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/timeZone,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/minute,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/hour,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/dayOfYear,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :xsd/gDay,
                       :owl/onProperty    :time/day,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gYear,
+                      :owl/onProperty    :time/year,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/monthOfYear,
                       :rdf/type           :owl/Restriction}
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
+                     :time/GeneralDateTimeDescription
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/dayOfWeek,
+                      :owl/onProperty     :time/year,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/timeZone,
-                      :rdf/type           :owl/Restriction}
+                     :time/TemporalPosition
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/second,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}],
    :skos/definition [#xsd/langString "The month of the year@en"
                      #xsd/langString "El mes del año.@es"],
@@ -810,8 +800,7 @@
    :skos/historyNote
    [#xsd/langString
      "En la versión original de OWL-Time de 2006, se definió, en un espacio de nombres diferente \"http://www.w3.org/2006/timezone#\", la clase 'huso horario', con varias propiedades específicas correspondientes a un modelo específico de huso horario.\n    En la versión actual hay una clase con el mismo nombre local en el espacio de nombres de OWL-Time, eliminando la dependencia del espacio de nombres externo.\n    Un axioma de alineación permite que los datos codificados de acuerdo con la versión anterior sean consistentes con la ontología actualizada.@es"
-    #xsd/string
-     "In the original 2006 version of OWL-Time, the TimeZone class, with several properties corresponding to a specific model of time-zones, was defined in a separate namespace \"http://www.w3.org/2006/timezone#\". \n\nIn the current version a class with same local name is put into the main OWL-Time namespace, removing the dependency on the external namespace. \n\nAn alignment axiom \n\ttzont:TimeZone rdfs:subClassOf time:TimeZone . \nallows data encoded according to the previous version to be consistent with the updated ontology. "],
+    "In the original 2006 version of OWL-Time, the TimeZone class, with several properties corresponding to a specific model of time-zones, was defined in a separate namespace \"http://www.w3.org/2006/timezone#\". \n\nIn the current version a class with same local name is put into the main OWL-Time namespace, removing the dependency on the external namespace. \n\nAn alignment axiom \n\ttzont:TimeZone rdfs:subClassOf time:TimeZone . \nallows data encoded according to the previous version to be consistent with the updated ontology. "],
    :skos/note
    [#xsd/langString
      "A designated timezone is associated with a geographic region. However, for a particular region the offset from UTC often varies seasonally, and the dates of the changes may vary from year to year. The timezone designation usually changes for the different seasons (e.g. Australian Eastern Standard Time vs. Australian Eastern Daylight Time). Furthermore, the offset for a timezone may change over longer timescales, though its designation might not.  \n\nDetailed guidance about working with time zones is given in http://www.w3.org/TR/timezone/ .@en"
@@ -822,8 +811,7 @@
    :skos/scopeNote
    [#xsd/langString
      "En esta implementación 'huso horario' no tiene definidas propiedades. Se debería pensar como una superclase \"abstracta\" de todas las implementaciones de huso horario específicas.@es"
-    #xsd/string
-     "In this implementation TimeZone has no properties defined. It should be thought of as an 'abstract' superclass of all specific timezone implementations."]})
+    "In this implementation TimeZone has no properties defined. It should be thought of as an 'abstract' superclass of all specific timezone implementations."]})
 
 (def Tuesday
   {:db/ident       :time/Tuesday,
@@ -864,35 +852,59 @@
   {:db/ident :time/Year,
    :owl/deprecated true,
    :rdf/type [:owl/DeprecatedClass :owl/Class],
-   :rdfs/comment #xsd/string "Year duration",
+   :rdfs/comment "Year duration",
    :rdfs/label #xsd/langString "Year@en",
    :rdfs/subClassOf [{:owl/cardinality #xsd/integer 0,
-                      :owl/onProperty  :time/hours,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/integer 0,
                       :owl/onProperty  :time/seconds,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality #xsd/integer 0,
                       :owl/onProperty  :time/minutes,
                       :rdf/type        :owl/Restriction}
-                     :time/DurationDescription
                      {:owl/cardinality #xsd/integer 0,
                       :owl/onProperty  :time/weeks,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality #xsd/integer 0,
                       :owl/onProperty  :time/months,
                       :rdf/type        :owl/Restriction}
-                     {:owl/cardinality #xsd/integer 1,
-                      :owl/onProperty  :time/years,
-                      :rdf/type        :owl/Restriction}
                      {:owl/cardinality #xsd/integer 0,
                       :owl/onProperty  :time/days,
                       :rdf/type        :owl/Restriction}
+                     :time/DurationDescription
+                     {:owl/cardinality #xsd/integer 0,
+                      :owl/onProperty  :time/hours,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality #xsd/integer 1,
+                      :owl/onProperty  :time/years,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/minutes,
+                      :rdf/type          :owl/Restriction}
+                     :time/TemporalDuration
+                     {:owl/hasValue
+                      {:rdfa/uri
+                       "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
+                      :owl/onProperty :time/hasTRS,
+                      :rdf/type :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/years,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/weeks,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/years,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/hours,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/months,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :time/days,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/weeks,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/months,
@@ -901,49 +913,24 @@
                       :owl/onProperty  :time/hasTRS,
                       :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/minutes,
+                      :owl/onProperty    :time/hours,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/weeks,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/seconds,
-                      :rdf/type          :owl/Restriction}
-                     :time/TemporalDuration
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/minutes,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/hours,
+                      :owl/onProperty    :time/seconds,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/years,
-                      :rdf/type           :owl/Restriction}
+                     :time/GeneralDurationDescription
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/days,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :time/days,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/hasValue
-                      {:rdfa/uri
-                       "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
-                      :owl/onProperty :time/hasTRS,
-                      :rdf/type :owl/Restriction}
-                     :time/GeneralDurationDescription
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/weeks,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :time/seconds,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/years,
-                      :rdf/type          :owl/Restriction}],
-   :skos/definition #xsd/string "Year duration",
+                      :rdf/type           :owl/Restriction}],
+   :skos/definition "Year duration",
    :skos/historyNote
-   #xsd/string
-    "Year was proposed in the 2006 version of OWL-Time as an example of how DurationDescription could be specialized to allow for a duration to be restricted to a number of years. \n\nIt is deprecated in this edition of OWL-Time. ",
+   "Year was proposed in the 2006 version of OWL-Time as an example of how DurationDescription could be specialized to allow for a duration to be restricted to a number of years. \n\nIt is deprecated in this edition of OWL-Time. ",
    :skos/prefLabel [#xsd/langString "Ano@pt"
                     #xsd/langString "Anno@it"
                     #xsd/langString "سنة@ar"
@@ -1012,8 +999,7 @@
   {:db/ident :time/dayOfWeek,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   [#xsd/string
-     "El día de la semana, cuyo valor es un miembro de la clase 'día de la semana'."
+   ["El día de la semana, cuyo valor es un miembro de la clase 'día de la semana'."
     #xsd/langString
      "The day of week, whose value is a member of the class time:DayOfWeek@en"],
    :rdfs/domain :time/GeneralDateTimeDescription,
@@ -1063,8 +1049,7 @@
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
    [{:xsd/pattern
-     #xsd/string
-      "---(0[1-9]|[1-9][0-9])(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"}],
+     "---(0[1-9]|[1-9][0-9])(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"}],
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
    [#xsd/langString
@@ -1084,8 +1069,7 @@
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
    [{:xsd/pattern
-     #xsd/string
-      "--(0[1-9]|1[0-9]|20)(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"}],
+     "--(0[1-9]|1[0-9]|20)(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"}],
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
    [#xsd/langString
@@ -1105,8 +1089,7 @@
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
    [{:xsd/pattern
-     #xsd/string
-      "-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"}],
+     "-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"}],
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
    [#xsd/langString
@@ -1474,8 +1457,7 @@
    :rdfs/comment
    [#xsd/langString
      "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.@en"
-    #xsd/string
-     "Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2."],
+    "Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2."],
    :rdfs/domain :time/ProperInterval,
    :rdfs/label [#xsd/langString "interval after@en"
                 #xsd/langString "intervalo posterior@es"],
@@ -1951,11 +1933,9 @@
    :skos/historyNote
    [#xsd/langString
      "En la versión original de OWL-Time de 2006, el rango de 'en huso horario' se definió en un espacio de nombres diferente \"http://www.w3.org/2006/timezone#\".\n            Un axioma de alineación permite que los datos codificados de acuerdo con la versión anterior sean consistentes con la ontología actualizada.@es"
-    #xsd/string
-     "In the original 2006 version of OWL-Time, the range of time:timeZone was a TimeZone class in a separate namespace \"http://www.w3.org/2006/timezone#\". \nAn alignment axiom \n\ttzont:TimeZone rdfs:subClassOf time:TimeZone . \nallows data encoded according to the previous version to be consistent with the updated ontology. "],
+    "In the original 2006 version of OWL-Time, the range of time:timeZone was a TimeZone class in a separate namespace \"http://www.w3.org/2006/timezone#\". \nAn alignment axiom \n\ttzont:TimeZone rdfs:subClassOf time:TimeZone . \nallows data encoded according to the previous version to be consistent with the updated ontology. "],
    :skos/note
-   [#xsd/string
-     "IANA maintains a database of timezones. These are well maintained and generally considered authoritative, but individual items are not available at individual URIs, so cannot be used directly in data expressed using OWL-Time.\n\nDBPedia provides a set of resources corresponding to the IANA timezones, with a URI for each (e.g. http://dbpedia.org/resource/Australia/Eucla). The World Clock service also provides a list of time zones with the description of each available as an individual webpage with a convenient individual URI (e.g. https://www.timeanddate.com/time/zones/acwst). These or other, similar, resources might be used as a value of the time:timeZone property."
+   ["IANA maintains a database of timezones. These are well maintained and generally considered authoritative, but individual items are not available at individual URIs, so cannot be used directly in data expressed using OWL-Time.\n\nDBPedia provides a set of resources corresponding to the IANA timezones, with a URI for each (e.g. http://dbpedia.org/resource/Australia/Eucla). The World Clock service also provides a list of time zones with the description of each available as an individual webpage with a convenient individual URI (e.g. https://www.timeanddate.com/time/zones/acwst). These or other, similar, resources might be used as a value of the time:timeZone property."
     #xsd/langString
      "IANA mantiene una base de datos de husos horarios. Éstas están bien mantenidas y generalmente se consideran autorizadas, pero los ítems individuales no están disponibles en URIs individuales, por tanto, no se pueden utilizar directamente en datos expresados utilizando OWL-Time.\n            La BDPedia proporciona un conjunto de recursos correspondientes a los husos horarios de IANA, con una URI para cada uno (por ejemplo, http://dbpedia.org/resource/Australia/Eucla). El Servicio de Reloj Mundial también proporciona una lista de husos horarios con la descripción de cada uno de los disponibles como una página Web individual con una URI adecuada individual (por ejemplo, https://www.timeanddate.com/time/zones/acwst). Éstos, y otros recursos similares, se puden usar como un valor de la propiedad 'huso horario'.@es"]})
 
@@ -1965,28 +1945,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Century (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "siècle@fr"
@@ -2016,28 +1996,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Day (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "Tag@de"
@@ -2066,28 +2046,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Decade (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "decade@en"
@@ -2117,31 +2097,31 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Hour (unit of temporal duration)@en",
-   :skos/prefLabel [#xsd/string "один час\"@ru"
+   :skos/prefLabel ["один час\"@ru"
                     #xsd/langString "一時間@ja"
                     #xsd/langString "godzina@pl"
                     #xsd/langString "Stunde@de"
@@ -2168,28 +2148,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Century (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "millenium@en"
@@ -2219,28 +2199,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Minute (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "دقيقة واحدة@ar"
@@ -2270,28 +2250,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Month (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "month@en"
@@ -2320,28 +2300,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Second (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "segundo@pt"
@@ -2384,28 +2364,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Week (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "一週間@ja"
@@ -2435,28 +2415,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/days,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/hours,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/years,
+                     :owl/onProperty     :time/weeks,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality #xsd/nonNegativeInteger 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                     :owl/onProperty     :time/weeks,
+                     :owl/onProperty     :time/seconds,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/months,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #xsd/langString "Year (unit of temporal duration)@en",
    :skos/prefLabel [#xsd/langString "anno@it"
@@ -2522,8 +2502,7 @@
                 #xsd/langString "tiene fecha-hora XSD@es"],
    :rdfs/range :xsd/dateTime,
    :skos/note
-   [#xsd/string
-     "Utilizando xsd:dateTime en este lugar significa que la duración del intervalo está implícita: se corresponde con la longitud del elemento más pequeño distinto de cero del literal fecha-hora. Sin embargo, esta regla no se puede utilizar para intervalos cuya duración es mayor que un rango más pequeño que el tiempo de comienzo - p.ej. el primer minuto o segundo del día, la primera hora del mes, o el primer día del año. En estos casos el intervalo deseado no se puede distinguir del intervalo correspondiente al próximo rango más alto. Debido a esta ambigüedad esencial, no se recomienda el uso de esta propiedad y está desaprobada."
+   ["Utilizando xsd:dateTime en este lugar significa que la duración del intervalo está implícita: se corresponde con la longitud del elemento más pequeño distinto de cero del literal fecha-hora. Sin embargo, esta regla no se puede utilizar para intervalos cuya duración es mayor que un rango más pequeño que el tiempo de comienzo - p.ej. el primer minuto o segundo del día, la primera hora del mes, o el primer día del año. En estos casos el intervalo deseado no se puede distinguir del intervalo correspondiente al próximo rango más alto. Debido a esta ambigüedad esencial, no se recomienda el uso de esta propiedad y está desaprobada."
     #xsd/langString
      "Using xsd:dateTime in this place means that the duration of the interval is implicit: it corresponds to the length of the smallest non-zero element of the date-time literal. However, this rule cannot be used for intervals whose duration is more than one rank smaller than the starting time - e.g. the first minute or second of a day, the first hour of a month, or the first day of a year. In these cases the desired interval cannot be distinguished from the interval corresponding to the next rank up. Because of this essential ambiguity, use of this property is not recommended and it is deprecated.@en"]})
 

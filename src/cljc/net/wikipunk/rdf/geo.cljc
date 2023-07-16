@@ -13,11 +13,9 @@
   {:db/ident :geo/Point,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   [#xsd/string
-     " \nUniquely identified by lat/long/alt. i.e.\n\nspaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),\n  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).\n\nsameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).\n  "
-    #xsd/string
-     "A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "],
-   :rdfs/label #xsd/string "point",
+   [" \nUniquely identified by lat/long/alt. i.e.\n\nspaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),\n  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).\n\nsameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).\n  "
+    "A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "],
+   :rdfs/label "point",
    :rdfs/subClassOf [:geo/SpatialThing :rdfs/Resource]})
 
 (def SpatialThing
@@ -25,9 +23,8 @@
   {:db/ident :geo/SpatialThing,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "Anything with spatial extent, i.e. size, shape, or position.\n e.g. people, places, bowling balls, as well as abstract areas like cubes.\n",
-   :rdfs/label #xsd/string "SpatialThing",
+   "Anything with spatial extent, i.e. size, shape, or position.\n e.g. people, places, bowling balls, as well as abstract areas like cubes.\n",
+   :rdfs/label "SpatialThing",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def alt
@@ -35,37 +32,33 @@
   {:db/ident :geo/alt,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "The WGS84 altitude of a SpatialThing (decimal meters \nabove the local reference ellipsoid).",
+   "The WGS84 altitude of a SpatialThing (decimal meters \nabove the local reference ellipsoid).",
    :rdfs/domain :geo/SpatialThing,
-   :rdfs/label #xsd/string "altitude"})
+   :rdfs/label "altitude"})
 
 (def lat
   "The WGS84 latitude of a SpatialThing (decimal degrees)."
   {:db/ident     :geo/lat,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string
-                  "The WGS84 latitude of a SpatialThing (decimal degrees).",
+   :rdfs/comment "The WGS84 latitude of a SpatialThing (decimal degrees).",
    :rdfs/domain  :geo/SpatialThing,
-   :rdfs/label   #xsd/string "latitude"})
+   :rdfs/label   "latitude"})
 
 (def lat_long
   "A comma-separated representation of a latitude, longitude coordinate."
   {:db/ident :geo/lat_long,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "A comma-separated representation of a latitude, longitude coordinate.",
-   :rdfs/label #xsd/string "lat/long"})
+   "A comma-separated representation of a latitude, longitude coordinate.",
+   :rdfs/label "lat/long"})
 
 (def location
   "The relation between something and the point, \n or other geometrical thing in space, where it is.  For example, the realtionship between\n a radio tower and a Point with a given lat and long.\n Or a relationship between a park and its outline as a closed arc of points, or a road and\n its location as a arc (a sequence of points).\n Clearly in practice there will be limit to the accuracy of any such statement, but one would expect\n an accuracy appropriate for the size of the object and uses such as mapping .\n "
   {:db/ident :geo/location,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "The relation between something and the point, \n or other geometrical thing in space, where it is.  For example, the realtionship between\n a radio tower and a Point with a given lat and long.\n Or a relationship between a park and its outline as a closed arc of points, or a road and\n its location as a arc (a sequence of points).\n Clearly in practice there will be limit to the accuracy of any such statement, but one would expect\n an accuracy appropriate for the size of the object and uses such as mapping .\n ",
-   :rdfs/label #xsd/string "location",
+   "The relation between something and the point, \n or other geometrical thing in space, where it is.  For example, the realtionship between\n a radio tower and a Point with a given lat and long.\n Or a relationship between a park and its outline as a closed arc of points, or a road and\n its location as a arc (a sequence of points).\n Clearly in practice there will be limit to the accuracy of any such statement, but one would expect\n an accuracy appropriate for the size of the object and uses such as mapping .\n ",
+   :rdfs/label "location",
    :rdfs/range :geo/SpatialThing,
    :rdfs/subPropertyOf :foaf/based_near})
 
@@ -73,7 +66,6 @@
   "The WGS84 longitude of a SpatialThing (decimal degrees)."
   {:db/ident     :geo/long,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string
-                  "The WGS84 longitude of a SpatialThing (decimal degrees).",
+   :rdfs/comment "The WGS84 longitude of a SpatialThing (decimal degrees).",
    :rdfs/domain  :geo/SpatialThing,
-   :rdfs/label   #xsd/string "longitude"})
+   :rdfs/label   "longitude"})

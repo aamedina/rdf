@@ -1,16 +1,16 @@
 (ns net.wikipunk.rdf.duv
   "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."
   {:dcterms/created #xsd/date #inst "2015-12-17T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name #xsd/string "Bernadette Farias Lóscio"}
-                     {:foaf/name #xsd/string "Sumit Purohit"}
-                     {:foaf/name #xsd/string "Eric G. Stephan"}],
+   :dcterms/creator [{:foaf/name "Bernadette Farias Lóscio"}
+                     {:foaf/name "Eric G. Stephan"}
+                     {:foaf/name "Sumit Purohit"}],
    :dcterms/description
    #xsd/langString
     "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective.@en",
    :dcterms/modified [#xsd/date #inst "2016-08-30T00:00:00.000-04:00"
                       #xsd/date #inst "2017-01-23T00:00:00.000-05:00"],
    :dcterms/publisher {:rdfa/uri "http://www.w3.org/data#W3C"},
-   :dcterms/title #xsd/string "Dataset Usage Vocabulary",
+   :dcterms/title "Dataset Usage Vocabulary",
    :dcterms/type {:rdfa/uri "http://purl.org/adms/assettype/Ontology"},
    :rdf/ns-prefix-map {"biro" "http://purl.org/spar/biro/",
                        "dcat" "http://www.w3.org/ns/dcat#",
@@ -34,8 +34,8 @@
    :rdfa/prefix "duv",
    :rdfa/uri "http://www.w3.org/ns/duv",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-duv/"},
-   :vann/preferredNamespacePrefix #xsd/string "duv",
-   :vann/preferredNamespaceUri #xsd/string "http://www.w3.org/ns/duv#"})
+   :vann/preferredNamespacePrefix "duv",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/duv#"})
 
 (def RatingFeedback
   "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values."

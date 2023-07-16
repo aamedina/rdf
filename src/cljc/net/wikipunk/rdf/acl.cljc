@@ -17,8 +17,7 @@
   {:db/ident :acl/Access,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "Any kind of access to a resource. Don't use this, use R W and RW",
+   "Any kind of access to a resource. Don't use this, use R W and RW",
    :rdfs/label #xsd/langString "access@en",
    :rdfs/subClassOf :rdfs/Resource})
 
@@ -27,8 +26,7 @@
   {:db/ident :acl/Append,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "Append accesses are specific write access which only add information, and do not remove information.\n    For text files, for example, append access allows bytes to be added onto the end of the file.\n    For RDF graphs, Append access allows adds triples to the graph but does not remove any.\n    Append access is useful for dropbox functionality.\n    Dropbox can be used for link notification, which the information added is a notification\n    that a some link has been made elsewhere relevant to the given resource.\n    ",
+   "Append accesses are specific write access which only add information, and do not remove information.\n    For text files, for example, append access allows bytes to be added onto the end of the file.\n    For RDF graphs, Append access allows adds triples to the graph but does not remove any.\n    Append access is useful for dropbox functionality.\n    Dropbox can be used for link notification, which the information added is a notification\n    that a some link has been made elsewhere relevant to the given resource.\n    ",
    :rdfs/label #xsd/langString "append@en",
    :rdfs/subClassOf [:acl/Write :acl/Access :rdfs/Resource]})
 
@@ -37,9 +35,8 @@
   {:db/ident :acl/AuthenticatedAgent,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "A class of agents who have been authenticated.\nIn other words, anyone can access this resource, but not anonymously.\nThe social expectation is that the authentication process will provide an\nidentify and a name, or pseudonym.\n(A new ID should not be minted for every access: the intent is that the user\nis able to continue to use the ID for continues interactions with peers,\nand for example to develop a reputation)\n",
-   :rdfs/label #xsd/string "Anyone authenticated",
+   "A class of agents who have been authenticated.\nIn other words, anyone can access this resource, but not anonymously.\nThe social expectation is that the authentication process will provide an\nidentify and a name, or pseudonym.\n(A new ID should not be minted for every access: the intent is that the user\nis able to continue to use the ID for continues interactions with peers,\nand for example to develop a reputation)\n",
+   :rdfs/label "Anyone authenticated",
    :rdfs/subClassOf [:rdfs/Resource :foaf/Agent]})
 
 (def Authorization
@@ -47,17 +44,15 @@
   {:db/ident :acl/Authorization,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "An element of access control,\n    allowing agent to agents access of some kind to resources or classes of resources",
-   :rdfs/label #xsd/string "authorization",
+   "An element of access control,\n    allowing agent to agents access of some kind to resources or classes of resources",
+   :rdfs/label "authorization",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Control
   "Allows read/write access to the ACL for the resource(s)"
   {:db/ident        :acl/Control,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string
-                     "Allows read/write access to the ACL for the resource(s)",
+   :rdfs/comment    "Allows read/write access to the ACL for the resource(s)",
    :rdfs/label      #xsd/langString "control@en",
    :rdfs/subClassOf [:rdfs/Resource :acl/Access]})
 
@@ -66,9 +61,8 @@
   {:db/ident :acl/Origin,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "An Origin is basically a web site\n        (Note WITHOUT the trailing slash after the domain name and port in its URI)\n        and is the basis for controlling access to data by web apps\n        in the Same Origin Model of web security.\n        All scripts from the same origin are given the same right.",
-   :rdfs/label #xsd/string "Origin",
+   "An Origin is basically a web site\n        (Note WITHOUT the trailing slash after the domain name and port in its URI)\n        and is the basis for controlling access to data by web apps\n        in the Same Origin Model of web security.\n        All scripts from the same origin are given the same right.",
+   :rdfs/label "Origin",
    :rdfs/seeAlso
    {:rdfa/uri
     "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"},
@@ -78,7 +72,7 @@
   "The class of read operations"
   {:db/ident        :acl/Read,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string "The class of read operations",
+   :rdfs/comment    "The class of read operations",
    :rdfs/label      #xsd/langString "read@en",
    :rdfs/subClassOf [:rdfs/Resource :acl/Access]})
 
@@ -94,10 +88,9 @@
   {:db/ident :acl/accessControl,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "The Access Control file for this information resource.\n        This may of course be a virtual resource implemented by the access control system.\n        Note that HTTP header `Link: <foo.acl>; rel=\"acl\"` can also be used for this.",
+   "The Access Control file for this information resource.\n        This may of course be a virtual resource implemented by the access control system.\n        Note that HTTP header `Link: <foo.acl>; rel=\"acl\"` can also be used for this.",
    :rdfs/domain :gen/InformationResource,
-   :rdfs/label #xsd/string "access control",
+   :rdfs/label "access control",
    :rdfs/range :gen/InformationResource,
    :rdfs/seeAlso {:rdfa/uri
                   "https://solidproject.org/TR/wac#acl-link-relation"},
@@ -107,10 +100,9 @@
   "The information resource to which access is being granted."
   {:db/ident     :acl/accessTo,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string
-                  "The information resource to which access is being granted.",
+   :rdfs/comment "The information resource to which access is being granted.",
    :rdfs/domain  :acl/Authorization,
-   :rdfs/label   #xsd/string "to",
+   :rdfs/label   "to",
    :rdfs/range   :gen/InformationResource})
 
 (def accessToClass
@@ -118,20 +110,18 @@
   {:db/ident :acl/accessToClass,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "A class of information resources to which access is being granted.",
+   "A class of information resources to which access is being granted.",
    :rdfs/domain :acl/Authorization,
-   :rdfs/label #xsd/string "to all in",
+   :rdfs/label "to all in",
    :rdfs/range :rdfs/Class})
 
 (def agent
   "A person or social entity to being given the right"
   {:db/ident     :acl/agent,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string
-                  "A person or social entity to being given the right",
+   :rdfs/comment "A person or social entity to being given the right",
    :rdfs/domain  :acl/Authorization,
-   :rdfs/label   #xsd/string "agent",
+   :rdfs/label   "agent",
    :rdfs/range   :foaf/Agent})
 
 (def agentClass
@@ -139,9 +129,9 @@
   {:db/ident :acl/agentClass,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string "A class of persons or social entities to being given the right",
+   "A class of persons or social entities to being given the right",
    :rdfs/domain :acl/Authorization,
-   :rdfs/label #xsd/string "agent class",
+   :rdfs/label "agent class",
    :rdfs/range :rdfs/Class})
 
 (def agentGroup
@@ -149,10 +139,9 @@
   {:db/ident :acl/agentGroup,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "A group of persons or social entities to being given the right.\n          The right is given to any entity which is a vcard:member of the group,\n          as defined by the document received when the Group is dereferenced.",
+   "A group of persons or social entities to being given the right.\n          The right is given to any entity which is a vcard:member of the group,\n          as defined by the document received when the Group is dereferenced.",
    :rdfs/domain :acl/Authorization,
-   :rdfs/label #xsd/string "agent group",
+   :rdfs/label "agent group",
    :rdfs/range :vcard/Group})
 
 (def default
@@ -160,28 +149,25 @@
   {:db/ident :acl/default,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "If a resource has no ACL file (it is 404),\n        then access to the resource is given by the ACL of the immediately\n        containing directory, or failing that (404) the ACL of the recursively next\n        containing directory which has an ACL file.\n        Within that ACL file,\n        any Authorization which has that directory as its acl:default applies to the\n        resource. (The highest directory must have an ACL file.)\n",
+   "If a resource has no ACL file (it is 404),\n        then access to the resource is given by the ACL of the immediately\n        containing directory, or failing that (404) the ACL of the recursively next\n        containing directory which has an ACL file.\n        Within that ACL file,\n        any Authorization which has that directory as its acl:default applies to the\n        resource. (The highest directory must have an ACL file.)\n",
    :rdfs/domain :acl/Authorization,
-   :rdfs/label #xsd/string "default access for things in this"})
+   :rdfs/label "default access for things in this"})
 
 (def defaultForNew
   "THIS IS OBSOLETE AS OF 2017-08-01.   See 'default'.\n        Was: A directory for which this authorization is used for new files in the directory."
   {:db/ident :acl/defaultForNew,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "THIS IS OBSOLETE AS OF 2017-08-01.   See 'default'.\n        Was: A directory for which this authorization is used for new files in the directory.",
+   "THIS IS OBSOLETE AS OF 2017-08-01.   See 'default'.\n        Was: A directory for which this authorization is used for new files in the directory.",
    :rdfs/domain :acl/Authorization,
-   :rdfs/label #xsd/string "default access for new things in the object"})
+   :rdfs/label "default access for new things in the object"})
 
 (def delegates
   "Delegates a person or another agent to act on behalf of the agent.\n    For example, Alice delegates Bob to act on behalf of Alice for ACL purposes."
   {:db/ident :acl/delegates,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "Delegates a person or another agent to act on behalf of the agent.\n    For example, Alice delegates Bob to act on behalf of Alice for ACL purposes.",
+   "Delegates a person or another agent to act on behalf of the agent.\n    For example, Alice delegates Bob to act on behalf of Alice for ACL purposes.",
    :rdfs/label #xsd/langString "delegates@en",
    :rdfs/range :foaf/Agent})
 
@@ -189,9 +175,9 @@
   "A mode of access such as read or write."
   {:db/ident     :acl/mode,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string "A mode of access such as read or write.",
+   :rdfs/comment "A mode of access such as read or write.",
    :rdfs/domain  :acl/Authorization,
-   :rdfs/label   #xsd/string "access mode",
+   :rdfs/label   "access mode",
    :rdfs/range   :rdfs/Class})
 
 (def origin
@@ -199,10 +185,9 @@
   {:db/ident :acl/origin,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "A web application, identified by its Origin, such as\n        <https://scripts.example.com>, being given the right.\n        When a user of the web application at a certain origin accesses the server,\n        then the browser sets the Origin: header to warn that a possibly untrusted webapp\n        is being used.\n        Then, BOTH the user AND the origin must have the required access.",
+   "A web application, identified by its Origin, such as\n        <https://scripts.example.com>, being given the right.\n        When a user of the web application at a certain origin accesses the server,\n        then the browser sets the Origin: header to warn that a possibly untrusted webapp\n        is being used.\n        Then, BOTH the user AND the origin must have the required access.",
    :rdfs/domain :acl/Authorization,
-   :rdfs/label #xsd/string "origin",
+   :rdfs/label "origin",
    :rdfs/range :acl/Origin,
    :rdfs/seeAlso
    {:rdfa/uri
@@ -213,7 +198,6 @@
   {:db/ident :acl/owner,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "The person or other agent which owns this.\n    For example, the owner of a file in a filesystem.\n    There is a sense of \"right to control\".   Typically defaults to the agent who created\n    something, but can be changed.",
+   "The person or other agent which owns this.\n    For example, the owner of a file in a filesystem.\n    There is a sense of \"right to control\".   Typically defaults to the agent who created\n    something, but can be changed.",
    :rdfs/label #xsd/langString "owner@en",
    :rdfs/range :foaf/Agent})

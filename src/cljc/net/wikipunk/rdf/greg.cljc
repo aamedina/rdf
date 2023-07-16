@@ -101,10 +101,9 @@
 (def January
   {:db/ident :greg/January,
    :rdf/type :time/MonthOfYear,
-   :rdfs/label #xsd/string "January",
+   :rdfs/label "January",
    :skos/historyNote
-   #xsd/string
-    "A _class_ with the local-name January was present in the 2006 version of OWL-Time. \nIt was presented as an example of how DateTimeDescription could be specialized. \nIn the 2017 version of OWL-Time that class is deprecated, but this individual provided instead, in a separate namespace. ",
+   "A _class_ with the local-name January was present in the 2006 version of OWL-Time. \nIt was presented as an example of how DateTimeDescription could be specialized. \nIn the 2017 version of OWL-Time that class is deprecated, but this individual provided instead, in a separate namespace. ",
    :skos/prefLabel [#xsd/langString "Janeiro@pt"
                     #xsd/langString "Januar@de"
                     #xsd/langString "/=20@L@ru"

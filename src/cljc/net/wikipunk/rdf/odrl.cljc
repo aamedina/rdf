@@ -2,18 +2,18 @@
   "The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model."
   {:dcat/downloadURL "https://www.w3.org/ns/odrl/2/ODRL22.jsonld",
    :dcterms/contributor
-   #xsd/string "W3C Permissions & Obligations Expression Working Group",
-   :dcterms/creator [#xsd/string "Michael Steidl"
-                     #xsd/string "Renato Iannella"
-                     #xsd/string "Víctor Rodríguez-Doncel"
-                     #xsd/string "Stuart Myles"],
+   "W3C Permissions & Obligations Expression Working Group",
+   :dcterms/creator [{:xsd/string "Michael Steidl"}
+                     {:xsd/string "Renato Iannella"}
+                     {:xsd/string "Víctor Rodríguez-Doncel"}
+                     {:xsd/string "Stuart Myles"}],
    :dcterms/description
    #xsd/langString
     "The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model.@en",
    :dcterms/license
    {:rdfa/uri
     "https://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231#Copyright/"},
-   :owl/versionInfo #xsd/string "2.2",
+   :owl/versionInfo "2.2",
    :rdf/ns-prefix-map {"cc"      "http://creativecommons.org/ns#",
                        "dcterms" "http://purl.org/dc/terms/",
                        "foaf"    "http://xmlns.com/foaf/0.1/",
@@ -321,6 +321,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Party Collection@en",
    :rdfs/subClassOf  [:odrl/Party
+                      :rdfs/Resource
                       {:owl/unionOf [:schema/Person
                                      :schema/Organization
                                      :foaf/Person
@@ -329,8 +330,7 @@
                                      :vcard/Individual
                                      :vcard/Organization
                                      :vcard/Agent],
-                       :rdf/type    :owl/Class}
-                      :rdfs/Resource],
+                       :rdf/type    :owl/Class}],
    :skos/definition  #xsd/langString
                       "A Party that is a group of individual entities@en"})
 
@@ -556,7 +556,7 @@
   "Accept Tracking"
   {:db/ident :odrl/acceptTracking,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Accept Tracking@en",
    :skos/definition #xsd/langString
@@ -655,7 +655,7 @@
   "Ad-hoc sharing"
   {:db/ident :odrl/adHocShare,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Ad-hoc sharing@en",
    :skos/definition
@@ -669,7 +669,7 @@
   "Aggregate"
   {:db/ident :odrl/aggregate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Aggregate@en",
    :skos/definition
@@ -709,7 +709,7 @@
   "Annotate"
   {:db/ident :odrl/annotate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Annotate@en",
    :skos/definition
@@ -721,7 +721,7 @@
   "Anonymize"
   {:db/ident :odrl/anonymize,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Anonymize@en",
    :skos/definition #xsd/langString
@@ -735,7 +735,7 @@
   "Append"
   {:db/ident         :odrl/append,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Append@en",
    :skos/definition  #xsd/langString
@@ -746,7 +746,7 @@
   "Append To"
   {:db/ident :odrl/appendTo,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Append To@en",
    :skos/definition
@@ -758,7 +758,7 @@
   "Archive"
   {:db/ident :odrl/archive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Archive@en",
    :skos/definition #xsd/langString
@@ -859,7 +859,7 @@
   "Attach policy"
   {:db/ident         :odrl/attachPolicy,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Attach policy@en",
    :skos/definition  #xsd/langString
@@ -870,7 +870,7 @@
   "Attach source"
   {:db/ident :odrl/attachSource,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Attach source@en",
    :skos/definition
@@ -882,7 +882,7 @@
   "Attribute"
   {:db/ident :odrl/attribute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Attribute@en",
    :skos/definition #xsd/langString "To attribute the use of the Asset.@en",
@@ -920,7 +920,7 @@
   "Commercialize"
   {:db/ident :odrl/commercialize,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Commercialize@en",
    :skos/definition #xsd/langString
@@ -931,7 +931,7 @@
   "Compensate"
   {:db/ident :odrl/compensate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Compensate@en",
    :skos/definition
@@ -972,7 +972,7 @@
   "Concurrent Use"
   {:db/ident :odrl/concurrentUse,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Concurrent Use@en",
    :skos/definition
@@ -1177,7 +1177,7 @@
   {:db/ident :odrl/copy,
    :owl/deprecated true,
    :owl/sameAs :odrl/reproduce,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Copy@en",
    :skos/definition #xsd/langString
@@ -1252,7 +1252,7 @@
   "Delete"
   {:db/ident :odrl/delete,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Delete@en",
    :skos/definition
@@ -1329,7 +1329,7 @@
   "Derive"
   {:db/ident :odrl/derive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Derive@en",
    :skos/definition
@@ -1352,13 +1352,13 @@
    #xsd/langString
     "An identified device used for exercising the action of the Rule.@en",
    :skos/exactMatch :odrl/systemDevice,
-   :skos/note #xsd/string "See System Device."})
+   :skos/note "See System Device."})
 
 (def digitize
   "Digitize"
   {:db/ident :odrl/digitize,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Digitize@en",
    :skos/definition
@@ -1370,7 +1370,7 @@
   "Display"
   {:db/ident :odrl/display,
    :odrl/includedIn :odrl/play,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Display@en",
    :skos/definition
@@ -1384,7 +1384,7 @@
   "Distribute"
   {:db/ident :odrl/distribute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Distribute@en",
    :skos/definition #xsd/langString "To supply the Asset to third-parties.@en",
@@ -1427,15 +1427,14 @@
    #xsd/langString
     "A continuous elapsed time period which may be used for exercising of the action of the Rule. Right operand value MUST be an xsd:duration as defined by [[xmlschema11-2]].@en",
    :skos/note
-   #xsd/string
-    "Only the eq, lt, lteq operators SHOULD be used. See also Metered Time. <br />Example: <code>elpasedTime eq P60M</code> indicates a total elapsed time of 60 Minutes.",
+   "Only the eq, lt, lteq operators SHOULD be used. See also Metered Time. <br />Example: <code>elpasedTime eq P60M</code> indicates a total elapsed time of 60 Minutes.",
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def ensureExclusivity
   "Ensure Exclusivity"
   {:db/ident :odrl/ensureExclusivity,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Ensure Exclusivity@en",
    :skos/definition #xsd/langString
@@ -1474,7 +1473,7 @@
   "Execute"
   {:db/ident :odrl/execute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Execute@en",
    :skos/definition #xsd/langString "To run the computer program Asset.@en",
@@ -1487,7 +1486,7 @@
   "Export"
   {:db/ident         :odrl/export,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Export@en",
    :skos/definition  #xsd/langString
@@ -1498,7 +1497,7 @@
   "Extract"
   {:db/ident :odrl/extract,
    :odrl/includedIn :odrl/reproduce,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Extract@en",
    :skos/definition
@@ -1513,7 +1512,7 @@
   "Extract character"
   {:db/ident :odrl/extractChar,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Extract character@en",
    :skos/definition
@@ -1527,7 +1526,7 @@
   "Extract page"
   {:db/ident :odrl/extractPage,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Extract page@en",
    :skos/definition
@@ -1541,7 +1540,7 @@
   "Extract word"
   {:db/ident :odrl/extractWord,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Extract word@en",
    :skos/definition
@@ -1596,7 +1595,7 @@
   "Give"
   {:db/ident :odrl/give,
    :odrl/includedIn :odrl/transfer,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Give@en",
    :skos/definition
@@ -1608,7 +1607,7 @@
   "Grant Use"
   {:db/ident :odrl/grantUse,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Grant Use@en",
    :skos/definition #xsd/langString
@@ -1696,7 +1695,7 @@
   "Include"
   {:db/ident :odrl/include,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Include@en",
    :skos/definition #xsd/langString
@@ -1726,7 +1725,7 @@
   "Index"
   {:db/ident :odrl/index,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Index@en",
    :skos/definition #xsd/langString "To record the Asset in an index.@en",
@@ -1752,7 +1751,7 @@
   "Inform"
   {:db/ident :odrl/inform,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Inform@en",
    :skos/definition
@@ -1829,7 +1828,7 @@
   "Install"
   {:db/ident :odrl/install,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Install@en",
    :skos/definition
@@ -1917,7 +1916,7 @@
   "Lease"
   {:db/ident :odrl/lease,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Lease@en",
    :skos/definition
@@ -1939,7 +1938,7 @@
   "Lend"
   {:db/ident :odrl/lend,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Lend@en",
    :skos/definition
@@ -1950,7 +1949,7 @@
   "License"
   {:db/ident :odrl/license,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "License@en",
    :skos/definition
@@ -2012,15 +2011,14 @@
    #xsd/langString
     "An accumulated amount of one to many metered time periods which were used for exercising the action of the Rule. Right operand value MUST be an xsd:duration as defined by [[xmlschema11-2]].@en",
    :skos/note
-   #xsd/string
-    "Only the eq, lt, lteq operators SHOULD be used. See also Elapsed Time. <br />Example: <code>meteredTime lteq P60M</code> indicates an accumulated period of 60 Minutes or less.",
+   "Only the eq, lt, lteq operators SHOULD be used. See also Elapsed Time. <br />Example: <code>meteredTime lteq P60M</code> indicates an accumulated period of 60 Minutes or less.",
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def modify
   "Modify"
   {:db/ident :odrl/modify,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Modify@en",
    :skos/definition
@@ -2035,7 +2033,7 @@
   "Move"
   {:db/ident :odrl/move,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Move@en",
    :skos/definition
@@ -2060,7 +2058,7 @@
   "Next Policy"
   {:db/ident :odrl/nextPolicy,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Next Policy@en",
    :skos/definition
@@ -2086,7 +2084,7 @@
   "Obtain Consent"
   {:db/ident :odrl/obtainConsent,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Obtain Consent@en",
    :skos/definition
@@ -2207,7 +2205,7 @@
   "Pay"
   {:db/ident :odrl/pay,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Pay@en",
    :skos/definition
@@ -2292,15 +2290,14 @@
   "Play"
   {:db/ident :odrl/play,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Play@en",
    :skos/definition
    #xsd/langString
     "To create a sequential and transient rendition of an Asset.@en",
    :skos/note
-   #xsd/string
-    "For example, to play a video or audio track. If the action is to be performed to a wider audience than just the Assignees, then the Recipient constraint is recommended to be used.",
+   "For example, to play a video or audio track. If the action is to be performed to a wider audience than just the Assignees, then the Recipient constraint is recommended to be used.",
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def policyConcepts
@@ -2346,19 +2343,18 @@
   "Present"
   {:db/ident         :odrl/present,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Present@en",
    :skos/definition  #xsd/langString "To publicly perform the Asset.@en",
-   :skos/note        #xsd/string
-                      "The asset can be performed (or communicated) in public.",
+   :skos/note        "The asset can be performed (or communicated) in public.",
    :skos/scopeNote   #xsd/langString "Non-Normative@en"})
 
 (def preview
   "Preview"
   {:db/ident         :odrl/preview,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Preview@en",
    :skos/definition  #xsd/langString
@@ -2370,7 +2366,7 @@
   "Print"
   {:db/ident :odrl/print,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Print@en",
    :skos/definition
@@ -2472,7 +2468,7 @@
   "Read"
   {:db/ident :odrl/read,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Read@en",
    :skos/definition #xsd/langString "To obtain data from the Asset.@en",
@@ -2609,7 +2605,7 @@
   "Reproduce"
   {:db/ident :odrl/reproduce,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Reproduce@en",
    :skos/definition
@@ -2636,7 +2632,7 @@
   "Review Policy"
   {:db/ident :odrl/reviewPolicy,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Review Policy@en",
    :skos/definition #xsd/langString
@@ -2701,7 +2697,7 @@
   "Secondary Use"
   {:db/ident :odrl/secondaryUse,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Secondary Use@en",
    :skos/definition
@@ -2712,7 +2708,7 @@
   "Sell"
   {:db/ident :odrl/sell,
    :odrl/includedIn :odrl/transfer,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Sell@en",
    :skos/definition
@@ -2724,7 +2720,7 @@
   "Share"
   {:db/ident :odrl/share,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Share@en",
    :skos/definition
@@ -2736,7 +2732,7 @@
   "Share-alike"
   {:db/ident :odrl/shareAlike,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Share-alike@en",
    :skos/definition
@@ -2803,13 +2799,12 @@
   "Stream"
   {:db/ident :odrl/stream,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Stream@en",
    :skos/definition #xsd/langString "To deliver the Asset in real-time.@en",
    :skos/note
-   #xsd/string
-    "The Asset maybe utilised in real-time as it is being delivered. If the action is to be performed to a wider audience than just the Assignees, then the Recipient constraint is recommended to be used.",
+   "The Asset maybe utilised in real-time as it is being delivered. If the action is to be performed to a wider audience than just the Assignees, then the Recipient constraint is recommended to be used.",
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def support
@@ -2830,7 +2825,7 @@
   "Synchronize"
   {:db/ident :odrl/synchronize,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Synchronize@en",
    :skos/definition
@@ -2850,7 +2845,7 @@
    #xsd/langString
     "An identified computing system used for exercising the action of the Rule.@en",
    :skos/exactMatch :odrl/systemDevice,
-   :skos/note #xsd/string "See System Device"})
+   :skos/note "See System Device"})
 
 (def systemDevice
   "System Device"
@@ -2886,13 +2881,12 @@
   "Text-to-speech"
   {:db/ident :odrl/textToSpeech,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Text-to-speech@en",
    :skos/definition #xsd/langString "To have a text Asset read out loud.@en",
    :skos/note
-   #xsd/string
-    "If the action is to be performed to a wider audience than just the Assignees, then the recipient constraint is recommended to be used.",
+   "If the action is to be performed to a wider audience than just the Assignees, then the recipient constraint is recommended to be used.",
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def timeInterval
@@ -2906,8 +2900,7 @@
    #xsd/langString
     "A recurring period of time before the next execution of the action of the Rule. Right operand value MUST be an xsd:duration as defined by [[xmlschema11-2]].@en",
    :skos/note
-   #xsd/string
-    "Only the eq operator SHOULD be used. <br />Example: <code>timeInterval eq P7D</code> indicates a recurring 7 day period.",
+   "Only the eq operator SHOULD be used. <br />Example: <code>timeInterval eq P7D</code> indicates a recurring 7 day period.",
    :skos/scopeNote #xsd/langString "Non-Normative@en"})
 
 (def timedCount
@@ -2953,7 +2946,7 @@
 (def transfer
   "Transfer Ownership"
   {:db/ident :odrl/transfer,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Transfer Ownership@en",
    :skos/definition
@@ -2963,7 +2956,7 @@
   "Transform"
   {:db/ident :odrl/transform,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Transform@en",
    :skos/definition #xsd/langString
@@ -2977,7 +2970,7 @@
   "Translate"
   {:db/ident :odrl/translate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Translate@en",
    :skos/definition
@@ -3023,7 +3016,7 @@
   "Uninstall"
   {:db/ident :odrl/uninstall,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Uninstall@en",
    :skos/definition
@@ -3063,7 +3056,7 @@
 (def use
   "Use"
   {:db/ident :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label #xsd/langString "Use@en",
    :skos/definition #xsd/langString "To use the Asset@en",
@@ -3102,7 +3095,7 @@
   "Watermark"
   {:db/ident         :odrl/watermark,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Watermark@en",
    :skos/definition  #xsd/langString "To apply a watermark to the Asset.@en",
@@ -3112,7 +3105,7 @@
   "Write"
   {:db/ident         :odrl/write,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Write@en",
    :skos/definition  #xsd/langString "The act of writing to the Asset.@en",
@@ -3122,7 +3115,7 @@
   "Write to"
   {:db/ident         :odrl/writeTo,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/odrl/2/"},
    :rdfs/label       #xsd/langString "Write to@en",
    :skos/definition  #xsd/langString "The act of adding data to the Asset.@en",

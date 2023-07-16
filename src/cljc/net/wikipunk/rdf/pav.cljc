@@ -28,9 +28,9 @@
    :rdfs/seeAlso [:pav/createdBy :pav/authoredOn],
    :rdfs/subPropertyOf [:pav/contributedBy
                         :dcterms/creator
-                        :prov/wasAttributedTo
                         :dcterms/contributor
-                        :prov/wasInfluencedBy]})
+                        :prov/wasInfluencedBy
+                        :prov/wasAttributedTo]})
 
 (def authoredOn
   "The date this resource was authored.\n\npav:authoredBy gives the authoring agent.\n\nNote that pav:authoredOn is different from pav:createdOn, although they are often the same. See pav:createdBy for a discussion.\n\nThis property is normally used in a functional way, indicating the last time of authoring, although PAV does not formally restrict this.\n\nThe value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -134,9 +134,9 @@
    :rdfs/label #xsd/langString "Curated by@en",
    :rdfs/seeAlso [:pav/curatedOn :pav/createdBy],
    :rdfs/subPropertyOf [:pav/contributedBy
-                        :prov/wasAttributedTo
                         :dcterms/contributor
-                        :prov/wasInfluencedBy]})
+                        :prov/wasInfluencedBy
+                        :prov/wasAttributedTo]})
 
 (def curatedOn
   "The date this resource was curated.\n\npav:curatedBy gives the agent(s) that performed the curation.\n\nThis property is normally used in a functional way, indicating the last curation date, although PAV does not formally restrict this.\n\nThe value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -184,7 +184,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/pav/"},
    :rdfs/label #xsd/langString "Has current version@en",
    :rdfs/subPropertyOf
-   [:pav/hasVersion :prov/generalizationOf :dcterms/hasVersion]})
+   [:pav/hasVersion :dcterms/hasVersion :prov/generalizationOf]})
 
 (def hasEarlierVersion
   "This versioned resource has an earlier version.\n\nAny earlier version of this resource can be indicated with pav:hasEarlierVersion, e.g.:\n\n<http://example.com/v4> pav:hasEarlierVersion <http://example.com/v2> ;\n    pav:hasEarlierVersion <http://example.com/v1> .\n\n\nThe subproperty pav:previousVersion SHOULD be used if the earlier version is the direct ancestor of this version.\n\n<http://example.com/v4> pav:previousVersion <http://example.com/v3> .\n\n\nThis property is transitive, so it should not be necessary to repeat the earlier versions of an earlier version. A chain of previous versions can be declared using the subproperty pav:previousVersion, implying that the previous previous version is also an earlier version. It might however still be useful to declare an earlier version explicitly, for instance because it is an earlier version of high relevance or because the complete chain of pav:previousVersion is not available.\n\n\nTo indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion."
@@ -192,8 +192,7 @@
    :rdf/type
    [:owl/TransitiveProperty :owl/AsymmetricProperty :owl/ObjectProperty],
    :rdfs/comment
-   #xsd/string
-    "This versioned resource has an earlier version.\n\nAny earlier version of this resource can be indicated with pav:hasEarlierVersion, e.g.:\n\n<http://example.com/v4> pav:hasEarlierVersion <http://example.com/v2> ;\n    pav:hasEarlierVersion <http://example.com/v1> .\n\n\nThe subproperty pav:previousVersion SHOULD be used if the earlier version is the direct ancestor of this version.\n\n<http://example.com/v4> pav:previousVersion <http://example.com/v3> .\n\n\nThis property is transitive, so it should not be necessary to repeat the earlier versions of an earlier version. A chain of previous versions can be declared using the subproperty pav:previousVersion, implying that the previous previous version is also an earlier version. It might however still be useful to declare an earlier version explicitly, for instance because it is an earlier version of high relevance or because the complete chain of pav:previousVersion is not available.\n\n\nTo indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion.",
+   "This versioned resource has an earlier version.\n\nAny earlier version of this resource can be indicated with pav:hasEarlierVersion, e.g.:\n\n<http://example.com/v4> pav:hasEarlierVersion <http://example.com/v2> ;\n    pav:hasEarlierVersion <http://example.com/v1> .\n\n\nThe subproperty pav:previousVersion SHOULD be used if the earlier version is the direct ancestor of this version.\n\n<http://example.com/v4> pav:previousVersion <http://example.com/v3> .\n\n\nThis property is transitive, so it should not be necessary to repeat the earlier versions of an earlier version. A chain of previous versions can be declared using the subproperty pav:previousVersion, implying that the previous previous version is also an earlier version. It might however still be useful to declare an earlier version explicitly, for instance because it is an earlier version of high relevance or because the complete chain of pav:previousVersion is not available.\n\n\nTo indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/pav/"},
    :rdfs/label #xsd/langString "Has earlier version@en",
    :rdfs/subPropertyOf :prov/alternateOf})
@@ -290,9 +289,9 @@
    :rdfs/seeAlso [:pav/derivedFrom :pav/version :pav/hasVersion],
    :rdfs/subPropertyOf [:pav/hasEarlierVersion
                         :prov/wasRevisionOf
+                        :prov/wasInfluencedBy
                         :prov/wasDerivedFrom
-                        :prov/alternateOf
-                        :prov/wasInfluencedBy]})
+                        :prov/alternateOf]})
 
 (def providedBy
   "The original provider of the encoded information (e.g. PubMed, UniProt, Science Commons).\n\nThe provider might not coincide with the dct:publisher, which would describe the current publisher of the resource. For instance if the resource was retrieved, imported or derived from a source, that source was published by the original provider. pav:providedBy provides a shortcut to indicate that original provider on the new resource.  "
@@ -403,8 +402,7 @@
    :owl/equivalentProperty :pav1/versionNumber,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "The version number of a resource. This is a freetext string, typical values are \"1.5\" or \"21\". The URI identifying the previous version can be provided using prov:previousVersion.\n\nThis property is normally used in a functional way, although PAV does not formally restrict this.",
+   "The version number of a resource. This is a freetext string, typical values are \"1.5\" or \"21\". The URI identifying the previous version can be provided using prov:previousVersion.\n\nThis property is normally used in a functional way, although PAV does not formally restrict this.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/pav/"},
    :rdfs/label #xsd/langString "Version@en",
    :rdfs/range :xsd/string,

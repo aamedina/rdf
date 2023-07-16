@@ -800,6 +800,10 @@
   [^Node_Literal node]
   {:rdfa/uri (.getLiteralValue node)})
 
+(defmethod rdf-literal :xsd/string
+  [^Node_Literal node]
+  (.getLiteralValue node))
+
 (defmethod rdf-literal :default
   [^Node_Literal node]
   (let [uri (.getLiteralDatatypeURI node)]
@@ -909,42 +913,6 @@
                                          (group-by #(.getPredicate ^Triple %) triples))))))))))
 
 (def mem-parse (memo/memo parse))
-
-(defn bnode?
-  "Checks if a value is a blank node."
-  [val]
-  (and (map? val) (:db/id val)))
-
-(defn get-definition
-  "Retrieves the definition of a blank node from the graph."
-  [graph bnode-id]
-  (some #(= (:db/id %) bnode-id) graph))
-
-(defn replace-bnode
-  "Replaces a blank node with its definition, if it exists."
-  [graph node]
-  (if (bnode? node)
-    (or (get-definition graph (:db/id node)) node)
-    node))
-
-(defn replace-bnodes-in-val
-  "Replaces all blank nodes in a value with their definitions."
-  [graph val]
-  (cond
-    (vector? val) (mapv #(replace-bnodes-in-val graph %) val)
-    (bnode? val)  (replace-bnode graph val)
-    :else         val))
-
-(defn replace-bnodes
-  "Replaces all blank nodes recursively with their definitions."
-  [graph]
-  (let [bnode-definitions (into {} (map (juxt :db/id identity) graph))]
-    (walk/postwalk
-      (fn [node]
-        (if (and (map? node) (:db/id node))
-          (get bnode-definitions (:db/id node) node)
-          node))
-      graph)))
 
 (defn walk-blanks
   "Replaces blank nodes with their values."

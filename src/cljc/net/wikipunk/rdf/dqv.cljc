@@ -1,15 +1,15 @@
 (ns net.wikipunk.rdf.dqv
   "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."
   {:dcat/downloadURL "https://www.w3.org/ns/dqv.ttl",
-   :dcterms/contributor [{:foaf/name #xsd/string "Amrapali Zaveri"}
-                         {:foaf/name #xsd/string "Jeremy Debattista"}
-                         {:foaf/name #xsd/string "Nandana Mihindukulasooriya"}
-                         {:foaf/name #xsd/string "Deirdre Lee"}
-                         {:foaf/name #xsd/string "Makx Dekkers"}
-                         {:foaf/name #xsd/string "Christophe Guéret"}],
+   :dcterms/contributor [{:foaf/name "Christophe Guéret"}
+                         {:foaf/name "Jeremy Debattista"}
+                         {:foaf/name "Amrapali Zaveri"}
+                         {:foaf/name "Deirdre Lee"}
+                         {:foaf/name "Nandana Mihindukulasooriya"}
+                         {:foaf/name "Makx Dekkers"}],
    :dcterms/created #xsd/date #inst "2015-12-17T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name #xsd/string "Riccardo Albertoni"}
-                     {:foaf/name #xsd/string "Antoine Isaac"}],
+   :dcterms/creator [{:foaf/name "Riccardo Albertoni"}
+                     {:foaf/name "Antoine Isaac"}],
    :dcterms/description
    #xsd/langString
     "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers.@en",
@@ -37,8 +37,8 @@
    :rdfa/prefix "dqv",
    :rdfa/uri "http://www.w3.org/ns/dqv",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/vocab-dqv/"},
-   :vann/preferredNamespacePrefix #xsd/string "dqv",
-   :vann/preferredNamespaceUri #xsd/string "http://www.w3.org/ns/dqv#"})
+   :vann/preferredNamespacePrefix "dqv",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/dqv#"})
 
 (def Category
   "Represents a group of quality dimensions in which a common type of information is used as quality indicator."

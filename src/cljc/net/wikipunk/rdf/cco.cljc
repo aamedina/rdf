@@ -2,15 +2,15 @@
   "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins"
   {:dc11/creator
    [{:rdfa/uri "http://tobyinkster.co.uk/#i"}
-    #xsd/string "Yan Wang"
+    "Yan Wang"
     {:rdfa/uri "http://foaf.me/zazi#me"}
     {:rdfa/uri "http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf#me"}
     {:rdfa/uri "http://sw.deri.org/~sheila/foaf.rdf#me"}
     {:rdfa/uri "http://www.johnbreslin.com/foaf/foaf.rdf#me"}
     {:rdfa/uri "http://danbri.org/foaf.rdf#danbri"}
-    #xsd/string "Danica Damljanovic"
-    #xsd/string "Yi Zeng"
-    #xsd/string "Zhisheng Huang"],
+    "Danica Damljanovic"
+    "Yi Zeng"
+    "Zhisheng Huang"],
    :dc11/date #xsd/dateTime #inst "2010-09-26T11:16:52.000+00:00",
    :dc11/description
    #xsd/langString
@@ -46,8 +46,8 @@
    :rdf/type :owl/Ontology,
    :rdfa/prefix "cco",
    :rdfa/uri "http://purl.org/ontology/cco/core#",
-   :vann/preferredNamespacePrefix #xsd/string "cco",
-   :vann/preferredNamespaceUri #xsd/string "http://purl.org/ontology/cco/core#"}
+   :vann/preferredNamespacePrefix "cco",
+   :vann/preferredNamespaceUri "http://purl.org/ontology/cco/core#"}
   (:refer-clojure :exclude [agent]))
 
 (def CharacteristicDynamics

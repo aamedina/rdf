@@ -102,6 +102,24 @@
    :rdfa/prefix "dpvo-risk",
    :rdf/type    :rdfa/PrefixMapping})
 
+(def dpvo-legal
+  {:dcat/downloadURL "resources/dpv-owl/dpv-legal/dpv-legal.ttl"
+   :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-legal#"
+   :rdfa/prefix "dpvo-legal",
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def dpvo-tech
+  {:dcat/downloadURL "resources/dpv-owl/dpv-tech/dpv-tech.ttl"
+   :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-tech#"
+   :rdfa/prefix "dpvo-tech",
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def dpvo-rights-eu
+  {:dcat/downloadURL "resources/dpv-owl/rights/eu/rights-eu.ttl"
+   :rdfa/uri    "https://w3id.org/dpv/dpv-owl/rights/eu#"
+   :rdfa/prefix "dpvo-rights-eu",
+   :rdf/type    :rdfa/PrefixMapping})
+
 (def doap
   "Description of a Project"
   {:dcat/downloadURL "https://raw.githubusercontent.com/ewilderj/doap/master/schema/doap.rdf"
@@ -353,7 +371,8 @@
 (def afn
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://jena.hpl.hp.com/ARQ/function#"
-   :rdfa/prefix "afn"})
+   :rdfa/prefix "afn"
+   :emit false})
 
 (def ogc
   {:dcat/downloadURL "https://raw.githubusercontent.com/facebookarchive/open-graph-protocol/master/ns/ogp.me.rdf"
@@ -398,7 +417,8 @@
   formats
   {:rdfa/prefix "formats"
    :rdfa/uri    "http://www.w3.org/ns/formats/"
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def rel
   {:dcat/downloadURL "https://vocab.org/relationship/rel-vocab-20100607.rdf"
@@ -465,7 +485,8 @@
                        "skos"     "http://www.w3.org/2004/02/skos/core#",
                        "wd"       "http://www.wikidata.org/entity/",
                        "wikibase" "http://wikiba.se/ontology#",
-                       "xsd"      "http://www.w3.org/2001/XMLSchema#"}})
+                       "xsd"      "http://www.w3.org/2001/XMLSchema#"}
+   :emit false})
 
 (def wikibase
   {:rdf/type          :rdfa/PrefixMapping
@@ -514,7 +535,8 @@
 (def isocat
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.isocat.org/ns/dcr.rdf#"
-   :rdfa/prefix "isocat"})
+   :rdfa/prefix "isocat"
+   :emit false})
 
 #_(def hydra
   {:rdf/type         :rdfa/PrefixMapping
@@ -559,73 +581,85 @@
 (def db
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/prefix "db"
-   :rdfa/uri    "https://wikipunk.net/db/"})
+   :rdfa/uri    "https://wikipunk.net/db/"
+   :emit false})
 
 (def db.alter
   "alter"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.alter",
-   :rdfa/uri    "https://wikipunk.net/db/alter/"})
+   :rdfa/uri    "https://wikipunk.net/db/alter/"
+   :emit false})
 
 (def db.attr
   "attr"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.attr",
-   :rdfa/uri    "https://wikipunk.net/db/attr/"})
+   :rdfa/uri    "https://wikipunk.net/db/attr/"
+   :emit false})
 
 (def db.bootstrap
   "bootstrap"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.bootstrap",
-   :rdfa/uri    "https://wikipunk.net/db/bootstrap/"})
+   :rdfa/uri    "https://wikipunk.net/db/bootstrap/"
+   :emit false})
 
 (def db.cardinality
   "cardinality"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.cardinality",
-   :rdfa/uri    "https://wikipunk.net/db/cardinality/"})
+   :rdfa/uri    "https://wikipunk.net/db/cardinality/"
+   :emit false})
 
 (def db.entity
   "entity"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.entity",
-   :rdfa/uri    "https://wikipunk.net/db/entity/"})
+   :rdfa/uri    "https://wikipunk.net/db/entity/"
+   :emit false})
 
 (def db.excise
   "excise"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.excise",
-   :rdfa/uri    "https://wikipunk.net/db/excise/"})
+   :rdfa/uri    "https://wikipunk.net/db/excise/"
+   :emit false})
 
 (def db.install
   "install"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.install",
-   :rdfa/uri    "https://wikipunk.net/db/install/"})
+   :rdfa/uri    "https://wikipunk.net/db/install/"
+   :emit false})
 
 (def db.part
   "part"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.part",
-   :rdfa/uri    "https://wikipunk.net/db/part/"})
+   :rdfa/uri    "https://wikipunk.net/db/part/"
+   :emit false})
 
 (def db.type
   "type"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.type",
-   :rdfa/uri    "https://wikipunk.net/db/type/"})
+   :rdfa/uri    "https://wikipunk.net/db/type/"
+   :emit false})
 
 (def db.unique
   "unique"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "db.unique",
-   :rdfa/uri    "https://wikipunk.net/db/unique/"})
+   :rdfa/uri    "https://wikipunk.net/db/unique/"
+   :emit false})
 
 (def fressian
   "fressian"
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "fressian",
-   :rdfa/uri    "https://wikipunk.net/fressian/"})
+   :rdfa/uri    "https://wikipunk.net/fressian/"
+   :emit false})
 
 (def mo
   "Music Ontology"

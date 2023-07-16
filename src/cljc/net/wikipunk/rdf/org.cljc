@@ -1,23 +1,23 @@
 (ns net.wikipunk.rdf.org
-  {:dcterms/contributor [{:foaf/mbox #xsd/string "ogiraldo@fi.upm.es",
-                          :foaf/name #xsd/string "Olga Ximena Giraldo"}
-                         {:foaf/mbox #xsd/string "mpoveda@fi.upm.es",
-                          :foaf/name #xsd/string "María Poveda Villalón"}
-                         {:foaf/mbox #xsd/string "lupe@fi.upm.es",
-                          :foaf/name #xsd/string "Guadalupe Aguado de Cea"}
-                         {:foaf/mbox #xsd/string "giorgia.lodi@agid.gov.it",
-                          :foaf/name #xsd/string "Giorgia Lodi"}
+  {:dcterms/contributor [{:foaf/mbox "emontiel@fi.upm.es",
+                          :foaf/name "Elena Montiel Ponsoda"}
+                         {:foaf/mbox "dave@epimorphics.com",
+                          :foaf/name "Dave Reynolds"}
+                         {:foaf/mbox "mpoveda@fi.upm.es",
+                          :foaf/name "María Poveda Villalón"}
+                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
+                          :foaf/name "Antonio Maccioni"}
                          {:foaf/homepage
                           {:rdfa/uri "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
-                          :foaf/name #xsd/string "Shuji Kamitsuna"}
-                         {:foaf/mbox #xsd/string "dave@epimorphics.com",
-                          :foaf/name #xsd/string "Dave Reynolds"}
-                         {:foaf/mbox #xsd/string "emontiel@fi.upm.es",
-                          :foaf/name #xsd/string "Elena Montiel Ponsoda"}
-                         {:foaf/mbox #xsd/string "antonio.maccioni@agid.gov.it",
-                          :foaf/name #xsd/string "Antonio Maccioni"}
-                         {:foaf/mbox #xsd/string "dguardiola@quinode.fr",
-                          :foaf/name #xsd/string "Dominique Guardiola"}],
+                          :foaf/name "Shuji Kamitsuna"}
+                         {:foaf/mbox "lupe@fi.upm.es",
+                          :foaf/name "Guadalupe Aguado de Cea"}
+                         {:foaf/mbox "ogiraldo@fi.upm.es",
+                          :foaf/name "Olga Ximena Giraldo"}
+                         {:foaf/mbox "dguardiola@quinode.fr",
+                          :foaf/name "Dominique Guardiola"}
+                         {:foaf/mbox "giorgia.lodi@agid.gov.it",
+                          :foaf/name "Giorgia Lodi"}],
    :dcterms/created #xsd/date #inst "2010-05-28T00:00:00.000-04:00",
    :dcterms/license {:rdfa/uri
                      "http://www.opendatacommons.org/licenses/pddl/1.0/"},
@@ -35,7 +35,7 @@
                    #xsd/langString "Ontología de organizaciones@es"
                    #xsd/langString "Ontologia delle organizzazioni@it"
                    #xsd/langString "Ontologie des organisations@fr"],
-   :owl/versionInfo #xsd/string "0.8",
+   :owl/versionInfo "0.8",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "foaf"    "http://xmlns.com/foaf/0.1/",
                        "gr"      "http://purl.org/goodrelations/v1#",

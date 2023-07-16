@@ -12,7 +12,7 @@
    [{:rdfa/uri
      "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"}
     {:rdfa/uri "http://www.opengeospatial.org/ogc/Software"}],
-   :dcterms/rights #xsd/string "Copyright 2017 W3C/OGC.",
+   :dcterms/rights "Copyright 2017 W3C/OGC.",
    :dcterms/title #xsd/langString "Semantic Sensor Network Ontology@en",
    :owl/imports {:rdfa/uri "http://www.w3.org/ns/sosa/"},
    :owl/versionInfo
@@ -41,8 +41,8 @@
    :rdfs/seeAlso
    {:rdfa/uri
     "https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology"},
-   :vann/preferredNamespacePrefix #xsd/string "ssn",
-   :vann/preferredNamespaceUri #xsd/string "http://www.w3.org/ns/ssn/"})
+   :vann/preferredNamespacePrefix "ssn",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/ssn/"})
 
 (def Deployment
   "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."
@@ -153,19 +153,19 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ssn/"},
    :rdfs/label #xsd/langString "System@en",
    :rdfs/subClassOf [{:owl/allValuesFrom :ssn/System,
+                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :ssn/System,
                       :owl/onProperty    :ssn/hasSubSystem,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/Deployment,
                       :owl/onProperty    :ssn/hasDeployment,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :sosa/Platform,
-                      :owl/onProperty    :sosa/isHostedBy,
-                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :sosa/Procedure,
                       :owl/onProperty    :ssn/implements,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :ssn/System,
-                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+                     {:owl/allValuesFrom :sosa/Platform,
+                      :owl/onProperty    :sosa/isHostedBy,
                       :rdf/type          :owl/Restriction}],
    :skos/definition
    #xsd/langString

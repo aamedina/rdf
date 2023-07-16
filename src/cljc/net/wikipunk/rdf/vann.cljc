@@ -1,14 +1,13 @@
 (ns net.wikipunk.rdf.vann
   "This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage notes."
   {:dc11/creator {:rdfa/uri "http://iandavis.com/id/me"},
-   :dc11/date #xsd/string "2010-06-07",
+   :dc11/date "2010-06-07",
    :dc11/description
    #xsd/langString
     "This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage notes.@en",
-   :dc11/identifier #xsd/string
-                     "http://purl.org/vocab/vann/vann-vocab-20050401",
+   :dc11/identifier "http://purl.org/vocab/vann/vann-vocab-20050401",
    :dc11/replaces :vann/vann-vocab-20040305,
-   :dc11/rights #xsd/string "Copyright © 2005 Ian Davis",
+   :dc11/rights "Copyright © 2005 Ian Davis",
    :dc11/title #xsd/langString
                 "VANN: A vocabulary for annotating vocabulary descriptions@en",
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf",
@@ -24,8 +23,8 @@
    :rdf/type :owl/Ontology,
    :rdfa/prefix "vann",
    :rdfa/uri "http://purl.org/vocab/vann/",
-   :vann/preferredNamespacePrefix #xsd/string "vann",
-   :vann/preferredNamespaceUri #xsd/string "http://purl.org/vocab/vann/"})
+   :vann/preferredNamespacePrefix "vann",
+   :vann/preferredNamespaceUri "http://purl.org/vocab/vann/"})
 
 (def changes
   "A reference to a resource that describes changes between this version of a vocabulary and the previous."

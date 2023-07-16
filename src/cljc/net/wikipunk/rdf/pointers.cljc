@@ -28,8 +28,8 @@
    :rdfs/label #xsd/langString "Byte Offset Pointer@en",
    :rdfs/subClassOf [:pointers/OffsetPointer
                      :pointers/Pointer
-                     :pointers/SinglePointer
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :pointers/SinglePointer]})
 
 (def ByteSnippetCompoundPointer
   "Pointer to a range with a defined start and a byte snippet from there."
@@ -50,8 +50,8 @@
    :rdfs/label      #xsd/langString "CSS selector Pointer@en",
    :rdfs/subClassOf [:pointers/ExpressionPointer
                      :pointers/Pointer
-                     :pointers/SinglePointer
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :pointers/SinglePointer]})
 
 (def CharOffsetCompoundPointer
   "Pointer to a char range with a defined start and a char offset from there."
@@ -74,8 +74,8 @@
    :rdfs/label #xsd/langString "Char Offset Pointer@en",
    :rdfs/subClassOf [:pointers/OffsetPointer
                      :pointers/Pointer
-                     :pointers/SinglePointer
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :pointers/SinglePointer]})
 
 (def CharSnippetCompoundPointer
   "Pointer to a range with a defined start and a character snippet from there."
@@ -202,8 +202,8 @@
    :rdfs/label      #xsd/langString "XPath Pointer@en",
    :rdfs/subClassOf [:pointers/ExpressionPointer
                      :pointers/Pointer
-                     :pointers/SinglePointer
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :pointers/SinglePointer]})
 
 (def XPointerPointer
   "Single pointer using an XPointer expression."
@@ -214,17 +214,17 @@
    :rdfs/label      #xsd/langString "XPointer Pointer@en",
    :rdfs/subClassOf [:pointers/XPathPointer
                      :pointers/Pointer
-                     :pointers/SinglePointer
+                     :pointers/ExpressionPointer
                      :rdfs/Resource
-                     :pointers/ExpressionPointer]})
+                     :pointers/SinglePointer]})
 
 (def byteOffset
   "Number of bytes counting from the start point."
   {:db/ident     :pointers/byteOffset,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string "Number of bytes counting from the start point.",
+   :rdfs/comment "Number of bytes counting from the start point.",
    :rdfs/domain  :pointers/ByteOffsetCompoundPointer,
-   :rdfs/label   #xsd/string "byte offset",
+   :rdfs/label   "byte offset",
    :rdfs/range   :xsd/positiveInteger})
 
 (def charNumber

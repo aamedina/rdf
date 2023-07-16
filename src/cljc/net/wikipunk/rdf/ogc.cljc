@@ -42,11 +42,11 @@
 (def determiner_str
   "The lexical space: \"\", \"the\", \"a\", \"an\", and \"auto\"."
   {:db/ident :ogc/determiner_str,
-   :owl/oneOf [#xsd/string ""
-               #xsd/string "the"
-               #xsd/string "a"
-               #xsd/string "an"
-               #xsd/string "auto"],
+   :owl/oneOf [{:xsd/string ""}
+               {:xsd/string "the"}
+               {:xsd/string "a"}
+               {:xsd/string "an"}
+               {:xsd/string "auto"}],
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
    #xsd/langString

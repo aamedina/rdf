@@ -19,28 +19,28 @@
 
 (def AFlatMajor
   {:db/ident       :keys/AFlatMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/AFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/A-flat_major"},
    :rdf/type       :keys/Key})
 
 (def AFlatMinor
   {:db/ident       :keys/AFlatMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/AFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/A-flat_minor"},
    :rdf/type       :keys/Key})
 
 (def AMajor
   {:db/ident       :keys/AMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/A,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/A_major"},
    :rdf/type       :keys/Key})
 
 (def AMinor
   {:db/ident       :keys/AMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/A,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/A_minor"},
    :rdf/type       :keys/Key})
@@ -51,7 +51,7 @@
 
 (def ASharpMinor
   {:db/ident       :keys/ASharpMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/ASharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/A-sharp_minor"},
    :rdf/type       :keys/Key})
@@ -66,28 +66,28 @@
 
 (def BFlatMajor
   {:db/ident       :keys/BFlatMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/BFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/B-flat_major"},
    :rdf/type       :keys/Key})
 
 (def BFlatMinor
   {:db/ident       :keys/BFlatMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/BFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/B-flat_minor"},
    :rdf/type       :keys/Key})
 
 (def BMajor
   {:db/ident       :keys/BMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/B,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/B_major"},
    :rdf/type       :keys/Key})
 
 (def BMinor
   {:db/ident       :keys/BMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/B,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/B_minor"},
    :rdf/type       :keys/Key})
@@ -102,21 +102,21 @@
 
 (def CFlatMajor
   {:db/ident       :keys/CFlatMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/CFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/C-flat_major"},
    :rdf/type       :keys/Key})
 
 (def CMajor
   {:db/ident       :keys/CMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/C,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/C_major"},
    :rdf/type       :keys/Key})
 
 (def CMinor
   {:db/ident       :keys/CMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/C,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/C_minor"},
    :rdf/type       :keys/Key})
@@ -127,14 +127,14 @@
 
 (def CSharpMajor
   {:db/ident       :keys/CSharpMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/CSharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/C-sharp_major"},
    :rdf/type       :keys/Key})
 
 (def CSharpMinor
   {:db/ident       :keys/CSharpMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/CSharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/C-sharp_minor"},
    :rdf/type       :keys/Key})
@@ -149,21 +149,21 @@
 
 (def DFlatMajor
   {:db/ident       :keys/DFlatMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/DFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/D-flat_major"},
    :rdf/type       :keys/Key})
 
 (def DMajor
   {:db/ident       :keys/DMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/D,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/D_major"},
    :rdf/type       :keys/Key})
 
 (def DMinor
   {:db/ident       :keys/DMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/D,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/D_minor"},
    :rdf/type       :keys/Key})
@@ -174,7 +174,7 @@
 
 (def DSharpMinor
   {:db/ident       :keys/DSharpMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/DSharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/D-sharp_minor"},
    :rdf/type       :keys/Key})
@@ -189,28 +189,28 @@
 
 (def EFlatMajor
   {:db/ident       :keys/EFlatMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/EFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/E-flat_major"},
    :rdf/type       :keys/Key})
 
 (def EFlatMinor
   {:db/ident       :keys/EFlatMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/EFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/E-flat_minor"},
    :rdf/type       :keys/Key})
 
 (def EMajor
   {:db/ident       :keys/EMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/E,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/E_major"},
    :rdf/type       :keys/Key})
 
 (def EMinor
   {:db/ident       :keys/EMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/E,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/E_minor"},
    :rdf/type       :keys/Key})
@@ -221,14 +221,14 @@
 
 (def FMajor
   {:db/ident       :keys/FMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/F,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/F_major"},
    :rdf/type       :keys/Key})
 
 (def FMinor
   {:db/ident       :keys/FMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/F,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/F_minor"},
    :rdf/type       :keys/Key})
@@ -239,14 +239,14 @@
 
 (def FSharpMajor
   {:db/ident       :keys/FSharpMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/FSharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/F-sharp_major"},
    :rdf/type       :keys/Key})
 
 (def FSharpMinor
   {:db/ident       :keys/FSharpMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/FSharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/F-sharp_minor"},
    :rdf/type       :keys/Key})
@@ -261,21 +261,21 @@
 
 (def GFlatMajor
   {:db/ident       :keys/GFlatMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/GFlat,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/G-flat_major"},
    :rdf/type       :keys/Key})
 
 (def GMajor
   {:db/ident       :keys/GMajor,
-   :keys/mode      #xsd/string "major",
+   :keys/mode      "major",
    :keys/tonic     :keys/G,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/G_major"},
    :rdf/type       :keys/Key})
 
 (def GMinor
   {:db/ident       :keys/GMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/G,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/G_minor"},
    :rdf/type       :keys/Key})
@@ -286,7 +286,7 @@
 
 (def GSharpMinor
   {:db/ident       :keys/GSharpMinor,
-   :keys/mode      #xsd/string "minor",
+   :keys/mode      "minor",
    :keys/tonic     :keys/GSharp,
    :keys/wikipedia {:rdfa/uri "http://en.wikipedia.org/wiki/G-sharp_minor"},
    :rdf/type       :keys/Key})
@@ -303,7 +303,7 @@
   {:db/ident    :keys/mode,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/domain :keys/Key,
-   :rdfs/range  {:owl/oneOf [#xsd/string "major" #xsd/string "minor"],
+   :rdfs/range  {:owl/oneOf [{:xsd/string "major"} {:xsd/string "minor"}],
                  :rdf/type  :owl/DataRange}})
 
 (def tonic

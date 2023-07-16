@@ -14,12 +14,10 @@
    :rdfa/prefix "hctl",
    :rdfa/uri "https://www.w3.org/2019/wot/hypermedia#",
    :rdfs/comment
-   #xsd/string
-    "Ontology designed to provide an RDF representation of Hypermedia Controls, in particular links and forms.",
-   :rdfs/label #xsd/string "Hypermedia Controls Ontology",
-   :vann/preferredNamespacePrefix #xsd/string "hctl",
-   :vann/preferredNamespaceUri #xsd/string
-                                "https://www.w3.org/2019/wot/hypermedia#"})
+   "Ontology designed to provide an RDF representation of Hypermedia Controls, in particular links and forms.",
+   :rdfs/label "Hypermedia Controls Ontology",
+   :vann/preferredNamespacePrefix "hctl",
+   :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/hypermedia#"})
 
 (def AdditionalExpectedResponse
   "Communication metadata describing the expected response message for additional responses."
@@ -28,7 +26,7 @@
    :rdfs/comment
    #xsd/langString
     "Communication metadata describing the expected response message for additional responses.@en",
-   :rdfs/label #xsd/string "AdditionalExpectedResponse",
+   :rdfs/label "AdditionalExpectedResponse",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def ExpectedResponse
@@ -38,7 +36,7 @@
    :rdfs/comment
    #xsd/langString
     "Communication metadata describing the expected response message for the primary response.@en",
-   :rdfs/label #xsd/string "ExpectedResponse",
+   :rdfs/label "ExpectedResponse",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Form
@@ -48,7 +46,7 @@
    :rdfs/comment
    #xsd/langString
     "A form can be viewed as a statement of \"To perform an <b><em>operation type</em></b> operation on <b><em>form context</b></em>, make a <b><em>request method</b></em> request to <b><em>submission target</b></em>\" where the optional <b><em>form fields</b></em> may further describe the required request. In Thing Descriptions, the <b><em>form context</b></em> is the surrounding Object, such as Properties, Actions, and Events or the Thing itself for meta-interactions.@en",
-   :rdfs/label #xsd/string "Form",
+   :rdfs/label "Form",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Link
@@ -58,7 +56,7 @@
    :rdfs/comment
    #xsd/langString
     "A link can be viewed as a statement of the form \"<b><em>link context</em></b>  has a <b><em>relation type</em></b> resource at <b><em>link target</em></b>\", where the optional <b><em>target attributes</em></b>  may further describe the resource.@en",
-   :rdfs/label #xsd/string "Link",
+   :rdfs/label "Link",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def additionalReturns
@@ -68,7 +66,7 @@
    :rdfs/comment
    #xsd/langString
     "This optional term can be used if additional expected responses\n      are possible, e.g. for error reporting.  Each additional response needs to be \n      distinguished from others in some way (for example, by specifying\n      a protocol-specific response code), and may also have its own data schema.@en",
-   :rdfs/label #xsd/string "additionalReturns",
+   :rdfs/label "additionalReturns",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :hctl/AdditionalExpectedResponse})
 
@@ -79,7 +77,7 @@
    :rdfs/comment
    #xsd/langString
     "Content coding values indicate an encoding transformation that has been or can be applied to a representation. Content codings are primarily used to allow a representation to be compressed or otherwise usefully transformed without losing the identity of its underlying media type and without loss of information. Examples of content coding include \"gzip\", \"deflate\", etc. @en",
-   :rdfs/label #xsd/string "forContentCoding",
+   :rdfs/label "forContentCoding",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :schema/Text})
 
@@ -90,7 +88,7 @@
    :rdfs/comment
    #xsd/langString
     "Assign a content type based on a media type [[IANA-MEDIA-TYPES]] (e.g., 'text/plain') and potential parameters (e.g., 'charset=utf-8') for the media type.@en",
-   :rdfs/label #xsd/string "forContentType",
+   :rdfs/label "forContentType",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :schema/Text})
 
@@ -101,7 +99,7 @@
    :rdfs/comment
    #xsd/langString
     "Indicates the exact mechanism by which an interaction will be accomplished for a given protocol when there are multiple options.\n     \nFor example, for HTTP and Events, it indicates which of several available mechanisms should be used for asynchronous notifications such as long polling, websub (also see https://www.w3.org/TR/websub/), or server sent events (also see https://www.w3.org/TR/eventsource/). Please note that there is no restriction on the sub-protocol selection and other mechanisms can also be announced by this subprotocol term.@en",
-   :rdfs/label #xsd/string "forSubProtocol",
+   :rdfs/label "forSubProtocol",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :schema/Text})
 
@@ -113,7 +111,7 @@
    #xsd/langString
     "This optional term can be used to define a data schema for\n                an additional response if it differs from the default\n                output data schema. \n                Rather than a <code>DataSchema</code> object, the\n                name of a previous definition given in a \n                <code>schemaDefinitions</code> map must be used.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/hypermedia#"},
-   :rdfs/label #xsd/string "hasAdditionalOutputSchema",
+   :rdfs/label "hasAdditionalOutputSchema",
    :schema/domainIncludes :hctl/AdditionalExpectedResponse})
 
 (def hasAnchor
@@ -121,9 +119,8 @@
   {:db/ident :hctl/hasAnchor,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "By default, the context, or anchor, of a link conveyed in the Link header field is the URL of the representation it is associated with, as defined in RFC7231, Section 3.1.4.1, and is serialized as a URI.",
-   :rdfs/label #xsd/string "hasAnchor",
+   "By default, the context, or anchor, of a link conveyed in the Link header field is the URL of the representation it is associated with, as defined in RFC7231, Section 3.1.4.1, and is serialized as a URI.",
+   :rdfs/label "hasAnchor",
    :schema/domainIncludes :hctl/Link})
 
 (def hasHreflang
@@ -131,9 +128,8 @@
   {:db/ident :hctl/hasHreflang,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "The hreflang attribute specifies the language of a linked document. The value of this must be a valid language tag [[BCP47]].",
-   :rdfs/label #xsd/string "hasHreflang",
+   "The hreflang attribute specifies the language of a linked document. The value of this must be a valid language tag [[BCP47]].",
+   :rdfs/label "hasHreflang",
    :schema/domainIncludes :hctl/Link})
 
 (def hasOperationType
@@ -141,18 +137,16 @@
   {:db/ident :hctl/hasOperationType,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/string
-    "Indicates the semantic intention of performing the operation(s) described by the form.",
-   :rdfs/label #xsd/string "hasOperationType",
+   "Indicates the semantic intention of performing the operation(s) described by the form.",
+   :rdfs/label "hasOperationType",
    :schema/domainIncludes :hctl/Form})
 
 (def hasRelationType
   "A link relation type identifies the semantics of a link."
   {:db/ident     :hctl/hasRelationType,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/string
-                  "A link relation type identifies the semantics of a link.",
-   :rdfs/label   #xsd/string "hasRelationType",
+   :rdfs/comment "A link relation type identifies the semantics of a link.",
+   :rdfs/label   "hasRelationType",
    :schema/domainIncludes :hctl/Link})
 
 (def hasSizes
@@ -160,18 +154,16 @@
   {:db/ident :hctl/hasSizes,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "Target attribute that specifies one or more sizes for the referenced icon. Only applicable for relation type 'icon'. The value pattern follows {Height}x{Width} (e.g., \"16x16\", \"16x16 32x32\")",
-   :rdfs/label #xsd/string "hasSizes",
+   "Target attribute that specifies one or more sizes for the referenced icon. Only applicable for relation type 'icon'. The value pattern follows {Height}x{Width} (e.g., \"16x16\", \"16x16 32x32\")",
+   :rdfs/label "hasSizes",
    :schema/domainIncludes :hctl/Link})
 
 (def hasTarget
   "target IRI of a link or submission target of a form."
   {:db/ident     :hctl/hasTarget,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/string
-                  "target IRI of a link or submission target of a form.",
-   :rdfs/label   #xsd/string "hasTarget",
+   :rdfs/comment "target IRI of a link or submission target of a form.",
+   :rdfs/label   "hasTarget",
    :schema/domainIncludes [:hctl/Form :hctl/Link]})
 
 (def hintsAtMediaType
@@ -179,9 +171,8 @@
   {:db/ident :hctl/hintsAtMediaType,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "Target attribute providing a hint indicating what the media type [IANA-MEDIA-TYPES] of the result of dereferencing the link should be.",
-   :rdfs/label #xsd/string "hintsAtMediaType",
+   "Target attribute providing a hint indicating what the media type [IANA-MEDIA-TYPES] of the result of dereferencing the link should be.",
+   :rdfs/label "hintsAtMediaType",
    :schema/domainIncludes :hctl/Link,
    :schema/rangeIncludes :schema/Text})
 
@@ -193,7 +184,7 @@
    #xsd/langString
     "Signals if the additional response should not be considered an error.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/hypermedia#"},
-   :rdfs/label #xsd/string "isSuccess",
+   :rdfs/label "isSuccess",
    :schema/domainIncludes :hctl/AdditionalExpectedResponse,
    :schema/rangeIncludes :schema/Boolean})
 
@@ -204,6 +195,6 @@
    :rdfs/comment
    #xsd/langString
     "This optional term can be used if, e.g., the output communication metadata differ from input metadata (e.g., output contentType differ from the\n     input contentType). The response name contains metadata that is only valid for the reponse messages.@en",
-   :rdfs/label #xsd/string "returns",
+   :rdfs/label "returns",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :hctl/ExpectedResponse})

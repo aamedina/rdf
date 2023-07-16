@@ -12,7 +12,7 @@
    [{:rdfa/uri "http://www.opengeospatial.org/ogc/Software"}
     {:rdfa/uri
      "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"}],
-   :dcterms/rights #xsd/string "Copyright 2017 W3C/OGC.",
+   :dcterms/rights "Copyright 2017 W3C/OGC.",
    :dcterms/title
    #xsd/langString
     "Sensor, Observation, Sample, and Actuator (SOSA) Ontology@en",
@@ -33,8 +33,8 @@
    :rdfa/uri "http://www.w3.org/ns/sosa/",
    :rdfs/isDefinedBy {:rdfa/uri
                       "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
-   :vann/preferredNamespacePrefix #xsd/string "sosa",
-   :vann/preferredNamespaceUri #xsd/string "http://www.w3.org/ns/sosa/"})
+   :vann/preferredNamespacePrefix "sosa",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/"})
 
 (def ActuatableProperty
   "An actuatable quality (property, characteristic) of a FeatureOfInterest."

@@ -1,19 +1,19 @@
 (ns net.wikipunk.rdf.ctag
   "Common Tag RDF vocabulary, described using W3C RDF Schema. Common Tags allows documents and document fragments (any resource which can be identified by a URI) to be labeled with keywords and URIs, unambigiously idenfying the concepts covered by the resource."
-  {:dc11/contributor [#xsd/string "Jamie Taylor"
-                      #xsd/string "Andraz Tori"
-                      #xsd/string "Alexandre Passant"
-                      #xsd/string "Peter Mika"
-                      #xsd/string "Vuk Milicic"
-                      #xsd/string "Scott Montgomerie"
-                      #xsd/string "Alex Iskold"],
+  {:dc11/contributor ["Jamie Taylor"
+                      "Andraz Tori"
+                      "Alexandre Passant"
+                      "Peter Mika"
+                      "Vuk Milicic"
+                      "Scott Montgomerie"
+                      "Alex Iskold"],
    :dc11/description
    #xsd/langString
     "Common Tag RDF vocabulary, described using W3C RDF Schema. Common Tags allows documents and document fragments (any resource which can be identified by a URI) to be labeled with keywords and URIs, unambigiously idenfying the concepts covered by the resource.@en",
    :dc11/title #xsd/langString "Common Tag vocabulary@en",
    :dcat/downloadURL
    "https://lov.linkeddata.es/dataset/lov/vocabs/ctag/versions/2009-06-08.n3",
-   :dcterms/issued #xsd/string "2009-06-08",
+   :dcterms/issued "2009-06-08",
    :rdf/ns-prefix-map {"ctag"    "http://commontag.org/ns#",
                        "dc11"    "http://purl.org/dc/elements/1.1/",
                        "dcterms" "http://purl.org/dc/terms/",

@@ -108,7 +108,7 @@
   "This property could be used to compose association statements or to reuse them, e.g. to make them likeable \nin a specific context."
   {:db/ident :ao/included_association,
    :owl/inverseOf {:rdf/type   :owl/ObjectProperty,
-                   :rdfs/label #xsd/string "is included association of"},
+                   :rdfs/label "is included association of"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    #xsd/langString
@@ -123,16 +123,15 @@
   "Associates likeminded people to an association, which they like/ agree with."
   {:db/ident :ao/likeminded,
    :owl/inverseOf {:rdf/type   :owl/ObjectProperty,
-                   :rdfs/label #xsd/string "is likeminded of"},
+                   :rdfs/label "is likeminded of"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/string
-    "Associates likeminded people to an association, which they like/ agree with.",
+   "Associates likeminded people to an association, which they like/ agree with.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/ao/core#"},
-   :rdfs/label #xsd/string "has likeminded",
+   :rdfs/label "has likeminded",
    :rdfs/range :foaf/Agent,
-   :vs/term_status #xsd/string "testing"})
+   :vs/term_status "testing"})
 
 (def location
   "A location, which is associated to an individual, e.g. my house, my country, my current whereabouts."

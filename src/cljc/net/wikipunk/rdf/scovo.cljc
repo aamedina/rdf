@@ -20,24 +20,24 @@
   "a statistical dataset"
   {:db/ident        :scovo/Dataset,
    :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    #xsd/string "a statistical dataset",
-   :rdfs/label      #xsd/string "Dataset",
+   :rdfs/comment    "a statistical dataset",
+   :rdfs/label      "Dataset",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Dimension
   "a dimension of a statistical data item"
   {:db/ident        :scovo/Dimension,
    :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    #xsd/string "a dimension of a statistical data item",
-   :rdfs/label      #xsd/string "Dimension",
+   :rdfs/comment    "a dimension of a statistical data item",
+   :rdfs/label      "Dimension",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Item
   "a statistical data item"
   {:db/ident        :scovo/Item,
    :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    #xsd/string "a statistical data item",
-   :rdfs/label      #xsd/string "Item",
+   :rdfs/comment    "a statistical data item",
+   :rdfs/label      "Item",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def dataset
@@ -45,7 +45,7 @@
   {:db/ident    :scovo/dataset,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Item,
-   :rdfs/label  #xsd/string "belongs to dataset",
+   :rdfs/label  "belongs to dataset",
    :rdfs/range  :scovo/Dataset})
 
 (def datasetOf
@@ -53,7 +53,7 @@
   {:db/ident    :scovo/datasetOf,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Dataset,
-   :rdfs/label  #xsd/string "is the dataset of",
+   :rdfs/label  "is the dataset of",
    :rdfs/range  :scovo/Item})
 
 (def dimension
@@ -61,7 +61,7 @@
   {:db/ident    :scovo/dimension,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Item,
-   :rdfs/label  #xsd/string "has a dimension",
+   :rdfs/label  "has a dimension",
    :rdfs/range  :scovo/Dimension})
 
 (def max
@@ -69,11 +69,11 @@
   {:db/ident    :scovo/max,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Dimension,
-   :rdfs/label  #xsd/string "has a maximum range value"})
+   :rdfs/label  "has a maximum range value"})
 
 (def min
   "has a minimum range value"
   {:db/ident    :scovo/min,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Dimension,
-   :rdfs/label  #xsd/string "has a minimum range value"})
+   :rdfs/label  "has a minimum range value"})

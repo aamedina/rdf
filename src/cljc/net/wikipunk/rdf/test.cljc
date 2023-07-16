@@ -11,7 +11,7 @@
   "A particular stage in a review process"
   {:db/ident     :test/ReviewStatus,
    :rdf/type     :owl/Class,
-   :rdfs/comment #xsd/string "A particular stage in a review process",
+   :rdfs/comment "A particular stage in a review process",
    :rdfs/label   #xsd/langString "Status in a review process@en"})
 
 (def SimpleReviewStatus
@@ -34,17 +34,19 @@
   {:db/ident :test/SpecificationTestCase,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/string
-    "A test case which relates to a requirement set in a specification",
+   "A test case which relates to a requirement set in a specification",
    :rdfs/label #xsd/langString "A Test Case based on a specification@en",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :test/specificationReference,
                       :rdf/type           :owl/Restriction}
                      :test/TestCase
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/contributor,
+                      :owl/onProperty     :test/purpose,
                       :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dc11/title,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :test/purpose,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
@@ -53,14 +55,11 @@
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/description,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/title,
-                      :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/title,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/purpose,
+                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dc11/contributor,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/rights,
@@ -71,32 +70,31 @@
   {:db/ident :test/TestCase,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/string
-    "A set of test inputs, execution conditions, and expected results developed for a particular objective, such as to exercise a particular program path or to verify compliance with a specific requirement",
+   "A set of test inputs, execution conditions, and expected results developed for a particular objective, such as to exercise a particular program path or to verify compliance with a specific requirement",
    :rdfs/label #xsd/langString "A Test Case@en",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/reviewStatus,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
+   :rdfs/subClassOf [{:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/rights,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dc11/contributor,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/description,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/purpose,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/title,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :test/purpose,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :test/reviewStatus,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/title,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :dc11/contributor,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :test/purpose,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty     :test/purpose,
                       :rdf/type           :owl/Restriction}]})
 
 (def accepted
@@ -104,8 +102,7 @@
   {:db/ident :test/accepted,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
-   #xsd/string
-    "the item has gone through a first review, which shows it as valid for further processing",
+   "the item has gone through a first review, which shows it as valid for further processing",
    :rdfs/label #xsd/langString "accepted@en"})
 
 (def approved
@@ -113,7 +110,7 @@
   {:db/ident :test/approved,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
-   #xsd/string "the item has gone through the review process and was approved",
+   "the item has gone through the review process and was approved",
    :rdfs/label #xsd/langString "approved@en"})
 
 (def assigned
@@ -121,8 +118,7 @@
   {:db/ident :test/assigned,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
-   #xsd/string
-    "a more specific review of the item has been assigned to someone",
+   "a more specific review of the item has been assigned to someone",
    :rdfs/label #xsd/langString "assigned@en"})
 
 (def expectedResults
@@ -130,8 +126,7 @@
   {:db/ident :test/expectedResults,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "The results that a conformant implementation is expected to produce when this test is executed",
+   "The results that a conformant implementation is expected to produce when this test is executed",
    :rdfs/domain :test/TestCase,
    :rdfs/label #xsd/langString "expected results@en"})
 
@@ -151,8 +146,7 @@
   {:db/ident :test/informationResourceResults,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/string
-    "Information Resource (e.g. a file) that contains the expected results for the test case",
+   "Information Resource (e.g. a file) that contains the expected results for the test case",
    :rdfs/label #xsd/langString "information resource as expected results@en",
    :rdfs/range :gen/InformationResource,
    :rdfs/subPropertyOf :test/expectedResults})
@@ -172,9 +166,8 @@
   {:db/ident :test/onhold,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
-   #xsd/string
-    "the item had already gone through the review process, but the results of the review need to be re-assessed due to new input",
-   :rdfs/label #xsd/string "on hold"})
+   "the item had already gone through the review process, but the results of the review need to be re-assessed due to new input",
+   :rdfs/label "on hold"})
 
 (def preCondition
   "a condition that must be met before the test is executed"
@@ -199,7 +192,7 @@
   {:db/ident :test/rejected,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
-   #xsd/string "the item has gone through the review process and was rejected",
+   "the item has gone through the review process and was rejected",
    :rdfs/label #xsd/langString "rejected@en"})
 
 (def reviewStatus
@@ -225,6 +218,5 @@
   {:db/ident :test/unreviewed,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
-   #xsd/string
-    "the item has been proposed, but hasn't been reviewed (e.g. for completeness) yet",
+   "the item has been proposed, but hasn't been reviewed (e.g. for completeness) yet",
    :rdfs/label #xsd/langString "unreviewed@en"})

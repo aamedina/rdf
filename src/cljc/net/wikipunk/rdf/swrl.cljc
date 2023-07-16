@@ -13,7 +13,7 @@
   "common superclass"
   {:db/ident        :swrl/Atom,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string "common superclass",
+   :rdfs/comment    "common superclass",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Builtin
@@ -25,21 +25,21 @@
   "consists of a builtin and a List of arguments"
   {:db/ident        :swrl/BuiltinAtom,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string "consists of a builtin and a List of arguments",
+   :rdfs/comment    "consists of a builtin and a List of arguments",
    :rdfs/subClassOf [:rdfs/Resource :swrl/Atom]})
 
 (def ClassAtom
   "consists of a classPredicate and argument1"
   {:db/ident        :swrl/ClassAtom,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string "consists of a classPredicate and argument1",
+   :rdfs/comment    "consists of a classPredicate and argument1",
    :rdfs/subClassOf [:swrl/Atom :rdfs/Resource]})
 
 (def DataRangeAtom
   "consists of a dataRange and argument1"
   {:db/ident        :swrl/DataRangeAtom,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string "consists of a dataRange and argument1",
+   :rdfs/comment    "consists of a dataRange and argument1",
    :rdfs/subClassOf [:rdfs/Resource :swrl/Atom]})
 
 (def DatavaluedPropertyAtom
@@ -47,23 +47,21 @@
   {:db/ident :swrl/DatavaluedPropertyAtom,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "consists of a propertyPredicate (owl:DatatypeProperty), argument1 (owl:Thing), and argument2 (rdfs:Literal)",
+   "consists of a propertyPredicate (owl:DatatypeProperty), argument1 (owl:Thing), and argument2 (rdfs:Literal)",
    :rdfs/subClassOf [:rdfs/Resource :swrl/Atom]})
 
 (def DifferentIndividualsAtom
   "consists of argument1 (owl:Thing) and argument2 (owl:Thing)"
   {:db/ident :swrl/DifferentIndividualsAtom,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #xsd/string
-                  "consists of argument1 (owl:Thing) and argument2 (owl:Thing)",
+   :rdfs/comment "consists of argument1 (owl:Thing) and argument2 (owl:Thing)",
    :rdfs/subClassOf [:swrl/Atom :rdfs/Resource]})
 
 (def Imp
   "implication (rule)"
   {:db/ident        :swrl/Imp,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string "implication (rule)",
+   :rdfs/comment    "implication (rule)",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def IndividualPropertyAtom
@@ -71,24 +69,21 @@
   {:db/ident :swrl/IndividualPropertyAtom,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/string
-    "consists of a propertyPredicate (owl:ObjectProperty), argument1 (owl:Thing), and argument2 (owl:Thing)",
+   "consists of a propertyPredicate (owl:ObjectProperty), argument1 (owl:Thing), and argument2 (owl:Thing)",
    :rdfs/subClassOf [:rdfs/Resource :swrl/Atom]})
 
 (def SameIndividualAtom
   "consists of argument1 (owl:Thing) and argument2 (owl:Thing)"
   {:db/ident :swrl/SameIndividualAtom,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #xsd/string
-                  "consists of argument1 (owl:Thing) and argument2 (owl:Thing)",
+   :rdfs/comment "consists of argument1 (owl:Thing) and argument2 (owl:Thing)",
    :rdfs/subClassOf [:swrl/Atom :rdfs/Resource]})
 
 (def Variable
   "indicate that a URI is being used as a variable"
   {:db/ident        :swrl/Variable,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string
-                     "indicate that a URI is being used as a variable",
+   :rdfs/comment    "indicate that a URI is being used as a variable",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def argument1
@@ -101,7 +96,7 @@
   "can be a Literal or Resource"
   {:db/ident     :swrl/argument2,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string "can be a Literal or Resource",
+   :rdfs/comment "can be a Literal or Resource",
    :rdfs/domain  :swrl/Atom})
 
 (def arguments
@@ -114,7 +109,7 @@
   "rule body (antecedent):  List of Atom"
   {:db/ident     :swrl/body,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string "rule body (antecedent):  List of Atom",
+   :rdfs/comment "rule body (antecedent):  List of Atom",
    :rdfs/domain  :swrl/Imp,
    :rdfs/range   :rdf/List})
 
@@ -140,7 +135,7 @@
   "rule head (consequent):  List of Atom"
   {:db/ident     :swrl/head,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/string "rule head (consequent):  List of Atom",
+   :rdfs/comment "rule head (consequent):  List of Atom",
    :rdfs/domain  :swrl/Imp,
    :rdfs/range   :rdf/List})
 

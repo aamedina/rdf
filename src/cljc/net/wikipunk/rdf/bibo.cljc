@@ -4,8 +4,8 @@
    :dcterms/description
    #xsd/langString
     "The Bibliographic Ontology describes\nbibliographic things on the semantic Web in RDF.  This ontology can be\nused as a citation ontology, as a document classification ontology, or\nsimply as a way to describe any kind of document in RDF. It has been\ninspired by many existing document description metadata formats, and\ncan be used as a common ground for converting other bibliographic data\nsources.@en",
-   :dcterms/title #xsd/string "The Bibliographic Ontology",
-   :owl/versionInfo #xsd/string "http://purl.org/ontology/bibo/1.3/",
+   :dcterms/title "The Bibliographic Ontology",
+   :owl/versionInfo "http://purl.org/ontology/bibo/1.3/",
    :rdf/ns-prefix-map {"bibo" "http://purl.org/ontology/bibo/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "degrees" "http://purl.org/ontology/bibo/degrees/",
@@ -35,7 +35,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Academic Article@en",
    :rdfs/subClassOf [:bibo/Article :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Article
   "A written composition in prose, usually nonfiction, on a specific topic, forming an independent part of a book or other publication, as a newspaper or magazine."
@@ -47,7 +47,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Article@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def AudioDocument
   "An audio document; aka record."
@@ -57,7 +57,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "audio document@en",
    :rdfs/subClassOf  :bibo/Document,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def AudioVisualDocument
   "An audio-visual document; film, video, and so forth."
@@ -68,7 +68,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "audio-visual document@en",
    :rdfs/subClassOf  :bibo/Document,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Bill
   "Draft legislation presented for discussion to a legal body."
@@ -80,7 +80,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Bill@en",
    :rdfs/subClassOf [:bibo/Legislation :bibo/LegalDocument :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Book
   "A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers."
@@ -92,7 +92,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Book@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def BookSection
   "A section of a book."
@@ -106,7 +106,7 @@
                        :owl/onProperty     :dcterms/isPartOf,
                        :rdf/type           :owl/Restriction}
                       :bibo/Document],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Brief
   "A written argument submitted to a court."
@@ -119,7 +119,7 @@
    :rdfs/subClassOf  [:bibo/LegalCaseDocument
                       :bibo/LegalDocument
                       :bibo/Document],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Chapter
   "A chapter of a book."
@@ -134,7 +134,7 @@
                        :owl/onProperty     :dcterms/isPartOf,
                        :rdf/type           :owl/Restriction}
                       :bibo/Document],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Code
   "A collection of statutes."
@@ -150,6 +150,7 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Periodical
+                      :bibo/Collection
                       {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
@@ -160,9 +161,8 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :bibo/Issue,
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
-   :vs/term_status   #xsd/string "stable"})
+                       :rdf/type          :owl/Restriction}],
+   :vs/term_status   "stable"})
 
 (def CollectedDocument
   "A document that simultaneously contains other documents."
@@ -179,7 +179,7 @@
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
                      :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Collection
   "A collection of Documents or Collections"
@@ -194,7 +194,7 @@
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction},
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Conference
   "A meeting for consultation or discussion."
@@ -205,7 +205,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Conference@en",
    :rdfs/subClassOf  :event/Event,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def CourtReporter
   "A collection of legal cases."
@@ -221,6 +221,7 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Periodical
+                      :bibo/Collection
                       {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
@@ -231,9 +232,8 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :bibo/Issue,
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
-   :vs/term_status   #xsd/string "stable"})
+                       :rdf/type          :owl/Restriction}],
+   :vs/term_status   "stable"})
 
 (def Document
   "A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information."
@@ -245,7 +245,7 @@
     "A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Document@en",
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def DocumentPart
   "a distinct part of a larger document or collected document."
@@ -260,7 +260,7 @@
                       :owl/onProperty     :dcterms/isPartOf,
                       :rdf/type           :owl/Restriction}
                      :bibo/Document],
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def DocumentStatus
   "The status of the publication of a document."
@@ -270,7 +270,7 @@
                       "The status of the publication of a document.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Document Status@en",
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def EditedBook
   "An edited book."
@@ -280,14 +280,14 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Edited Book@en",
    :rdfs/subClassOf  [:bibo/CollectedDocument
+                      :bibo/Document
                       {:owl/minCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
-                      :bibo/Document
                       {:owl/allValuesFrom :bibo/Document,
                        :owl/onProperty    :dcterms/hasPart,
                        :rdf/type          :owl/Restriction}],
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Email
   "A written communication addressed to a person or organization and transmitted electronically."
@@ -299,7 +299,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "EMail@en",
    :rdfs/subClassOf [:bibo/PersonalCommunicationDocument :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Event
   {:db/ident :bibo/Event,
@@ -318,7 +318,7 @@
                        :owl/onProperty     :dcterms/isPartOf,
                        :rdf/type           :owl/Restriction}
                       :bibo/Document],
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Film
   "aka movie."
@@ -328,7 +328,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Film@en",
    :rdfs/subClassOf  [:bibo/AudioVisualDocument :bibo/Document],
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Hearing
   "An instance or a session in which testimony and arguments are presented, esp. before an official, as a judge in a lawsuit."
@@ -340,7 +340,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Hearing@en",
    :rdfs/subClassOf :event/Event,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Image
   "A document that presents visual or diagrammatic information."
@@ -353,7 +353,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Image@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Interview
   "A formalized discussion between two or more people."
@@ -364,7 +364,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Interview@en",
    :rdfs/subClassOf  :event/Event,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Issue
   "something that is printed or published and distributed, esp. a given number of a periodical"
@@ -382,14 +382,14 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/CollectedDocument
+                     :bibo/Document
                      {:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
-                     :bibo/Document
                      {:owl/allValuesFrom :bibo/Document,
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Journal
   "A periodical of scholarly journal Articles."
@@ -406,6 +406,7 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Periodical
+                      :bibo/Collection
                       {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
@@ -416,9 +417,8 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :bibo/Issue,
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
-   :vs/term_status   #xsd/string "stable"})
+                       :rdf/type          :owl/Restriction}],
+   :vs/term_status   "stable"})
 
 (def LegalCaseDocument
   "A document accompanying a legal case."
@@ -428,7 +428,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Legal Case Document@en",
    :rdfs/subClassOf  [:bibo/LegalDocument :bibo/Document],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def LegalDecision
   "A document containing an authoritative determination (as a decree or judgment) made after consideration of facts or law."
@@ -441,7 +441,7 @@
    :rdfs/label #xsd/langString "Decision@en",
    :rdfs/subClassOf
    [:bibo/LegalCaseDocument :bibo/LegalDocument :bibo/Document],
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def LegalDocument
   "A legal document; for example, a court decision, a brief, and so forth."
@@ -453,7 +453,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Legal Document@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Legislation
   "A legal document proposing or enacting a law or a group of laws."
@@ -465,7 +465,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Legislation@en",
    :rdfs/subClassOf [:bibo/LegalDocument :bibo/Document],
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def Letter
   "A written or printed communication addressed to a person or organization and usually transmitted by mail."
@@ -477,7 +477,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Letter@en",
    :rdfs/subClassOf [:bibo/PersonalCommunicationDocument :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Magazine
   "A periodical of magazine Articles. A magazine is a publication that is issued periodically, usually bound in a paper cover, and typically contains essays, stories, poems, etc., by many writers, and often photographs and drawings, frequently specializing in a particular subject or area, as hobbies, news, or sports."
@@ -495,6 +495,7 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/Periodical
+                     :bibo/Collection
                      {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
@@ -505,9 +506,8 @@
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :bibo/Issue,
                       :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
-                     :bibo/Collection],
-   :vs/term_status #xsd/string "stable"})
+                      :rdf/type          :owl/Restriction}],
+   :vs/term_status "stable"})
 
 (def Manual
   "A small reference book, especially one giving instructions."
@@ -519,7 +519,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Manual@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def Manuscript
   "An unpublished Document, which may also be submitted to a publisher for publication."
@@ -531,7 +531,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Manuscript@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Map
   "A graphical depiction of geographic features."
@@ -542,7 +542,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Map@en",
    :rdfs/subClassOf  [:bibo/Image :bibo/Document],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def MultiVolumeBook
   "A loose, thematic, collection of Documents, often Books."
@@ -561,7 +561,7 @@
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Newspaper
   "A periodical of documents, usually issued daily or weekly, containing current news, editorials, feature articles, and usually advertising."
@@ -579,6 +579,7 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/Periodical
+                     :bibo/Collection
                      {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
@@ -589,9 +590,8 @@
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :bibo/Issue,
                       :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
-                     :bibo/Collection],
-   :vs/term_status #xsd/string "stable"})
+                      :rdf/type          :owl/Restriction}],
+   :vs/term_status "stable"})
 
 (def Note
   "Notes or annotations about a resource."
@@ -602,7 +602,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Note@en",
    :rdfs/subClassOf  :bibo/Document,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Patent
   "A document describing the exclusive right granted by a government to an inventor to manufacture, use, or sell an invention for a certain number of years."
@@ -614,7 +614,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Patent@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Performance
   "A public performance."
@@ -624,7 +624,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Performance@en",
    :rdfs/subClassOf  :event/Event,
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Periodical
   "A group of related documents issued at regular intervals."
@@ -647,7 +647,7 @@
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def PersonalCommunication
   "A communication between an agent and one or more specific recipients."
@@ -659,7 +659,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Personal Communication@en",
    :rdfs/subClassOf :event/Event,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def PersonalCommunicationDocument
   "A personal communication manifested in some document."
@@ -670,7 +670,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Personal Communication Document@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Proceedings
   "A compilation of documents published from an event, such as a conference."
@@ -682,7 +682,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Proceedings@en",
    :rdfs/subClassOf [:bibo/Book :bibo/Document],
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def Quote
   "An excerpted collection of words."
@@ -697,7 +697,7 @@
                        :owl/onProperty     :dcterms/isPartOf,
                        :rdf/type           :owl/Restriction}
                       :bibo/Document],
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def ReferenceSource
   "A document that presents authoritative reference information, such as a dictionary or encylopedia ."
@@ -709,7 +709,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Reference Source@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def Report
   "A document describing an account or statement describing in detail an event, situation, or the like, usually as the result of observation, inquiry, etc.."
@@ -721,7 +721,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Report@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Series
   "A loose, thematic, collection of Documents, often Books."
@@ -740,7 +740,7 @@
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Slide
   "A slide in a slideshow"
@@ -754,7 +754,7 @@
                        :owl/onProperty     :dcterms/isPartOf,
                        :rdf/type           :owl/Restriction}
                       :bibo/Document],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Slideshow
   "A presentation of a series of slides, usually presented in front of an audience with written text and images."
@@ -769,7 +769,7 @@
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
                      :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Specification
   "A document describing a specification."
@@ -780,7 +780,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Specification@en",
    :rdfs/subClassOf  :bibo/Document,
-   :vs/term_status   #xsd/string "testing"})
+   :vs/term_status   "testing"})
 
 (def Standard
   "A document describing a standard: a specification organized through a standards body."
@@ -792,7 +792,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Standard@en",
    :rdfs/subClassOf [:bibo/Specification :bibo/Document],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def Statute
   "A bill enacted into law."
@@ -802,7 +802,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Statute@en",
    :rdfs/subClassOf  [:bibo/Legislation :bibo/LegalDocument :bibo/Document],
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Thesis
   "A document created to summarize research findings associated with the completion of an academic degree."
@@ -814,7 +814,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Thesis@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def ThesisDegree
   "The academic degree of a Thesis"
@@ -823,7 +823,7 @@
    :rdfs/comment     #xsd/langString "The academic degree of a Thesis@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "Thesis degree@en",
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def Webpage
   "A web page is an online document available (at least initially) on the world wide web. A web page is written first and foremost to appear on the web, as distinct from other online resources such as books, manuscripts or audio documents which use the web primarily as a distribution mechanism alongside other more traditional methods such as print."
@@ -835,7 +835,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Webpage@en",
    :rdfs/subClassOf :bibo/Document,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def Website
   "A group of Webpages accessible on the Web."
@@ -857,7 +857,7 @@
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
                        :rdf/type          :owl/Restriction}],
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Workshop
   "A seminar, discussion group, or the like, that emphasizes zxchange of ideas and the demonstration and application of techniques, skills, etc."
@@ -869,18 +869,18 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "Workshop@en",
    :rdfs/subClassOf :event/Event,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def abstract
   "A summary of the resource."
   {:db/ident         :bibo/abstract,
    :rdf/type         :owl/DatatypeProperty,
-   :rdfs/comment     #xsd/string "A summary of the resource.",
+   :rdfs/comment     "A summary of the resource.",
    :rdfs/domain      :rdfs/Resource,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label       #xsd/string "abstract",
+   :rdfs/label       "abstract",
    :rdfs/range       :rdfs/Literal,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def affirmedBy
   "A legal decision that affirms a ruling."
@@ -904,7 +904,7 @@
    :rdfs/label         #xsd/langString "annotates@en",
    :rdfs/range         :rdfs/Resource,
    :rdfs/subPropertyOf :dcterms/relation,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def argued
   "The date on which a legal case is argued before a court. Date is of format xsd:date"
@@ -917,7 +917,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "date argued@en",
    :rdfs/range :rdfs/Literal,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def asin
   {:db/ident           :bibo/asin,
@@ -940,12 +940,12 @@
    :rdfs/range {:owl/unionOf [:rdf/List :rdf/Seq],
                 :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :bibo/contributorList,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def bdarcus
   "Bruce D'Arcus"
   {:db/ident         :bibo/bdarcus,
-   :foaf/name        #xsd/string "Bruce D'Arcus",
+   :foaf/name        "Bruce D'Arcus",
    :rdf/type         [:foaf/Person :owl/NamedIndividual :owl/Thing],
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/seeAlso     {:rdfa/uri "http://purl.org/net/darcusb/info#me"}})
@@ -960,7 +960,7 @@
    :rdfs/label         #xsd/langString "chapter@en",
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/locator,
-   :vs/term_status     #xsd/string "unstable"})
+   :vs/term_status     "unstable"})
 
 (def citedBy
   "Relates a document to another document that cites the\nfirst document."
@@ -974,7 +974,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "cited by@en",
    :rdfs/range :bibo/Document,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def cites
   "Relates a document to another document that is cited\nby the first document as reference, comment, review, quotation or for\nanother purpose."
@@ -988,7 +988,7 @@
    :rdfs/label #xsd/langString "cites@en",
    :rdfs/range :bibo/Document,
    :rdfs/subPropertyOf :dcterms/references,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def coden
   {:db/ident           :bibo/coden,
@@ -1013,7 +1013,7 @@
    :skos/historyNote
    #xsd/langString
     "bibo:content has been deprecated; we recommend to use \"rdf:value\" for this purpose. Here is the rational behind this choice: http://www.w3.org/TR/2004/REC-rdf-primer-20040210/#rdfvalue@en",
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def contributorList
   "An ordered list of contributors. Normally, this list is seen as a priority list that order contributors by importance."
@@ -1027,7 +1027,7 @@
    :rdfs/label #xsd/langString "list of contributors@en",
    :rdfs/range {:owl/unionOf [:rdf/List :rdf/Seq],
                 :rdf/type    :owl/Class},
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def court
   "A court associated with a legal document; for example, that which issues a decision."
@@ -1040,7 +1040,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "court@en",
    :rdfs/range :foaf/Organization,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def degree
   "The thesis degree."
@@ -1054,7 +1054,7 @@
    :skos/editorialNote
    #xsd/langString
     "We are not defining, using an enumeration, the range of the bibo:degree to the defined list of bibo:ThesisDegree. We won't do it because we want people to be able to define new degress if needed by some special usecases. Creating such an enumeration would restrict this to happen.@en",
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def director
   "A Film director."
@@ -1063,10 +1063,10 @@
    :rdfs/comment       #xsd/langString "A Film director.@en",
    :rdfs/domain        :bibo/AudioVisualDocument,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label         #xsd/string "director",
+   :rdfs/label         "director",
    :rdfs/range         :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/contributor,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def distributor
   "Distributor of a document or a collection of documents."
@@ -1079,7 +1079,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "distributor@en",
    :rdfs/range :foaf/Agent,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def doi
   {:db/ident           :bibo/doi,
@@ -1108,7 +1108,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "edition@en",
    :rdfs/range :rdfs/Literal,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def editor
   "A person having managerial and sometimes policy-making responsibility for the editorial part of a publishing firm or of a newspaper, magazine, or other publication."
@@ -1120,10 +1120,10 @@
    :rdfs/domain {:owl/unionOf [:bibo/Collection :bibo/Document],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label #xsd/string "editor",
+   :rdfs/label "editor",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/contributor,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def editorList
   "An ordered list of editors. Normally, this list is seen as a priority list that order editors by importance."
@@ -1138,7 +1138,7 @@
    :rdfs/range {:owl/unionOf [:rdf/List :rdf/Seq],
                 :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :bibo/contributorList,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def eissn
   {:db/ident           :bibo/eissn,
@@ -1150,7 +1150,7 @@
 (def fgiasson
   "Frederick Giasson"
   {:db/ident         :bibo/fgiasson,
-   :foaf/name        #xsd/string "Frederick Giasson",
+   :foaf/name        "Frederick Giasson",
    :rdf/type         [:foaf/Person :owl/NamedIndividual :owl/Thing],
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/seeAlso     {:rdfa/uri "http://fgiasson.com/me/"}})
@@ -1186,10 +1186,10 @@
                         "An agent that is interviewed by another agent.@en",
    :rdfs/domain        :foaf/Agent,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label         #xsd/string "interviewee",
+   :rdfs/label         "interviewee",
    :rdfs/range         :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/contributor,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def interviewer
   "An agent that interview another agent."
@@ -1199,10 +1199,10 @@
                         "An agent that interview another agent.@en",
    :rdfs/domain        :foaf/Agent,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label         #xsd/string "interviewer",
+   :rdfs/label         "interviewer",
    :rdfs/range         :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/contributor,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def isbn
   {:db/ident :bibo/isbn,
@@ -1242,22 +1242,21 @@
    :rdfs/label         #xsd/langString "issue@en",
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/locator,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def issuer
   "An entity responsible for issuing often informally published documents such as press releases, reports, etc."
   {:db/ident :bibo/issuer,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/string
-    "An entity responsible for issuing often informally published documents such as press releases, reports, etc.",
+   "An entity responsible for issuing often informally published documents such as press releases, reports, etc.",
    :rdfs/domain {:owl/unionOf [:bibo/Collection :bibo/Document],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label #xsd/string "issuer",
+   :rdfs/label "issuer",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/publisher,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def lccn
   {:db/ident           :bibo/lccn,
@@ -1278,7 +1277,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "locator@en",
    :rdfs/range :rdfs/Literal,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def numPages
   "The number of pages contained in a document"
@@ -1290,7 +1289,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "number of pages@en",
    :rdfs/range       :rdfs/Literal,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def numVolumes
   "The number of volumes contained in a collection of documents (usually a series, periodical, etc.)."
@@ -1303,7 +1302,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "number of volumes@en",
    :rdfs/range :rdfs/Literal,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def number
   "A generic item or document number. Not to be confused with issue number."
@@ -1316,7 +1315,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "number@en",
    :rdfs/range :rdfs/Literal,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def oclcnum
   {:db/ident           :bibo/oclcnum,
@@ -1337,7 +1336,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label #xsd/langString "organizer@en",
    :rdfs/range :foaf/Agent,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def owner
   "Owner of a document or a collection of documents."
@@ -1350,7 +1349,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "owner@en",
    :rdfs/range       :foaf/Agent,
-   :vs/term_status   #xsd/string "unstable"})
+   :vs/term_status   "unstable"})
 
 (def pageEnd
   "Ending page number within a continuous page range."
@@ -1363,7 +1362,7 @@
    :rdfs/label         #xsd/langString "page end@en",
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/locator,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def pageStart
   "Starting page number within a continuous page range."
@@ -1376,7 +1375,7 @@
    :rdfs/label #xsd/langString "page start@en",
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/locator,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def pages
   "A string of non-contiguous page spans that locate a Document within a Collection. Example: 23-25, 34, 54-56. For continuous page ranges, use the pageStart and pageEnd properties."
@@ -1390,7 +1389,7 @@
    :rdfs/label #xsd/langString "pages@en",
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/locator,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def performer
   "performer"
@@ -1398,10 +1397,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :bibo/Performance,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label         #xsd/string "performer",
+   :rdfs/label         "performer",
    :rdfs/range         :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/contributor,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def pmid
   {:db/ident           :bibo/pmid,
@@ -1420,7 +1419,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "prefix name@en",
    :rdfs/range       :rdfs/Literal,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def presentedAt
   "Relates a document to an event; for example, a paper to a conference."
@@ -1434,7 +1433,7 @@
    :rdfs/label #xsd/langString "presented at@en",
    :rdfs/range :bibo/Event,
    :rdfs/subPropertyOf :event/produced_in,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def presents
   "Relates an event to associated documents; for example, conference to a paper."
@@ -1449,7 +1448,7 @@
    :rdfs/label #xsd/langString "presents@en",
    :rdfs/range :bibo/Document,
    :rdfs/subPropertyOf :event/product,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def producer
   "Producer of a document or a collection of documents."
@@ -1462,7 +1461,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "producer@en",
    :rdfs/range       :foaf/Agent,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def recipient
   "An agent that receives a communication document."
@@ -1472,9 +1471,9 @@
                       "An agent that receives a communication document.@en",
    :rdfs/domain      :bibo/PersonalCommunicationDocument,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label       #xsd/string "recipient",
+   :rdfs/label       "recipient",
    :rdfs/range       :foaf/Agent,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def reproducedIn
   "The resource in which another resource is reproduced."
@@ -1486,7 +1485,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/range :bibo/Document,
    :rdfs/subPropertyOf :dcterms/isPartOf,
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def reversedBy
   "A legal decision that reverses a ruling."
@@ -1511,7 +1510,7 @@
    :rdfs/label #xsd/langString "review of@en",
    :rdfs/range :rdfs/Resource,
    :rdfs/subPropertyOf :dcterms/relation,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def section
   "A section number"
@@ -1526,7 +1525,7 @@
    :skos/example
    #xsd/langString
     "Di Rado, Alicia. 1995. Trekking through college: Classes explore\nmodern society using the world of Star trek. Los Angeles Times, March\n15, sec. A, p. 3.@en",
-   :vs/term_status #xsd/string "unstable"})
+   :vs/term_status "unstable"})
 
 (def shortDescription
   {:db/ident    :bibo/shortDescription,
@@ -1543,7 +1542,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "short title@en",
    :rdfs/range       :rdfs/Literal,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def sici
   {:db/ident           :bibo/sici,
@@ -1566,7 +1565,7 @@
    :skos/editorialNote
    #xsd/langString
     "We are not defining, using an enumeration, the range of the bibo:status to the defined list of bibo:DocumentStatus. We won't do it because we want people to be able to define new status if needed by some special usecases. Creating such an enumeration would restrict this to happen.@en",
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def subsequentLegalDecision
   "A legal decision on appeal that takes action on a case (affirming it, reversing it, etc.)."
@@ -1589,7 +1588,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
    :rdfs/label       #xsd/langString "suffix name@en",
    :rdfs/range       :rdfs/Literal,
-   :vs/term_status   #xsd/string "stable"})
+   :vs/term_status   "stable"})
 
 (def transcriptOf
   "Relates a document to some transcribed original."
@@ -1602,7 +1601,7 @@
    :rdfs/label         #xsd/langString "transcript of@en",
    :rdfs/range         :rdfs/Resource,
    :rdfs/subPropertyOf :dcterms/relation,
-   :vs/term_status     #xsd/string "unstable"})
+   :vs/term_status     "unstable"})
 
 (def translationOf
   "Relates a translated document to the original document."
@@ -1615,7 +1614,7 @@
    :rdfs/label #xsd/langString "translation of@en",
    :rdfs/range :bibo/Document,
    :rdfs/subPropertyOf :dcterms/isVersionOf,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def translator
   "A person who translates written document from one language to another."
@@ -1627,10 +1626,10 @@
    :rdfs/domain {:owl/unionOf [:bibo/Collection :bibo/Document],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/bibo/"},
-   :rdfs/label #xsd/string "translator",
+   :rdfs/label "translator",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :dcterms/contributor,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def upc
   {:db/ident           :bibo/upc,
@@ -1652,7 +1651,7 @@
    :rdfs/label         #xsd/langString "uri@en",
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/identifier,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})
 
 (def volume
   "A volume number"
@@ -1664,4 +1663,4 @@
    :rdfs/label         #xsd/langString "volume@en",
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :bibo/locator,
-   :vs/term_status     #xsd/string "stable"})
+   :vs/term_status     "stable"})

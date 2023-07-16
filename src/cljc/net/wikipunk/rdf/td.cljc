@@ -5,11 +5,10 @@
                          {:rdfa/uri "http://maxime-lefrancois.info/me#"}],
    :dcterms/license {:rdfa/uri "http://purl.org/NET/rdflicense/cc-by4.0"},
    :dcterms/publisher {:rdf/type    :schema/Organization,
-                       :schema/name #xsd/string
-                                     "W3C Web of Things Working Group",
+                       :schema/name "W3C Web of Things Working Group",
                        :schema/url  {:rdfa/uri "https://www.w3.org/WoT/WG/"}},
    :dcterms/title #xsd/langString "Thing Description Ontology@en",
-   :owl/versionInfo #xsd/string "0.9.0",
+   :owl/versionInfo "0.9.0",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "foaf" "http://xmlns.com/foaf/0.1/",
                        "hctl" "https://www.w3.org/2019/wot/hypermedia#",
@@ -29,8 +28,8 @@
    :rdfs/comment
    #xsd/langString
     "This ontology aims to model the Web of Things domain according to the W3C Interest Group (http://w3c.github.io/wot/)@en",
-   :vann/preferredNamespacePrefix #xsd/string "td",
-   :vann/preferredNamespaceUri #xsd/string "https://www.w3.org/2019/wot/td#"}
+   :vann/preferredNamespacePrefix "td",
+   :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/td#"}
   (:refer-clojure :exclude [name]))
 
 (def ActionAffordance
@@ -41,7 +40,7 @@
    #xsd/langString
     "An Interaction Affordance that allows to invoke a function of the Thing, which manipulates state (e.g., toggling a lamp on or off) or triggers a process on the Thing (e.g., dim a lamp over time).@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "ActionAffordance",
+   :rdfs/label "ActionAffordance",
    :rdfs/subClassOf [:rdfs/Resource :td/InteractionAffordance]})
 
 (def EventAffordance
@@ -52,7 +51,7 @@
    #xsd/langString
     "An Interaction Affordance that describes an event source, which asynchronously pushes event data to Consumers (e.g., overheating alerts).@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "EventAffordance",
+   :rdfs/label "EventAffordance",
    :rdfs/subClassOf [:rdfs/Resource :td/InteractionAffordance]})
 
 (def InteractionAffordance
@@ -63,7 +62,7 @@
    #xsd/langString
     "Metadata of a Thing that shows the possible choices to Consumers, thereby suggesting how Consumers may interact with the Thing. There are many types of potential affordances, but W3C WoT defines three types of Interaction Affordances: Properties, Actions, and Events.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "InteractionAffordance",
+   :rdfs/label "InteractionAffordance",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def OperationType
@@ -74,7 +73,7 @@
    #xsd/langString
     "Enumeration of well-known operation types necessary to implement the WoT interaction model@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "OperationType",
+   :rdfs/label "OperationType",
    :rdfs/subClassOf [:rdfs/Resource :schema/Enumeration]})
 
 (def PropertyAffordance
@@ -85,7 +84,7 @@
    #xsd/langString
     "An Interaction Affordance that exposes state of the Thing. This state can then be retrieved (read) and/or updated (write). Things can also choose to make Properties observable by pushing the new state after a change.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "PropertyAffordance",
+   :rdfs/label "PropertyAffordance",
    :rdfs/subClassOf [:td/InteractionAffordance :rdfs/Resource]})
 
 (def Thing
@@ -107,7 +106,7 @@
    #xsd/langString
     "Define the base URI that is used for all relative URI references throughout a TD document. In TD instances, all relative URIs are resolved relative to the base URI using the algorithm defined in [RFC3986]. base does not affect the URIs used in @context and the IRIs used within Linked Data [LINKED-DATA] graphs that are relevant when semantic processing is applied to TD instances.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "baseURI"})
+   :rdfs/label "baseURI"})
 
 (def cancelAction
   "Operation type of forms used to cancel an action"
@@ -116,17 +115,16 @@
    :rdfs/comment     #xsd/langString
                       "Operation type of forms used to cancel an action@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       #xsd/string "cancelAction"})
+   :rdfs/label       "cancelAction"})
 
 (def definesSecurityScheme
   "A Thing may define abstract security schemes, used to configure the secure access of (a set of) affordance(s)."
   {:db/ident :td/definesSecurityScheme,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/string
-    "A Thing may define abstract security schemes, used to configure the secure access of (a set of) affordance(s).",
+   "A Thing may define abstract security schemes, used to configure the secure access of (a set of) affordance(s).",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "definesSecurityScheme",
+   :rdfs/label "definesSecurityScheme",
    :schema/domainIncludes :td/Thing})
 
 (def description
@@ -134,10 +132,9 @@
   {:db/ident :td/description,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "description of the TD element (Thing, interaction affordance, security scheme or data schema)",
+   "description of the TD element (Thing, interaction affordance, security scheme or data schema)",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "description",
+   :rdfs/label "description",
    :rdfs/subPropertyOf :dcterms/description,
    :schema/domainIncludes [:wotsec/SecurityScheme
                            :td/InteractionAffordance
@@ -150,10 +147,9 @@
   {:db/ident :td/descriptionInLanguage,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "description of the TD element (Thing, interaction affordance, security scheme or data schema) with language tag. By convention, a language tag must be added to the object of 'descriptionInLanguage' triples. Otherwise, use 'description'.",
+   "description of the TD element (Thing, interaction affordance, security scheme or data schema) with language tag. By convention, a language tag must be added to the object of 'descriptionInLanguage' triples. Otherwise, use 'description'.",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "descriptionInLanguage",
+   :rdfs/label "descriptionInLanguage",
    :rdfs/subPropertyOf :dcterms/description,
    :schema/domainIncludes [:td/InteractionAffordance
                            :jsonschema/DataSchema
@@ -169,7 +165,7 @@
    #xsd/langString
     "Indicates the WoT Profile mechanisms followed by this Thing Description and the corresponding Thing implementation.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "followsProfile"})
+   :rdfs/label "followsProfile"})
 
 (def hasActionAffordance
   "All Action-based interaction affordance of the Thing."
@@ -178,7 +174,7 @@
    :rdfs/comment #xsd/langString
                   "All Action-based interaction affordance of the Thing.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasActionAffordance",
+   :rdfs/label "hasActionAffordance",
    :rdfs/subPropertyOf :td/hasInteractionAffordance,
    :schema/rangeIncludes :td/ActionAffordance})
 
@@ -190,7 +186,7 @@
    #xsd/langString
     "Defines any data that needs to be passed to cancel a subscription, e.g., a specific message to remove a Webhook@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasCancellationSchema",
+   :rdfs/label "hasCancellationSchema",
    :schema/domainIncludes :td/EventAffordance})
 
 (def hasConfigurationInstance
@@ -198,10 +194,9 @@
   {:db/ident :td/hasConfigurationInstance,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/string
-    "Instantiation, as used here, is a form of non-symmetric equivalence between a scheme and a configuration: whatever statement on the scheme is also true of the configuration but not vice-versa.",
+   "Instantiation, as used here, is a form of non-symmetric equivalence between a scheme and a configuration: whatever statement on the scheme is also true of the configuration but not vice-versa.",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasConfigurationInstance",
+   :rdfs/label "hasConfigurationInstance",
    :schema/domainIncludes :wotsec/SecurityScheme})
 
 (def hasEventAffordance
@@ -211,7 +206,7 @@
    :rdfs/comment #xsd/langString
                   "All Event-based interaction affordance of the Thing.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasEventAffordance",
+   :rdfs/label "hasEventAffordance",
    :rdfs/subPropertyOf :td/hasInteractionAffordance,
    :schema/rangeIncludes :td/EventAffordance})
 
@@ -223,7 +218,7 @@
    #xsd/langString
     "Set of form hypermedia controls that describe how an operation can be performed. Forms are serializations of Protocol Bindings. The array cannot be empty@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasForm",
+   :rdfs/label "hasForm",
    :schema/domainIncludes [:td/Thing :td/InteractionAffordance],
    :schema/rangeIncludes :hctl/Form})
 
@@ -234,7 +229,7 @@
    :rdfs/comment     #xsd/langString
                       "Used to define the input data schema of the action.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       #xsd/string "hasInputSchema",
+   :rdfs/label       "hasInputSchema",
    :schema/domainIncludes :td/ActionAffordance})
 
 (def hasInteractionAffordance
@@ -244,7 +239,7 @@
    :rdfs/comment         #xsd/langString
                           "Offers an affordance to interact with the Thing@en",
    :rdfs/isDefinedBy     {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label           #xsd/string "hasInteractionAffordance",
+   :rdfs/label           "hasInteractionAffordance",
    :schema/domainIncludes :td/Thing,
    :schema/rangeIncludes :td/InteractionAffordance})
 
@@ -256,7 +251,7 @@
    #xsd/langString
     "Provides Web links to arbitrary resources that relate to the specified Thing Description.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasLink",
+   :rdfs/label "hasLink",
    :schema/rangeIncludes :hctl/Link})
 
 (def hasNotificationResponseSchema
@@ -267,7 +262,7 @@
    #xsd/langString
     "Defines the data schema of the Event response messages sent by the consumer in a response to a data message.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td#"},
-   :rdfs/label #xsd/string "hasNotificationResponseSchema",
+   :rdfs/label "hasNotificationResponseSchema",
    :schema/domainIncludes :td/EventAffordance})
 
 (def hasNotificationSchema
@@ -278,7 +273,7 @@
    #xsd/langString
     "Defines the data schema of the Event instance messages pushed by the Thing.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasNotificationSchema",
+   :rdfs/label "hasNotificationSchema",
    :schema/domainIncludes :td/EventAffordance})
 
 (def hasOutputSchema
@@ -288,7 +283,7 @@
    :rdfs/comment     #xsd/langString
                       "Used to define the output data schema of the action.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       #xsd/string "hasOutputSchema",
+   :rdfs/label       "hasOutputSchema",
    :schema/domainIncludes :td/ActionAffordance})
 
 (def hasPropertyAffordance
@@ -298,7 +293,7 @@
    :rdfs/comment #xsd/langString
                   "All Property-based interaction affordance of the Thing.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasPropertyAffordance",
+   :rdfs/label "hasPropertyAffordance",
    :rdfs/subPropertyOf :td/hasInteractionAffordance,
    :schema/rangeIncludes :td/PropertyAffordance})
 
@@ -310,7 +305,7 @@
    #xsd/langString
     "A security configuration is a a security scheme applied to a (set of) affordance(s).@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasSecurityConfiguration",
+   :rdfs/label "hasSecurityConfiguration",
    :schema/domainIncludes [:hctl/Form :td/Thing]})
 
 (def hasSubscriptionSchema
@@ -321,7 +316,7 @@
    #xsd/langString
     "Defines data that needs to be passed upon subscription, e.g., filters or message format for setting up Webhooks.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasSubscriptionSchema",
+   :rdfs/label "hasSubscriptionSchema",
    :schema/domainIncludes :td/EventAffordance})
 
 (def hasUriTemplateSchema
@@ -332,7 +327,7 @@
    #xsd/langString
     "Define URI template variables  according to [[RFC6570]] as collection based on schema specifications. The individual variables DataSchema cannot be an ObjectSchema or an ArraySchema.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "hasUriTemplateSchema",
+   :rdfs/label "hasUriTemplateSchema",
    :schema/domainIncludes :td/InteractionAffordance})
 
 (def instance
@@ -342,7 +337,7 @@
    :rdfs/comment     #xsd/langString
                       "Provides a version identicator of this TD instance.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       #xsd/string "instance"})
+   :rdfs/label       "instance"})
 
 (def invokeAction
   "Operation type of forms used to read a property value"
@@ -351,7 +346,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "invokeAction"})
+   :rdfs/label "invokeAction"})
 
 (def isIdempotent
   "Indicates whether the action is idempotent (=true) or not. Informs whether the action can be called repeatedly with the same result, if present, based on the same input."
@@ -361,7 +356,7 @@
    #xsd/langString
     "Indicates whether the action is idempotent (=true) or not. Informs whether the action can be called repeatedly with the same result, if present, based on the same input.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "isIdempotent",
+   :rdfs/label "isIdempotent",
    :schema/domainIncludes :td/ActionAffordance,
    :schema/rangeIncludes :schema/Boolean})
 
@@ -373,7 +368,7 @@
    #xsd/langString
     "A hint that indicates whether Servients hosting the Thing and Intermediaries should provide a Protocol Binding that supports the <code>observeproperty</code> and <code>unobserveproperty</code> operations for this Property.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "isObservable",
+   :rdfs/label "isObservable",
    :schema/domainIncludes :td/PropertyAffordance,
    :schema/rangeIncludes :schema/Boolean})
 
@@ -385,7 +380,7 @@
    #xsd/langString
     "Signals if the action is safe (=true) or not. Used to signal if there is no internal state (cf. resource state) is changed when invoking an Action. In that case responses can be cached as example.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "isSafe",
+   :rdfs/label "isSafe",
    :schema/domainIncludes :td/ActionAffordance,
    :schema/rangeIncludes :schema/Boolean})
 
@@ -397,7 +392,7 @@
    #xsd/langString
     "Indicates whether the action is synchronous (=true) or not. A synchronous action means that the response of action contains all the information about the result of the action and no further querying about the status of the action is needed. Lack of this keyword means that no claim on the synchronicity of the action can be made.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td#"},
-   :rdfs/label #xsd/string "isSynchronous",
+   :rdfs/label "isSynchronous",
    :schema/domainIncludes :td/ActionAffordance,
    :schema/rangeIncludes :schema/Boolean})
 
@@ -408,7 +403,7 @@
    :rdfs/comment     #xsd/langString
                       "Provides a version indicator of the underlying TM.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       #xsd/string "model"})
+   :rdfs/label       "model"})
 
 (def name
   "Indexing property to store entity names when serializing them in a JSON-LD @index container."
@@ -418,7 +413,7 @@
    #xsd/langString
     "Indexing property to store entity names when serializing them in a JSON-LD @index container.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "name",
+   :rdfs/label "name",
    :schema/domainIncludes :td/InteractionAffordance,
    :schema/rangeIncludes :schema/Text})
 
@@ -430,7 +425,7 @@
    #xsd/langString
     "Operation type of forms used to observe all property values@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "observeAllProperties"})
+   :rdfs/label "observeAllProperties"})
 
 (def observeProperty
   "Operation type of forms used to observe a property value"
@@ -439,7 +434,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to observe a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "observeProperty"})
+   :rdfs/label "observeProperty"})
 
 (def queryAction
   "Operation type of forms used to query the status of an action"
@@ -449,7 +444,7 @@
    #xsd/langString
     "Operation type of forms used to query the status of an action@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "queryAction"})
+   :rdfs/label "queryAction"})
 
 (def queryAllActions
   "Operation type of forms used to query the status of all actions"
@@ -459,7 +454,7 @@
    #xsd/langString
     "Operation type of forms used to query the status of all actions@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "queryAllActions"})
+   :rdfs/label "queryAllActions"})
 
 (def readAllProperties
   "Operation type of forms used to read all property values"
@@ -468,7 +463,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read all property values@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "readAllProperties"})
+   :rdfs/label "readAllProperties"})
 
 (def readMultipleProperties
   "Operation type of forms used to read a property value"
@@ -477,7 +472,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "readMultipleProperties"})
+   :rdfs/label "readMultipleProperties"})
 
 (def readProperty
   "Operation type of forms used to read a property value"
@@ -486,7 +481,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "readProperty"})
+   :rdfs/label "readProperty"})
 
 (def subscribeAllEvents
   "Operation type of forms used to subscribe to all event types"
@@ -496,7 +491,7 @@
    #xsd/langString
     "Operation type of forms used to subscribe to all event types@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "subscribeAllEvents"})
+   :rdfs/label "subscribeAllEvents"})
 
 (def subscribeEvent
   "Operation type of forms used to read a property value"
@@ -505,7 +500,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "subscribeEvent"})
+   :rdfs/label "subscribeEvent"})
 
 (def supportContact
   "Provides information about the TD maintainer as URI scheme (e.g., mailto [[RFC6068]], tel [[RFC3966]], https[[RFC9112]])."
@@ -515,7 +510,7 @@
    #xsd/langString
     "Provides information about the TD maintainer as URI scheme (e.g., mailto [[RFC6068]], tel [[RFC3966]], https[[RFC9112]]).@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "supportContact",
+   :rdfs/label "supportContact",
    :rdfs/seeAlso :schema/contactPoint})
 
 (def title
@@ -523,10 +518,9 @@
   {:db/ident :td/title,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "title of the TD element (Thing, interaction affordance or data schema)",
+   "title of the TD element (Thing, interaction affordance or data schema)",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "title",
+   :rdfs/label "title",
    :rdfs/subPropertyOf :dcterms/title,
    :schema/domainIncludes
    [:jsonschema/DataSchema :td/InteractionAffordance :td/Thing],
@@ -537,10 +531,9 @@
   {:db/ident :td/titleInLanguage,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "title of the TD element (Thing, interaction affordance or data schema) with language tag. By convention, a language tag must be added to the object of 'titleInLanguage' triples. Otherwise, use 'title'.",
+   "title of the TD element (Thing, interaction affordance or data schema) with language tag. By convention, a language tag must be added to the object of 'titleInLanguage' triples. Otherwise, use 'title'.",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "titleInLanguage",
+   :rdfs/label "titleInLanguage",
    :rdfs/subPropertyOf :dcterms/title,
    :schema/domainIncludes
    [:jsonschema/DataSchema :td/InteractionAffordance :td/Thing],
@@ -554,7 +547,7 @@
    #xsd/langString
     "Operation type of forms used to unobserve all property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "unobserveAllProperties"})
+   :rdfs/label "unobserveAllProperties"})
 
 (def unobserveProperty
   "Operation type of forms used to unobserve a property value"
@@ -564,7 +557,7 @@
    #xsd/langString
     "Operation type of forms used to unobserve a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "unobserveProperty"})
+   :rdfs/label "unobserveProperty"})
 
 (def unsubscribeAllEvents
   "Operation type of forms used to unsubscribe from all event types"
@@ -574,7 +567,7 @@
    #xsd/langString
     "Operation type of forms used to unsubscribe from all event types@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "unsubscribeAllEvents"})
+   :rdfs/label "unsubscribeAllEvents"})
 
 (def unsubscribeEvent
   "Operation type of forms used to read a property value"
@@ -583,7 +576,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "unsubscribeEvent"})
+   :rdfs/label "unsubscribeEvent"})
 
 (def versionInfo
   "Provides version information."
@@ -591,7 +584,7 @@
    :rdf/type         :owl/AnnotationProperty,
    :rdfs/comment     #xsd/langString "Provides version information.@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       #xsd/string "versionInfo",
+   :rdfs/label       "versionInfo",
    :rdfs/seeAlso     :schema/version})
 
 (def writeAllProperties
@@ -601,7 +594,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to read a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "writeAllProperties"})
+   :rdfs/label "writeAllProperties"})
 
 (def writeMultipleProperties
   "Operation type of forms used to write a property value"
@@ -610,7 +603,7 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to write a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "writeMultipleProperties"})
+   :rdfs/label "writeMultipleProperties"})
 
 (def writeProperty
   "Operation type of forms used to write a property value"
@@ -619,4 +612,4 @@
    :rdfs/comment #xsd/langString
                   "Operation type of forms used to write a property value@en",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/2019/wot/td"},
-   :rdfs/label #xsd/string "writeProperty"})
+   :rdfs/label "writeProperty"})

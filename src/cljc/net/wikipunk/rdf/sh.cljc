@@ -307,7 +307,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :rdfs/label #xsd/langString "JavaScript function@en",
    :rdfs/subClassOf
-   [:sh/JSExecutable :sh/Function :sh/Parameterizable :rdfs/Resource]})
+   [:sh/JSExecutable :sh/Function :rdfs/Resource :sh/Parameterizable]})
 
 (def JSLibrary
   "Represents a JavaScript library, typically identified by one or more URLs of files to include."
@@ -352,9 +352,9 @@
    :rdfs/label #xsd/langString "JavaScript target type@en",
    :rdfs/subClassOf [:sh/JSExecutable
                      :sh/TargetType
+                     :rdfs/Resource
                      :sh/Parameterizable
-                     :rdfs/Class
-                     :rdfs/Resource]})
+                     :rdfs/Class]})
 
 (def JSValidator
   "A SHACL validator based on JavaScript. This can be used to declare SHACL constraint components that perform JavaScript-based validation when used."
@@ -687,7 +687,7 @@
     "The class of parameter declarations, consisting of a path predicate and (possibly) information about allowed value type, cardinality and other characteristics.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :rdfs/label #xsd/langString "Parameter@en",
-   :rdfs/subClassOf [:sh/PropertyShape :sh/Shape :rdfs/Resource]})
+   :rdfs/subClassOf [:sh/PropertyShape :rdfs/Resource :sh/Shape]})
 
 (def Parameterizable
   "Superclass of components that can take parameters, especially functions and constraint components."
@@ -891,7 +891,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :rdfs/label #xsd/langString "SPARQL ASK validator@en",
    :rdfs/subClassOf
-   [:sh/SPARQLAskExecutable :sh/Validator :sh/SPARQLExecutable :rdfs/Resource]})
+   [:sh/SPARQLAskExecutable :sh/Validator :rdfs/Resource :sh/SPARQLExecutable]})
 
 (def SPARQLConstraint
   "The class of constraints based on SPARQL SELECT queries."
@@ -902,7 +902,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :rdfs/label #xsd/langString "SPARQL constraint@en",
    :rdfs/subClassOf
-   [:sh/SPARQLSelectExecutable :sh/SPARQLExecutable :rdfs/Resource]})
+   [:sh/SPARQLSelectExecutable :rdfs/Resource :sh/SPARQLExecutable]})
 
 (def SPARQLConstraintComponent
   "A constraint component that can be used to define constraints based on SPARQL queries."
@@ -954,9 +954,9 @@
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLAskExecutable
                      :sh/Function
+                     :rdfs/Resource
                      :sh/Parameterizable
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLRule
   "The class of SHACL rules based on SPARQL CONSTRUCT queries."
@@ -969,8 +969,8 @@
    :rdfs/label #xsd/langString "SPARQL CONSTRUCT rule@en",
    :rdfs/subClassOf [:sh/SPARQLConstructExecutable
                      :sh/Rule
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLSelectExecutable
   "The class of SPARQL executables based on a SELECT query."
@@ -993,8 +993,8 @@
    :rdfs/label #xsd/langString "SPARQL SELECT validator@en",
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/Validator
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLTarget
   "The class of targets that are based on SPARQL queries."
@@ -1007,8 +1007,8 @@
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLAskExecutable
                      :sh/Target
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLTargetType
   "The (meta) class for parameterizable targets that are based on SPARQL queries."
@@ -1022,10 +1022,10 @@
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLAskExecutable
                      :sh/TargetType
+                     :rdfs/Resource
                      :sh/Parameterizable
-                     :sh/SPARQLExecutable
                      :rdfs/Class
-                     :rdfs/Resource]})
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLUpdateExecutable
   "The class of SPARQL executables based on a SPARQL UPDATE."
@@ -1505,7 +1505,7 @@
   "Constraints expressed in JavaScript."
   {:db/ident         :sh/js,
    :rdf/type         [:rdf/Property :rdfs/Resource],
-   :rdfs/comment     #xsd/string "Constraints expressed in JavaScript.",
+   :rdfs/comment     "Constraints expressed in JavaScript.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :rdfs/label       #xsd/langString "JavaScript constraint@en",
    :rdfs/range       :sh/JSConstraint})

@@ -10,9 +10,8 @@
   "\nAn RDF graph (with intensional semantics).\n      "
   {:db/ident        :rdfg/Graph,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/string
-                     "\nAn RDF graph (with intensional semantics).\n      ",
-   :rdfs/label      #xsd/string "Graph",
+   :rdfs/comment    "\nAn RDF graph (with intensional semantics).\n      ",
+   :rdfs/label      "Graph",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def equivalentGraph
@@ -20,10 +19,9 @@
   {:db/ident :rdfg/equivalentGraph,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "\nThe graphs associated with the subject and object are equivalent.\n      ",
+   "\nThe graphs associated with the subject and object are equivalent.\n      ",
    :rdfs/domain :rdfg/Graph,
-   :rdfs/label #xsd/string "equivalent graph",
+   :rdfs/label "equivalent graph",
    :rdfs/range :rdfg/Graph})
 
 (def subGraphOf
@@ -31,8 +29,7 @@
   {:db/ident :rdfg/subGraphOf,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/string
-    "\nThe graph associated with the subject is a subgraph of a graph equivalent\nto that associated with the object.\n      ",
+   "\nThe graph associated with the subject is a subgraph of a graph equivalent\nto that associated with the object.\n      ",
    :rdfs/domain :rdfg/Graph,
-   :rdfs/label #xsd/string "subgraph of",
+   :rdfs/label "subgraph of",
    :rdfs/range :rdfg/Graph})

@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.qb
   "This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI)."
-  {:dcterms/contributor [{:foaf/mbox #xsd/string "richard@cyganiak.de"}
-                         {:foaf/mbox #xsd/string "arofan.gregory@earthlink.net"}
-                         {:foaf/mbox #xsd/string "dave@epimorphics.com"}
-                         {:foaf/mbox #xsd/string "ian@epimorphics.com"}
-                         {:foaf/mbox #xsd/string "jeni@jenitennison.com"}],
+  {:dcterms/contributor [{:foaf/mbox "richard@cyganiak.de"}
+                         {:foaf/mbox "dave@epimorphics.com"}
+                         {:foaf/mbox "ian@epimorphics.com"}
+                         {:foaf/mbox "arofan.gregory@earthlink.net"}
+                         {:foaf/mbox "jeni@jenitennison.com"}],
    :dcterms/created #xsd/date #inst "2010-07-12T00:00:00.000-04:00",
    :dcterms/license {:rdfa/uri
                      "http://www.opendatacommons.org/licenses/pddl/1.0/"},
@@ -12,9 +12,8 @@
                       #xsd/date #inst "2013-07-26T00:00:00.000-04:00"
                       #xsd/date #inst "2013-03-02T00:00:00.000-05:00"],
    :dcterms/title
-   #xsd/string
-    "Vocabulary for multi-dimensional (e.g. statistical) data publishing",
-   :owl/versionInfo #xsd/string "0.2",
+   "Vocabulary for multi-dimensional (e.g. statistical) data publishing",
+   :owl/versionInfo "0.2",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "foaf"    "http://xmlns.com/foaf/0.1/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -29,10 +28,9 @@
    :rdfa/prefix "qb",
    :rdfa/uri "http://purl.org/linked-data/cube",
    :rdfs/comment
-   #xsd/string
-    "This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI).",
+   "This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI).",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-data-cube/"},
-   :rdfs/label #xsd/string "The data cube vocabulary"})
+   :rdfs/label "The data cube vocabulary"})
 
 (def Attachable
   "Abstract superclass for everything that can have attributes and dimensions"
@@ -55,7 +53,7 @@
     "The class of components which represent attributes of observations in the cube, e.g. unit of measurement@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/linked-data/cube"},
    :rdfs/label #xsd/langString "Attribute property@en",
-   :rdfs/subClassOf [:qb/ComponentProperty :rdfs/Resource :rdf/Property]})
+   :rdfs/subClassOf [:qb/ComponentProperty :rdf/Property :rdfs/Resource]})
 
 (def CodedProperty
   "Superclass of all coded ComponentProperties"
@@ -65,7 +63,7 @@
                       "Superclass of all coded ComponentProperties@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/linked-data/cube"},
    :rdfs/label       #xsd/langString "Coded property@en",
-   :rdfs/subClassOf  [:qb/ComponentProperty :rdfs/Resource :rdf/Property]})
+   :rdfs/subClassOf  [:qb/ComponentProperty :rdf/Property :rdfs/Resource]})
 
 (def ComponentProperty
   "Abstract super-property of all properties representing dimensions, attributes or measures"
@@ -133,7 +131,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/linked-data/cube"},
    :rdfs/label #xsd/langString "Dimension property@en",
    :rdfs/subClassOf
-   [:qb/CodedProperty :qb/ComponentProperty :rdfs/Resource :rdf/Property]})
+   [:qb/CodedProperty :qb/ComponentProperty :rdf/Property :rdfs/Resource]})
 
 (def HierarchicalCodeList
   "Represents a generalized hierarchy of concepts which can be used for coding. The hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to thier child concept .  The same concepts may be members of multiple hierarchies provided that different qb:parentChildProperty values are used for each hierarchy."
@@ -156,7 +154,7 @@
     "The class of components which represent the measured value of the phenomenon being observed@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/linked-data/cube"},
    :rdfs/label #xsd/langString "Measure property@en",
-   :rdfs/subClassOf [:qb/ComponentProperty :rdfs/Resource :rdf/Property]})
+   :rdfs/subClassOf [:qb/ComponentProperty :rdf/Property :rdfs/Resource]})
 
 (def Observation
   "A single observation in the cube, may have one or more associated measured values"
@@ -351,9 +349,9 @@
   {:db/ident :qb/measureType,
    :rdf/type [:rdf/Property
               :qb/DimensionProperty
-              :qb/ComponentProperty
+              :qb/CodedProperty
               :rdfs/Resource
-              :qb/CodedProperty],
+              :qb/ComponentProperty],
    :rdfs/comment
    #xsd/langString
     "Generic measure dimension, the value of this dimension indicates which measure (from the set of measures in the DSD) is being given by the obsValue (or other primary measure)@en",

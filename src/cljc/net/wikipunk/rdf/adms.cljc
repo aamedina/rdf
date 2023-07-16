@@ -1,17 +1,16 @@
 (ns net.wikipunk.rdf.adms
   {:dcat/downloadURL  "http://uri.semic.eu/w3c/ns/adms.ttl",
-   :dcterms/issued    #xsd/string "2023-04-05",
+   :dcterms/issued    "2023-04-05",
    :dcterms/license   {:rdfa/uri
                        "https://creativecommons.org/licenses/by/4.0/"},
    :dcterms/mediator  {:foaf/homepage {:rdfa/uri "https://semic.eu"},
                        :foaf/name
-                       #xsd/string
-                        "Semantic Interoperability Community (SEMIC)"},
-   :foaf/maker        {:foaf/firstName #xsd/string "Pavlina",
-                       :foaf/lastName  #xsd/string "Fragkou",
+                       "Semantic Interoperability Community (SEMIC)"},
+   :foaf/maker        {:foaf/firstName "Pavlina",
+                       :foaf/lastName  "Fragkou",
                        :rdf/type       :foaf/Person,
                        {:rdfa/uri "https://schema.org/affiliation"}
-                       {:foaf/name #xsd/string "SEMIC EU"}},
+                       {:foaf/name "SEMIC EU"}},
    :rdf/ns-prefix-map {"adms" "http://www.w3.org/ns/adms#",
                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
    :rdf/type          :owl/Ontology,
@@ -19,22 +18,20 @@
    :rdfa/uri          "http://www.w3.org/ns/adms",
    :rdfs/label        [#xsd/langString "adms@nl" #xsd/langString "adms@en"],
    {:rdfa/uri "http://www.w3.org/2001/02pd/rec54#editor"}
-   [{:foaf/firstName #xsd/string "Bert",
-     :foaf/lastName  #xsd/string "Van Nuffelen",
+   [{:foaf/firstName "Bert",
+     :foaf/lastName  "Van Nuffelen",
      :foaf/mbox      {:rdfa/uri "mailto:bert.van.nuffelen@tenforce.com"},
      :rdf/type       :foaf/Person,
-     {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name #xsd/string
-                                                               "TenForce"}}
-    {:foaf/firstName #xsd/string "Natasa",
-     :foaf/lastName  #xsd/string "Sofou",
+     {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name "TenForce"}}
+    {:foaf/firstName "Makx",
+     :foaf/lastName  "Dekkers",
      :rdf/type       :foaf/Person}
-    {:foaf/firstName #xsd/string "Pavlina",
-     :foaf/lastName  #xsd/string "Fragkou",
+    {:foaf/firstName "Pavlina",
+     :foaf/lastName  "Fragkou",
      :rdf/type       :foaf/Person,
-     {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name #xsd/string
-                                                               "SEMIC EU"}}
-    {:foaf/firstName #xsd/string "Makx",
-     :foaf/lastName  #xsd/string "Dekkers",
+     {:rdfa/uri "https://schema.org/affiliation"} {:foaf/name "SEMIC EU"}}
+    {:foaf/firstName "Natasa",
+     :foaf/lastName  "Sofou",
      :rdf/type       :foaf/Person}]}
   (:refer-clojure :exclude [last next]))
 
@@ -192,8 +189,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    [#xsd/langString "The name of the agency that issued the identifier.@en"
-    #xsd/string
-     "This property is deprecated because in in HTML specification another URI was used."],
+    "This property is deprecated because in in HTML specification another URI was used."],
    :rdfs/domain :adms/Identifier,
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/adms"},
    :rdfs/label #xsd/langString "schema agency@en",

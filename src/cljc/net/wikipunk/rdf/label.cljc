@@ -5,9 +5,8 @@
    "https://lov.linkeddata.es/dataset/lov/vocabs/label/versions/2004-03-28.n3",
    :dcterms/created #xsd/langString "2004-03-28@en",
    :foaf/maker {:foaf/homepage     {:rdfa/uri "http://www.wasab.dk/morten/"},
-                :foaf/mbox_sha1sum #xsd/string
-                                    "65b983bb397fb71849da910996741752ace8369b",
-                :foaf/name         #xsd/string "Morten Høybye Frederiksen",
+                :foaf/mbox_sha1sum "65b983bb397fb71849da910996741752ace8369b",
+                :foaf/name         "Morten Høybye Frederiksen",
                 :rdf/type          :foaf/Person},
    :owl/imports [{:rdfa/uri "http://www.w3.org/2002/07/owl"}
                  {:rdfa/uri "http://www.w3.org/2000/01/rdf-schema"}],

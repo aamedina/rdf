@@ -28,8 +28,8 @@
    :rdf/type :owl/Ontology,
    :rdfa/prefix "wo",
    :rdfa/uri "http://purl.org/ontology/wo/core#",
-   :vann/preferredNamespacePrefix #xsd/string "wo",
-   :vann/preferredNamespaceUri #xsd/string "http://purl.org/ontology/wo/core#"})
+   :vann/preferredNamespacePrefix "wo",
+   :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#"})
 
 (def Scale
   "A concept for describing scales for weights."

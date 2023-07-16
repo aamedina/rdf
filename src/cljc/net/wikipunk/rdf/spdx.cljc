@@ -17,15 +17,14 @@
    :rdfs/comment
    #xsd/langString
     "This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C's RDF Technology.\n\nSPDX® is an open standard for communicating software bill of material information, including components, licenses, copyrights, and security references. SPDX reduces redundant work by providing a common format for companies and communities to share important data, thereby streamlining and improving compliance.\n.\nKnown issues:\n- rdfs:comment and rdfs:seeAlso are used within the SPDX classes and causes a redefinition of these standard terms@en",
-   :rdfs/label #xsd/string "SPDX 2.3"}
+   :rdfs/label "SPDX 2.3"}
   (:refer-clojure :exclude [name range]))
 
 (def Annotation
   "An Annotation is a comment on an SpdxItem by an agent."
   {:db/ident        :spdx/Annotation,
    :rdf/type        :owl/Class,
-   :rdfs/comment    #xsd/string
-                     "An Annotation is a comment on an SpdxItem by an agent.",
+   :rdfs/comment    "An Annotation is a comment on an SpdxItem by an agent.",
    :rdfs/subClassOf [{:owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
@@ -58,10 +57,9 @@
   {:db/ident :spdx/AnyLicenseInfo,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/string
-    "The AnyLicenseInfo class includes all resources that represent licensing information.",
-   :rdfs/isDefinedBy #xsd/string "http://spdx.org/rdf/terms#AnyLicenseInfo",
-   :vs/term_status #xsd/string "stable"})
+   "The AnyLicenseInfo class includes all resources that represent licensing information.",
+   :rdfs/isDefinedBy {:rdfa/uri "http://spdx.org/rdf/terms#AnyLicenseInfo"},
+   :vs/term_status "stable"})
 
 (def Checksum
   "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
@@ -134,32 +132,32 @@
    :rdfs/comment    #xsd/langString
                      "Cross reference details for the a URL reference@en",
    :rdfs/subClassOf [{:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isLive,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/match,
+                      :owl/onDataRange :xsd/anyURI,
+                      :owl/onProperty  :spdx/isWayBackLink,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/dateTime,
                       :owl/onProperty  :spdx/timestamp,
                       :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/anyURI,
-                      :owl/onProperty  :spdx/url,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isLive,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isValid,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/nonNegativeInteger,
                       :owl/onProperty  :spdx/order,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/anyURI,
-                      :owl/onProperty  :spdx/isWayBackLink,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/match,
                       :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isValid,
+                     {:owl/onDataRange :xsd/anyURI,
+                      :owl/onProperty  :spdx/url,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}],
    :vs/term_status  #xsd/langString "stable@en"})
 
@@ -240,6 +238,10 @@
                       :owl/onDataRange :xsd/anyURI,
                       :owl/onProperty  :rdfs/seeAlso,
                       :rdf/type        :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/name,
+                      :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onClass    :spdx/CrossRef,
                       :owl/onProperty :spdx/crossRef,
@@ -250,14 +252,10 @@
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/name,
-                      :rdf/type        :owl/Restriction}
-                     :spdx/AnyLicenseInfo
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
-                      :rdf/type        :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+                      :rdf/type        :owl/Restriction}
+                     :spdx/AnyLicenseInfo],
+   :vs/term_status "stable"})
 
 (def File
   "A File represents a named sequence of information that is contained in a software package."
@@ -267,7 +265,28 @@
    :rdfs/comment
    #xsd/langString
     "A File represents a named sequence of information that is contained in a software package.@en",
-   :rdfs/subClassOf [{:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+   :rdfs/subClassOf [{:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/fileName,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/FileType,
+                      :owl/onProperty :spdx/fileType,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/fileContributor,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/AnyLicenseInfo,
+                      :owl/onProperty :spdx/licenseInfoInFile,
+                      :rdf/type       :owl/Restriction}
+                     :spdx/SpdxItem
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/File,
+                      :owl/onProperty :spdx/fileDependency,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/noticeText,
                       :rdf/type        :owl/Restriction}
@@ -275,39 +294,14 @@
                       :owl/onClass    :doap/Project,
                       :owl/onProperty :spdx/artifactOf,
                       :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/AnyLicenseInfo,
-                      :owl/onProperty :spdx/licenseInfoInFile,
-                      :rdf/type       :owl/Restriction}
-                     :spdx/SpdxItem
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onClass    :spdx/Checksum,
                       :owl/onProperty :spdx/checksum,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/File,
-                      :owl/onProperty :spdx/fileDependency,
+                      :owl/onClass    :spdx/Annotation,
+                      :owl/onProperty :spdx/annotation,
                       :rdf/type       :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/fileName,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/fileContributor,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/FileType,
-                      :owl/onProperty :spdx/fileType,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/AnyLicenseInfo,
-                      :owl/onProperty :spdx/licenseInfoFromFiles,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/copyrightText,
-                      :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/attributionText,
@@ -317,21 +311,25 @@
                       :owl/onProperty :spdx/relationship,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/Annotation,
-                      :owl/onProperty :spdx/annotation,
+                      :owl/onClass    :spdx/AnyLicenseInfo,
+                      :owl/onProperty :spdx/licenseInfoFromFiles,
                       :rdf/type       :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :rdfs/comment,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/licenseComments,
                       :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/name,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
                      :spdx/SpdxElement
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :rdfs/comment,
+                      :owl/onProperty  :spdx/copyrightText,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/name,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/unionOf [{:owl/hasValue   :spdx/noassertion,
                                      :owl/onProperty :spdx/licenseConcluded,
@@ -364,23 +362,11 @@
    :rdfs/subClassOf [:spdx/SimpleLicensingInfo
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/standardLicenseHeader,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isOsiApproved,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/standardLicenseTemplate,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isFsfLibre,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isDeprecatedLicenseId,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/standardLicenseHeader,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
@@ -390,23 +376,35 @@
                       :owl/onProperty  :spdx/licenseText,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/CrossRef,
-                      :owl/onProperty :spdx/crossRef,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseId,
+                     {:owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isOsiApproved,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/name,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isDeprecatedLicenseId,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isFsfLibre,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onDataRange :xsd/anyURI,
                       :owl/onProperty  :rdfs/seeAlso,
                       :rdf/type        :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/name,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/licenseId,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
                      :spdx/AnyLicenseInfo
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/CrossRef,
+                      :owl/onProperty :spdx/crossRef,
+                      :rdf/type       :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
@@ -420,19 +418,23 @@
    :rdfs/comment    #xsd/langString "An exception to a license.@en",
    :rdfs/subClassOf [{:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/example,
+                      :owl/onProperty  :spdx/licenseExceptionTemplate,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onDataRange :xsd/anyURI,
+                      :owl/onProperty  :rdfs/seeAlso,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/licenseExceptionText,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/name,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseExceptionText,
+                      :owl/onProperty  :spdx/licenseExceptionId,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onDataRange :xsd/anyURI,
-                      :owl/onProperty  :rdfs/seeAlso,
                       :rdf/type        :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
@@ -440,11 +442,7 @@
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseExceptionTemplate,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseExceptionId,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :spdx/example,
                       :rdf/type        :owl/Restriction}],
    :vs/term_status  #xsd/langString "stable@en"})
 
@@ -472,21 +470,14 @@
                       :owl/onProperty  :spdx/deprecatedVersion,
                       :rdf/type        :owl/Restriction}
                      :spdx/License
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/standardLicenseTemplate,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/standardLicenseHeaderTemplate,
-                      :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/CrossRef,
-                      :owl/onProperty :spdx/crossRef,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isOsiApproved,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/anyURI,
+                      :owl/onProperty  :rdfs/seeAlso,
+                      :rdf/type        :owl/Restriction}
+                     :spdx/SimpleLicensingInfo
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/name,
                       :rdf/type        :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/licenseId,
@@ -494,33 +485,40 @@
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/name,
+                      :owl/onProperty  :spdx/standardLicenseTemplate,
                       :rdf/type        :owl/Restriction}
-                     :spdx/SimpleLicensingInfo
+                     {:owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isOsiApproved,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/standardLicenseHeader,
                       :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseText,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                     :spdx/AnyLicenseInfo
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :spdx/isDeprecatedLicenseId,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/boolean,
                       :owl/onProperty  :spdx/isFsfLibre,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onDataRange :xsd/anyURI,
-                      :owl/onProperty  :rdfs/seeAlso,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :spdx/isDeprecatedLicenseId,
-                      :rdf/type        :owl/Restriction}
-                     :spdx/AnyLicenseInfo
+                      :owl/onClass    :spdx/CrossRef,
+                      :owl/onProperty :spdx/crossRef,
+                      :rdf/type       :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/licenseText,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/standardLicenseHeaderTemplate,
                       :rdf/type        :owl/Restriction}],
    :vs/term_status #xsd/langString "stable@en"})
 
@@ -528,7 +526,7 @@
   "License exception specific to ListedLicenses"
   {:db/ident        :spdx/ListedLicenseException,
    :rdf/type        :owl/Class,
-   :rdfs/comment    #xsd/string "License exception specific to ListedLicenses",
+   :rdfs/comment    "License exception specific to ListedLicenses",
    :rdfs/subClassOf [{:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/exceptionTextHtml,
@@ -539,10 +537,6 @@
                       :owl/onProperty  :rdfs/seeAlso,
                       :rdf/type        :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseExceptionId,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
@@ -551,16 +545,20 @@
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/licenseExceptionId,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/licenseExceptionTemplate,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/name,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/example,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/licenseExceptionTemplate,
                       :rdf/type        :owl/Restriction}]})
 
 (def OrLaterOperator
@@ -585,7 +583,23 @@
    #xsd/langString
     "A Package represents a collection of software files that are delivered as a single functional component.@en",
    :rdfs/subClassOf
-   [{:owl/unionOf [{:owl/hasValue   :spdx/noassertion,
+   [{:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/versionInfo,
+     :rdf/type        :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/packageFileName,
+     :rdf/type        :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/originator,
+     :rdf/type        :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/sourceInfo,
+     :rdf/type        :owl/Restriction}
+    {:owl/unionOf [{:owl/hasValue   :spdx/noassertion,
                     :owl/onProperty :spdx/licenseDeclared,
                     :rdf/type       :owl/Restriction}
                    {:owl/hasValue   :spdx/none,
@@ -597,30 +611,10 @@
                     :rdf/type       :owl/Restriction}],
      :rdf/type    :owl/Class}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/sourceInfo,
-     :rdf/type        :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/anyURI,
-     :owl/onProperty  :doap/homepage,
-     :rdf/type        :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onClass    :spdx/PackageVerificationCode,
-     :owl/onProperty :spdx/packageVerificationCode,
-     :rdf/type       :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/supplier,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :spdx/filesAnalyzed,
      :rdf/type        :owl/Restriction}
     :spdx/SpdxItem
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/originator,
-     :rdf/type        :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/date,
-     :owl/onProperty  :spdx/builtDate,
-     :rdf/type        :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
      :owl/onDataRange :xsd/date,
      :owl/onProperty  :spdx/validUntilDate,
@@ -629,79 +623,83 @@
      :owl/onDataRange :xsd/date,
      :owl/onProperty  :spdx/releaseDate,
      :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-     :owl/onClass    :spdx/File,
-     :owl/onProperty :spdx/hasFile,
-     :rdf/type       :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
      :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/versionInfo,
+     :owl/onProperty  :spdx/supplier,
      :rdf/type        :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/packageFileName,
+     :owl/onDataRange :xsd/date,
+     :owl/onProperty  :spdx/builtDate,
      :rdf/type        :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onClass    :spdx/Purpose,
-     :owl/onProperty :spdx/primaryPackagePurpose,
-     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
      :owl/onClass    :spdx/ExternalRef,
      :owl/onProperty :spdx/externalRef,
      :rdf/type       :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
      :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/description,
-     :rdf/type        :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :spdx/filesAnalyzed,
+     :owl/onProperty  :spdx/summary,
      :rdf/type        :owl/Restriction}
     {:owl/onDataRange :xsd/anyURI,
      :owl/onProperty  :spdx/downloadLocation,
      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
      :rdf/type        :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/summary,
+     :owl/onClass    :spdx/PackageVerificationCode,
+     :owl/onProperty :spdx/packageVerificationCode,
+     :rdf/type       :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/anyURI,
+     :owl/onProperty  :doap/homepage,
      :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+     :owl/onClass    :spdx/File,
+     :owl/onProperty :spdx/hasFile,
+     :rdf/type       :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onClass    :spdx/Purpose,
+     :owl/onProperty :spdx/primaryPackagePurpose,
+     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
      :owl/onClass    :spdx/Checksum,
      :owl/onProperty :spdx/checksum,
      :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-     :owl/onClass    :spdx/AnyLicenseInfo,
-     :owl/onProperty :spdx/licenseInfoFromFiles,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-     :owl/onClass    :spdx/Relationship,
-     :owl/onProperty :spdx/relationship,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-     :owl/onClass    :spdx/Annotation,
-     :owl/onProperty :spdx/annotation,
-     :rdf/type       :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
      :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/licenseComments,
-     :rdf/type        :owl/Restriction}
-    {:owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/name,
-     :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-     :rdf/type        :owl/Restriction}
-    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :spdx/copyrightText,
+     :owl/onProperty  :spdx/description,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
      :owl/onDataRange :xsd/string,
      :owl/onProperty  :spdx/attributionText,
      :rdf/type        :owl/Restriction}
-    :spdx/SpdxElement
+    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+     :owl/onClass    :spdx/AnyLicenseInfo,
+     :owl/onProperty :spdx/licenseInfoFromFiles,
+     :rdf/type       :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/licenseComments,
+     :rdf/type        :owl/Restriction}
+    {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/copyrightText,
+     :rdf/type        :owl/Restriction}
+    {:owl/onDataRange :xsd/string,
+     :owl/onProperty  :spdx/name,
+     :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+     :owl/onClass    :spdx/Annotation,
+     :owl/onProperty :spdx/annotation,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+     :owl/onClass    :spdx/Relationship,
+     :owl/onProperty :spdx/relationship,
+     :rdf/type       :owl/Restriction}
     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
      :owl/onDataRange :xsd/string,
      :owl/onProperty  :rdfs/comment,
      :rdf/type        :owl/Restriction}
+    :spdx/SpdxElement
     {:owl/unionOf [{:owl/hasValue   :spdx/noassertion,
                     :owl/onProperty :spdx/licenseConcluded,
                     :rdf/type       :owl/Restriction}
@@ -737,9 +735,8 @@
   {:db/ident :spdx/Purpose,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/string
-    "Package Purpose is intrinsic to how the package is being used rather than the content of the package.",
-   :vs/term_status #xsd/string "stable"})
+   "Package Purpose is intrinsic to how the package is being used rather than the content of the package.",
+   :vs/term_status "stable"})
 
 (def ReferenceCategory
   "Category used for ExternalRef"
@@ -869,13 +866,9 @@
                       :rdf/type       :owl/Restriction}
                      :spdx/SpdxItem
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/AnyLicenseInfo,
-                      :owl/onProperty :spdx/licenseInfoFromFiles,
+                      :owl/onClass    :spdx/Annotation,
+                      :owl/onProperty :spdx/annotation,
                       :rdf/type       :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/copyrightText,
-                      :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/attributionText,
@@ -885,21 +878,25 @@
                       :owl/onProperty :spdx/relationship,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/Annotation,
-                      :owl/onProperty :spdx/annotation,
+                      :owl/onClass    :spdx/AnyLicenseInfo,
+                      :owl/onProperty :spdx/licenseInfoFromFiles,
                       :rdf/type       :owl/Restriction}
+                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :rdfs/comment,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/licenseComments,
                       :rdf/type        :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/name,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
                      :spdx/SpdxElement
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :rdfs/comment,
+                      :owl/onProperty  :spdx/copyrightText,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/name,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
                      {:owl/unionOf [{:owl/hasValue   :spdx/noassertion,
                                      :owl/onProperty :spdx/licenseConcluded,
@@ -922,27 +919,7 @@
    :rdfs/comment
    #xsd/langString
     "An SpdxDocument is a summary of the contents, provenance, ownership and licensing analysis of a specific software package. This is, effectively, the top level of SPDX information.@en",
-   :rdfs/subClassOf [{:owl/hasValue   {:rdfa/uri
-                                       "http://spdx.org/licenses/CC0-1.0"},
-                      :owl/onProperty :spdx/dataLicense,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onClass    :spdx/CreationInfo,
-                      :owl/onProperty :spdx/creationInfo,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/ExternalDocumentRef,
-                      :owl/onProperty :spdx/externalDocumentRef,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/specVersion,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/ExtractedLicensingInfo,
-                      :owl/onProperty :spdx/hasExtractedLicensingInfo,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onClass    :spdx/AnyLicenseInfo,
+   :rdfs/subClassOf [{:owl/onClass    :spdx/AnyLicenseInfo,
                       :owl/onProperty :spdx/dataLicense,
                       :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type       :owl/Restriction}
@@ -951,27 +928,47 @@
                       :owl/onProperty :spdx/describesPackage,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/ExtractedLicensingInfo,
+                      :owl/onProperty :spdx/hasExtractedLicensingInfo,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   {:rdfa/uri
+                                       "http://spdx.org/licenses/CC0-1.0"},
+                      :owl/onProperty :spdx/dataLicense,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/ExternalDocumentRef,
+                      :owl/onProperty :spdx/externalDocumentRef,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onClass    :spdx/Review,
                       :owl/onProperty :spdx/reviewed,
                       :rdf/type       :owl/Restriction}
-                     :spdx/SpdxElement
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/Relationship,
-                      :owl/onProperty :spdx/relationship,
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/specVersion,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onClass    :spdx/CreationInfo,
+                      :owl/onProperty :spdx/creationInfo,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type       :owl/Restriction}
+                     :spdx/SpdxElement
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onClass    :spdx/Annotation,
                       :owl/onProperty :spdx/annotation,
                       :rdf/type       :owl/Restriction}
-                     {:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :spdx/name,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/Relationship,
+                      :owl/onProperty :spdx/relationship,
+                      :rdf/type       :owl/Restriction}
                      {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :rdfs/comment,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :spdx/name,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def SpdxElement
   "An SpdxElement is any thing described in SPDX, either a document or an SpdxItem. SpdxElements can be related to other SpdxElements."
@@ -996,7 +993,7 @@
                       :owl/onClass    :spdx/Annotation,
                       :owl/onProperty :spdx/annotation,
                       :rdf/type       :owl/Restriction}],
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def SpdxItem
   "An SpdxItem is a potentially copyrightable work."
@@ -1034,12 +1031,12 @@
                       :rdf/type    :owl/Class}
                      :spdx/SpdxElement
                      {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onClass    :spdx/Relationship,
-                      :owl/onProperty :spdx/relationship,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
                       :owl/onClass    :spdx/Annotation,
                       :owl/onProperty :spdx/annotation,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 0,
+                      :owl/onClass    :spdx/Relationship,
+                      :owl/onProperty :spdx/relationship,
                       :rdf/type       :owl/Restriction}
                      {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :spdx/name,
@@ -1077,7 +1074,7 @@
    #xsd/langString
     "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.@en",
    :rdfs/domain :spdx/Checksum,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def annotation
   "Provide additional information about an SpdxElement."
@@ -1087,7 +1084,7 @@
                     "Provide additional information about an SpdxElement.@en",
    :rdfs/domain    :spdx/SpdxElement,
    :rdfs/range     :spdx/Annotation,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def annotationDate
   "Identify when the comment was made. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard."
@@ -1099,7 +1096,7 @@
    :rdfs/domain :spdx/Annotation,
    :rdfs/range :xsd/dateTime,
    :rdfs/subPropertyOf :spdx/date,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def annotationType
   "Type of the annotation."
@@ -1139,8 +1136,7 @@
   {:db/ident :spdx/annotator,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "This field identifies the person, organization, or tool that has commented on a file, package, snippet, or the entire document.",
+   "This field identifies the person, organization, or tool that has commented on a file, package, snippet, or the entire document.",
    :rdfs/domain :spdx/Annotation,
    :rdfs/range :xsd/string,
    :vs/term_status #xsd/langString "stable@en"})
@@ -1236,15 +1232,15 @@
   "Indicates the algorithm used was MD2"
   {:db/ident       :spdx/checksumAlgorithm_md2,
    :rdf/type       [:spdx/ChecksumAlgorithm :owl/NamedIndividual],
-   :rdfs/comment   #xsd/string "Indicates the algorithm used was MD2",
-   :vs/term_status #xsd/string "stable"})
+   :rdfs/comment   "Indicates the algorithm used was MD2",
+   :vs/term_status "stable"})
 
 (def checksumAlgorithm_md4
   "Indicates the algorithm used was MD4"
   {:db/ident       :spdx/checksumAlgorithm_md4,
    :rdf/type       [:spdx/ChecksumAlgorithm :owl/NamedIndividual],
-   :rdfs/comment   #xsd/string "Indicates the algorithm used was MD4",
-   :vs/term_status #xsd/string "stable"})
+   :rdfs/comment   "Indicates the algorithm used was MD4",
+   :vs/term_status "stable"})
 
 (def checksumAlgorithm_md5
   "Indicates the algorithm used was MD5"
@@ -1258,14 +1254,14 @@
   {:db/ident       :spdx/checksumAlgorithm_md6,
    :rdf/type       [:spdx/ChecksumAlgorithm :owl/NamedIndividual],
    :rdfs/comment   #xsd/langString "Indicates the algorithm used was MD6@en",
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def checksumAlgorithm_sha1
   "Indicates the algorithm used was SHA-1"
   {:db/ident       :spdx/checksumAlgorithm_sha1,
    :rdf/type       [:spdx/ChecksumAlgorithm :owl/NamedIndividual],
-   :rdfs/comment   #xsd/string "Indicates the algorithm used was SHA-1",
-   :vs/term_status #xsd/string "stable"})
+   :rdfs/comment   "Indicates the algorithm used was SHA-1",
+   :vs/term_status "stable"})
 
 (def checksumAlgorithm_sha224
   "Indicates the algorithm used was SHA224"
@@ -1328,7 +1324,7 @@
     "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.@en",
    :rdfs/domain :spdx/Checksum,
    :rdfs/range :xsd/hexBinary,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def contextualExample
   "Example for use of the external repository identifier"
@@ -1361,7 +1357,7 @@
    :rdfs/domain :spdx/CreationInfo,
    :rdfs/range :xsd/dateTime,
    :rdfs/subPropertyOf :spdx/date,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def creationInfo
   "The creationInfo property relates an SpdxDocument to a set of information about the creation of the SpdxDocument."
@@ -1372,7 +1368,7 @@
     "The creationInfo property relates an SpdxDocument to a set of information about the creation of the SpdxDocument.@en",
    :rdfs/domain :spdx/SpdxDocument,
    :rdfs/range :spdx/CreationInfo,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def creator
   "Identify who (or what, in the case of a tool) created the SPDX document. If the SPDX document was created by an individual, indicate the person's name. If the SPDX document was created on behalf of a company or organization, indicate the entity name. If the SPDX document was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate."
@@ -1383,7 +1379,7 @@
     "Identify who (or what, in the case of a tool) created the SPDX document. If the SPDX document was created by an individual, indicate the person's name. If the SPDX document was created on behalf of a company or organization, indicate the entity name. If the SPDX document was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate.@en",
    :rdfs/domain :spdx/CreationInfo,
    :rdfs/range :xsd/string,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def crossRef
   "Cross Reference Detail for a license SeeAlso URL"
@@ -1404,7 +1400,7 @@
    :rdfs/range {:owl/hasValue   {:rdfa/uri "http://spdx.org/licenses/CC0-1.0"},
                 :owl/onProperty :spdx/dataLicense,
                 :rdf/type       :owl/Restriction},
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def date
   "A date-time stamp."
@@ -1587,7 +1583,7 @@
    :rdf/type       :owl/ObjectProperty,
    :rdfs/comment   #xsd/langString "The type of the file.@en",
    :rdfs/domain    :spdx/File,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def fileType_application
   " The file is associated with a specific application type (MIME type of application/* )"
@@ -1889,7 +1885,7 @@
                                :rdf/type       :owl/Restriction}],
                 :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :spdx/licenseInfoFromFiles,
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def licenseInfoInSnippet
   "Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.\n\nIf the licenseInfoInSnippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION."
@@ -1944,8 +1940,7 @@
   {:db/ident :spdx/match,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/string
-    "Status of a License List SeeAlso URL reference if it refers to a website that matches the license text.",
+   "Status of a License List SeeAlso URL reference if it refers to a website that matches the license text.",
    :rdfs/domain :spdx/CrossRef,
    :rdfs/range :xsd/string})
 
@@ -1977,16 +1972,14 @@
   {:db/ident :spdx/noassertion,
    :rdf/type :owl/NamedIndividual,
    :rdfs/comment
-   #xsd/string
-    "Individual to indicate the creator of the SPDX document does not assert any value for the object."})
+   "Individual to indicate the creator of the SPDX document does not assert any value for the object."})
 
 (def none
   "Individual to indicate that no value is applicable for the Object."
   {:db/ident :spdx/none,
    :rdf/type :owl/NamedIndividual,
    :rdfs/comment
-   #xsd/string
-    "Individual to indicate that no value is applicable for the Object."})
+   "Individual to indicate that no value is applicable for the Object."})
 
 (def noticeText
   "This field provides a place for the SPDX file creator to record potential legal notices found in the file. This may or may not include copyright statements."
@@ -2518,7 +2511,7 @@
    :rdf/type [:spdx/RelationshipType :owl/NamedIndividual],
    :rdfs/comment #xsd/langString
                   "Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A.@en",
-   :vs/term_status #xsd/string "stable"})
+   :vs/term_status "stable"})
 
 (def relationshipType_devDependencyOf
   "Is to be used when SPDXRef-A is a development dependency of SPDXRef-B."
@@ -2827,7 +2820,7 @@
    :owl/deprecated true,
    :rdf/type [:owl/NamedIndividual :owl/ObjectProperty],
    :rdfs/comment
-   [#xsd/string "Reviewed"
+   ["Reviewed"
     #xsd/langString
      "This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review.@en"],
    :rdfs/domain :spdx/SpdxDocument,

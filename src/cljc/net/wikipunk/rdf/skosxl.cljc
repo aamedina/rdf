@@ -1,8 +1,9 @@
 (ns net.wikipunk.rdf.skosxl
   "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."
   {:dcterms/contributor
-   #xsd/string "Participants in W3C's Semantic Web Deployment Working Group.",
-   :dcterms/creator [#xsd/string "Sean Bechhofer" #xsd/string "Alistair Miles"],
+   "Participants in W3C's Semantic Web Deployment Working Group.",
+   :dcterms/creator [{:xsd/string "Sean Bechhofer"}
+                     {:xsd/string "Alistair Miles"}],
    :dcterms/description
    #xsd/langString
     "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities.@en",

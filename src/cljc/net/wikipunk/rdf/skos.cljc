@@ -1,10 +1,11 @@
 (ns net.wikipunk.rdf.skos
   "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."
   {:dcterms/contributor
-   [#xsd/string "Participants in W3C's Semantic Web Deployment Working Group."
-    #xsd/string "Nikki Rogers"
-    #xsd/string "Dave Beckett"],
-   :dcterms/creator [#xsd/string "Sean Bechhofer" #xsd/string "Alistair Miles"],
+   ["Participants in W3C's Semantic Web Deployment Working Group."
+    "Nikki Rogers"
+    "Dave Beckett"],
+   :dcterms/creator [{:xsd/string "Sean Bechhofer"}
+                     {:xsd/string "Alistair Miles"}],
    :dcterms/description
    #xsd/langString
     "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.@en",
@@ -162,11 +163,9 @@
    :rdfs/label #xsd/langString "has broader transitive@en",
    :rdfs/subPropertyOf :skos/semanticRelation,
    :skos/definition
-   #xsd/string
-    "skos:broaderTransitive is a transitive superproperty of skos:broader.",
+   "skos:broaderTransitive is a transitive superproperty of skos:broader.",
    :skos/note
-   [#xsd/string
-     "skos:broaderTransitive is a transitive superproperty of skos:broader."
+   ["skos:broaderTransitive is a transitive superproperty of skos:broader."
     #xsd/langString
      "By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.@en"],
    :skos/scopeNote
@@ -240,7 +239,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2004/02/skos/core"},
    :rdfs/label #xsd/langString "has exact match@en",
    :rdfs/subPropertyOf
-   [:skos/closeMatch :skos/semanticRelation :skos/mappingRelation],
+   [:skos/closeMatch :skos/mappingRelation :skos/semanticRelation],
    :skos/definition
    #xsd/langString
     "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.@en",
@@ -383,8 +382,8 @@
    :rdfs/label #xsd/langString "has narrower match@en",
    :rdfs/subPropertyOf [:skos/narrower
                         :skos/mappingRelation
-                        :skos/semanticRelation
-                        :skos/narrowerTransitive],
+                        :skos/narrowerTransitive
+                        :skos/semanticRelation],
    :skos/definition
    #xsd/langString
     "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en",
@@ -424,11 +423,9 @@
    :rdfs/label #xsd/langString "has narrower transitive@en",
    :rdfs/subPropertyOf :skos/semanticRelation,
    :skos/definition
-   #xsd/string
-    "skos:narrowerTransitive is a transitive superproperty of skos:narrower.",
+   "skos:narrowerTransitive is a transitive superproperty of skos:narrower.",
    :skos/note
-   [#xsd/string
-     "skos:narrowerTransitive is a transitive superproperty of skos:narrower."
+   ["skos:narrowerTransitive is a transitive superproperty of skos:narrower."
     #xsd/langString
      "By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.@en"],
    :skos/scopeNote

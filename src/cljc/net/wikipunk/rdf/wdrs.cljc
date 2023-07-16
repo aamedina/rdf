@@ -1,8 +1,8 @@
 (ns net.wikipunk.rdf.wdrs
   "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents."
-  {:dcterms/issued #xsd/string "2009-09-01",
-   :dcterms/modified [#xsd/string "2010-11-08" #xsd/string "2017-06-02"],
-   :owl/versionInfo #xsd/string "2 June 2017",
+  {:dcterms/issued "2009-09-01",
+   :dcterms/modified ["2010-11-08" "2017-06-02"],
+   :owl/versionInfo "2 June 2017",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
                        "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -15,14 +15,12 @@
    :rdfa/prefix "wdrs",
    :rdfa/uri "http://www.w3.org/2007/05/powder-s",
    :rdfs/comment
-   #xsd/string
-    "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents.",
+   "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents.",
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.w3.org/TR/2009/REC-powder-formal-20090901/"},
-   :rdfs/label #xsd/string "POWDER-S Vocabulary",
-   :vann/preferredNamespacePrefix #xsd/string "wdrs",
-   :vann/preferredNamespaceUri #xsd/string
-                                "http://www.w3.org/2007/05/powder-s#"})
+   :rdfs/label "POWDER-S Vocabulary",
+   :vann/preferredNamespacePrefix "wdrs",
+   :vann/preferredNamespaceUri "http://www.w3.org/2007/05/powder-s#"})
 
 (def Document
   "A POWDER document."

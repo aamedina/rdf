@@ -119,8 +119,7 @@
    [:sioc/Role :sioc/Usergroup :sioc/Container :sioc/Item :sioc/Space],
    :owl/equivalentClass :sioc/UserAccount,
    :owl/versionInfo
-   #xsd/string
-    "This class is deprecated. Use sioc:UserAccount from the SIOC ontology instead.",
+   "This class is deprecated. Use sioc:UserAccount from the SIOC ontology instead.",
    :rdf/type :owl/DeprecatedClass,
    :rdfs/comment
    #xsd/langString
@@ -250,8 +249,7 @@
   "The encoded content of the Post, contained in CDATA areas."
   {:db/ident :sioc/content_encoded,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use content:encoded from the RSS 1.0 content module instead.",
+   "This property is deprecated. Use content:encoded from the RSS 1.0 content module instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment
    #xsd/langString
@@ -265,8 +263,7 @@
   "When this was created, in ISO 8601 format."
   {:db/ident :sioc/created_at,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use dcterms:created from the Dublin Core ontology instead.",
+   "This property is deprecated. Use dcterms:created from the Dublin Core ontology instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment #xsd/langString
                   "When this was created, in ISO 8601 format.@en",
@@ -301,8 +298,7 @@
   "The content of the Post."
   {:db/ident :sioc/description,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use sioc:content or other methods (AtomOwl, content:encoded from RSS 1.0, etc.) instead.",
+   "This property is deprecated. Use sioc:content or other methods (AtomOwl, content:encoded from RSS 1.0, etc.) instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment #xsd/langString "The content of the Post.@en",
    :rdfs/domain :sioc/Post,
@@ -382,8 +378,7 @@
   "First (real) name of this User. Synonyms include given name or christian name."
   {:db/ident :sioc/first_name,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use foaf:name or foaf:firstName from the FOAF vocabulary instead.",
+   "This property is deprecated. Use foaf:name or foaf:firstName from the FOAF vocabulary instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment
    #xsd/langString
@@ -430,7 +425,7 @@
   {:db/ident :sioc/group_of,
    :owl/inverseOf :sioc/has_group,
    :owl/versionInfo
-   #xsd/string "This property has been renamed. Use sioc:usergroup_of instead.",
+   "This property has been renamed. Use sioc:usergroup_of instead.",
    :rdf/type [:owl/ObjectProperty :owl/DeprecatedProperty],
    :rdfs/label #xsd/langString "group of@en"})
 
@@ -497,8 +492,7 @@
   {:db/ident :sioc/has_group,
    :owl/inverseOf :sioc/group_of,
    :owl/versionInfo
-   #xsd/string
-    "This property has been renamed. Use sioc:has_usergroup instead.",
+   "This property has been renamed. Use sioc:has_usergroup instead.",
    :rdf/type [:owl/ObjectProperty :owl/DeprecatedProperty],
    :rdfs/label #xsd/langString "has group@en"})
 
@@ -580,8 +574,7 @@
   {:db/ident :sioc/has_part,
    :owl/inverseOf :sioc/part_of,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use dcterms:hasPart from the Dublin Core ontology instead.",
+   "This property is deprecated. Use dcterms:hasPart from the Dublin Core ontology instead.",
    :rdf/type [:owl/ObjectProperty :owl/DeprecatedProperty],
    :rdfs/comment #xsd/langString
                   "An resource that is a part of this subject.@en",
@@ -714,8 +707,7 @@
   "Last (real) name of this user. Synonyms include surname or family name."
   {:db/ident :sioc/last_name,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use foaf:name or foaf:surname from the FOAF vocabulary instead.",
+   "This property is deprecated. Use foaf:name or foaf:surname from the FOAF vocabulary instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment
    #xsd/langString
@@ -829,8 +821,7 @@
   "When this was modified, in ISO 8601 format."
   {:db/ident :sioc/modified_at,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use dcterms:modified from the Dublin Core ontology instead.",
+   "This property is deprecated. Use dcterms:modified from the Dublin Core ontology instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment #xsd/langString
                   "When this was modified, in ISO 8601 format.@en",
@@ -985,8 +976,7 @@
   {:db/ident :sioc/part_of,
    :owl/inverseOf :sioc/has_part,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use dcterms:isPartOf from the Dublin Core ontology instead.",
+   "This property is deprecated. Use dcterms:isPartOf from the Dublin Core ontology instead.",
    :rdf/type [:owl/ObjectProperty :owl/DeprecatedProperty],
    :rdfs/comment #xsd/langString "A resource that the subject is a part of.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://rdfs.org/sioc/ns#"},
@@ -1032,7 +1022,7 @@
 (def reference
   "Links either created explicitly or extracted implicitly on the HTML level from the Post."
   {:db/ident :sioc/reference,
-   :owl/versionInfo #xsd/string "Renamed to sioc:links_to.",
+   :owl/versionInfo "Renamed to sioc:links_to.",
    :rdf/type [:owl/ObjectProperty :owl/DeprecatedProperty],
    :rdfs/comment
    #xsd/langString
@@ -1128,8 +1118,7 @@
   "Keyword(s) describing subject of the Post."
   {:db/ident :sioc/subject,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use dcterms:subject from the Dublin Core ontology for text keywords and sioc:topic if the subject can be represented by a URI instead.",
+   "This property is deprecated. Use dcterms:subject from the Dublin Core ontology for text keywords and sioc:topic if the subject can be represented by a URI instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment #xsd/langString
                   "Keyword(s) describing subject of the Post.@en",
@@ -1155,8 +1144,7 @@
   "This is the title (subject line) of the Post. Note that for a Post within a threaded discussion that has no parents, it would detail the topic thread."
   {:db/ident :sioc/title,
    :owl/versionInfo
-   #xsd/string
-    "This property is deprecated. Use dcterms:title from the Dublin Core ontology instead.",
+   "This property is deprecated. Use dcterms:title from the Dublin Core ontology instead.",
    :rdf/type [:owl/DatatypeProperty :owl/DeprecatedProperty],
    :rdfs/comment
    #xsd/langString

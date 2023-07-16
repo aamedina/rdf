@@ -140,11 +140,12 @@
 
 (def jsonld
   "JSON-LD"
-  {:dcat/downloadURL "https://github.com/w3c/json-ld-wg/raw/main/ns/json-ld.jsonld"
+  {:dcat/downloadURL "resources/json-ld.jsonld"
    :rdfa/uri         "http://www.w3.org/ns/json-ld#",
    :rdfa/prefix      "jsonld",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/json-ld/"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :reasoner nil})
 
 (def ldp
   "Linked Data Platform Vocabulary"

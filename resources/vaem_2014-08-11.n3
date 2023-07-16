@@ -199,7 +199,6 @@ vaem:GMD_VAEM vaem:usesNonImportedResource voag:CC-SHAREALIKE_3PT0-US ;
 	vaem:intent "The purpose of VAEM is to provide, by import, a foundation for commonly needed resources for metadata on an ontology."^^xsd:string ;
 	vaem:logo "http://linkedmodel.org/lib/lm/images/logos/TopBraid-RDM-Graph-Logo.png"^^xsd:anyURI ;
 	vaem:hasOwner vaem:TopQuadrant ;
-	vaem:withAttributionTo "VAEM is issued under a Creative Commons Attribution Share Alike 3.0 United States License. Attribution should be made to TopQuadrant, Inc."^^xsd:string ;
 	vaem:turtleFileURL "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.ttl"^^xsd:anyURI ;
 	vaem:revision "2.0"^^xsd:string ;
 	vaem:usesNonImportedResource dct:title .

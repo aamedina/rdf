@@ -1,7 +1,6 @@
 (ns net.wikipunk.rdf.jsonld
   "This is a vocabulary document and is used to achieve certain features of the JSON-LD language."
-  {:dcat/downloadURL
-   "https://github.com/w3c/json-ld-wg/raw/main/ns/json-ld.jsonld",
+  {:dcat/downloadURL "resources/json-ld.jsonld",
    :dcterms/date #xsd/date #inst "2023-07-13T00:00:00.000-04:00",
    :dcterms/description
    #xsd/langString
@@ -20,12 +19,14 @@
    :rdfa/prefix "jsonld",
    :rdfa/uri "http://www.w3.org/ns/json-ld#",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/json-ld/"},
-   :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/TR/json-ld11"}}
+   :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/TR/json-ld11"},
+   :reasoner nil}
   (:refer-clojure :exclude [import reverse type]))
 
 (def ContainerType
-  {:db/ident :jsonld/ContainerType
-   :rdf/type :owl/Class})
+  {:db/ident         :jsonld/ContainerType,
+   :rdf/type         :rdfs/Class,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/json-ld#"}})
 
 (def Context
   "Defines term definitions and other aspects of a JSON-LD `Context`.\n\nA [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`."
@@ -33,12 +34,11 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    #xsd/langString
-   "Defines term definitions and other aspects of a JSON-LD `Context`.\n\nA [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`.@en",
+    "Defines term definitions and other aspects of a JSON-LD `Context`.\n\nA [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/json-ld#"},
    :rdfs/label #xsd/langString "Context@en",
    :rdfs/seeAlso {:rdfa/uri
-                  "https://www.w3.org/TR/json-ld11/#context-definitions"},
-   :rdfs/subClassOf :rdfs/Resource})
+                  "https://www.w3.org/TR/json-ld11/#context-definitions"}})
 
 (def PrefixDefinition
   "A string ([simple term definition](http://www.w3.org/TR/json-ld11/#dfn-simple-term-definitions)), expanding to an IRI."
@@ -50,8 +50,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/json-ld#"},
    :rdfs/label #xsd/langString "Prefix Definition@en",
    :rdfs/seeAlso {:rdfa/uri
-                  "https://www.w3.org/TR/json-ld11/#dfn-term-definition"},
-   :rdfs/subClassOf :rdfs/Resource})
+                  "https://www.w3.org/TR/json-ld11/#dfn-term-definition"}})
 
 (def TermDefinition
   "A [term definition](http://www.w3.org/TR/json-ld11/#dfn-term-definitions) is an entry in a [context](#Context), where the key defines a term which may be used within a dictionary as a key, type, or elsewhere that a string is interpreted as a vocabulary item. Its value is an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions).\n\n\n\nAn [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definition) MUST be a map composed of zero or more keys from `@id`, `@reverse`, `@type`, `@language`, `@container`, `@context`, `@prefix`, `@propagate`, or `@protected`. An expanded term definition SHOULD NOT contain any other keys."
@@ -63,8 +62,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/json-ld#"},
    :rdfs/label #xsd/langString "Term Definition@en",
    :rdfs/seeAlso {:rdfa/uri
-                  "https://www.w3.org/TR/json-ld11/#dfn-term-definition"},
-   :rdfs/subClassOf :rdfs/Resource})
+                  "https://www.w3.org/TR/json-ld11/#dfn-term-definition"}})
 
 (def base
   "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) has an `@base` key, its value MUST be an _IRI reference_, or `null`."
