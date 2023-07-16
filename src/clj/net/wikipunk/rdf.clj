@@ -1482,8 +1482,10 @@
                                                    (descendants :rdf/Property)
                                                    (descendants :owl/NamedIndividual)
                                                    (descendants :skos/Concept)
-                                                   (descendants :owl/Thing))
-                                   (mop/class-direct-subclasses :rdf/Property))
+                                                   (descendants :owl/Thing)
+                                                   (descendants :jsonschema/DataSchema))
+                                   (mop/class-direct-subclasses :rdf/Property)
+                                   (mop/class-direct-subclasses :jsonschema/DataSchema))
                         :rdfs/Class
                         :rdf/Property
                         :owl/NamedIndividual
