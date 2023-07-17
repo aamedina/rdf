@@ -193,12 +193,15 @@
     :mop/keys  [classDirectSlots]
     :rdfs/keys [subClassOf]
     :owl/keys  [intersectionOf unionOf]
+    :rdf/keys  [type]
     :as        class}]
   (or (not-empty classDirectSlots)
       (not-empty (set/union (descendants (:rdfs/domain rdf/*metaobjects*) ident)
                             (reduce set/union (map mop/class-direct-slots intersectionOf))
                             (reduce set/union (map mop/class-direct-slots unionOf))
-                            (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf)))))))
+                            (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf)))
+                            (when (coll? type)
+                              (reduce set/union (map mop/class-direct-slots (remove keyword? type))))))))
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
