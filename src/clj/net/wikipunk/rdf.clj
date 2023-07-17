@@ -934,7 +934,7 @@
                                               (:rdfa/prefix md))
                                          (assoc "" (:rdfa/prefix md))))]
     (reg/with ns-prefix-map
-              (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
+              (into (with-meta [] (assoc (dissoc md :reasoner) :rdf/ns-prefix-map ns-prefix-map))
                     (->> (into [] g)
                          (group-by #(.getSubject ^Triple %))
                          (pmap (fn [[subject triples]]

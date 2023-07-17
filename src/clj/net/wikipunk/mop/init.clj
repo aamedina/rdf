@@ -198,29 +198,7 @@
       (not-empty (set/union (descendants (:rdfs/domain rdf/*metaobjects*) ident)
                             (reduce set/union (map mop/class-direct-slots intersectionOf))
                             (reduce set/union (map mop/class-direct-slots unionOf))
-                            #_(reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf)))))
-      #_(when-some [slots (seq (concat #_(and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
-                                       (descendants (:rdfs/domain rdf/*metaobjects*) ident)
-                                       (some->> (filter map? (concat intersectionOf
-                                                                     unionOf
-                                                                     (when-not (keyword? subClassOf)
-                                                                       subClassOf)))
-                                                (mapcat mop/class-direct-slots)
-                                                (map rdf/direct-slot-definition)
-                                                (group-by :db/ident)
-                                                (vals)
-                                                (reduce (fn [slots maps]
-                                                          (conj slots (update (reduce merge maps)
-                                                                              :rdfs/domain (fnil conj #{})
-                                                                              ident)))
-                                                        []))))]
-          (let [idx (group-by :db/ident slots)]
-            (not-empty (into []
-                             (comp (map :db/ident)
-                                   (distinct)
-                                   (remove #(isa? % :owl/DeprecatedProperty))
-                                   (map #(first (get idx %))))
-                             slots))))))
+                            (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf)))))))
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
@@ -465,7 +443,8 @@
        (filter keyword?)
        ;; Everything is an :rdfs/Resource in this protocol and we are
        ;; not concerned with tautological inferences.
-       (remove #{:rdfs/Resource})))
+       (remove #{:rdfs/Resource})
+       (into #{})))
 
 (defmethod mop/class-direct-subclasses :rdfs/Class
   [{:db/keys  [ident]

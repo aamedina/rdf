@@ -118,6 +118,16 @@
                 :skos/historyNote :skos/changeNote]]
       (reduce-kv (fn [attr k v]
                    (if (or (some #(isa? k %) ks)
+                           (contains? #{:d3f/d3fend-annotation
+                                        :d3f/d3fend-data-property
+                                        :d3f/d3fend-kb-data-property
+                                        :d3f/d3fend-display-annotation
+                                        :d3f/d3fend-catalog-data-property
+                                        :d3f/d3fend-external-control-data-property
+                                        :d3f/d3fend-kb-annotation-property
+                                        :d3f/d3fend-kb-reference-annotation
+                                        :owl/topDataProperty}
+                                      k)
                            (and (coll? v) (empty? v))
                            (nil? v))
                      (dissoc attr k)
@@ -184,11 +194,19 @@
 (defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
 
 (prefer-method rdf/infer-datomic-type :rdfs/Literal :rdfs/Datatype)
+(defmethod rdf/infer-datomic-type :rdfs/seeAlso [_] :db.type/ref)
+(prefer-method rdf/infer-datomic-type :rdfs/seeAlso :owl/AnnotationProperty)
 
 (defmethod rdf/infer-datomic-type :rdfa/term [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :rdfa/prefix [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :owl/real [_] :db.type/bigdec)
+(defmethod rdf/infer-datomic-type :owl/deprecated [_] :db.type/boolean)
+(defmethod rdf/infer-datomic-type :owl/versionInfo [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :owl/topDataProperty [_] :db.type/ref)
+#_(defmethod rdf/infer-datomic-type :owl/topObjectProperty [_] :db.type/ref)
+
 (defmethod rdf/infer-datomic-type :xsd/base64Binary [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :xsd/boolean [_] :db.type/boolean)
 (defmethod rdf/infer-datomic-type :xsd/byte [_] :db.type/long)
@@ -225,6 +243,7 @@
 (defmethod rdf/infer-datomic-type :xsd/unsignedLong [_] :db.type/long)
 (defmethod rdf/infer-datomic-type :xsd/unsignedShort [_] :db.type/long)
 (defmethod rdf/infer-datomic-type :xsd/yearMonthDuration [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :schema/Boolean [_] :db.type/boolean)
 (defmethod rdf/infer-datomic-type :schema/Float [_] :db.type/double)
 (defmethod rdf/infer-datomic-type :schema/Integer [_] :db.type/long)
@@ -234,55 +253,75 @@
 (defmethod rdf/infer-datomic-type :schema/Number [_] :db.type/bigdec)
 (defmethod rdf/infer-datomic-type :schema/Time [_] :db.type/instant)
 (defmethod rdf/infer-datomic-type :schema/URL [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :vs/term_status [_] :db.type/string)
-(defmethod rdf/infer-datomic-type :dcterms/created [_] :db.type/instant)
+
 (defmethod rdf/infer-datomic-type :dc11/creator [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dcterms/creator [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dc11/date [_] :db.type/instant)
 (defmethod rdf/infer-datomic-type :dc11/description [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :dc11/title [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :dcterms/created [_] :db.type/instant)
+
+(defmethod rdf/infer-datomic-type :vs/term_status [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :vs/moreinfo [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :time/month [_] :db.type/instant)
-(defmethod rdf/infer-datomic-type :owl/deprecated [_] :db.type/boolean)
+
 (defmethod rdf/infer-datomic-type :voag/width [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :voag/height [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :voag/image [_] :db.type/ref)
+(defmethod rdf/infer-datomic-type :voag/url [_] :db.type/ref)
+
 (defmethod rdf/infer-datomic-type :sh/maxCount [_] :db.type/long)
-(defmethod rdf/infer-datomic-type :vs/moreinfo [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :vaem/url [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :vaem/acronym [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :vaem/logo [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :voag/url [_] :db.type/ref)
+(defmethod rdf/infer-datomic-type :vaem/usesNonImportedResource [_] :db.type/ref)
+
 (defmethod rdf/infer-datomic-type :org/roleProperty [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :d3f/has-link [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :d3f/display-order [_] :db.type/long)
-(defmethod rdf/infer-datomic-type :d3f/display-priority [_] :db.type/long)
+
 (defmethod rdf/infer-datomic-type :prov/sharesDefinitionWith [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :prov/qualifiedForm [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :prov/unqualifiedForm [_] :db.type/ref)
+
+(defmethod rdf/infer-datomic-type :d3f/has-link [_] :db.type/ref)
+(defmethod rdf/infer-datomic-type :d3f/display-order [_] :db.type/long)
+(defmethod rdf/infer-datomic-type :d3f/display-priority [_] :db.type/long)
+;; (defmethod rdf/infer-datomic-type :d3f/d3fend-annotation [_] :db.type/string)
+;; (defmethod rdf/infer-datomic-type :d3f/release-date [_] :db.type/instant)
+(defmethod rdf/infer-datomic-type :d3f/d3fend-kb-data-property [_] :db.type/string)
+;; (defmethod rdf/infer-datomic-type :d3f/d3fend-data-property [_] :db.type/ref)
+(defmethod rdf/infer-datomic-type :d3f/identifier [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :d3f/text [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :d3f/date [_] :db.type/instant)
+#_(defmethod rdf/infer-datomic-type :d3f/created [_] :db.type/instant)
+(defmethod rdf/infer-datomic-type :d3f/d3fend-id [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :d3f/kb-reference-title [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :gr/displayPosition [_] :db.type/long)
-(defmethod rdf/infer-datomic-type :d3f/d3fend-annotation [_] :db.type/string)
-(defmethod rdf/infer-datomic-type :owl/versionInfo [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :mo/level [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :prov/component [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :prov/category [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :prov/inverse [_] :db.type/string)
-(defmethod rdf/infer-datomic-type :d3f/release-date [_] :db.type/instant)
 (defmethod rdf/infer-datomic-type :prov/editorialNote [_] :db.type/string)
-(defmethod rdf/infer-datomic-type :d3f/d3fend-kb-data-property [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :lv2.pg/harmonicDegree [_] :db.type/long)
 (defmethod rdf/infer-datomic-type :lv2.pg/harmonicIndex [_] :db.type/long)
 (defmethod rdf/infer-datomic-type :lv2/minimum [_] :db.type/long)
+
 (defmethod rdf/infer-datomic-type :jsonschema/minimum [_] :db.type/double)
 (defmethod rdf/infer-datomic-type :jsonschema/maximum [_] :db.type/double)
 (defmethod rdf/infer-datomic-type :jsonschema/exclusiveMaximum [_] :db.type/double)
 (defmethod rdf/infer-datomic-type :jsonschema/exclusiveMinimum [_] :db.type/double)
 (defmethod rdf/infer-datomic-type :jsonschema/multipleOf [_] :db.type/double)
+
 (defmethod rdf/infer-datomic-type :keys/mode [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :vann/example [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :vaem/usesNonImportedResource [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :rdfs/seeAlso [_] :db.type/ref)
-(prefer-method rdf/infer-datomic-type :rdfs/seeAlso :owl/AnnotationProperty)
 (defmethod rdf/infer-datomic-type :vann/usageNote [_] :db.type/string)
+
 (defmethod rdf/infer-datomic-type :exif/tag_number [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :default
