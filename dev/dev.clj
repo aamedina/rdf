@@ -42,7 +42,14 @@
    [zprint.core :as zprint]
    [datomic.client.api :as d]
    [net.wikipunk.datomic :as datomic]
-   [net.wikipunk.datomic.boot :as db]))
+   [net.wikipunk.datomic.boot :as db]
+   [net.wikipunk.rdf.dpvo]
+   [net.wikipunk.rdf.dpvo-tech]
+   [net.wikipunk.rdf.dpvo-legal]
+   [net.wikipunk.rdf.dpvo-risk]
+   [net.wikipunk.rdf.dpvo-gdpr]
+   [net.wikipunk.rdf.dpvo-pd]
+   [net.wikipunk.rdf.dpvo-rights-eu]))
 
 (set-init
   (fn [_]

@@ -1558,7 +1558,8 @@
                                              (descendants :owl/Thing)
                                              (descendants :jsonschema/DataSchema))
                              (mop/class-direct-subclasses :rdf/Property)
-                             (mop/class-direct-subclasses :jsonschema/DataSchema))))
+                             (mop/class-direct-subclasses :jsonschema/DataSchema)
+                             (descendants :d3f/D3FENDThing))))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
