@@ -116,6 +116,18 @@
   "bind to true if you want private vars to be emitted"
   nil)
 
+(def ^:dynamic *dont-datafy*
+  "slots to ignore when datafying"
+  #{:d3f/d3fend-annotation
+    :d3f/d3fend-data-property
+    :d3f/d3fend-kb-data-property
+    :d3f/d3fend-display-annotation
+    :d3f/d3fend-catalog-data-property
+    :d3f/d3fend-external-control-data-property
+    :d3f/d3fend-kb-annotation-property
+    :d3f/d3fend-kb-reference-annotation
+    :owl/topDataProperty})
+
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
 (defn unmunge
@@ -1582,8 +1594,10 @@
                                   (if (seq v)
                                     (assoc m k v)
                                     m)
-
-                                  (assoc m k v))
+                                  
+                                  (if (contains? *dont-datafy* k)
+                                    m
+                                    (assoc m k v)))
                                 m))
                             {} (dissoc (mop/find-class ident) :xt/id)))
 

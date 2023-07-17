@@ -118,16 +118,7 @@
                 :skos/historyNote :skos/changeNote]]
       (reduce-kv (fn [attr k v]
                    (if (or (some #(isa? k %) ks)
-                           (contains? #{:d3f/d3fend-annotation
-                                        :d3f/d3fend-data-property
-                                        :d3f/d3fend-kb-data-property
-                                        :d3f/d3fend-display-annotation
-                                        :d3f/d3fend-catalog-data-property
-                                        :d3f/d3fend-external-control-data-property
-                                        :d3f/d3fend-kb-annotation-property
-                                        :d3f/d3fend-kb-reference-annotation
-                                        :owl/topDataProperty}
-                                      k)
+                           (contains? rdf/*dont-datafy* k)
                            (and (coll? v) (empty? v))
                            (nil? v))
                      (dissoc attr k)
