@@ -1040,7 +1040,9 @@
 
   String
   (box [s]
-    (if (str/starts-with? s "http")
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "pkg:")
+            (str/starts-with? s "urn:"))
       {:rdfa/uri s}
       {:xsd/string s}))
 
