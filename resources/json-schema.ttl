@@ -275,7 +275,7 @@
 
   rdfs:label "required" ;
   
-  rdfs:comment "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of <code>invokeaction</code>, <code>writeproperty</code>) and what members will be definitely delivered in the payload that is being received (e.g. output of <code>invokeaction</code>, <code>readproperty</code>)"@en ;
+  rdfs:comment "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of `invokeaction`, `writeproperty`) and what members will be definitely delivered in the payload that is being received (e.g. output of `invokeaction`, `readproperty`)"@en ;
   
   schema:domainIncludes :ObjectSchema ;
   rdfs:range xsd:string .
@@ -357,7 +357,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type array. This subclass is indicated by the value <code>array</code> assigned to <code>type</code> in <code>DataSchema</code> instances."@en .
+  rdfs:comment "Metadata describing data of type array. This subclass is indicated by the value `array` assigned to `type` in `DataSchema` instances."@en .
 
 
 
@@ -367,7 +367,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type <code>boolean</code>. This subclass is indicated by the value <code>boolean</code> assigned to <code>type</code> in <code>DataSchema</code> instances."@en .
+  rdfs:comment "Metadata describing data of type `boolean`. This subclass is indicated by the value `boolean` assigned to `type` in `DataSchema` instances."@en .
 
 
 
@@ -377,7 +377,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type <code>null</code>. This subclass is indicated by the value <code>null</code> assigned to <code>type</code> in <code>DataSchema</code> instances. This Subclass describes only one acceptable value, namely <code>null</code>. It is important to note that <code>null</code> does not mean the absence of a value. It is analogous to <code>null</code> in JavaScript, <code>None</code> in Python, <code>null</code> in Java and <code>nil</code> in Ruby programming languages. It can be used as part of a <code>oneOf</code> declaration, where it is used to indicate, that the data can also be <code>null</code>."@en .
+  rdfs:comment "Metadata describing data of type `null`. This subclass is indicated by the value `null` assigned to `type` in `DataSchema` instances. This Subclass describes only one acceptable value, namely `null`. It is important to note that `null` does not mean the absence of a value. It is analogous to `null` in JavaScript, `None` in Python, `null` in Java and `nil` in Ruby programming languages. It can be used as part of a `oneOf` declaration, where it is used to indicate, that the data can also be `null`."@en .
 
 
 
@@ -395,7 +395,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type <code>integer</code>. This subclass is indicated by the value <code>integer</code> assigned to <code>type</code> in <code>DataSchema</code> instances."@en .
+  rdfs:comment "Metadata describing data of type `integer`. This subclass is indicated by the value `integer` assigned to `type` in `DataSchema` instances."@en .
 
 
 
@@ -405,7 +405,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type <code>number</code>. This subclass is indicated by the value <code>number</code> assigned to <code>type</code> in <code>DataSchema</code> instances."@en .
+  rdfs:comment "Metadata describing data of type `number`. This subclass is indicated by the value `number` assigned to `type` in `DataSchema` instances."@en .
 
 
 
@@ -415,7 +415,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type <code>object</code>. This subclass is indicated by the value <code>object</code> assigned to <code>type</code> in <code>DataSchema</code> instances."@en .
+  rdfs:comment "Metadata describing data of type `object`. This subclass is indicated by the value `object` assigned to `type` in `DataSchema` instances."@en .
 
 
 
@@ -425,7 +425,7 @@
 
   rdfs:subClassOf <https://www.w3.org/2019/wot/json-schema#DataSchema> ;
   
-  rdfs:comment "Metadata describing data of type <code>string</code>. This subclass is indicated by the value <code>string</code> assigned to <code>type</code> in <code>DataSchema</code> instances."@en .
+  rdfs:comment "Metadata describing data of type `string`. This subclass is indicated by the value `string` assigned to `type` in `DataSchema` instances."@en .
 
 ###  https://www.w3.org/2019/wot/json-schema#uniqueItems
 
@@ -437,6 +437,17 @@
   
   schema:domainIncludes :ArraySchema ;
   rdfs:range xsd:boolean .
+
+###  https://www.w3.org/2019/wot/json-schema#additionalProperties
+
+<https://www.w3.org/2019/wot/json-schema#additionalProperties> rdf:type owl:ObjectProperty ;
+
+  rdfs:label "additionalProperties" ;
+  
+  rdfs:comment "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object."@en ;
+  
+  schema:domainIncludes :ObjectSchema ;
+  schema:rangeIncludes xsd:boolean .
 
 
 ###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net

@@ -137,6 +137,9 @@
 (defmethod rdf/infer-datomic-cardinality :rdfa/uri [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-unique :rdfa/uri [_] :db.unique/identity)
 
+(defmethod rdf/infer-datomic-cardinality :rdf/first [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :rdf/rest [_] :db.cardinality/one)
+
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMinimum [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMaximum [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/propertyName [_] :db.cardinality/one)

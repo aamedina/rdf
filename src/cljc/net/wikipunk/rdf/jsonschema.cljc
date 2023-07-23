@@ -30,21 +30,21 @@
   (:refer-clojure :exclude [format]))
 
 (def ArraySchema
-  "Metadata describing data of type array. This subclass is indicated by the value <code>array</code> assigned to <code>type</code> in <code>DataSchema</code> instances."
+  "Metadata describing data of type array. This subclass is indicated by the value `array` assigned to `type` in `DataSchema` instances."
   {:db/ident :jsonschema/ArraySchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type array. This subclass is indicated by the value <code>array</code> assigned to <code>type</code> in <code>DataSchema</code> instances.@en",
+    "Metadata describing data of type array. This subclass is indicated by the value `array` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
 (def BooleanSchema
-  "Metadata describing data of type <code>boolean</code>. This subclass is indicated by the value <code>boolean</code> assigned to <code>type</code> in <code>DataSchema</code> instances."
+  "Metadata describing data of type `boolean`. This subclass is indicated by the value `boolean` assigned to `type` in `DataSchema` instances."
   {:db/ident :jsonschema/BooleanSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type <code>boolean</code>. This subclass is indicated by the value <code>boolean</code> assigned to <code>type</code> in <code>DataSchema</code> instances.@en",
+    "Metadata describing data of type `boolean`. This subclass is indicated by the value `boolean` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
 (def DataSchema
@@ -55,49 +55,60 @@
    "Metadata that describes the data format used. It can be used for validation."})
 
 (def IntegerSchema
-  "Metadata describing data of type <code>integer</code>. This subclass is indicated by the value <code>integer</code> assigned to <code>type</code> in <code>DataSchema</code> instances."
+  "Metadata describing data of type `integer`. This subclass is indicated by the value `integer` assigned to `type` in `DataSchema` instances."
   {:db/ident :jsonschema/IntegerSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type <code>integer</code>. This subclass is indicated by the value <code>integer</code> assigned to <code>type</code> in <code>DataSchema</code> instances.@en",
+    "Metadata describing data of type `integer`. This subclass is indicated by the value `integer` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
 (def NullSchema
-  "Metadata describing data of type <code>null</code>. This subclass is indicated by the value <code>null</code> assigned to <code>type</code> in <code>DataSchema</code> instances. This Subclass describes only one acceptable value, namely <code>null</code>. It is important to note that <code>null</code> does not mean the absence of a value. It is analogous to <code>null</code> in JavaScript, <code>None</code> in Python, <code>null</code> in Java and <code>nil</code> in Ruby programming languages. It can be used as part of a <code>oneOf</code> declaration, where it is used to indicate, that the data can also be <code>null</code>."
+  "Metadata describing data of type `null`. This subclass is indicated by the value `null` assigned to `type` in `DataSchema` instances. This Subclass describes only one acceptable value, namely `null`. It is important to note that `null` does not mean the absence of a value. It is analogous to `null` in JavaScript, `None` in Python, `null` in Java and `nil` in Ruby programming languages. It can be used as part of a `oneOf` declaration, where it is used to indicate, that the data can also be `null`."
   {:db/ident :jsonschema/NullSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type <code>null</code>. This subclass is indicated by the value <code>null</code> assigned to <code>type</code> in <code>DataSchema</code> instances. This Subclass describes only one acceptable value, namely <code>null</code>. It is important to note that <code>null</code> does not mean the absence of a value. It is analogous to <code>null</code> in JavaScript, <code>None</code> in Python, <code>null</code> in Java and <code>nil</code> in Ruby programming languages. It can be used as part of a <code>oneOf</code> declaration, where it is used to indicate, that the data can also be <code>null</code>.@en",
+    "Metadata describing data of type `null`. This subclass is indicated by the value `null` assigned to `type` in `DataSchema` instances. This Subclass describes only one acceptable value, namely `null`. It is important to note that `null` does not mean the absence of a value. It is analogous to `null` in JavaScript, `None` in Python, `null` in Java and `nil` in Ruby programming languages. It can be used as part of a `oneOf` declaration, where it is used to indicate, that the data can also be `null`.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
 (def NumberSchema
-  "Metadata describing data of type <code>number</code>. This subclass is indicated by the value <code>number</code> assigned to <code>type</code> in <code>DataSchema</code> instances."
+  "Metadata describing data of type `number`. This subclass is indicated by the value `number` assigned to `type` in `DataSchema` instances."
   {:db/ident :jsonschema/NumberSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type <code>number</code>. This subclass is indicated by the value <code>number</code> assigned to <code>type</code> in <code>DataSchema</code> instances.@en",
+    "Metadata describing data of type `number`. This subclass is indicated by the value `number` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
 (def ObjectSchema
-  "Metadata describing data of type <code>object</code>. This subclass is indicated by the value <code>object</code> assigned to <code>type</code> in <code>DataSchema</code> instances."
+  "Metadata describing data of type `object`. This subclass is indicated by the value `object` assigned to `type` in `DataSchema` instances."
   {:db/ident :jsonschema/ObjectSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type <code>object</code>. This subclass is indicated by the value <code>object</code> assigned to <code>type</code> in <code>DataSchema</code> instances.@en",
+    "Metadata describing data of type `object`. This subclass is indicated by the value `object` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
 (def StringSchema
-  "Metadata describing data of type <code>string</code>. This subclass is indicated by the value <code>string</code> assigned to <code>type</code> in <code>DataSchema</code> instances."
+  "Metadata describing data of type `string`. This subclass is indicated by the value `string` assigned to `type` in `DataSchema` instances."
   {:db/ident :jsonschema/StringSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
    #xsd/langString
-    "Metadata describing data of type <code>string</code>. This subclass is indicated by the value <code>string</code> assigned to <code>type</code> in <code>DataSchema</code> instances.@en",
+    "Metadata describing data of type `string`. This subclass is indicated by the value `string` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
+
+(def additionalProperties
+  "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object."
+  {:db/ident :jsonschema/additionalProperties,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/comment
+   #xsd/langString
+    "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object.@en",
+   :rdfs/label "additionalProperties",
+   :schema/domainIncludes :jsonschema/ObjectSchema,
+   :schema/rangeIncludes :xsd/boolean})
 
 (def allOf
   "Used to ensure that the data is valid against all of the specified schemas in the array."
@@ -348,12 +359,12 @@
    :schema/domainIncludes :jsonschema/DataSchema})
 
 (def required
-  "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of <code>invokeaction</code>, <code>writeproperty</code>) and what members will be definitely delivered in the payload that is being received (e.g. output of <code>invokeaction</code>, <code>readproperty</code>)"
+  "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of `invokeaction`, `writeproperty`) and what members will be definitely delivered in the payload that is being received (e.g. output of `invokeaction`, `readproperty`)"
   {:db/ident :jsonschema/required,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    #xsd/langString
-    "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of <code>invokeaction</code>, <code>writeproperty</code>) and what members will be definitely delivered in the payload that is being received (e.g. output of <code>invokeaction</code>, <code>readproperty</code>)@en",
+    "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of `invokeaction`, `writeproperty`) and what members will be definitely delivered in the payload that is being received (e.g. output of `invokeaction`, `readproperty`)@en",
    :rdfs/label "required",
    :rdfs/range :xsd/string,
    :schema/domainIncludes :jsonschema/ObjectSchema})
