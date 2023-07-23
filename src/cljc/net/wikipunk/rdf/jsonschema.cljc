@@ -102,7 +102,7 @@
 (def additionalProperties
   "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object."
   {:db/ident :jsonschema/additionalProperties,
-   :rdf/type :owl/ObjectProperty,
+   :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    #xsd/langString
     "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object.@en",

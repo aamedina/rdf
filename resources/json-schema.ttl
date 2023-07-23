@@ -440,7 +440,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#additionalProperties
 
-<https://www.w3.org/2019/wot/json-schema#additionalProperties> rdf:type owl:ObjectProperty ;
+<https://www.w3.org/2019/wot/json-schema#additionalProperties> rdf:type owl:DatatypeProperty ;
 
   rdfs:label "additionalProperties" ;
   
