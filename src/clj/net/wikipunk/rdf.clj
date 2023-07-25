@@ -128,6 +128,11 @@
     :d3f/d3fend-kb-reference-annotation
     :owl/topDataProperty})
 
+(def ^:dynamic *lang*
+  "prefix of a language code for the preferred language tagged
+  literals to include"
+  "en")
+
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
 (defn unmunge
@@ -500,7 +505,9 @@
   "unrolls ont_app.vocabulary.lstr.LangStr into a string when datafying"
   [form]
   (if (instance? ont_app.vocabulary.lstr.LangStr form)
-    (str form "@" (lstr/lang form))
+    (if (str/starts-with? (lstr/lang form) *lang*)
+      (str form)
+      (str form "@" (lstr/lang form)))
     form))
 
 (defmulti infer-datomic-type

@@ -454,7 +454,7 @@
     :mop/keys [classDirectSubclasses]}]
   (or classDirectSubclasses
       (into #{}
-            (filter #(some #{ident} (mop/class-direct-superclasses %)))
+            (filter #(identical? (second (mop/class-precedence-list %)) ident))
             (descendants ident))))
 
 (defmethod mop/compute-class-precedence-list :default
