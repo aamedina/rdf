@@ -455,7 +455,7 @@
   (or classDirectSubclasses
       (into #{}
             (filter #(identical? (second (mop/compute-class-precedence-list %)) ident))
-            (descendants ident))))
+            (descendants (:rdfs/Class rdf/*metaobjects*) ident))))
 
 (defmethod mop/compute-class-precedence-list :default
   [_]
