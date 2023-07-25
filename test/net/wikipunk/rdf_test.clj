@@ -32,174 +32,64 @@
            #{:schema/Painting
              :schema/Episode
              :schema/MediaObject
-             :schema/Recommendation
              :schema/SpecialAnnouncement
-             :schema/Quiz
-             :schema/CorrectionComment
-             :schema/AdvertiserContentArticle
-             :schema/CriticReview
-             :schema/ImageObject
              :schema/DigitalDocument
-             :schema/CheckoutPage
-             :schema/VideoObject
              :schema/MathSolver
-             :schema/RadioClip
              :schema/Collection
-             :schema/FAQPage
              :schema/CreativeWorkSeason
-             :schema/SocialMediaPosting
              :schema/Blog
-             :schema/PresentationDigitalDocument
              :schema/Menu
              :schema/Play
              :schema/Chapter
              :schema/Thesis
-             :schema/PublicationIssue
-             :schema/Periodical
              :schema/Photograph
-             :schema/UserReview
-             :schema/PodcastEpisode
              :schema/MusicRecording
              :schema/Review
              :schema/VisualArtwork
-             :schema/AboutPage
-             :schema/Table
              :schema/HyperTocEntry
-             :schema/|3DModel|
              :schema/WebContent
-             :schema/TVSeries
              :schema/Legislation
              :schema/WebSite
              :schema/Comment
-             :schema/Report
-             :schema/MovieSeries
              :schema/HyperToc
-             :schema/Audiobook
              :schema/LearningResource
-             :schema/AnalysisNewsArticle
-             :schema/WPFooter
-             :schema/RadioEpisode
-             :schema/TechArticle
-             :schema/OpinionNewsArticle
-             :schema/TextObject
-             :schema/TVEpisode
-             :schema/PodcastSeries
-             :schema/MediaGallery
-             :schema/CoverArt
-             :schema/CollectionPage
-             :schema/AudioObjectSnapshot
-             :schema/Answer
              :schema/Conversation
-             :schema/APIReference
-             :schema/MovieClip
-             :schema/EmployerReview
+             :mo/AudioFile
              :schema/Game
              :schema/SoftwareApplication
-             :schema/Syllabus
-             :schema/QAPage
              :schema/MenuSection
-             :schema/MedicalScholarlyArticle
-             :schema/Diet
-             :schema/MediaReview
              :schema/WebPage
-             :schema/BackgroundNewsArticle
              :schema/Manuscript
              :schema/SoftwareSourceCode
-             :schema/DataCatalog
-             :schema/ProductCollection
              :schema/PublicationVolume
-             :schema/ProfilePage
-             :schema/ScholarlyArticle
-             :schema/MusicRelease
-             :schema/CompleteDataFeed
-             :schema/SpreadsheetDigitalDocument
              :schema/EducationalOccupationalCredential
-             :schema/CategoryCodeSet
-             :schema/CreativeWorkSeries
-             :schema/Newspaper
              :schema/MediaReviewItem
+             :foaf/Document
              :schema/Poster
-             :schema/MedicalWebPage
-             :schema/Course
-             :schema/SatiricalArticle
-             :schema/AudioObject
              :schema/Quotation
-             :schema/ComicSeries
              :schema/ArchiveComponent
-             :schema/HowToSection
-             :schema/MusicVideoObject
-             :schema/AmpStory
              :schema/WebPageElement
-             :schema/HowToStep
-             :schema/MusicAlbum
-             :schema/VideoGallery
              :schema/Guide
-             :schema/NoteDigitalDocument
-             :schema/ExercisePlan
-             :schema/VideoGameClip
              :schema/Sculpture
-             :schema/Barcode
-             :schema/WebApplication
              :schema/Code
-             :schema/RadioSeason
-             :schema/ImageObjectSnapshot
-             :schema/PodcastSeason
-             :schema/EmailMessage
-             :schema/AskPublicNewsArticle
-             :schema/ComicCoverArt
              :schema/Clip
              :schema/Movie
              :schema/Claim
              :schema/Article
-             :schema/WPAdBlock
              :schema/MusicComposition
-             :schema/VideoGame
-             :schema/LegislationObject
              :schema/Book
              :schema/Map
              :schema/Statement
-             :schema/SearchResultsPage
-             :schema/DataFeed
              :schema/Season
              :schema/Drawing
-             :schema/HealthTopicContent
-             :schema/TVSeason
              :schema/MusicPlaylist
-             :schema/Question
-             :schema/ContactPage
-             :schema/HowToDirection
-             :schema/ReviewNewsArticle
-             :schema/DataDownload
              :schema/ShortStory
-             :schema/BookSeries
-             :schema/WPSideBar
-             :schema/TVClip
-             :schema/ClaimReview
              :schema/Message
-             :schema/ItemPage
-             :schema/RealEstateListing
-             :schema/WPHeader
-             :schema/HowToTip
              :schema/HowTo
-             :schema/TextDigitalDocument
-             :schema/VideoObjectSnapshot
              :schema/ComicStory
-             :schema/ReportageNewsArticle
-             :schema/BlogPosting
-             :schema/VideoGameSeries
-             :schema/Recipe
-             :schema/SiteNavigationElement
-             :schema/Dataset
              :schema/SheetMusic
-             :schema/ComicIssue
-             :schema/RadioSeries
              :schema/DefinedTermSet
-             :schema/ImageGallery
-             :schema/Atlas
-             :schema/MobileApplication
-             :schema/NewsArticle
-             :schema/LiveBlogPosting
-             :schema/DiscussionForumPosting}))))
+             :schema/Atlas}))))
 
 (deftest class-slots
   (testing "validating the MOP :schema/Movie inferred class slots"
