@@ -1613,22 +1613,7 @@
       (qualified-symbol? ident)
       (resolve ident)
 
-      :else (find-ns (symbol ident))))
-
-  clojure.lang.Sequential
-  (datafy [lookup-ref]
-    (when (and (= (count lookup-ref) 2)
-               (qualified-keyword? (first lookup-ref)))
-      (mop/find-class lookup-ref)))
-
-  clojure.lang.IPersistentMap
-  (datafy [m]
-    (when-some [id (:db/id m)]
-      (mop/find-class id)))
-
-  java.lang.Long
-  (datafy [id]
-    (mop/find-class id)))
+      :else (find-ns (symbol ident)))))
 
 (defmulti import-from
   "Import metaobjects `from` into `to`"
@@ -1744,8 +1729,11 @@
             md    (meta model)]
         (emit-ns model md arg-map))))
   (sniff [m]
-    (let [model (mem-parse m)]
-      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
+    (if-some [id (:db/id m)]
+      (when mop/*env*
+        (mop/find-class id))
+      (let [model (mem-parse m)]
+        (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model)))))
 
   clojure.lang.Keyword
   (parse [ident]
@@ -1757,18 +1745,19 @@
       (graph {:rdfa/prefix      (namespace ident)
               :dcat/downloadURL url})))
   (sniff [k]
-    (try
-      (when-some [model (mem-parse k)]
-        (let [forms (mapv #(dissoc % :private) (unroll-forms model))
-              idx   (group-by :db/ident forms)]
-          (if-some [val (get idx k)]
-            (with-meta (first val)
-              (merge (meta model)
-                     (update-vals (dissoc idx k) first)))
-            (with-meta (peek forms)
-              (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
-      (catch Throwable ex
-        (log/debug (.getMessage ex)))))
+    (or (datafy k)
+        (try
+          (when-some [model (mem-parse k)]
+            (let [forms (mapv #(dissoc % :private) (unroll-forms model))
+                  idx   (group-by :db/ident forms)]
+              (if-some [val (get idx k)]
+                (with-meta (first val)
+                  (merge (meta model)
+                         (update-vals (dissoc idx k) first)))
+                (with-meta (peek forms)
+                  (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
+          (catch Throwable ex
+            (log/debug (.getMessage ex))))))
 
   clojure.lang.Named
   (parse [ident]
@@ -1835,5 +1824,18 @@
       (parse-with-meta g nil)))
   (graph [g] g)
 
+  clojure.lang.Sequential
+  (sniff [lookup-ref]
+    (when mop/*env*
+      (when (and (= (count lookup-ref) 2)
+                 (qualified-keyword? (first lookup-ref)))
+        (mop/find-class lookup-ref))))
+
+  java.lang.Long
+  (sniff [id]
+    (when mop/*env*
+      (mop/find-class id)))
+
   nil
   (sniff [_] nil))
+
