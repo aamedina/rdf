@@ -1686,8 +1686,11 @@
                     (catch Throwable ex
                       (println % (.getMessage ex))))
                  xs)))
-  (sniff [xs]
-    (pmap #(sniff %) xs))
+  (sniff [lookup-ref]
+    (when mop/*env*
+      (when (and (= (count lookup-ref) 2)
+                 (qualified-keyword? (first lookup-ref)))
+        (mop/find-class lookup-ref))))
   
   clojure.lang.IPersistentMap
   (parse [md]
@@ -1823,13 +1826,6 @@
     (binding [*graph* g]
       (parse-with-meta g nil)))
   (graph [g] g)
-
-  clojure.lang.Sequential
-  (sniff [lookup-ref]
-    (when mop/*env*
-      (when (and (= (count lookup-ref) 2)
-                 (qualified-keyword? (first lookup-ref)))
-        (mop/find-class lookup-ref))))
 
   java.lang.Long
   (sniff [id]
