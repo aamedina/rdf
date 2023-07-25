@@ -1617,7 +1617,9 @@
 
   clojure.lang.Sequential
   (datafy [lookup-ref]
-    (mop/find-class lookup-ref))
+    (when (and (= (count lookup-ref) 2)
+               (qualified-keyword? (first lookup-ref)))
+      (mop/find-class lookup-ref)))
 
   clojure.lang.IPersistentMap
   (datafy [m]

@@ -107,7 +107,9 @@
 
 (defmethod mop/find-class-using-env [clojure.lang.Sequential net.wikipunk.datomic.Connection]
   [lookup-ref env]
-  (pull-simple env *pull* lookup-ref))
+  (when (and (= (count lookup-ref) 2)
+             (qualified-keyword? (first lookup-ref)))
+    (pull-simple env *pull* lookup-ref)))
 
 (defmethod mop/find-class-using-env [clojure.lang.IPersistentMap net.wikipunk.datomic.Connection]
   [m env]
