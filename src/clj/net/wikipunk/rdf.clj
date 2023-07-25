@@ -1613,7 +1613,20 @@
       (qualified-symbol? ident)
       (resolve ident)
 
-      :else (find-ns (symbol ident)))))
+      :else (find-ns (symbol ident))))
+
+  clojure.lang.Sequential
+  (datafy [lookup-ref]
+    (mop/find-class lookup-ref))
+
+  clojure.lang.IPersistentMap
+  (datafy [m]
+    (when-some [id (:db/id m)]
+      (mop/find-class id)))
+
+  java.lang.Long
+  (datafy [id]
+    (mop/find-class id)))
 
 (defmulti import-from
   "Import metaobjects `from` into `to`"

@@ -66,6 +66,10 @@
   (delete-database [_ arg-map]
     (impl/delete-database client (merge {:db-name db-name} arg-map))))
 
+(def ^:dynamic *pull*
+  "A pull expression for datomic entities."
+  '[*])
+
 (defmethod mop/find-class-using-env [clojure.lang.Keyword net.wikipunk.datomic.Connection]
   [ident env]
   (when-some [m (not-empty (walk/prewalk (fn [form]
@@ -77,14 +81,42 @@
 
                                                (and (:db/id form)
                                                     (not (contains? form :db/ident)))
-                                               (dissoc (d/pull env '[*] (:db/id form)) :db/id)
+                                               (dissoc (d/pull env *pull* (:db/id form)) :db/id)
 
                                                :else (dissoc form :db/id))
                                              form))
-                                         (d/pull env '[*] ident)))]
+                                         (d/pull env *pull* ident)))]
     (cond-> m
       (:rdf/type m)
       (update :rdf/type #(filterv keyword? %)))))
+
+(defn- pull-simple
+  [env selector id]
+  (when-some [m (not-empty (walk/prewalk (fn [form]
+                                           (if (map? form)
+                                             (cond
+                                               (contains? form :db/ident)
+                                               (:db/ident form)
+
+                                               :else form)
+                                             form))
+                                         (d/pull env selector id)))]
+    (cond-> m
+      (:rdf/type m)
+      (update :rdf/type #(filterv keyword? %)))))
+
+(defmethod mop/find-class-using-env [clojure.lang.Sequential net.wikipunk.datomic.Connection]
+  [lookup-ref env]
+  (pull-simple env *pull* lookup-ref))
+
+(defmethod mop/find-class-using-env [clojure.lang.IPersistentMap net.wikipunk.datomic.Connection]
+  [m env]
+  (when-some [id (:db/id m)]
+    (pull-simple env *pull* id)))
+
+(defmethod mop/find-class-using-env [java.lang.Long net.wikipunk.datomic.Connection]
+  [id env]
+  (pull-simple env *pull* id))
 
 (defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.datomic.Connection]
   [class env]
