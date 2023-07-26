@@ -1277,7 +1277,9 @@
       (map-entry? x)
       (key x)
 
-      (indexed? x)
+      (and (indexed? x)
+           (== (count x) 2)
+           (qualified-keyword? (first x)))
       (nth x 0)
 
       :else (type x))))
@@ -1286,6 +1288,7 @@
 (defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
 (defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x] (str x))
 (defmethod rdf-doc String [x] x)
+(defmethod rdf-doc clojure.lang.Seqable [xs] (some rdf-doc xs))
 (defmethod rdf-doc :rdfs/label [[k v]] (rdf-doc v))
 (defmethod rdf-doc :rdfs/comment [[k v]] (rdf-doc v))
 (defmethod rdf-doc :d3f/definition [[k v]] (rdf-doc v))
@@ -1305,12 +1308,12 @@
   "Returns a sequence of dispatching keywords on multifn sorted by
   preference."
   [multifn]
-  (let [prefs (sort (comp > isa?) (keys (prefers multifn)))
+  (let [prefs (reverse (sort isa? (keys (prefers multifn))))
         kws   (->> (methods multifn)
                    (keys)
                    (filter qualified-keyword?)
                    (filter #(isa? (:rdf/Property *metaobjects*) % :rdf/Property))
-                   (remove (conj (mop/class-direct-subclasses :rdf/Property) :rdf/Property)))]
+                   (remove (conj (set (mop/class-direct-subclasses :rdf/Property)) :rdf/Property)))]
     (distinct (concat prefs kws))))
 
 (defn get-doc
