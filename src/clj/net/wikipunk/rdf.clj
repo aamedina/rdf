@@ -981,8 +981,6 @@
                                                        objects)])))
                                          (group-by #(.getPredicate ^Triple %) triples))))))))))
 
-(def mem-parse (memo/memo parse))
-
 (defn walk-blanks
   "Replaces blank nodes with their values."
   ([index form]
@@ -1738,7 +1736,7 @@
     (if-some [id (:db/id m)]
       (when mop/*env*
         (mop/find-class id))
-      (let [model (mem-parse m)]
+      (let [model (parse m)]
         (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model)))))
 
   clojure.lang.Keyword
@@ -1753,7 +1751,7 @@
   (sniff [k]
     (or (datafy k)
         (try
-          (when-some [model (mem-parse k)]
+          (when-some [model (parse k)]
             (let [forms (mapv #(dissoc % :private) (unroll-forms model))
                   idx   (group-by :db/ident forms)]
               (if-some [val (get idx k)]
