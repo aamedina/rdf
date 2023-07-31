@@ -97,7 +97,12 @@
    :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"
                  "-XX:+HeapDumpOnOutOfMemoryError"
                  "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"]
-   :exec-fn     cognitect.test-runner.api/test}}
+   :exec-fn     cognitect.test-runner.api/test}
+  :build
+  {:deps
+   {io.github.clojure/tools.build
+    {:git/tag "v0.9.4" :git/sha "76b78fe"}}
+   :ns-default build}}
  :mvn/repos
  {"cognitect-dev-tools"
   {:url "https://dev-tools.cognitect.com/maven/releases/"}}}
