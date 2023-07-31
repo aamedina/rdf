@@ -1045,11 +1045,11 @@
 
   String
   (box [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "pkg:")
-            (str/starts-with? s "urn:"))
+    (try
+      (java.net.URL. s)
       {:rdfa/uri s}
-      {:xsd/string s}))
+      (catch java.net.MalformedURLException ex
+        {:xsd/string s})))
 
   clojure.lang.Sequential
   (box [xs]
