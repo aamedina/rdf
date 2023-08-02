@@ -332,8 +332,12 @@
     (set/union (mop/class-direct-slots :rdfs/Class)
                (mop/class-direct-slots :owl/Class))
 
+    (:sh/Shape :sh/NodeShape)
+    (mop/class-direct-slots :sh/Shape)
+
     (->> (mop/compute-class-precedence-list class) ;; compute the class precedence list
-         (take-while (complement #{:owl/Class :rdfs/Class})) ;; remove metaclasses from the list
+         ;; remove metaclasses from the list
+         (take-while (complement #{:owl/Class :rdfs/Class :sh/Shape :sh/NodeShape}))
          (map mop/class-direct-slots) ;; get the direct slots of each class
          (reduce set/union) ;; combine them into a single set
          ))
