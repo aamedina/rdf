@@ -377,14 +377,14 @@
              :rdfs/keys   [subPropertyOf domain range]
              :schema/keys [domainIncludes rangeIncludes]
              :owl/keys    [equivalentProperty]
-             :as          entity}]
+             :as          entity}]       
        (let [domain'     (concat domain domainIncludes)
              domain-keys (filter keyword? domain')]
          (cond-> h
            (or domain domainIncludes)
            (deriving entity (concat domain-keys
                                     (->> (remove keyword? domain')
-                                         (keep (some-fn :owl/unionOf :owl/intersectionOf))
+                                         (mapcat (some-fn :owl/unionOf :owl/intersectionOf))
                                          (filter keyword?)))))))
      (make-hierarchy)
      (filter (some-fn :rdfs/domain :schema/domainIncludes) metaobjects))))
