@@ -878,7 +878,7 @@
   (let [uri (.getLiteralDatatypeURI node)]
     (if (instance? BaseDatatype$TypedValue (.getLiteralValue node))
       (tagged-literal (symbol (kw uri)) (.-lexicalValue (.getLiteralValue node)))
-      (tagged-literal (symbol (kw uri)) (.getLiteralValue node)))))
+      (.getLiteralValue node))))
 
 (extend-protocol g/AsClojureData
   Node_URI
