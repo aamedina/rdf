@@ -873,6 +873,18 @@
   [^Node_Literal node]
   (.getLiteralValue node))
 
+(defmethod rdf-literal :xsd/dateTime
+  [^Node_Literal node]
+  (clojure.instant/read-instant-date (str (.getLiteralValue node))))
+
+(defmethod rdf-literal :xsd/date
+  [^Node_Literal node]
+  (clojure.instant/read-instant-date (str (.getLiteralValue node))))
+
+(defmethod rdf-literal :xsd/dateTimeStamp
+  [^Node_Literal node]
+  (clojure.instant/read-instant-date (str (.getLiteralValue node))))
+
 (defmethod rdf-literal :default
   [^Node_Literal node]
   (let [uri (.getLiteralDatatypeURI node)]
