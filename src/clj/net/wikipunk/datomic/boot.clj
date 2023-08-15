@@ -5,6 +5,7 @@
    [arachne.aristotle.graph :as g]
    [clojure.datafy :refer [datafy]]
    [clojure.tools.logging :as log]
+   [clojure.string :as str]
    [clojure.walk :as walk]
    [datomic.client.api :as d]
    [net.wikipunk.boot]
@@ -91,21 +92,22 @@
 
   clojure.lang.IPersistentMap
   (select-attributes [m]
-    (some->> (not-empty (select-keys m (into [:db/ident
-                                              :db/cardinality
-                                              :db/valueType
-                                              :db/isComponent
-                                              :db/tupleAttrs
-                                              :db/tupleType
-                                              :db/tupleTypes
-                                              :db/fulltext
-                                              :db/unique
-                                              :mop/classSlots
-                                              :mop/classDirectSlots
-                                              :mop/classDirectSubclasses]
-                                             (map :db/ident)
-                                             *schema*)))
-             (walk/prewalk rdf/unroll-langString)                            
+    (some->> (reduce-kv (fn [m k v]
+                          (if (or (isa? k :rdf/Property)
+                                  (contains? #{:db/ident
+                                               :db/cardinality
+                                               :db/valueType
+                                               :db/isComponent
+                                               :db/tupleAttrs
+                                               :db/tupleType
+                                               :db/tupleTypes
+                                               :db/fulltext
+                                               :db/unique}
+                                             k))
+                            m
+                            (dissoc m k)))
+                        m m)
+             (walk/prewalk rdf/unroll-langString)
              (walk/prewalk rdf/box-values)
              (walk/postwalk (fn [form]
                               (cond
@@ -118,8 +120,14 @@
                                           v)]
                                   [k (try
                                        (case (rdf/infer-datomic-type k)
-                                         :db.type/string  (if (map? v)
+                                         :db.type/string  (cond
+                                                            (map? v)
                                                             (or (:rdfa/uri v) (pr-str v))
+                                                            
+                                                            (coll? v)
+                                                            v
+                                                            
+                                                            :else
                                                             (str v))
                                          :db.type/long    (if (vector? v)
                                                             (mapv long v)
@@ -347,6 +355,8 @@
 (defmethod rdf/infer-datomic-type :vann/usageNote [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :exif/tag_number [_] :db.type/string)
+
+(defmethod rdf/infer-datomic-type :skos/historyNote [_] :db.type/ref)
 
 (defmethod rdf/infer-datomic-type :default
   [x]
