@@ -94,15 +94,28 @@
   (select-attributes [m]
     (some->> (reduce-kv (fn [m k v]
                           (if (or (isa? k :rdf/Property)
-                                  (contains? #{:db/ident
+                                  (contains? #{:db/add
+                                               :db/affinity
                                                :db/cardinality
-                                               :db/valueType
+                                               :db/cas
+                                               :db/doc
+                                               :db/ensure
+                                               :db/excise
+                                               :db/fulltext
+                                               :db/id
+                                               :db/ident
                                                :db/isComponent
+                                               :db/noHistory
+                                               :db/retract
+                                               :db/retractEntity
+                                               :db/system-tx
                                                :db/tupleAttrs
                                                :db/tupleType
                                                :db/tupleTypes
-                                               :db/fulltext
-                                               :db/unique}
+                                               :db/txInstant
+                                               :db/txUUID
+                                               :db/unique
+                                               :db/valueType}
                                              k))
                             m
                             (dissoc m k)))
