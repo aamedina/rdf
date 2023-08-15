@@ -180,7 +180,16 @@
   {:dcat/downloadURL "https://pav-ontology.github.io/pav/pav.rdf"
    :rdfa/uri         "http://purl.org/pav/"
    :rdfa/prefix      "pav"
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"dc11"    "http://purl.org/dc/elements/1.1/",
+                       "dcterms" "http://purl.org/dc/terms/",
+                       "foaf"    "http://xmlns.com/foaf/0.1/",
+                       "owl"     "http://www.w3.org/2002/07/owl#",
+                       "pav"     "http://purl.org/pav/",
+                       "prov"    "http://www.w3.org/ns/prov#",
+                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                       "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
 
 (def rdfg
   {:rdfa/uri    "http://www.w3.org/2004/03/trix/rdfg-1/"
@@ -469,7 +478,7 @@
    :rdfa/uri    "http://dbpedia.org/class/yago/"
    :rdfa/prefix "yago"})
 
-(def wikidata
+#_(def wikidata
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.wikidata.org/entity/"
    :rdfa/prefix "wd"
@@ -706,13 +715,13 @@
    :rdfa/prefix "mop"
    :emit false})
 
-(def eli
+#_(def eli
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://data.europa.eu/eli/ontology#"
    :rdfa/prefix "eli"
    :emit false})
 
-(def frbroo
+#_(def frbroo
   {:dcat/downloadURL "http://iflastandards.info/ns/fr/frbr/frbroo.xml"
    :rdf/type   :rdfa/PrefixMapping
    :rdfa/uri    "http://iflastandards.info/ns/fr/frbr/frbroo/"

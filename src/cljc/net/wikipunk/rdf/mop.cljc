@@ -39,5 +39,5 @@
 (def classPrecedenceList
   {:db/ident    :mop/classPrecedenceList   
    :rdf/type    :owl/ObjectProperty
-   :rdfs/range  :rdfs/Class
-   :rdfs/domain :rdfs/Class})
+   :rdfs/domain :rdfs/Class
+   :rdfs/range  :rdf/List})

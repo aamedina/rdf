@@ -1,20 +1,20 @@
 (ns net.wikipunk.rdf.dqv
   "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."
   {:dcat/downloadURL "https://www.w3.org/ns/dqv.ttl",
-   :dcterms/contributor [{:foaf/name "Christophe Guéret"}
-                         {:foaf/name "Jeremy Debattista"}
-                         {:foaf/name "Amrapali Zaveri"}
+   :dcterms/contributor [{:foaf/name "Makx Dekkers"}
                          {:foaf/name "Deirdre Lee"}
+                         {:foaf/name "Jeremy Debattista"}
                          {:foaf/name "Nandana Mihindukulasooriya"}
-                         {:foaf/name "Makx Dekkers"}],
-   :dcterms/created #xsd/date #inst "2015-12-17T00:00:00.000-05:00",
+                         {:foaf/name "Amrapali Zaveri"}
+                         {:foaf/name "Christophe Guéret"}],
+   :dcterms/created #inst "2015-12-17T00:00:00.000-00:00",
    :dcterms/creator [{:foaf/name "Riccardo Albertoni"}
                      {:foaf/name "Antoine Isaac"}],
    :dcterms/description
    #xsd/langString
     "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers.@en",
-   :dcterms/modified [#xsd/date #inst "2016-08-26T00:00:00.000-04:00"
-                      #xsd/date #inst "2016-12-15T00:00:00.000-05:00"],
+   :dcterms/modified [#inst "2016-08-26T00:00:00.000-00:00"
+                      #inst "2016-12-15T00:00:00.000-00:00"],
    :dcterms/publisher {:rdfa/uri "http://www.w3.org/data#W3C"},
    :dcterms/title #xsd/langString "Data Quality Vocabulary@en",
    :dcterms/type {:rdfa/uri "http://purl.org/adms/assettype/Ontology"},
@@ -77,7 +77,7 @@
   "Represents quality annotations, including ratings, quality certificates or feedback that can be associated to datasets or distributions. Quality annotations must have one oa:motivatedBy statement with an instance of oa:Motivation (and skos:Concept) that reflects a quality assessment purpose. We define this instance as dqv:qualityAssessment."
   {:db/ident :dqv/QualityAnnotation,
    :owl/equivalentClass {:owl/hasValue   :dqv/qualityAssessment,
-                         :owl/onProperty :oa/motivation,
+                         :owl/onProperty :oa/motivatedBy,
                          :rdf/type       :owl/Restriction},
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment

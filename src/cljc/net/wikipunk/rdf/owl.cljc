@@ -567,7 +567,7 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom.",
-   :rdfs/domain :rdfs/Resource,
+   :rdfs/domain {:owl/unionOf [:owl/AllDifferent :owl/AllDisjointClasses :owl/AllDisjointProperties]}
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2002/07/owl#"},
    :rdfs/label "members",
    :rdfs/range :rdf/List})

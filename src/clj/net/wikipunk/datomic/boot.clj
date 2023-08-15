@@ -2,6 +2,7 @@
   "Initialized to some WIP functions used to install RDF facts into a
   Datomic dev-local database based on the state of the system."
   (:require
+   [arachne.aristotle.graph :as g]
    [clojure.datafy :refer [datafy]]
    [clojure.tools.logging :as log]
    [clojure.walk :as walk]
@@ -90,40 +91,67 @@
 
   clojure.lang.IPersistentMap
   (select-attributes [m]
-    (let [attr (some->> (not-empty (select-keys m (into [:db/ident
-                                                         :db/cardinality
-                                                         :db/valueType
-                                                         :db/isComponent
-                                                         :db/tupleAttrs
-                                                         :db/tupleType
-                                                         :db/tupleTypes
-                                                         :db/fulltext
-                                                         :db/unique
-                                                         :mop/classSlots
-                                                         :mop/classDirectSlots
-                                                         :mop/classDirectSubclasses]
-                                                        (map :db/ident)
-                                                        *schema*)))
-                        (walk/prewalk rdf/unroll-langString)                            
-                        (walk/prewalk rdf/box-values)
-                        (walk/prewalk rdf/unroll-blank)
-                        (walk/prewalk rdf/box-values)
-                        (walk/prewalk (fn [form]
-                                        (if (and (string? form)
-                                                 (>= (count form) 4096))
-                                          (subs form 0 4096)
-                                          form))))
-          ks   [:owl/sameAs :owl/equivalentClass :owl/equivalentDatatype :owl/equivalentProperty
-                :schema/sameAs :vs/userdocs :skos/closeMatch :mop/classPrecedenceList
-                :skos/historyNote :skos/changeNote]]
-      (reduce-kv (fn [attr k v]
-                   (if (or (some #(isa? k %) ks)
-                           (contains? rdf/*dont-datafy* k)
-                           (and (coll? v) (empty? v))
-                           (nil? v))
-                     (dissoc attr k)
-                     attr))
-                 attr attr))))
+    (some->> (not-empty (select-keys m (into [:db/ident
+                                              :db/cardinality
+                                              :db/valueType
+                                              :db/isComponent
+                                              :db/tupleAttrs
+                                              :db/tupleType
+                                              :db/tupleTypes
+                                              :db/fulltext
+                                              :db/unique
+                                              :mop/classSlots
+                                              :mop/classDirectSlots
+                                              :mop/classDirectSubclasses]
+                                             (map :db/ident)
+                                             *schema*)))
+             (walk/prewalk rdf/unroll-langString)                            
+             (walk/prewalk rdf/box-values)
+             (walk/postwalk (fn [form]
+                              (cond
+                                (and (map-entry? form)
+                                     (isa? (key form) :rdf/Property))
+                                (let [k (key form)
+                                      v (val form)
+                                      v (if (tagged-literal? v)
+                                          (:form v)
+                                          v)]
+                                  [k (try
+                                       (case (rdf/infer-datomic-type k)
+                                         :db.type/string  (if (map? v)
+                                                            (or (:rdfa/uri v) (pr-str v))
+                                                            (str v))
+                                         :db.type/long    (if (vector? v)
+                                                            (mapv long v)
+                                                            (long v))
+                                         :db.type/double  (double v)
+                                         :db.type/instant (if (string? v)
+                                                            (clojure.instant/read-instant-date v)
+                                                            v)
+                                         :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
+                                                                    k :rdf/List)
+                                                            (g/rdf-list v)
+                                                            (mapv (fn [v]
+                                                                    (if (not (or (map? v) (keyword? v)))
+                                                                      (rdf/box v)
+                                                                      v))
+                                                                  (if (and (coll? v) (not (map? v)))
+                                                                    v
+                                                                    [v])))
+                                         
+                                         :db.type/bigint (bigint v)
+                                         :db.type/bigdec (bigdec v)
+                                         v)
+                                       (catch Throwable ex
+                                         (throw (ex-info (.getMessage ex) m))))])
+                                :else form)))
+             (walk/prewalk rdf/unroll-blank)
+             (walk/prewalk rdf/box-values)
+             (walk/prewalk (fn [form]
+                             (if (and (string? form)
+                                      (>= (count form) 4096))
+                               (subs form 0 4096)
+                               form))))))
 
 (defmethod rdf/infer-datomic-cardinality :default
   [_]
@@ -153,6 +181,8 @@
 (defmethod rdf/infer-datomic-cardinality :jsonschema/readOnly [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/uniqueItems [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/writeOnly [_] :db.cardinality/one)
+
+#_(defmethod rdf/infer-datomic-cardinality :owl/propertyChainAxiom [_] :db.cardinality/many)
 
 (defmethod rdf/infer-datomic-type :rdf/Property
   [ident]
