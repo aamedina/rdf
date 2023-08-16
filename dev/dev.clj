@@ -43,6 +43,7 @@
    [datomic.client.api :as d]
    [net.wikipunk.datomic :as datomic]
    [net.wikipunk.datomic.boot :as db]
+   [net.wikipunk.datomic.rl :as rl]
    [net.wikipunk.rdf.dpvo]
    [net.wikipunk.rdf.dpvo-tech]
    [net.wikipunk.rdf.dpvo-legal]
@@ -69,3 +70,60 @@
 
 (comment
   (def boot-db (db/test-bootstrap (:db system))))
+
+(defn make-test-db
+  [db all-tx-data]
+  (reduce (fn [with-db tx-data]
+            (try
+              (:db-after (d/with with-db {:tx-data (mapv db/select-attributes tx-data)}))
+              (catch Throwable ex
+                (throw (ex-info (.getMessage ex) {:tx-data tx-data})))))
+          (if (instance? datomic.dev_local.with_db.WithDb db)
+            db
+            (d/with-db db))          
+          all-tx-data))
+
+(def test-people
+  [{:db/ident :person/alice}
+   {:db/ident :person/bob}
+   {:db/ident :person/charlie}
+   {:db/ident :person/delta}
+   {:db/ident :person/eve}])
+
+(def eq-diff2-tx-data
+  [test-people
+   [{:db/ident :person/alice :owl/sameAs :person/bob}
+    {:db/ident :person/bob}
+    {:db/ident :person/charlie}
+    {:db/ident :person/delta :owl/sameAs :person/alice}
+    {:db/ident    :ex/DifferentPersons
+     :rdf/type    :owl/AllDifferent,
+     :owl/members [:person/alice :person/bob :person/charlie]}]])
+
+(def prp-spo2-tx-data
+  "test data for prp-spo2"
+  [test-people
+   [{:db/ident               :ex/hasGrandparent
+     :rdf/type               :rdf/Property
+     :owl/propertyChainAxiom [:rel/childOf :rel/childOf]}]
+   [{:db/ident :person/alice :rel/childOf [:person/bob :person/eve]}
+    {:db/ident :person/bob :rel/childOf [:person/charlie :person/delta]}
+    {:db/ident :person/charlie :rel/childOf :person/delta}
+    {:db/ident :person/delta :rel/childOf :person/eve}]])
+
+(comment  
+  
+  (let [db (make-test-db boot-db eq-diff2-tx-data)]
+    (d/q '[:find ?z1 ?z2
+           :in $ %
+           :where (eq-diff2 ?x ?y ?z1 ?z2)]
+         db
+         rl/rules))
+
+  (let [db (make-test-db boot-db prp-spo2-tx-data)]
+    (->> (rl/apply-property-chain-axiom db :ex/hasGrandparent :person/alice)
+         (d/pull db '[*])
+         :db/ident))
+  
+  ;; => :person/charlie
+  )

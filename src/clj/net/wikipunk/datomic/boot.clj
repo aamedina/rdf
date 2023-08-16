@@ -203,7 +203,7 @@
 (defmethod rdf/infer-datomic-cardinality :jsonschema/uniqueItems [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/writeOnly [_] :db.cardinality/one)
 
-#_(defmethod rdf/infer-datomic-cardinality :owl/propertyChainAxiom [_] :db.cardinality/many)
+(defmethod rdf/infer-datomic-cardinality :owl/propertyChainAxiom [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-type :rdf/Property
   [ident]

@@ -6,7 +6,7 @@
                          {:db-dir ".vocab/test/lucene"}}}
  :client {:sc/create-fn datomic.client.api/client
           :storage-dir  :mem
-          :server-type  :dev-local
+          :server-type  :datomic-local
           :system       "dev"}
  :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
           :sc/refs      [:client]

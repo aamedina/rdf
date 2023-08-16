@@ -5,7 +5,7 @@
           :config       {:xtdb.lucene/lucene-store
                          {:db-dir ".vocab/lucene"}}}
  :client {:sc/create-fn datomic.client.api/client
-          :server-type  :dev-local
+          :server-type  :datomic-local
           :system       "dev"}
  :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
           :sc/refs      [:client]
