@@ -1,0 +1,707 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2007/OWL/testOntology#"
+     xml:base="http://www.w3.org/2007/OWL/testOntology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="http://www.w3.org/2007/OWL/testOntology">
+        <rdfs:label>The OWL 2 Test Ontology</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/owl2-test/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Literal -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#alternativeSemanticsTest -->
+
+    <owl:ObjectProperty rdf:about="#alternativeSemanticsTest">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#importedOntology -->
+
+    <owl:ObjectProperty rdf:about="#importedOntology"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#importedOntologyIRI -->
+
+    <owl:ObjectProperty rdf:about="#importedOntologyIRI"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#issue -->
+
+    <owl:ObjectProperty rdf:about="#issue"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#normativeSyntax -->
+
+    <owl:ObjectProperty rdf:about="#normativeSyntax">
+        <rdfs:range rdf:resource="#Syntax"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#profile -->
+
+    <owl:ObjectProperty rdf:about="#profile">
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#RL"/>
+                    <rdf:Description rdf:about="#QL"/>
+                    <rdf:Description rdf:about="#EL"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#semantics -->
+
+    <owl:ObjectProperty rdf:about="#semantics">
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DIRECT"/>
+                    <rdf:Description rdf:about="#RDF-BASED"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#specRef -->
+
+    <owl:ObjectProperty rdf:about="#specRef"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#species -->
+
+    <owl:ObjectProperty rdf:about="#species">
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FULL"/>
+                    <rdf:Description rdf:about="#DL"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#status -->
+
+    <owl:ObjectProperty rdf:about="#status">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Proposed"/>
+                    <rdf:Description rdf:about="#Approved"/>
+                    <rdf:Description rdf:about="#Extracredit"/>
+                    <rdf:Description rdf:about="#Rejected"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#conclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#conclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#inputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#creator -->
+
+    <owl:DatatypeProperty rdf:about="#creator"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#description -->
+
+    <owl:DatatypeProperty rdf:about="#description"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#fsConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#fsConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#conclusionOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#fsInputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#fsInputOntology -->
+
+    <owl:DatatypeProperty rdf:about="#fsInputOntology">
+        <rdfs:subPropertyOf rdf:resource="#inputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#fsNonConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#fsNonConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#fsInputOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#nonConclusionOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#fsPremiseOntology -->
+
+    <owl:DatatypeProperty rdf:about="#fsPremiseOntology">
+        <rdfs:subPropertyOf rdf:resource="#fsInputOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#premiseOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#identifier -->
+
+    <owl:DatatypeProperty rdf:about="#identifier"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#inputOntology -->
+
+    <owl:DatatypeProperty rdf:about="#inputOntology">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#nonConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#nonConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#inputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#owlXmlConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#owlXmlConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#conclusionOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#owlXmlInputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#owlXmlInputOntology -->
+
+    <owl:DatatypeProperty rdf:about="#owlXmlInputOntology">
+        <rdfs:subPropertyOf rdf:resource="#inputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#owlXmlNonConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#owlXmlNonConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#nonConclusionOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#owlXmlInputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#owlXmlPremiseOntology -->
+
+    <owl:DatatypeProperty rdf:about="#owlXmlPremiseOntology">
+        <rdfs:subPropertyOf rdf:resource="#owlXmlInputOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#premiseOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#premiseOntology -->
+
+    <owl:DatatypeProperty rdf:about="#premiseOntology">
+        <rdfs:subPropertyOf rdf:resource="#inputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#rdfXmlConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#rdfXmlConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#conclusionOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#rdfXmlInputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#rdfXmlInputOntology -->
+
+    <owl:DatatypeProperty rdf:about="#rdfXmlInputOntology">
+        <rdfs:subPropertyOf rdf:resource="#inputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#rdfXmlNonConclusionOntology -->
+
+    <owl:DatatypeProperty rdf:about="#rdfXmlNonConclusionOntology">
+        <rdfs:subPropertyOf rdf:resource="#nonConclusionOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#rdfXmlInputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#rdfXmlPremiseOntology -->
+
+    <owl:DatatypeProperty rdf:about="#rdfXmlPremiseOntology">
+        <rdfs:subPropertyOf rdf:resource="#premiseOntology"/>
+        <rdfs:subPropertyOf rdf:resource="#rdfXmlInputOntology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#ConsistencyTest -->
+
+    <owl:Class rdf:about="#ConsistencyTest">
+        <rdfs:subClassOf rdf:resource="#ProfileIdentificationTest"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#premiseOntology"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#InconsistencyTest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#InconsistencyTest -->
+
+    <owl:Class rdf:about="#InconsistencyTest">
+        <rdfs:subClassOf rdf:resource="#ProfileIdentificationTest"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#premiseOntology"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#NegativeEntailmentTest -->
+
+    <owl:Class rdf:about="#NegativeEntailmentTest">
+        <rdfs:subClassOf rdf:resource="#ConsistencyTest"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#nonConclusionOntology"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#PositiveEntailmentTest -->
+
+    <owl:Class rdf:about="#PositiveEntailmentTest">
+        <rdfs:subClassOf rdf:resource="#ConsistencyTest"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#conclusionOntology"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#ProfileIdentificationTest -->
+
+    <owl:Class rdf:about="#ProfileIdentificationTest">
+        <rdfs:subClassOf rdf:resource="#TestCase"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#inputOntology"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#Syntax -->
+
+    <owl:Class rdf:about="#Syntax"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#SyntaxTranslationTest -->
+
+    <owl:Class rdf:about="#SyntaxTranslationTest">
+        <rdfs:subClassOf rdf:resource="#TestCase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#TestCase -->
+
+    <owl:Class rdf:about="#TestCase">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#normativeSyntax"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#Approved -->
+
+    <owl:NamedIndividual rdf:about="#Approved"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#DIRECT -->
+
+    <owl:NamedIndividual rdf:about="#DIRECT"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#DL -->
+
+    <owl:NamedIndividual rdf:about="#DL"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#EL -->
+
+    <owl:NamedIndividual rdf:about="#EL"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#Extracredit -->
+
+    <owl:NamedIndividual rdf:about="#Extracredit"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#FULL -->
+
+    <owl:NamedIndividual rdf:about="#FULL"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#FUNCTIONAL -->
+
+    <Syntax rdf:about="#FUNCTIONAL">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </Syntax>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#OWLXML -->
+
+    <Syntax rdf:about="#OWLXML">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </Syntax>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#Proposed -->
+
+    <owl:NamedIndividual rdf:about="#Proposed"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#QL -->
+
+    <owl:NamedIndividual rdf:about="#QL"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#RDF-BASED -->
+
+    <owl:NamedIndividual rdf:about="#RDF-BASED"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#RDFXML -->
+
+    <Syntax rdf:about="#RDFXML">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </Syntax>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#RL -->
+
+    <owl:NamedIndividual rdf:about="#RL"/>
+    
+
+
+    <!-- http://www.w3.org/2007/OWL/testOntology#Rejected -->
+
+    <owl:NamedIndividual rdf:about="#Rejected"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#FUNCTIONAL"/>
+            <rdf:Description rdf:about="#OWLXML"/>
+            <rdf:Description rdf:about="#RDFXML"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <owl:Restriction>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#normativeSyntax"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#importedOntologyIRI"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#inputOntology"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:onProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="#importedOntology"/>
+            </rdf:Description>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TestCase"/>
+    </owl:Restriction>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#alternativeSemanticsTest"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#semantics"/>
+                        <owl:hasValue rdf:resource="#RDF-BASED"/>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#TestCase"/>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#semantics"/>
+                        <owl:hasValue rdf:resource="#RDF-BASED"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </owl:intersectionOf>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#EL"/>
+            <rdf:Description rdf:about="#QL"/>
+            <rdf:Description rdf:about="#RL"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#alternativeSemanticsTest"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#semantics"/>
+                        <owl:hasValue rdf:resource="#DIRECT"/>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#TestCase"/>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#semantics"/>
+                        <owl:hasValue rdf:resource="#DIRECT"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Restriction>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#species"/>
+                <owl:hasValue rdf:resource="#FULL"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:onProperty rdf:resource="#species"/>
+        <owl:hasValue rdf:resource="#DL"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#species"/>
+                <owl:hasValue rdf:resource="#DL"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:onProperty rdf:resource="#profile"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#RL"/>
+                    <rdf:Description rdf:about="#QL"/>
+                    <rdf:Description rdf:about="#EL"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+    </owl:Restriction>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DL"/>
+            <rdf:Description rdf:about="#FULL"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Approved"/>
+            <rdf:Description rdf:about="#Extracredit"/>
+            <rdf:Description rdf:about="#Proposed"/>
+            <rdf:Description rdf:about="#Rejected"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DIRECT"/>
+            <rdf:Description rdf:about="#RDF-BASED"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#fsInputOntology"/>
+            <rdf:Description rdf:about="#owlXmlInputOntology"/>
+            <rdf:Description rdf:about="#rdfXmlInputOntology"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1253) http://owlapi.sourceforge.net -->
+
+
