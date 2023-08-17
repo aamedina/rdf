@@ -106,13 +106,6 @@
   :then
   false)
 
-(defn rdf-list
-  ([db eid]
-   (rdf-list (d/pull db '[:rdf/first {:rdf/rest ...}] eid)))
-  ([{:rdf/keys [first rest]}]
-   (lazy-seq
-     (cons (:db/id first) (some-> rest rdf-list)))))
-
 (defrule eq-diff2 [?x ?y ?z1 ?z2]
   :if
   ;; T(?x, rdf:type, owl:AllDifferent)
