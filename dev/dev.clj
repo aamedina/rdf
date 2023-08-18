@@ -113,17 +113,53 @@
 
 (comment  
   
-  (let [db (make-test-db boot-db eq-diff2-tx-data)]
+  (let [db (make-test-db (:test system) eq-diff2-tx-data)]
     (d/q '[:find ?z1 ?z2
            :in $ %
            :where (eq-diff2 ?x ?y ?z1 ?z2)]
          db
          rl/rules))
 
-  (let [db (make-test-db boot-db prp-spo2-tx-data)]
+  (let [db (make-test-db (:test system) prp-spo2-tx-data)]
     (->> (rl/apply-property-chain-axiom db :ex/hasGrandparent :person/alice)
          (d/pull db '[*])
          :db/ident))
   
   ;; => :person/charlie
   )
+
+(def agg-test-tx-data
+  [[{:db/ident :bob
+     :rdf/type :schema/Person}
+    {:db/ident :mary
+     :rdf/type :schema/Person}
+    {:db/ident :jen
+     :rdf/type :schema/Person}
+    {:db/ident :accounting
+     :rdf/type :schema/Organization}
+    {:db/ident :hr
+     :rdf/type :schema/Organization}]
+   [{:db/ident          :acme
+     :rdf/type          :schema/Organization
+     :schema/department [:accounting :hr]}]
+   [[:db/add :bob :schema/worksFor :accounting]
+    [:db/add :bob :schema/baseSalary 50000M]
+    [:db/add :mary :schema/worksFor :hr]
+    [:db/add :mary :schema/baseSalary 47000M]
+    [:db/add :jen :schema/worksFor :accounting]
+    [:db/add :jen :schema/baseSalary 60000M]]])
+
+(defn dept-avg-salary
+  [db]
+  (d/q '[:find ?did (avg ?s)
+         :in $ % 
+         :where
+         (dept-salaries ?d ?s)
+         [?d :db/ident ?did]]
+       db '[[(dept-salaries ?d ?s)
+             [?org :schema/department ?d]
+             [?d :rdf/type :schema/Organization]
+             [?x :schema/worksFor ?d]
+             [?x :schema/baseSalary ?s]]]))
+
+; => [[:accounting 55000.0] [:hr 47000.0]]

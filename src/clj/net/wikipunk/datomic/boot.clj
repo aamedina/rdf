@@ -75,6 +75,9 @@
 (def ^:dynamic *schema* nil)
 
 (extend-protocol Seed
+  clojure.lang.Sequential
+  (select-attributes [xs] xs)
+  
   clojure.lang.Namespace
   (select-attributes [ns]
     (when (isa? (:rdf/type (meta ns)) :owl/Ontology)
