@@ -509,7 +509,7 @@
   ;; ...
   ;; T(?y, rdf:type, ?cn)
   [?c :owl/intersectionOf ?x]
-  [(net.wikipunk.datomic.rl/rdf-list $ ?x) ?cn]
+  [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   [?y :rdf/type ?cn]
   :then
   [?y :rdf/type ?c])
@@ -520,7 +520,7 @@
   ;; LIST[?x, ?c1, ..., ?cn]
   ;; T(?y, rdf:type, ?c)
   [?c :owl/intersectionOf ?x]
-  [(net.wikipunk.datomic.rl/rdf-list $ ?x) ?cn]
+  [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   [?y :rdf/type ?c]
   :then
   [?y :rdf/type ?cn])
@@ -531,7 +531,7 @@
   ;; LIST[?x, ?c1, ..., ?cn]
   ;; T(?y, rdf:type, ?ci)
   [?c :owl/unionOf ?x]
-  [(net.wikipunk.datomic.rl/rdf-list $ ?x) ?cn]
+  [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   [?y :rdf/type ?cn]
   :then
   [?y :rdf/type ?c])
