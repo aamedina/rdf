@@ -395,11 +395,6 @@
    :rdfa/uri    "http://purl.org/ontology/similarity/"
    :rdfa/prefix "sim"})
 
-(def pointers
-  {:rdfa/uri    "http://www.w3.org/2009/pointers#"
-   :rdfa/prefix "pointers"
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def ^{:media-types
        {"JSON-LD"                "http://www.w3.org/ns/formats/JSON-LD",
         "LD Patch"               "http://www.w3.org/ns/formats/LD_Patch",
