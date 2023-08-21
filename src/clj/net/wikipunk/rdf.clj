@@ -31,6 +31,7 @@
    [net.wikipunk.ext]
    [net.wikipunk.rdf.rdf]
    [net.wikipunk.rdf.rdfs]
+   [net.wikipunk.rdf.rdfa]
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.mop])
@@ -478,7 +479,7 @@
       :rdfs/domain   (make-domain-hierarchy classes xs)
       :rdfs/range    (make-range-hierarchy classes xs)})))
 
-(declare finalize setup-indexes)
+(declare finalize)
 
 ;; :init-ns
 ;; the ns-name of a Clojure namespace to load to implement methods of the
@@ -1061,7 +1062,9 @@
       (java.net.URL. s)
       {:rdfa/uri s}
       (catch java.net.MalformedURLException ex
-        {:xsd/string s})))
+        (if (str/starts-with? s "pkg:")
+          {:rdfa/uri s}
+          {:xsd/string s}))))
 
   clojure.lang.Sequential
   (box [xs]

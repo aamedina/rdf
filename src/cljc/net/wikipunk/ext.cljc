@@ -744,3 +744,8 @@
    :rdfa/uri    "http://semweb.mmlab.be/ns/ql#"
    :rdfa/prefix "ql"
    :emit false})
+
+(def ptr
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "https://www.w3.org/2009/pointers#"
+   :rdfa/prefix "ptr"})
