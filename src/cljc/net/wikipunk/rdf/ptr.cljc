@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.ptr
-  {:rdf/ns-prefix-map {"ptr"  "https://www.w3.org/2009/pointers#",
+  {:rdf/ns-prefix-map {"ptr"  "http://www.w3.org/2009/pointers#",
                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type          :rdfa/PrefixMapping,
    :rdfa/prefix       "ptr",
-   :rdfa/uri          "https://www.w3.org/2009/pointers#"}
+   :rdfa/uri          "http://www.w3.org/2009/pointers#"}
   (:refer-clojure :exclude [namespace]))
 
 (def ByteOffsetCompoundPointer
@@ -15,7 +15,7 @@
    #xsd/langString
     "Pointer to a byte range with a defined start and a byte offset from there.@en",
    :rdfs/label #xsd/langString "Byte Offset Compound Pointer@en",
-   :rdfs/subClassOf [:ptr/CompoundPointer :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/CompoundPointer :ptr/Pointer :rdfs/Resource]})
 
 (def ByteOffsetPointer
   "Single pointer using a byte offset from the start of the reference."
@@ -26,7 +26,7 @@
     "Single pointer using a byte offset from the start of the reference.@en",
    :rdfs/label #xsd/langString "Byte Offset Pointer@en",
    :rdfs/subClassOf
-   [:ptr/OffsetPointer :rdfs/Resource :ptr/Pointer :ptr/SinglePointer]})
+   [:ptr/OffsetPointer :ptr/SinglePointer :ptr/Pointer :rdfs/Resource]})
 
 (def ByteSnippetCompoundPointer
   "Pointer to a range with a defined start and a byte snippet from there."
@@ -36,7 +36,7 @@
    #xsd/langString
     "Pointer to a range with a defined start and a byte snippet from there.@en",
    :rdfs/label #xsd/langString "Byte Snippet Compound Pointer@en",
-   :rdfs/subClassOf [:ptr/CompoundPointer :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/CompoundPointer :ptr/Pointer :rdfs/Resource]})
 
 (def CSSSelectorPointer
   "Single pointer using a CSS selector."
@@ -45,9 +45,9 @@
    :rdfs/comment    #xsd/langString "Single pointer using a CSS selector.@en",
    :rdfs/label      #xsd/langString "CSS selector Pointer@en",
    :rdfs/subClassOf [:ptr/ExpressionPointer
-                     :rdfs/Resource
+                     :ptr/SinglePointer
                      :ptr/Pointer
-                     :ptr/SinglePointer]})
+                     :rdfs/Resource]})
 
 (def CharOffsetCompoundPointer
   "Pointer to a char range with a defined start and a char offset from there."
@@ -57,7 +57,7 @@
    #xsd/langString
     "Pointer to a char range with a defined start and a char offset from there.@en",
    :rdfs/label #xsd/langString "Char Offset Compound Pointer@en",
-   :rdfs/subClassOf [:ptr/CompoundPointer :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/CompoundPointer :ptr/Pointer :rdfs/Resource]})
 
 (def CharOffsetPointer
   "Single pointer using a character offset from the start of the reference."
@@ -68,7 +68,7 @@
     "Single pointer using a character offset from the start of the reference.@en",
    :rdfs/label #xsd/langString "Char Offset Pointer@en",
    :rdfs/subClassOf
-   [:rdfs/Resource :ptr/OffsetPointer :ptr/Pointer :ptr/SinglePointer]})
+   [:ptr/OffsetPointer :ptr/SinglePointer :ptr/Pointer :rdfs/Resource]})
 
 (def CharSnippetCompoundPointer
   "Pointer to a range with a defined start and a character snippet from there."
@@ -78,7 +78,7 @@
    #xsd/langString
     "Pointer to a range with a defined start and a character snippet from there.@en",
    :rdfs/label #xsd/langString "Char Snippet Compound Pointer@en",
-   :rdfs/subClassOf [:ptr/CompoundPointer :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:rdfs/Resource :ptr/CompoundPointer :ptr/Pointer]})
 
 (def CompoundPointer
   "An abstract method made of a pair of pointers to a defined section to be subclassed for extensibility."
@@ -98,7 +98,7 @@
    #xsd/langString
     "Group of equivalent pointers that point to the same places.@en",
    :rdfs/label #xsd/langString "Equivalent Pointers@en",
-   :rdfs/subClassOf [:ptr/PointersGroup :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/PointersGroup :ptr/Pointer :rdfs/Resource]})
 
 (def ExpressionPointer
   "Generic single pointer that make use of an expression language such as xPath, CSS selectors, etc."
@@ -108,7 +108,7 @@
    #xsd/langString
     "Generic single pointer that make use of an expression language such as xPath, CSS selectors, etc.@en",
    :rdfs/label #xsd/langString "Expression Pointer@en",
-   :rdfs/subClassOf [:ptr/SinglePointer :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/SinglePointer :ptr/Pointer :rdfs/Resource]})
 
 (def LineCharPointer
   "Single pointer using line and char numbers."
@@ -117,7 +117,7 @@
    :rdfs/comment    #xsd/langString
                      "Single pointer using line and char numbers.@en",
    :rdfs/label      #xsd/langString "Line-Char Pointer@en",
-   :rdfs/subClassOf [:rdfs/Resource :ptr/SinglePointer :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/SinglePointer :ptr/Pointer :rdfs/Resource]})
 
 (def OffsetPointer
   "Generic single pointer based on an offset."
@@ -126,7 +126,7 @@
    :rdfs/comment    #xsd/langString
                      "Generic single pointer based on an offset.@en",
    :rdfs/label      #xsd/langString "Offset Pointer@en",
-   :rdfs/subClassOf [:ptr/SinglePointer :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/SinglePointer :ptr/Pointer :rdfs/Resource]})
 
 (def Pointer
   "Abstract Pointer to be subclassed for extensibility."
@@ -144,7 +144,7 @@
    :rdfs/comment    #xsd/langString
                      "Generic container for a group of Pointers@en",
    :rdfs/label      #xsd/langString "Pointers Group@en",
-   :rdfs/subClassOf [:ptr/Pointer :rdfs/Resource]})
+   :rdfs/subClassOf [:rdfs/Resource :ptr/Pointer]})
 
 (def RelatedPointers
   "Group of related pointers you use together for some purpose."
@@ -154,7 +154,7 @@
    #xsd/langString
     "Group of related pointers you use together for some purpose.@en",
    :rdfs/label #xsd/langString "Related Pointers@en",
-   :rdfs/subClassOf [:ptr/PointersGroup :rdfs/Resource :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/PointersGroup :ptr/Pointer :rdfs/Resource]})
 
 (def SinglePointer
   "Abstract pointer to a single point to be subclassed for extensibility."
@@ -174,7 +174,7 @@
    #xsd/langString
     "Compound pointer to a range with a start and an end point.@en",
    :rdfs/label #xsd/langString "Start-End Pointer@en",
-   :rdfs/subClassOf [:rdfs/Resource :ptr/CompoundPointer :ptr/Pointer]})
+   :rdfs/subClassOf [:ptr/CompoundPointer :ptr/Pointer :rdfs/Resource]})
 
 (def XMLNamespace
   "An XML Namespace."
@@ -191,10 +191,10 @@
    :rdfs/comment    #xsd/langString
                      "Single pointer using an XPath expression.@en",
    :rdfs/label      #xsd/langString "XPath Pointer@en",
-   :rdfs/subClassOf [:rdfs/Resource
-                     :ptr/ExpressionPointer
+   :rdfs/subClassOf [:ptr/ExpressionPointer
+                     :ptr/SinglePointer
                      :ptr/Pointer
-                     :ptr/SinglePointer]})
+                     :rdfs/Resource]})
 
 (def XPointerPointer
   "Single pointer using an XPointer expression."
@@ -204,10 +204,10 @@
                      "Single pointer using an XPointer expression.@en",
    :rdfs/label      #xsd/langString "XPointer Pointer@en",
    :rdfs/subClassOf [:ptr/XPathPointer
-                     :rdfs/Resource
+                     :ptr/SinglePointer
                      :ptr/Pointer
                      :ptr/ExpressionPointer
-                     :ptr/SinglePointer]})
+                     :rdfs/Resource]})
 
 (def byteOffset
   "Number of bytes counting from the start point."

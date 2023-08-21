@@ -345,7 +345,15 @@
   {:dcat/downloadURL "https://raw.githubusercontent.com/spdx/spdx-spec/v2.3/ontology/spdx-ontology.owl.xml"
    :rdfa/uri         "http://spdx.org/rdf/terms#",
    :rdfa/prefix      "spdx",
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"doap" "http://usefulinc.com/ns/doap#",
+                       "owl"  "http://www.w3.org/2002/07/owl#",
+                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                       "spdx" "http://spdx.org/rdf/terms#",
+                       "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                       "ptr"  "http://www.w3.org/2009/pointers#",
+                       "xsd"  "http://www.w3.org/2001/XMLSchema#"}})
 
 (def event
   {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/event/versions/2007-10-25.n3"
@@ -742,5 +750,5 @@
 
 (def ptr
   {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "https://www.w3.org/2009/pointers#"
+   :rdfa/uri    "http://www.w3.org/2009/pointers#"
    :rdfa/prefix "ptr"})
