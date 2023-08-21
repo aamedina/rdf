@@ -204,7 +204,8 @@
       (not-empty (set/union (descendants (:rdfs/domain rdf/*metaobjects*) ident)
                             (reduce set/union (map mop/class-direct-slots intersectionOf))
                             (reduce set/union (map mop/class-direct-slots unionOf))
-                            (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf)))
+                            (when (coll? subClassOf)
+                              (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf))))
                             (when (coll? type)
                               (reduce set/union (map mop/class-direct-slots (remove keyword? type))))))))
 
