@@ -36,6 +36,7 @@
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.mop])
   (:import
+   (com.github.packageurl PackageURL)
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
    (org.apache.jena.datatypes.xsd XSDDatatype XSDDateTime)
    (org.apache.jena.graph Graph Node Triple Node_URI Node_Literal Node_Variable Node_Blank Node_Triple)
@@ -1061,9 +1062,13 @@
     (try
       (java.net.URL. s)
       {:rdfa/uri s}
-      (catch java.net.MalformedURLException ex
+      (catch java.net.MalformedURLException _
         (if (str/starts-with? s "pkg:")
-          {:rdfa/uri s}
+          (try
+            (PackageURL. s)
+            {:rdfa/uri s}
+            (catch com.github.packageurl.MalformedPackageURLException ex
+              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
           {:xsd/string s}))))
 
   clojure.lang.Sequential
