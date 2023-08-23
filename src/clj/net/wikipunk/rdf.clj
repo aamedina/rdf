@@ -1048,7 +1048,7 @@
       (float? n)
       {:xsd/float n}
       (instance? Integer n)
-      {:xsd/int n}
+      {:xsd/integer (bigint n)}
       (int? n)
       {:xsd/long n}
       (decimal? n)
