@@ -367,12 +367,6 @@
 (defmethod rdf/infer-datomic-type :lv2.pg/harmonicIndex [_] :db.type/long)
 (defmethod rdf/infer-datomic-type :lv2/minimum [_] :db.type/long)
 
-(defmethod rdf/infer-datomic-type :jsonschema/minimum [_] :db.type/double)
-(defmethod rdf/infer-datomic-type :jsonschema/maximum [_] :db.type/double)
-(defmethod rdf/infer-datomic-type :jsonschema/exclusiveMaximum [_] :db.type/double)
-(defmethod rdf/infer-datomic-type :jsonschema/exclusiveMinimum [_] :db.type/double)
-(defmethod rdf/infer-datomic-type :jsonschema/multipleOf [_] :db.type/double)
-
 (defmethod rdf/infer-datomic-type :keys/mode [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :vann/example [_] :db.type/ref)

@@ -71,11 +71,11 @@
     "To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a \"check-in\")@en",
    :rdfs/label #xsd/langString "Arrive@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Object
                      :as/Activity
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 0,
+                     {:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
-                      :rdf/type           :owl/Restriction}
-                     :as/Object]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Article
   "A written work. Typically several paragraphs long. For example, a blog post or a news article."
@@ -100,7 +100,7 @@
   {:db/ident        :as/Block,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/langString "Block@en",
-   :rdfs/subClassOf [:as/Ignore :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Ignore :as/Object :as/Activity]})
 
 (def Collection
   "An ordered or unordered collection of Objects or Links"
@@ -208,7 +208,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #xsd/langString "An Activity that has no direct object@en",
    :rdfs/label      #xsd/langString "IntransitiveActivity@en",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 0,
+   :rdfs/subClassOf [{:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
                       :rdf/type           :owl/Restriction}
                      :as/Activity
@@ -221,7 +221,7 @@
    :rdfs/comment    #xsd/langString
                      "To invite someone or something to something@en",
    :rdfs/label      #xsd/langString "Invite@en",
-   :rdfs/subClassOf [:as/Offer :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Offer :as/Object :as/Activity]})
 
 (def Join
   "To Join Something"
@@ -340,7 +340,6 @@
    :rdfs/label      #xsd/langString "OrderedCollectionPage@en",
    :rdfs/subClassOf [:as/CollectionPage
                      :as/OrderedCollection
-                     :as/Collection
                      {:owl/intersectionOf [:as/Collection
                                            {:owl/allValuesFrom
                                             {:owl/intersectionOf
@@ -355,7 +354,8 @@
                                             :owl/onProperty :as/items,
                                             :rdf/type :owl/Restriction}],
                       :rdf/type :owl/Class}
-                     :as/Object]})
+                     :as/Object
+                     :as/Collection]})
 
 (def OrderedItems
   "A rdf:List variant for Objects and Links"
@@ -424,11 +424,11 @@
    :rdfs/comment    #xsd/langString "A question of any sort.@en",
    :rdfs/label      #xsd/langString "Question@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Object
                      :as/Activity
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 0,
+                     {:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
-                      :rdf/type           :owl/Restriction}
-                     :as/Object]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Read
   "The actor read the object"
@@ -478,7 +478,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #xsd/langString "Actor tentatively accepts the Object@en",
    :rdfs/label      #xsd/langString "TentativeAccept@en",
-   :rdfs/subClassOf [:as/Accept :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Accept :as/Object :as/Activity]})
 
 (def TentativeReject
   "Actor tentatively rejects the object"
@@ -486,7 +486,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #xsd/langString "Actor tentatively rejects the object@en",
    :rdfs/label      #xsd/langString "TentativeReject@en",
-   :rdfs/subClassOf [:as/Reject :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Reject :as/Object :as/Activity]})
 
 (def Tombstone
   "A placeholder for a deleted object"
@@ -504,11 +504,11 @@
    "The actor is traveling to the target. The origin specifies where the actor is traveling from.",
    :rdfs/label #xsd/langString "Travel@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Object
                      :as/Activity
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 0,
+                     {:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
-                      :rdf/type           :owl/Restriction}
-                     :as/Object]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Undo
   "To Undo Something. This would typically be used to indicate that a previous Activity has been undone."
@@ -554,7 +554,7 @@
    :rdfs/domain :as/Place,
    :rdfs/label #xsd/langString "accuracy@en",
    :rdfs/range {:owl/onDatatype :xsd/float,
-                :owl/withRestrictions [{:xsd/minInclusive 0.0}],
+                :owl/withRestrictions [{:xsd/minInclusive 0.0M}],
                 :rdf/type       :rdfs/Datatype}})
 
 (def actor
@@ -1038,7 +1038,7 @@
    :rdfs/domain :as/Place,
    :rdfs/label #xsd/langString "radius@en",
    :rdfs/range {:owl/onDatatype :xsd/float,
-                :owl/withRestrictions [{:xsd/minInclusive 0.0}],
+                :owl/withRestrictions [{:xsd/minInclusive 0.0M}],
                 :rdf/type       :rdfs/Datatype}})
 
 (def rating
@@ -1052,8 +1052,8 @@
    :rdfs/domain  :as/Object,
    :rdfs/label   #xsd/langString "rating@en",
    :rdfs/range   {:owl/onDatatype :xsd/float,
-                  :owl/withRestrictions [{:xsd/minInclusive 0.0}
-                                         {:xsd/maxInclusive 5.0}],
+                  :owl/withRestrictions [{:xsd/minInclusive 0.0M}
+                                         {:xsd/maxInclusive 5.0M}],
                   :rdf/type       :rdfs/Datatype}})
 
 (def rel

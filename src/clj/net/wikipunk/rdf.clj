@@ -1075,7 +1075,7 @@
 
   clojure.lang.IPersistentMap
   (box [m]
-    ;; special case coerce these to doubles
+    ;; special case coerce these to bigdec
     (if (some #{:xsd/minExclusive :xsd/minInclusive
                 :xsd/maxExclusive :xsd/maxInclusive
                 :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
@@ -1084,18 +1084,13 @@
       (reduce #(update %1 %2 (fn [x]
                                (cond
                                  (string? x)
-                                 (try
-                                   (double (Long/parseLong x))
-                                   (catch Throwable ex
-                                     (try
-                                       (Double/parseDouble x)
-                                       (catch Throwable ex
-                                         (double (read-string (str "0x" x)))))))
+                                 (bigdec x)
+                                 
                                  (number? x)
-                                 (double x)
+                                 (bigdec x)
 
                                  (tagged-literal? x)
-                                 (double (:form x)))))
+                                 (bigdec (:form x)))))
               m (filter #{:xsd/minExclusive :xsd/minInclusive
                           :xsd/maxExclusive :xsd/maxInclusive
                           :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
