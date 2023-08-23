@@ -141,41 +141,52 @@
                                       v (val form)
                                       v (if (tagged-literal? v)
                                           (:form v)
-                                          v)]
-                                  [k (try
-                                       (case (rdf/infer-datomic-type k)
-                                         :db.type/string  (cond
-                                                            (map? v)
-                                                            (or (:rdfa/uri v) (pr-str v))
-                                                            
-                                                            (coll? v)
-                                                            v
-                                                            
-                                                            :else
-                                                            (str v))
-                                         :db.type/long    (if (vector? v)
-                                                            (mapv long v)
-                                                            (long v))
-                                         :db.type/double  (double v)
-                                         :db.type/instant (if (string? v)
-                                                            (clojure.instant/read-instant-date v)
-                                                            v)
-                                         :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
-                                                                    k :rdf/List)
-                                                            (g/rdf-list v)
-                                                            (mapv (fn [v]
-                                                                    (if (not (or (map? v) (keyword? v)))
-                                                                      (rdf/box v)
-                                                                      v))
-                                                                  (if (and (coll? v) (not (map? v)))
-                                                                    v
-                                                                    [v])))
-                                         
-                                         :db.type/bigint (bigint v)
-                                         :db.type/bigdec (bigdec v)
-                                         v)
-                                       (catch Throwable ex
-                                         (throw (ex-info (.getMessage ex) m))))])
+                                          v)
+                                      v' (try
+                                           (case (rdf/infer-datomic-type k)
+                                             :db.type/string (cond
+                                                               (map? v)
+                                                               (or (:rdfa/uri v) (pr-str v))
+                                                               
+                                                               (coll? v)
+                                                               v
+                                                               
+                                                               :else
+                                                               (str v))
+                                             :db.type/long    (if (vector? v)
+                                                                (mapv long v)
+                                                                (long v))
+                                             :db.type/double  (double v)
+                                             :db.type/instant (if (string? v)
+                                                                (clojure.instant/read-instant-date v)
+                                                                v)
+                                             :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
+                                                                        k :rdf/List)
+                                                                (g/rdf-list v)
+                                                                (mapv (fn [v]
+                                                                        (if (not (or (map? v) (keyword? v)))
+                                                                          (rdf/box v)
+                                                                          v))
+                                                                      (if (and (coll? v) (not (map? v)))
+                                                                        v
+                                                                        [v])))
+                                             
+                                             :db.type/bigint (bigint v)
+                                             :db.type/bigdec (bigdec v)
+                                             v)
+                                           (catch Throwable ex
+                                             (throw (ex-info (.getMessage ex) m))))
+                                      v' (if (identical? (rdf/infer-datomic-cardinality k)
+                                                         :db.cardinality/one)
+                                           ;; need to account for vectors when the schema is one
+                                           (if (and (coll? v') (not (map? v')))
+                                             (do
+                                               (when (> (count v') 1)
+                                                 (log/warn "multiple values for cardinality one attribute detected" k v'))
+                                               (first v'))
+                                             v')
+                                           v')]
+                                  [k v'])
                                 :else form)))
              (walk/prewalk rdf/unroll-blank)
              (walk/prewalk rdf/box-values)
@@ -199,6 +210,7 @@
 
 (defmethod rdf/infer-datomic-cardinality :rdf/first [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :rdf/rest [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :rdf/value [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMinimum [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMaximum [_] :db.cardinality/one)
