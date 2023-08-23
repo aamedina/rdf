@@ -96,8 +96,7 @@
    :rdfa/prefix      "gr",
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.heppnetz.de/ontologies/goodrelations/v1"},
-   :rdf/type         :rdfa/PrefixMapping
-   :emit false})
+   :rdf/type         :rdfa/PrefixMapping})
 
 (def grddl
   "GRDDL"

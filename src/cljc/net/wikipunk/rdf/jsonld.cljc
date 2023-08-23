@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.jsonld
   "This is a vocabulary document and is used to achieve certain features of the JSON-LD language."
   {:dcat/downloadURL "resources/json-ld.jsonld",
-   :dcterms/date #xsd/date #inst "2023-07-13T00:00:00.000-04:00",
+   :dcterms/date #inst "2023-07-13T00:00:00.000-00:00",
    :dcterms/description
    #xsd/langString
     "This is a vocabulary document and is used to achieve certain features of the JSON-LD language.@en",
@@ -19,8 +19,7 @@
    :rdfa/prefix "jsonld",
    :rdfa/uri "http://www.w3.org/ns/json-ld#",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/json-ld/"},
-   :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/TR/json-ld11"},
-   :reasoner nil}
+   :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/TR/json-ld11"}}
   (:refer-clojure :exclude [import reverse type]))
 
 (def ContainerType

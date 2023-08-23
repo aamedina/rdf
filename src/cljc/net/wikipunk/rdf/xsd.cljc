@@ -10,7 +10,7 @@
    :rdfa/prefix "xsd",
    :rdfa/uri "http://www.w3.org/2001/XMLSchema#",
    :rdfs/comment "XML Schema Datatypes",
-   :rdfs/isDefinedBy {:rdf/uri "http://www.w3.org/TR/xmlschema-2/"}}
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/xmlschema-2/"}}
   (:refer-clojure :exclude [boolean byte double float int long short time]))
 
 (def anySimpleType
