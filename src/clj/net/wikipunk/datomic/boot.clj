@@ -63,6 +63,7 @@
    [net.wikipunk.rdf.sh]
    [net.wikipunk.rdf.sim]
    [net.wikipunk.rdf.sioc]
+   [net.wikipunk.rdf.sioc.types]
    [net.wikipunk.rdf.skos]
    [net.wikipunk.rdf.skosxl]
    [net.wikipunk.rdf.sosa]
