@@ -569,6 +569,18 @@
     :db.type/bigdec  (bigdec v)
     v))
 
+(nippy/extend-freeze ont_app.vocabulary.lstr.LangStr :xsd/langString
+  [x data-output]
+  (.writeUTF data-output (str x))
+  (.writeUTF data-output (lstr/lang x)))
+
+(nippy/extend-thaw :xsd/langString
+  [data-input]
+  (lstr/->LangStr (.readUTF data-input) (.readUTF data-input)))
+
+;; TODO: rewrite this when we figure out the right future proof
+;; approach to tagged literals
+
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
   [mo]
@@ -1297,8 +1309,14 @@
 
 (defmethod rdf-doc :default [_] nil)
 (defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
-(defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x] (str x))
-(defmethod rdf-doc String [x] x)
+(defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x]
+  (when (str/starts-with? (lstr/lang x) *lang*)
+    (str x)))
+(defmethod rdf-doc String [x]
+  (if-some [[_ s tag] (re-find #"(?s)^(.*)@([-a-zA-Z]+)" x)]
+    (when (str/starts-with? tag *lang*)
+      s)
+    x))
 (defmethod rdf-doc clojure.lang.Seqable [xs] (some rdf-doc xs))
 (defmethod rdf-doc :rdfs/label [[k v]] (rdf-doc v))
 (defmethod rdf-doc :rdfs/comment [[k v]] (rdf-doc v))

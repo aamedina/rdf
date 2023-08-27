@@ -29,6 +29,7 @@
    [net.wikipunk.rdf.dcmitype]
    [net.wikipunk.rdf.dqv]
    [net.wikipunk.rdf.duv]
+   [net.wikipunk.rdf.doap]
    [net.wikipunk.rdf.event]
    [net.wikipunk.rdf.exif]
    [net.wikipunk.rdf.formats]
