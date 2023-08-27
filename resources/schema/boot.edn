@@ -1,0 +1,420 @@
+;; XSD Datatypes
+
+[{:db/ident       :xsd/anyURI,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident :xsd/anySimpleType}
+ {:db/ident       :xsd/boolean,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/boolean}
+ {:db/ident :xsd/gYearMonth}
+ {:db/ident       :xsd/maxInclusive,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigdec}
+ {:db/ident       :xsd/fractionDigits,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigint}
+ {:db/ident       :xsd/unsignedLong,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/pattern,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/unsignedInt,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/date,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/instant}
+ {:db/ident       :xsd/long,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/double,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/double}
+ {:db/ident       :xsd/hexBinary,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/minExclusive,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigdec}
+ {:db/ident       :xsd/short,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/unsignedShort,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident :xsd/gYear}
+ {:db/ident :xsd/dayTimeDuration}
+ {:db/ident :xsd/gMonthDay}
+ {:db/ident       :xsd/int,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/maxExclusive,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigdec}
+ {:db/ident       :xsd/negativeInteger,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigint}
+ {:db/ident       :xsd/float,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/float}
+ {:db/ident       :xsd/nonNegativeInteger,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigint}
+ {:db/ident       :xsd/base64Binary,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/time,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/instant}
+ {:db/ident       :xsd/nonPositiveInteger,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigint}
+ {:db/ident       :xsd/dateTimeStamp,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/instant}
+ {:db/ident :xsd/yearMonthDuration}
+ {:db/ident :xsd/duration}
+ {:db/ident       :xsd/string,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/normalizedString,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/positiveInteger,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigint}
+ {:db/ident       :xsd/token,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/dateTime,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/instant}
+ {:db/ident       :xsd/integer,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigint}
+ {:db/ident       :xsd/unsignedByte,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident :xsd/gMonth}
+ {:db/ident       :xsd/language,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}
+ {:db/ident       :xsd/byte,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/decimal,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigdec}
+ {:db/ident       :xsd/minInclusive,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/bigdec}
+ {:db/ident :xsd/gDay}
+ {:db/ident       :xsd/length,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ {:db/ident       :xsd/whiteSpace,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}]
+
+;; RDFa vocabulary
+[{:db/ident       :rdfa/context,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfa/copy,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfa/prefix,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/string}
+ 
+ {:db/ident       :rdfa/term,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/string}
+ 
+ {:db/ident       :rdfa/uri,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/string
+  :db/unique      :db.unique/identity}
+ 
+ {:db/ident       :rdfa/usesVocabulary,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfa/vocabulary,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/string}]
+
+;; RDF vocabulary
+[{:db/ident       :rdf/type
+  :db/cardinality :db.cardinality/many
+  :db/valueType   :db.type/ref}
+
+ {:db/ident       :rdf/first
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/ref}
+
+ {:db/ident       :rdf/rest
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/ref}
+
+ {:db/ident       :rdf/language
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/string}
+
+ {:db/ident       :rdf/direction
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/string}
+
+ {:db/ident       :rdf/value
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/string}
+
+ {:db/ident       :rdf/subject
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/ref}
+
+ {:db/ident       :rdf/predicate
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/ref}
+
+ {:db/ident       :rdf/object
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/ref}]
+
+;; RDFS vocabulary
+[{:db/ident       :rdfs/comment,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/domain,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/isDefinedBy,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/label,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/member,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/range,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/seeAlso,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/subClassOf,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :rdfs/subPropertyOf,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}]
+
+;; OWL vocabulary
+[{:db/ident       :owl/allValuesFrom,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/annotatedProperty,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/annotatedSource,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/annotatedTarget,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/assertionProperty,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/backwardCompatibleWith,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/bottomDataProperty}
+ 
+ {:db/ident       :owl/bottomObjectProperty}
+ 
+ {:db/ident       :owl/cardinality,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ 
+ {:db/ident       :owl/complementOf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/datatypeComplementOf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/deprecated,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/boolean}
+ 
+ {:db/ident       :owl/differentFrom,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/disjointUnionOf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/disjointWith,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/distinctMembers,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/equivalentClass,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/equivalentProperty,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/hasKey,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/hasSelf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/boolean}
+ 
+ {:db/ident       :owl/hasValue,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/imports,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/incompatibleWith,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/intersectionOf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/inverseOf,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/maxCardinality,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ 
+ {:db/ident       :owl/maxQualifiedCardinality,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ 
+ {:db/ident       :owl/members,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/minCardinality,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ 
+ {:db/ident       :owl/minQualifiedCardinality,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ 
+ {:db/ident       :owl/onClass,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/onDataRange,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/onDatatype,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/onProperties,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/onProperty,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/oneOf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/priorVersion,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/propertyChainAxiom,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/propertyDisjointWith,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/qualifiedCardinality,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/long}
+ 
+ {:db/ident       :owl/sameAs,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/someValuesFrom,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/sourceIndividual,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/targetIndividual,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/targetValue,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/topDataProperty}
+ 
+ {:db/ident       :owl/topObjectProperty}
+ 
+ {:db/ident       :owl/unionOf,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/versionIRI,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/versionInfo,
+  :db/cardinality :db.cardinality/one,
+  :db/valueType   :db.type/ref}
+ 
+ {:db/ident       :owl/withRestrictions,
+  :db/cardinality :db.cardinality/many,
+  :db/valueType   :db.type/ref}]

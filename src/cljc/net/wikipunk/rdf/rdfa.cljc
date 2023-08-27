@@ -27,50 +27,47 @@
    :dcterms/description
    "error condition; to be used when the document fails to be fully processed as a result of non-conformant host language markup",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/Error :rdfs/Resource :rdfa/PGClass]})
+   :rdfs/subClassOf :rdfa/Error})
 
 (def ErrorClass
   "is the class for all error conditions"
   {:db/ident        :rdfa/Error,
    :dcterms/description "is the class for all error conditions",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/PGClass :rdfs/Resource]})
+   :rdfs/subClassOf :rdfa/PGClass})
 
 (def Info
   "is the class for all informations"
   {:db/ident        :rdfa/Info,
    :dcterms/description "is the class for all informations",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/PGClass :rdfs/Resource]})
+   :rdfs/subClassOf :rdfa/PGClass})
 
 (def PGClass
   "is the top level class of the hierarchy"
-  {:db/ident        :rdfa/PGClass,
+  {:db/ident :rdfa/PGClass,
    :dcterms/description "is the top level class of the hierarchy",
-   :rdf/type        [:owl/Class :rdfs/Class],
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdf/type [:owl/Class :rdfs/Class]})
 
 (def Pattern
   "Class to identify an (RDF) resource whose properties are to be copied to another resource"
-  {:db/ident        :rdfa/Pattern,
+  {:db/ident :rdfa/Pattern,
    :dcterms/description
    "Class to identify an (RDF) resource whose properties are to be copied to another resource",
-   :rdf/type        [:owl/Class :rdfs/Class],
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdf/type [:owl/Class :rdfs/Class]})
 
 (def PrefixMapping
   "is the class for prefix mappings"
   {:db/ident        :rdfa/PrefixMapping,
    :dcterms/description "is the class for prefix mappings",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/PrefixOrTermMapping :rdfs/Resource]})
+   :rdfs/subClassOf :rdfa/PrefixOrTermMapping})
 
 (def PrefixOrTermMapping
   "is the top level class for prefix or term mappings"
-  {:db/ident        :rdfa/PrefixOrTermMapping,
+  {:db/ident :rdfa/PrefixOrTermMapping,
    :dcterms/description "is the top level class for prefix or term mappings",
-   :rdf/type        [:owl/Class :rdfs/Class],
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdf/type [:owl/Class :rdfs/Class]})
 
 (def PrefixRedefinition
   "warning; to be used when a prefix, either from the initial context or inherited from an ancestor node, is redefined in an element"
@@ -78,14 +75,14 @@
    :dcterms/description
    "warning; to be used when a prefix, either from the initial context or inherited from an ancestor node, is redefined in an element",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/Warning :rdfs/Resource :rdfa/PGClass]})
+   :rdfs/subClassOf :rdfa/Warning})
 
 (def TermMapping
   "is the class for term mappings"
   {:db/ident        :rdfa/TermMapping,
    :dcterms/description "is the class for term mappings",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/PrefixOrTermMapping :rdfs/Resource]})
+   :rdfs/subClassOf :rdfa/PrefixOrTermMapping})
 
 (def UnresolvedCURIE
   "warning; to be used when a CURIE prefix fails to be resolved"
@@ -93,29 +90,28 @@
    :dcterms/description
    "warning; to be used when a CURIE prefix fails to be resolved",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/Warning :rdfs/Resource :rdfa/PGClass]})
+   :rdfs/subClassOf :rdfa/Warning})
 
 (def UnresolvedTerm
   "warning; to be used when a Term fails to be resolved"
   {:db/ident        :rdfa/UnresolvedTerm,
    :dcterms/description "warning; to be used when a Term fails to be resolved",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/Warning :rdfs/Resource :rdfa/PGClass]})
+   :rdfs/subClassOf :rdfa/Warning})
 
 (def VocabReferenceError
-  "warning; to be used when the value of a @vocab attribute cannot be dereferenced, hence the vocabulary expansion cannot be completed"
   {:db/ident        :rdfa/VocabReferenceError,
    :dcterms/description
    "warning; to be used when the value of a @vocab attribute cannot be dereferenced, hence the vocabulary expansion cannot be completed",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/Warning :rdfs/Resource :rdfa/PGClass]})
+   :rdfs/subClassOf :rdfa/Warning})
 
 (def Warning
   "is the class for all warnings"
   {:db/ident        :rdfa/Warning,
    :dcterms/description "is the class for all warnings",
    :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:rdfa/PGClass :rdfs/Resource]})
+   :rdfs/subClassOf :rdfa/PGClass})
 
 (def context
   "provides extra context for the error, eg, http response, an XPointer/XPath information, or simply the URI that created the error"
@@ -157,7 +153,6 @@
    :rdfs/domain :rdfa/PrefixOrTermMapping})
 
 (def usesVocabulary
-  "provides a relationship between the host document and a vocabulary\n\tdefined using the @vocab facility of RDFa1.1"
   {:db/ident :rdfa/usesVocabulary,
    :dcterms/description
    "provides a relationship between the host document and a vocabulary\n\tdefined using the @vocab facility of RDFa1.1",

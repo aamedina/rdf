@@ -10,8 +10,7 @@
    :rdfa/uri          "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/isDefinedBy  {:rdfa/uri
                        "http://www.w3.org/TR/2004/REC-rdf-mt-20040210/"},
-   :rdfs/seeAlso      {:rdfa/uri "http://www.w3.org/2000/01/rdf-schema-more"},
-   :reasoner          nil}
+   :rdfs/seeAlso      {:rdfa/uri "http://www.w3.org/2000/01/rdf-schema-more"}}
   (:refer-clojure :exclude [comment range]))
 
 (def T
