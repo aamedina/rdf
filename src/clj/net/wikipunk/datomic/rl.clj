@@ -48,14 +48,27 @@
   rule-name                  = plain-symbol
   rule-vars                  = [variable+ | ([variable+] variable*)]"
   [rule-name rule-vars & body]
-  `(def ~rule-name
-     '~(into {:head (list* rule-name rule-vars)}
-             (comp
-               (partition-by #{:if :then})
-               (partition-all 2)
-               (map (fn [[[k] forms]]
-                      [k forms])))             
-             body)))
+  (let [md (into {:head     (list* rule-name rule-vars)
+                  :arglists (list ['db] (into ['db] rule-vars))}
+                 (comp
+                   (partition-by #{:if :then})
+                   (partition-all 2)
+                   (map (fn [[[k] forms]]
+                          [k forms])))             
+                 body)]
+    `(do
+       (defn ~rule-name
+         ([db#]
+          (into []
+                (mapcat (fn [~rule-vars] (~rule-name db# ~@rule-vars)))
+                (d/q '[:find ~@rule-vars
+                       :where
+                       ~@(:if md)]
+                     db#)))
+         ([db# ~@rule-vars]
+          ~(:then md)))
+       (alter-meta! #'~rule-name (fn [md#] (merge md# '~md)))
+       #'~rule-name)))
 
 ;;  Table 4. The Semantics of Equality 	If 	then
 ;; eq-ref 	T(?s, ?p, ?o)
@@ -90,43 +103,43 @@
   :if
   [?s ?p ?o]
   :then
-  [?s :owl/sameAs ?s]
-  [?p :owl/sameAs ?p]
-  [?o :owl/sameAs ?o])
+  [:db/add ?s :owl/sameAs ?s]
+  [:db/add ?p :owl/sameAs ?p]
+  [:db/add ?o :owl/sameAs ?o])
 
 (defrule eq-sym [?x ?y]
   :if
   [?x :owl/sameAs ?y]
   :then
-  [?y :owl/sameAs ?x])
+  [:db/add ?y :owl/sameAs ?x])
 
 (defrule eq-trans [?x ?y ?z]
   :if
   [?x :owl/sameAs ?y]
   [?y :owl/sameAs ?z]
   :then
-  [?x :owl/sameAs ?z])
+  [:db/add ?x :owl/sameAs ?z])
 
 (defrule eq-rep-s [?s ?p ?o ?s']
   :if
   [?s :owl/sameAs ?s']
   [?s ?p ?o]
   :then
-  [?s' ?p ?o])
+  [:db/add ?s' ?p ?o])
 
 (defrule eq-rep-p [?s ?p ?o ?p']
   :if
   [?p :owl/sameAs ?p']
   [?s ?p ?o]
   :then
-  [?s ?p' ?o])
+  [:db/add ?s ?p' ?o])
 
 (defrule eq-rep-o [?s ?p ?o ?o']
   :if
   [?o :owl/sameAs ?o']
   [?s ?p ?o]
   :then
-  [?s ?p ?o'])
+  [:db/add ?s ?p ?o'])
 
 (defrule eq-diff1 [?x ?y]
   :if
@@ -236,14 +249,14 @@
   [?p :rdfs/domain ?c]
   [?x ?p ?y]
   :then
-  [?x :rdf/type ?c])
+  [:db/add ?x :rdf/type ?c])
 
 (defrule prp-rng [?p ?c ?x ?y]
   :if
   [?p :rdfs/range ?c]
   [?x ?p ?y]
   :then
-  [?y :rdf/type ?c])
+  [:db/add ?y :rdf/type ?c])
 
 (defrule prp-fp [?p ?x ?y1 ?y2]
   :if
@@ -251,7 +264,7 @@
   [?x ?p ?y1]
   [?x ?p ?y2]
   :then
-  [?y1 :owl/sameAs ?y2])
+  [:db/add ?y1 :owl/sameAs ?y2])
 
 (defrule prp-ifp [?p ?y ?x1 ?x2]
   :if
@@ -259,7 +272,7 @@
   [?x1 ?p ?y]
   [?x2 ?p ?y]
   :then
-  [?x1 :owl/sameAs ?x2])
+  [:db/add ?x1 :owl/sameAs ?x2])
 
 (defrule prp-irp [?p ?x]
   :if
@@ -273,7 +286,7 @@
   [?p :rdf/type :owl/SymmetricProperty]
   [?x ?p ?y]
   :then
-  [?y ?p ?x])
+  [:db/add ?y ?p ?x])
 
 (defrule prp-asyp [?p ?x ?y]
   :if
@@ -289,16 +302,16 @@
   [?x ?p ?y]
   [?y ?p ?z]
   :then
-  [?x ?p ?z])
+  [:db/add ?x ?p ?z])
 
 (defrule prp-spo1 [?p1 ?p2 ?x ?y]
   :if
   [?p1 :rdfs/subPropertyOf ?p2]
   [?x ?p1 ?y]
   :then
-  [?x ?p2 ?y])
+  [:db/add ?x ?p2 ?y])
 
-(defrule prp-spo2 [?p ?x]
+(defrule prp-spo2 [?p ?x ?u1 ?u2]
   :if
   ;; T(?p, owl:propertyChainAxiom, ?x)
   ;; LIST[?x, ?p1, ..., ?pn]
@@ -310,21 +323,21 @@
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) ?pn]
   [(net.wikipunk.datomic.rl/process-property-chain $ ?pn)]
   :then
-  [?y ?p ?w])
+  [:db/add ?u1 ?p ?u2])
 
 (defrule prp-eqp1 [?p1 ?p2 ?x ?y]
   :if
   [?p1 :owl/equivalentProperty ?p2]
   [?x ?p1 ?y]
   :then
-  [?x ?p2 ?y])
+  [:db/add ?x ?p2 ?y])
 
 (defrule prp-eqp2 [?p1 ?p2 ?x ?y]
   :if
   [?p1 :owl/equivalentProperty ?p2]
   [?x ?p2 ?y]
   :then
-  [?x ?p1 ?y])
+  [:db/add ?x ?p1 ?y])
 
 (defrule prp-pdw [?p1 ?p2 ?x ?y]
   :if
@@ -356,16 +369,16 @@
   [?p1 :owl/inverseOf ?p2]
   [?x ?p1 ?y]
   :then
-  [?y ?p2 ?x])
+  [:db/add ?y ?p2 ?x])
 
 (defrule prp-inv2 [?p1 ?p2 ?x ?y]
   :if
   [?p1 :owl/inverseOf ?p2]
   [?x ?p2 ?y]
   :then
-  [?y ?p1 ?x])
+  [:db/add ?y ?p1 ?x])
 
-(defrule prp-key [?c ?u ?p1 ?p2]
+(defrule prp-key [?c ?u ?x ?y]
   :if
   ;; T(?c, owl:hasKey, ?u)
   ;; LIST[?u, ?p1, ..., ?pn]
@@ -388,7 +401,7 @@
   [?x ?p2 ?z2]
   [?y ?p2 ?z2]
   :then
-  [?x :owl/sameAs ?y])
+  [:db/add ?x :owl/sameAs ?y])
 
 (defrule prp-npa1 [?x ?i1 ?i2 ?p]
   :if
@@ -486,11 +499,11 @@
 ;; ...
 ;; T(?yn, rdf:type, ?c) 
 
-(defrule cls-thing []
-  :then
-  [:owl/Thing :rdf/type :owl/Class])
+#_(defrule cls-thing [?e]
+    :then
+    [:owl/Thing :rdf/type :owl/Class])
 
-(defrule cls-nothing1 []
+#_(defrule cls-nothing1 []
   :then
   [:owl/Nothing :rdf/type :owl/Class])
 
@@ -512,7 +525,7 @@
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   [?y :rdf/type ?cn]
   :then
-  [?y :rdf/type ?c])
+  [:db/add ?y :rdf/type ?c])
 
 (defrule cls-int2 [?c ?cn ?x ?y]
   :if
@@ -523,7 +536,7 @@
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   [?y :rdf/type ?c]
   :then
-  [?y :rdf/type ?cn])
+  [:db/add ?y :rdf/type ?cn])
 
 (defrule cls-uni [?c ?x ?y]
   :if
@@ -534,7 +547,7 @@
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   [?y :rdf/type ?cn]
   :then
-  [?y :rdf/type ?c])
+  [:db/add ?y :rdf/type ?c])
 
 (defrule cls-com [?c1 ?c2 ?x]
   :if
@@ -551,7 +564,7 @@
   [?u ?p ?v]
   [?v :rdf/type ?y]
   :then
-  [?u :rdf/type ?x])
+  [:db/add ?u :rdf/type ?x])
 
 (defrule cls-svf2 [?x ?u]
   :if
@@ -559,7 +572,7 @@
   [?x :owl/onProperty ?p]
   [?u ?p ?v]
   :then
-  [?u :rdf/type ?x])
+  [:db/add ?u :rdf/type ?x])
 
 (defrule cls-avf [?v ?y]
   :if
@@ -568,7 +581,7 @@
   [?u :rdf/type ?x]
   [?u ?p ?v]
   :then
-  [?v :rdf/type ?y])
+  [:db/add ?v :rdf/type ?y])
 
 (defrule cls-hv1 [?u ?p ?y]
   :if
@@ -576,15 +589,15 @@
   [?x :owl/onProperty ?p]
   [?u :rdf/type ?x]
   :then
-  [?u ?p ?y])
+  [:db/add ?u ?p ?y])
 
-(defrule cls-hv2 [?u ?p ?y]
+(defrule cls-hv2 [?u ?p ?x]
   :if
   [?x :owl/hasValue ?y]
   [?x :owl/onProperty ?p]
   [?u ?p ?y]
   :then
-  [?u :rdf/type ?x])
+  [:db/add ?u :rdf/type ?x])
 
 (defrule cls-maxc1 [?x ?p ?y]
   :if
@@ -603,7 +616,7 @@
   [?u ?p ?y1]
   [?u ?p ?y2]
   :then
-  [?y1 :owl/sameAs ?y2])
+  [:db/add ?y1 :owl/sameAs ?y2])
 
 (defrule cls-maxqc1 [?x ?p ?y]
   :if
@@ -637,7 +650,7 @@
   [?u ?p ?y2]
   [?y2 :rdf/type ?c]
   :then
-  [?y1 :owl/sameAs ?y2])
+  [:db/add ?y1 :owl/sameAs ?y2])
 
 (defrule cls-maxqc4 [?x ?p ?u ?y1 ?y2]
   :if
@@ -648,14 +661,14 @@
   [?u ?p ?y1]
   [?u ?p ?y2]
   :then
-  [?y1 :owl/sameAs ?y2])
+  [:db/add ?y1 :owl/sameAs ?y2])
 
 (defrule cls-oo [?c ?x ?y]
   :if
   [?c :owl/oneOf ?x]
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?y ...]]
   :then
-  [?y :rdf/type ?c])
+  [:db/add ?y :rdf/type ?c])
 
 ;; Table 7. The Semantics of Class Axioms 	If 	then
 ;; cax-sco 	T(?c1, rdfs:subClassOf, ?c2)
@@ -682,21 +695,21 @@
   [?c1 :rdfs/subClassOf ?c2]
   [?x :rdf/type ?c1]
   :then
-  [?x :rdf/type ?c2])
+  [:db/add ?x :rdf/type ?c2])
 
 (defrule cax-eqc1 [?c1 ?c2 ?x]
   :if
   [?c1 :owl/equivalentClass ?c2]
   [?x :rdf/type ?c1]
   :then
-  [?x :rdf/type ?c2])
+  [:db/add ?x :rdf/type ?c2])
 
 (defrule cax-eqc2 [?c1 ?c2 ?x]
   :if
   [?c1 :owl/equivalentClass ?c2]
   [?x :rdf/type ?c2]
   :then
-  [?x :rdf/type ?c1])
+  [:db/add ?x :rdf/type ?c1])
 
 (defrule cax-dw [?c1 ?c2 ?x]
   :if
@@ -734,24 +747,24 @@
 (defrule dt-type1 [?dt]
   ;; for each datatype dt supported in OWL 2 RL
   :then
-  [?dt :rdf/type :rdfs/Datatype])
+  [:db/add ?dt :rdf/type :rdfs/Datatype])
 
 (defrule dt-type2 [?lt ?dt]
   ;; for each literal lt and each datatype dt supported in OWL 2 RL
   ;; such that the data value of lt is contained in the value space of
   ;; dt
   :then
-  [?lt :rdf/type ?dt])
+  [:db/add ?lt :rdf/type ?dt])
 
 (defrule dt-eq [?lt1 ?lt2]
   ;; for all literals lt1 and lt2 with the same data value
   :then
-  [?lt1 :owl/sameAs ?lt2])
+  [:db/add ?lt1 :owl/sameAs ?lt2])
 
 (defrule dt-diff [?lt1 ?lt2]
   ;; for all literals lt1 and lt2 with different data values
   :then
-  [?lt1 :owl/differentFrom ?lt2])
+  [:db/add ?lt1 :owl/differentFrom ?lt2])
 
 (defrule dt-not-type [?lt ?dt]
   ;; for each literal lt and each datatype dt supported in OWL 2 RL
@@ -831,94 +844,94 @@
   :if
   [?c :rdf/type :owl/Class]
   :then
-  [?c :rdfs/subClassOf ?c]
-  [?c :owl/equivalentClass ?c]
-  [?c :rdfs/subClassOf :owl/Thing]
-  [:owl/Nothing :rdfs/subClassOf ?c])
+  [:db/add ?c :rdfs/subClassOf ?c]
+  [:db/add ?c :owl/equivalentClass ?c]
+  [:db/add ?c :rdfs/subClassOf :owl/Thing]
+  [:db/add :owl/Nothing :rdfs/subClassOf ?c])
 
 (defrule scm-sco [?c1 ?c2 ?c3]
   :if
   [?c1 :rdfs/subClassOf ?c2]
   [?c2 :rdfs/subClassOf ?c3]
   :then
-  [?c1 :rdfs/subClassOf ?c3])
+  [:db/add ?c1 :rdfs/subClassOf ?c3])
 
 (defrule scm-eqc1 [?c1 ?c2]
   :if
   [?c1 :owl/equivalentClass ?c2]
   :then
-  [?c1 :rdfs/subClassOf ?c2]
-  [?c2 :rdfs/subClassOf ?c1])
+  [:db/add ?c1 :rdfs/subClassOf ?c2]
+  [:db/add ?c2 :rdfs/subClassOf ?c1])
 
 (defrule scm-eqc2 [?c1 ?c2]
   :if
   [?c1 :rdfs/subClassOf ?c2]
   [?c2 :rdfs/subClassOf ?c1]
   :then
-  [?c1 :owl/equivalentClass ?c2])
+  [:db/add ?c1 :owl/equivalentClass ?c2])
 
 (defrule scm-op [?p]
   :if
   [?p :rdf/type :owl/ObjectProperty]
   :then
-  [?p :rdfs/subPropertyOf ?p]
-  [?p :owl/equivalentProperty ?p])
+  [:db/add ?p :rdfs/subPropertyOf ?p]
+  [:db/add ?p :owl/equivalentProperty ?p])
 
 (defrule scm-dp [?p]
   :if
   [?p :rdf/type :owl/DatatypeProperty]
   :then
-  [?p :rdfs/subPropertyOf ?p]
-  [?p :owl/equivalentProperty ?p])
+  [:db/add ?p :rdfs/subPropertyOf ?p]
+  [:db/add ?p :owl/equivalentProperty ?p])
 
 (defrule scm-spo [?p1 ?p2 ?p3]
   :if
   [?p1 :rdfs/subPropertyOf ?p2]
   [?p2 :rdfs/subPropertyOf ?p3]
   :then
-  [?p1 :rdfs/subPropertyOf ?p3])
+  [:db/add ?p1 :rdfs/subPropertyOf ?p3])
 
 (defrule scm-eqp1 [?p1 ?p2]
   :if
   [?p1 :owl/equivalentProperty ?p2]
   :then
-  [?p1 :rdfs/subPropertyOf ?p2]
-  [?p2 :rdfs/subPropertyOf ?p1])
+  [:db/add ?p1 :rdfs/subPropertyOf ?p2]
+  [:db/add ?p2 :rdfs/subPropertyOf ?p1])
 
 (defrule scm-eqp2 [?p1 ?p2]
   :if
   [?p1 :rdfs/subPropertyOf ?p2]
   [?p2 :rdfs/subPropertyOf ?p1]
   :then
-  [?p1 :owl/equivalentProperty ?p2])
+  [:db/add ?p1 :owl/equivalentProperty ?p2])
 
 (defrule scm-dom1 [?p ?c1 ?c2]
   :if
   [?p :rdfs/domain ?c1]
   [?c1 :rdfs/subClassOf ?c2]
   :then
-  [?p :rdfs/domain ?c2])
+  [:db/add ?p :rdfs/domain ?c2])
 
 (defrule scm-dom2 [?p1 ?p2 ?c]
   :if
   [?p2 :rdfs/domain ?c]
   [?p1 :rdfs/subPropertyOf ?p2]
   :then
-  [?p1 :rdfs/domain ?c])
+  [:db/add ?p1 :rdfs/domain ?c])
 
 (defrule scm-rng1 [?p ?c1 ?c2]
   :if
   [?p :rdfs/range ?c]
   [?c1 :rdfs/subClassOf ?c2]
   :then
-  [?p :rdfs/range ?c2])
+  [:db/add ?p :rdfs/range ?c2])
 
 (defrule scm-rng2 [?p1 ?p2 ?c]
   :if
   [?p2 :rdfs/range ?c]
   [?p1 :rdfs/subPropertyOf ?p2]
   :then
-  [?p1 :rdfs/range ?c])
+  [:db/add ?p1 :rdfs/range ?c])
 
 (defrule scm-hv [?c1 ?i ?p1 ?c2 ?p2]
   :if
@@ -928,7 +941,7 @@
   [?c2 :owl/onProperty ?p2]
   [?p1 :rdfs/subPropertyOf ?p2]
   :then
-  [?c1 :rdfs/subClassOf ?c2])
+  [:db/add ?c1 :rdfs/subClassOf ?c2])
 
 (defrule scm-svf1 [?c1 ?y1 ?p ?c2 ?y2]
   :if
@@ -938,7 +951,7 @@
   [?c2 :owl/onProperty ?p]
   [?y1 :rdfs/subClassOf ?y2]
   :then
-  [?c1 :rdfs/subClassOf ?c2])
+  [:db/add ?c1 :rdfs/subClassOf ?c2])
 
 (defrule scm-svf2 [?c1 ?y ?p1 ?c2 ?p2]
   :if
@@ -948,7 +961,7 @@
   [?c2 :owl/onProperty ?p2]
   [?p1 :rdfs/subPropertyOf ?p2]
   :then
-  [?c1 :rdfs/subClassOf ?c2])
+  [:db/add ?c1 :rdfs/subClassOf ?c2])
 
 (defrule scm-avf1 [?c1 ?y1 ?p ?c2 ?y2]
   :if
@@ -958,7 +971,7 @@
   [?c2 :owl/onProperty ?p]
   [?y1 :rdfs/subClassOf ?y2]
   :then
-  [?c1 :rdfs/subClassOf ?c2])
+  [:db/add ?c1 :rdfs/subClassOf ?c2])
 
 (defrule scm-avf2 [?c1 ?y ?p1 ?c2 ?p2]
   :if
@@ -968,103 +981,105 @@
   [?c2 :owl/onProperty ?p2]
   [?p1 :rdfs/subPropertyOf ?p2]
   :then
-  [?c2 :rdfs/subClassOf ?c1])
+  [:db/add ?c2 :rdfs/subClassOf ?c1])
 
 (defrule scm-int [?c ?x ?cn]
   :if
   [?c :owl/intersectionOf ?x]
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   :then
-  [?c :rdfs/subClassOf ?cn])
+  [:db/add ?c :rdfs/subClassOf ?cn])
 
 (defrule scm-uni [?c ?x ?cn]
   :if
   [?c :owl/unionOf ?x]
   [(net.wikipunk.datomic.rl/rdf-list $ ?x) [?cn ...]]
   :then
-  [?cn :rdfs/subClassOf ?c])
+  [:db/add ?cn :rdfs/subClassOf ?c])
 
 (def rules
   (into []
-        (comp (filter :if)
-              (map (fn [rule] (into [(:head rule)] (:if rule)))))
-        [eq-ref
-         eq-sym
-         eq-trans
-         eq-rep-s
-         eq-rep-p
-         eq-rep-o
-         eq-diff1
-         eq-diff2
-         eq-diff3
+        (comp
+          (map meta)
+          (filter :if)
+          (map (fn [rule] (into [(:head rule)] (:if rule)))))
+        [#'eq-ref
+         #'eq-sym
+         #'eq-trans
+         #'eq-rep-s
+         #'eq-rep-p
+         #'eq-rep-o
+         #'eq-diff1
+         #'eq-diff2
+         #'eq-diff3
 
-         prp-dom
-         prp-rng
-         prp-fp
-         prp-ifp
-         prp-irp
-         prp-symp
-         prp-asyp
-         prp-trp
-         prp-spo1
-         prp-spo2
-         prp-eqp1
-         prp-eqp2
-         prp-pdw
-         prp-adp
-         prp-inv1
-         prp-inv2
-         prp-key
-         prp-npa1
-         prp-npa2
+         #'prp-dom
+         #'prp-rng
+         #'prp-fp
+         #'prp-ifp
+         #'prp-irp
+         #'prp-symp
+         #'prp-asyp
+         #'prp-trp
+         #'prp-spo1
+         #'prp-spo2
+         #'prp-eqp1
+         #'prp-eqp2
+         #'prp-pdw
+         #'prp-adp
+         #'prp-inv1
+         #'prp-inv2
+         #'prp-key
+         #'prp-npa1
+         #'prp-npa2
 
-         cls-nothing2
-         cls-int1
-         cls-int2
-         cls-uni
-         cls-com
-         cls-svf1
-         cls-svf2
-         cls-avf
-         cls-hv1
-         cls-hv2
-         cls-maxc1
-         cls-maxc2
-         cls-maxqc1
-         cls-maxqc2
-         cls-maxqc3
-         cls-maxqc4
-         cls-oo
+         #'cls-nothing2
+         #'cls-int1
+         #'cls-int2
+         #'cls-uni
+         #'cls-com
+         #'cls-svf1
+         #'cls-svf2
+         #'cls-avf
+         #'cls-hv1
+         #'cls-hv2
+         #'cls-maxc1
+         #'cls-maxc2
+         #'cls-maxqc1
+         #'cls-maxqc2
+         #'cls-maxqc3
+         #'cls-maxqc4
+         #'cls-oo
 
-         cax-sco
-         cax-eqc1
-         cax-eqc2
-         cax-dw
-         cax-adc
+         #'cax-sco
+         #'cax-eqc1
+         #'cax-eqc2
+         #'cax-dw
+         #'cax-adc
 
-         dt-type1
-         dt-type2
-         dt-eq
-         dt-diff
-         dt-not-type
+         #'dt-type1
+         #'dt-type2
+         #'dt-eq
+         #'dt-diff
+         #'dt-not-type
 
-         scm-cls
-         scm-sco
-         scm-eqc1
-         scm-eqc2
-         scm-op
-         scm-dp
-         scm-spo
-         scm-eqp1
-         scm-eqp2
-         scm-dom1
-         scm-dom2
-         scm-rng1
-         scm-rng2
-         scm-hv
-         scm-svf1
-         scm-svf2
-         scm-avf1
-         scm-avf2
-         scm-int
-         scm-uni]))
+         #'scm-cls
+         #'scm-sco
+         #'scm-eqc1
+         #'scm-eqc2
+         #'scm-op
+         #'scm-dp
+         #'scm-spo
+         #'scm-eqp1
+         #'scm-eqp2
+         #'scm-dom1
+         #'scm-dom2
+         #'scm-rng1
+         #'scm-rng2
+         #'scm-hv
+         #'scm-svf1
+         #'scm-svf2
+         #'scm-avf1
+         #'scm-avf2
+         #'scm-int
+         #'scm-uni]))

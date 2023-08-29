@@ -171,37 +171,29 @@
          (not [:owl/Nothing :rdfs/subClassOf ?c])]
        db))
 
-(defn scm-cls
-  ([db]
-   (mapcat (fn [[?c]]
-             (scm-cls db ?c))
-           (d/qseq '[:find ?c
-                     :where
-                     [?c :rdf/type :owl/Class]]
-                   db)))
-  ([db ?c]
-   [[:db/add ?c :rdfs/subClassOf ?c]
-    [:db/add ?c :owl/equivalentClass ?c]
-    [:db/add ?c :rdfs/subClassOf :owl/Thing]
-    [:db/add :owl/Nothing :rdfs/subClassOf ?c]]))
-
-(defn scm-sco
-  ([db]
-   (mapcat (fn [[?c1 ?c2 ?c3]]
-             (scm-sco db ?c1 ?c2 ?c3))
-           (d/qseq '[:find ?c1 ?c2 ?c3
-                     :where
-                     [?c1 :rdfs/subClassOf ?c2]
-                     [?c2 :rdfs/subClassOf ?c3]]
-                   db)))
-  ([db ?c1 ?c2 ?c3]
-   [[:db/add ?c1 :rdfs/subClassOf ?c3]]))
-
 (defn materialize
   "Materializes OWL inferences using with-db."
   [with-db]
-  (d/with with-db {:tx-data [['dev/scm-cls]
-                             ['dev/scm-sco]]}))
+  (d/with with-db {:tx-data `[[rl/scm-cls]
+                              [rl/scm-sco]
+                              [rl/scm-eqc1]
+                              [rl/scm-eqc2]
+                              [rl/scm-op]
+                              [rl/scm-dp]
+                              [rl/scm-spo]
+                              [rl/scm-eqp1]
+                              [rl/scm-eqp2]
+                              [rl/scm-dom1]
+                              [rl/scm-dom2]
+                              [rl/scm-rng1]
+                              [rl/scm-rng2]
+                              [rl/scm-hv]
+                              [rl/scm-svf1]
+                              [rl/scm-svf2]
+                              [rl/scm-avf1]
+                              [rl/scm-avf2]
+                              [rl/scm-int]
+                              [rl/scm-uni]]}))
 
 (comment
   (materialize boot-db))
