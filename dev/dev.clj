@@ -176,7 +176,6 @@
    (mapcat (fn [[?c]]
              (scm-cls db ?c))
            (d/qseq '[:find ?c
-                     :in $
                      :where
                      [?c :rdf/type :owl/Class]]
                    db)))
@@ -186,20 +185,23 @@
     [:db/add ?c :rdfs/subClassOf :owl/Thing]
     [:db/add :owl/Nothing :rdfs/subClassOf ?c]]))
 
-(comment
-  (d/with boot-db {:tx-data [['dev/scm-cls]]}))
+(defn scm-sco
+  ([db]
+   (mapcat (fn [[?c1 ?c2 ?c3]]
+             (scm-sco db ?c1 ?c2 ?c3))
+           (d/qseq '[:find ?c1 ?c2 ?c3
+                     :where
+                     [?c1 :rdfs/subClassOf ?c2]
+                     [?c2 :rdfs/subClassOf ?c3]]
+                   db)))
+  ([db ?c1 ?c2 ?c3]
+   [[:db/add ?c1 :rdfs/subClassOf ?c3]]))
 
 (defn materialize
-  "Materializes inferences using the forward chaining rules provided."
-  [db & rules]
-  (reduce (fn [tx-data f]
-            (f db tx-data))
-          [] rules))
+  "Materializes OWL inferences using with-db."
+  [with-db]
+  (d/with with-db {:tx-data [['dev/scm-cls]
+                             ['dev/scm-sco]]}))
 
 (comment
-  (d/qseq '[:find ?c
-            :in $ %
-            :where
-            (scm-cls ?c)
-            (not [:owl/Nothing :rdfs/subClassOf ?c])]
-          boot-db rl/rules))
+  (materialize boot-db))
