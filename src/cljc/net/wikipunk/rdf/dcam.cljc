@@ -16,9 +16,9 @@
   {:db/ident :dcam/VocabularyEncodingScheme,
    :dcterms/issued #xsd/date #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment #xsd/langString "An enumerated set of resources.@en",
+   :rdfs/comment #rdf/langString "An enumerated set of resources.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/dcam/"},
-   :rdfs/label #xsd/langString "Vocabulary Encoding Scheme@en",
+   :rdfs/label #rdf/langString "Vocabulary Encoding Scheme@en",
    :rdfs/seeAlso
    {:rdfa/uri
     "https://www.dublincore.org/specifications/dublin-core/2007/06/04/abstract-model/"},
@@ -29,10 +29,10 @@
   {:db/ident         :dcam/domainIncludes,
    :dcterms/issued   #xsd/date #inst "2020-01-20T00:00:00.000-05:00",
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "A suggested class for subjects of this property.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/dcam/"},
-   :rdfs/label       #xsd/langString "Domain Includes@en"})
+   :rdfs/label       #rdf/langString "Domain Includes@en"})
 
 (def memberOf
   "A relationship between a resource and a vocabulary encoding scheme which indicates that the resource is a member of a set."
@@ -40,10 +40,10 @@
    :dcterms/issued #xsd/date #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A relationship between a resource and a vocabulary encoding scheme which indicates that the resource is a member of a set.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/dcam/"},
-   :rdfs/label #xsd/langString "Member Of@en",
+   :rdfs/label #rdf/langString "Member Of@en",
    :rdfs/range :dcam/VocabularyEncodingScheme,
    :rdfs/seeAlso
    {:rdfa/uri
@@ -54,7 +54,7 @@
   {:db/ident         :dcam/rangeIncludes,
    :dcterms/issued   #xsd/date #inst "2020-01-20T00:00:00.000-05:00",
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "A suggested class for values of this property.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/dcam/"},
-   :rdfs/label       #xsd/langString "Range Includes@en"})
+   :rdfs/label       #rdf/langString "Range Includes@en"})

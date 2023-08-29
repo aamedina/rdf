@@ -1582,11 +1582,11 @@
    :rdf/type         [:voag/CreativeCommonsProhibition
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
-   :rdfs/label       [#xsd/langString "Creative Commons Commercial Use@en-US"
+   :rdfs/label       [#rdf/langString "Creative Commons Commercial Use@en-US"
                       "Commercial use"],
-   :vaem/description #xsd/langString
+   :vaem/description #rdf/langString
                       "Exercising rights for commercial purposes@en-US",
-   :voag/shortDescription #xsd/langString
+   :voag/shortDescription #rdf/langString
                            "Exercising rights for commercial purposes@en-US"})
 
 (def CCPH_HighIncomeNationUse
@@ -1594,11 +1594,11 @@
    :rdf/type         [:voag/CreativeCommonsProhibition
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
-   :rdfs/label       [#xsd/langString
+   :rdfs/label       [#rdf/langString
                        "Creative Commons High Income Nation Use@en-US"
                       "High income nation use"],
-   :vaem/description #xsd/langString "Use in a non-developing country@en-US",
-   :voag/shortDescription #xsd/langString
+   :vaem/description #rdf/langString "Use in a non-developing country@en-US",
+   :voag/shortDescription #rdf/langString
                            "Use in a non-developing country@en-US"})
 
 (def CCP_DerivativeWorks
@@ -1606,10 +1606,10 @@
    :rdf/type         [:voag/CreativeCommonsPermission
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
-   :rdfs/label       [#xsd/langString "Creative Commons Derivative Works@en-US"
+   :rdfs/label       [#rdf/langString "Creative Commons Derivative Works@en-US"
                       "Derivative works"],
-   :vaem/description #xsd/langString "Distribution of derivative works@en-US",
-   :voag/shortDescription #xsd/langString
+   :vaem/description #rdf/langString "Distribution of derivative works@en-US",
+   :voag/shortDescription #rdf/langString
                            "Distribution of derivative works@en-US"})
 
 (def CCP_Distribution
@@ -1617,13 +1617,13 @@
    :rdf/type [:voag/CreativeCommonsPermission
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label [#xsd/langString "Creative Commons Distribution@en-US"
+   :rdfs/label [#rdf/langString "Creative Commons Distribution@en-US"
                 "Distribution"],
    :vaem/description
-   #xsd/langString
+   #rdf/langString
     "Creative Commons - distribution, public display, and publicly performance@en-US",
    :voag/shortDescription
-   #xsd/langString
+   #rdf/langString
     "Creative Commons - distribution, public display, and publicly performance@en-US"})
 
 (def CCP_Reproduction
@@ -1631,22 +1631,22 @@
    :rdf/type         [:voag/CreativeCommonsPermission
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
-   :rdfs/label       [#xsd/langString "Creative Commons Reproduction@en-US"
+   :rdfs/label       [#rdf/langString "Creative Commons Reproduction@en-US"
                       "Reproduction"],
-   :vaem/description #xsd/langString "making multiple copies@en-US",
-   :voag/shortDescription #xsd/langString "making multiple copies@en-US"})
+   :vaem/description #rdf/langString "making multiple copies@en-US",
+   :voag/shortDescription #rdf/langString "making multiple copies@en-US"})
 
 (def CCP_Sharing
   {:db/ident :voag/CCP_Sharing,
    :rdf/type [:voag/CreativeCommonsPermission
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label [#xsd/langString "Creative Commons Sharing@en-US" "Sharing"],
+   :rdfs/label [#rdf/langString "Creative Commons Sharing@en-US" "Sharing"],
    :vaem/description
-   #xsd/langString
+   #rdf/langString
     "permits commercial derivatives, but only non-commercial distribution@en-US",
    :voag/shortDescription
-   #xsd/langString
+   #rdf/langString
     "permits commercial derivatives, but only non-commercial distribution@en-US"})
 
 (def CCR_Attribution
@@ -1655,9 +1655,9 @@
    :rdf/type [:voag/CreativeCommonsRequirement
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label #xsd/langString "Creative Commons Attribution@en-US",
+   :rdfs/label #rdf/langString "Creative Commons Attribution@en-US",
    :vaem/description
-   #xsd/langString
+   #rdf/langString
     "Credit to be given to copyright holder and/or author@en-US"})
 
 (def CCR_Copyleft
@@ -1666,10 +1666,10 @@
    :rdf/type [:voag/CreativeCommonsRequirement
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label #xsd/langString "Creative Commons Copyleft@en-US",
+   :rdfs/label #rdf/langString "Creative Commons Copyleft@en-US",
    :vaem/description
    ["Copyleft is a general method for making a program (or other work) free, and requiring all modified and extended versions of the program to be free as well. The simplest way to make a program free software is to put it in the public domain, uncopyrighted. This allows people to share the program and their improvements, if they are so minded. But it also allows uncooperative people to convert the program into proprietary software. They can make changes, many or few, and distribute the result as a proprietary product. People who receive the program in that modified form do not have the freedom that the original author gave them; the middleman has stripped it away.  In the GNU project, Copyleft says that anyone who redistributes the software, with or without changes, must pass along the freedom to further copy and change it. Copyleft guarantees that every user has freedom."
-    #xsd/langString
+    #rdf/langString
      "combined works must be licensed under specified terms, similar to those on the original work@en-US"],
    :vaem/url {:rdfa/uri "http://www.gnu.org/copyleft/copyleft.html"}})
 
@@ -1679,9 +1679,9 @@
    :rdf/type [:voag/CreativeCommonsRequirement
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label #xsd/langString "Creative Commons Lesser Copyleft@en-US",
+   :rdfs/label #rdf/langString "Creative Commons Lesser Copyleft@en-US",
    :vaem/description
-   #xsd/langString
+   #rdf/langString
     "derivative works must be licensed under specified terms, with at least the same conditions as the original work; combinations with the work may be licensed under different terms@en-US"})
 
 (def CCR_Notice
@@ -1690,8 +1690,8 @@
    :rdf/type         [:voag/CreativeCommonsRequirement
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
-   :rdfs/label       #xsd/langString "Creative Commons Notice@en-US",
-   :vaem/description #xsd/langString
+   :rdfs/label       #rdf/langString "Creative Commons Notice@en-US",
+   :vaem/description #rdf/langString
                       "copyright and license notices be kept intact@en-US"})
 
 (def CCR_ShareAlike
@@ -1700,9 +1700,9 @@
    :rdf/type [:voag/CreativeCommonsRequirement
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label #xsd/langString "Creative Commons Share Alike@en-US",
+   :rdfs/label #rdf/langString "Creative Commons Share Alike@en-US",
    :vaem/description
-   #xsd/langString
+   #rdf/langString
     "derivative works be licensed under the same terms or compatible terms as the original work@en-US"})
 
 (def CCR_SourceCode
@@ -1711,9 +1711,9 @@
    :rdf/type [:voag/CreativeCommonsRequirement
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
-   :rdfs/label #xsd/langString "Creative Commons Source Code@en-US",
+   :rdfs/label #rdf/langString "Creative Commons Source Code@en-US",
    :vaem/description
-   #xsd/langString
+   #rdf/langString
     "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license.@en-US"})
 
 (def CDDL_V1PT0
@@ -2379,58 +2379,58 @@
 (def CreativeCommonsJurisdiction
   {:db/ident         :voag/CreativeCommonsJurisdiction,
    :rdf/type         :owl/Class,
-   :rdfs/label       [#xsd/langString "Creative Commons Jurisdiction@en-US"
+   :rdfs/label       [#rdf/langString "Creative Commons Jurisdiction@en-US"
                       "Creative commons jurisdiction"],
    :rdfs/subClassOf  :owl/Thing,
-   :vaem/description #xsd/langString
+   :vaem/description #rdf/langString
                       "the legal jurisdiction of a license@en-US",
-   :voag/shortDescription #xsd/langString
+   :voag/shortDescription #rdf/langString
                            "the legal jurisdiction of a license@en-US"})
 
 (def CreativeCommonsPermission
   "Creative Commons Permission"
   {:db/ident :voag/CreativeCommonsPermission,
    :rdf/type :owl/Class,
-   :rdfs/label #xsd/langString "Creative Commons Permission@en-US",
+   :rdfs/label #rdf/langString "Creative Commons Permission@en-US",
    :rdfs/subClassOf [:voag/EnumeratedValue :dtype/EnumeratedValue],
    :vaem/description
-   #xsd/langString "An action that may or may not be allowed or desired@en-US",
+   #rdf/langString "An action that may or may not be allowed or desired@en-US",
    :voag/shortDescription
-   #xsd/langString "An action that may or may not be allowed or desired@en-US"})
+   #rdf/langString "An action that may or may not be allowed or desired@en-US"})
 
 (def CreativeCommonsProhibition
   "Creative Commons Prohibition"
   {:db/ident         :voag/CreativeCommonsProhibition,
    :rdf/type         :owl/Class,
-   :rdfs/label       #xsd/langString "Creative Commons Prohibition@en-US",
+   :rdfs/label       #rdf/langString "Creative Commons Prohibition@en-US",
    :rdfs/subClassOf  [:voag/EnumeratedValue :dtype/EnumeratedValue],
-   :vaem/description #xsd/langString
+   :vaem/description #rdf/langString
                       "something you may be asked not to do@en-US",
-   :voag/shortDescription #xsd/langString
+   :voag/shortDescription #rdf/langString
                            "something you may be asked not to do@en-US"})
 
 (def CreativeCommonsRequirement
   "Requirement"
   {:db/ident         :voag/CreativeCommonsRequirement,
    :rdf/type         :owl/Class,
-   :rdfs/label       #xsd/langString "Requirement@en-US",
+   :rdfs/label       #rdf/langString "Requirement@en-US",
    :rdfs/subClassOf  [:voag/EnumeratedValue :dtype/EnumeratedValue],
-   :vaem/description #xsd/langString
+   :vaem/description #rdf/langString
                       "An action that may or may not be requested of you@en-US",
    :voag/shortDescription
-   #xsd/langString "an action that may or may not be requested of you@en-US"})
+   #rdf/langString "an action that may or may not be requested of you@en-US"})
 
 (def CreativeCommonsWork
   {:db/ident         :voag/CreativeCommonsWork,
    :rdf/type         :owl/Class,
-   :rdfs/label       [#xsd/langString "Creative Commons Work@en-US"
+   :rdfs/label       [#rdf/langString "Creative Commons Work@en-US"
                       "Creative commons work"],
    :rdfs/subClassOf  [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
                        :owl/onProperty     :voag/url,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing],
-   :vaem/description #xsd/langString "A potentially copyrightable work@en-US",
-   :voag/shortDescription #xsd/langString
+   :vaem/description #rdf/langString "A potentially copyrightable work@en-US",
+   :voag/shortDescription #rdf/langString
                            "A potentially copyrightable work@en-US"})
 
 (def DSL_LICENSE
@@ -10129,7 +10129,7 @@
   {:db/ident    :voag/hasLicenseType,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :voag/CreativeCommonsWork,
-   :rdfs/label  #xsd/langString "has license type@en-US",
+   :rdfs/label  #rdf/langString "has license type@en-US",
    :rdfs/range  :voag/LicenseModel})
 
 (def hasLogo
@@ -10350,7 +10350,7 @@
   {:db/ident    :voag/jurisdiction,
    :rdf/type    [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :voag/LicenseModel,
-   :rdfs/label  [#xsd/langString "jurisdiction@en-US" "jurisdiction"],
+   :rdfs/label  [#rdf/langString "jurisdiction@en-US" "jurisdiction"],
    :rdfs/range  :voag/CreativeCommonsJurisdiction})
 
 (def legalcode
@@ -10442,7 +10442,7 @@
   {:db/ident    :voag/permits,
    :rdf/type    [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :voag/LicenseModel,
-   :rdfs/label  [#xsd/langString "permits@en-US" "permits"],
+   :rdfs/label  [#rdf/langString "permits@en-US" "permits"],
    :rdfs/range  :voag/CreativeCommonsPermission})
 
 (def pointOfContact
@@ -10469,7 +10469,7 @@
   {:db/ident    :voag/prohibits,
    :rdf/type    [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :voag/LicenseModel,
-   :rdfs/label  [#xsd/langString "prohibits@en-US" "prohibits"],
+   :rdfs/label  [#rdf/langString "prohibits@en-US" "prohibits"],
    :rdfs/range  :voag/CreativeCommonsProhibition})
 
 (def proprietary
@@ -10510,7 +10510,7 @@
   {:db/ident    :voag/requires,
    :rdf/type    [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :voag/LicenseModel,
-   :rdfs/label  ["requires" #xsd/langString "requires@en-US"],
+   :rdfs/label  ["requires" #rdf/langString "requires@en-US"],
    :rdfs/range  :voag/CreativeCommonsRequirement})
 
 (def reviewedBy

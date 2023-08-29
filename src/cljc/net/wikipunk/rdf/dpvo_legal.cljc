@@ -2,20 +2,20 @@
   "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."
   {:dcat/downloadURL "resources/dpv-owl/dpv-legal/dpv-legal.ttl",
    :dcterms/abstract
-   #xsd/langString
+   #rdf/langString
     "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities.@en",
    :dcterms/contributor ["Harshvardhan J. Pandit" "Julian Flake"],
    :dcterms/created #xsd/date #inst "2022-04-02T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities.@en",
    :dcterms/license {:rdfa/uri
                      "https://www.w3.org/Consortium/Legal/2015/doc-license"},
    :dcterms/modified #xsd/date #inst "2022-10-06T00:00:00.000-04:00",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :dcterms/title
-   #xsd/langString
+   #rdf/langString
     "DPV-LEGAL: Extension providing Jurisdictions, Laws, and Authorities for DPV@en",
    :owl/imports {:rdfa/uri "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
@@ -51,9 +51,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Andorra@en",
+   :rdfs/label             #rdf/langString "Andorra@en",
    :skos/altLabel          ["AD" "AND" "20"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AE
   "AE"
@@ -68,9 +68,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "United Arab Emirates@en",
+   :rdfs/label             #rdf/langString "United Arab Emirates@en",
    :skos/altLabel          ["AE" "ARE" "784"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AF
   "AF"
@@ -85,9 +85,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Afghanistan@en",
+   :rdfs/label             #rdf/langString "Afghanistan@en",
    :skos/altLabel          ["AF" "AFG" "4"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AG
   "AG"
@@ -104,9 +104,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Antigua and Barbuda@en",
+   :rdfs/label             #rdf/langString "Antigua and Barbuda@en",
    :skos/altLabel          ["AG" "ATG" "28"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AI
   "AI"
@@ -123,9 +123,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Anguilla@en",
+   :rdfs/label             #rdf/langString "Anguilla@en",
    :skos/altLabel          ["AI" "AIA" "660"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AL
   "AL"
@@ -140,9 +140,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Albania@en",
+   :rdfs/label             #rdf/langString "Albania@en",
    :skos/altLabel          ["AL" "ALB" "8"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AM
   "AM"
@@ -157,9 +157,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Armenia@en",
+   :rdfs/label             #rdf/langString "Armenia@en",
    :skos/altLabel          ["AM" "ARM" "51"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AO
   "AO"
@@ -176,9 +176,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Angola@en",
+   :rdfs/label             #rdf/langString "Angola@en",
    :skos/altLabel          ["AO" "AGO" "24"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AQ
   "AQ"
@@ -191,9 +191,9 @@
    :dpvo-legal/un_m49     "10",
    :rdf/type              [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Antarctica@en",
+   :rdfs/label            #rdf/langString "Antarctica@en",
    :skos/altLabel         ["AQ" "ATA" "10"],
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def AR
   "AR"
@@ -210,9 +210,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Argentina@en",
+   :rdfs/label             #rdf/langString "Argentina@en",
    :skos/altLabel          ["AR" "ARG" "32"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AS
   "AS"
@@ -227,9 +227,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "American Samoa@en",
+   :rdfs/label             #rdf/langString "American Samoa@en",
    :skos/altLabel          ["AS" "ASM" "16"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AT
   "AT"
@@ -252,9 +252,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Austria@en",
+   :rdfs/label             #rdf/langString "Austria@en",
    :skos/altLabel          ["AT" "AUT" "40"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AU
   "AU"
@@ -270,9 +270,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Australia@en",
+   :rdfs/label             #rdf/langString "Australia@en",
    :skos/altLabel          ["AU" "AUS" "36"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AW
   "AW"
@@ -289,9 +289,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Aruba@en",
+   :rdfs/label             #rdf/langString "Aruba@en",
    :skos/altLabel          ["AW" "ABW" "533"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AX
   "AX"
@@ -306,9 +306,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Åland Islands@en",
+   :rdfs/label             #rdf/langString "Åland Islands@en",
    :skos/altLabel          ["AX" "ALA" "248"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def AZ
   "AZ"
@@ -323,9 +323,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Azerbaijan@en",
+   :rdfs/label             #rdf/langString "Azerbaijan@en",
    :skos/altLabel          ["AZ" "AZE" "31"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-AD
   "EU Adequacy Decision for Andorra"
@@ -342,8 +342,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32010D0625?"},
    :rdf/type [:owl/NamedIndividual :dpvo-gdpr/A45-3 :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Andorra@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Andorra@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-AR
   "EU Adequacy Decision for Argentina"
@@ -360,8 +360,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32003D0490"},
    :rdf/type [:owl/NamedIndividual :dpvo-gdpr/A45-3 :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Argentina@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Argentina@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-CA
   "EU Adequacy Decision for Canada (commercial organisations)"
@@ -378,9 +378,9 @@
     "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32002D0002"},
    :rdf/type [:dpvo-gdpr/A45-3 :dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "EU Adequacy Decision for Canada (commercial organisations)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-CH
   "EU Adequacy Decision for Switzerland"
@@ -397,8 +397,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32000D0518"},
    :rdf/type [:dpvo/Law :dpvo-gdpr/A45-3 :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Switzerland@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Switzerland@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-FO
   "EU Adequacy Decision for Faroe Islands"
@@ -415,8 +415,8 @@
     "https://eur-lex.europa.eu/legal-content/en/ALL/?uri=CELEX%3A32010D0146"},
    :rdf/type [:dpvo/Law :dpvo-gdpr/A45-3 :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Faroe Islands@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Faroe Islands@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-GB
   "EU Adequacy Decision for United Kingdom"
@@ -433,8 +433,8 @@
     "https://ec.europa.eu/info/files/decision-adequate-protection-personal-data-united-kingdom-general-data-protection-regulation_en"},
    :rdf/type [:dpvo-gdpr/A45-3 :dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for United Kingdom@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for United Kingdom@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-GG
   "EU Adequacy Decision for Guernsey"
@@ -451,8 +451,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32003D0821"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual :dpvo-gdpr/A45-3],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Guernsey@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Guernsey@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-IL
   "EU Adequacy Decision for Israel"
@@ -469,8 +469,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32011D0061"},
    :rdf/type [:dpvo/Law :dpvo-gdpr/A45-3 :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Israel@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Israel@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-IM
   "EU Adequacy Decision for Isle of Man"
@@ -487,8 +487,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32004D0411"},
    :rdf/type [:dpvo-gdpr/A45-3 :dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Isle of Man@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Isle of Man@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-JE
   "EU Adequacy Decision for Jersey"
@@ -505,8 +505,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32008D0393"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual :dpvo-gdpr/A45-3],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Jersey@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Jersey@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-JP
   "EU Adequacy Decision for Japan"
@@ -523,8 +523,8 @@
                           "http://data.europa.eu/eli/dec_impl/2019/419/oj"},
    :rdf/type             [:dpvo/Law :owl/NamedIndividual :dpvo-gdpr/A45-3],
    :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "EU Adequacy Decision for Japan@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+   :rdfs/label           #rdf/langString "EU Adequacy Decision for Japan@en",
+   :vs/term_status       #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-NZ
   "EU Adequacy Decision for New Zealand"
@@ -541,8 +541,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32013D0065"},
    :rdf/type [:dpvo-gdpr/A45-3 :dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for New Zealand@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for New Zealand@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Adequacy-EU-UY
   "EU Adequacy Decision for Uruguay"
@@ -559,8 +559,8 @@
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012D0484"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law :dpvo-gdpr/A45-3],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "EU Adequacy Decision for Uruguay@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "EU Adequacy Decision for Uruguay@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Africa
   "Africa"
@@ -631,8 +631,8 @@
                       :dpvo-legal/UG],
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Africa@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Africa@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def Americas
   "Americas"
@@ -700,8 +700,8 @@
                       :dpvo-legal/EC],
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Americas@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Americas@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def Asia
   "Asia"
@@ -765,8 +765,8 @@
                       :dpvo-legal/NP],
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Asia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Asia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def AustraliaandNewZealand
   "AustraliaandNewZealand"
@@ -782,8 +782,8 @@
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "AustraliaandNewZealand@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "AustraliaandNewZealand@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def BA
   "BA"
@@ -798,9 +798,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bosnia and Herzegovina@en",
+   :rdfs/label             #rdf/langString "Bosnia and Herzegovina@en",
    :skos/altLabel          ["BA" "BIH" "70"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BB
   "BB"
@@ -817,9 +817,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Barbados@en",
+   :rdfs/label             #rdf/langString "Barbados@en",
    :skos/altLabel          ["BB" "BRB" "52"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BD
   "BD"
@@ -834,9 +834,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bangladesh@en",
+   :rdfs/label             #rdf/langString "Bangladesh@en",
    :skos/altLabel          ["BD" "BGD" "50"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BE
   "BE"
@@ -859,9 +859,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Belgium@en",
+   :rdfs/label             #rdf/langString "Belgium@en",
    :skos/altLabel          ["BE" "BEL" "56"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BF
   "BF"
@@ -878,9 +878,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Burkina Faso@en",
+   :rdfs/label             #rdf/langString "Burkina Faso@en",
    :skos/altLabel          ["BF" "BFA" "854"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BG
   "BG"
@@ -903,9 +903,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bulgaria@en",
+   :rdfs/label             #rdf/langString "Bulgaria@en",
    :skos/altLabel          ["BG" "BGR" "100"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BH
   "BH"
@@ -920,9 +920,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bahrain@en",
+   :rdfs/label             #rdf/langString "Bahrain@en",
    :skos/altLabel          ["BH" "BHR" "48"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BI
   "BI"
@@ -939,9 +939,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Burundi@en",
+   :rdfs/label             #rdf/langString "Burundi@en",
    :skos/altLabel          ["BI" "BDI" "108"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BJ
   "BJ"
@@ -958,9 +958,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Benin@en",
+   :rdfs/label             #rdf/langString "Benin@en",
    :skos/altLabel          ["BJ" "BEN" "204"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BL
   "BL"
@@ -977,9 +977,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saint Barthélemy@en",
+   :rdfs/label             #rdf/langString "Saint Barthélemy@en",
    :skos/altLabel          ["BL" "BLM" "652"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BM
   "BM"
@@ -994,9 +994,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bermuda@en",
+   :rdfs/label             #rdf/langString "Bermuda@en",
    :skos/altLabel          ["BM" "BMU" "60"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BN
   "BN"
@@ -1011,9 +1011,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Brunei Darussalam@en",
+   :rdfs/label             #rdf/langString "Brunei Darussalam@en",
    :skos/altLabel          ["BN" "BRN" "96"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BO
   "BO"
@@ -1030,10 +1030,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Bolivia (Plurinational State of)@en",
    :skos/altLabel          ["BO" "BOL" "68"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BQ
   "BQ"
@@ -1050,10 +1050,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Bonaire, Sint Eustatius and Saba@en",
    :skos/altLabel          ["BQ" "BES" "535"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BR
   "BR"
@@ -1070,9 +1070,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Brazil@en",
+   :rdfs/label             #rdf/langString "Brazil@en",
    :skos/altLabel          ["BR" "BRA" "76"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BS
   "BS"
@@ -1089,9 +1089,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bahamas@en",
+   :rdfs/label             #rdf/langString "Bahamas@en",
    :skos/altLabel          ["BS" "BHS" "44"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BT
   "BT"
@@ -1106,9 +1106,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bhutan@en",
+   :rdfs/label             #rdf/langString "Bhutan@en",
    :skos/altLabel          ["BT" "BTN" "64"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BV
   "BV"
@@ -1125,9 +1125,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Bouvet Island@en",
+   :rdfs/label             #rdf/langString "Bouvet Island@en",
    :skos/altLabel          ["BV" "BVT" "74"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BW
   "BW"
@@ -1144,9 +1144,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Botswana@en",
+   :rdfs/label             #rdf/langString "Botswana@en",
    :skos/altLabel          ["BW" "BWA" "72"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BY
   "BY"
@@ -1161,9 +1161,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Belarus@en",
+   :rdfs/label             #rdf/langString "Belarus@en",
    :skos/altLabel          ["BY" "BLR" "112"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def BZ
   "BZ"
@@ -1180,9 +1180,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Belize@en",
+   :rdfs/label             #rdf/langString "Belize@en",
    :skos/altLabel          ["BZ" "BLZ" "84"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CA
   "CA"
@@ -1197,9 +1197,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Canada@en",
+   :rdfs/label             #rdf/langString "Canada@en",
    :skos/altLabel          ["CA" "CAN" "124"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CC
   "CC"
@@ -1215,9 +1215,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cocos (Keeling) Islands@en",
+   :rdfs/label             #rdf/langString "Cocos (Keeling) Islands@en",
    :skos/altLabel          ["CC" "CCK" "166"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CD
   "CD"
@@ -1234,10 +1234,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Democratic Republic of the Congo@en",
    :skos/altLabel          ["CD" "COD" "180"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CF
   "CF"
@@ -1254,9 +1254,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Central African Republic@en",
+   :rdfs/label             #rdf/langString "Central African Republic@en",
    :skos/altLabel          ["CF" "CAF" "140"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CG
   "CG"
@@ -1273,9 +1273,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Congo@en",
+   :rdfs/label             #rdf/langString "Congo@en",
    :skos/altLabel          ["CG" "COG" "178"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CH
   "CH"
@@ -1290,9 +1290,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Switzerland@en",
+   :rdfs/label             #rdf/langString "Switzerland@en",
    :skos/altLabel          ["CH" "CHE" "756"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CI
   "CI"
@@ -1309,9 +1309,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Côte d’Ivoire@en",
+   :rdfs/label             #rdf/langString "Côte d’Ivoire@en",
    :skos/altLabel          ["CI" "CIV" "384"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CK
   "CK"
@@ -1326,9 +1326,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cook Islands@en",
+   :rdfs/label             #rdf/langString "Cook Islands@en",
    :skos/altLabel          ["CK" "COK" "184"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CL
   "CL"
@@ -1345,9 +1345,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Chile@en",
+   :rdfs/label             #rdf/langString "Chile@en",
    :skos/altLabel          ["CL" "CHL" "152"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CM
   "CM"
@@ -1364,9 +1364,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cameroon@en",
+   :rdfs/label             #rdf/langString "Cameroon@en",
    :skos/altLabel          ["CM" "CMR" "120"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CN
   "CN"
@@ -1381,9 +1381,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "China@en",
+   :rdfs/label             #rdf/langString "China@en",
    :skos/altLabel          ["CN" "CHN" "156"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CO
   "CO"
@@ -1400,9 +1400,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Colombia@en",
+   :rdfs/label             #rdf/langString "Colombia@en",
    :skos/altLabel          ["CO" "COL" "170"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CR
   "CR"
@@ -1419,9 +1419,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Costa Rica@en",
+   :rdfs/label             #rdf/langString "Costa Rica@en",
    :skos/altLabel          ["CR" "CRI" "188"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CU
   "CU"
@@ -1438,9 +1438,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cuba@en",
+   :rdfs/label             #rdf/langString "Cuba@en",
    :skos/altLabel          ["CU" "CUB" "192"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CV
   "CV"
@@ -1457,9 +1457,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cabo Verde@en",
+   :rdfs/label             #rdf/langString "Cabo Verde@en",
    :skos/altLabel          ["CV" "CPV" "132"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CW
   "CW"
@@ -1476,9 +1476,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Curaçao@en",
+   :rdfs/label             #rdf/langString "Curaçao@en",
    :skos/altLabel          ["CW" "CUW" "531"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CX
   "CX"
@@ -1494,9 +1494,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Christmas Island@en",
+   :rdfs/label             #rdf/langString "Christmas Island@en",
    :skos/altLabel          ["CX" "CXR" "162"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CY
   "CY"
@@ -1519,9 +1519,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cyprus@en",
+   :rdfs/label             #rdf/langString "Cyprus@en",
    :skos/altLabel          ["CY" "CYP" "196"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def CZ
   "CZ"
@@ -1544,9 +1544,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Czechia@en",
+   :rdfs/label             #rdf/langString "Czechia@en",
    :skos/altLabel          ["CZ" "CZE" "203"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def Caribbean
   "Caribbean"
@@ -1584,8 +1584,8 @@
    :dcterms/isPartOf :dpvo-legal/LatinAmericaandtheCaribbean,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Caribbean@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Caribbean@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def CentralAmerica
   "CentralAmerica"
@@ -1603,8 +1603,8 @@
    :dcterms/isPartOf :dpvo-legal/LatinAmericaandtheCaribbean,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "CentralAmerica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "CentralAmerica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def CentralAsia
   "CentralAsia"
@@ -1616,8 +1616,8 @@
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "CentralAsia@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "CentralAsia@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ChannelIslands
   "ChannelIslands"
@@ -1628,8 +1628,8 @@
    :dcterms/isPartOf :dpvo-legal/NorthernEurope,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "ChannelIslands@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "ChannelIslands@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def DE
   "DE"
@@ -1668,9 +1668,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Germany@en",
+   :rdfs/label             #rdf/langString "Germany@en",
    :skos/altLabel          ["DE" "DEU" "276"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def DE-BB
   "Brandenburg"
@@ -1684,8 +1684,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-BB,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Brandenburg@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Brandenburg@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-BDSG
   {:db/ident             :dpvo-legal/DE-BDSG,
@@ -1735,10 +1735,10 @@
                           "https://www.gesetze-im-internet.de/bdsg_2018/"},
    :rdf/type             [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           [#xsd/langString
+   :rdfs/label           [#rdf/langString
                            "Federal Data Protection Act (BDSG)@en"
-                          #xsd/langString "Bundesdatenschutzgesetz (BDSG)@de"],
-   :vs/term_status       #xsd/langString "accepted@en"})
+                          #rdf/langString "Bundesdatenschutzgesetz (BDSG)@de"],
+   :vs/term_status       #rdf/langString "accepted@en"})
 
 (def DE-BE
   "Berlin"
@@ -1752,8 +1752,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-BE,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Berlin@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Berlin@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-BE-BbgDSG
   {:db/ident :dpvo-legal/DE-BE-BbgDSG,
@@ -1767,10 +1767,10 @@
     "https://www.lda.brandenburg.de/sixcms/media.php/9/BbgDSG_2019.pdf"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString
+   :rdfs/label [#rdf/langString
                  "Brandenburgisches Datenschutzgesetz (BbgDSG)@de"
-                #xsd/langString "Brandenburg Data Protection Act (BbgDSG)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+                #rdf/langString "Brandenburg Data Protection Act (BbgDSG)@en"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-BE-BlnDSG
   {:db/ident :dpvo-legal/DE-BE-BlnDSG,
@@ -1784,9 +1784,9 @@
     "https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/publikationen/informationsmaterialien/2018-BlnBDI_BlnDSG.pdf"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Berlin Data Protection Act (BlnDSG)@en"
-                #xsd/langString "Berliner Datenschutzgesetz (BlnDSG)@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Berlin Data Protection Act (BlnDSG)@en"
+                #rdf/langString "Berliner Datenschutzgesetz (BlnDSG)@de"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-BW
   "Baden-Württemberg"
@@ -1799,8 +1799,8 @@
                            :dpvo-legal/EU-GDPR],
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Baden-Württemberg@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Baden-Württemberg@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-BW-LDSG
   {:db/ident :dpvo-legal/DE-BW-LDSG,
@@ -1813,9 +1813,9 @@
     "https://www.baden-wuerttemberg.datenschutz.de/wp-content/uploads/2018/06/LDSG-neu-GBl-2018173.pdf"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Landesdatenschutzgesetz (LDSG) (BW)@de"
-                #xsd/langString "State Data Protection Act (LDSG) (BW)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Landesdatenschutzgesetz (LDSG) (BW)@de"
+                #rdf/langString "State Data Protection Act (LDSG) (BW)@en"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-BY
   "Bavaria"
@@ -1830,8 +1830,8 @@
                            :dpvo-legal/DPA-DE-BY-public],
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Bavaria@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Bavaria@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-BY-BayDSG
   {:db/ident :dpvo-legal/DE-BY-BayDSG,
@@ -1846,9 +1846,9 @@
     "https://www.datenschutz-bayern.de/datenschutzreform2018/BayDSG.pdf"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Bayerisches Datenschutzgesetz (BayDSG)@de"
-                #xsd/langString "Bavarian Data Protection Act (BayDSG)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Bayerisches Datenschutzgesetz (BayDSG)@de"
+                #rdf/langString "Bavarian Data Protection Act (BayDSG)@en"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-HB
   "Bremen"
@@ -1862,8 +1862,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HB,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Bremen@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Bremen@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-HB-BremDSGVOAG
   {:db/ident :dpvo-legal/DE-HB-BremDSGVOAG,
@@ -1878,11 +1878,11 @@
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Bremisches Ausführungsgesetz zur EU-Datenschutz-Grundverordnung (BremDSGVOAG)@de"
-    #xsd/langString
+    #rdf/langString
      "Bremen Implementing Act for the EU General Data Protection Regulation (BremDSGVOAG)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-HE
   "Hesse"
@@ -1896,8 +1896,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HE,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Hesse@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Hesse@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-HE-HDISG
   {:db/ident :dpvo-legal/DE-HE-HDISG,
@@ -1912,11 +1912,11 @@
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Hessisches Datenschutz- und Informationsfreiheitsgesetz (HDSIG)@de"
-    #xsd/langString
+    #rdf/langString
      "Hessian Data Protection and Freedom of Information Act (HDSIG)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-HH
   "Hamburg"
@@ -1930,8 +1930,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HH,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Hamburg@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Hamburg@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-HH-HmbDSG
   {:db/ident :dpvo-legal/DE-HH-HmbDSG,
@@ -1944,9 +1944,9 @@
                    "https://datenschutz-hamburg.de/assets/pdf/HmbDSG_neu.pdf"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Hamburgisches Datenschutzgesetz (HmbDSG)@de"
-                #xsd/langString "Hamburg Data Protection Act (HmbDSG)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Hamburgisches Datenschutzgesetz (HmbDSG)@de"
+                #rdf/langString "Hamburg Data Protection Act (HmbDSG)@en"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-LSA-DSG
   {:db/ident :dpvo-legal/DE-LSA-DSG,
@@ -1961,11 +1961,11 @@
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Gesetz zum Schutz personenbezogener Daten der Bürger (Datenschutzgesetz Sachsen-Anhalt - DSG LSA)@de"
-    #xsd/langString
+    #rdf/langString
      "Law on the protection of personal data of citizens (Saxony-Anhalt Data Protection Act - DSG LSA)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-MV
   "Mecklenburg-Western-Pomerania"
@@ -1979,8 +1979,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-MV,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Mecklenburg-Western-Pomerania@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Mecklenburg-Western-Pomerania@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-MV-DSG
   {:db/ident :dpvo-legal/DE-MV-DSG,
@@ -1995,11 +1995,11 @@
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Act to adapt the State Data Protection Act and other data protection regulations in the area of ​​responsibility of the Ministry of the Interior and Europe Mecklenburg-West Pomerania to Regulation (EU) 2016/679 and to implement Directive (EU) 2016/680@en"
-    #xsd/langString
+    #rdf/langString
      "Gesetz zur Anpassung des Landesdatenschutzgesetzes und weiterer datenschutzrechtlicher Vorschriften im Zuständigkeitsbereich des Ministeriums für Inneres und Europa Mecklenburg-Vorpommern an die Verordnung (EU) 2016/679 und zur Umsetzung der Richtlinie (EU) 2016/680@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-NI
   "Lower-Saxony"
@@ -2013,8 +2013,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-NI,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Lower-Saxony@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Lower-Saxony@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-NI-NDSG
   {:db/ident :dpvo-legal/DE-NI-NDSG,
@@ -2028,10 +2028,10 @@
     "https://lfd.niedersachsen.de/download/132258/Niedersaechsisches_Datenschutzgesetz_NDSG_vom_16._Mai_2018_Nds._GVBl._S._66_.pdf"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Lower Saxony Data Protection Act (NDSG)@en"
-                #xsd/langString
+   :rdfs/label [#rdf/langString "Lower Saxony Data Protection Act (NDSG)@en"
+                #rdf/langString
                  "Niedersächsisches Datenschutzgesetz (NDSG)@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-NW
   "North-Rhine Westphalia"
@@ -2045,8 +2045,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-NW,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "North-Rhine Westphalia@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "North-Rhine Westphalia@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-NW-DSG
   {:db/ident :dpvo-legal/DE-NW-DSG,
@@ -2061,9 +2061,9 @@
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString "North Rhine-Westphalia Data Protection Act (DSG NRW)@en"
-    #xsd/langString "Datenschutzgesetz Nordrhein-Westfalen (DSG NRW)@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   [#rdf/langString "North Rhine-Westphalia Data Protection Act (DSG NRW)@en"
+    #rdf/langString "Datenschutzgesetz Nordrhein-Westfalen (DSG NRW)@de"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-RP
   "Rhineland-Palatinate"
@@ -2076,8 +2076,8 @@
                            :dpvo-legal/DE-BDSG],
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Rhineland-Palatinate@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Rhineland-Palatinate@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-RP-LDSG
   {:db/ident :dpvo-legal/DE-RP-LDSG,
@@ -2090,9 +2090,9 @@
    {:rdfa/uri "https://landesrecht.rlp.de/bsrp/document/jlr-DSGRP2018pP18"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Landesdatenschutzgesetz (LDSG)@de"
-                #xsd/langString "State Data Protection Act (LDSG)@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Landesdatenschutzgesetz (LDSG)@de"
+                #rdf/langString "State Data Protection Act (LDSG)@en"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-SH
   "Schleswig-Holstein"
@@ -2106,8 +2106,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SH,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Schleswig-Holstein@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Schleswig-Holstein@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-SH-LDSG
   {:db/ident :dpvo-legal/DE-SH-LDSG,
@@ -2122,11 +2122,11 @@
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Schleswig-Holstein law for the protection of personal data (state data protection law - LDSG)@en"
-    #xsd/langString
+    #rdf/langString
      "Schleswig-Holsteinisches Gesetz zum Schutz personenbezogener Daten (Landesdatenschutzgesetz - LDSG)@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-SL
   "Saarland"
@@ -2140,8 +2140,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SL,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Saarland@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Saarland@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-SL-SDSG
   {:db/ident :dpvo-legal/DE-SL-SDSG,
@@ -2154,9 +2154,9 @@
    {:rdfa/uri "https://recht.saarland.de/bssl/document/jlr-DSGSL2018rahmen"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Saarland Data Protection Act@en"
-                #xsd/langString "Saarländisches Datenschutzgesetz@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Saarland Data Protection Act@en"
+                #rdf/langString "Saarländisches Datenschutzgesetz@de"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-SN
   "Saxony"
@@ -2170,8 +2170,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SN,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Saxony@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Saxony@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-SN-SächsDSG
   {:db/ident :dpvo-legal/DE-SN-SächsDSG,
@@ -2185,11 +2185,11 @@
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Law for the Protection of Informational Self-Determination in the Free State of Saxony (Saxon Data Protection Act - SächsDSG)@en"
-    #xsd/langString
+    #rdf/langString
      "Gesetz zum Schutz der informationellen Selbstbestimmung im Freistaat Sachsen (Sächsisches Datenschutzgesetz – SächsDSG)@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DE-ST
   "Saxony-Anhalt"
@@ -2203,8 +2203,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-ST,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Saxony-Anhalt@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Saxony-Anhalt@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-TH
   "Thuringia"
@@ -2218,8 +2218,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-TH,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Thuringia@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Thuringia@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DE-TH-ThürDSG
   {:db/ident :dpvo-legal/DE-TH-ThürDSG,
@@ -2233,9 +2233,9 @@
     "https://landesrecht.thueringen.de/bsth/document/jlr-DSGTH2018rahmen"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString "Thuringian Data Protection Act (ThürDSG)@en"
-                #xsd/langString "Thüringer Datenschutzgesetz (ThürDSG)@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label [#rdf/langString "Thuringian Data Protection Act (ThürDSG)@en"
+                #rdf/langString "Thüringer Datenschutzgesetz (ThürDSG)@de"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DJ
   "DJ"
@@ -2252,9 +2252,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Djibouti@en",
+   :rdfs/label             #rdf/langString "Djibouti@en",
    :skos/altLabel          ["DJ" "DJI" "262"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def DK
   "DK"
@@ -2277,9 +2277,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Denmark@en",
+   :rdfs/label             #rdf/langString "Denmark@en",
    :skos/altLabel          ["DK" "DNK" "208"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def DM
   "DM"
@@ -2296,9 +2296,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Dominica@en",
+   :rdfs/label             #rdf/langString "Dominica@en",
    :skos/altLabel          ["DM" "DMA" "212"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def DO
   "DO"
@@ -2315,9 +2315,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Dominican Republic@en",
+   :rdfs/label             #rdf/langString "Dominican Republic@en",
    :skos/altLabel          ["DO" "DOM" "214"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def DPA-AT
   "Austrian Data Protection Authority"
@@ -2329,9 +2329,9 @@
    :foaf/homepage         {:rdfa/uri "https://dsb.gv.at"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Austrian Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-BE
   "Belgian Data Protection Authority"
@@ -2343,9 +2343,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.dataprotectionauthority.be/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Belgian Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-BG
   "Commission for Personal Data Protection"
@@ -2357,9 +2357,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.cpdp.bg/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Commission for Personal Data Protection@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-CY
   "Commissioner for Personal Data Protection"
@@ -2371,9 +2371,9 @@
    :foaf/homepage         {:rdfa/uri "http://www.dataprotection.gov.cy/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Commissioner for Personal Data Protection@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-CZ
   "Office for Personal Data Protection"
@@ -2385,9 +2385,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.uoou.cz/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Office for Personal Data Protection@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-DE
   "The Federal Commissioner for Data Protection and Freedom of Information"
@@ -2400,9 +2400,9 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "The Federal Commissioner for Data Protection and Freedom of Information@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-BB
   {:db/ident :dpvo-legal/DPA-DE-BB,
@@ -2416,11 +2416,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "The state representative for data protection and the right to inspect files in Brandenburg@en"
-    #xsd/langString
+    #rdf/langString
      "Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-BE
   {:db/ident :dpvo-legal/DPA-DE-BE,
@@ -2434,11 +2434,11 @@
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Berliner Beauftragte für Datenschutz und Informationsfreiheit@de"
-    #xsd/langString
+    #rdf/langString
      "Berlin Commissioner for Data Protection and Freedom of Information@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-BY-non-public
   {:db/ident :dpvo-legal/DPA-DE-BY-non-public,
@@ -2452,9 +2452,9 @@
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString "Bayerisches Landesamt für Datenschutzaufsicht@de"
-    #xsd/langString "Bavarian State Office for Data Protection Supervision@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   [#rdf/langString "Bayerisches Landesamt für Datenschutzaufsicht@de"
+    #rdf/langString "Bavarian State Office for Data Protection Supervision@en"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-BY-public
   {:db/ident :dpvo-legal/DPA-DE-BY-public,
@@ -2468,9 +2468,9 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString "The Bavarian State Commissioner for Data Protection@en"
-    #xsd/langString "Der Bayerische Landesbeauftragte für den Datenschutz@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   [#rdf/langString "The Bavarian State Commissioner for Data Protection@en"
+    #rdf/langString "Der Bayerische Landesbeauftragte für den Datenschutz@de"],
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-HB
   {:db/ident :dpvo-legal/DPA-DE-HB,
@@ -2484,11 +2484,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Die Landesbeauftragte für Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen@de"
-    #xsd/langString
+    #rdf/langString
      "The State Commissioner for Data Protection and Freedom of Information of the Free Hanseatic City of Bremen@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-HE
   {:db/ident :dpvo-legal/DPA-DE-HE,
@@ -2502,11 +2502,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Der Hessische Beauftragte für Datenschutz und Informationsfreiheit@de"
-    #xsd/langString
+    #rdf/langString
      "The Hessian Commissioner for Data Protection and Freedom of Information@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-HH
   {:db/ident :dpvo-legal/DPA-DE-HH,
@@ -2520,11 +2520,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit@de"
-    #xsd/langString
+    #rdf/langString
      "The Hamburg Commissioner for Data Protection and Freedom of Information@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-MV
   {:db/ident :dpvo-legal/DPA-DE-MV,
@@ -2538,11 +2538,11 @@
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "The State Commissioner for Data Protection and Freedom of Information Mecklenburg-West Pomerania@en"
-    #xsd/langString
+    #rdf/langString
      "Der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-NI
   {:db/ident :dpvo-legal/DPA-DE-NI,
@@ -2555,11 +2555,11 @@
    :foaf/homepage {:rdfa/uri "https://www.lfd.niedersachsen.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString
+   :rdfs/label [#rdf/langString
                  "The State Commissioner for Data Protection Lower Saxony@en"
-                #xsd/langString
+                #rdf/langString
                  "Die Landesbeauftragte für den Datenschutz Niedersachsen@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-NW
   {:db/ident :dpvo-legal/DPA-DE-NW,
@@ -2573,11 +2573,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen@de"
-    #xsd/langString
+    #rdf/langString
      "State Commissioner for Data Protection and Freedom of Information North Rhine-Westphalia@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-RP
   {:db/ident :dpvo-legal/DPA-DE-RP,
@@ -2589,11 +2589,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "The state commissioner for data protection and freedom of information in Rhineland-Palatinate@en"
-    #xsd/langString
+    #rdf/langString
      "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-SH
   {:db/ident :dpvo-legal/DPA-DE-SH,
@@ -2607,11 +2607,11 @@
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Independent State Center for Data Protection Schleswig-Holstein@en"
-    #xsd/langString
+    #rdf/langString
      "Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-SL
   {:db/ident :dpvo-legal/DPA-DE-SL,
@@ -2625,11 +2625,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Unabhängiges Datenschutzzentrum Saarland - Landesbeauftragte für Datenschutz und Informationsfreiheit@de"
-    #xsd/langString
+    #rdf/langString
      "Independent Data Protection Center Saarland - State Commissioner for Data Protection and Freedom of Information@en"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-SN
   {:db/ident              :dpvo-legal/DPA-DE-SN,
@@ -2643,11 +2643,11 @@
    :foaf/homepage         {:rdfa/uri "https://www.saechsdsb.de/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            [#xsd/langString
+   :rdfs/label            [#rdf/langString
                             "Die Sächsische Datenschutzbeauftragte@de"
-                           #xsd/langString
+                           #rdf/langString
                             "The Saxon data protection officer@en"],
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-DE-ST
   {:db/ident :dpvo-legal/DPA-DE-ST,
@@ -2660,11 +2660,11 @@
    :foaf/homepage {:rdfa/uri "https://datenschutz.sachsen-anhalt.de/"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label [#xsd/langString
+   :rdfs/label [#rdf/langString
                  "State representative for data protection in Saxony-Anhalt@en"
-                #xsd/langString
+                #rdf/langString
                  "Landesbeauftragter für den Datenschutz Sachsen-Anhalt@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DE-TH
   {:db/ident :dpvo-legal/DPA-DE-TH,
@@ -2678,11 +2678,11 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   [#xsd/langString
+   [#rdf/langString
      "Thuringia state commissioner for data protection and freedom of information@en"
-    #xsd/langString
+    #rdf/langString
      "Thüringer Landesbeauftragter für den Datenschutz und die Informationsfreiheit@de"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-DK
   "Danish Data Protection Agency"
@@ -2694,8 +2694,8 @@
    :foaf/homepage         {:rdfa/uri "http://www.datatilsynet.dk/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Danish Data Protection Agency@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Danish Data Protection Agency@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-EE
   "Estonian Data Protection Inspectorate"
@@ -2707,9 +2707,9 @@
    :foaf/homepage         {:rdfa/uri "http://www.aki.ee/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Estonian Data Protection Inspectorate@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-ES
   "Spanish Data Protection Agency (AEPD)"
@@ -2721,9 +2721,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.aepd.es/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Spanish Data Protection Agency (AEPD)@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-EU-EDPS
   "European Data Protection Supervisor"
@@ -2734,9 +2734,9 @@
    :foaf/homepage         {:rdfa/uri "https://edps.europa.eu/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "European Data Protection Supervisor@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-FI
   "Office of the Data Protection Ombudsman"
@@ -2748,9 +2748,9 @@
    :foaf/homepage         {:rdfa/uri "https://tietosuoja.fi/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Office of the Data Protection Ombudsman@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-FR
   "National Commission on Informatics and Liberty (CNIL)"
@@ -2762,9 +2762,9 @@
    :foaf/homepage {:rdfa/uri "https://www.cnil.fr/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "National Commission on Informatics and Liberty (CNIL)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-GB
   "Information Commissioner's Office"
@@ -2776,9 +2776,9 @@
    :foaf/homepage         {:rdfa/uri "https://ico.org.uk/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Information Commissioner's Office@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-GR
   "Hellenic Data Protection Authority"
@@ -2790,9 +2790,9 @@
    :foaf/homepage         {:rdfa/uri "http://dpa.gr"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Hellenic Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-HR
   "Croatian Personal Data Protection Agency"
@@ -2804,9 +2804,9 @@
    :foaf/homepage         {:rdfa/uri "http://www.azop.hr/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Croatian Personal Data Protection Agency@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-HU
   "Hungarian National Authority for Data Protection and Freedom of Information"
@@ -2819,9 +2819,9 @@
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "Hungarian National Authority for Data Protection and Freedom of Information@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-IE
   "Data Protection Commission (DPC)"
@@ -2833,8 +2833,8 @@
    :foaf/homepage         {:rdfa/uri "http://www.dataprotection.ie"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Data Protection Commission (DPC)@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Data Protection Commission (DPC)@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-IS
   "Icelandic Data Protection Authority"
@@ -2845,9 +2845,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.dpa.is/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Icelandic Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-IT
   "Data Protection Commission"
@@ -2859,8 +2859,8 @@
    :foaf/homepage         {:rdfa/uri "https://www.garanteprivacy.it/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Data Protection Commission@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Data Protection Commission@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-LT
   "State Data Protection Inspectorate"
@@ -2872,9 +2872,9 @@
    :foaf/homepage         {:rdfa/uri "https://ada.lt"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "State Data Protection Inspectorate@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-LU
   "National Commission for Data Protection"
@@ -2886,9 +2886,9 @@
    :foaf/homepage         {:rdfa/uri "https://cnpd.public.lu"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "National Commission for Data Protection@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-LV
   "Data State Inspectorate"
@@ -2900,8 +2900,8 @@
    :foaf/homepage         {:rdfa/uri "http://www.dvi.gov.lv/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Data State Inspectorate@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Data State Inspectorate@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-MT
   "Office of the Information and Data Protection Commissioner"
@@ -2913,9 +2913,9 @@
    :foaf/homepage {:rdfa/uri "https://idpc.org.mt"},
    :rdf/type [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "Office of the Information and Data Protection Commissioner@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-NL
   "Dutch Data Protection Authority"
@@ -2927,8 +2927,8 @@
    :foaf/homepage         {:rdfa/uri "https://autoriteitpersoonsgegevens.nl"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Dutch Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Dutch Data Protection Authority@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-PL
   "Personal Data Protection Office"
@@ -2940,8 +2940,8 @@
    :foaf/homepage         {:rdfa/uri "https://uodo.gov.pl/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Personal Data Protection Office@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Personal Data Protection Office@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-PT
   "Comissão Nacional de Protecção de Dados"
@@ -2953,9 +2953,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.cnpd.pt"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Comissão Nacional de Protecção de Dados@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-RO
   "National Supervisory Authority for Personal Data Processing"
@@ -2968,9 +2968,9 @@
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "National Supervisory Authority for Personal Data Processing@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-SE
   "Swedish Authority for Privacy Protection"
@@ -2982,9 +2982,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.imy.se/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Swedish Authority for Privacy Protection@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-SI
   "Information Commissioner of the Republic of Slovenia"
@@ -2996,9 +2996,9 @@
    :foaf/homepage {:rdfa/uri "https://www.ip-rs.si/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "Information Commissioner of the Republic of Slovenia@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-SK
   "Office for Personal Data Protection of the Slovak Republic"
@@ -3010,9 +3010,9 @@
    :foaf/homepage {:rdfa/uri "http://www.dataprotection.gov.sk/"},
    :rdf/type [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "Office for Personal Data Protection of the Slovak Republic@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DPA-US-CO
   "Colorado Attorney General"
@@ -3024,8 +3024,8 @@
    :foaf/homepage         {:rdfa/uri "https://coag.gov"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Colorado Attorney General@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Colorado Attorney General@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-US-CT
   "Connecticut Attorney General"
@@ -3037,8 +3037,8 @@
    :foaf/homepage         {:rdfa/uri "https://portal.ct.gov/AG"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Connecticut Attorney General@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Connecticut Attorney General@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-US-NV
   "Nevada Attorney General"
@@ -3050,8 +3050,8 @@
    :foaf/homepage         {:rdfa/uri "https://ag.nv.gov/"},
    :rdf/type              [:owl/NamedIndividual :dpvo/DataProtectionAuthority],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Nevada Attorney General@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Nevada Attorney General@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-US-UT
   "Utah Attorney General"
@@ -3063,8 +3063,8 @@
    :foaf/homepage         {:rdfa/uri "https://attorneygeneral.utah.gov/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Utah Attorney General@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Utah Attorney General@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPA-US-VA
   "Virginia Attorney General"
@@ -3076,8 +3076,8 @@
    :foaf/homepage         {:rdfa/uri "https://www.oag.state.va.us"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Virginia Attorney General@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Virginia Attorney General@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPV-LI
   "Liechtenstein Data Protection Authority"
@@ -3088,9 +3088,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.datenschutzstelle.li/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Liechtenstein Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DPV-NO
   "Norwegian Data Protection Authority"
@@ -3101,9 +3101,9 @@
    :foaf/homepage         {:rdfa/uri "https://www.datatilsynet.no/"},
    :rdf/type              [:dpvo/DataProtectionAuthority :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString
+   :rdfs/label            #rdf/langString
                            "Norwegian Data Protection Authority@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def DZ
   "DZ"
@@ -3118,9 +3118,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Algeria@en",
+   :rdfs/label             #rdf/langString "Algeria@en",
    :skos/altLabel          ["DZ" "DZA" "12"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def EC
   "EC"
@@ -3137,9 +3137,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Ecuador@en",
+   :rdfs/label             #rdf/langString "Ecuador@en",
    :skos/altLabel          ["EC" "ECU" "218"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def EE
   "EE"
@@ -3162,9 +3162,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Estonia@en",
+   :rdfs/label             #rdf/langString "Estonia@en",
    :skos/altLabel          ["EE" "EST" "233"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def EEA
   "European Economic Area (EEA)"
@@ -3228,8 +3228,8 @@
                       :dpvo-legal/ES],
    :rdf/type         [:dpvo/SupraNationalUnion :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "European Economic Area (EEA)@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "European Economic Area (EEA)@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EEA30
   "European Economic Area (EEA-30)"
@@ -3298,8 +3298,8 @@
                       :dpvo-legal/CZ],
    :rdf/type         [:dpvo/SupraNationalUnion :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "European Economic Area (EEA-30)@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "European Economic Area (EEA-30)@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EEA31
   "European Economic Area (EEA-31)"
@@ -3374,8 +3374,8 @@
                       :dpvo-legal/HU],
    :rdf/type         [:owl/NamedIndividual :dpvo/SupraNationalUnion],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "European Economic Area (EEA-31)@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "European Economic Area (EEA-31)@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EG
   "EG"
@@ -3390,9 +3390,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Egypt@en",
+   :rdfs/label             #rdf/langString "Egypt@en",
    :skos/altLabel          ["EG" "EGY" "818"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def EH
   "EH"
@@ -3407,9 +3407,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Western Sahara@en",
+   :rdfs/label             #rdf/langString "Western Sahara@en",
    :skos/altLabel          ["EH" "ESH" "732"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ER
   "ER"
@@ -3426,9 +3426,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Eritrea@en",
+   :rdfs/label             #rdf/langString "Eritrea@en",
    :skos/altLabel          ["ER" "ERI" "232"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ES
   "ES"
@@ -3451,9 +3451,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Spain@en",
+   :rdfs/label             #rdf/langString "Spain@en",
    :skos/altLabel          ["ES" "ESP" "724"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ET
   "ET"
@@ -3470,9 +3470,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Ethiopia@en",
+   :rdfs/label             #rdf/langString "Ethiopia@en",
    :skos/altLabel          ["ET" "ETH" "231"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def EU
   "European Union (EU)"
@@ -3537,8 +3537,8 @@
                        :dpvo-legal/FI],
    :rdf/type          [:dpvo/SupraNationalUnion :owl/NamedIndividual],
    :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label        #xsd/langString "European Union (EU)@en",
-   :vs/term_status    #xsd/langString "accepted@en"})
+   :rdfs/label        #rdf/langString "European Union (EU)@en",
+   :vs/term_status    #rdf/langString "accepted@en"})
 
 (def EU-GDPR
   "General Data Protection Regulation (GDPR)"
@@ -3644,9 +3644,9 @@
                           "http://data.europa.eu/eli/reg/2016/679/oj"},
    :rdf/type             [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString
+   :rdfs/label           #rdf/langString
                           "General Data Protection Regulation (GDPR)@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+   :vs/term_status       #rdf/langString "accepted@en"})
 
 (def EU27
   "European Union (EU-27)"
@@ -3715,8 +3715,8 @@
                       :dpvo-legal/RO],
    :rdf/type         [:owl/NamedIndividual :dpvo/SupraNationalUnion],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "European Union (EU-27)@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "European Union (EU-27)@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EU28
   "European Union (EU-28)"
@@ -3791,8 +3791,8 @@
                       :dpvo-legal/MT],
    :rdf/type         [:dpvo/SupraNationalUnion :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "European Union (EU-28)@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "European Union (EU-28)@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EasternAfrica
   "EasternAfrica"
@@ -3824,8 +3824,8 @@
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "EasternAfrica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "EasternAfrica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EasternAsia
   "EasternAsia"
@@ -3842,8 +3842,8 @@
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "EasternAsia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "EasternAsia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EasternEurope
   "EasternEurope"
@@ -3863,8 +3863,8 @@
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "EasternEurope@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "EasternEurope@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def Europe
   "Europe"
@@ -3929,8 +3929,8 @@
                       :dpvo-legal/BE],
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Europe@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Europe@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def FI
   "FI"
@@ -3953,9 +3953,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Finland@en",
+   :rdfs/label             #rdf/langString "Finland@en",
    :skos/altLabel          ["FI" "FIN" "246"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def FJ
   "FJ"
@@ -3970,9 +3970,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Fiji@en",
+   :rdfs/label             #rdf/langString "Fiji@en",
    :skos/altLabel          ["FJ" "FJI" "242"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def FK
   "FK"
@@ -3989,9 +3989,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Falkland Islands (Malvinas)@en",
+   :rdfs/label             #rdf/langString "Falkland Islands (Malvinas)@en",
    :skos/altLabel          ["FK" "FLK" "238"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def FM
   "FM"
@@ -4006,10 +4006,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Micronesia (Federated States of)@en",
    :skos/altLabel          ["FM" "FSM" "583"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def FO
   "FO"
@@ -4024,9 +4024,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Faroe Islands@en",
+   :rdfs/label             #rdf/langString "Faroe Islands@en",
    :skos/altLabel          ["FO" "FRO" "234"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def FR
   "FR"
@@ -4049,9 +4049,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "France@en",
+   :rdfs/label             #rdf/langString "France@en",
    :skos/altLabel          ["FR" "FRA" "250"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GA
   "GA"
@@ -4068,9 +4068,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Gabon@en",
+   :rdfs/label             #rdf/langString "Gabon@en",
    :skos/altLabel          ["GA" "GAB" "266"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GB
   "GB"
@@ -4087,10 +4087,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-GB,
    :rdf/type [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "United Kingdom of Great Britain and Northern Ireland@en",
    :skos/altLabel ["GB" "GBR" "826"],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def GB-DPA
   "Data Protection Act (DPA)"
@@ -4107,8 +4107,8 @@
                    "https://www.legislation.gov.uk/ukpga/2018/12/contents"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "Data Protection Act (DPA)@en",
-   :vs/term_status #xsd/langString "modified@en"})
+   :rdfs/label #rdf/langString "Data Protection Act (DPA)@en",
+   :vs/term_status #rdf/langString "modified@en"})
 
 (def GB-GDPR
   "General Data Protection Regulation (GDPR)"
@@ -4125,8 +4125,8 @@
                    "https://www.legislation.gov.uk/eur/2016/679/contents"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "General Data Protection Regulation (GDPR)@en",
-   :vs/term_status #xsd/langString "modified@en"})
+   :rdfs/label #rdf/langString "General Data Protection Regulation (GDPR)@en",
+   :vs/term_status #rdf/langString "modified@en"})
 
 (def GD
   "GD"
@@ -4143,9 +4143,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Grenada@en",
+   :rdfs/label             #rdf/langString "Grenada@en",
    :skos/altLabel          ["GD" "GRD" "308"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GE
   "GE"
@@ -4160,9 +4160,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Georgia@en",
+   :rdfs/label             #rdf/langString "Georgia@en",
    :skos/altLabel          ["GE" "GEO" "268"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GF
   "GF"
@@ -4179,9 +4179,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "French Guiana@en",
+   :rdfs/label             #rdf/langString "French Guiana@en",
    :skos/altLabel          ["GF" "GUF" "254"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GG
   "GG"
@@ -4198,9 +4198,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guernsey@en",
+   :rdfs/label             #rdf/langString "Guernsey@en",
    :skos/altLabel          ["GG" "GGY" "831"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GH
   "GH"
@@ -4217,9 +4217,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Ghana@en",
+   :rdfs/label             #rdf/langString "Ghana@en",
    :skos/altLabel          ["GH" "GHA" "288"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GI
   "GI"
@@ -4234,9 +4234,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Gibraltar@en",
+   :rdfs/label             #rdf/langString "Gibraltar@en",
    :skos/altLabel          ["GI" "GIB" "292"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GL
   "GL"
@@ -4251,9 +4251,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Greenland@en",
+   :rdfs/label             #rdf/langString "Greenland@en",
    :skos/altLabel          ["GL" "GRL" "304"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GM
   "GM"
@@ -4270,9 +4270,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Gambia@en",
+   :rdfs/label             #rdf/langString "Gambia@en",
    :skos/altLabel          ["GM" "GMB" "270"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GN
   "GN"
@@ -4289,9 +4289,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guinea@en",
+   :rdfs/label             #rdf/langString "Guinea@en",
    :skos/altLabel          ["GN" "GIN" "324"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GP
   "GP"
@@ -4308,9 +4308,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guadeloupe@en",
+   :rdfs/label             #rdf/langString "Guadeloupe@en",
    :skos/altLabel          ["GP" "GLP" "312"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GQ
   "GQ"
@@ -4327,9 +4327,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Equatorial Guinea@en",
+   :rdfs/label             #rdf/langString "Equatorial Guinea@en",
    :skos/altLabel          ["GQ" "GNQ" "226"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GR
   "GR"
@@ -4352,9 +4352,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Greece@en",
+   :rdfs/label             #rdf/langString "Greece@en",
    :skos/altLabel          ["GR" "GRC" "300"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GS
   "GS"
@@ -4371,10 +4371,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "South Georgia and the South Sandwich Islands@en",
    :skos/altLabel          ["GS" "SGS" "239"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GT
   "GT"
@@ -4391,9 +4391,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guatemala@en",
+   :rdfs/label             #rdf/langString "Guatemala@en",
    :skos/altLabel          ["GT" "GTM" "320"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GU
   "GU"
@@ -4408,9 +4408,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guam@en",
+   :rdfs/label             #rdf/langString "Guam@en",
    :skos/altLabel          ["GU" "GUM" "316"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GW
   "GW"
@@ -4427,9 +4427,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guinea-Bissau@en",
+   :rdfs/label             #rdf/langString "Guinea-Bissau@en",
    :skos/altLabel          ["GW" "GNB" "624"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def GY
   "GY"
@@ -4446,9 +4446,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Guyana@en",
+   :rdfs/label             #rdf/langString "Guyana@en",
    :skos/altLabel          ["GY" "GUY" "328"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def HK
   "HK"
@@ -4463,10 +4463,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "China, Hong Kong Special Administrative Region@en",
    :skos/altLabel          ["HK" "HKG" "344"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def HM
   "HM"
@@ -4482,10 +4482,10 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Heard Island and McDonald Islands@en",
    :skos/altLabel          ["HM" "HMD" "334"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def HN
   "HN"
@@ -4502,9 +4502,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Honduras@en",
+   :rdfs/label             #rdf/langString "Honduras@en",
    :skos/altLabel          ["HN" "HND" "340"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def HR
   "HR"
@@ -4527,9 +4527,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Croatia@en",
+   :rdfs/label             #rdf/langString "Croatia@en",
    :skos/altLabel          ["HR" "HRV" "191"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def HT
   "HT"
@@ -4546,9 +4546,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Haiti@en",
+   :rdfs/label             #rdf/langString "Haiti@en",
    :skos/altLabel          ["HT" "HTI" "332"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def HU
   "HU"
@@ -4571,9 +4571,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Hungary@en",
+   :rdfs/label             #rdf/langString "Hungary@en",
    :skos/altLabel          ["HU" "HUN" "348"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ID
   "ID"
@@ -4588,9 +4588,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Indonesia@en",
+   :rdfs/label             #rdf/langString "Indonesia@en",
    :skos/altLabel          ["ID" "IDN" "360"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IE
   "IE"
@@ -4613,9 +4613,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Ireland@en",
+   :rdfs/label             #rdf/langString "Ireland@en",
    :skos/altLabel          ["IE" "IRL" "372"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IL
   "IL"
@@ -4630,9 +4630,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Israel@en",
+   :rdfs/label             #rdf/langString "Israel@en",
    :skos/altLabel          ["IL" "ISR" "376"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IM
   "IM"
@@ -4647,9 +4647,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Isle of Man@en",
+   :rdfs/label             #rdf/langString "Isle of Man@en",
    :skos/altLabel          ["IM" "IMN" "833"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IN
   "IN"
@@ -4664,9 +4664,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "India@en",
+   :rdfs/label             #rdf/langString "India@en",
    :skos/altLabel          ["IN" "IND" "356"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IO
   "IO"
@@ -4683,9 +4683,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "British Indian Ocean Territory@en",
+   :rdfs/label             #rdf/langString "British Indian Ocean Territory@en",
    :skos/altLabel          ["IO" "IOT" "86"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IQ
   "IQ"
@@ -4700,9 +4700,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Iraq@en",
+   :rdfs/label             #rdf/langString "Iraq@en",
    :skos/altLabel          ["IQ" "IRQ" "368"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IR
   "IR"
@@ -4717,9 +4717,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Iran (Islamic Republic of)@en",
+   :rdfs/label             #rdf/langString "Iran (Islamic Republic of)@en",
    :skos/altLabel          ["IR" "IRN" "364"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IS
   "IS"
@@ -4735,9 +4735,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Iceland@en",
+   :rdfs/label             #rdf/langString "Iceland@en",
    :skos/altLabel          ["IS" "ISL" "352"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def IT
   "IT"
@@ -4760,9 +4760,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Italy@en",
+   :rdfs/label             #rdf/langString "Italy@en",
    :skos/altLabel          ["IT" "ITA" "380"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def JE
   "JE"
@@ -4779,9 +4779,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Jersey@en",
+   :rdfs/label             #rdf/langString "Jersey@en",
    :skos/altLabel          ["JE" "JEY" "832"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def JM
   "JM"
@@ -4798,9 +4798,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Jamaica@en",
+   :rdfs/label             #rdf/langString "Jamaica@en",
    :skos/altLabel          ["JM" "JAM" "388"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def JO
   "JO"
@@ -4815,9 +4815,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Jordan@en",
+   :rdfs/label             #rdf/langString "Jordan@en",
    :skos/altLabel          ["JO" "JOR" "400"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def JP
   "JP"
@@ -4832,9 +4832,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Japan@en",
+   :rdfs/label             #rdf/langString "Japan@en",
    :skos/altLabel          ["JP" "JPN" "392"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KE
   "KE"
@@ -4851,9 +4851,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Kenya@en",
+   :rdfs/label             #rdf/langString "Kenya@en",
    :skos/altLabel          ["KE" "KEN" "404"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KG
   "KG"
@@ -4868,9 +4868,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Kyrgyzstan@en",
+   :rdfs/label             #rdf/langString "Kyrgyzstan@en",
    :skos/altLabel          ["KG" "KGZ" "417"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KH
   "KH"
@@ -4885,9 +4885,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cambodia@en",
+   :rdfs/label             #rdf/langString "Cambodia@en",
    :skos/altLabel          ["KH" "KHM" "116"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KI
   "KI"
@@ -4902,9 +4902,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Kiribati@en",
+   :rdfs/label             #rdf/langString "Kiribati@en",
    :skos/altLabel          ["KI" "KIR" "296"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KM
   "KM"
@@ -4921,9 +4921,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Comoros@en",
+   :rdfs/label             #rdf/langString "Comoros@en",
    :skos/altLabel          ["KM" "COM" "174"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KN
   "KN"
@@ -4940,9 +4940,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saint Kitts and Nevis@en",
+   :rdfs/label             #rdf/langString "Saint Kitts and Nevis@en",
    :skos/altLabel          ["KN" "KNA" "659"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KP
   "KP"
@@ -4957,10 +4957,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Democratic People's Republic of Korea@en",
    :skos/altLabel          ["KP" "PRK" "408"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KR
   "KR"
@@ -4975,9 +4975,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Republic of Korea@en",
+   :rdfs/label             #rdf/langString "Republic of Korea@en",
    :skos/altLabel          ["KR" "KOR" "410"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KW
   "KW"
@@ -4992,9 +4992,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Kuwait@en",
+   :rdfs/label             #rdf/langString "Kuwait@en",
    :skos/altLabel          ["KW" "KWT" "414"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KY
   "KY"
@@ -5011,9 +5011,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Cayman Islands@en",
+   :rdfs/label             #rdf/langString "Cayman Islands@en",
    :skos/altLabel          ["KY" "CYM" "136"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def KZ
   "KZ"
@@ -5028,9 +5028,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Kazakhstan@en",
+   :rdfs/label             #rdf/langString "Kazakhstan@en",
    :skos/altLabel          ["KZ" "KAZ" "398"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LA
   "LA"
@@ -5045,10 +5045,10 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Lao People's Democratic Republic@en",
    :skos/altLabel          ["LA" "LAO" "418"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LB
   "LB"
@@ -5063,9 +5063,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Lebanon@en",
+   :rdfs/label             #rdf/langString "Lebanon@en",
    :skos/altLabel          ["LB" "LBN" "422"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LC
   "LC"
@@ -5082,9 +5082,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saint Lucia@en",
+   :rdfs/label             #rdf/langString "Saint Lucia@en",
    :skos/altLabel          ["LC" "LCA" "662"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LI
   "LI"
@@ -5100,9 +5100,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Liechtenstein@en",
+   :rdfs/label             #rdf/langString "Liechtenstein@en",
    :skos/altLabel          ["LI" "LIE" "438"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LK
   "LK"
@@ -5117,9 +5117,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Sri Lanka@en",
+   :rdfs/label             #rdf/langString "Sri Lanka@en",
    :skos/altLabel          ["LK" "LKA" "144"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LR
   "LR"
@@ -5136,9 +5136,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Liberia@en",
+   :rdfs/label             #rdf/langString "Liberia@en",
    :skos/altLabel          ["LR" "LBR" "430"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LS
   "LS"
@@ -5155,9 +5155,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Lesotho@en",
+   :rdfs/label             #rdf/langString "Lesotho@en",
    :skos/altLabel          ["LS" "LSO" "426"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LT
   "LT"
@@ -5180,9 +5180,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Lithuania@en",
+   :rdfs/label             #rdf/langString "Lithuania@en",
    :skos/altLabel          ["LT" "LTU" "440"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LU
   "LU"
@@ -5205,9 +5205,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Luxembourg@en",
+   :rdfs/label             #rdf/langString "Luxembourg@en",
    :skos/altLabel          ["LU" "LUX" "442"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LV
   "LV"
@@ -5230,9 +5230,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Latvia@en",
+   :rdfs/label             #rdf/langString "Latvia@en",
    :skos/altLabel          ["LV" "LVA" "428"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LY
   "LY"
@@ -5247,9 +5247,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Libya@en",
+   :rdfs/label             #rdf/langString "Libya@en",
    :skos/altLabel          ["LY" "LBY" "434"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def LatinAmericaandtheCaribbean
   "LatinAmericaandtheCaribbean"
@@ -5314,8 +5314,8 @@
    :dcterms/isPartOf :dpvo-legal/Americas,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "LatinAmericaandtheCaribbean@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "LatinAmericaandtheCaribbean@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def MA
   "MA"
@@ -5330,9 +5330,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Morocco@en",
+   :rdfs/label             #rdf/langString "Morocco@en",
    :skos/altLabel          ["MA" "MAR" "504"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MC
   "MC"
@@ -5347,9 +5347,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Monaco@en",
+   :rdfs/label             #rdf/langString "Monaco@en",
    :skos/altLabel          ["MC" "MCO" "492"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MD
   "MD"
@@ -5364,9 +5364,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Republic of Moldova@en",
+   :rdfs/label             #rdf/langString "Republic of Moldova@en",
    :skos/altLabel          ["MD" "MDA" "498"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ME
   "ME"
@@ -5381,9 +5381,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Montenegro@en",
+   :rdfs/label             #rdf/langString "Montenegro@en",
    :skos/altLabel          ["ME" "MNE" "499"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MF
   "MF"
@@ -5400,9 +5400,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saint Martin (French Part)@en",
+   :rdfs/label             #rdf/langString "Saint Martin (French Part)@en",
    :skos/altLabel          ["MF" "MAF" "663"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MG
   "MG"
@@ -5419,9 +5419,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Madagascar@en",
+   :rdfs/label             #rdf/langString "Madagascar@en",
    :skos/altLabel          ["MG" "MDG" "450"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MH
   "MH"
@@ -5436,9 +5436,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Marshall Islands@en",
+   :rdfs/label             #rdf/langString "Marshall Islands@en",
    :skos/altLabel          ["MH" "MHL" "584"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MK
   "MK"
@@ -5453,9 +5453,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "North Macedonia@en",
+   :rdfs/label             #rdf/langString "North Macedonia@en",
    :skos/altLabel          ["MK" "MKD" "807"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ML
   "ML"
@@ -5472,9 +5472,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mali@en",
+   :rdfs/label             #rdf/langString "Mali@en",
    :skos/altLabel          ["ML" "MLI" "466"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MM
   "MM"
@@ -5489,9 +5489,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Myanmar@en",
+   :rdfs/label             #rdf/langString "Myanmar@en",
    :skos/altLabel          ["MM" "MMR" "104"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MN
   "MN"
@@ -5506,9 +5506,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mongolia@en",
+   :rdfs/label             #rdf/langString "Mongolia@en",
    :skos/altLabel          ["MN" "MNG" "496"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MO
   "MO"
@@ -5523,10 +5523,10 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "China, Macao Special Administrative Region@en",
    :skos/altLabel          ["MO" "MAC" "446"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MP
   "MP"
@@ -5541,9 +5541,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Northern Mariana Islands@en",
+   :rdfs/label             #rdf/langString "Northern Mariana Islands@en",
    :skos/altLabel          ["MP" "MNP" "580"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MQ
   "MQ"
@@ -5560,9 +5560,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Martinique@en",
+   :rdfs/label             #rdf/langString "Martinique@en",
    :skos/altLabel          ["MQ" "MTQ" "474"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MR
   "MR"
@@ -5579,9 +5579,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mauritania@en",
+   :rdfs/label             #rdf/langString "Mauritania@en",
    :skos/altLabel          ["MR" "MRT" "478"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MS
   "MS"
@@ -5598,9 +5598,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Montserrat@en",
+   :rdfs/label             #rdf/langString "Montserrat@en",
    :skos/altLabel          ["MS" "MSR" "500"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MT
   "MT"
@@ -5623,9 +5623,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Malta@en",
+   :rdfs/label             #rdf/langString "Malta@en",
    :skos/altLabel          ["MT" "MLT" "470"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MU
   "MU"
@@ -5642,9 +5642,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mauritius@en",
+   :rdfs/label             #rdf/langString "Mauritius@en",
    :skos/altLabel          ["MU" "MUS" "480"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MV
   "MV"
@@ -5659,9 +5659,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Maldives@en",
+   :rdfs/label             #rdf/langString "Maldives@en",
    :skos/altLabel          ["MV" "MDV" "462"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MW
   "MW"
@@ -5678,9 +5678,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Malawi@en",
+   :rdfs/label             #rdf/langString "Malawi@en",
    :skos/altLabel          ["MW" "MWI" "454"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MX
   "MX"
@@ -5697,9 +5697,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mexico@en",
+   :rdfs/label             #rdf/langString "Mexico@en",
    :skos/altLabel          ["MX" "MEX" "484"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MY
   "MY"
@@ -5714,9 +5714,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Malaysia@en",
+   :rdfs/label             #rdf/langString "Malaysia@en",
    :skos/altLabel          ["MY" "MYS" "458"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def MZ
   "MZ"
@@ -5733,9 +5733,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mozambique@en",
+   :rdfs/label             #rdf/langString "Mozambique@en",
    :skos/altLabel          ["MZ" "MOZ" "508"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def Melanesia
   "Melanesia"
@@ -5747,8 +5747,8 @@
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "Melanesia@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "Melanesia@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Micronesia
   "Micronesia"
@@ -5766,8 +5766,8 @@
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Micronesia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Micronesia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def MiddleAfrica
   "MiddleAfrica"
@@ -5786,8 +5786,8 @@
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "MiddleAfrica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "MiddleAfrica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def NA
   "NA"
@@ -5804,9 +5804,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Namibia@en",
+   :rdfs/label             #rdf/langString "Namibia@en",
    :skos/altLabel          ["NA" "NAM" "516"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NC
   "NC"
@@ -5821,9 +5821,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "New Caledonia@en",
+   :rdfs/label             #rdf/langString "New Caledonia@en",
    :skos/altLabel          ["NC" "NCL" "540"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NE
   "NE"
@@ -5840,9 +5840,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Niger@en",
+   :rdfs/label             #rdf/langString "Niger@en",
    :skos/altLabel          ["NE" "NER" "562"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NF
   "NF"
@@ -5858,9 +5858,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Norfolk Island@en",
+   :rdfs/label             #rdf/langString "Norfolk Island@en",
    :skos/altLabel          ["NF" "NFK" "574"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NG
   "NG"
@@ -5877,9 +5877,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Nigeria@en",
+   :rdfs/label             #rdf/langString "Nigeria@en",
    :skos/altLabel          ["NG" "NGA" "566"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NI
   "NI"
@@ -5896,9 +5896,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Nicaragua@en",
+   :rdfs/label             #rdf/langString "Nicaragua@en",
    :skos/altLabel          ["NI" "NIC" "558"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NL
   "NL"
@@ -5921,9 +5921,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Netherlands@en",
+   :rdfs/label             #rdf/langString "Netherlands@en",
    :skos/altLabel          ["NL" "NLD" "528"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NO
   "NO"
@@ -5939,9 +5939,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Norway@en",
+   :rdfs/label             #rdf/langString "Norway@en",
    :skos/altLabel          ["NO" "NOR" "578"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NP
   "NP"
@@ -5956,9 +5956,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Nepal@en",
+   :rdfs/label             #rdf/langString "Nepal@en",
    :skos/altLabel          ["NP" "NPL" "524"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NR
   "NR"
@@ -5973,9 +5973,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Nauru@en",
+   :rdfs/label             #rdf/langString "Nauru@en",
    :skos/altLabel          ["NR" "NRU" "520"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NU
   "NU"
@@ -5990,9 +5990,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Niue@en",
+   :rdfs/label             #rdf/langString "Niue@en",
    :skos/altLabel          ["NU" "NIU" "570"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NZ
   "NZ"
@@ -6008,9 +6008,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "New Zealand@en",
+   :rdfs/label             #rdf/langString "New Zealand@en",
    :skos/altLabel          ["NZ" "NZL" "554"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def NorthernAfrica
   "NorthernAfrica"
@@ -6027,8 +6027,8 @@
    :dcterms/isPartOf :dpvo-legal/Africa,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "NorthernAfrica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "NorthernAfrica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def NorthernAmerica
   "NorthernAmerica"
@@ -6040,8 +6040,8 @@
    :dcterms/isPartOf :dpvo-legal/Americas,
    :rdf/type [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "NorthernAmerica@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "NorthernAmerica@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def NorthernEurope
   "NorthernEurope"
@@ -6069,8 +6069,8 @@
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "NorthernEurope@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "NorthernEurope@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def OM
   "OM"
@@ -6085,9 +6085,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Oman@en",
+   :rdfs/label             #rdf/langString "Oman@en",
    :skos/altLabel          ["OM" "OMN" "512"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def Oceania
   "Oceania"
@@ -6129,8 +6129,8 @@
                       :dpvo-legal/CK],
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Oceania@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Oceania@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def PA
   "PA"
@@ -6147,9 +6147,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Panama@en",
+   :rdfs/label             #rdf/langString "Panama@en",
    :skos/altLabel          ["PA" "PAN" "591"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PE
   "PE"
@@ -6166,9 +6166,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Peru@en",
+   :rdfs/label             #rdf/langString "Peru@en",
    :skos/altLabel          ["PE" "PER" "604"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PF
   "PF"
@@ -6183,9 +6183,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "French Polynesia@en",
+   :rdfs/label             #rdf/langString "French Polynesia@en",
    :skos/altLabel          ["PF" "PYF" "258"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PG
   "PG"
@@ -6200,9 +6200,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Papua New Guinea@en",
+   :rdfs/label             #rdf/langString "Papua New Guinea@en",
    :skos/altLabel          ["PG" "PNG" "598"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PH
   "PH"
@@ -6217,9 +6217,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Philippines@en",
+   :rdfs/label             #rdf/langString "Philippines@en",
    :skos/altLabel          ["PH" "PHL" "608"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PK
   "PK"
@@ -6234,9 +6234,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Pakistan@en",
+   :rdfs/label             #rdf/langString "Pakistan@en",
    :skos/altLabel          ["PK" "PAK" "586"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PL
   "PL"
@@ -6259,9 +6259,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Poland@en",
+   :rdfs/label             #rdf/langString "Poland@en",
    :skos/altLabel          ["PL" "POL" "616"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PM
   "PM"
@@ -6276,9 +6276,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saint Pierre and Miquelon@en",
+   :rdfs/label             #rdf/langString "Saint Pierre and Miquelon@en",
    :skos/altLabel          ["PM" "SPM" "666"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PN
   "PN"
@@ -6293,9 +6293,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Pitcairn@en",
+   :rdfs/label             #rdf/langString "Pitcairn@en",
    :skos/altLabel          ["PN" "PCN" "612"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PR
   "PR"
@@ -6312,9 +6312,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Puerto Rico@en",
+   :rdfs/label             #rdf/langString "Puerto Rico@en",
    :skos/altLabel          ["PR" "PRI" "630"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PS
   "PS"
@@ -6329,9 +6329,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "State of Palestine@en",
+   :rdfs/label             #rdf/langString "State of Palestine@en",
    :skos/altLabel          ["PS" "PSE" "275"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PT
   "PT"
@@ -6354,9 +6354,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Portugal@en",
+   :rdfs/label             #rdf/langString "Portugal@en",
    :skos/altLabel          ["PT" "PRT" "620"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PW
   "PW"
@@ -6371,9 +6371,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Palau@en",
+   :rdfs/label             #rdf/langString "Palau@en",
    :skos/altLabel          ["PW" "PLW" "585"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def PY
   "PY"
@@ -6390,9 +6390,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Paraguay@en",
+   :rdfs/label             #rdf/langString "Paraguay@en",
    :skos/altLabel          ["PY" "PRY" "600"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def Polynesia
   "Polynesia"
@@ -6412,8 +6412,8 @@
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Polynesia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Polynesia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def QA
   "QA"
@@ -6428,9 +6428,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Qatar@en",
+   :rdfs/label             #rdf/langString "Qatar@en",
    :skos/altLabel          ["QA" "QAT" "634"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def RE
   "RE"
@@ -6447,9 +6447,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Réunion@en",
+   :rdfs/label             #rdf/langString "Réunion@en",
    :skos/altLabel          ["RE" "REU" "638"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def RO
   "RO"
@@ -6472,9 +6472,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Romania@en",
+   :rdfs/label             #rdf/langString "Romania@en",
    :skos/altLabel          ["RO" "ROU" "642"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def RS
   "RS"
@@ -6489,9 +6489,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Serbia@en",
+   :rdfs/label             #rdf/langString "Serbia@en",
    :skos/altLabel          ["RS" "SRB" "688"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def RU
   "RU"
@@ -6506,9 +6506,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Russian Federation@en",
+   :rdfs/label             #rdf/langString "Russian Federation@en",
    :skos/altLabel          ["RU" "RUS" "643"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def RW
   "RW"
@@ -6525,9 +6525,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Rwanda@en",
+   :rdfs/label             #rdf/langString "Rwanda@en",
    :skos/altLabel          ["RW" "RWA" "646"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SA
   "SA"
@@ -6542,9 +6542,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saudi Arabia@en",
+   :rdfs/label             #rdf/langString "Saudi Arabia@en",
    :skos/altLabel          ["SA" "SAU" "682"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SB
   "SB"
@@ -6559,9 +6559,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Solomon Islands@en",
+   :rdfs/label             #rdf/langString "Solomon Islands@en",
    :skos/altLabel          ["SB" "SLB" "90"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SC
   "SC"
@@ -6578,9 +6578,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Seychelles@en",
+   :rdfs/label             #rdf/langString "Seychelles@en",
    :skos/altLabel          ["SC" "SYC" "690"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SD
   "SD"
@@ -6595,9 +6595,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Sudan@en",
+   :rdfs/label             #rdf/langString "Sudan@en",
    :skos/altLabel          ["SD" "SDN" "729"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SE
   "SE"
@@ -6620,9 +6620,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Sweden@en",
+   :rdfs/label             #rdf/langString "Sweden@en",
    :skos/altLabel          ["SE" "SWE" "752"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SG
   "SG"
@@ -6637,9 +6637,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Singapore@en",
+   :rdfs/label             #rdf/langString "Singapore@en",
    :skos/altLabel          ["SG" "SGP" "702"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SH
   "SH"
@@ -6656,9 +6656,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Saint Helena@en",
+   :rdfs/label             #rdf/langString "Saint Helena@en",
    :skos/altLabel          ["SH" "SHN" "654"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SI
   "SI"
@@ -6681,9 +6681,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Slovenia@en",
+   :rdfs/label             #rdf/langString "Slovenia@en",
    :skos/altLabel          ["SI" "SVN" "705"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SJ
   "SJ"
@@ -6698,9 +6698,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Svalbard and Jan Mayen Islands@en",
+   :rdfs/label             #rdf/langString "Svalbard and Jan Mayen Islands@en",
    :skos/altLabel          ["SJ" "SJM" "744"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SK
   "SK"
@@ -6723,9 +6723,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Slovakia@en",
+   :rdfs/label             #rdf/langString "Slovakia@en",
    :skos/altLabel          ["SK" "SVK" "703"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SL
   "SL"
@@ -6742,9 +6742,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Sierra Leone@en",
+   :rdfs/label             #rdf/langString "Sierra Leone@en",
    :skos/altLabel          ["SL" "SLE" "694"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SM
   "SM"
@@ -6759,9 +6759,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "San Marino@en",
+   :rdfs/label             #rdf/langString "San Marino@en",
    :skos/altLabel          ["SM" "SMR" "674"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SN
   "SN"
@@ -6778,9 +6778,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Senegal@en",
+   :rdfs/label             #rdf/langString "Senegal@en",
    :skos/altLabel          ["SN" "SEN" "686"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SO
   "SO"
@@ -6797,9 +6797,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Somalia@en",
+   :rdfs/label             #rdf/langString "Somalia@en",
    :skos/altLabel          ["SO" "SOM" "706"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SR
   "SR"
@@ -6816,9 +6816,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Suriname@en",
+   :rdfs/label             #rdf/langString "Suriname@en",
    :skos/altLabel          ["SR" "SUR" "740"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SS
   "SS"
@@ -6835,9 +6835,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "South Sudan@en",
+   :rdfs/label             #rdf/langString "South Sudan@en",
    :skos/altLabel          ["SS" "SSD" "728"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ST
   "ST"
@@ -6854,9 +6854,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Sao Tome and Principe@en",
+   :rdfs/label             #rdf/langString "Sao Tome and Principe@en",
    :skos/altLabel          ["ST" "STP" "678"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SV
   "SV"
@@ -6873,9 +6873,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "El Salvador@en",
+   :rdfs/label             #rdf/langString "El Salvador@en",
    :skos/altLabel          ["SV" "SLV" "222"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SX
   "SX"
@@ -6892,9 +6892,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Sint Maarten (Dutch part)@en",
+   :rdfs/label             #rdf/langString "Sint Maarten (Dutch part)@en",
    :skos/altLabel          ["SX" "SXM" "534"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SY
   "SY"
@@ -6909,9 +6909,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Syrian Arab Republic@en",
+   :rdfs/label             #rdf/langString "Syrian Arab Republic@en",
    :skos/altLabel          ["SY" "SYR" "760"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def SZ
   "SZ"
@@ -6928,9 +6928,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Eswatini@en",
+   :rdfs/label             #rdf/langString "Eswatini@en",
    :skos/altLabel          ["SZ" "SWZ" "748"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def Sark
   "Sark"
@@ -6942,8 +6942,8 @@
                       :dpvo-legal/Europe],
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Sark@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Sark@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def SouthAmerica
   "SouthAmerica"
@@ -6969,8 +6969,8 @@
    :dcterms/isPartOf :dpvo-legal/LatinAmericaandtheCaribbean,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "SouthAmerica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "SouthAmerica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def SoutheasternAsia
   "SoutheasternAsia"
@@ -6991,8 +6991,8 @@
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "SoutheasternAsia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "SoutheasternAsia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def SouthernAfrica
   "SouthernAfrica"
@@ -7004,8 +7004,8 @@
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "SouthernAfrica@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "SouthernAfrica@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SouthernAsia
   "SouthernAsia"
@@ -7024,8 +7024,8 @@
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "SouthernAsia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "SouthernAsia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def SouthernEurope
   "SouthernEurope"
@@ -7051,8 +7051,8 @@
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "SouthernEurope@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "SouthernEurope@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def SubSaharanAfrica
   "SubSaharanAfrica"
@@ -7119,8 +7119,8 @@
    :dcterms/isPartOf :dpvo-legal/Africa,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "SubSaharanAfrica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "SubSaharanAfrica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def TC
   "TC"
@@ -7137,9 +7137,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Turks and Caicos Islands@en",
+   :rdfs/label             #rdf/langString "Turks and Caicos Islands@en",
    :skos/altLabel          ["TC" "TCA" "796"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TD
   "TD"
@@ -7156,9 +7156,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Chad@en",
+   :rdfs/label             #rdf/langString "Chad@en",
    :skos/altLabel          ["TD" "TCD" "148"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TF
   "TF"
@@ -7175,9 +7175,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "French Southern Territories@en",
+   :rdfs/label             #rdf/langString "French Southern Territories@en",
    :skos/altLabel          ["TF" "ATF" "260"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TG
   "TG"
@@ -7194,9 +7194,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Togo@en",
+   :rdfs/label             #rdf/langString "Togo@en",
    :skos/altLabel          ["TG" "TGO" "768"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TH
   "TH"
@@ -7211,9 +7211,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Thailand@en",
+   :rdfs/label             #rdf/langString "Thailand@en",
    :skos/altLabel          ["TH" "THA" "764"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TJ
   "TJ"
@@ -7228,9 +7228,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Tajikistan@en",
+   :rdfs/label             #rdf/langString "Tajikistan@en",
    :skos/altLabel          ["TJ" "TJK" "762"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TK
   "TK"
@@ -7245,9 +7245,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Tokelau@en",
+   :rdfs/label             #rdf/langString "Tokelau@en",
    :skos/altLabel          ["TK" "TKL" "772"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TL
   "TL"
@@ -7262,9 +7262,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Timor-Leste@en",
+   :rdfs/label             #rdf/langString "Timor-Leste@en",
    :skos/altLabel          ["TL" "TLS" "626"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TM
   "TM"
@@ -7279,9 +7279,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Turkmenistan@en",
+   :rdfs/label             #rdf/langString "Turkmenistan@en",
    :skos/altLabel          ["TM" "TKM" "795"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TN
   "TN"
@@ -7296,9 +7296,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Tunisia@en",
+   :rdfs/label             #rdf/langString "Tunisia@en",
    :skos/altLabel          ["TN" "TUN" "788"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TO
   "TO"
@@ -7313,9 +7313,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Tonga@en",
+   :rdfs/label             #rdf/langString "Tonga@en",
    :skos/altLabel          ["TO" "TON" "776"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TR
   "TR"
@@ -7330,9 +7330,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Turkey@en",
+   :rdfs/label             #rdf/langString "Turkey@en",
    :skos/altLabel          ["TR" "TUR" "792"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TT
   "TT"
@@ -7349,9 +7349,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Trinidad and Tobago@en",
+   :rdfs/label             #rdf/langString "Trinidad and Tobago@en",
    :skos/altLabel          ["TT" "TTO" "780"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TV
   "TV"
@@ -7366,9 +7366,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Tuvalu@en",
+   :rdfs/label             #rdf/langString "Tuvalu@en",
    :skos/altLabel          ["TV" "TUV" "798"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def TW
   "Taiwan (Province of China)"
@@ -7377,8 +7377,8 @@
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :rdf/type         [:dpvo/Country :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Taiwan (Province of China)@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Taiwan (Province of China)@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def TZ
   "TZ"
@@ -7395,9 +7395,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "United Republic of Tanzania@en",
+   :rdfs/label             #rdf/langString "United Republic of Tanzania@en",
    :skos/altLabel          ["TZ" "TZA" "834"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def UA
   "UA"
@@ -7412,9 +7412,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Ukraine@en",
+   :rdfs/label             #rdf/langString "Ukraine@en",
    :skos/altLabel          ["UA" "UKR" "804"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def UG
   "UG"
@@ -7431,9 +7431,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Uganda@en",
+   :rdfs/label             #rdf/langString "Uganda@en",
    :skos/altLabel          ["UG" "UGA" "800"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def UM
   "UM"
@@ -7448,10 +7448,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "United States Minor Outlying Islands@en",
    :skos/altLabel          ["UM" "UMI" "581"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def US
   "US"
@@ -7523,9 +7523,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "United States of America@en",
+   :rdfs/label             #rdf/langString "United States of America@en",
    :skos/altLabel          ["US" "USA" "840"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def US-AK
   "Alaska"
@@ -7535,8 +7535,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Alaska@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Alaska@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-AL
   "Alabama"
@@ -7546,8 +7546,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Alabama@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Alabama@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-AR
   "Arkansas"
@@ -7557,8 +7557,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Arkansas@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Arkansas@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-AS
   "American Samoa"
@@ -7568,8 +7568,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "American Samoa@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "American Samoa@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-AZ
   "Arizona"
@@ -7579,8 +7579,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Arizona@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Arizona@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-CA
   "California"
@@ -7591,8 +7591,8 @@
    :dpvo/hasApplicableLaw [:dpvo-legal/US-CA-CPRA :dpvo-legal/US-CA-CCPA],
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "California@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "California@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def US-CA-CCPA
   "California Consumer Privacy Act (CCPA)"
@@ -7609,8 +7609,8 @@
     "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "California Consumer Privacy Act (CCPA)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "California Consumer Privacy Act (CCPA)@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def US-CA-CPRA
   "California Privacy Rights Act (CPRA)"
@@ -7627,8 +7627,8 @@
     "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375"},
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "California Privacy Rights Act (CPRA)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "California Privacy Rights Act (CPRA)@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def US-CO
   "Colorado"
@@ -7640,8 +7640,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-CO,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Colorado@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Colorado@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def US-CO-CPA
   "Colorado Privacy Act (CPA)"
@@ -7658,8 +7658,8 @@
    :foaf/homepage        {:rdfa/uri "https://leg.colorado.gov/bills/sb21-190"},
    :rdf/type             [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Colorado Privacy Act (CPA)@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+   :rdfs/label           #rdf/langString "Colorado Privacy Act (CPA)@en",
+   :vs/term_status       #rdf/langString "accepted@en"})
 
 (def US-CT
   "Connecticut"
@@ -7671,8 +7671,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-CT,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Connecticut@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Connecticut@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def US-CT-CTPA
   "Connecticut Data Privacy Act (CTPA)"
@@ -7690,8 +7690,8 @@
     "https://www.cga.ct.gov/2022/ACT/PA/PDF/2022PA-00015-R00SB-00006-PA.PDF"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString "Connecticut Data Privacy Act (CTPA)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "Connecticut Data Privacy Act (CTPA)@en",
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def US-DC
   "District of Columbia"
@@ -7701,8 +7701,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "District of Columbia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "District of Columbia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-DE
   "Delaware"
@@ -7712,8 +7712,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Delaware@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Delaware@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-FL
   "Florida"
@@ -7723,8 +7723,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Florida@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Florida@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-GA
   "Georgia"
@@ -7734,8 +7734,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Georgia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Georgia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-GU
   "Guam"
@@ -7745,8 +7745,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Guam@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Guam@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-HI
   "Hawaii"
@@ -7756,8 +7756,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Hawaii@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Hawaii@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-IA
   "Iowa"
@@ -7767,8 +7767,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Iowa@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Iowa@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-ID
   "Idaho"
@@ -7778,8 +7778,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Idaho@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Idaho@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-IL
   "Illinois"
@@ -7789,8 +7789,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Illinois@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Illinois@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-IN
   "Indiana"
@@ -7800,8 +7800,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Indiana@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Indiana@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-KS
   "Kansas"
@@ -7811,8 +7811,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Kansas@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Kansas@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-KY
   "Kentucky"
@@ -7822,8 +7822,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Kentucky@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Kentucky@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-LA
   "Louisiana"
@@ -7833,8 +7833,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Louisiana@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Louisiana@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MA
   "Massachusetts"
@@ -7844,8 +7844,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Massachusetts@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Massachusetts@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MD
   "Maryland"
@@ -7855,8 +7855,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Maryland@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Maryland@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-ME
   "Maine"
@@ -7866,8 +7866,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Maine@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Maine@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MI
   "Michigan"
@@ -7877,8 +7877,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Michigan@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Michigan@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MN
   "Minnesota"
@@ -7888,8 +7888,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Minnesota@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Minnesota@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MO
   "Missouri"
@@ -7899,8 +7899,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Missouri@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Missouri@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MP
   "Northern Mariana Islands"
@@ -7910,8 +7910,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Northern Mariana Islands@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Northern Mariana Islands@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MS
   "Mississippi"
@@ -7921,8 +7921,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Mississippi@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Mississippi@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-MT
   "Montana"
@@ -7932,8 +7932,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Montana@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Montana@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-NC
   "North Carolina"
@@ -7943,8 +7943,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "North Carolina@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "North Carolina@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-ND
   "North Dakota"
@@ -7954,8 +7954,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "North Dakota@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "North Dakota@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-NE
   "Nebraska"
@@ -7965,8 +7965,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Nebraska@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Nebraska@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-NH
   "New Hampshire"
@@ -7976,8 +7976,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "New Hampshire@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "New Hampshire@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-NJ
   "New Jersey"
@@ -7987,8 +7987,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "New Jersey@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "New Jersey@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-NM
   "New Mexico"
@@ -7998,8 +7998,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "New Mexico@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "New Mexico@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-NV
   "Nevada"
@@ -8011,8 +8011,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-NV,
    :rdf/type              [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Nevada@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Nevada@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def US-NV-NPICICA
   "Nevada Privacy of Information Collected on the Internet from Consumers Act (NPICICA)"
@@ -8029,9 +8029,9 @@
    :rdf/type [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "Nevada Privacy of Information Collected on the Internet from Consumers Act (NPICICA)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def US-NY
   "New York"
@@ -8041,8 +8041,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "New York@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "New York@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-OH
   "Ohio"
@@ -8052,8 +8052,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Ohio@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Ohio@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-OK
   "Oklahoma"
@@ -8063,8 +8063,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Oklahoma@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Oklahoma@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-OR
   "Oregon"
@@ -8074,8 +8074,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Oregon@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Oregon@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-PA
   "Pennsylvania"
@@ -8085,8 +8085,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Pennsylvania@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Pennsylvania@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-PR
   "Puerto Rico"
@@ -8096,8 +8096,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Puerto Rico@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Puerto Rico@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-RI
   "Rhode Island"
@@ -8107,8 +8107,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Rhode Island@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Rhode Island@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-SC
   "South Carolina"
@@ -8118,8 +8118,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "South Carolina@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "South Carolina@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-SD
   "South Dakota"
@@ -8129,8 +8129,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "South Dakota@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "South Dakota@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-TN
   "Tennessee"
@@ -8140,8 +8140,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Tennessee@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Tennessee@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-TX
   "Texas"
@@ -8151,8 +8151,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Texas@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Texas@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-UM
   "United States Minor Outlying Islands"
@@ -8162,8 +8162,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "United States Minor Outlying Islands@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "United States Minor Outlying Islands@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-UT
   "Utah"
@@ -8175,8 +8175,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-UT,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Utah@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Utah@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def US-UT-UCPA
   "Utah Consumer Privacy Act (UCPA)"
@@ -8189,8 +8189,8 @@
                           "https://le.utah.gov/~2022/bills/static/SB0227.html"},
    :rdf/type             [:dpvo/Law :owl/NamedIndividual],
    :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label           #xsd/langString "Utah Consumer Privacy Act (UCPA)@en",
-   :vs/term_status       #xsd/langString "accepted@en"})
+   :rdfs/label           #rdf/langString "Utah Consumer Privacy Act (UCPA)@en",
+   :vs/term_status       #rdf/langString "accepted@en"})
 
 (def US-VA
   "Virginia"
@@ -8202,8 +8202,8 @@
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-VA,
    :rdf/type              [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label            #xsd/langString "Virginia@en",
-   :vs/term_status        #xsd/langString "accepted@en"})
+   :rdfs/label            #rdf/langString "Virginia@en",
+   :vs/term_status        #rdf/langString "accepted@en"})
 
 (def US-VA-VCDPA
   "Virginia Consumer Data Protection Act (VCDPA)"
@@ -8220,9 +8220,9 @@
    {:rdfa/uri "https://lis.virginia.gov/cgi-bin/legp604.exe?212+sum+HB2307"},
    :rdf/type [:owl/NamedIndividual :dpvo/Law],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "Virginia Consumer Data Protection Act (VCDPA)@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def US-VI
   "U.S. Virgin Islands"
@@ -8232,8 +8232,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "U.S. Virgin Islands@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "U.S. Virgin Islands@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-VT
   "Vermont"
@@ -8243,8 +8243,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Vermont@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Vermont@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-WA
   "Washington"
@@ -8254,8 +8254,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Washington@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Washington@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-WI
   "Wisconsin"
@@ -8265,8 +8265,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Wisconsin@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Wisconsin@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-WV
   "West Virginia"
@@ -8276,8 +8276,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "West Virginia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "West Virginia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def US-WY
   "Wyoming"
@@ -8287,8 +8287,8 @@
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "Wyoming@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "Wyoming@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def UY
   "UY"
@@ -8305,9 +8305,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Uruguay@en",
+   :rdfs/label             #rdf/langString "Uruguay@en",
    :skos/altLabel          ["UY" "URY" "858"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def UZ
   "UZ"
@@ -8322,9 +8322,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Uzbekistan@en",
+   :rdfs/label             #rdf/langString "Uzbekistan@en",
    :skos/altLabel          ["UZ" "UZB" "860"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VA
   "VA"
@@ -8339,9 +8339,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Holy See@en",
+   :rdfs/label             #rdf/langString "Holy See@en",
    :skos/altLabel          ["VA" "VAT" "336"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VC
   "VC"
@@ -8358,10 +8358,10 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Saint Vincent and the Grenadines@en",
    :skos/altLabel          ["VC" "VCT" "670"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VE
   "VE"
@@ -8378,10 +8378,10 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString
+   :rdfs/label             #rdf/langString
                             "Venezuela (Bolivarian Republic of)@en",
    :skos/altLabel          ["VE" "VEN" "862"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VG
   "VG"
@@ -8398,9 +8398,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "British Virgin Islands@en",
+   :rdfs/label             #rdf/langString "British Virgin Islands@en",
    :skos/altLabel          ["VG" "VGB" "92"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VI
   "VI"
@@ -8417,9 +8417,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "United States Virgin Islands@en",
+   :rdfs/label             #rdf/langString "United States Virgin Islands@en",
    :skos/altLabel          ["VI" "VIR" "850"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VN
   "VN"
@@ -8434,9 +8434,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Viet Nam@en",
+   :rdfs/label             #rdf/langString "Viet Nam@en",
    :skos/altLabel          ["VN" "VNM" "704"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def VU
   "VU"
@@ -8451,9 +8451,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Vanuatu@en",
+   :rdfs/label             #rdf/langString "Vanuatu@en",
    :skos/altLabel          ["VU" "VUT" "548"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def WF
   "WF"
@@ -8468,9 +8468,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Wallis and Futuna Islands@en",
+   :rdfs/label             #rdf/langString "Wallis and Futuna Islands@en",
    :skos/altLabel          ["WF" "WLF" "876"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def WS
   "WS"
@@ -8485,9 +8485,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Samoa@en",
+   :rdfs/label             #rdf/langString "Samoa@en",
    :skos/altLabel          ["WS" "WSM" "882"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def WesternAfrica
   "WesternAfrica"
@@ -8514,8 +8514,8 @@
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "WesternAfrica@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "WesternAfrica@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def WesternAsia
   "WesternAsia"
@@ -8543,8 +8543,8 @@
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         [:dpvo/Region :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "WesternAsia@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "WesternAsia@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def WesternEurope
   "WesternEurope"
@@ -8563,8 +8563,8 @@
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         [:owl/NamedIndividual :dpvo/Region],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label       #xsd/langString "WesternEurope@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "WesternEurope@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def YE
   "YE"
@@ -8579,9 +8579,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Yemen@en",
+   :rdfs/label             #rdf/langString "Yemen@en",
    :skos/altLabel          ["YE" "YEM" "887"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def YT
   "YT"
@@ -8598,9 +8598,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Mayotte@en",
+   :rdfs/label             #rdf/langString "Mayotte@en",
    :skos/altLabel          ["YT" "MYT" "175"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ZA
   "ZA"
@@ -8617,9 +8617,9 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "South Africa@en",
+   :rdfs/label             #rdf/langString "South Africa@en",
    :skos/altLabel          ["ZA" "ZAF" "710"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ZM
   "ZM"
@@ -8636,9 +8636,9 @@
    :rdf/type               [:owl/NamedIndividual :dpvo/Country :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Zambia@en",
+   :rdfs/label             #rdf/langString "Zambia@en",
    :skos/altLabel          ["ZM" "ZMB" "894"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def ZW
   "ZW"
@@ -8655,73 +8655,73 @@
    :rdf/type               [:dpvo/Country :owl/NamedIndividual :dpvo/Location],
    :rdfs/isDefinedBy       {:rdfa/uri
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label             #xsd/langString "Zimbabwe@en",
+   :rdfs/label             #rdf/langString "Zimbabwe@en",
    :skos/altLabel          ["ZW" "ZWE" "716"],
-   :vs/term_status         #xsd/langString "accepted@en"})
+   :vs/term_status         #rdf/langString "accepted@en"})
 
 (def iso_alpha2
   "The ISO-Alpha2 code for a given region"
   {:db/ident            :dpvo-legal/iso_alpha2,
    :dcterms/created     #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "The ISO-Alpha2 code for a given region@en",
    :dcterms/source      {:rdfa/uri
                          "https://www.iso.org/iso-3166-country-codes.html"},
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Location,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label          #xsd/langString "ISO-alpha2@en",
+   :rdfs/label          #rdf/langString "ISO-alpha2@en",
    :rdfs/range          :xsd/string,
    :rdfs/subPropertyOf  :skos/altLabel,
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def iso_alpha3
   "The ISO-Alpha3 code for a given region"
   {:db/ident            :dpvo-legal/iso_alpha3,
    :dcterms/created     #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "The ISO-Alpha3 code for a given region@en",
    :dcterms/source      {:rdfa/uri
                          "https://www.iso.org/iso-3166-country-codes.html"},
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Location,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label          #xsd/langString "ISO-alpha3@en",
+   :rdfs/label          #rdf/langString "ISO-alpha3@en",
    :rdfs/range          :xsd/string,
    :rdfs/subPropertyOf  :skos/altLabel,
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def iso_numeric
   "The ISO-Numeric code for a given region"
   {:db/ident            :dpvo-legal/iso_numeric,
    :dcterms/created     #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "The ISO-Numeric code for a given region@en",
    :dcterms/source      {:rdfa/uri
                          "https://www.iso.org/iso-3166-country-codes.html"},
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Location,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label          #xsd/langString "ISO-numeric@en",
+   :rdfs/label          #rdf/langString "ISO-numeric@en",
    :rdfs/range          :xsd/string,
    :rdfs/subPropertyOf  :skos/altLabel,
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def un_m49
   "The UN-M49 code for a given region"
   {:db/ident            :dpvo-legal/un_m49,
    :dcterms/created     #xsd/date #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "The UN-M49 code for a given region@en",
+   :dcterms/description #rdf/langString "The UN-M49 code for a given region@en",
    :dcterms/source      {:rdfa/uri
                          "https://unstats.un.org/unsd/methodology/m49"},
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :dpvo/Location,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
-   :rdfs/label          #xsd/langString "UN-M49@en",
+   :rdfs/label          #rdf/langString "UN-M49@en",
    :rdfs/range          :xsd/string,
    :rdfs/subPropertyOf  :skos/altLabel,
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})

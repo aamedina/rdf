@@ -12,7 +12,7 @@
   {:db/ident     :test/ReviewStatus,
    :rdf/type     :owl/Class,
    :rdfs/comment "A particular stage in a review process",
-   :rdfs/label   #xsd/langString "Status in a review process@en"})
+   :rdfs/label   #rdf/langString "Status in a review process@en"})
 
 (def SimpleReviewStatus
   "A status for a simple review process containing 6 possible stages"
@@ -25,7 +25,7 @@
                :test/onhold],
    :rdf/type :owl/Class,
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "A status for a simple review process containing 6 possible stages@en",
    :rdfs/subClassOf :test/ReviewStatus})
 
@@ -35,7 +35,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A test case which relates to a requirement set in a specification",
-   :rdfs/label #xsd/langString "A Test Case based on a specification@en",
+   :rdfs/label #rdf/langString "A Test Case based on a specification@en",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :test/specificationReference,
                       :rdf/type           :owl/Restriction}
@@ -71,7 +71,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A set of test inputs, execution conditions, and expected results developed for a particular objective, such as to exercise a particular program path or to verify compliance with a specific requirement",
-   :rdfs/label #xsd/langString "A Test Case@en",
+   :rdfs/label #rdf/langString "A Test Case@en",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty     :dc11/rights,
                       :rdf/type           :owl/Restriction}
@@ -103,7 +103,7 @@
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
    "the item has gone through a first review, which shows it as valid for further processing",
-   :rdfs/label #xsd/langString "accepted@en"})
+   :rdfs/label #rdf/langString "accepted@en"})
 
 (def approved
   "the item has gone through the review process and was approved"
@@ -111,7 +111,7 @@
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
    "the item has gone through the review process and was approved",
-   :rdfs/label #xsd/langString "approved@en"})
+   :rdfs/label #rdf/langString "approved@en"})
 
 (def assigned
   "a more specific review of the item has been assigned to someone"
@@ -119,7 +119,7 @@
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
    "a more specific review of the item has been assigned to someone",
-   :rdfs/label #xsd/langString "assigned@en"})
+   :rdfs/label #rdf/langString "assigned@en"})
 
 (def expectedResults
   "The results that a conformant implementation is expected to produce when this test is executed"
@@ -128,16 +128,16 @@
    :rdfs/comment
    "The results that a conformant implementation is expected to produce when this test is executed",
    :rdfs/domain :test/TestCase,
-   :rdfs/label #xsd/langString "expected results@en"})
+   :rdfs/label #rdf/langString "expected results@en"})
 
 (def informationResourceInput
   "Information Resource (e.g. a file) used as input for the test case"
   {:db/ident :test/informationResourceInput,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Information Resource (e.g. a file) used as input for the test case@en",
-   :rdfs/label #xsd/langString "information resource as input@en",
+   :rdfs/label #rdf/langString "information resource as input@en",
    :rdfs/range :gen/InformationResource,
    :rdfs/subPropertyOf :test/input})
 
@@ -147,7 +147,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Information Resource (e.g. a file) that contains the expected results for the test case",
-   :rdfs/label #xsd/langString "information resource as expected results@en",
+   :rdfs/label #rdf/langString "information resource as expected results@en",
    :rdfs/range :gen/InformationResource,
    :rdfs/subPropertyOf :test/expectedResults})
 
@@ -156,10 +156,10 @@
   {:db/ident :test/input,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Parameters or data that are needed for the test execution.@en",
    :rdfs/domain :test/TestCase,
-   :rdfs/label #xsd/langString "input@en"})
+   :rdfs/label #rdf/langString "input@en"})
 
 (def onhold
   "the item had already gone through the review process, but the results of the review need to be re-assessed due to new input"
@@ -173,10 +173,10 @@
   "a condition that must be met before the test is executed"
   {:db/ident     :test/preCondition,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "a condition that must be met before the test is executed@en",
    :rdfs/domain  :test/TestCase,
-   :rdfs/label   #xsd/langString "precondition@en",
+   :rdfs/label   #rdf/langString "precondition@en",
    :rdfs/range   :rdfs/Literal})
 
 (def purpose
@@ -184,7 +184,7 @@
   {:db/ident    :test/purpose,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/domain :test/TestCase,
-   :rdfs/label  #xsd/langString "purpose@en",
+   :rdfs/label  #rdf/langString "purpose@en",
    :rdfs/range  :rdfs/Literal})
 
 (def rejected
@@ -193,13 +193,13 @@
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
    "the item has gone through the review process and was rejected",
-   :rdfs/label #xsd/langString "rejected@en"})
+   :rdfs/label #rdf/langString "rejected@en"})
 
 (def reviewStatus
   "status of review"
   {:db/ident   :test/reviewStatus,
    :rdf/type   :owl/ObjectProperty,
-   :rdfs/label #xsd/langString "status of review@en",
+   :rdfs/label #rdf/langString "status of review@en",
    :rdfs/range :test/ReviewStatus})
 
 (def specificationReference
@@ -207,10 +207,10 @@
   {:db/ident :test/specificationReference,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "a description or a link of what part of which specification lead to the creation of this test case@en",
    :rdfs/domain :test/TestCase,
-   :rdfs/label #xsd/langString "reference in specification@en",
+   :rdfs/label #rdf/langString "reference in specification@en",
    :rdfs/range :rdfs/Literal})
 
 (def unreviewed
@@ -219,4 +219,4 @@
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
    "the item has been proposed, but hasn't been reviewed (e.g. for completeness) yet",
-   :rdfs/label #xsd/langString "unreviewed@en"})
+   :rdfs/label #rdf/langString "unreviewed@en"})

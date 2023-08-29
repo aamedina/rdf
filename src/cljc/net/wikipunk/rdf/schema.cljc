@@ -626,9 +626,9 @@
   {:db/ident :schema/ArchiveComponent,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections.@en",
-   :rdfs/label #xsd/langString "ArchiveComponent@en",
+   :rdfs/label #rdf/langString "ArchiveComponent@en",
    :rdfs/subClassOf [:schema/CreativeWork :schema/Thing :rdfs/Resource],
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/source {:rdfa/uri
@@ -639,9 +639,9 @@
   {:db/ident :schema/ArchiveOrganization,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public.@en",
-   :rdfs/label #xsd/langString "ArchiveOrganization@en",
+   :rdfs/label #rdf/langString "ArchiveOrganization@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/Thing
                      :schema/Organization
@@ -18338,9 +18338,9 @@
   {:db/ident :schema/archiveHeld,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept or maintained by an [[ArchiveOrganization]].@en",
-   :rdfs/label #xsd/langString "archiveHeld@en",
+   :rdfs/label #rdf/langString "archiveHeld@en",
    :schema/domainIncludes :schema/ArchiveOrganization,
    :schema/inverseOf :schema/holdingArchive,
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -20188,9 +20188,9 @@
   "The number of items in the [[Collection]]."
   {:db/ident :schema/collectionSize,
    :rdf/type :rdf/Property,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "The number of items in the [[Collection]].@en",
-   :rdfs/label #xsd/langString "collectionSize@en",
+   :rdfs/label #rdf/langString "collectionSize@en",
    :schema/domainIncludes :schema/Collection,
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/rangeIncludes :schema/Integer,
@@ -24502,9 +24502,9 @@
   {:db/ident :schema/holdingArchive,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "[[ArchiveOrganization]] that holds, keeps or maintains the [[ArchiveComponent]].@en",
-   :rdfs/label #xsd/langString "holdingArchive@en",
+   :rdfs/label #rdf/langString "holdingArchive@en",
    :schema/domainIncludes :schema/ArchiveComponent,
    :schema/inverseOf :schema/archiveHeld,
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -25624,8 +25624,8 @@
   "Current location of the item."
   {:db/ident :schema/itemLocation,
    :rdf/type :rdf/Property,
-   :rdfs/comment #xsd/langString "Current location of the item.@en",
-   :rdfs/label #xsd/langString "itemLocation@en",
+   :rdfs/comment #rdf/langString "Current location of the item.@en",
+   :rdfs/label #rdf/langString "itemLocation@en",
    :rdfs/subPropertyOf :schema/location,
    :schema/domainIncludes :schema/ArchiveComponent,
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
@@ -26620,9 +26620,9 @@
   {:db/ident :schema/materialExtent,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The quantity of the materials being described or an expression of the physical space they occupy.@en",
-   :rdfs/label #xsd/langString "materialExtent@en",
+   :rdfs/label #rdf/langString "materialExtent@en",
    :schema/domainIncludes :schema/CreativeWork,
    :schema/isPartOf {:rdfa/uri "http://pending.schema.org"},
    :schema/rangeIncludes [:schema/Text :schema/QuantitativeValue],

@@ -17,10 +17,10 @@
   "Nature of relationship (between samples)"
   {:db/ident :sampling/RelationshipNature,
    :rdf/type [:rdfs/Class :owl/Class],
-   :rdfs/label #xsd/langString "Nature of relationship (between samples)@en",
+   :rdfs/label #rdf/langString "Nature of relationship (between samples)@en",
    :rdfs/subClassOf [:rdfs/Resource :skos/Concept],
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "Members of this class indicate the nature of a relationship between two samples@en",
    :skos/example ["Adjacent flight-line"
                   "Probe spot on polished specimen"
@@ -37,40 +37,40 @@
   "Sample relationship"
   {:db/ident :sampling/SampleRelationship,
    :rdf/type [:owl/Class :rdfs/Class],
-   :rdfs/label #xsd/langString "Sample relationship@en",
+   :rdfs/label #rdf/langString "Sample relationship@en",
    :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "Members of this class represent a relationship between a sample and another@en"})
 
 (def hasSampleRelationship
   "has sample relationship"
   {:db/ident :sampling/hasSampleRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label #xsd/langString "has sample relationship@en",
+   :rdfs/label #rdf/langString "has sample relationship@en",
    :schema/domainIncludes :sosa/Sample,
    :schema/rangeIncludes :sampling/SampleRelationship,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "Links a sample to a sample relationship (which links to a related sample)@en"})
 
 (def natureOfRelationship
   "nature of (sample) relationship"
   {:db/ident :sampling/natureOfRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label #xsd/langString "nature of (sample) relationship@en",
+   :rdfs/label #rdf/langString "nature of (sample) relationship@en",
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sampling/RelationshipNature,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "Links a SampleRelationship to an indication of the nature of the relationship@en"})
 
 (def relatedSample
   "related sample"
   {:db/ident        :sampling/relatedSample,
    :rdf/type        :owl/ObjectProperty,
-   :rdfs/label      #xsd/langString "related sample@en",
+   :rdfs/label      #rdf/langString "related sample@en",
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sosa/Sample,
-   :skos/definition #xsd/langString
+   :skos/definition #rdf/langString
                      "Links a sample relationship to the related sample@en"})

@@ -44,9 +44,9 @@
   "A review of an work"
   {:db/ident         :rev/Review,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     #xsd/langString "A review of an work@en",
+   :rdfs/comment     #rdf/langString "A review of an work@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "Review@en",
+   :rdfs/label       #rdf/langString "Review@en",
    :rdfs/subClassOf  :rdfs/Resource,
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
@@ -91,10 +91,10 @@
   "Associates a work with a a review"
   {:db/ident         :rev/hasReview,
    :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     #xsd/langString "Associates a work with a a review@en",
+   :rdfs/comment     #rdf/langString "Associates a work with a a review@en",
    :rdfs/domain      :rdfs/Resource,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "has Review@en",
+   :rdfs/label       #rdf/langString "has Review@en",
    :rdfs/range       :rev/Review,
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
@@ -102,22 +102,22 @@
 (def maxRating
   "Maximum value for rating property"
   {:db/ident         :rev/maxRating,
-   :dc11/description #xsd/langString "Maximum value for rating property@en",
+   :dc11/description #rdf/langString "Maximum value for rating property@en",
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #xsd/langString "A numeric value@en",
+   :rdfs/comment     #rdf/langString "A numeric value@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "max Rating@en",
+   :rdfs/label       #rdf/langString "max Rating@en",
    :vs/moreinfo      "Introduced by request of Revyu.com",
    :vs/term_status   "stable"})
 
 (def minRating
   "Minimum value for rating property"
   {:db/ident         :rev/minRating,
-   :dc11/description #xsd/langString "Minimum value for rating property@en",
+   :dc11/description #rdf/langString "Minimum value for rating property@en",
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #xsd/langString "A numeric value@en",
+   :rdfs/comment     #rdf/langString "A numeric value@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "min Rating@en",
+   :rdfs/label       #rdf/langString "min Rating@en",
    :vs/moreinfo      "Introduced by request of Revyu.com",
    :vs/term_status   "stable"})
 
@@ -137,9 +137,9 @@
   "A numeric value"
   {:db/ident         :rev/rating,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     #xsd/langString "A numeric value@en",
+   :rdfs/comment     #rdf/langString "A numeric value@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "rating@en",
+   :rdfs/label       #rdf/langString "rating@en",
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
 
@@ -147,11 +147,11 @@
   "The person that has written the review"
   {:db/ident         :rev/reviewer,
    :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "The person that has written the review@en",
    :rdfs/domain      :rev/Review,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "reviewer@en",
+   :rdfs/label       #rdf/langString "reviewer@en",
    :rdfs/range       :foaf/Person,
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
@@ -160,9 +160,9 @@
   "The text of the review"
   {:db/ident         :rev/text,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     #xsd/langString "The text of the review@en",
+   :rdfs/comment     #rdf/langString "The text of the review@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/stuff/rev#"},
-   :rdfs/label       #xsd/langString "text@en",
+   :rdfs/label       #rdf/langString "text@en",
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
 

@@ -2,7 +2,7 @@
   "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories."
   {:dcat/downloadURL "resources/dpv-owl/dpv-pd/dpv-pd.ttl",
    :dcterms/abstract
-   #xsd/langString
+   #rdf/langString
     "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories.@en",
    :dcterms/contributor ["Rigo Wenning"
                          "Beatriz Esteves"
@@ -27,13 +27,13 @@
    :dcterms/creator [{:xsd/string "Axel Polleres"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories.@en",
    :dcterms/license {:rdfa/uri
                      "https://www.w3.org/Consortium/Legal/2015/doc-license"},
    :dcterms/modified #xsd/date #inst "2022-12-05T00:00:00.000-05:00",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
-   :dcterms/title #xsd/langString "DPV-PD: Personal Data Extension for DPV@en",
+   :dcterms/title #rdf/langString "DPV-PD: Personal Data Extension for DPV@en",
    :owl/imports {:rdfa/uri "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "1",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
@@ -56,16 +56,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about linguistic and speech accents.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Accent@en",
+   :rdfs/label #rdf/langString "Accent@en",
    :rdfs/subClassOf [:dpvo-pd/Language :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def AccountIdentifier
   "Information about financial account identifier."
@@ -73,17 +73,17 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about financial account identifier.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Account Identifier@en",
+   :rdfs/label #rdf/langString "Account Identifier@en",
    :rdfs/subClassOf
    [:dpvo-pd/FinancialAccount :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Acquantaince
   "Information about acquaintainces in a social network."
@@ -92,15 +92,15 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString "Information about acquaintainces in a social network.@en",
+   #rdf/langString "Information about acquaintainces in a social network.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Acquantaince@en",
+   :rdfs/label #rdf/langString "Acquantaince@en",
    :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Age
   "Information about age"
@@ -108,16 +108,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about age@en",
+   :dcterms/description #rdf/langString "Information about age@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Age@en",
+   :rdfs/label #rdf/langString "Age@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def AgeExact
   "Information about the exact age (i.e. to some degree within a year, month, or day)"
@@ -125,17 +125,17 @@
    :dcterms/created #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the exact age (i.e. to some degree within a year, month, or day)@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Age Exact@en",
+   :rdfs/label #rdf/langString "Age Exact@en",
    :rdfs/subClassOf [:dpvo-pd/AgeRange
                      :dpvo-pd/Age
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo-pd/PhysicalCharacteristic],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def AgeRange
   "Information about age range i.e. inexact age to some degree (i.e. some years)"
@@ -143,16 +143,16 @@
    :dcterms/created #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about age range i.e. inexact age to some degree (i.e. some years)@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Age Range@en",
+   :rdfs/label #rdf/langString "Age Range@en",
    :rdfs/subClassOf [:dpvo-pd/Age
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo-pd/PhysicalCharacteristic],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ApartmentOwned
   "Information about apartment(s) owned and its history"
@@ -161,18 +161,18 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about apartment(s) owned and its history@en",
+   #rdf/langString "Information about apartment(s) owned and its history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Apartment Owned@en",
+   :rdfs/label #rdf/langString "Apartment Owned@en",
    :rdfs/subClassOf [:dpvo-pd/HouseOwned
                      :dpvo-pd/Ownership
                      :dpvo-pd/Financial
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Association
   "Information about associations in a social network with other individuals, groups, or entities e.g. friend of a friend"
@@ -181,16 +181,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about associations in a social network with other individuals, groups, or entities e.g. friend of a friend@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Association@en",
+   :rdfs/label #rdf/langString "Association@en",
    :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Attitude
   "Information about attitude."
@@ -198,15 +198,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about attitude.@en",
+   :dcterms/description #rdf/langString "Information about attitude.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Attitude@en",
+   :rdfs/label #rdf/langString "Attitude@en",
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Authenticating
   "Information about authentication and information used for authenticating"
@@ -215,16 +215,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about authentication and information used for authenticating@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Authenticating@en",
+   :rdfs/label #rdf/langString "Authenticating@en",
    :rdfs/subClassOf [:dpvo-pd/Internal :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def AuthenticationHistory
   "Information about prior authentication and its outcomes such as login attempts or location."
@@ -232,14 +232,14 @@
    :dcterms/created #xsd/date #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about prior authentication and its outcomes such as login attempts or location.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Authentication History@en",
+   :rdfs/label #rdf/langString "Authentication History@en",
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def BankAccount
   "Information about bank accounts."
@@ -247,16 +247,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about bank accounts.@en",
+   :dcterms/description #rdf/langString "Information about bank accounts.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Bank Account@en",
+   :rdfs/label #rdf/langString "Bank Account@en",
    :rdfs/subClassOf
    [:dpvo-pd/FinancialAccount :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Behavioral
   "Information about Behavior or activity"
@@ -264,18 +264,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about Behavior or activity@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Behavioral@en",
+   :rdfs/label #rdf/langString "Behavioral@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Activity"},
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Biometric
   "Information about biometrics and biometric characteristics."
@@ -284,48 +284,48 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about biometrics and biometric characteristics.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Biometric@en",
+   :rdfs/label #rdf/langString "Biometric@en",
    :rdfs/subClassOf [:dpvo-pd/Identifying
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/External
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def BirthDate
   "Information about birth date"
   {:db/ident            :dpvo-pd/BirthDate,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about birth date@en",
+   :dcterms/description #rdf/langString "Information about birth date@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Birth Date@en",
+   :rdfs/label          #rdf/langString "Birth Date@en",
    :rdfs/subClassOf     [:dpvo-pd/Age
                          :dpvo-pd/External
                          :dpvo/PersonalData
                          :dpvo-pd/PhysicalCharacteristic],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def BirthPlace
   "Information about birth place"
   {:db/ident            :dpvo-pd/BirthPlace,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about birth place@en",
+   :dcterms/description #rdf/langString "Information about birth place@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Birth Place@en",
+   :rdfs/label          #rdf/langString "Birth Place@en",
    :rdfs/subClassOf     [:dpvo-pd/Location
                          :dpvo-pd/Tracking
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def BloodType
   "Information about blood type."
@@ -333,18 +333,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about blood type.@en",
+   :dcterms/description #rdf/langString "Information about blood type.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Blood Type@en",
+   :rdfs/label #rdf/langString "Blood Type@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def BrowserFingerprint
   "Information about the web browser which is used as a 'fingerprint'"
@@ -353,16 +353,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the web browser which is used as a 'fingerprint'@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Browser Fingerprint@en",
+   :rdfs/label #rdf/langString "Browser Fingerprint@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def BrowserHistory
   "Information about and including web browsing history"
@@ -370,15 +370,15 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString "Information about and including web browsing history@en",
+   #rdf/langString "Information about and including web browsing history@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Browser History@en",
+   :rdfs/label #rdf/langString "Browser History@en",
    :rdfs/subClassOf [:dpvo-pd/BrowsingBehavior
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo-pd/Behavioral],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def BrowsingBehavior
   "Information about browsing Behavior."
@@ -386,18 +386,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about browsing Behavior.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Browsing Behavior@en",
+   :rdfs/label #rdf/langString "Browsing Behavior@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#OnlineActivity"},
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def BrowsingReferral
   "Information about web browsing referrer or referral, which can be based on location, targeted referrals, direct, organic search, social media or actions, campaigns."
@@ -405,17 +405,17 @@
    :dcterms/created #xsd/date #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about web browsing referrer or referral, which can be based on location, targeted referrals, direct, organic search, social media or actions, campaigns.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Browsing Referral@en",
+   :rdfs/label #rdf/langString "Browsing Referral@en",
    :rdfs/subClassOf [:dpvo-pd/BrowsingBehavior
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo-pd/Behavioral],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CallLog
   "Information about the calls that an individual has made."
@@ -424,16 +424,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the calls that an individual has made.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Call Log@en",
+   :rdfs/label #rdf/langString "Call Log@en",
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CarOwned
   "Information about cars ownership and ownership history."
@@ -442,15 +442,15 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString "Information about cars ownership and ownership history.@en",
+   #rdf/langString "Information about cars ownership and ownership history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Car Owned@en",
+   :rdfs/label #rdf/langString "Car Owned@en",
    :rdfs/subClassOf [:dpvo-pd/Ownership :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CharacterClass
   "Information about character in the public sphere"
@@ -458,16 +458,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about character in the public sphere@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Character@en",
+   :rdfs/label #rdf/langString "Character@en",
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Communication
   "Information communicated from or to an individual"
@@ -475,16 +475,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information communicated from or to an individual@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Communication@en",
+   :rdfs/label #rdf/langString "Communication@en",
    :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CommunicationsMetadata
   "Information about communication metadata in the public sphere"
@@ -493,18 +493,18 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about communication metadata in the public sphere@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Communications Metadata@en",
+   :rdfs/label #rdf/langString "Communications Metadata@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Interactive"},
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Connection
   "Information about and including connections in a social network"
@@ -513,16 +513,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about and including connections in a social network@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Connection@en",
+   :rdfs/label #rdf/langString "Connection@en",
    :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Contact
   "Information about contacts or used for contacting e.g. email address or phone number"
@@ -531,18 +531,18 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about contacts or used for contacting e.g. email address or phone number@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Contact@en",
+   :rdfs/label #rdf/langString "Contact@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Physical"},
    :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Country
   "Information about country e.g. residence, travel."
@@ -550,16 +550,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about country e.g. residence, travel.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Country@en",
+   :rdfs/label #rdf/langString "Country@en",
    :rdfs/subClassOf [:dpvo-pd/Location :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Credit
   "Information about reputation with regards to money"
@@ -568,16 +568,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about reputation with regards to money@en",
+   #rdf/langString "Information about reputation with regards to money@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit@en",
+   :rdfs/label #rdf/langString "Credit@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CreditCapacity
   "Information about credit capacity."
@@ -585,18 +585,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about credit capacity.@en",
+   :dcterms/description #rdf/langString "Information about credit capacity.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit Capacity@en",
+   :rdfs/label #rdf/langString "Credit Capacity@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
                      :dpvo-pd/Transactional
                      :dpvo-pd/Financial
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CreditCardNumber
   "Information about credit card number"
@@ -604,21 +604,21 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about credit card number@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit Card Number@en",
+   :rdfs/label #rdf/langString "Credit Card Number@en",
    :rdfs/subClassOf [:dpvo-pd/PaymentCardNumber
                      :dpvo-pd/PaymentCard
                      :dpvo-pd/Financial
                      :dpvo/PersonalData
                      :dpvo-pd/FinancialAccount
                      :dpvo-pd/AccountIdentifier],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CreditRecord
   "Information about credit record."
@@ -626,18 +626,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about credit record.@en",
+   :dcterms/description #rdf/langString "Information about credit record.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit Record@en",
+   :rdfs/label #rdf/langString "Credit Record@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
                      :dpvo-pd/Transactional
                      :dpvo-pd/Financial
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CreditScore
   "Information about credit score."
@@ -645,19 +645,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about credit score.@en",
+   :dcterms/description #rdf/langString "Information about credit score.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit Score@en",
+   :rdfs/label #rdf/langString "Credit Score@en",
    :rdfs/subClassOf [:dpvo-pd/CreditWorthiness
                      :dpvo-pd/Transactional
                      :dpvo-pd/Financial
                      :dpvo-pd/Credit
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CreditStanding
   "Information about credit standing."
@@ -665,18 +665,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about credit standing.@en",
+   :dcterms/description #rdf/langString "Information about credit standing.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit Standing@en",
+   :rdfs/label #rdf/langString "Credit Standing@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
                      :dpvo-pd/Transactional
                      :dpvo-pd/Financial
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CreditWorthiness
   "Information about credit worthiness."
@@ -684,19 +684,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about credit worthiness.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Credit Worthiness@en",
+   :rdfs/label #rdf/langString "Credit Worthiness@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
                      :dpvo-pd/Transactional
                      :dpvo-pd/Financial
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Criminal
   "Information about criminal activity e.g. criminal convictions or jail time"
@@ -705,18 +705,18 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about criminal activity e.g. criminal convictions or jail time@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Criminal@en",
+   :rdfs/label #rdf/langString "Criminal@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Judicial"},
    :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CriminalCharge
   "Information about criminal charges."
@@ -724,16 +724,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about criminal charges.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Criminal Charge@en",
+   :rdfs/label #rdf/langString "Criminal Charge@en",
    :rdfs/subClassOf [:dpvo-pd/Criminal :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CriminalConviction
   "Information about criminal convictions."
@@ -741,29 +741,29 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about criminal convictions.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Criminal Conviction@en",
+   :rdfs/label #rdf/langString "Criminal Conviction@en",
    :rdfs/subClassOf [:dpvo-pd/Criminal :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CriminalOffense
   "Information about criminal offenses"
   {:db/ident            :dpvo-pd/CriminalOffense,
    :dcterms/created     #xsd/date #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Georg P Krog"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about criminal offenses@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Criminal Offense@en",
+   :rdfs/label          #rdf/langString "Criminal Offense@en",
    :rdfs/subClassOf     [:dpvo-pd/Criminal :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def CriminalPardon
   "Information about criminal pardons."
@@ -771,32 +771,32 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about criminal pardons.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Criminal Pardon@en",
+   :rdfs/label #rdf/langString "Criminal Pardon@en",
    :rdfs/subClassOf [:dpvo-pd/Criminal :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def CurrentEmployment
   "Information about current employment"
   {:db/ident            :dpvo-pd/CurrentEmployment,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about current employment@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Current Employment@en",
+   :rdfs/label          #rdf/langString "Current Employment@en",
    :rdfs/subClassOf     [:dpvo-pd/EmploymentHistory
                          :dpvo-pd/Social
                          :dpvo-pd/Professional
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def DNACode
   "Information about DNA."
@@ -804,18 +804,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about DNA.@en",
+   :dcterms/description #rdf/langString "Information about DNA.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "DNA Code@en",
+   :rdfs/label #rdf/langString "DNA Code@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Demeanor
   "Information about demeanor."
@@ -823,15 +823,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about demeanor.@en",
+   :dcterms/description #rdf/langString "Information about demeanor.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Demeanor@en",
+   :rdfs/label #rdf/langString "Demeanor@en",
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Demographic
   "Information about demography and demographic characteristics"
@@ -840,16 +840,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about demography and demographic characteristics@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Demographic@en",
+   :rdfs/label #rdf/langString "Demographic@en",
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DeviceApplications
   "Information about applications or application-like software on a device."
@@ -860,17 +860,17 @@
                      {:xsd/string "Beatriz Esteves"}
                      {:xsd/string "Paul Ryan"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about applications or application-like software on a device.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Device Applications@en",
+   :rdfs/label #rdf/langString "Device Applications@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceSoftware
                      :dpvo-pd/DeviceBased
                      :dpvo-pd/Tracking
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DeviceBased
   "Information about devices"
@@ -878,17 +878,17 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about devices@en",
+   :dcterms/description #rdf/langString "Information about devices@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Device Based@en",
+   :rdfs/label #rdf/langString "Device Based@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Computer"},
    :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DeviceOperatingSystem
   "Information about the operating system (OS) or system software that manages hardware or software resources."
@@ -899,17 +899,17 @@
                      {:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Georg P Krog"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the operating system (OS) or system software that manages hardware or software resources.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Device Operating System@en",
+   :rdfs/label #rdf/langString "Device Operating System@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceSoftware
                      :dpvo-pd/DeviceBased
                      :dpvo-pd/Tracking
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DeviceSoftware
   "Information about software on or related to a device."
@@ -920,13 +920,13 @@
                      {:xsd/string "Beatriz Esteves"}
                      {:xsd/string "Paul Ryan"}],
    :dcterms/description
-   #xsd/langString "Information about software on or related to a device.@en",
+   #rdf/langString "Information about software on or related to a device.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Device Software@en",
+   :rdfs/label #rdf/langString "Device Software@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Dialect
   "Information about linguistic dialects."
@@ -934,16 +934,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about linguistic dialects.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Dialect@en",
+   :rdfs/label #rdf/langString "Dialect@en",
    :rdfs/subClassOf [:dpvo-pd/Language :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DigitalFingerprint
   "Information about a 'digital fingerprint' created for identification"
@@ -951,13 +951,13 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about a 'digital fingerprint' created for identification@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Digital Fingerprint@en",
+   :rdfs/label #rdf/langString "Digital Fingerprint@en",
    :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Disability
   "Information about disabilities."
@@ -965,18 +965,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about disabilities.@en",
+   :dcterms/description #rdf/langString "Information about disabilities.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Disability@en",
+   :rdfs/label #rdf/langString "Disability@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DisciplinaryAction
   "Information about disciplinary actions and its history"
@@ -985,15 +985,15 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString "Information about disciplinary actions and its history@en",
+   #rdf/langString "Information about disciplinary actions and its history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Disciplinary Action@en",
+   :rdfs/label #rdf/langString "Disciplinary Action@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Dislike
   "Information about dislikes or preferences regarding repulsions."
@@ -1002,17 +1002,17 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about dislikes or preferences regarding repulsions.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Dislike@en",
+   :rdfs/label #rdf/langString "Dislike@en",
    :rdfs/subClassOf
    [:dpvo-pd/Interest :dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Divorce
   "Information about divorce(s)."
@@ -1020,18 +1020,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about divorce(s).@en",
+   :dcterms/description #rdf/langString "Information about divorce(s).@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Divorce@en",
+   :rdfs/label #rdf/langString "Divorce@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/Family],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def DrugTestResult
   "Information about drug test results."
@@ -1039,33 +1039,33 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about drug test results.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Drug Test Result@en",
+   :rdfs/label #rdf/langString "Drug Test Result@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Education
   "Information about education"
   {:db/ident            :dpvo-pd/Education,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about education@en",
+   :dcterms/description #rdf/langString "Information about education@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Education@en",
+   :rdfs/label          #rdf/langString "Education@en",
    :rdfs/subClassOf     [:dpvo-pd/Professional
                          :dpvo-pd/Social
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def EducationExperience
   "Information about education experience e.g. attending a university"
@@ -1073,32 +1073,32 @@
    :dcterms/created #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about education experience e.g. attending a university@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Education Experience@en",
+   :rdfs/label #rdf/langString "Education Experience@en",
    :rdfs/subClassOf [:dpvo-pd/Education
                      :dpvo-pd/Social
                      :dpvo-pd/Professional
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def EducationQualification
   "Information about educational qualifications"
   {:db/ident            :dpvo-pd/EducationQualification,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about educational qualifications@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Education Qualification@en",
+   :rdfs/label          #rdf/langString "Education Qualification@en",
    :rdfs/subClassOf     [:dpvo-pd/Education
                          :dpvo-pd/Social
                          :dpvo-pd/Professional
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def EmailAddress
   "Information about Email address."
@@ -1106,15 +1106,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about Email address.@en",
+   :dcterms/description #rdf/langString "Information about Email address.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Email Address@en",
+   :rdfs/label #rdf/langString "Email Address@en",
    :rdfs/subClassOf [:dpvo-pd/Contact :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def EmailAddressPersonal
   "Information about Email address used in Personal capacity"
@@ -1122,16 +1122,16 @@
    :dcterms/created #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about Email address used in Personal capacity@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Email Address Personal@en",
+   :rdfs/label #rdf/langString "Email Address Personal@en",
    :rdfs/subClassOf [:dpvo-pd/EmailAddress
                      :dpvo-pd/Tracking
                      :dpvo/PersonalData
                      :dpvo-pd/Contact],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def EmailAddressWork
   "Information about Email address used for Work or in Professional capacity"
@@ -1139,16 +1139,16 @@
    :dcterms/created #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about Email address used for Work or in Professional capacity@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Email Address Work@en",
+   :rdfs/label #rdf/langString "Email Address Work@en",
    :rdfs/subClassOf [:dpvo-pd/EmailAddress
                      :dpvo-pd/Tracking
                      :dpvo/PersonalData
                      :dpvo-pd/Contact],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def EmailContent
   "Information about the contents of Emails sent or received"
@@ -1157,16 +1157,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the contents of Emails sent or received@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Email Content@en",
+   :rdfs/label #rdf/langString "Email Content@en",
    :rdfs/subClassOf [:dpvo-pd/Communication :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def EmploymentHistory
   "Information about employment history"
@@ -1174,16 +1174,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about employment history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Employment History@en",
+   :rdfs/label #rdf/langString "Employment History@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def EthnicOrigin
   "Information about ethnic origin"
@@ -1191,18 +1191,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about ethnic origin@en",
+   :dcterms/description #rdf/langString "Information about ethnic origin@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Ethnic Origin@en",
+   :rdfs/label #rdf/langString "Ethnic Origin@en",
    :rdfs/subClassOf [:dpvo-pd/Ethnicity
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/External
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Ethnicity
   "Information about ethnic origins and lineage"
@@ -1210,16 +1210,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about ethnic origins and lineage@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Ethnicity@en",
+   :rdfs/label #rdf/langString "Ethnicity@en",
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def External
   "Information about external characteristics that can be observed"
@@ -1228,33 +1228,33 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about external characteristics that can be observed@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "External@en",
+   :rdfs/label #rdf/langString "External@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FacialPrint
   "Information about facial print or pattern"
   {:db/ident            :dpvo-pd/FacialPrint,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about facial print or pattern@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Facial Print@en",
+   :rdfs/label          #rdf/langString "Facial Print@en",
    :rdfs/subClassOf     [:dpvo-pd/Biometric
                          :dpvo-pd/External
                          :dpvo/PersonalData
                          :dpvo/SpecialCategoryPersonalData
                          :dpvo-pd/Identifying],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def Family
   "Information about family and relationships"
@@ -1262,16 +1262,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about family and relationships@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Family@en",
+   :rdfs/label #rdf/langString "Family@en",
    :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FamilyHealthHistory
   "Information about family health history."
@@ -1279,20 +1279,20 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about family health history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Family Health History@en",
+   :rdfs/label #rdf/langString "Family Health History@en",
    :rdfs/subClassOf [:dpvo-pd/HealthHistory
                      :dpvo-pd/External
                      :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FamilyStructure
   "Information about family and familial structure."
@@ -1300,16 +1300,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about family and familial structure.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Family Structure@en",
+   :rdfs/label #rdf/langString "Family Structure@en",
    :rdfs/subClassOf [:dpvo-pd/Family :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Favorite
   "Information about favorites"
@@ -1317,15 +1317,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about favorites@en",
+   :dcterms/description #rdf/langString "Information about favorites@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Favorite@en",
+   :rdfs/label #rdf/langString "Favorite@en",
    :rdfs/subClassOf [:dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FavoriteColor
   "Information about favorite color."
@@ -1333,16 +1333,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about favorite color.@en",
+   :dcterms/description #rdf/langString "Information about favorite color.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Favorite Color@en",
+   :rdfs/label #rdf/langString "Favorite Color@en",
    :rdfs/subClassOf
    [:dpvo-pd/Favorite :dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FavoriteFood
   "Information about favorite food."
@@ -1350,16 +1350,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about favorite food.@en",
+   :dcterms/description #rdf/langString "Information about favorite food.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Favorite Food@en",
+   :rdfs/label #rdf/langString "Favorite Food@en",
    :rdfs/subClassOf
    [:dpvo-pd/Favorite :dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FavoriteMusic
   "Information about favorite music."
@@ -1367,16 +1367,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about favorite music.@en",
+   :dcterms/description #rdf/langString "Information about favorite music.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Favorite Music@en",
+   :rdfs/label #rdf/langString "Favorite Music@en",
    :rdfs/subClassOf
    [:dpvo-pd/Favorite :dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Fetish
   "Information about an individual's sexual fetishes"
@@ -1384,19 +1384,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about an individual's sexual fetishes@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Fetish@en",
+   :rdfs/label #rdf/langString "Fetish@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Financial
   "Information about finance including monetary characteristics and transactions"
@@ -1405,18 +1405,18 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about finance including monetary characteristics and transactions@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Financial@en",
+   :rdfs/label #rdf/langString "Financial@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Financial"},
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FinancialAccount
   "Information about financial accounts."
@@ -1424,16 +1424,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about financial accounts.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Financial Account@en",
+   :rdfs/label #rdf/langString "Financial Account@en",
    :rdfs/subClassOf [:dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FinancialAccountNumber
   "Information about financial account number"
@@ -1441,32 +1441,32 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about financial account number@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Financial Account Number@en",
+   :rdfs/label #rdf/langString "Financial Account Number@en",
    :rdfs/subClassOf [:dpvo-pd/AccountIdentifier
                      :dpvo-pd/Financial
                      :dpvo/PersonalData
                      :dpvo-pd/FinancialAccount],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def FinancialStatus
   "Information about financial status or standing"
   {:db/ident            :dpvo-pd/FinancialStatus,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about financial status or standing@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Financial Status@en",
+   :rdfs/label          #rdf/langString "Financial Status@en",
    :rdfs/subClassOf     [:dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def Fingerprint
   "Information about fingerprint used for biometric purposes."
@@ -1475,20 +1475,20 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about fingerprint used for biometric purposes.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Fingerprint@en",
+   :rdfs/label #rdf/langString "Fingerprint@en",
    :rdfs/subClassOf [:dpvo-pd/Biometric
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Identifying],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Friend
   "Information about friends in a social network, including aspects of friendships such as years together or nature of friendship."
@@ -1497,16 +1497,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about friends in a social network, including aspects of friendships such as years together or nature of friendship.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Friend@en",
+   :rdfs/label #rdf/langString "Friend@en",
    :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def GPSCoordinate
   "Information about location expressed using Global Position System coordinates (GPS)"
@@ -1515,16 +1515,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about location expressed using Global Position System coordinates (GPS)@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "GPS Coordinate@en",
+   :rdfs/label #rdf/langString "GPS Coordinate@en",
    :rdfs/subClassOf [:dpvo-pd/Location :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Gender
   "Information about gender"
@@ -1532,16 +1532,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about gender@en",
+   :dcterms/description #rdf/langString "Information about gender@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Gender@en",
+   :rdfs/label #rdf/langString "Gender@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def GeneralReputation
   "Information about reputation in the public sphere"
@@ -1549,16 +1549,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about reputation in the public sphere@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "General Reputation@en",
+   :rdfs/label #rdf/langString "General Reputation@en",
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Genetic
   "Information about inherited or acquired genetic characteristics"
@@ -1566,17 +1566,17 @@
    :dcterms/created #xsd/date #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about inherited or acquired genetic characteristics@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Genetic@en",
+   :rdfs/label #rdf/langString "Genetic@en",
    :rdfs/subClassOf [:dpvo-pd/Health
                      :dpvo-pd/External
                      :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Geographic
   "Information about location or based on geography (e.g. home address)"
@@ -1585,16 +1585,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about location or based on geography (e.g. home address)@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Geographic@en",
+   :rdfs/label #rdf/langString "Geographic@en",
    :rdfs/subClassOf [:dpvo-pd/Demographic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def GroupMembership
   "Information about groups and memberships included or associated with a social network"
@@ -1603,16 +1603,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about groups and memberships included or associated with a social network@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Group Membership@en",
+   :rdfs/label #rdf/langString "Group Membership@en",
    :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def HairColor
   "Information about hair color"
@@ -1620,16 +1620,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about hair color@en",
+   :dcterms/description #rdf/langString "Information about hair color@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Hair Color@en",
+   :rdfs/label #rdf/langString "Hair Color@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Health
   "Information about health."
@@ -1637,20 +1637,20 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about health.@en",
+   :dcterms/description #rdf/langString "Information about health.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Health@en",
+   :rdfs/label #rdf/langString "Health@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Health"},
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def HealthHistory
   "Information about health history."
@@ -1658,18 +1658,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about health history.@en",
+   :dcterms/description #rdf/langString "Information about health history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Health History@en",
+   :rdfs/label #rdf/langString "Health History@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def HealthRecord
   "Information about health record."
@@ -1677,18 +1677,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about health record.@en",
+   :dcterms/description #rdf/langString "Information about health record.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Health Record@en",
+   :rdfs/label #rdf/langString "Health Record@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Height
   "Information about physical height"
@@ -1696,16 +1696,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about physical height@en",
+   :dcterms/description #rdf/langString "Information about physical height@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Height@en",
+   :rdfs/label #rdf/langString "Height@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Historical
   "Information about historical data related to or relevant regarding history or past events"
@@ -1714,16 +1714,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about historical data related to or relevant regarding history or past events@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Historical@en",
+   :rdfs/label #rdf/langString "Historical@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def HouseOwned
   "Information about house(s) owned and ownership history."
@@ -1732,15 +1732,15 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about house(s) owned and ownership history.@en",
+   #rdf/langString "Information about house(s) owned and ownership history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "House Owned@en",
+   :rdfs/label #rdf/langString "House Owned@en",
    :rdfs/subClassOf [:dpvo-pd/Ownership :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Household
   "Information about personal or household activities"
@@ -1748,12 +1748,12 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString "Information about personal or household activities@en",
+   #rdf/langString "Information about personal or household activities@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Household@en",
+   :rdfs/label #rdf/langString "Household@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def IPAddress
   "Information about the Internet Protocol (IP) address of a device"
@@ -1762,16 +1762,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the Internet Protocol (IP) address of a device@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "IP Address@en",
+   :rdfs/label #rdf/langString "IP Address@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Identifier
   "Information about an identifier or name used for identification"
@@ -1779,13 +1779,13 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about an identifier or name used for identification@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Identifier@en",
+   :rdfs/label #rdf/langString "Identifier@en",
    :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Identifying
   "Information that uniquely or semi-uniquely identifies an individual or a group"
@@ -1794,16 +1794,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information that uniquely or semi-uniquely identifies an individual or a group@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Identifying@en",
+   :rdfs/label #rdf/langString "Identifying@en",
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Income
   "Information about financial income e.g. for individual or household or family"
@@ -1812,17 +1812,17 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about financial income e.g. for individual or household or family@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Income@en",
+   :rdfs/label #rdf/langString "Income@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def IncomeBracket
   "Information about income bracket."
@@ -1830,15 +1830,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about income bracket.@en",
+   :dcterms/description #rdf/langString "Information about income bracket.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Income Bracket@en",
+   :rdfs/label #rdf/langString "Income Bracket@en",
    :rdfs/subClassOf [:dpvo-pd/Demographic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def IndividualHealthHistory
   "Information about information health history."
@@ -1846,32 +1846,32 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about information health history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Individual Health History@en",
+   :rdfs/label #rdf/langString "Individual Health History@en",
    :rdfs/subClassOf [:dpvo-pd/HealthHistory
                      :dpvo-pd/External
                      :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Insurance
   "Information about Insurance"
   {:db/ident            :dpvo-pd/Insurance,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about Insurance@en",
+   :dcterms/description #rdf/langString "Information about Insurance@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Insurance@en",
+   :rdfs/label          #rdf/langString "Insurance@en",
    :rdfs/subClassOf     [:dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def Intention
   "Information about intentions"
@@ -1879,15 +1879,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about intentions@en",
+   :dcterms/description #rdf/langString "Information about intentions@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Intention@en",
+   :rdfs/label #rdf/langString "Intention@en",
    :rdfs/subClassOf [:dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Interaction
   "Information about interactions in the public sphere"
@@ -1896,15 +1896,15 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about interactions in the public sphere@en",
+   #rdf/langString "Information about interactions in the public sphere@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Interaction@en",
+   :rdfs/label #rdf/langString "Interaction@en",
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Interest
   "Information about interests"
@@ -1912,15 +1912,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about interests@en",
+   :dcterms/description #rdf/langString "Information about interests@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Interest@en",
+   :rdfs/label #rdf/langString "Interest@en",
    :rdfs/subClassOf [:dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Internal
   "Informatoin about internal characteristics that cannot be seen or observed"
@@ -1929,16 +1929,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Informatoin about internal characteristics that cannot be seen or observed@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Internal@en",
+   :rdfs/label #rdf/langString "Internal@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Job
   "Information about professional jobs"
@@ -1946,16 +1946,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about professional jobs@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Job@en",
+   :rdfs/label #rdf/langString "Job@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def KnowledgeBelief
   "Information about knowledge and beliefs"
@@ -1963,16 +1963,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about knowledge and beliefs@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Knowledge and Beliefs@en",
+   :rdfs/label #rdf/langString "Knowledge and Beliefs@en",
    :rdfs/subClassOf [:dpvo-pd/Internal :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Language
   "Information about language and lingual history."
@@ -1980,7 +1980,7 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about language and lingual history.@en",
    :dcterms/modified #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/source
@@ -1988,9 +1988,9 @@
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Language@en",
+   :rdfs/label #rdf/langString "Language@en",
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "changed@en"})
+   :vs/term_status #rdf/langString "changed@en"})
 
 (def LifeHistory
   "Information about personal history regarding events or activities - including  their occurrences that might be directly related or have had an influence (e.g. World War, 9/11)"
@@ -1999,16 +1999,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about personal history regarding events or activities - including  their occurrences that might be directly related or have had an influence (e.g. World War, 9/11)@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Life History@en",
+   :rdfs/label #rdf/langString "Life History@en",
    :rdfs/subClassOf [:dpvo-pd/Historical :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Like
   "Information about likes or preferences regarding attractions."
@@ -2017,17 +2017,17 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about likes or preferences regarding attractions.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Like@en",
+   :rdfs/label #rdf/langString "Like@en",
    :rdfs/subClassOf
    [:dpvo-pd/Interest :dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def LinkClicked
   "Information about the links that an individual has clicked."
@@ -2036,18 +2036,18 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the links that an individual has clicked.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Link Clicked@en",
+   :rdfs/label #rdf/langString "Link Clicked@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Navigation"},
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def LoanRecord
   "Information about loans, whether applied, provided or rejected, and its history"
@@ -2056,17 +2056,17 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about loans, whether applied, provided or rejected, and its history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Loan Record@en",
+   :rdfs/label #rdf/langString "Loan Record@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Location
   "Information about location"
@@ -2074,17 +2074,17 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about location@en",
+   :dcterms/description #rdf/langString "Information about location@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Location@en",
+   :rdfs/label #rdf/langString "Location@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Location"},
    :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def MACAddress
   "Information about the Media Access Control (MAC) address of a device"
@@ -2093,16 +2093,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the Media Access Control (MAC) address of a device@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "MAC Address@en",
+   :rdfs/label #rdf/langString "MAC Address@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def MaritalStatus
   "Information about marital status and history"
@@ -2110,16 +2110,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about marital status and history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Marital Status@en",
+   :rdfs/label #rdf/langString "Marital Status@en",
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Marriage
   "Information about marriage(s)."
@@ -2127,18 +2127,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about marriage(s).@en",
+   :dcterms/description #rdf/langString "Information about marriage(s).@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Marriage@en",
+   :rdfs/label #rdf/langString "Marriage@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/Family],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def MedicalHealth
   "Information about health, medical conditions or health care"
@@ -2147,17 +2147,17 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about health, medical conditions or health care@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Medical Health@en",
+   :rdfs/label #rdf/langString "Medical Health@en",
    :rdfs/subClassOf
    [:dpvo-pd/External :dpvo/SpecialCategoryPersonalData :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def MentalHealth
   "Information about mental health."
@@ -2165,19 +2165,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about mental health.@en",
+   :dcterms/description #rdf/langString "Information about mental health.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Mental Health@en",
+   :rdfs/label #rdf/langString "Mental Health@en",
    :rdfs/subClassOf [:dpvo-pd/Health
                      :dpvo-pd/External
                      :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Name
   "Information about names associated or used as given name or nickname."
@@ -2186,16 +2186,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about names associated or used as given name or nickname.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Name@en",
+   :rdfs/label #rdf/langString "Name@en",
    :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Nationality
   "Information about nationality"
@@ -2203,12 +2203,12 @@
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:rdfa/uri
                          "https://www.w3.org/2022/04/20-dpvcg-minutes.html"},
-   :dcterms/description #xsd/langString "Information about nationality@en",
+   :dcterms/description #rdf/langString "Information about nationality@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Nationality@en",
+   :rdfs/label          #rdf/langString "Nationality@en",
    :rdfs/subClassOf     [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def OfficialID
   "Information about an official identifier or identification document"
@@ -2217,18 +2217,18 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about an official identifier or identification document@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Official ID@en",
+   :rdfs/label #rdf/langString "Official ID@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Government"},
    :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Offspring
   "Information about offspring(s)."
@@ -2236,18 +2236,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about offspring(s).@en",
+   :dcterms/description #rdf/langString "Information about offspring(s).@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Offspring@en",
+   :rdfs/label #rdf/langString "Offspring@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/Family],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Opinion
   "Information about opinions"
@@ -2255,15 +2255,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about opinions@en",
+   :dcterms/description #rdf/langString "Information about opinions@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Opinion@en",
+   :rdfs/label #rdf/langString "Opinion@en",
    :rdfs/subClassOf [:dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Ownership
   "Information about ownership and history, including renting, borrowing, possessions."
@@ -2272,16 +2272,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about ownership and history, including renting, borrowing, possessions.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Ownership@en",
+   :rdfs/label #rdf/langString "Ownership@en",
    :rdfs/subClassOf [:dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PINCode
   "Information about Personal identification number (PIN), which is usually used in the process of authenticating the individual as an user accessing a system."
@@ -2290,17 +2290,17 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about Personal identification number (PIN), which is usually used in the process of authenticating the individual as an user accessing a system.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "PIN Code@en",
+   :rdfs/label #rdf/langString "PIN Code@en",
    :rdfs/subClassOf
    [:dpvo-pd/Authenticating :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Parent
   "Information about parent(s)."
@@ -2308,33 +2308,33 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about parent(s).@en",
+   :dcterms/description #rdf/langString "Information about parent(s).@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Parent@en",
+   :rdfs/label #rdf/langString "Parent@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/Family],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Passport
   "Information about passport"
   {:db/ident            :dpvo-pd/Passport,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about passport@en",
+   :dcterms/description #rdf/langString "Information about passport@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Passport@en",
+   :rdfs/label          #rdf/langString "Passport@en",
    :rdfs/subClassOf     [:dpvo-pd/OfficialID
                          :dpvo-pd/External
                          :dpvo/PersonalData
                          :dpvo-pd/Identifying],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def Password
   "Information about password used in the process of authenticating the individual as an user accessing a system."
@@ -2343,32 +2343,32 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about password used in the process of authenticating the individual as an user accessing a system.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Password@en",
+   :rdfs/label #rdf/langString "Password@en",
    :rdfs/subClassOf
    [:dpvo-pd/Authenticating :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PastEmployment
   "Information about past employment"
   {:db/ident            :dpvo-pd/PastEmployment,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about past employment@en",
+   :dcterms/description #rdf/langString "Information about past employment@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Past Employment@en",
+   :rdfs/label          #rdf/langString "Past Employment@en",
    :rdfs/subClassOf     [:dpvo-pd/EmploymentHistory
                          :dpvo-pd/Social
                          :dpvo-pd/Professional
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def PaymentCard
   "Information about payment card such as Credit Card, Debit Card."
@@ -2376,15 +2376,15 @@
    :dcterms/created #xsd/date #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about payment card such as Credit Card, Debit Card.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Payment Card@en",
+   :rdfs/label #rdf/langString "Payment Card@en",
    :rdfs/subClassOf
    [:dpvo-pd/FinancialAccount :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PaymentCardExpiry
   "Information about payment card expiry such as a date."
@@ -2392,34 +2392,34 @@
    :dcterms/created #xsd/date #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
-   #xsd/langString "Information about payment card expiry such as a date.@en",
+   #rdf/langString "Information about payment card expiry such as a date.@en",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Payment Card Expiry@en",
+   :rdfs/label #rdf/langString "Payment Card Expiry@en",
    :rdfs/subClassOf [:dpvo-pd/PaymentCard
                      :dpvo-pd/Financial
                      :dpvo/PersonalData
                      :dpvo-pd/FinancialAccount],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PaymentCardNumber
   "Information about payment card number."
   {:db/ident            :dpvo-pd/PaymentCardNumber,
    :dcterms/created     #xsd/date #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator     {:xsd/string "Georg P Krog"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about payment card number.@en",
    :dcterms/source      {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Payment Card Number@en",
+   :rdfs/label          #rdf/langString "Payment Card Number@en",
    :rdfs/subClassOf     [:dpvo-pd/AccountIdentifier
                          :dpvo-pd/PaymentCard
                          :dpvo-pd/Financial
                          :dpvo/PersonalData
                          :dpvo-pd/FinancialAccount],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def PerformanceAtWork
   "Information about performance at work or within work environments"
@@ -2427,17 +2427,17 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about performance at work or within work environments@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Performance at Work@en",
+   :rdfs/label #rdf/langString "Performance at Work@en",
    :rdfs/subClassOf [:dpvo-pd/Professional
                      :dpvo-pd/Behavioral
                      :dpvo-pd/External
                      :dpvo-pd/Social
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PersonalDocuments
   "Information about and including personal documents e.g. diaries or journals"
@@ -2445,13 +2445,13 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about and including personal documents e.g. diaries or journals@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Personal Documents@en",
+   :rdfs/label #rdf/langString "Personal Documents@en",
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PersonalPossession
   "Information about personal possessions."
@@ -2459,16 +2459,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about personal possessions.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Personal Possession@en",
+   :rdfs/label #rdf/langString "Personal Possession@en",
    :rdfs/subClassOf [:dpvo-pd/Ownership :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Personality
   "Information about personality (e.g., categorization in terms of the Big Five personality traits)"
@@ -2477,16 +2477,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about personality (e.g., categorization in terms of the Big Five personality traits)@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Personality@en",
+   :rdfs/label #rdf/langString "Personality@en",
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PhilosophicalBelief
   "Information about philosophical beliefs."
@@ -2494,19 +2494,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about philosophical beliefs.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Philosophical Belief@en",
+   :rdfs/label #rdf/langString "Philosophical Belief@en",
    :rdfs/subClassOf [:dpvo-pd/KnowledgeBelief
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo/PersonalData
                      :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PhysicalAddress
   "Information about physical address."
@@ -2514,16 +2514,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about physical address.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Physical Address@en",
+   :rdfs/label #rdf/langString "Physical Address@en",
    :rdfs/subClassOf [:dpvo-pd/Contact :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PhysicalCharacteristic
   "Information about physical characteristics"
@@ -2531,18 +2531,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about physical characteristics@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Physical Characteristic@en",
+   :rdfs/label #rdf/langString "Physical Characteristic@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Demographic"},
    :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PhysicalHealth
   "Information about physical health."
@@ -2550,19 +2550,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about physical health.@en",
+   :dcterms/description #rdf/langString "Information about physical health.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Physical Health@en",
+   :rdfs/label #rdf/langString "Physical Health@en",
    :rdfs/subClassOf [:dpvo-pd/Health
                      :dpvo-pd/External
                      :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PhysicalTrait
   "Information about defining traits or features regarding the body."
@@ -2571,16 +2571,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about defining traits or features regarding the body.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Physical Trait@en",
+   :rdfs/label #rdf/langString "Physical Trait@en",
    :rdfs/subClassOf [:dpvo-pd/Demographic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Picture
   "Information about visual representation or image e.g. profile photo."
@@ -2589,16 +2589,16 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about visual representation or image e.g. profile photo.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Picture@en",
+   :rdfs/label #rdf/langString "Picture@en",
    :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Piercing
   "Information about piercings"
@@ -2606,16 +2606,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about piercings@en",
+   :dcterms/description #rdf/langString "Information about piercings@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Piercing@en",
+   :rdfs/label #rdf/langString "Piercing@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PoliticalAffiliation
   "Information about political affiliation and history"
@@ -2624,20 +2624,20 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about political affiliation and history@en",
+   #rdf/langString "Information about political affiliation and history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Political Affiliation@en",
+   :rdfs/label #rdf/langString "Political Affiliation@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Political"},
    :rdfs/subClassOf [:dpvo-pd/PublicLife
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Social
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PoliticalOpinion
   "Information about opinions regarding politics and political topics"
@@ -2645,16 +2645,16 @@
    :dcterms/created #xsd/date #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about opinions regarding politics and political topics@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Political Opinion@en",
+   :rdfs/label #rdf/langString "Political Opinion@en",
    :rdfs/subClassOf [:dpvo-pd/PublicLife
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Social
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Preference
   "Information about preferences or interests"
@@ -2662,18 +2662,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about preferences or interests@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Preference@en",
+   :rdfs/label #rdf/langString "Preference@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Preference"},
    :rdfs/subClassOf [:dpvo-pd/Internal :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Prescription
   "Information about medical and pharmaceutical prescriptions"
@@ -2682,19 +2682,19 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about medical and pharmaceutical prescriptions@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Prescription@en",
+   :rdfs/label #rdf/langString "Prescription@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PrivacyPreference
   "Information about privacy preferences"
@@ -2702,16 +2702,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about privacy preferences@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Privacy Preference@en",
+   :rdfs/label #rdf/langString "Privacy Preference@en",
    :rdfs/subClassOf [:dpvo-pd/Preference :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Proclivitie
   "Information about proclivities in a sexual context"
@@ -2720,18 +2720,18 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about proclivities in a sexual context@en",
+   #rdf/langString "Information about proclivities in a sexual context@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Proclivitie@en",
+   :rdfs/label #rdf/langString "Proclivitie@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Professional
   "Information about educational or professional career"
@@ -2740,15 +2740,15 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about educational or professional career@en",
+   #rdf/langString "Information about educational or professional career@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Professional@en",
+   :rdfs/label #rdf/langString "Professional@en",
    :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ProfessionalCertification
   "Information about professional certifications"
@@ -2756,16 +2756,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about professional certifications@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Professional Certification@en",
+   :rdfs/label #rdf/langString "Professional Certification@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ProfessionalEvaluation
   "Information about professional evaluations"
@@ -2773,16 +2773,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about professional evaluations@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Professional Evaluation@en",
+   :rdfs/label #rdf/langString "Professional Evaluation@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ProfessionalInterview
   "Information about professional interviews"
@@ -2790,16 +2790,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about professional interviews@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Professional Interview@en",
+   :rdfs/label #rdf/langString "Professional Interview@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Profile
   "Profile or user profile is information and representation of characteristics associated with person(s) or group(s)"
@@ -2807,13 +2807,13 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Profile or user profile is information and representation of characteristics associated with person(s) or group(s)@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Profile@en",
+   :rdfs/label #rdf/langString "Profile@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PublicLife
   "Information about public life"
@@ -2821,15 +2821,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about public life@en",
+   :dcterms/description #rdf/langString "Information about public life@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Public Life@en",
+   :rdfs/label #rdf/langString "Public Life@en",
    :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PubliclyAvailableSocialMedia
   "Information about social media that is publicly available"
@@ -2837,16 +2837,16 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about social media that is publicly available@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Publicly Available Social Media@en",
+   :rdfs/label #rdf/langString "Publicly Available Social Media@en",
    :rdfs/subClassOf [:dpvo-pd/SocialMedia
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/Communication],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Purchase
   "Information about purchases such as items bought e.g. grocery or clothing"
@@ -2855,19 +2855,19 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about purchases such as items bought e.g. grocery or clothing@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Purchase@en",
+   :rdfs/label #rdf/langString "Purchase@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Purchase"},
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def PurchasesAndSpendingHabit
   "Information about analysis of purchases made and money spent expressed as a habit e.g. monthly shopping trends"
@@ -2876,17 +2876,17 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about analysis of purchases made and money spent expressed as a habit e.g. monthly shopping trends@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Purchases and Spending Habit@en",
+   :rdfs/label #rdf/langString "Purchases and Spending Habit@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Race
   "Information about race or racial history."
@@ -2894,19 +2894,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about race or racial history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Race@en",
+   :rdfs/label #rdf/langString "Race@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Ethnicity
                      :dpvo-pd/External
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Reference
   "Information about references in the professional context"
@@ -2915,16 +2915,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about references in the professional context@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Reference@en",
+   :rdfs/label #rdf/langString "Reference@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Relationship
   "Information about relationships and relationship history."
@@ -2933,31 +2933,31 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about relationships and relationship history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Relationship@en",
+   :rdfs/label #rdf/langString "Relationship@en",
    :rdfs/subClassOf [:dpvo-pd/Family :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Reliability
   "Information about reliability (e.g. of a person)"
   {:db/ident            :dpvo-pd/Reliability,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about reliability (e.g. of a person)@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Reliability@en",
+   :rdfs/label          #rdf/langString "Reliability@en",
    :rdfs/subClassOf     [:dpvo-pd/Behavioral
                          :dpvo-pd/External
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def Religion
   "Information about religion, religious inclinations, and religious history."
@@ -2966,19 +2966,19 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about religion, religious inclinations, and religious history.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Religion@en",
+   :rdfs/label #rdf/langString "Religion@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/PublicLife
                      :dpvo-pd/Social
                      :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ReligiousBelief
   "Information about religion and religious beliefs."
@@ -2986,19 +2986,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about religion and religious beliefs.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Religious Belief@en",
+   :rdfs/label #rdf/langString "Religious Belief@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/KnowledgeBelief
                      :dpvo/PersonalData
                      :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Retina
   "Information about retina and the retinal patterns."
@@ -3007,19 +3007,19 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString "Information about retina and the retinal patterns.@en",
+   #rdf/langString "Information about retina and the retinal patterns.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Retina@en",
+   :rdfs/label #rdf/langString "Retina@en",
    :rdfs/subClassOf [:dpvo-pd/Biometric
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Identifying],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def RoomNumber
   "Information about location expressed as Room number or similar numbering systems"
@@ -3028,16 +3028,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about location expressed as Room number or similar numbering systems@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Room Number@en",
+   :rdfs/label #rdf/langString "Room Number@en",
    :rdfs/subClassOf [:dpvo-pd/Location :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Salary
   "Information about salary"
@@ -3045,15 +3045,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about salary@en",
+   :dcterms/description #rdf/langString "Information about salary@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Salary@en",
+   :rdfs/label #rdf/langString "Salary@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Sale
   "Information about sales e.g. selling of goods or services"
@@ -3062,17 +3062,17 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about sales e.g. selling of goods or services@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Sale@en",
+   :rdfs/label #rdf/langString "Sale@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def School
   "Information about school such as name of school, conduct, or grades obtained."
@@ -3081,16 +3081,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about school such as name of school, conduct, or grades obtained.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "School@en",
+   :rdfs/label #rdf/langString "School@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SecretText
   "Information about secret text used in the process of authenticating the individual as an user accessing a system, e.g., when recovering a lost password."
@@ -3099,17 +3099,17 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about secret text used in the process of authenticating the individual as an user accessing a system, e.g., when recovering a lost password.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Secret Text@en",
+   :rdfs/label #rdf/langString "Secret Text@en",
    :rdfs/subClassOf
    [:dpvo-pd/Authenticating :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def ServiceConsumptionBehavior
   "Information about the consumption of a service, e.g. time and duration of consumption."
@@ -3118,14 +3118,14 @@
    :dcterms/creator [{:xsd/string "Rudy Jacob"}
                      {:xsd/string "Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about the consumption of a service, e.g. time and duration of consumption.@en",
    :dcterms/source {:rdfa/uri "https://specialprivacy.ercim.eu/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Service Consumption Behavior@en",
+   :rdfs/label #rdf/langString "Service Consumption Behavior@en",
    :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Sexual
   "Information about sexuality and sexual history"
@@ -3133,17 +3133,17 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about sexuality and sexual history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Sexual@en",
+   :rdfs/label #rdf/langString "Sexual@en",
    :rdfs/subClassOf
    [:dpvo/SpecialCategoryPersonalData :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SexualHistory
   "Information about sexual history"
@@ -3151,18 +3151,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about sexual history@en",
+   :dcterms/description #rdf/langString "Information about sexual history@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Sexual History@en",
+   :rdfs/label #rdf/langString "Sexual History@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SexualPreference
   "Information about sexual preferences"
@@ -3170,19 +3170,19 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about sexual preferences@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Sexual Preference@en",
+   :rdfs/label #rdf/langString "Sexual Preference@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo/SpecialCategoryPersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Sibling
   "Information about sibling(s)."
@@ -3190,18 +3190,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about sibling(s).@en",
+   :dcterms/description #rdf/langString "Information about sibling(s).@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Sibling@en",
+   :rdfs/label #rdf/langString "Sibling@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/Family],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SkinTone
   "Information about skin tone"
@@ -3209,16 +3209,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about skin tone@en",
+   :dcterms/description #rdf/langString "Information about skin tone@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Skin Tone@en",
+   :rdfs/label #rdf/langString "Skin Tone@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Social
   "Information about social aspects such as family, public life, or professional networks."
@@ -3227,30 +3227,30 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about social aspects such as family, public life, or professional networks.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Social@en",
+   :rdfs/label #rdf/langString "Social@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SocialMedia
   "Information about social media"
   {:db/ident            :dpvo-pd/SocialMedia,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about social media@en",
+   :dcterms/description #rdf/langString "Information about social media@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Social Media@en",
+   :rdfs/label          #rdf/langString "Social Media@en",
    :rdfs/subClassOf     [:dpvo-pd/Communication
                          :dpvo-pd/Social
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def SocialMediaCommunication
   "Information about social media communication, including the communication itself and metadata."
@@ -3259,18 +3259,18 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about social media communication, including the communication itself and metadata.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Social Media Communication@en",
+   :rdfs/label #rdf/langString "Social Media Communication@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#Social"},
    :rdfs/subClassOf [:dpvo-pd/Communication :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SocialNetwork
   "Information about friends or connections expressed as a social network"
@@ -3279,16 +3279,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about friends or connections expressed as a social network@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Social Network@en",
+   :rdfs/label #rdf/langString "Social Network@en",
    :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def SocialStatus
   "Information about social status"
@@ -3296,15 +3296,15 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about social status@en",
+   :dcterms/description #rdf/langString "Information about social status@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Social Status@en",
+   :rdfs/label #rdf/langString "Social Status@en",
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def TVViewingBehavior
   "Information about TV viewing Behavior, such as timestamps of channel change, duration of viewership, content consumed"
@@ -3313,17 +3313,17 @@
    :dcterms/creator [{:xsd/string "Harshvardhan J. Pandit"}
                      {:xsd/string "Rudy Jacob"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about TV viewing Behavior, such as timestamps of channel change, duration of viewership, content consumed@en",
    :dcterms/source {:rdfa/uri "https://specialprivacy.ercim.eu/"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "TV Viewing Behavior@en",
+   :rdfs/label #rdf/langString "TV Viewing Behavior@en",
    :rdfs/subClassOf [:dpvo-pd/ServiceConsumptionBehavior
                      :dpvo-pd/External
                      :dpvo/PersonalData
                      :dpvo-pd/Behavioral],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Tattoo
   "Information about tattoos"
@@ -3331,16 +3331,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about tattoos@en",
+   :dcterms/description #rdf/langString "Information about tattoos@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Tattoo@en",
+   :rdfs/label #rdf/langString "Tattoo@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Tax
   "Information about financial tax e.g. tax records or tax due"
@@ -3349,17 +3349,17 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about financial tax e.g. tax records or tax due@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Tax@en",
+   :rdfs/label #rdf/langString "Tax@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def TelephoneNumber
   "Information about telephone number."
@@ -3367,16 +3367,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about telephone number.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Telephone Number@en",
+   :rdfs/label #rdf/langString "Telephone Number@en",
    :rdfs/subClassOf [:dpvo-pd/Contact :dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Thought
   "Information about thoughts"
@@ -3384,16 +3384,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about thoughts@en",
+   :dcterms/description #rdf/langString "Information about thoughts@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Thought@en",
+   :rdfs/label #rdf/langString "Thought@en",
    :rdfs/subClassOf
    [:dpvo-pd/KnowledgeBelief :dpvo/PersonalData :dpvo-pd/Internal],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Tracking
   "Information used to track an individual or group e.g. location or email"
@@ -3402,16 +3402,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information used to track an individual or group e.g. location or email@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Tracking@en",
+   :rdfs/label #rdf/langString "Tracking@en",
    :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def TradeUnionMembership
   "Information about trade union memberships and related topics"
@@ -3419,17 +3419,17 @@
    :dcterms/created #xsd/date #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about trade union memberships and related topics@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Trade Union Membership@en",
+   :rdfs/label #rdf/langString "Trade Union Membership@en",
    :rdfs/subClassOf [:dpvo-pd/GroupMembership
                      :dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Social
                      :dpvo/PersonalData
                      :dpvo-pd/SocialNetwork],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Transaction
   "Information about financial transactions e.g. bank transfers"
@@ -3438,17 +3438,17 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about financial transactions e.g. bank transfers@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Transaction@en",
+   :rdfs/label #rdf/langString "Transaction@en",
    :rdfs/subClassOf
    [:dpvo-pd/Transactional :dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Transactional
   "Information about a purchasing, spending or income"
@@ -3457,29 +3457,29 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString "Information about a purchasing, spending or income@en",
+   #rdf/langString "Information about a purchasing, spending or income@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Transactional@en",
+   :rdfs/label #rdf/langString "Transactional@en",
    :rdfs/subClassOf [:dpvo-pd/Financial :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def TravelHistory
   "Information about travel history"
   {:db/ident            :dpvo-pd/TravelHistory,
    :dcterms/created     #xsd/date #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about travel history@en",
+   :dcterms/description #rdf/langString "Information about travel history@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Travel History@en",
+   :rdfs/label          #rdf/langString "Travel History@en",
    :rdfs/subClassOf     [:dpvo-pd/Location
                          :dpvo-pd/Tracking
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def UID
   "Information about unique identifiers."
@@ -3487,18 +3487,18 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about unique identifiers.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "UID@en",
+   :rdfs/label #rdf/langString "UID@en",
    :rdfs/seeAlso {:rdfa/uri
                   "https://specialprivacy.ercim.eu/vocabs/data#UniqueId"},
    :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def UserAgent
   "Information about software acting on behalf of users e.g. web browser"
@@ -3506,13 +3506,13 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about software acting on behalf of users e.g. web browser@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "User agent@en",
+   :rdfs/label #rdf/langString "User agent@en",
    :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Username
   "Information about usernames."
@@ -3520,76 +3520,76 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
-   :dcterms/description #xsd/langString "Information about usernames.@en",
+   :dcterms/description #rdf/langString "Information about usernames.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Username@en",
+   :rdfs/label #rdf/langString "Username@en",
    :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def VehicalLicenseNumber
   "Information about vehicle license number"
   {:db/ident            :dpvo-pd/VehicalLicenseNumber,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about vehicle license number@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Vehicle License Number@en",
+   :rdfs/label          #rdf/langString "Vehicle License Number@en",
    :rdfs/subClassOf     [:dpvo-pd/VehicleLicense
                          :dpvo-pd/Vehicle
                          :dpvo-pd/External
                          :dpvo/PersonalData
                          :dpvo-pd/Identifying],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def VehicalLicenseRegistration
   "Information about vehicle license registration"
   {:db/ident            :dpvo-pd/VehicalLicenseRegistration,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about vehicle license registration@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Vehicle License Registration@en",
+   :rdfs/label          #rdf/langString "Vehicle License Registration@en",
    :rdfs/subClassOf     [:dpvo-pd/VehicleLicense
                          :dpvo-pd/Vehicle
                          :dpvo-pd/External
                          :dpvo/PersonalData
                          :dpvo-pd/Identifying],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def Vehicle
   "Information about vehicles"
   {:db/ident            :dpvo-pd/Vehicle,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about vehicles@en",
+   :dcterms/description #rdf/langString "Information about vehicles@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Vehicle@en",
+   :rdfs/label          #rdf/langString "Vehicle@en",
    :rdfs/subClassOf     [:dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def VehicleLicense
   "Information about vehicle license"
   {:db/ident            :dpvo-pd/VehicleLicense,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Information about vehicle license@en",
+   :dcterms/description #rdf/langString "Information about vehicle license@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Vehicle License@en",
+   :rdfs/label          #rdf/langString "Vehicle License@en",
    :rdfs/subClassOf     [:dpvo-pd/Vehicle
                          :dpvo-pd/Identifying
                          :dpvo-pd/External
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def VehicleUsage
   "Information about usage of vehicles, e.g. driving statistics"
@@ -3597,14 +3597,14 @@
    :dcterms/created #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about usage of vehicles, e.g. driving statistics@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Vehicle Usage@en",
+   :rdfs/label #rdf/langString "Vehicle Usage@en",
    :rdfs/subClassOf
    [:dpvo-pd/Vehicle :dpvo-pd/Behavioral :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def VoiceCommunicationRecording
   "Information about vocal recorded communication (e.g. telephony, VoIP)"
@@ -3613,16 +3613,16 @@
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about vocal recorded communication (e.g. telephony, VoIP)@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Voice Communication Recording@en",
+   :rdfs/label #rdf/langString "Voice Communication Recording@en",
    :rdfs/subClassOf [:dpvo-pd/Communication :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def VoiceMail
   "Information about voice mail messages."
@@ -3630,16 +3630,16 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about voice mail messages.@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Voice Mail@en",
+   :rdfs/label #rdf/langString "Voice Mail@en",
    :rdfs/subClassOf [:dpvo-pd/Communication :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def Weight
   "Information about physical weight"
@@ -3647,31 +3647,31 @@
    :dcterms/created #xsd/date #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator [{:xsd/string "Fajar Ekaputra"}
                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}],
-   :dcterms/description #xsd/langString "Information about physical weight@en",
+   :dcterms/description #rdf/langString "Information about physical weight@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Weight@en",
+   :rdfs/label #rdf/langString "Weight@en",
    :rdfs/subClassOf
    [:dpvo-pd/PhysicalCharacteristic :dpvo-pd/External :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def WorkEnvironment
   "Information about work environments"
   {:db/ident            :dpvo-pd/WorkEnvironment,
    :dcterms/created     #xsd/date #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString
+   :dcterms/description #rdf/langString
                          "Information about work environments@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label          #xsd/langString "Work Environment@en",
+   :rdfs/label          #rdf/langString "Work Environment@en",
    :rdfs/subClassOf     [:dpvo-pd/Professional
                          :dpvo-pd/Social
                          :dpvo/PersonalData],
-   :vs/term_status      #xsd/langString "accepted@en"})
+   :vs/term_status      #rdf/langString "accepted@en"})
 
 (def WorkHistory
   "Information about work history in a professional context"
@@ -3680,13 +3680,13 @@
    :dcterms/creator [{:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}
                      {:xsd/string "Fajar Ekaputra"}],
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "Information about work history in a professional context@en",
    :dcterms/source
    {:rdfa/uri
     "https://enterprivacy.com/wp-content/uploads/2018/09/Categories-of-Personal-Information.pdf"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#"},
-   :rdfs/label #xsd/langString "Work History@en",
+   :rdfs/label #rdf/langString "Work History@en",
    :rdfs/subClassOf [:dpvo-pd/Professional :dpvo-pd/Social :dpvo/PersonalData],
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})

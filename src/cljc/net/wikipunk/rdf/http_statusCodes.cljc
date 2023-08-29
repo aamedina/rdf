@@ -18,7 +18,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Accepted@en"})
+   :rdfs/label       #rdf/langString "Accepted@en"})
 
 (def BadGateway
   "Bad Gateway"
@@ -28,7 +28,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Bad Gateway@en"})
+   :rdfs/label       #rdf/langString "Bad Gateway@en"})
 
 (def BadRequest
   "Bad Request"
@@ -38,7 +38,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Bad Request@en"})
+   :rdfs/label       #rdf/langString "Bad Request@en"})
 
 (def Conflict
   "Conflict"
@@ -48,7 +48,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Conflict@en"})
+   :rdfs/label       #rdf/langString "Conflict@en"})
 
 (def Continue
   "Continue"
@@ -58,7 +58,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Continue@en"})
+   :rdfs/label       #rdf/langString "Continue@en"})
 
 (def Created
   "Created"
@@ -68,7 +68,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Created@en"})
+   :rdfs/label       #rdf/langString "Created@en"})
 
 (def ExpectationFailed
   "Expectation Failed"
@@ -78,7 +78,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Expectation Failed@en"})
+   :rdfs/label       #rdf/langString "Expectation Failed@en"})
 
 (def FailedDependency
   "Failed Dependency"
@@ -88,7 +88,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc4918.txt"},
-   :rdfs/label       #xsd/langString "Failed Dependency@en"})
+   :rdfs/label       #rdf/langString "Failed Dependency@en"})
 
 (def Forbidden
   "Forbidden"
@@ -98,7 +98,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Forbidden@en"})
+   :rdfs/label       #rdf/langString "Forbidden@en"})
 
 (def Found
   "Found"
@@ -108,7 +108,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Found@en"})
+   :rdfs/label       #rdf/langString "Found@en"})
 
 (def GatewayTimeout
   "Gateway Timeout"
@@ -118,7 +118,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Gateway Timeout@en"})
+   :rdfs/label       #rdf/langString "Gateway Timeout@en"})
 
 (def Gone
   "Gone"
@@ -128,7 +128,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Gone@en"})
+   :rdfs/label       #rdf/langString "Gone@en"})
 
 (def HTTPVersionNotSupported
   "HTTP Version Not Supported"
@@ -138,7 +138,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "HTTP Version Not Supported@en"})
+   :rdfs/label       #rdf/langString "HTTP Version Not Supported@en"})
 
 (def IMUsed
   "IM Used"
@@ -148,7 +148,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc3229.txt"},
-   :rdfs/label       #xsd/langString "IM Used@en"})
+   :rdfs/label       #rdf/langString "IM Used@en"})
 
 (def InsufficientStorage
   "Insufficient Storage"
@@ -158,7 +158,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc4918.txt"},
-   :rdfs/label       #xsd/langString "Insufficient Storage@en"})
+   :rdfs/label       #rdf/langString "Insufficient Storage@en"})
 
 (def InternalServerError
   "Internal Server Error"
@@ -168,7 +168,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Internal Server Error@en"})
+   :rdfs/label       #rdf/langString "Internal Server Error@en"})
 
 (def LengthRequired
   "Length Required"
@@ -178,7 +178,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Length Required@en"})
+   :rdfs/label       #rdf/langString "Length Required@en"})
 
 (def Locked
   "Locked"
@@ -188,7 +188,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc4918.txt"},
-   :rdfs/label       #xsd/langString "Locked@en"})
+   :rdfs/label       #rdf/langString "Locked@en"})
 
 (def MethodNotAllowed
   "Method Not Allowed"
@@ -198,7 +198,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Method Not Allowed@en"})
+   :rdfs/label       #rdf/langString "Method Not Allowed@en"})
 
 (def MovedPermanently
   "Moved Permanently"
@@ -208,7 +208,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Moved Permanently@en"})
+   :rdfs/label       #rdf/langString "Moved Permanently@en"})
 
 (def MultiStatus
   "Multi-Status"
@@ -218,7 +218,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc4918.txt"},
-   :rdfs/label       #xsd/langString "Multi-Status@en"})
+   :rdfs/label       #rdf/langString "Multi-Status@en"})
 
 (def MultipleChoices
   "Multiple Choices"
@@ -228,7 +228,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Multiple Choices@en"})
+   :rdfs/label       #rdf/langString "Multiple Choices@en"})
 
 (def NoContent
   "No Content"
@@ -238,7 +238,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "No Content@en"})
+   :rdfs/label       #rdf/langString "No Content@en"})
 
 (def NonAuthoritativeInformation
   "Non-Authoritative Information"
@@ -248,7 +248,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Non-Authoritative Information@en"})
+   :rdfs/label       #rdf/langString "Non-Authoritative Information@en"})
 
 (def NotAcceptable
   "Not Acceptable"
@@ -258,7 +258,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Not Acceptable@en"})
+   :rdfs/label       #rdf/langString "Not Acceptable@en"})
 
 (def NotExtended
   "Not Extended"
@@ -268,7 +268,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"},
-   :rdfs/label       #xsd/langString "Not Extended@en"})
+   :rdfs/label       #rdf/langString "Not Extended@en"})
 
 (def NotFound
   "Not Found"
@@ -278,7 +278,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Not Found@en"})
+   :rdfs/label       #rdf/langString "Not Found@en"})
 
 (def NotImplemented
   "Not Implemented"
@@ -288,7 +288,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Not Implemented@en"})
+   :rdfs/label       #rdf/langString "Not Implemented@en"})
 
 (def NotModified
   "Not Modified"
@@ -298,7 +298,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Not Modified@en"})
+   :rdfs/label       #rdf/langString "Not Modified@en"})
 
 (def OK
   "OK"
@@ -308,7 +308,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "OK@en"})
+   :rdfs/label       #rdf/langString "OK@en"})
 
 (def PartialContent
   "Partial Content"
@@ -318,7 +318,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Partial Content@en"})
+   :rdfs/label       #rdf/langString "Partial Content@en"})
 
 (def PaymentRequired
   "Payment Required"
@@ -328,7 +328,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Payment Required@en"})
+   :rdfs/label       #rdf/langString "Payment Required@en"})
 
 (def PreconditionFailed
   "Precondition Failed"
@@ -338,7 +338,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Precondition Failed@en"})
+   :rdfs/label       #rdf/langString "Precondition Failed@en"})
 
 (def Processing
   "Processing"
@@ -348,7 +348,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"},
-   :rdfs/label       #xsd/langString "Processing@en"})
+   :rdfs/label       #rdf/langString "Processing@en"})
 
 (def ProxyAuthenticationRequired
   "Proxy Authentication Required"
@@ -358,7 +358,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Proxy Authentication Required@en"})
+   :rdfs/label       #rdf/langString "Proxy Authentication Required@en"})
 
 (def RequestEntityTooLarge
   "Request Entity Too Large"
@@ -368,7 +368,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Request Entity Too Large@en"})
+   :rdfs/label       #rdf/langString "Request Entity Too Large@en"})
 
 (def RequestTimeout
   "Request Timeout"
@@ -378,7 +378,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Request Timeout@en"})
+   :rdfs/label       #rdf/langString "Request Timeout@en"})
 
 (def RequestURITooLong
   "Request-URI Too Long"
@@ -388,7 +388,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Request-URI Too Long@en"})
+   :rdfs/label       #rdf/langString "Request-URI Too Long@en"})
 
 (def RequestedRangeNotSatisfiable
   "Requested Range Not Satisfiable"
@@ -398,7 +398,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Requested Range Not Satisfiable@en"})
+   :rdfs/label       #rdf/langString "Requested Range Not Satisfiable@en"})
 
 (def Reserved
   "(Reserved)"
@@ -408,7 +408,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "(Reserved)@en"})
+   :rdfs/label       #rdf/langString "(Reserved)@en"})
 
 (def ResetContent
   "Reset Content"
@@ -418,7 +418,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Reset Content@en"})
+   :rdfs/label       #rdf/langString "Reset Content@en"})
 
 (def SeeOther
   "See Other"
@@ -428,7 +428,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "See Other@en"})
+   :rdfs/label       #rdf/langString "See Other@en"})
 
 (def ServiceUnavailable
   "Service Unavailable"
@@ -438,46 +438,46 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Service Unavailable@en"})
+   :rdfs/label       #rdf/langString "Service Unavailable@en"})
 
 (def StatusCode1xx
   "A status code starting with 1"
   {:db/ident        :http-statusCodes/StatusCode1xx,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString "A status code starting with 1@en",
-   :rdfs/label      #xsd/langString "Informational@en",
+   :rdfs/comment    #rdf/langString "A status code starting with 1@en",
+   :rdfs/label      #rdf/langString "Informational@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def StatusCode2xx
   "A status code starting with 2"
   {:db/ident        :http-statusCodes/StatusCode2xx,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString "A status code starting with 2@en",
-   :rdfs/label      #xsd/langString "Successful@en",
+   :rdfs/comment    #rdf/langString "A status code starting with 2@en",
+   :rdfs/label      #rdf/langString "Successful@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def StatusCode3xx
   "A status code starting with 3"
   {:db/ident        :http-statusCodes/StatusCode3xx,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString "A status code starting with 3@en",
-   :rdfs/label      #xsd/langString "Redirection@en",
+   :rdfs/comment    #rdf/langString "A status code starting with 3@en",
+   :rdfs/label      #rdf/langString "Redirection@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def StatusCode4xx
   "A status code starting with 4"
   {:db/ident        :http-statusCodes/StatusCode4xx,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString "A status code starting with 4@en",
-   :rdfs/label      #xsd/langString "Client Error@en",
+   :rdfs/comment    #rdf/langString "A status code starting with 4@en",
+   :rdfs/label      #rdf/langString "Client Error@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def StatusCode5xx
   "A status code starting with 5"
   {:db/ident        :http-statusCodes/StatusCode5xx,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString "A status code starting with 5@en",
-   :rdfs/label      #xsd/langString "Server Error@en",
+   :rdfs/comment    #rdf/langString "A status code starting with 5@en",
+   :rdfs/label      #rdf/langString "Server Error@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def SwitchingProtocols
@@ -488,7 +488,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Switching Protocols@en"})
+   :rdfs/label       #rdf/langString "Switching Protocols@en"})
 
 (def TemporaryRedirect
   "Temporary Redirect"
@@ -498,7 +498,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Temporary Redirect@en"})
+   :rdfs/label       #rdf/langString "Temporary Redirect@en"})
 
 (def Unauthorized
   "Unauthorized"
@@ -508,7 +508,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Unauthorized@en"})
+   :rdfs/label       #rdf/langString "Unauthorized@en"})
 
 (def UnprocessableEntity
   "Unprocessable Entity"
@@ -518,7 +518,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc4918.txt"},
-   :rdfs/label       #xsd/langString "Unprocessable Entity@en"})
+   :rdfs/label       #rdf/langString "Unprocessable Entity@en"})
 
 (def UnsupportedMediaType
   "Unsupported Media Type"
@@ -528,7 +528,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Unsupported Media Type@en"})
+   :rdfs/label       #rdf/langString "Unsupported Media Type@en"})
 
 (def UpgradeRequired
   "Upgrade Required"
@@ -538,7 +538,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2817.txt"},
-   :rdfs/label       #xsd/langString "Upgrade Required@en"})
+   :rdfs/label       #rdf/langString "Upgrade Required@en"})
 
 (def UseProxy
   "Use Proxy"
@@ -548,7 +548,7 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"},
-   :rdfs/label       #xsd/langString "Use Proxy@en"})
+   :rdfs/label       #rdf/langString "Use Proxy@en"})
 
 (def VariantAlsoNegotiates
   "Variant Also Negotiates (Experimental)"
@@ -558,5 +558,5 @@
                       :http/StatusCode
                       :rdfs/Resource],
    :rdfs/isDefinedBy {:rdfa/uri "http://www.ietf.org/rfc/rfc2295.txt"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "Variant Also Negotiates (Experimental)@en"})

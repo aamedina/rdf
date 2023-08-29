@@ -5,7 +5,7 @@
    :dc11/date #xsd/date #inst "2005-08-10T00:00:00.000-04:00",
    :dc11/identifier "http://purl.org/vocab/frbr/frbr-core-20050810",
    :dc11/rights "Copyright © 2005 Richard Newman and Ian Davis",
-   :dc11/title #xsd/langString "Expression of Core FRBR Concepts in RDF@en",
+   :dc11/title #rdf/langString "Expression of Core FRBR Concepts in RDF@en",
    :dcat/downloadURL "resources/frbr-core-20050810.rdf",
    :dcterms/hasFormat
    [{:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.html"}
@@ -28,9 +28,9 @@
    :rdfa/prefix "frbr",
    :rdfa/uri "http://purl.org/vocab/frbr/core#",
    :rdfs/comment
-   [#xsd/langString
+   [#rdf/langString
      "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    @en"
-    #xsd/langString
+    #rdf/langString
      "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    @en"],
    :vann/preferredNamespacePrefix "frbr",
    :vann/preferredNamespaceUri "http://purl.org/vocab/frbr/core#"}
@@ -42,12 +42,12 @@
    :owl/disjointWith [:frbr/Place :frbr/Object :frbr/Event],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group three entity 'Concept'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "concept@en",
+   :rdfs/label #rdf/langString "concept@en",
    :rdfs/subClassOf [:frbr/Subject :skos/Concept],
-   :skos/definition #xsd/langString "An abstract idea or notion.@en"})
+   :skos/definition #rdf/langString "An abstract idea or notion.@en"})
 
 (def CorporateBody
   "This class corresponds to the FRBR group two entity 'Corporate Body'."
@@ -56,13 +56,13 @@
                          :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group two entity 'Corporate Body'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "corporate body@en",
+   :rdfs/label #rdf/langString "corporate body@en",
    :rdfs/subClassOf :frbr/ResponsibleEntity,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An organization or group of individuals and/or other organizations.@en"})
 
 (def Endeavour
@@ -74,12 +74,12 @@
     :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class represents any one of the FRBR group one entities.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "endeavour@en",
+   :rdfs/label #rdf/langString "endeavour@en",
    :skos/definition
-   #xsd/langString "Any of the products of artistic or creative endeavour.@en"})
+   #rdf/langString "Any of the products of artistic or creative endeavour.@en"})
 
 (def Event
   "This class corresponds to the FRBR group three entity 'Event'."
@@ -87,14 +87,14 @@
    :owl/disjointWith [:frbr/Concept :frbr/Object :frbr/Place],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group three entity 'Event'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "event@en",
+   :rdfs/label #rdf/langString "event@en",
    :rdfs/subClassOf [:frbr/Subject
                      {:rdfa/uri
                       "http://www.isi.edu/~pan/damltime/time-entry.owl#Event"}],
-   :skos/definition #xsd/langString "An action or occurrence.@en"})
+   :skos/definition #rdf/langString "An action or occurrence.@en"})
 
 (def Expression
   "This class corresponds to the FRBR group one entity 'Expression'."
@@ -102,13 +102,13 @@
    :owl/disjointWith [:frbr/Manifestation :frbr/Item :frbr/Work],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group one entity 'Expression'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "expression@en",
+   :rdfs/label #rdf/langString "expression@en",
    :rdfs/subClassOf :frbr/Endeavour,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "A realization of a single work usually in a physical form.@en"})
 
 (def Item
@@ -117,12 +117,12 @@
    :owl/disjointWith [:frbr/Manifestation :frbr/Expression :frbr/Work],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group one entity 'Item'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "item@en",
+   :rdfs/label #rdf/langString "item@en",
    :rdfs/subClassOf :frbr/Endeavour,
-   :skos/definition #xsd/langString
+   :skos/definition #rdf/langString
                      "An exemplar of a single manifestation.@en"})
 
 (def Manifestation
@@ -131,12 +131,12 @@
    :owl/disjointWith [:frbr/Item :frbr/Expression :frbr/Work],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group one entity 'Manifestation'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "manifestation@en",
+   :rdfs/label #rdf/langString "manifestation@en",
    :rdfs/subClassOf :frbr/Endeavour,
-   :skos/definition #xsd/langString
+   :skos/definition #rdf/langString
                      "The physical embodiment of one or more expressions.@en"})
 
 (def ObjectClass
@@ -145,12 +145,12 @@
    :owl/disjointWith [:frbr/Place :frbr/Event :frbr/Concept],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group three entity 'Object'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "object@en",
+   :rdfs/label #rdf/langString "object@en",
    :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject],
-   :skos/definition #xsd/langString "A tangible or material thing.@en"})
+   :skos/definition #rdf/langString "A tangible or material thing.@en"})
 
 (def Person
   "This class corresponds to the FRBR group two entity 'Person'."
@@ -159,11 +159,11 @@
    :owl/equivalentClass :foaf/Person,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group two entity 'Person'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "person@en",
-   :skos/definition #xsd/langString "A living or dead individual.@en"})
+   :rdfs/label #rdf/langString "person@en",
+   :skos/definition #rdf/langString "A living or dead individual.@en"})
 
 (def Place
   "This class corresponds to the FRBR group three entity 'Place'."
@@ -171,12 +171,12 @@
    :owl/disjointWith [:frbr/Concept :frbr/Object :frbr/Event],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group three entity 'Place'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "place@en",
+   :rdfs/label #rdf/langString "place@en",
    :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject],
-   :skos/definition #xsd/langString "A location.@en"})
+   :skos/definition #rdf/langString "A location.@en"})
 
 (def ResponsibleEntity
   "This class represents any of the FRBR group two entities."
@@ -186,12 +186,12 @@
                          :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class represents any of the FRBR group two entities.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "responsible entity@en",
+   :rdfs/label #rdf/langString "responsible entity@en",
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "One responsible for the creation, production, distribution or maintenance of artistic or creative content.@en"})
 
 (def Subject
@@ -203,11 +203,11 @@
     :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class represents any of the FRBR group three entities.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "subject@en",
-   :skos/definition #xsd/langString
+   :rdfs/label #rdf/langString "subject@en",
+   :skos/definition #rdf/langString
                      "Something that may serve as the subject of a work.@en"})
 
 (def Work
@@ -216,14 +216,14 @@
    :owl/disjointWith [:frbr/Manifestation :frbr/Expression :frbr/Item],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "This class corresponds to the FRBR group one entity 'Work'.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "work@en",
+   :rdfs/label #rdf/langString "work@en",
    :rdfs/subClassOf [:frbr/Endeavour
                      {:rdfa/uri "http://xmlns.com/wordnet/1.6/Work~2"}],
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An abstract notion of an artistic or intellectual creation.@en"})
 
 (def abridgement
@@ -233,10 +233,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "abridgement@en",
+   :rdfs/label         #rdf/langString "abridgement@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An abridgment of an expression.@en"})
+   :skos/definition    #rdf/langString "An abridgment of an expression.@en"})
 
 (def abridgementOf
   "abridgement of"
@@ -245,10 +245,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "abridgement of@en",
+   :rdfs/label         #rdf/langString "abridgement of@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An expression that is abridged.@en"})
+   :skos/definition    #rdf/langString "An expression that is abridged.@en"})
 
 (def adaption
   "adaption"
@@ -258,11 +258,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "adaption@en",
+   :rdfs/label         #rdf/langString "adaption@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "An adaption of a work or expression.@en"})
 
 (def adaptionOf
@@ -273,11 +273,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "adaption of@en",
+   :rdfs/label         #rdf/langString "adaption of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is adapted.@en"})
 
 (def alternate
@@ -287,10 +287,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Manifestation,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "alternate@en",
+   :rdfs/label         #rdf/langString "alternate@en",
    :rdfs/range         :frbr/Manifestation,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An alternative to a manifestation.@en"})
+   :skos/definition    #rdf/langString "An alternative to a manifestation.@en"})
 
 (def alternateOf
   "alternate of"
@@ -299,10 +299,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Manifestation,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "alternate of@en",
+   :rdfs/label         #rdf/langString "alternate of@en",
    :rdfs/range         :frbr/Manifestation,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A manifestation that is alternated.@en"})
 
 (def arrangement
@@ -312,10 +312,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "arrangement@en",
+   :rdfs/label         #rdf/langString "arrangement@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An arrangement of an expression.@en"})
+   :skos/definition    #rdf/langString "An arrangement of an expression.@en"})
 
 (def arrangementOf
   "arrangement of"
@@ -324,10 +324,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "arrangement of@en",
+   :rdfs/label         #rdf/langString "arrangement of@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An expression that is arranged.@en"})
+   :skos/definition    #rdf/langString "An expression that is arranged.@en"})
 
 (def complement
   "complement"
@@ -337,11 +337,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "complement@en",
+   :rdfs/label         #rdf/langString "complement@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A complement to a work or expression.@en"})
 
 (def complementOf
@@ -352,11 +352,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "complement of@en",
+   :rdfs/label         #rdf/langString "complement of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is complemented.@en"})
 
 (def creator
@@ -366,11 +366,11 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Work,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "creator@en",
+   :rdfs/label #rdf/langString "creator@en",
    :rdfs/range :frbr/ResponsibleEntity,
    :rdfs/subPropertyOf :frbr/responsibleEntity,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An entity in some way responsible for the creation of a work.@en"})
 
 (def creatorOf
@@ -380,10 +380,10 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "creator of@en",
+   :rdfs/label #rdf/langString "creator of@en",
    :rdfs/range :frbr/Work,
    :rdfs/subPropertyOf :frbr/responsibleEntityOf,
-   :skos/definition #xsd/langString
+   :skos/definition #rdf/langString
                      "A work that was in some way created by of an entity.@en"})
 
 (def embodiment
@@ -393,10 +393,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "embodiment@en",
+   :rdfs/label         #rdf/langString "embodiment@en",
    :rdfs/range         :frbr/Manifestation,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A manifestation that embodies an expression.@en"})
 
 (def embodimentOf
@@ -406,10 +406,10 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Manifestation,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "embodiment of@en",
+   :rdfs/label #rdf/langString "embodiment of@en",
    :rdfs/range :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition #xsd/langString
+   :skos/definition #rdf/langString
                      "An expression that is embodied by a manifestation.@en"})
 
 (def exemplar
@@ -419,10 +419,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Manifestation,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "exemplar@en",
+   :rdfs/label         #rdf/langString "exemplar@en",
    :rdfs/range         :frbr/Item,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "An item that is an exemplar of a manifestation.@en"})
 
 (def exemplarOf
@@ -432,10 +432,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Item,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "exemplar of@en",
+   :rdfs/label         #rdf/langString "exemplar of@en",
    :rdfs/range         :frbr/Manifestation,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "The manifestation that is exemplified by a item.@en"})
 
 (def imitation
@@ -446,11 +446,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "imitation@en",
+   :rdfs/label         #rdf/langString "imitation@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "An imitation of a work or expression.@en"})
 
 (def imitationOf
@@ -461,11 +461,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "imitation of@en",
+   :rdfs/label         #rdf/langString "imitation of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is imitated.@en"})
 
 (def owner
@@ -475,10 +475,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Item,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "owner@en",
+   :rdfs/label         #rdf/langString "owner@en",
    :rdfs/range         :frbr/ResponsibleEntity,
    :rdfs/subPropertyOf :frbr/responsibleEntity,
-   :skos/definition    #xsd/langString "An entity that owns an item.@en"})
+   :skos/definition    #rdf/langString "An entity that owns an item.@en"})
 
 (def ownerOf
   "owner of"
@@ -487,10 +487,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/ResponsibleEntity,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "owner of@en",
+   :rdfs/label         #rdf/langString "owner of@en",
    :rdfs/range         :frbr/Item,
    :rdfs/subPropertyOf :frbr/responsibleEntityOf,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "An item that is in some way owned an entity.@en"})
 
 (def part
@@ -499,9 +499,9 @@
    :owl/inverseOf      :frbr/partOf,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "part@en",
+   :rdfs/label         #rdf/langString "part@en",
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "A part of an endeavour.@en"})
+   :skos/definition    #rdf/langString "A part of an endeavour.@en"})
 
 (def partOf
   "part of"
@@ -509,9 +509,9 @@
    :owl/inverseOf      :frbr/part,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "part of@en",
+   :rdfs/label         #rdf/langString "part of@en",
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "An endeavour incorporating an endeavour.@en"})
 
 (def producer
@@ -521,11 +521,11 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Manifestation,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "producer@en",
+   :rdfs/label #rdf/langString "producer@en",
    :rdfs/range :frbr/ResponsibleEntity,
    :rdfs/subPropertyOf :frbr/responsibleEntity,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An entity in some way responsible for producing a manifestation.@en"})
 
 (def producerOf
@@ -535,11 +535,11 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "producer of@en",
+   :rdfs/label #rdf/langString "producer of@en",
    :rdfs/range :frbr/Manifestation,
    :rdfs/subPropertyOf :frbr/responsibleEntityOf,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "A manifestation that was in some way produced an entity.@en"})
 
 (def realization
@@ -549,11 +549,11 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Work,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "realization@en",
+   :rdfs/label #rdf/langString "realization@en",
    :rdfs/range :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An expression that is an intellectual or artistic realization of a work.@en"})
 
 (def realizationOf
@@ -563,10 +563,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "realization of@en",
+   :rdfs/label         #rdf/langString "realization of@en",
    :rdfs/range         :frbr/Work,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "The work that has been realized by an expression.@en"})
 
 (def realizer
@@ -576,11 +576,11 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Expression,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "realizer@en",
+   :rdfs/label #rdf/langString "realizer@en",
    :rdfs/range :frbr/ResponsibleEntity,
    :rdfs/subPropertyOf :frbr/responsibleEntity,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An entity in some way responsible for realizing an expression.@en"})
 
 (def realizerOf
@@ -590,11 +590,11 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "realizer of@en",
+   :rdfs/label #rdf/langString "realizer of@en",
    :rdfs/range :frbr/Expression,
    :rdfs/subPropertyOf :frbr/responsibleEntityOf,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "An expression that was in some way realized by an entity.@en"})
 
 (def reconfiguration
@@ -604,10 +604,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Item,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "reconfiguration@en",
+   :rdfs/label         #rdf/langString "reconfiguration@en",
    :rdfs/range         :frbr/Item,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "A recongifuration of an item.@en"})
+   :skos/definition    #rdf/langString "A recongifuration of an item.@en"})
 
 (def reconfigurationOf
   "reconfiguration of"
@@ -616,10 +616,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Item,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "reconfiguration of@en",
+   :rdfs/label         #rdf/langString "reconfiguration of@en",
    :rdfs/range         :frbr/Item,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An item that is reconfigured.@en"})
+   :skos/definition    #rdf/langString "An item that is reconfigured.@en"})
 
 (def relatedEndeavour
   "related endeavour"
@@ -627,10 +627,10 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Endeavour,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "related endeavour@en",
+   :rdfs/label #rdf/langString "related endeavour@en",
    :rdfs/range :frbr/Endeavour,
    :skos/definition
-   #xsd/langString
+   #rdf/langString
     "Another endeavour that is related in some way to an endeavour.@en"})
 
 (def reproduction
@@ -641,11 +641,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Manifestation :frbr/Item],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "reproduction@en",
+   :rdfs/label         #rdf/langString "reproduction@en",
    :rdfs/range         {:owl/unionOf [:frbr/Manifestation :frbr/Item],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A reproduction of a manifestation or item.@en"})
 
 (def reproductionOf
@@ -656,11 +656,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Manifestation :frbr/Item],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "reproduction of@en",
+   :rdfs/label         #rdf/langString "reproduction of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Manifestation :frbr/Item],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A manifestation or item that is reproduced.@en"})
 
 (def responsibleEntity
@@ -670,9 +670,9 @@
    :rdf/type         :owl/ObjectProperty,
    :rdfs/domain      :frbr/Endeavour,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label       #xsd/langString "responsible entity@en",
+   :rdfs/label       #rdf/langString "responsible entity@en",
    :rdfs/range       :frbr/ResponsibleEntity,
-   :skos/definition  #xsd/langString
+   :skos/definition  #rdf/langString
                       "An entity in some way responsible for an endeavour.@en"})
 
 (def responsibleEntityOf
@@ -682,10 +682,10 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label #xsd/langString "responsible entity of@en",
+   :rdfs/label #rdf/langString "responsible entity of@en",
    :rdfs/range :frbr/Endeavour,
    :skos/definition
-   #xsd/langString "An endeavour that is the responsibility of an entity.@en"})
+   #rdf/langString "An endeavour that is the responsibility of an entity.@en"})
 
 (def revision
   "revision"
@@ -694,10 +694,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "revision@en",
+   :rdfs/label         #rdf/langString "revision@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "A revision of an expression.@en"})
+   :skos/definition    #rdf/langString "A revision of an expression.@en"})
 
 (def revisionOf
   "revision of"
@@ -706,10 +706,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "revision of@en",
+   :rdfs/label         #rdf/langString "revision of@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An expression that is revised.@en"})
+   :skos/definition    #rdf/langString "An expression that is revised.@en"})
 
 (def subject
   "subject"
@@ -717,12 +717,12 @@
    :rdf/type         :owl/ObjectProperty,
    :rdfs/domain      :frbr/Work,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label       #xsd/langString "subject@en",
+   :rdfs/label       #rdf/langString "subject@en",
    :rdfs/range       {:owl/unionOf [:frbr/Endeavour
                                     :frbr/ResponsibleEntity
                                     :frbr/Subject],
                       :rdf/type    :owl/Class},
-   :skos/definition  #xsd/langString "The subject of a work.@en"})
+   :skos/definition  #rdf/langString "The subject of a work.@en"})
 
 (def successor
   "successor"
@@ -732,11 +732,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "successor@en",
+   :rdfs/label         #rdf/langString "successor@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A successor to a work or expression.@en"})
 
 (def successorOf
@@ -747,11 +747,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "successor of@en",
+   :rdfs/label         #rdf/langString "successor of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is succeeded.@en"})
 
 (def summarization
@@ -762,11 +762,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "summarization@en",
+   :rdfs/label         #rdf/langString "summarization@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A summarization of a work or expression.@en"})
 
 (def summarizationOf
@@ -777,11 +777,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "summarization of@en",
+   :rdfs/label         #rdf/langString "summarization of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is summarized.@en"})
 
 (def supplement
@@ -792,11 +792,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "supplement@en",
+   :rdfs/label         #rdf/langString "supplement@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A supplement to a work or expression.@en"})
 
 (def supplementOf
@@ -807,11 +807,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "supplement of@en",
+   :rdfs/label         #rdf/langString "supplement of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is supplemented.@en"})
 
 (def transformation
@@ -822,11 +822,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "transformation@en",
+   :rdfs/label         #rdf/langString "transformation@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A transformation of a work or expression.@en"})
 
 (def transformationOf
@@ -837,11 +837,11 @@
    :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "transformation of@en",
+   :rdfs/label         #rdf/langString "transformation of@en",
    :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
                         :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString
+   :skos/definition    #rdf/langString
                         "A work or expression that is transformed.@en"})
 
 (def translation
@@ -851,10 +851,10 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "translation@en",
+   :rdfs/label         #rdf/langString "translation@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "A translation of an expression.@en"})
+   :skos/definition    #rdf/langString "A translation of an expression.@en"})
 
 (def translationOf
   "translation of"
@@ -863,7 +863,7 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Expression,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
-   :rdfs/label         #xsd/langString "translation of@en",
+   :rdfs/label         #rdf/langString "translation of@en",
    :rdfs/range         :frbr/Expression,
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/definition    #xsd/langString "An expression that is translated.@en"})
+   :skos/definition    #rdf/langString "An expression that is translated.@en"})

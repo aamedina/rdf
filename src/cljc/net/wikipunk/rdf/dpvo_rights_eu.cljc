@@ -2,19 +2,19 @@
   "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"
   {:dcat/downloadURL "resources/dpv-owl/rights/eu/rights-eu.ttl",
    :dcterms/abstract
-   #xsd/langString
+   #rdf/langString
     "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL@en",
    :dcterms/contributor "Harshvardhan J. Pandit",
    :dcterms/created #xsd/date #inst "2022-08-15T00:00:00.000-04:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL@en",
    :dcterms/license {:rdfa/uri
                      "https://www.w3.org/Consortium/Legal/2015/doc-license"},
    :dcterms/modified #xsd/date #inst "2022-10-06T00:00:00.000-04:00",
    :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
-   :dcterms/title #xsd/langString "EU Fundamental Rights@en",
+   :dcterms/title #rdf/langString "EU Fundamental Rights@en",
    :owl/imports {:rdfa/uri "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
@@ -46,8 +46,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A1 Human Dignity@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A1 Human Dignity@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A10-FreedomOfThoughtConscienceReligion
   "A10 Freedom Of Thought Conscience Religion"
@@ -61,9 +61,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A10 Freedom Of Thought Conscience Religion@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A11-FreedomOfExpressionInformation
   "A11 Freedom Of Expression Information"
@@ -77,8 +77,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A11 Freedom Of Expression Information@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A11 Freedom Of Expression Information@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A12-FreedomOfAssemblyAssociation
   "A12 Freedom Of Assembly Association"
@@ -92,8 +92,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A12 Freedom Of Assembly Association@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A12 Freedom Of Assembly Association@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A13-FreedomOfArtsSciences
   "A13 Freedom Of Arts Sciences"
@@ -107,8 +107,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A13 Freedom Of Arts Sciences@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A13 Freedom Of Arts Sciences@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A14-RightToEducation
   "A14 Right To Education"
@@ -122,8 +122,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A14 Right To Education@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A14 Right To Education@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A15-FreedomToChooseOccupationEngageWork
   "A15 Freedom To Choose Occupation Engage Work"
@@ -137,9 +137,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A15 Freedom To Choose Occupation Engage Work@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A16-FreedomToConductBusiness
   "A16 Freedom To Conduct Business"
@@ -153,8 +153,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A16 Freedom To Conduct Business@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A16 Freedom To Conduct Business@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A17-RightToProperty
   "A17 Right To Property"
@@ -168,8 +168,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A17 Right To Property@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A17 Right To Property@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A18-RightToAsylum
   "A18 Right To Asylum"
@@ -183,8 +183,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A18 Right To Asylum@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A18 Right To Asylum@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A19-ProtectionRemovalExpulsionExtradition
   "A19 Protection Removal Expulsion Extradition"
@@ -198,9 +198,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A19 Protection Removal Expulsion Extradition@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A2-RightToLife
   "A2 Right To Life"
@@ -214,8 +214,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A2 Right To Life@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A2 Right To Life@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A20-EqualityBeforeLaw
   "A20 Equality Before Law"
@@ -229,8 +229,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A20 Equality Before Law@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A20 Equality Before Law@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A21-NonDiscrimination
   "A21 Non Discrimination"
@@ -244,8 +244,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A21 Non Discrimination@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A21 Non Discrimination@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A22-CulturalReligiousLinguisticDiversity
   "A22 Cultural Religious Linguistic Diversity"
@@ -259,9 +259,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A22 Cultural Religious Linguistic Diversity@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A23-EqualityBetweenWomenMen
   "A23 Equality Between Women Men"
@@ -275,8 +275,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A23 Equality Between Women Men@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A23 Equality Between Women Men@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A24-RightsOfChild
   "A24 Rights Of Child"
@@ -290,8 +290,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A24 Rights Of Child@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A24 Rights Of Child@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A25-RightsOfElderly
   "A25 Rights Of Elderly"
@@ -305,8 +305,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A25 Rights Of Elderly@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A25 Rights Of Elderly@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A26-IntegrationOfPersonsWithDisabilities
   "A26 Integration Of Persons With Disabilities"
@@ -320,9 +320,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A26 Integration Of Persons With Disabilities@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A27-WorkersRightToInformationConsultation
   "A27 Workers Right To Information Consultation"
@@ -336,9 +336,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A27 Workers Right To Information Consultation@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A28-RightOfCollectiveBargainingAction
   "A28 Right Of Collective Bargaining Action"
@@ -352,9 +352,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A28 Right Of Collective Bargaining Action@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A29-RightOfAccessToPlacementServices
   "A29 Right Of Access To Placement Services"
@@ -368,9 +368,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A29 Right Of Access To Placement Services@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A3-RightToIntegrityOfPerson
   "A3 Right To Integrity Of Person"
@@ -384,8 +384,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A3 Right To Integrity Of Person@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A3 Right To Integrity Of Person@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A30-ProtectionUnjustifiedDismissal
   "A30 Protection Unjustified Dismissal"
@@ -399,8 +399,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A30 Protection Unjustified Dismissal@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A30 Protection Unjustified Dismissal@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A31-FairJustWorkingConditions
   "A31 Fair Just Working Conditions"
@@ -414,8 +414,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A31 Fair Just Working Conditions@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A31 Fair Just Working Conditions@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A32-ProhibitionOfChildLabourProtectionofYoungAtWork
   "A32 Prohibition Of Child Labour Protectionof Young At Work"
@@ -429,9 +429,9 @@
               :owl/NamedIndividual
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "A32 Prohibition Of Child Labour Protectionof Young At Work@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A33-FamilyProfessionalLife
   "A33 Family Professional Life"
@@ -445,8 +445,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A33 Family Professional Life@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A33 Family Professional Life@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A34-SocialSecuritySocialAssistance
   "A34 Social Security Social Assistance"
@@ -460,8 +460,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A34 Social Security Social Assistance@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A34 Social Security Social Assistance@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A35-Healthcare
   "A35 Healthcare"
@@ -475,8 +475,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A35 Healthcare@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A35 Healthcare@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A36-AccessToServicesOfGeneralEconomicInterest
   "A36 Access To Services Of General Economic Interest"
@@ -489,9 +489,9 @@
               :owl/NamedIndividual
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "A36 Access To Services Of General Economic Interest@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A37-EnvironmentalProtection
   "A37 Environmental Protection"
@@ -505,8 +505,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A37 Environmental Protection@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A37 Environmental Protection@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A38-ConsumerProtection
   "A38 Consumer Protection"
@@ -520,8 +520,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A38 Consumer Protection@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A38 Consumer Protection@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A39-RightToVoteStandAsCanditateEUParliament
   "A39 Right To Vote Stand As Canditate E U Parliament"
@@ -534,9 +534,9 @@
               :owl/NamedIndividual
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "A39 Right To Vote Stand As Canditate E U Parliament@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A4-ProhibitionOfTortureDegradationPunishment
   "A4 Prohibition Of Torture Degradation Punishment"
@@ -549,9 +549,9 @@
               :owl/NamedIndividual
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "A4 Prohibition Of Torture Degradation Punishment@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A40-RightToVoteStandAsCandidateMunicipalElections
   "A40 Right To Vote Stand As Candidate Municipal Elections"
@@ -564,9 +564,9 @@
               :owl/NamedIndividual
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "A40 Right To Vote Stand As Candidate Municipal Elections@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A41-RightToGoodAdministration
   "A41 Right To Good Administration"
@@ -580,8 +580,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A41 Right To Good Administration@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A41 Right To Good Administration@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A42-RightToAccessToDocuments
   "A42 Right To Access To Documents"
@@ -595,8 +595,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A42 Right To Access To Documents@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A42 Right To Access To Documents@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A43-EuropeanOmbudsman
   "A43 European Ombudsman"
@@ -610,8 +610,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A43 European Ombudsman@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A43 European Ombudsman@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A44-RightToPetition
   "A44 Right To Petition"
@@ -625,8 +625,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A44 Right To Petition@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A44 Right To Petition@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A45-FreedomOfMovementAndResidence
   "A45 Freedom Of Movement And Residence"
@@ -640,8 +640,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A45 Freedom Of Movement And Residence@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A45 Freedom Of Movement And Residence@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A46-DiplomaticConsularProtection
   "A46 Diplomatic Consular Protection"
@@ -655,8 +655,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A46 Diplomatic Consular Protection@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A46 Diplomatic Consular Protection@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A47-RightToEffectiveRemedyFairTrial
   "A47 Right To Effective Remedy Fair Trial"
@@ -670,9 +670,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A47 Right To Effective Remedy Fair Trial@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A48-PresumptionOfInnocenceRightOfDefence
   "A48 Presumption Of Innocence Right Of Defence"
@@ -686,9 +686,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A48 Presumption Of Innocence Right Of Defence@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A49-PrinciplesOfLegalityProportionalityCriminalOffencesPenalties
   "A49 Principles Of Legality Proportionality Criminal Offences Penalties"
@@ -703,9 +703,9 @@
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "A49 Principles Of Legality Proportionality Criminal Offences Penalties@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A5-ProhibitionOfSlaveryForcedLabour
   "A5 Prohibition Of Slavery Forced Labour"
@@ -719,9 +719,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A5 Prohibition Of Slavery Forced Labour@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A50-RightNotBeTriedPunishedTwiceForSameCriminalOffence
   "A50 Right Not Be Tried Punished Twice For Same Criminal Offence"
@@ -736,9 +736,9 @@
               :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
    :rdfs/label
-   #xsd/langString
+   #rdf/langString
     "A50 Right Not Be Tried Punished Twice For Same Criminal Offence@en",
-   :vs/term_status #xsd/langString "accepted@en"})
+   :vs/term_status #rdf/langString "accepted@en"})
 
 (def A51-FieldOfApplication
   "A51 Field Of Application"
@@ -752,8 +752,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A51 Field Of Application@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A51 Field Of Application@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A52-ScopeInterpretationOfRightsPrinciples
   "A52 Scope Interpretation Of Rights Principles"
@@ -767,9 +767,9 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString
+   :rdfs/label       #rdf/langString
                       "A52 Scope Interpretation Of Rights Principles@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A53-LevelOfProtection
   "A53 Level Of Protection"
@@ -783,8 +783,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A53 Level Of Protection@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A53 Level Of Protection@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A54-ProhibitionOfAbuseOfRights
   "A54 Prohibition Of Abuse Of Rights"
@@ -798,8 +798,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A54 Prohibition Of Abuse Of Rights@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A54 Prohibition Of Abuse Of Rights@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A6-RightToLiberySecurity
   "A6 Right To Libery Security"
@@ -813,8 +813,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A6 Right To Libery Security@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A6 Right To Libery Security@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A7-RespectPrivateFamilyLife
   "A7 Respect Private Family Life"
@@ -828,8 +828,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A7 Respect Private Family Life@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A7 Respect Private Family Life@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A8-ProtectionOfPersonalData
   "A8 Protection Of Personal Data"
@@ -843,8 +843,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A8 Protection Of Personal Data@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A8 Protection Of Personal Data@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def A9-RightToMarryFoundFamily
   "A9 Right To Marry Found Family"
@@ -858,8 +858,8 @@
                       :owl/NamedIndividual
                       :dpvo/DataSubjectRight],
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "A9 Right To Marry Found Family@en",
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :rdfs/label       #rdf/langString "A9 Right To Marry Found Family@en",
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def EUFundamentalRights
   "EU Fundamental Rights"
@@ -870,9 +870,9 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "EU Fundamental Rights@en",
+   :rdfs/label       #rdf/langString "EU Fundamental Rights@en",
    :rdfs/subClassOf  :dpvo/DataSubjectRight,
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T1-Dignity
   "T1 Dignity"
@@ -883,10 +883,10 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T1 Dignity@en",
+   :rdfs/label       #rdf/langString "T1 Dignity@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T2-Freedoms
   "T2 Freedoms"
@@ -897,10 +897,10 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T2 Freedoms@en",
+   :rdfs/label       #rdf/langString "T2 Freedoms@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T3-Equality
   "T3 Equality"
@@ -911,10 +911,10 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T3 Equality@en",
+   :rdfs/label       #rdf/langString "T3 Equality@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T4-Solidarity
   "T4 Solidarity"
@@ -925,10 +925,10 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T4 Solidarity@en",
+   :rdfs/label       #rdf/langString "T4 Solidarity@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T5-CitizensRights
   "T5 Citizens Rights"
@@ -939,10 +939,10 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T5 Citizens Rights@en",
+   :rdfs/label       #rdf/langString "T5 Citizens Rights@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T6-Justice
   "T6 Justice"
@@ -953,10 +953,10 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T6 Justice@en",
+   :rdfs/label       #rdf/langString "T6 Justice@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def T7-InterpretationAndApplication
   "T7 Interpretation And Application"
@@ -967,67 +967,67 @@
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label       #xsd/langString "T7 Interpretation And Application@en",
+   :rdfs/label       #rdf/langString "T7 Interpretation And Application@en",
    :rdfs/subClassOf  [:dpvo-rights-eu/EUFundamentalRights
                       :dpvo/DataSubjectRight],
-   :vs/term_status   #xsd/langString "accepted@en"})
+   :vs/term_status   #rdf/langString "accepted@en"})
 
 (def hasDeveloper
   "Indicates technology developer"
   {:db/ident            :dpvo-rights-eu/hasDeveloper,
    :dcterms/created     #xsd/date #inst "2022-07-02T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Indicates technology developer@en",
+   :dcterms/description #rdf/langString "Indicates technology developer@en",
    :dcterms/modified    #xsd/date #inst "2022-10-21T00:00:00.000-04:00",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label          #xsd/langString "has developer@en",
+   :rdfs/label          #rdf/langString "has developer@en",
    :rdfs/range          :dpvo-tech/TechnologyDeveloper,
    :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
-   :vs/term_status      #xsd/langString "changed@en"})
+   :vs/term_status      #rdf/langString "changed@en"})
 
 (def hasProvider
   "Indicates technology provider"
   {:db/ident            :dpvo-rights-eu/hasProvider,
    :dcterms/created     #xsd/date #inst "2022-07-02T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Indicates technology provider@en",
+   :dcterms/description #rdf/langString "Indicates technology provider@en",
    :dcterms/modified    #xsd/date #inst "2022-10-21T00:00:00.000-04:00",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label          #xsd/langString "has provider@en",
+   :rdfs/label          #rdf/langString "has provider@en",
    :rdfs/range          :dpvo-tech/TechnologyProvider,
    :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
-   :vs/term_status      #xsd/langString "changed@en"})
+   :vs/term_status      #rdf/langString "changed@en"})
 
 (def hasSubject
   "Indicates technology subject"
   {:db/ident            :dpvo-rights-eu/hasSubject,
    :dcterms/created     #xsd/date #inst "2022-07-02T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Indicates technology subject@en",
+   :dcterms/description #rdf/langString "Indicates technology subject@en",
    :dcterms/modified    #xsd/date #inst "2022-10-21T00:00:00.000-04:00",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label          #xsd/langString "has subject@en",
+   :rdfs/label          #rdf/langString "has subject@en",
    :rdfs/range          :dpvo-tech/TechnologySubject,
    :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
-   :vs/term_status      #xsd/langString "changed@en"})
+   :vs/term_status      #rdf/langString "changed@en"})
 
 (def hasUser
   "Indicates technology user"
   {:db/ident            :dpvo-rights-eu/hasUser,
    :dcterms/created     #xsd/date #inst "2022-07-02T00:00:00.000-04:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
-   :dcterms/description #xsd/langString "Indicates technology user@en",
+   :dcterms/description #rdf/langString "Indicates technology user@en",
    :dcterms/modified    #xsd/date #inst "2022-10-21T00:00:00.000-04:00",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Technology,
    :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#"},
-   :rdfs/label          #xsd/langString "has user@en",
+   :rdfs/label          #rdf/langString "has user@en",
    :rdfs/range          :dpvo-tech/TechnologyUser,
    :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
-   :vs/term_status      #xsd/langString "changed@en"})
+   :vs/term_status      #rdf/langString "changed@en"})

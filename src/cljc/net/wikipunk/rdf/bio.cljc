@@ -23,10 +23,10 @@
   {:db/ident :bio/Accession,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person succeeding to the right to hold regal power. This event is often automatic on the death of the previous monarch and is usually followed by a coronation event.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Accession@en",
+   :rdfs/label #rdf/langString "Accession@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -44,10 +44,10 @@
   {:db/ident :bio/Adoption,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of creating of a legal parent/child relationship that does not exist biologically.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Adoption@en",
+   :rdfs/label #rdf/langString "Adoption@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -65,10 +65,10 @@
   {:db/ident :bio/Annulment,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of declaring a marriage void from the beginning as though it never existed.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Annulment@en",
+   :rdfs/label #rdf/langString "Annulment@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :event/Event
                      {:owl/minCardinality #xsd/nonNegativeInteger 2,
@@ -86,10 +86,10 @@
   {:db/ident :bio/Assassination,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person being deliberately targeted and killed.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Assassination@en",
+   :rdfs/label #rdf/langString "Assassination@en",
    :rdfs/subClassOf [:bio/Murder
                      :bio/Death
                      :event/Event
@@ -109,10 +109,10 @@
   {:db/ident :bio/Baptism,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event held to admit a person to membership of a Christian church.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Baptism@en",
+   :rdfs/label #rdf/langString "Baptism@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -130,10 +130,10 @@
   {:db/ident :bio/BarMitzvah,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event held when a Jewish boy reaches age 13.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "BarMitzvah@en",
+   :rdfs/label #rdf/langString "BarMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -151,10 +151,10 @@
   {:db/ident :bio/BasMitzvah,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event held when a Jewish girl reaching age 13, also known as \"Bat Mitzvah.\"@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "BasMitzvah@en",
+   :rdfs/label #rdf/langString "BasMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -171,10 +171,10 @@
   "The event of a person entering into life."
   {:db/ident         :bio/Birth,
    :rdf/type         :owl/Class,
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "The event of a person entering into life.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "Birth@en",
+   :rdfs/label       #rdf/langString "Birth@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
                       :event/Event
                       :bio/Event
@@ -192,10 +192,10 @@
   {:db/ident :bio/Burial,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of interring the remains of a person's body into the ground.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Burial@en",
+   :rdfs/label #rdf/langString "Burial@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -213,10 +213,10 @@
   {:db/ident :bio/Coronation,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event of a person being invested with regal power to become a monarch.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Coronation@en",
+   :rdfs/label #rdf/langString "Coronation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -234,10 +234,10 @@
   {:db/ident :bio/Cremation,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of disposing of the remains of a person's body by fire.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Cremation@en",
+   :rdfs/label #rdf/langString "Cremation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -254,9 +254,9 @@
   "The event of a person's life ending."
   {:db/ident         :bio/Death,
    :rdf/type         :owl/Class,
-   :rdfs/comment     #xsd/langString "The event of a person's life ending.@en",
+   :rdfs/comment     #rdf/langString "The event of a person's life ending.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "Death@en",
+   :rdfs/label       #rdf/langString "Death@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
                       :event/Event
                       :bio/Event
@@ -274,10 +274,10 @@
   {:db/ident :bio/Demotion,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person changing the position they hold with an employer to one with less importance or responsibility.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Demotion@en",
+   :rdfs/label #rdf/langString "Demotion@en",
    :rdfs/subClassOf [:bio/PositionChange
                      :event/Event
                      :bio/IndividualEvent
@@ -295,10 +295,10 @@
   "The event of a group or organization being disbanded."
   {:db/ident :bio/Disbanding,
    :rdf/type :owl/Class,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "The event of a group or organization being disbanded.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Disbanding@en",
+   :rdfs/label #rdf/langString "Disbanding@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -316,10 +316,10 @@
   {:db/ident :bio/Dismissal,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person involuntarily giving up their office or position. Dismissal is often perceived to be the employee's fault and may be considered disgraceful.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Dismissal@en",
+   :rdfs/label #rdf/langString "Dismissal@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -336,10 +336,10 @@
   "The event of legally dissolving a marriage."
   {:db/ident         :bio/Divorce,
    :rdf/type         :owl/Class,
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "The event of legally dissolving a marriage.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "Divorce@en",
+   :rdfs/label       #rdf/langString "Divorce@en",
    :rdfs/subClassOf  [:bio/GroupEvent
                       :event/Event
                       {:owl/minCardinality #xsd/nonNegativeInteger 2,
@@ -357,10 +357,10 @@
   {:db/ident :bio/Emigration,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person leaving their homeland with the intent of residing elsewhere.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Emigration@en",
+   :rdfs/label #rdf/langString "Emigration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -378,10 +378,10 @@
   {:db/ident :bio/Employment,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person entering an occupational relationship with an employer.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Employment@en",
+   :rdfs/label #rdf/langString "Employment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -399,10 +399,10 @@
   {:db/ident :bio/Enrolment,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person initiating attendence to a school or other place of learning.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Enrolment@en",
+   :rdfs/label #rdf/langString "Enrolment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -420,17 +420,17 @@
   {:db/ident :bio/Event,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event is an occurrence that brings about a change in the state of affairs for one or more people and/or other agents. Events are assumed to occur over a period of time and may not have precise start and end points.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Event@en",
+   :rdfs/label #rdf/langString "Event@en",
    :rdfs/subClassOf [:event/Event
                      {:rdfa/uri "http://linkedevents.org/ontology/Event"}
                      :dcmitype/Event
                      {:rdfa/uri
                       "http://sw.opencyc.org/2009/04/07/concept/en/Event"}],
    :vann/usageNote
-   #xsd/langString
+   #rdf/langString
     "This class is intended to describe biographical events, i.e. events in the life of a person.@en",
    :vs/term_status "testing"})
 
@@ -439,10 +439,10 @@
   {:db/ident :bio/Execution,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person being deliberately killed as punishment.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Execution@en",
+   :rdfs/label #rdf/langString "Execution@en",
    :rdfs/subClassOf [:bio/Death
                      :event/Event
                      :bio/IndividualEvent
@@ -460,10 +460,10 @@
   "The event of a group or organization coming into being."
   {:db/ident :bio/Formation,
    :rdf/type :owl/Class,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "The event of a group or organization coming into being.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Formation@en",
+   :rdfs/label #rdf/langString "Formation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -480,10 +480,10 @@
   "The event of marking a person's death with a ceremony."
   {:db/ident :bio/Funeral,
    :rdf/type :owl/Class,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "The event of marking a person's death with a ceremony.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Funeral@en",
+   :rdfs/label #rdf/langString "Funeral@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -501,10 +501,10 @@
   {:db/ident :bio/Graduation,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person being awarded educational diplomas or degrees.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Graduation@en",
+   :rdfs/label #rdf/langString "Graduation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -522,10 +522,10 @@
   {:db/ident :bio/GroupEvent,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A type of event that is principally about one or more agents and their partnership. Other agents may be involved but the event is most significant for the partner agent.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Group Event@en",
+   :rdfs/label #rdf/langString "Group Event@en",
    :rdfs/subClassOf [{:owl/minCardinality #xsd/nonNegativeInteger 2,
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
@@ -542,10 +542,10 @@
   {:db/ident :bio/Imprisonment,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person being detained in a jail or prison.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Imprisonment@en",
+   :rdfs/label #rdf/langString "Imprisonment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -563,10 +563,10 @@
   {:db/ident :bio/Inauguration,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event marking the beginning of a person's term of office as a leader.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Inauguration@en",
+   :rdfs/label #rdf/langString "Inauguration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -584,10 +584,10 @@
   {:db/ident :bio/IndividualEvent,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A type of event that is principally about a single person, group or organization. Other agents may be involved but the event is most significant for the principal agent.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Individual Event@en",
+   :rdfs/label #rdf/langString "Individual Event@en",
    :rdfs/subClassOf [{:owl/cardinality #xsd/nonNegativeInteger 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
@@ -604,10 +604,10 @@
   {:db/ident :bio/Interval,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A extended interval of time related to a particular state of affairs, such as the lifespan of a person or a period of employment.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Interval@en",
+   :rdfs/label #rdf/langString "Interval@en",
    :rdfs/subClassOf :time/ProperInterval,
    :vs/term_status "unstable"})
 
@@ -616,10 +616,10 @@
   {:db/ident :bio/Investiture,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event of a person taking a public office or honour.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Investiture@en",
+   :rdfs/label #rdf/langString "Investiture@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -640,10 +640,10 @@
     "http://sw.opencyc.org/2009/04/07/concept/en/WeddingEvent_Generic"},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of creating uniting the participants into a new family unit, sometimes accompanied by a formal wedding ceremony. This is intended to cover a broad range of marriages including those given formal legal standing, common-law, or by convention. It is not restricted to marriages of two people of the opposite gender, but also includes polygamous and same-sex unions.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Marriage@en",
+   :rdfs/label #rdf/langString "Marriage@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :event/Event
                      {:owl/minCardinality #xsd/nonNegativeInteger 2,
@@ -661,10 +661,10 @@
   {:db/ident :bio/Murder,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person being killed unlawfully with intent by the killer.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Murder@en",
+   :rdfs/label #rdf/langString "Murder@en",
    :rdfs/subClassOf [:bio/Death
                      :event/Event
                      :bio/IndividualEvent
@@ -682,10 +682,10 @@
   "The event of a person changing their name."
   {:db/ident         :bio/NameChange,
    :rdf/type         :owl/Class,
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "The event of a person changing their name.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "Change of Name@en",
+   :rdfs/label       #rdf/langString "Change of Name@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
                       :event/Event
                       :bio/Event
@@ -703,10 +703,10 @@
   {:db/ident :bio/Naturalization,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person obtaining citizenship. Note that the place the naturalization event occurs at may be different from the state the person is obtaining citizenship of. @en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Naturalization@en",
+   :rdfs/label #rdf/langString "Naturalization@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -724,10 +724,10 @@
   {:db/ident :bio/Ordination,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The ceremonial event held when a person receives authority to act in religious matters.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Ordination@en",
+   :rdfs/label #rdf/langString "Ordination@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -746,10 +746,10 @@
    :owl/equivalentClass :mo/Performance,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Performance@en",
+   :rdfs/label #rdf/langString "Performance@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :event/Event
                      {:owl/minCardinality #xsd/nonNegativeInteger 2,
@@ -767,10 +767,10 @@
   {:db/ident :bio/PositionChange,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person changing the position they hold with an employer.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Change of Position@en",
+   :rdfs/label #rdf/langString "Change of Position@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -788,10 +788,10 @@
   {:db/ident :bio/Promotion,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person changing the position they hold with an employer to one with more importance or responsibility.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Promotion@en",
+   :rdfs/label #rdf/langString "Promotion@en",
    :rdfs/subClassOf [:bio/PositionChange
                      :event/Event
                      :bio/IndividualEvent
@@ -810,10 +810,10 @@
   {:db/ident :bio/Redundancy,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person involuntarily giving up an office or position that is no longer needed. Redundancy is usually perceived to be the employer's fault and is usually due to conditions outside of the employee's control.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Redundancy@en",
+   :rdfs/label #rdf/langString "Redundancy@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -832,10 +832,10 @@
    :owl/equivalentClass :rel/Relationship,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A particular type of connection existing between people, groups or organizations related to or having dealings with each other.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Agent Relationship@en",
+   :rdfs/label #rdf/langString "Agent Relationship@en",
    :vs/term_status "unstable"})
 
 (def Resignation
@@ -843,10 +843,10 @@
   {:db/ident :bio/Resignation,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person voluntarily giving up or quitting their office or position.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Resignation@en",
+   :rdfs/label #rdf/langString "Resignation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -864,10 +864,10 @@
   {:db/ident :bio/Retirement,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The event of a person exiting an occupational relationship with an employer after a qualifying time period. In many cultures retirement is expected and even required once the person reaches a particular age.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Retirement@en",
+   :rdfs/label #rdf/langString "Retirement@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :event/Event
                      :bio/Event
@@ -883,15 +883,15 @@
 (def agent
   "A person, organization or group that plays a role in an event."
   {:db/ident :bio/agent,
-   :label/plural #xsd/langString "Agents@en",
+   :label/plural #rdf/langString "Agents@en",
    :owl/inverseOf :bio/event,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A person, organization or group that plays a role in an event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Agent@en",
+   :rdfs/label #rdf/langString "Agent@en",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :owl/differentFrom})
 
@@ -899,11 +899,11 @@
   "An extended description or account of someone's life."
   {:db/ident :bio/biography,
    :rdf/type :rdf/Property,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "An extended description or account of someone's life.@en",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Biography@en",
+   :rdfs/label #rdf/langString "Biography@en",
    :vann/usageNote
    #rdf/XMLLiteral
     "<p>It is expected that the value of this property is either a literal formatted with HTML markup or a pointer to an HTML document.</p>",
@@ -912,27 +912,27 @@
 (def birth
   "An birth event associated with a person, group or organization."
   {:db/ident :bio/birth,
-   :label/plural #xsd/langString "Birth Events@en",
+   :label/plural #rdf/langString "Birth Events@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An birth event associated with a person, group or organization.@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Birth Event@en",
+   :rdfs/label #rdf/langString "Birth Event@en",
    :rdfs/range :bio/Birth,
    :rdfs/subPropertyOf [:bio/event :owl/differentFrom]})
 
 (def child
   "A biological child of a person. "
   {:db/ident :bio/child,
-   :label/plural #xsd/langString "Children@en",
+   :label/plural #rdf/langString "Children@en",
    :owl/equivalentProperty :rel/parentOf,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment #xsd/langString "A biological child of a person. @en",
+   :rdfs/comment #rdf/langString "A biological child of a person. @en",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Child@en",
+   :rdfs/label #rdf/langString "Child@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
    :vann/usageNote
@@ -943,39 +943,39 @@
 (def concludingEvent
   "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event."
   {:db/ident :bio/concludingEvent,
-   :label/plural #xsd/langString "Concluding Event@en",
+   :label/plural #rdf/langString "Concluding Event@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Concluding Event@en",
+   :rdfs/label #rdf/langString "Concluding Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf :owl/differentFrom})
 
 (def concurrentEvent
   "An event that occurs while this event is occurring. The events need not start or conclude at the same times."
   {:db/ident :bio/concurrentEvent,
-   :label/plural #xsd/langString "Concurrent Events@en",
+   :label/plural #rdf/langString "Concurrent Events@en",
    :rdf/type [:owl/SymmetricProperty :owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event that occurs while this event is occurring. The events need not start or conclude at the same times.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Concurrent Event@en",
+   :rdfs/label #rdf/langString "Concurrent Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf :owl/differentFrom})
 
 (def date
   "The date at which an event occurred."
   {:db/ident :bio/date,
-   :label/plural #xsd/langString "Dates@en",
+   :label/plural #rdf/langString "Dates@en",
    :rdf/type :rdf/Property,
-   :rdfs/comment #xsd/langString "The date at which an event occurred.@en",
+   :rdfs/comment #rdf/langString "The date at which an event occurred.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Date@en",
+   :rdfs/label #rdf/langString "Date@en",
    :rdfs/subPropertyOf :dc11/date,
    :vann/usageNote
    #rdf/XMLLiteral
@@ -985,42 +985,42 @@
 (def death
   "An death event associated with a person, group or organization."
   {:db/ident :bio/death,
-   :label/plural #xsd/langString "Death Events@en",
+   :label/plural #rdf/langString "Death Events@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An death event associated with a person, group or organization.@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Death Event@en",
+   :rdfs/label #rdf/langString "Death Event@en",
    :rdfs/range :bio/Death,
    :rdfs/subPropertyOf [:owl/differentFrom :bio/event]})
 
 (def employer
   "An agent that is involved in an event as an employer."
   {:db/ident :bio/employer,
-   :label/plural #xsd/langString "Employers@en",
+   :label/plural #rdf/langString "Employers@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "An agent that is involved in an event as an employer.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Employer@en",
+   :rdfs/label #rdf/langString "Employer@en",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def event
   "An event associated with a person, group or organization."
   {:db/ident :bio/event,
-   :label/plural #xsd/langString "Life Events@en",
+   :label/plural #rdf/langString "Life Events@en",
    :owl/inverseOf :bio/agent,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event associated with a person, group or organization.@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Life Event@en",
+   :rdfs/label #rdf/langString "Life Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf :owl/differentFrom})
 
@@ -1029,11 +1029,11 @@
   {:db/ident :bio/eventInterval,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Event Interval@en",
+   :rdfs/label #rdf/langString "Event Interval@en",
    :rdfs/range :bio/Interval,
    :vs/term_status "unstable"})
 
@@ -1042,11 +1042,11 @@
   {:db/ident :bio/father,
    :rdf/type [:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The biological father of a person, also known as the genitor.@en",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Father@en",
+   :rdfs/label #rdf/langString "Father@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:rel/childOf :owl/differentFrom],
    :vann/usageNote
@@ -1057,53 +1057,53 @@
 (def followingEvent
   "An event that starts at some time after this event."
   {:db/ident :bio/followingEvent,
-   :label/plural #xsd/langString "Following Events@en",
+   :label/plural #rdf/langString "Following Events@en",
    :rdf/type [:owl/ObjectProperty :owl/TransitiveProperty :rdf/Property],
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "An event that starts at some time after this event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Following Event@en",
+   :rdfs/label #rdf/langString "Following Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf :owl/differentFrom})
 
 (def immediatelyFollowingEvent
   "An event that starts immediately after this event."
   {:db/ident           :bio/immediatelyFollowingEvent,
-   :label/plural       #xsd/langString "Immediately Following Events@en",
+   :label/plural       #rdf/langString "Immediately Following Events@en",
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment       #xsd/langString
+   :rdfs/comment       #rdf/langString
                         "An event that starts immediately after this event.@en",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label         #xsd/langString "Immediately Following Event@en",
+   :rdfs/label         #rdf/langString "Immediately Following Event@en",
    :rdfs/range         :bio/Event,
    :rdfs/subPropertyOf [:owl/differentFrom :bio/followingEvent]})
 
 (def immediatelyPrecedingEvent
   "An event that occurs and concludes immediately before this event."
   {:db/ident :bio/immediatelyPrecedingEvent,
-   :label/plural #xsd/langString "Immediately Preceding Events@en",
+   :label/plural #rdf/langString "Immediately Preceding Events@en",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event that occurs and concludes immediately before this event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Immediately Preceding Event@en",
+   :rdfs/label #rdf/langString "Immediately Preceding Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf [:owl/differentFrom :bio/precedingEvent]})
 
 (def initiatingEvent
   "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event."
   {:db/ident :bio/initiatingEvent,
-   :label/plural #xsd/langString "Initiating Event@en",
+   :label/plural #rdf/langString "Initiating Event@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Initiating Event@en",
+   :rdfs/label #rdf/langString "Initiating Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf :owl/differentFrom})
 
@@ -1111,11 +1111,11 @@
   "The interval during which the relationship persists."
   {:db/ident         :bio/interval,
    :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     #xsd/langString
+   :rdfs/comment     #rdf/langString
                       "The interval during which the relationship persists.@en",
    :rdfs/domain      :bio/Relationship,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "Relationship Interval@en",
+   :rdfs/label       #rdf/langString "Relationship Interval@en",
    :rdfs/range       :bio/Interval,
    :vs/term_status   "unstable"})
 
@@ -1124,11 +1124,11 @@
   {:db/ident :bio/keywords,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A comma delimited list of key words that describe a person.@en",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Key Words@en",
+   :rdfs/label #rdf/langString "Key Words@en",
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :dc11/subject,
    :vs/term_status "stable"})
@@ -1138,11 +1138,11 @@
   {:db/ident :bio/mother,
    :rdf/type [:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The biological mother of a person, also known as the genetrix.@en",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Mother@en",
+   :rdfs/label #rdf/langString "Mother@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:owl/differentFrom :rel/childOf],
    :vann/usageNote
@@ -1153,13 +1153,13 @@
 (def officiator
   "A person that officiates at a ceremonial event."
   {:db/ident           :bio/officiator,
-   :label/plural       #xsd/langString "Officiators@en",
+   :label/plural       #rdf/langString "Officiators@en",
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       #xsd/langString
+   :rdfs/comment       #rdf/langString
                         "A person that officiates at a ceremonial event.@en",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label         #xsd/langString "Officiator@en",
+   :rdfs/label         #rdf/langString "Officiator@en",
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
@@ -1167,91 +1167,91 @@
   "A one-line biography of the person."
   {:db/ident         :bio/olb,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     #xsd/langString "A one-line biography of the person.@en",
+   :rdfs/comment     #rdf/langString "A one-line biography of the person.@en",
    :rdfs/domain      :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "One-line bio@en",
+   :rdfs/label       #rdf/langString "One-line bio@en",
    :rdfs/range       :rdfs/Literal,
    :vs/term_status   "stable"})
 
 (def organization
   "An organization that plays a role in an event."
   {:db/ident           :bio/organization,
-   :label/plural       #xsd/langString "Organizations@en",
+   :label/plural       #rdf/langString "Organizations@en",
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       #xsd/langString
+   :rdfs/comment       #rdf/langString
                         "An organization that plays a role in an event.@en",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label         #xsd/langString "Organization@en",
+   :rdfs/label         #rdf/langString "Organization@en",
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def parent
   "A person that takes the parent role in an event."
   {:db/ident           :bio/parent,
-   :label/plural       #xsd/langString "Parents@en",
+   :label/plural       #rdf/langString "Parents@en",
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       #xsd/langString
+   :rdfs/comment       #rdf/langString
                         "A person that takes the parent role in an event.@en",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label         #xsd/langString "Parent@en",
+   :rdfs/label         #rdf/langString "Parent@en",
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def participant
   "A person, group or organization that participates in a relationship for some time."
   {:db/ident :bio/participant,
-   :label/plural #xsd/langString "Participants@en",
+   :label/plural #rdf/langString "Participants@en",
    :owl/equivalentProperty :rel/participant,
    :owl/inverseOf :bio/relationship,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A person, group or organization that participates in a relationship for some time.@en",
    :rdfs/domain :bio/Relationship,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Participant@en",
+   :rdfs/label #rdf/langString "Participant@en",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :owl/differentFrom})
 
 (def partner
   "A person that is involved in a event as a partner in a relationship."
   {:db/ident :bio/partner,
-   :label/plural #xsd/langString "Partners@en",
+   :label/plural #rdf/langString "Partners@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A person that is involved in a event as a partner in a relationship.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Partner@en",
+   :rdfs/label #rdf/langString "Partner@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def place
   "The place at which an event occurred."
   {:db/ident         :bio/place,
-   :label/plural     #xsd/langString "Places@en",
+   :label/plural     #rdf/langString "Places@en",
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #xsd/langString "The place at which an event occurred.@en",
+   :rdfs/comment     #rdf/langString "The place at which an event occurred.@en",
    :rdfs/domain      :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label       #xsd/langString "Place@en",
+   :rdfs/label       #rdf/langString "Place@en",
    :vs/term_status   "stable"})
 
 (def position
   "The employment position or public office involved in an event."
   {:db/ident :bio/position,
-   :label/plural #xsd/langString "Positions@en",
+   :label/plural #rdf/langString "Positions@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "The employment position or public office involved in an event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Position@en",
+   :rdfs/label #rdf/langString "Position@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom],
    :vs/term_status "unstable"})
@@ -1259,72 +1259,72 @@
 (def precedingEvent
   "An event that occurs and concludes at some time before this event."
   {:db/ident :bio/precedingEvent,
-   :label/plural #xsd/langString "Preceding Events@en",
+   :label/plural #rdf/langString "Preceding Events@en",
    :rdf/type [:owl/TransitiveProperty :owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An event that occurs and concludes at some time before this event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Preceding Event@en",
+   :rdfs/label #rdf/langString "Preceding Event@en",
    :rdfs/range :bio/Event,
    :rdfs/subPropertyOf :owl/differentFrom})
 
 (def principal
   "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person."
   {:db/ident :bio/principal,
-   :label/plural #xsd/langString "Principals@en",
+   :label/plural #rdf/langString "Principals@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Principal@en",
+   :rdfs/label #rdf/langString "Principal@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def relationship
   "A relationship that a person, group or organization participates in for some time."
   {:db/ident :bio/relationship,
-   :label/plural #xsd/langString "Relationships@en",
+   :label/plural #rdf/langString "Relationships@en",
    :owl/equivalentProperty :rel/participantIn,
    :owl/inverseOf :bio/participant,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A relationship that a person, group or organization participates in for some time.@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Relationship@en",
+   :rdfs/label #rdf/langString "Relationship@en",
    :rdfs/range :bio/Relationship,
    :rdfs/subPropertyOf :owl/differentFrom})
 
 (def spectator
   "A person that is present at and observes the occurrence of at least part of an event."
   {:db/ident :bio/spectator,
-   :label/plural #xsd/langString "Spectators@en",
+   :label/plural #rdf/langString "Spectators@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A person that is present at and observes the occurrence of at least part of an event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Spectator@en",
+   :rdfs/label #rdf/langString "Spectator@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def state
   "A country or independent territory that is involved in an event."
   {:db/ident :bio/state,
-   :label/plural #xsd/langString "States@en",
+   :label/plural #rdf/langString "States@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A country or independent territory that is involved in an event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "State@en",
+   :rdfs/label #rdf/langString "State@en",
    :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def termgroup1
@@ -1340,7 +1340,7 @@
    :rdf/_8     :bio/birth,
    :rdf/_9     :bio/death,
    :rdf/type   :rdf/Bag,
-   :rdfs/label #xsd/langString "Properties of a person@en"})
+   :rdfs/label #rdf/langString "Properties of a person@en"})
 
 (def termgroup2
   "Types of event"
@@ -1383,7 +1383,7 @@
    :rdf/_8     :bio/Baptism,
    :rdf/_9     :bio/BarMitzvah,
    :rdf/type   :rdf/Bag,
-   :rdfs/label #xsd/langString "Types of event@en"})
+   :rdfs/label #rdf/langString "Types of event@en"})
 
 (def termgroup3
   "Properties of an event"
@@ -1393,7 +1393,7 @@
    :rdf/_3     :bio/state,
    :rdf/_4     :bio/position,
    :rdf/type   :rdf/Bag,
-   :rdfs/label #xsd/langString "Properties of an event@en"})
+   :rdfs/label #rdf/langString "Properties of an event@en"})
 
 (def termgroup4
   "Properties that relate an event to an agent"
@@ -1408,7 +1408,7 @@
    :rdf/_8     :bio/witness,
    :rdf/_9     :bio/spectator,
    :rdf/type   :rdf/Bag,
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "Properties that relate an event to an agent@en"})
 
 (def termgroup5
@@ -1420,19 +1420,19 @@
    :rdf/_4     :bio/immediatelyFollowingEvent,
    :rdf/_5     :bio/immediatelyPrecedingEvent,
    :rdf/type   :rdf/Bag,
-   :rdfs/label #xsd/langString
+   :rdfs/label #rdf/langString
                 "Properties that relate an event to another event@en"})
 
 (def witness
   "A person that witnesses and can bear testimony to the occurrence of an event."
   {:db/ident :bio/witness,
-   :label/plural #xsd/langString "Witnesses@en",
+   :label/plural #rdf/langString "Witnesses@en",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A person that witnesses and can bear testimony to the occurrence of an event.@en",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/bio/0.1/"},
-   :rdfs/label #xsd/langString "Witness@en",
+   :rdfs/label #rdf/langString "Witness@en",
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf [:bio/spectator :owl/differentFrom :bio/agent]})

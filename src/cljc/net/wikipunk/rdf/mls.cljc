@@ -220,7 +220,7 @@
   "Process"
   {:db/ident   :mls/Process,
    :rdf/type   :owl/Class,
-   :rdfs/label #xsd/langString "Process@en"})
+   :rdfs/label #rdf/langString "Process@en"})
 
 (def Quality
   {:db/ident :mls/Quality,
@@ -313,7 +313,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between a task and either the data or an evaluation specification pertinent to this task.",
-   :rdfs/label #xsd/langString "definedOn@en",
+   :rdfs/label #rdf/langString "definedOn@en",
    :rdfs/subPropertyOf :owl/topObjectProperty})
 
 (def defines
@@ -339,7 +339,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between an implementation of a machine learning algorithm and its hyperparameter.",
-   :rdfs/label #xsd/langString "hasHyperParameter@en",
+   :rdfs/label #rdf/langString "hasHyperParameter@en",
    :rdfs/subPropertyOf :owl/topObjectProperty})
 
 (def hasInput
@@ -350,7 +350,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between a run and data that is taken as input to the run.",
-   :rdfs/label #xsd/langString "hasInput@en",
+   :rdfs/label #rdf/langString "hasInput@en",
    :rdfs/subPropertyOf :owl/topObjectProperty})
 
 (def hasOutput
@@ -370,7 +370,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation which represents a part-whole relationship holding between an entity and its part.",
-   :rdfs/label #xsd/langString "hasPart@en"})
+   :rdfs/label #rdf/langString "hasPart@en"})
 
 (def hasQuality
   "A relation between entities and their various characteristics."
@@ -393,7 +393,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between an information entity and a specification that it conforms to.",
-   :rdfs/label #xsd/langString "implements@en"})
+   :rdfs/label #rdf/langString "implements@en"})
 
 (def realizes
   "A relation between a run and an algorithm, where the run realizes specifications formulated by the algorithm."

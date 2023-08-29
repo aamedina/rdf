@@ -163,3 +163,43 @@
              [?x :schema/baseSalary ?s]]]))
 
 ; => [[:accounting 55000.0] [:hr 47000.0]]
+
+(comment
+  (d/q '[:find ?c
+         :where
+         [?c :rdf/type :owl/Class]
+         (not [:owl/Nothing :rdfs/subClassOf ?c])]
+       db))
+
+(defn scm-cls
+  ([db]
+   (mapcat (fn [[?c]]
+             (scm-cls db ?c))
+           (d/qseq '[:find ?c
+                     :in $
+                     :where
+                     [?c :rdf/type :owl/Class]]
+                   db)))
+  ([db ?c]
+   [[:db/add ?c :rdfs/subClassOf ?c]
+    [:db/add ?c :owl/equivalentClass ?c]
+    [:db/add ?c :rdfs/subClassOf :owl/Thing]
+    [:db/add :owl/Nothing :rdfs/subClassOf ?c]]))
+
+(comment
+  (d/with boot-db {:tx-data [['dev/scm-cls]]}))
+
+(defn materialize
+  "Materializes inferences using the forward chaining rules provided."
+  [db & rules]
+  (reduce (fn [tx-data f]
+            (f db tx-data))
+          [] rules))
+
+(comment
+  (d/qseq '[:find ?c
+            :in $ %
+            :where
+            (scm-cls ?c)
+            (not [:owl/Nothing :rdfs/subClassOf ?c])]
+          boot-db rl/rules))

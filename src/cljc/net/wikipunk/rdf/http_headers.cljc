@@ -14,9 +14,9 @@
   "The A-IM header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/a-im,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The A-IM header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "A-IM@en",
+   :dcterms/title #rdf/langString "A-IM@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -27,9 +27,9 @@
   "The Accept header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept@en",
+   :dcterms/title #rdf/langString "Accept@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -40,9 +40,9 @@
   "The Accept-Additions header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-additions,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept-Additions header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept-Additions@en",
+   :dcterms/title #rdf/langString "Accept-Additions@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -53,9 +53,9 @@
   "The Accept-Charset header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-charset,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept-Charset header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept-Charset@en",
+   :dcterms/title #rdf/langString "Accept-Charset@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -66,9 +66,9 @@
   "The Accept-Encoding header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-encoding,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept-Encoding header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept-Encoding@en",
+   :dcterms/title #rdf/langString "Accept-Encoding@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -79,9 +79,9 @@
   "The Accept-Features header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-features,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept-Features header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept-Features@en",
+   :dcterms/title #rdf/langString "Accept-Features@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -92,9 +92,9 @@
   "The Accept-Language header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-language,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept-Language header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept-Language@en",
+   :dcterms/title #rdf/langString "Accept-Language@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -105,9 +105,9 @@
   "The Accept-Ranges header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-ranges,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Accept-Ranges header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Accept-Ranges@en",
+   :dcterms/title #rdf/langString "Accept-Ranges@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -118,9 +118,9 @@
   "The Access-Control header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control@en",
+   :dcterms/title #rdf/langString "Access-Control@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -131,9 +131,9 @@
   "The Access-Control-Allow-Credentials header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-credentials,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Allow-Credentials header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Allow-Credentials@en",
+   :dcterms/title #rdf/langString "Access-Control-Allow-Credentials@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -144,9 +144,9 @@
   "The Access-Control-Allow-Headers header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-headers,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Allow-Headers header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Allow-Headers@en",
+   :dcterms/title #rdf/langString "Access-Control-Allow-Headers@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -157,9 +157,9 @@
   "The Access-Control-Allow-Methods header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-methods,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Allow-Methods header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Allow-Methods@en",
+   :dcterms/title #rdf/langString "Access-Control-Allow-Methods@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -170,9 +170,9 @@
   "The Access-Control-Allow-Origin header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-origin,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Allow-Origin header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Allow-Origin@en",
+   :dcterms/title #rdf/langString "Access-Control-Allow-Origin@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -183,9 +183,9 @@
   "The Access-Control-Max-Age header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-max-age,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Max-Age header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Max-Age@en",
+   :dcterms/title #rdf/langString "Access-Control-Max-Age@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -196,9 +196,9 @@
   "The Access-Control-Request-Headers header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-request-headers,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Request-Headers header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Request-Headers@en",
+   :dcterms/title #rdf/langString "Access-Control-Request-Headers@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -209,9 +209,9 @@
   "The Access-Control-Request-Method header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-request-method,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Access-Control-Request-Method header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Access-Control-Request-Method@en",
+   :dcterms/title #rdf/langString "Access-Control-Request-Method@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -222,9 +222,9 @@
   "The Age header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/age,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Age header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Age@en",
+   :dcterms/title #rdf/langString "Age@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -235,9 +235,9 @@
   "The Allow header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/allow,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Allow header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Allow@en",
+   :dcterms/title #rdf/langString "Allow@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -248,9 +248,9 @@
   "The alternates header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/alternates,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The alternates header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Alternates@en",
+   :dcterms/title #rdf/langString "Alternates@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -261,9 +261,9 @@
   "The Apply-To-Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/apply-to-redirect-ref,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Apply-To-Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Apply-To-Redirect-Ref@en",
+   :dcterms/title #rdf/langString "Apply-To-Redirect-Ref@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -274,9 +274,9 @@
   "The Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/authentication-info,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Authentication-Info@en",
+   :dcterms/title #rdf/langString "Authentication-Info@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -287,9 +287,9 @@
   "The Authorization header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/authorization,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Authorization header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Authorization@en",
+   :dcterms/title #rdf/langString "Authorization@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -300,9 +300,9 @@
   "The C-Ext header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-ext,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The C-Ext header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "C-Ext@en",
+   :dcterms/title #rdf/langString "C-Ext@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -313,9 +313,9 @@
   "The C-Man header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-man,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The C-Man header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "C-Man@en",
+   :dcterms/title #rdf/langString "C-Man@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -326,9 +326,9 @@
   "The C-Opt header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-opt,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The C-Opt header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "C-Opt@en",
+   :dcterms/title #rdf/langString "C-Opt@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -339,9 +339,9 @@
   "The C-PEP header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-pep,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The C-PEP header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "C-PEP@en",
+   :dcterms/title #rdf/langString "C-PEP@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -352,9 +352,9 @@
   "The C-PEP-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-pep-info,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The C-PEP-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "C-PEP-Info@en",
+   :dcterms/title #rdf/langString "C-PEP-Info@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -365,9 +365,9 @@
   "The Cache-Control header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/cache-control,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Cache-Control header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Cache-Control@en",
+   :dcterms/title #rdf/langString "Cache-Control@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -378,9 +378,9 @@
   "The Compliance header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/compliance,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Compliance header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Compliance@en",
+   :dcterms/title #rdf/langString "Compliance@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -392,9 +392,9 @@
   "The Connection header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/connection,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Connection header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Connection@en",
+   :dcterms/title #rdf/langString "Connection@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -405,9 +405,9 @@
   "The Content-Base header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-base,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Base header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Base@en",
+   :dcterms/title #rdf/langString "Content-Base@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -418,9 +418,9 @@
   "The Content-Disposition header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-disposition,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Disposition header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Disposition@en",
+   :dcterms/title #rdf/langString "Content-Disposition@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -431,9 +431,9 @@
   "The Content-Encoding header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-encoding,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Encoding header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Encoding@en",
+   :dcterms/title #rdf/langString "Content-Encoding@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -444,9 +444,9 @@
   "The Content-ID header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-id,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-ID header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-ID@en",
+   :dcterms/title #rdf/langString "Content-ID@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -457,9 +457,9 @@
   "The Content-Language header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-language,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Language header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Language@en",
+   :dcterms/title #rdf/langString "Content-Language@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -470,9 +470,9 @@
   "The Content-Length header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-length,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Length header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Length@en",
+   :dcterms/title #rdf/langString "Content-Length@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -483,9 +483,9 @@
   "The Content-Location header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-location,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Location header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Location@en",
+   :dcterms/title #rdf/langString "Content-Location@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -496,9 +496,9 @@
   "The Content-MD5 header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-md5,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-MD5 header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-MD5@en",
+   :dcterms/title #rdf/langString "Content-MD5@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -509,9 +509,9 @@
   "The Content-Range header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-range,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Range header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Range@en",
+   :dcterms/title #rdf/langString "Content-Range@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -522,9 +522,9 @@
   "The Content-Script-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-script-type,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Script-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Script-Type@en",
+   :dcterms/title #rdf/langString "Content-Script-Type@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -535,9 +535,9 @@
   "The Content-Style-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-style-type,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Style-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Style-Type@en",
+   :dcterms/title #rdf/langString "Content-Style-Type@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -548,9 +548,9 @@
   "The Content-Transfer-Encoding header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/content-transfer-encoding,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Transfer-Encoding header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Content-Transfer-Encoding@en",
+   :dcterms/title #rdf/langString "Content-Transfer-Encoding@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -561,9 +561,9 @@
   "The Content-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-type,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Type@en",
+   :dcterms/title #rdf/langString "Content-Type@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -574,9 +574,9 @@
   "The Content-Version header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-version,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Content-Version header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Content-Version@en",
+   :dcterms/title #rdf/langString "Content-Version@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -587,9 +587,9 @@
   "The Cookie header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/cookie,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Cookie header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Cookie@en",
+   :dcterms/title #rdf/langString "Cookie@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -600,9 +600,9 @@
   "The Cookie2 header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/cookie2,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Cookie2 header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Cookie2@en",
+   :dcterms/title #rdf/langString "Cookie2@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -613,9 +613,9 @@
   "The Cost header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/cost,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Cost header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Cost@en",
+   :dcterms/title #rdf/langString "Cost@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -626,9 +626,9 @@
   "The DASL header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/dasl,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The DASL header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "DASL@en",
+   :dcterms/title #rdf/langString "DASL@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -639,9 +639,9 @@
   "The Date header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/date,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Date header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Date@en",
+   :dcterms/title #rdf/langString "Date@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -652,9 +652,9 @@
   "The DAV header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/dav,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The DAV header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "DAV@en",
+   :dcterms/title #rdf/langString "DAV@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -665,9 +665,9 @@
   "The Default-Style header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/default-style,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Default-Style header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Default-Style@en",
+   :dcterms/title #rdf/langString "Default-Style@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -678,9 +678,9 @@
   "The Delta-Base header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/delta-base,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Delta-Base header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Delta-Base@en",
+   :dcterms/title #rdf/langString "Delta-Base@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -691,9 +691,9 @@
   "The Depth header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/depth,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Depth header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Depth@en",
+   :dcterms/title #rdf/langString "Depth@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -704,9 +704,9 @@
   "The Derived-From header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/derived-from,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Derived-From header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Derived-From@en",
+   :dcterms/title #rdf/langString "Derived-From@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -717,9 +717,9 @@
   "The Destination header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/destination,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Destination header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Destination@en",
+   :dcterms/title #rdf/langString "Destination@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -730,9 +730,9 @@
   "The Differential-ID header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/differential-id,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Differential-ID header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Differential-ID@en",
+   :dcterms/title #rdf/langString "Differential-ID@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -743,9 +743,9 @@
   "The Digest header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/digest,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Digest header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Digest@en",
+   :dcterms/title #rdf/langString "Digest@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -756,9 +756,9 @@
   "The ETag header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/etag,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The ETag header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "ETag@en",
+   :dcterms/title #rdf/langString "ETag@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -769,9 +769,9 @@
   "The Expect header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/expect,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Expect header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Expect@en",
+   :dcterms/title #rdf/langString "Expect@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -782,9 +782,9 @@
   "The Expires header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/expires,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Expires header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Expires@en",
+   :dcterms/title #rdf/langString "Expires@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -795,9 +795,9 @@
   "The Ext header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/ext,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Ext header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Ext@en",
+   :dcterms/title #rdf/langString "Ext@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -808,9 +808,9 @@
   "The From header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/from,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The From header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "From@en",
+   :dcterms/title #rdf/langString "From@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -821,9 +821,9 @@
   "The GetProfile header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/getprofile,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The GetProfile header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "GetProfile@en",
+   :dcterms/title #rdf/langString "GetProfile@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -834,9 +834,9 @@
   "The Host header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/host,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Host header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Host@en",
+   :dcterms/title #rdf/langString "Host@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -847,9 +847,9 @@
   "The If header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The If header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "If@en",
+   :dcterms/title #rdf/langString "If@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -860,9 +860,9 @@
   "The If-Match header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-match,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The If-Match header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "If-Match@en",
+   :dcterms/title #rdf/langString "If-Match@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -873,9 +873,9 @@
   "The If-Modified-Since header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-modified-since,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The If-Modified-Since header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "If-Modified-Since@en",
+   :dcterms/title #rdf/langString "If-Modified-Since@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -886,9 +886,9 @@
   "The If-None-Match header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-none-match,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The If-None-Match header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "If-None-Match@en",
+   :dcterms/title #rdf/langString "If-None-Match@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -899,9 +899,9 @@
   "The If-Range header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-range,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The If-Range header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "If-Range@en",
+   :dcterms/title #rdf/langString "If-Range@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -912,9 +912,9 @@
   "The If-Unmodified-Since header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-unmodified-since,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The If-Unmodified-Since header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "If-Unmodified-Since@en",
+   :dcterms/title #rdf/langString "If-Unmodified-Since@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -925,9 +925,9 @@
   "The IM header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/im,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The IM header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "IM@en",
+   :dcterms/title #rdf/langString "IM@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -938,9 +938,9 @@
   "The Keep-Alive header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/keep-alive,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Keep-Alive header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Keep-Alive@en",
+   :dcterms/title #rdf/langString "Keep-Alive@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -951,9 +951,9 @@
   "The Label header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/label,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Label header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Label@en",
+   :dcterms/title #rdf/langString "Label@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -964,9 +964,9 @@
   "The Last-Modified header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/last-modified,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Last-Modified header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Last-Modified@en",
+   :dcterms/title #rdf/langString "Last-Modified@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -977,9 +977,9 @@
   "The Link header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/link,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Link header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Link@en",
+   :dcterms/title #rdf/langString "Link@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -990,9 +990,9 @@
   "The Location header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/location,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Location header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Location@en",
+   :dcterms/title #rdf/langString "Location@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1003,9 +1003,9 @@
   "The Lock-Token header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/lock-token,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Lock-Token header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Lock-Token@en",
+   :dcterms/title #rdf/langString "Lock-Token@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1016,9 +1016,9 @@
   "The Man header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/man,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Man header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Man@en",
+   :dcterms/title #rdf/langString "Man@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1029,9 +1029,9 @@
   "The Max-Forwards header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/max-forwards,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Max-Forwards header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Max-Forwards@en",
+   :dcterms/title #rdf/langString "Max-Forwards@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1042,9 +1042,9 @@
   "The Message-ID header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/message-id,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Message-ID header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Message-ID@en",
+   :dcterms/title #rdf/langString "Message-ID@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1055,9 +1055,9 @@
   "The Meter header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/meter,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Meter header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Meter@en",
+   :dcterms/title #rdf/langString "Meter@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1068,9 +1068,9 @@
   "The Method-Check header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/method-check,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Method-Check header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Method-Check@en",
+   :dcterms/title #rdf/langString "Method-Check@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1081,9 +1081,9 @@
   "The Method-Check-Expires header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/method-check-expires,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Method-Check-Expires header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Method-Check-Expires@en",
+   :dcterms/title #rdf/langString "Method-Check-Expires@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1094,9 +1094,9 @@
   "The MIME-Version header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/mime-version,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The MIME-Version header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "MIME-Version@en",
+   :dcterms/title #rdf/langString "MIME-Version@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1107,9 +1107,9 @@
   "The Negotiate header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/negotiate,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Negotiate header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Negotiate@en",
+   :dcterms/title #rdf/langString "Negotiate@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1120,9 +1120,9 @@
   "The Non-Compliance header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/non-compliance,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Non-Compliance header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Non-Compliance@en",
+   :dcterms/title #rdf/langString "Non-Compliance@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1133,9 +1133,9 @@
   "The Opt header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/opt,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Opt header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Opt@en",
+   :dcterms/title #rdf/langString "Opt@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1146,9 +1146,9 @@
   "The Optional header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/optional,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Optional header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Optional@en",
+   :dcterms/title #rdf/langString "Optional@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1160,9 +1160,9 @@
   "The Ordering-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/ordering-type,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Ordering-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Ordering-Type@en",
+   :dcterms/title #rdf/langString "Ordering-Type@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1173,9 +1173,9 @@
   "The Origin header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/origin,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Origin header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Origin@en",
+   :dcterms/title #rdf/langString "Origin@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1186,9 +1186,9 @@
   "The overwrite header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/overwrite,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The overwrite header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Overwrite@en",
+   :dcterms/title #rdf/langString "Overwrite@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1199,9 +1199,9 @@
   "The P3P header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/p3p,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The P3P header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "P3P@en",
+   :dcterms/title #rdf/langString "P3P@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1212,9 +1212,9 @@
   "The PEP header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pep,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The PEP header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "PEP@en",
+   :dcterms/title #rdf/langString "PEP@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1225,9 +1225,9 @@
   "The Pep-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pep-info,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Pep-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Pep-Info@en",
+   :dcterms/title #rdf/langString "Pep-Info@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1238,9 +1238,9 @@
   "The PICS-Label header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pics-label,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The PICS-Label header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "PICS-Label@en",
+   :dcterms/title #rdf/langString "PICS-Label@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1251,9 +1251,9 @@
   "The Position header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/position,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Position header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Position@en",
+   :dcterms/title #rdf/langString "Position@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1264,9 +1264,9 @@
   "The Pragma header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pragma,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Pragma header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Pragma@en",
+   :dcterms/title #rdf/langString "Pragma@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1277,9 +1277,9 @@
   "The ProfileObject header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/profileobject,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The ProfileObject header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "ProfileObject@en",
+   :dcterms/title #rdf/langString "ProfileObject@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1290,9 +1290,9 @@
   "The Protocol header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Protocol header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Protocol@en",
+   :dcterms/title #rdf/langString "Protocol@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1303,9 +1303,9 @@
   "The Protocol-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol-info,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Protocol-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Protocol-Info@en",
+   :dcterms/title #rdf/langString "Protocol-Info@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1316,9 +1316,9 @@
   "The Protocol-Query header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol-query,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Protocol-Query header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Protocol-Query@en",
+   :dcterms/title #rdf/langString "Protocol-Query@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1329,9 +1329,9 @@
   "The Protocol-Request header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol-request,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Protocol-Request header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Protocol-Request@en",
+   :dcterms/title #rdf/langString "Protocol-Request@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1342,9 +1342,9 @@
   "The Proxy-Authenticate header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-authenticate,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Proxy-Authenticate header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Proxy-Authenticate@en",
+   :dcterms/title #rdf/langString "Proxy-Authenticate@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1355,9 +1355,9 @@
   "The Proxy-Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-authentication-info,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Proxy-Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Proxy-Authentication-Info@en",
+   :dcterms/title #rdf/langString "Proxy-Authentication-Info@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1368,9 +1368,9 @@
   "The Proxy-Authorization header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-authorization,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Proxy-Authorization header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Proxy-Authorization@en",
+   :dcterms/title #rdf/langString "Proxy-Authorization@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1381,9 +1381,9 @@
   "The Proxy-Features header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-features,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Proxy-Features header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Proxy-Features@en",
+   :dcterms/title #rdf/langString "Proxy-Features@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1394,9 +1394,9 @@
   "The Proxy-Instruction header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-instruction,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Proxy-Instruction header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Proxy-Instruction@en",
+   :dcterms/title #rdf/langString "Proxy-Instruction@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1407,9 +1407,9 @@
   "The Public header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/public,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Public header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Public@en",
+   :dcterms/title #rdf/langString "Public@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1420,9 +1420,9 @@
   "The Range header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/range,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Range header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Range@en",
+   :dcterms/title #rdf/langString "Range@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1433,9 +1433,9 @@
   "The Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/redirect-ref,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Redirect-Ref@en",
+   :dcterms/title #rdf/langString "Redirect-Ref@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1446,9 +1446,9 @@
   "The Referer header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/referer,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Referer header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Referer@en",
+   :dcterms/title #rdf/langString "Referer@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1459,9 +1459,9 @@
   "The Referer-Root header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/referer-root,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Referer-Root header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Referer-Root@en",
+   :dcterms/title #rdf/langString "Referer-Root@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1472,9 +1472,9 @@
   "The Resolution-Hint header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/resolution-hint,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Resolution-Hint header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Resolution-Hint@en",
+   :dcterms/title #rdf/langString "Resolution-Hint@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1486,9 +1486,9 @@
   "The Resolver-Location header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/resolver-location,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Resolver-Location header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Resolver-Location@en",
+   :dcterms/title #rdf/langString "Resolver-Location@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1500,9 +1500,9 @@
   "The Retry-After header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/retry-after,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Retry-After header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Retry-After@en",
+   :dcterms/title #rdf/langString "Retry-After@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1513,9 +1513,9 @@
   "The Safe header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/safe,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Safe header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Safe@en",
+   :dcterms/title #rdf/langString "Safe@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1526,9 +1526,9 @@
   "The Security-Scheme header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/security-scheme,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Security-Scheme header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Security-Scheme@en",
+   :dcterms/title #rdf/langString "Security-Scheme@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1539,9 +1539,9 @@
   "The Server header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/server,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Server header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Server@en",
+   :dcterms/title #rdf/langString "Server@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1552,9 +1552,9 @@
   "The Set-Cookie header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/set-cookie,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Set-Cookie header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Set-Cookie@en",
+   :dcterms/title #rdf/langString "Set-Cookie@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1565,9 +1565,9 @@
   "The Set-Cookie2 header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/set-cookie2,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Set-Cookie2 header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Set-Cookie2@en",
+   :dcterms/title #rdf/langString "Set-Cookie2@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1578,9 +1578,9 @@
   "The SetProfile header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/setprofile,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The SetProfile header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "SetProfile@en",
+   :dcterms/title #rdf/langString "SetProfile@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1591,9 +1591,9 @@
   "The SLUG header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/slug,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The SLUG header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "SLUG@en",
+   :dcterms/title #rdf/langString "SLUG@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1604,9 +1604,9 @@
   "The SoapAction header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/soapaction,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The SoapAction header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "SoapAction@en",
+   :dcterms/title #rdf/langString "SoapAction@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1617,9 +1617,9 @@
   "The Status-URI header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/status-uri,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Status-URI header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Status-URI@en",
+   :dcterms/title #rdf/langString "Status-URI@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1630,9 +1630,9 @@
   "The SubOK header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/subok,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The SubOK header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "SubOK@en",
+   :dcterms/title #rdf/langString "SubOK@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1644,9 +1644,9 @@
   "The Subst header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/subst,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Subst header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Subst@en",
+   :dcterms/title #rdf/langString "Subst@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1658,9 +1658,9 @@
   "The Surrogate-Capability header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/surrogate-capability,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Surrogate-Capability header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Surrogate-Capability@en",
+   :dcterms/title #rdf/langString "Surrogate-Capability@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1671,9 +1671,9 @@
   "The Surrogate-Control header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/surrogate-control,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Surrogate-Control header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Surrogate-Control@en",
+   :dcterms/title #rdf/langString "Surrogate-Control@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1684,9 +1684,9 @@
   "The TCN header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/tcn,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The TCN header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "TCN@en",
+   :dcterms/title #rdf/langString "TCN@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1697,9 +1697,9 @@
   "The TE header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/te,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The TE header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "TE@en",
+   :dcterms/title #rdf/langString "TE@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1710,9 +1710,9 @@
   "The Timeout header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/timeout,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Timeout header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Timeout@en",
+   :dcterms/title #rdf/langString "Timeout@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1723,9 +1723,9 @@
   "The Title header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/title,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Title header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Title@en",
+   :dcterms/title #rdf/langString "Title@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1736,9 +1736,9 @@
   "The Trailer header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/trailer,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Trailer header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Trailer@en",
+   :dcterms/title #rdf/langString "Trailer@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1749,9 +1749,9 @@
   "The Transfer-Encoding header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/transfer-encoding,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Transfer-Encoding header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Transfer-Encoding@en",
+   :dcterms/title #rdf/langString "Transfer-Encoding@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1762,9 +1762,9 @@
   "The UA-Color header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-color,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The UA-Color header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "UA-Color@en",
+   :dcterms/title #rdf/langString "UA-Color@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1776,9 +1776,9 @@
   "The UA-Media header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-media,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The UA-Media header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "UA-Media@en",
+   :dcterms/title #rdf/langString "UA-Media@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1790,9 +1790,9 @@
   "The UA-Pixels header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-pixels,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The UA-Pixels header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "UA-Pixels@en",
+   :dcterms/title #rdf/langString "UA-Pixels@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1804,9 +1804,9 @@
   "The UA-Resolution header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-resolution,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The UA-Resolution header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "UA-Resolution@en",
+   :dcterms/title #rdf/langString "UA-Resolution@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1818,9 +1818,9 @@
   "The  header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-windowpixels,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The  header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "@en",
+   :dcterms/title #rdf/langString "@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1832,9 +1832,9 @@
   "The Upgrade header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/upgrade,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Upgrade header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Upgrade@en",
+   :dcterms/title #rdf/langString "Upgrade@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1845,9 +1845,9 @@
   "The URI header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/uri,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The URI header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "URI@en",
+   :dcterms/title #rdf/langString "URI@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1858,9 +1858,9 @@
   "The User-Agent header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/user-agent,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The User-Agent header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "User-Agent@en",
+   :dcterms/title #rdf/langString "User-Agent@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1871,9 +1871,9 @@
   "The Variant-Vary header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/variant-vary,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Variant-Vary header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Variant-Vary@en",
+   :dcterms/title #rdf/langString "Variant-Vary@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1884,9 +1884,9 @@
   "The Vary header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/vary,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Vary header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Vary@en",
+   :dcterms/title #rdf/langString "Vary@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1897,9 +1897,9 @@
   "The Version header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/version,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Version header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "Version@en",
+   :dcterms/title #rdf/langString "Version@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1910,9 +1910,9 @@
   "The Via header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/via,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Via header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Via@en",
+   :dcterms/title #rdf/langString "Via@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1923,9 +1923,9 @@
   "The Want-Digest header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/want-digest,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Want-Digest header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Want-Digest@en",
+   :dcterms/title #rdf/langString "Want-Digest@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1936,9 +1936,9 @@
   "The Warning header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/warning,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The Warning header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "Warning@en",
+   :dcterms/title #rdf/langString "Warning@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1949,9 +1949,9 @@
   "The WWW-Authenticate header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/www-authenticate,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The WWW-Authenticate header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #xsd/langString "WWW-Authenticate@en",
+   :dcterms/title #rdf/langString "WWW-Authenticate@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1962,9 +1962,9 @@
   "The X-Device-Accept header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The X-Device-Accept header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "X-Device-Accept@en",
+   :dcterms/title #rdf/langString "X-Device-Accept@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1975,9 +1975,9 @@
   "The X-Device-Accept-Charset header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept-charset,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The X-Device-Accept-Charset header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "X-Device-Accept-Charset@en",
+   :dcterms/title #rdf/langString "X-Device-Accept-Charset@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -1988,9 +1988,9 @@
   "The X-Device-Accept-Encoding header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept-encoding,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The X-Device-Accept-Encoding header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "X-Device-Accept-Encoding@en",
+   :dcterms/title #rdf/langString "X-Device-Accept-Encoding@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -2001,9 +2001,9 @@
   "The X-Device-Accept-Language header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept-language,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The X-Device-Accept-Language header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "X-Device-Accept-Language@en",
+   :dcterms/title #rdf/langString "X-Device-Accept-Language@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri
@@ -2014,9 +2014,9 @@
   "The X-Device-User-Agent header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-user-agent,
    :dcterms/description
-   #xsd/langString
+   #rdf/langString
     "The X-Device-User-Agent header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #xsd/langString "X-Device-User-Agent@en",
+   :dcterms/title #rdf/langString "X-Device-User-Agent@en",
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
    [{:rdfa/uri

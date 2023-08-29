@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.wotsec
   "Security mechanisms for the Web of Things"
-  {:dc11/title          #xsd/langString
+  {:dc11/title          #rdf/langString
                          "Security mechanisms for the Web of Things@en",
    :dcat/downloadURL    "resources/security.ttl",
    :dcterms/contributor {:rdfa/uri "https://vcharpenay.link/#me"},
@@ -32,7 +32,7 @@
   {:db/ident :wotsec/APIKeySecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "API key authentication security configuration identified by the term <code>apikey</code> (i.e., <code>\"scheme\": \"apikey\"</code>).  This scheme is to be used when the access token is opaque, for example when a key in a proprietary format is provided by a cloud service provider.  In this case the key may not be using a standard token format.  This scheme indicates that the key provided by the service provider needs to be supplied as part of service requests using the mechanism indicated by the <code>\"in\"</code> field.@en",
    :rdfs/label "APIKeySecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -42,7 +42,7 @@
   {:db/ident :wotsec/AutoSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "An automatic authentication security configuration identified by the term <code>auto</code> (i.e., <code>\"scheme\": \"auto\"</code>). This scheme indicates that the security parameters are going to be negotiated by the underlying protocols at runtime, subject to the respective specifications for the protocol (e.g. [[!RFC8288]] for Basic Authentication when using HTTP).@en",
    :rdfs/label "AutoSecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -52,7 +52,7 @@
   {:db/ident :wotsec/BasicSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Basic authentication security configuration identified by the term <code>basic</code> (i.e., <code>\"scheme\": \"basic\"</code>), using an unencrypted username and password.@en",
    :rdfs/label "BasicSecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -62,7 +62,7 @@
   {:db/ident :wotsec/BearerSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Bearer token authentication security configuration identified by the term <code>bearer</code> (i.e., <code>\"scheme\": \"bearer\"</code>).  This scheme is intended for situations where bearer tokens are used independently of OAuth2.  If the <code>oauth2</code> scheme is specified it is not generally necessary to specify this scheme as well as it is implied.  For <code>format</code>, the value <code>jwt</code> indicates conformance with RFC7519, <code>jws</code> indicates conformance with RFC7797, <code>cwt</code> indicates conformance with RFC8392, and <code>jwe</code> indicates conformance with !RFC7516, with values for <code>alg</code> interpreted consistently with those standards. <span class=\"rfc2119-assertion\" id=\"td-security-bearer-format-extensions\">Other formats and algorithms for bearer tokens MAY be specified in vocabulary extensions.</span>@en",
    :rdfs/label "BearerSecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -72,7 +72,7 @@
   {:db/ident :wotsec/ComboSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "<p>A combination of other security schemes identified by the <a>Vocabulary Term</a> <code>combo</code> (i.e., <code>\"scheme\": \"combo\"</code>).  Elements of this scheme define various ways in which other named schemes defined in <code>securityDefinitions</code>, including other <a href=\"#combosecurityscheme\"><code>ComboSecurityScheme</code></a> definitions, are to be combined to create a new scheme definition.  <span class=\"rfc2119-assertion\" id=\"td-security-combo-exclusive-oneof-or-allof\">Exactly one of either <code>oneOf</code> or <code>allOf</code> MUST be included.</span> <!-- Redundant, table states \"two or more\" already <scan class=\"rfc2119-assertion\">The array given as a value associated with either <code>oneOf</code> or <code>allOf</code> MUST have at least two elements.</scan> --> Only security scheme definitions which can be used together can be combined with <code>allOf</code>.  For example, it is not possible in general to combine different OAuth 2.0 flows together using <code>allOf</code> unless one applies to a proxy and one to the endpoint.  Note that when multiple named security scheme definitions are listed in a <code>security</code> field the same semantics apply as in an <code>allOf</code> combination (and the same limitations on allowable combinations).  The <code>oneOf</code> combination is equivalent to using different security schemes on forms that are otherwise identical.  In this sense a <code>oneOf</code> scheme is not an essential feature but it does avoid redundancy in such cases.</p>@en",
    :rdfs/label "ComboSecurityScheme",
    :rdfs/subClassOf [:rdfs/Resource :wotsec/SecurityScheme]})
@@ -82,7 +82,7 @@
   {:db/ident :wotsec/DigestSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Digest authentication security configuration identified by the term <code>digest</code> (i.e., <code>\"scheme\": \"digest\"</code>). This scheme is similar to basic authentication but with added features to avoid man-in-the-middle attacks.@en",
    :rdfs/label "DigestSecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -92,7 +92,7 @@
   {:db/ident :wotsec/NoSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A security configuration corresponding to identified by the term <code>nosec</code> (i.e., <code>\"scheme\": \"nosec\"</code>), indicating there is no authentication or other mechanism required to access the resource.@en",
    :rdfs/label "NoSecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -102,7 +102,7 @@
   {:db/ident :wotsec/OAuth2SecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "<p>OAuth 2.0 authentication security configuration for systems conformant with [[!RFC6749]] and [[!RFC8252]], <!-- and (for the <code>device</code> flow) [[!RFC8628]],--> identified by the <a>Vocabulary Term</a> <code>oauth2</code> (i.e., <code>\"scheme\": \"oauth2\"</code>). <span class=\"rfc2119-assertion\" id=\"td-security-oauth2-code-flow\">For the <code>code</code> flow both <code>authorization</code> and <code>token</code> MUST be included.</span> <span class=\"rfc2119-assertion\" id=\"td-security-oauth2-client-flow\">For the <code>client</code> flow <code>token</code> MUST be included.</span> <span class=\"rfc2119-assertion\" id=\"td-security-oauth2-client-flow-no-auth\">For the <code>client</code> flow <code>authorization</code> MUST NOT be included.</span> <!-- <span class=\"rfc2119-assertion\" id=\"td-security-oauth2-device-flow\">For the <code>device</code> flow both <code>authorization</code> and <code>token</code> MUST be included.</span> In the case of the <code>device</code> flow the value provided for <code>authorization</code> refers to the device authorization endpoint defined in [[!RFC8628]].--> The mandatory elements for each flow are summarized in the following table: <table class=\"def\"> <tr><th>Element</th><th><code>code</code></th><th><code>client</code></th><!-- <th><code>device</code></th> --></tr> <tr><td><code>authorization</code></td><td>mandatory</td><td>omit</td><!-- <td>mandatory; refers to device authorization endpoint</td> --></tr> <tr><td><code>token</code></td><td>mandatory</td><td>mandatory</td><!-- <td>mandatory</td> --></tr> <tr><td><code>refresh</code></td><td>optional</td><td>optional</td><!-- <td>optional</td> --></tr> </table> </p> <!-- <p class=\"ednote\"> Note that the table below lists these elements as \"optional\".  In fact whether they are mandatory or not depends on the flow.  The <code>token</code> element is listed as optional even though it is mandatory for all predefined flows since it might not be mandatory for some flows defined in an extension.  We should investigate whether there is a better way to express these \"variant record\" constraints.</p><p>If multiple flows are available (for example, multiple OAuth 2.0 security schemes with different flows are given for a <code>Form</code>) then only one may be selected for use by a <a>Consumer</a>. <span class=\"rfc2119-assertion\" id=\"td-security-oauth2-other-flows\">If an OAuth 2.0 flow other than <code>code</code>, <code>client</code> or <code>device</code> needs to be specified an extension vocabulary MUST be used.</span> This includes the <code>password</code> and <code>implicit</code> flows, which are no longer considered best practice [[WOT-SECURITY-GUIDELINES]]. This also applies to flows that are similar at the protocol level but do not exactly follow the OAuth 2.0 specification, for example by automating grants rather than invoking a user agent to interact with a human resource owner.  If no <code>scopes</code> are defined in the <code>SecurityScheme</code> then they are considered to be empty.</p> <p class=\"ednote\">The device authorization endpoint technically uses a different protocol than the authorization endpoint used by other flows, and it might be possible for a developer to confuse the two.  However, since the <code>device</code> flow does not use the regular authorization endpoint there should be no ambiguity.  We are considering however an alternative design where there is a separate element, <code>device_authorization</code>, which MUST be included for the <code>device</code> flow (and then the regular authorization endpoint then MUST NOT be used).</p> -->@en",
    :rdfs/label "OAuth2SecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -112,7 +112,7 @@
   {:db/ident :wotsec/PSKSecurityScheme,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Pre-shared key authentication security configuration identified by the term <code>psk</code> (i.e., <code>\"scheme\": \"psk\"</code>).  This is meant to identify that a standard is used for pre-shared keys such as TLS-PSK [[rfc4279]], and that the ciphersuite used for keys will be established during protocol negotiation.@en",
    :rdfs/label "PSKSecurityScheme",
    :rdfs/subClassOf [:wotsec/SecurityScheme :rdfs/Resource]})
@@ -148,7 +148,7 @@
   "Encoding, encryption, or digest algorithm."
   {:db/ident     :wotsec/alg,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "Encoding, encryption, or digest algorithm.@en",
    :rdfs/label   "alg",
    :schema/domainIncludes :wotsec/BearerSecurityScheme})
@@ -158,7 +158,7 @@
   {:db/ident :wotsec/allOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Array of two or more strings identifying other named security scheme definitions, all of which must be satisfied for access.@en",
    :rdfs/label "allOf",
    :schema/domainIncludes :wotsec/ComboSecurityScheme})
@@ -168,7 +168,7 @@
   {:db/ident :wotsec/apikeyIn,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the location of security authentication information.@en",
    :rdfs/label "in",
    :schema/domainIncludes :wotsec/APIKeySecurityScheme})
@@ -177,7 +177,7 @@
   "URI of the authorization server."
   {:db/ident     :wotsec/authorization,
    :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment #xsd/langString "URI of the authorization server.@en",
+   :rdfs/comment #rdf/langString "URI of the authorization server.@en",
    :rdfs/label   "authorization",
    :schema/domainIncludes [:wotsec/OAuth2SecurityScheme
                            :wotsec/BearerSecurityScheme]})
@@ -186,7 +186,7 @@
   "Authorization flow."
   {:db/ident     :wotsec/flow,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/langString "Authorization flow.@en",
+   :rdfs/comment #rdf/langString "Authorization flow.@en",
    :rdfs/label   "flow",
    :schema/domainIncludes :wotsec/OAuth2SecurityScheme})
 
@@ -194,7 +194,7 @@
   "Specifies format of security authentication information."
   {:db/ident     :wotsec/format,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "Specifies format of security authentication information.@en",
    :rdfs/label   "format",
    :schema/domainIncludes [:wotsec/PoPSecurityScheme
@@ -214,7 +214,7 @@
   {:db/ident :wotsec/in,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the location of security authentication information.@en",
    :rdfs/label "in",
    :schema/domainIncludes [:wotsec/PoPSecurityScheme
@@ -239,7 +239,7 @@
   {:db/ident :wotsec/oneOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Array of two or more strings identifying other named security scheme definitions, any one of which, when satisfied, will allow access.  Only one may be chosen for use.@en",
    :rdfs/label "oneOf",
    :schema/domainIncludes :wotsec/ComboSecurityScheme})
@@ -249,7 +249,7 @@
   {:db/ident :wotsec/proxy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "URI of the proxy server this security configuration provides access to.  If not given, the corresponding security configuration is for the endpoint.  <br/>This feature is at risk.@en",
    :rdfs/label "proxy",
    :schema/domainIncludes :wotsec/SecurityScheme})
@@ -266,7 +266,7 @@
   "URI of the refresh server."
   {:db/ident     :wotsec/refresh,
    :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment #xsd/langString "URI of the refresh server.@en",
+   :rdfs/comment #rdf/langString "URI of the refresh server.@en",
    :rdfs/label   "refresh",
    :schema/domainIncludes :wotsec/OAuth2SecurityScheme})
 
@@ -275,7 +275,7 @@
   {:db/ident :wotsec/scopes,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Set of authorization scope identifiers provided as an array.  These are provided in tokens returned by an authorization server and associated with forms in order to identify what resources a client may access and how.  The values associated with a form should be chosen from those defined in an <code>OAuth2SecurityScheme</code> active on that form.  <br/>This feature is at risk.@en",
    :rdfs/label "scopes",
    :schema/domainIncludes :wotsec/OAuth2SecurityScheme})
@@ -284,6 +284,6 @@
   "URI of the token server."
   {:db/ident     :wotsec/token,
    :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment #xsd/langString "URI of the token server.@en",
+   :rdfs/comment #rdf/langString "URI of the token server.@en",
    :rdfs/label   "token",
    :schema/domainIncludes :wotsec/OAuth2SecurityScheme})

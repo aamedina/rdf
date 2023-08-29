@@ -17,16 +17,15 @@
    :rdfa/uri "http://www.w3.org/2002/07/owl",
    :rdfs/comment
    "\r\n  This ontology partially describes the built-in classes and\r\n  properties that together form the basis of the RDF/XML syntax of OWL 2.\r\n  The content of this ontology is based on Tables 6.1 and 6.2\r\n  in Section 6.4 of the OWL 2 RDF-Based Semantics specification,\r\n  available at http://www.w3.org/TR/owl2-rdf-based-semantics/.\r\n  Please note that those tables do not include the different annotations\r\n  (labels, comments and rdfs:isDefinedBy links) used in this file.\r\n  Also note that the descriptions provided in this ontology do not\r\n  provide a complete and correct formal description of either the syntax\r\n  or the semantics of the introduced terms (please see the OWL 2\r\n  recommendations for the complete and normative specifications).\r\n  Furthermore, the information provided by this ontology may be\r\n  misleading if not used with care. This ontology SHOULD NOT be imported\r\n  into OWL ontologies. Importing this file into an OWL 2 DL ontology\r\n  will cause it to become an OWL 2 Full ontology and may have other,\r\n  unexpected, consequences.\r\n   ",
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.w3.org/TR/owl2-syntax/"}
+   :rdfs/isDefinedBy [{:rdfa/uri
+                       "http://www.w3.org/TR/owl2-rdf-based-semantics/"}
                       {:rdfa/uri "http://www.w3.org/TR/owl2-mapping-to-rdf/"}
-                      {:rdfa/uri
-                       "http://www.w3.org/TR/owl2-rdf-based-semantics/"}],
+                      {:rdfa/uri "http://www.w3.org/TR/owl2-syntax/"}],
    :rdfs/seeAlso
    [{:rdfa/uri
-     "http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-properties"}
+     "http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-classes"}
     {:rdfa/uri
-     "http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-classes"}],
-   :reasoner nil})
+     "http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-properties"}]})
 
 (def AllDifferent
   "The class of collections of pairwise different individuals."
@@ -567,7 +566,7 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom.",
-   :rdfs/domain {:owl/unionOf [:owl/AllDifferent :owl/AllDisjointClasses :owl/AllDisjointProperties]}
+   :rdfs/domain :rdfs/Resource,
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2002/07/owl#"},
    :rdfs/label "members",
    :rdfs/range :rdf/List})
@@ -822,17 +821,3 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/2002/07/owl#"},
    :rdfs/label "withRestrictions",
    :rdfs/range :rdf/List})
-
-(def rational
-  "owl:rational"
-  {:db/ident        :owl/rational
-   :rdf/type        :rdfs/Datatype
-   :rdfs/subClassOf :rdfs/Literal})
-
-(def real
-  "owl:real"
-  {:db/ident        :owl/real
-   :db/cardinality  :db.cardinality/one
-   :db/valueType    :db.type/bigdec
-   :rdf/type        :rdfs/Datatype
-   :rdfs/subClassOf :rdfs/Literal})

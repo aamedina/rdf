@@ -643,8 +643,8 @@
    "The property \"vaem:hasLicenseType\" points to an entry in the VOAG ontology for licenses",
    :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/2.0/schema/vaem"}
                       {:rdfa/uri "http://www.linkedmodel.org/schema/vaem"}],
-   :rdfs/label [#xsd/langString "has license type@en-US"
-                #xsd/langString "has license type@en-us"]})
+   :rdfs/label [#rdf/langString "has license type@en-US"
+                #rdf/langString "has license type@en-us"]})
 
 (def hasMetadata
   "The property \"hasMetadata\" is used to reference a metadata information structure."

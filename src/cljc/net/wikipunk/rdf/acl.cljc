@@ -18,7 +18,7 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "Any kind of access to a resource. Don't use this, use R W and RW",
-   :rdfs/label #xsd/langString "access@en",
+   :rdfs/label #rdf/langString "access@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Append
@@ -27,7 +27,7 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "Append accesses are specific write access which only add information, and do not remove information.\n    For text files, for example, append access allows bytes to be added onto the end of the file.\n    For RDF graphs, Append access allows adds triples to the graph but does not remove any.\n    Append access is useful for dropbox functionality.\n    Dropbox can be used for link notification, which the information added is a notification\n    that a some link has been made elsewhere relevant to the given resource.\n    ",
-   :rdfs/label #xsd/langString "append@en",
+   :rdfs/label #rdf/langString "append@en",
    :rdfs/subClassOf [:acl/Write :acl/Access :rdfs/Resource]})
 
 (def AuthenticatedAgent
@@ -53,7 +53,7 @@
   {:db/ident        :acl/Control,
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "Allows read/write access to the ACL for the resource(s)",
-   :rdfs/label      #xsd/langString "control@en",
+   :rdfs/label      #rdf/langString "control@en",
    :rdfs/subClassOf [:rdfs/Resource :acl/Access]})
 
 (def Origin
@@ -73,14 +73,14 @@
   {:db/ident        :acl/Read,
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "The class of read operations",
-   :rdfs/label      #xsd/langString "read@en",
+   :rdfs/label      #rdf/langString "read@en",
    :rdfs/subClassOf [:rdfs/Resource :acl/Access]})
 
 (def Write
   "write"
   {:db/ident        :acl/Write,
    :rdf/type        :rdfs/Class,
-   :rdfs/label      #xsd/langString "write@en",
+   :rdfs/label      #rdf/langString "write@en",
    :rdfs/subClassOf [:rdfs/Resource :acl/Access]})
 
 (def accessControl
@@ -168,7 +168,7 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "Delegates a person or another agent to act on behalf of the agent.\n    For example, Alice delegates Bob to act on behalf of Alice for ACL purposes.",
-   :rdfs/label #xsd/langString "delegates@en",
+   :rdfs/label #rdf/langString "delegates@en",
    :rdfs/range :foaf/Agent})
 
 (def mode
@@ -199,5 +199,5 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The person or other agent which owns this.\n    For example, the owner of a file in a filesystem.\n    There is a sense of \"right to control\".   Typically defaults to the agent who created\n    something, but can be changed.",
-   :rdfs/label #xsd/langString "owner@en",
+   :rdfs/label #rdf/langString "owner@en",
    :rdfs/range :foaf/Agent})

@@ -52,7 +52,7 @@
   {:db/ident :annotea/leadsTo,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic@en"})
 
 (def recalls

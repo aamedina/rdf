@@ -569,12 +569,12 @@
     :db.type/bigdec  (bigdec v)
     v))
 
-(nippy/extend-freeze ont_app.vocabulary.lstr.LangStr :xsd/langString
+(nippy/extend-freeze ont_app.vocabulary.lstr.LangStr :rdf/langString
   [x data-output]
   (.writeUTF data-output (str x))
   (.writeUTF data-output (lstr/lang x)))
 
-(nippy/extend-thaw :xsd/langString
+(nippy/extend-thaw :rdf/langString
   [data-input]
   (lstr/->LangStr (.readUTF data-input) (.readUTF data-input)))
 
@@ -783,7 +783,7 @@
 
 (defmethod print-method ont_app.vocabulary.lstr.LangStr
   [^ont_app.vocabulary.lstr.LangStr literal ^java.io.Writer w]
-  (.write w (pr-str (tagged-literal 'xsd/langString  (str literal "@" (.lang literal))))))
+  (.write w (pr-str (tagged-literal 'rdf/langString  (str literal "@" (.lang literal))))))
 
 (defn- lookup-prefix
   "Construct a keyword from an IRI using the prefix tree, returns nil if not possible."
@@ -959,7 +959,7 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner      (:reasoner md (ReasonerRegistry/getRDFSSimpleReasoner))
+  (let [reasoner      (:reasoner md #_(ReasonerRegistry/getRDFSSimpleReasoner))
         g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind reasoner g)
                         g)

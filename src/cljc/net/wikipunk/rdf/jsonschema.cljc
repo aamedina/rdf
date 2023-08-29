@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.jsonschema
   "Module for data schema specifications, part of the W3C Web of Things (WoT) Thing Description model"
   {:dc11/publisher {:rdfa/uri "https://www.w3.org/WoT/WG/"},
-   :dc11/title #xsd/langString "JSON Schema in RDF@en",
+   :dc11/title #rdf/langString "JSON Schema in RDF@en",
    :dcat/downloadURL "resources/json-schema.ttl",
    :dcterms/creator {:rdfa/uri "https://vcharpenay.link/#me"},
    :dcterms/license {:rdfa/uri "http://purl.org/NET/rdflicense/cc-by4.0"},
@@ -23,7 +23,7 @@
    :rdfa/prefix "jsonschema",
    :rdfa/uri "https://www.w3.org/2019/wot/json-schema#",
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Module for data schema specifications, part of the W3C Web of Things (WoT) Thing Description model@en",
    :vann/preferredNamespacePrefix "jsonschema",
    :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/json-schema#"}
@@ -34,7 +34,7 @@
   {:db/ident :jsonschema/ArraySchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type array. This subclass is indicated by the value `array` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -43,7 +43,7 @@
   {:db/ident :jsonschema/BooleanSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type `boolean`. This subclass is indicated by the value `boolean` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -59,7 +59,7 @@
   {:db/ident :jsonschema/IntegerSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type `integer`. This subclass is indicated by the value `integer` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -68,7 +68,7 @@
   {:db/ident :jsonschema/NullSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type `null`. This subclass is indicated by the value `null` assigned to `type` in `DataSchema` instances. This Subclass describes only one acceptable value, namely `null`. It is important to note that `null` does not mean the absence of a value. It is analogous to `null` in JavaScript, `None` in Python, `null` in Java and `nil` in Ruby programming languages. It can be used as part of a `oneOf` declaration, where it is used to indicate, that the data can also be `null`.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -77,7 +77,7 @@
   {:db/ident :jsonschema/NumberSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type `number`. This subclass is indicated by the value `number` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -86,7 +86,7 @@
   {:db/ident :jsonschema/ObjectSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type `object`. This subclass is indicated by the value `object` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -95,7 +95,7 @@
   {:db/ident :jsonschema/StringSchema,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Metadata describing data of type `string`. This subclass is indicated by the value `string` assigned to `type` in `DataSchema` instances.@en",
    :rdfs/subClassOf :jsonschema/DataSchema})
 
@@ -104,7 +104,7 @@
   {:db/ident :jsonschema/additionalProperties,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object.@en",
    :rdfs/label "additionalProperties",
    :schema/domainIncludes :jsonschema/ObjectSchema,
@@ -115,7 +115,7 @@
   {:db/ident :jsonschema/allOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Used to ensure that the data is valid against all of the specified schemas in the array.@en",
    :rdfs/label "allOf",
    :schema/domainIncludes :jsonschema/DataSchema,
@@ -126,7 +126,7 @@
   {:db/ident :jsonschema/anyOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Used to ensure that the data is valid against any of the specified schemas in the array.@en",
    :rdfs/label "anyOf",
    :schema/domainIncludes :jsonschema/DataSchema,
@@ -136,7 +136,7 @@
   "Provides a constant value."
   {:db/ident     :jsonschema/const,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/langString "Provides a constant value.@en",
+   :rdfs/comment #rdf/langString "Provides a constant value.@en",
    :rdfs/label   "const",
    :schema/domainIncludes :jsonschema/DataSchema})
 
@@ -145,7 +145,7 @@
   {:db/ident :jsonschema/contentEncoding,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the encoding used to store the contents, as specified in RFC 2054. The values that are accepted: \"7bit\", \"8bit\", \"binary\", \"quoted-printable\" and \"base64\".@en",
    :rdfs/label "contentEncoding",
    :rdfs/range :xsd/string,
@@ -156,7 +156,7 @@
   {:db/ident :jsonschema/contentMediaType,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the MIME type (e.g., image/png, audio/mpeg) of the contents of a string value, as described in RFC 2046.@en",
    :rdfs/label "contentMediaType",
    :rdfs/range :xsd/string,
@@ -167,7 +167,7 @@
   {:db/ident :jsonschema/default,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Supply a default value. The value should validate against the data schema in which it resides.@en",
    :rdfs/label "default",
    :schema/domainIncludes :jsonschema/DataSchema})
@@ -176,7 +176,7 @@
   "Restricted set of values provided as an array."
   {:db/ident     :jsonschema/enum,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #xsd/langString
+   :rdfs/comment #rdf/langString
                   "Restricted set of values provided as an array.@en",
    :rdfs/label   "enum",
    :schema/domainIncludes :jsonschema/DataSchema})
@@ -186,7 +186,7 @@
   {:db/ident :jsonschema/exclusiveMaximum,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies a maximum numeric value, representing an exclusive upper limit. Only applicable for associated number or integer types.@en",
    :rdfs/label "exclusiveMaximum",
    :rdfs/range :xsd/decimal,
@@ -198,7 +198,7 @@
   {:db/ident :jsonschema/exclusiveMinimum,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies a minimum numeric value, representing an exclusive lower limit. Only applicable for associated number or integer types.@en",
    :rdfs/label "exclusiveMinimum",
    :rdfs/range :xsd/decimal,
@@ -210,7 +210,7 @@
   {:db/ident :jsonschema/format,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Allows validation based on a format pattern such as \"date-time\", \"email\", \"uri\", etc.@en",
    :rdfs/label "format",
    :rdfs/range :xsd/string,
@@ -220,7 +220,7 @@
   "Used to define the characteristics of an array."
   {:db/ident             :jsonschema/items,
    :rdf/type             :owl/ObjectProperty,
-   :rdfs/comment         #xsd/langString
+   :rdfs/comment         #rdf/langString
                           "Used to define the characteristics of an array.@en",
    :rdfs/label           "items",
    :schema/domainIncludes :jsonschema/ArraySchema,
@@ -231,7 +231,7 @@
   {:db/ident :jsonschema/maxItems,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Defines the maximum number of items that have to be in the array.@en",
    :rdfs/label "maxItems",
    :rdfs/range :xsd/nonNegativeInteger,
@@ -242,7 +242,7 @@
   {:db/ident :jsonschema/maxLength,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the maximum length of a string. Only applicable for associated string types.@en",
    :rdfs/label "maxLength",
    :rdfs/range :xsd/nonNegativeInteger,
@@ -253,7 +253,7 @@
   {:db/ident :jsonschema/maximum,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies a maximum numeric value, representing an inclusive upper limit. Only applicable for associated number or integer types.@en",
    :rdfs/label "maximum",
    :rdfs/range :xsd/decimal,
@@ -265,7 +265,7 @@
   {:db/ident :jsonschema/minItems,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Defines the minimum number of items that have to be in the array.@en",
    :rdfs/label "minItems",
    :rdfs/range :xsd/nonNegativeInteger,
@@ -276,7 +276,7 @@
   {:db/ident :jsonschema/minLength,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the minimum length of a string. Only applicable for associated string types.@en",
    :rdfs/label "minLength",
    :rdfs/range :xsd/nonNegativeInteger,
@@ -287,7 +287,7 @@
   {:db/ident :jsonschema/minimum,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies a minimum numeric value, representing an inclusive lower limit. Only applicable for associated number or integer types.@en",
    :rdfs/label "minimum",
    :rdfs/range :xsd/decimal,
@@ -299,7 +299,7 @@
   {:db/ident :jsonschema/multipleOf,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Specifies the multipleOf value number. The value must strictly greater than 0. Only applicable for associated number or integer types.@en",
    :rdfs/label "multipleOf",
    :rdfs/range :xsd/decimal,
@@ -310,7 +310,7 @@
   {:db/ident :jsonschema/oneOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Used to ensure that the data is valid against exactly one of the specified schemas in the array.@en",
    :rdfs/label "oneOf",
    :schema/domainIncludes :jsonschema/DataSchema,
@@ -321,7 +321,7 @@
   {:db/ident :jsonschema/pattern,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Provides a regular expression to express constraints of the string value. The regular expression must follow the ECMA 262 dialect.@en",
    :rdfs/label "pattern",
    :rdfs/range :xsd/nonNegativeInteger,
@@ -331,7 +331,7 @@
   "Data schema nested definitions"
   {:db/ident             :jsonschema/properties,
    :rdf/type             :owl/ObjectProperty,
-   :rdfs/comment         #xsd/langString "Data schema nested definitions@en",
+   :rdfs/comment         #rdf/langString "Data schema nested definitions@en",
    :rdfs/label           "properties",
    :schema/domainIncludes :jsonschema/ObjectSchema,
    :schema/rangeIncludes :jsonschema/DataSchema})
@@ -341,7 +341,7 @@
   {:db/ident :jsonschema/propertyName,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Used to store the indexing name in the parent object when this schema appears as a property of an object schema.@en",
    :rdfs/label "propertyName",
    :rdfs/range :xsd/string,
@@ -352,7 +352,7 @@
   {:db/ident :jsonschema/readOnly,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Boolean value that is a hint to indicate whether a property interaction / value is read only (=true) or not (=false)@en",
    :rdfs/label "readOnly",
    :rdfs/range :xsd/boolean,
@@ -363,7 +363,7 @@
   {:db/ident :jsonschema/required,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of `invokeaction`, `writeproperty`) and what members will be definitely delivered in the payload that is being received (e.g. output of `invokeaction`, `readproperty`)@en",
    :rdfs/label "required",
    :rdfs/range :xsd/string,
@@ -374,7 +374,7 @@
   {:db/ident :jsonschema/uniqueItems,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Boolean value that is a hint to indicate whether the array contains unique items (=true) or not (=false)@en",
    :rdfs/label "uniqueItems",
    :rdfs/range :xsd/boolean,
@@ -385,7 +385,7 @@
   {:db/ident :jsonschema/writeOnly,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "Boolean value that is a hint to indicate whether a property interaction / value is write only (=true) or not (=false)@en",
    :rdfs/label "writeOnly",
    :rdfs/range :xsd/boolean,

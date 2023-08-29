@@ -8,9 +8,9 @@
                       "Scott Montgomerie"
                       "Alex Iskold"],
    :dc11/description
-   #xsd/langString
+   #rdf/langString
     "Common Tag RDF vocabulary, described using W3C RDF Schema. Common Tags allows documents and document fragments (any resource which can be identified by a URI) to be labeled with keywords and URIs, unambigiously idenfying the concepts covered by the resource.@en",
-   :dc11/title #xsd/langString "Common Tag vocabulary@en",
+   :dc11/title #rdf/langString "Common Tag vocabulary@en",
    :dcat/downloadURL
    "https://lov.linkeddata.es/dataset/lov/vocabs/ctag/versions/2009-06-08.n3",
    :dcterms/issued "2009-06-08",
@@ -24,16 +24,16 @@
    :rdfa/prefix "ctag",
    :rdfa/uri "http://commontag.org/ns#",
    :rdfs/isDefinedBy {:rdfa/uri "http://commontag.org/Specification"},
-   :rdfs/label #xsd/langString "Common Tag vocabulary@en",
+   :rdfs/label #rdf/langString "Common Tag vocabulary@en",
    :rdfs/seeAlso {:rdfa/uri "http://commontag.org/mappings"}})
 
 (def AuthorTag
   "A Tag asserted by the author of a content resource."
   {:db/ident        :ctag/AuthorTag,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString
+   :rdfs/comment    #rdf/langString
                      "A Tag asserted by the author of a content resource.@en",
-   :rdfs/label      #xsd/langString "Author Tag@en",
+   :rdfs/label      #rdf/langString "Author Tag@en",
    :rdfs/subClassOf [:ctag/Tag :rdfs/Resource]})
 
 (def AutoTag
@@ -41,9 +41,9 @@
   {:db/ident :ctag/AutoTag,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A Tag asserted by an automated tool on a content resource.@en",
-   :rdfs/label #xsd/langString "Auto Tag@en",
+   :rdfs/label #rdf/langString "Auto Tag@en",
    :rdfs/subClassOf [:ctag/Tag :rdfs/Resource]})
 
 (def ReaderTag
@@ -51,9 +51,9 @@
   {:db/ident :ctag/ReaderTag,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A Tag asserted by the reader (consumer) of a content resource.@en",
-   :rdfs/label #xsd/langString "Reader Tag@en",
+   :rdfs/label #rdf/langString "Reader Tag@en",
    :rdfs/subClassOf [:ctag/Tag :rdfs/Resource]})
 
 (def Tag
@@ -61,18 +61,18 @@
   {:db/ident :ctag/Tag,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A Common Tag associating a URI and a keyword to annotate a resource.@en",
-   :rdfs/label #xsd/langString "Tag@en",
+   :rdfs/label #rdf/langString "Tag@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def TaggedContent
   "Content which has one or more Common Tag."
   {:db/ident        :ctag/TaggedContent,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #xsd/langString
+   :rdfs/comment    #rdf/langString
                      "Content which has one or more Common Tag.@en",
-   :rdfs/label      #xsd/langString "Tagged Content@en",
+   :rdfs/label      #rdf/langString "Tagged Content@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def isAbout
@@ -80,19 +80,19 @@
   {:db/ident :ctag/isAbout,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A resource (URI) representing the concepts described by the content.@en",
    :rdfs/domain :ctag/TaggedContent,
-   :rdfs/label #xsd/langString "is about@en"})
+   :rdfs/label #rdf/langString "is about@en"})
 
 (def label
   "A local, human-readable name for a Tag."
   {:db/ident           :ctag/label,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       #xsd/langString
+   :rdfs/comment       #rdf/langString
                         "A local, human-readable name for a Tag.@en",
    :rdfs/domain        :ctag/Tag,
-   :rdfs/label         #xsd/langString "tag label@en",
+   :rdfs/label         #rdf/langString "tag label@en",
    :rdfs/subPropertyOf :rdfs/label})
 
 (def means
@@ -100,25 +100,25 @@
   {:db/ident :ctag/means,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #xsd/langString
+   #rdf/langString
     "A a resource (URI) representing the conceptual meaning of a Tag.@en",
    :rdfs/domain :ctag/Tag,
-   :rdfs/label #xsd/langString "means@en"})
+   :rdfs/label #rdf/langString "means@en"})
 
 (def tagged
   "Links a resource to a Common Tag."
   {:db/ident     :ctag/tagged,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #xsd/langString "Links a resource to a Common Tag.@en",
+   :rdfs/comment #rdf/langString "Links a resource to a Common Tag.@en",
    :rdfs/domain  :ctag/TaggedContent,
-   :rdfs/label   #xsd/langString "tagged@en",
+   :rdfs/label   #rdf/langString "tagged@en",
    :rdfs/range   :ctag/Tag})
 
 (def taggingDate
   "The date the Tag was assigned."
   {:db/ident           :ctag/taggingDate,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       #xsd/langString "The date the Tag was assigned.@en",
+   :rdfs/comment       #rdf/langString "The date the Tag was assigned.@en",
    :rdfs/domain        :ctag/Tag,
-   :rdfs/label         #xsd/langString "tagging date@en",
+   :rdfs/label         #rdf/langString "tagging date@en",
    :rdfs/subPropertyOf :dcterms/created})
