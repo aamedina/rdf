@@ -44,14 +44,10 @@
    [net.wikipunk.datomic :as datomic]
    [net.wikipunk.datomic.boot :as db]
    [net.wikipunk.datomic.rl :as rl]
-   [net.wikipunk.rdf.dpvo]
-   [net.wikipunk.rdf.dpvo-tech]
-   [net.wikipunk.rdf.dpvo-legal]
-   [net.wikipunk.rdf.dpvo-risk]
-   [net.wikipunk.rdf.dpvo-gdpr]
-   [net.wikipunk.rdf.dpvo-pd]
-   [net.wikipunk.rdf.dpvo-rights-eu]
-   [asami.core :as asami]))
+   [asami.core :as asami]
+   [quoll.raphael.core :as raphael]
+   [donatello.ttl :as ttl]
+   [michelangelo.core :as ma]))
 
 (set-init
   (fn [_]

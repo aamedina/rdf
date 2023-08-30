@@ -9,6 +9,5 @@
  :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
           :sc/refs      [:client]
           :db-name      "rdf"}
- :test   {:sc/create-fn net.wikipunk.datomic/map->Connection
-          :sc/refs      [:client]
-          :db-name      "rdf-test"}}
+ :asami  {:sc/create-fn net.wikipunk.rdf/map->Asami
+          :uri          "asami:local://.vocab"}}

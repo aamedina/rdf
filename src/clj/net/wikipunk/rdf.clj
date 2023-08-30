@@ -7,8 +7,12 @@
   organizing the terms into multimethod hierarchies."
   (:require
    [arachne.aristotle :as a]
-   [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
+   [arachne.aristotle.registry :as reg]
+   [asami.core :as asami]
+   [asami.storage]
+   [quoll.raphael.core :as raphael]
+   [donatello.ttl :as ttl]
    [clojure.tools.logging :as log]
    [clojure.core.memoize :as memo]
    [clojure.core.protocols :refer [coll-reduce]]
@@ -46,6 +50,64 @@
    (org.apache.jena.query ResultSet)
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
+
+(defrecord Asami [uri conn]
+  com/Lifecycle
+  (start [this]
+    (asami/create-database uri)
+    (assoc this :conn (asami/connect uri)))
+  (stop [this]
+    (assoc this :conn nil))
+
+  asami.storage/Connection
+  (open? [_] (asami.storage/open? conn))
+  (get-name [_] (asami.storage/get-name conn))
+  (get-url [_] (asami.storage/get-url conn))
+  (next-tx [_] (asami.storage/next-tx conn))
+  (get-lock [_] (asami.storage/get-lock conn))
+  (db [_] (asami.storage/db conn))
+  (delete-database [_] (asami.storage/delete-database conn))
+  (release [_] (asami.storage/release conn))
+  (transact-update [_ update-fn] (asami.storage/transact-update conn update-fn))
+  (transact-data [_ updates! asserts retracts] (asami.storage/transact-data conn updates! asserts retracts))
+  (transact-data [_ updates! generator-fn] (asami.storage/transact-data conn updates! generator-fn))
+
+  asami.storage/Database
+  (as-of [_ t] (asami.storage/as-of (asami/db conn) t))
+  (as-of-t [_] (asami.storage/as-of-t (asami/db conn)))
+  (as-of-time [_] (asami.storage/as-of-time (asami/db conn)))
+  (since [_ t] (asami.storage/since (asami/db conn) t))
+  (since-t [_] (asami.storage/since-t (asami/db conn)))
+  (graph [_] (asami.storage/graph (asami/db conn)))
+  (entity [_ id nested?] (asami.storage/entity (asami/db conn) id nested?)))
+
+;; Source: https://github.com/quoll/michelangelo/blob/main/src/michelangelo/core.clj
+(defrecord RoundTripGenerator [counter bnode-cache namespaces]
+  raphael/NodeGenerator
+  (new-node [this]
+    [(update this :counter inc) (ttl/->BlankNode counter)])
+  (new-node [this label]
+    (if-let [node (get bnode-cache label)]
+      [this node]
+      (let [node (ttl/->BlankNode counter)]
+        [(-> this
+             (update :counter inc)
+             (update :bnode-cache assoc label node))
+         node])))
+  (add-base [this iri] (update this :namespaces assoc :base (str iri)))
+  (add-prefix [this prefix iri] (update this :namespaces assoc prefix (str iri)))
+  (iri-for [this prefix] (get namespaces prefix))
+  (get-namespaces [this] (dissoc namespaces :base))
+  (get-base [this] (:base namespaces))
+  (new-qname [this prefix local] (keyword prefix local))
+  (new-iri [this iri] {:rdfa/uri iri})
+  (new-literal [this s] s)
+  (new-literal [this s t] (ttl/typed-literal s t))
+  (new-lang-string [this s lang] (ttl/lang-literal s lang))
+  (rdf-type [this] :rdf/type)
+  (rdf-first [this] :rdf/first)
+  (rdf-rest [this] :rdf/rest)
+  (rdf-nil [this] :rdf/nil))
 
 (defprotocol LinkedData
   "This is a protocol for parsing RDF models. 

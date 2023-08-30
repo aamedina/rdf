@@ -22,6 +22,10 @@
   io.github.arachne-framework/aristotle
   {:sha     "15f0cb61d6a7ad2b579266b3fa78397004ae7e25"
    :git/url "https://github.com/arachne-framework/aristotle.git"}
+  io.github.quoll/donatello
+  {:git/tag "v1.2.11" :git/sha "db6315f"}
+  io.github.quoll/michelangelo
+  {:git/tag "v0.1.6" :git/sha "9db4d39"}
   luposlip/json-schema
   {:mvn/version "0.4.1"}
   ont-app/vocabulary
@@ -33,10 +37,8 @@
   {:mvn/version "2.3.3"}
   org.clojars.quoll/raphael
   {:mvn/version "0.2.0"}
-  io.github.quoll/donatello
-  {:git/tag "v1.2.11" :git/sha "db6315f"}
-  io.github.quoll/michelangelo
-  {:git/tag "v0.1.6" :git/sha "9db4d39"}
+  methodical/methodical
+  {:mvn/version "0.15.1"}
   org.clojure/clojure
   {:mvn/version "1.12.0-alpha4"}
   org.clojure/core.async
