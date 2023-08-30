@@ -64,7 +64,15 @@
   (create-database [_ arg-map]
     (impl/create-database client (merge {:db-name db-name} arg-map)))
   (delete-database [_ arg-map]
-    (impl/delete-database client (merge {:db-name db-name} arg-map))))
+    (impl/delete-database client (merge {:db-name db-name} arg-map)))
+
+  datomic.client.api.impl/Queryable
+  (q [_ arg-map]
+    (d/q (assoc arg-map :args (into [(d/db (first (:args arg-map)))]
+                                    (rest (:args arg-map))))))
+  (qseq [_ arg-map]
+    (d/qseq (assoc arg-map :args (into [(d/db (first (:args arg-map)))]
+                                       (rest (:args arg-map)))))))
 
 (def ^:dynamic *pull*
   "A pull expression for datomic entities."

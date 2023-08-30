@@ -50,7 +50,8 @@
    [net.wikipunk.rdf.dpvo-risk]
    [net.wikipunk.rdf.dpvo-gdpr]
    [net.wikipunk.rdf.dpvo-pd]
-   [net.wikipunk.rdf.dpvo-rights-eu]))
+   [net.wikipunk.rdf.dpvo-rights-eu]
+   [asami.core :as asami]))
 
 (set-init
   (fn [_]
@@ -171,8 +172,8 @@
          (not [:owl/Nothing :rdfs/subClassOf ?c])]
        db))
 
-(defn materialize
-  "Materializes OWL inferences using with-db."
+(defn materialize-scm
+  "Materializes OWL RL Semantics of Schema Vocabulary."
   [with-db]
   (d/with with-db {:tx-data `[[rl/scm-cls]
                               [rl/scm-sco]
@@ -195,5 +196,43 @@
                               [rl/scm-int]
                               [rl/scm-uni]]}))
 
+(defn materialize-eq
+  "Materializes OWL RL Semantics of Equality."
+  [with-db]
+  (d/with with-db {:tx-data `[[rl/eq-ref]
+                              [rl/eq-sym]
+                              [rl/eq-trans]
+                              [rl/eq-rep-s]
+                              [rl/eq-rep-p]
+                              [rl/eq-rep-o]
+                              [rl/eq-diff1]
+                              [rl/eq-diff2]
+                              [rl/eq-diff3]]}))
+
 (comment
   (materialize boot-db))
+
+(defn asami-ns-graph
+  []
+  (rdf/all-ns-metaobjects))
+
+(comment
+  (def db-uri "asami:mem://rdf")
+  (asami/create-database db-uri)
+  (def conn (asami/connect db-uri))
+  (asami/transact conn {:tx-data (->> (rdf/all-ns-metaobjects)
+                                      (walk/prewalk rdf/unroll-tagged-literals)
+                                      (walk/prewalk rdf/unroll-langString)
+                                      (walk/prewalk (fn [form]
+                                                      (if (map-entry? form)
+                                                        (let [[k v] form]
+                                                          [k (if (isa? k :rdf/Property)
+                                                               (case (rdf/infer-datomic-type k)
+                                                                 :rdf/List v
+                                                                 (if (sequential? v)
+                                                                   (set v)
+                                                                   v))
+                                                               v)])
+                                                        form)))
+                                      (into []))})
+  (def asami-db (asami/db conn)))

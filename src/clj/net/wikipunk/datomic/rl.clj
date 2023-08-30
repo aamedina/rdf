@@ -101,6 +101,8 @@
 
 (defrule eq-ref [?s ?p ?o]
   :if
+  [?s :rdf/type _]
+  [?o :rdf/type _]
   [?s ?p ?o]
   :then
   [:db/add ?s :owl/sameAs ?s]
