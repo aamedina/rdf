@@ -38,7 +38,8 @@
    [net.wikipunk.rdf.rdfa]
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
-   [net.wikipunk.rdf.mop])
+   [net.wikipunk.rdf.mop]
+   [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]])
   (:import
    (com.github.packageurl PackageURL)
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -100,14 +101,106 @@
   (get-namespaces [this] (dissoc namespaces :base))
   (get-base [this] (:base namespaces))
   (new-qname [this prefix local] (keyword prefix local))
-  (new-iri [this iri] {:rdfa/uri iri})
-  (new-literal [this s] s)
-  (new-literal [this s t] (ttl/typed-literal s t))
-  (new-lang-string [this s lang] (ttl/lang-literal s lang))
+  (new-iri [this iri]
+    {:rdfa/uri iri})
+  (new-literal [this s]
+    (try
+      (java.net.URL. s)
+      {:rdfa/uri s}
+      (catch java.net.MalformedURLException _
+        (if (str/starts-with? s "pkg:")
+          (try
+            (PackageURL. s)
+            {:rdfa/uri s}
+            (catch com.github.packageurl.MalformedPackageURLException ex
+              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
+          {:rdf/value s}))))
+  (new-literal [this s t]
+    (case t
+      :xsd/anyURI
+      {:rdfa/uri s}
+      
+      (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
+      (clojure.instant/read-instant-date s)
+      
+      (:xsd/integer :xsd/nonNegativeInteger :xsd/nonPositiveInteger :xsd/positiveInteger :xsd/negativeInteger)
+      (bigint s)
+      
+      :xsd/decimal
+      (bigdec s)
+      
+      (:xsd/long :xsd/int :xsd/short :xsd/byte)
+      (Long/parseLong s)
+      
+      :xsd/float
+      (Float/parseFloat s)
+      
+      :xsd/double
+      (Double/parseDouble s)
+      
+      (:xsd/string :xsd/normalizedString :xsd/token :xsd/language)
+      s
+      
+      :xsd/boolean
+      (Boolean/parseBoolean s)
+      
+      ; else
+      {:rdf/value s :rdf/type t}))
+  (new-lang-string [this s lang]
+    {:rdf/value s :rdf/language lang})
   (rdf-type [this] :rdf/type)
   (rdf-first [this] :rdf/first)
   (rdf-rest [this] :rdf/rest)
   (rdf-nil [this] :rdf/nil))
+
+(defmethod ttl/serialize ont_app.vocabulary.lstr.LangStr
+  [^ont_app.vocabulary.lstr.LangStr lstr]
+  (str \" (ttl/escape (str lstr)) "\"@" (lstr/lang lstr)))
+
+(defmethod ttl/serialize clojure.lang.TaggedLiteral
+  [{:keys [tag form]}]
+  (str \" (ttl/escape (str form)) "\"^^" (ttl/serialize (keyword tag))))
+
+(defn round-trip-generator
+  "Creates a new RoundTripGenerator"
+  []
+  (->RoundTripGenerator 0 {} EMPTY_MAP))
+
+(defn index-add
+  "Merges a single triple into a nested map"
+  [idx [a b c]]
+  (if-let [idxb (get idx a)]
+    (if-let [idxc (get idxb b)]
+      (if (set? idxc)
+        (if (get idxc c)
+          idx
+          (assoc idx a (assoc idxb b (conj idxc c))))
+        (assoc idx a (assoc idxb b (ordered-set idxc c))))
+      (assoc idx a (assoc idxb b c)))
+    (assoc idx a (ordered-map b c))))
+
+(defn add-all
+  "Inserts all triples in a sequence into a nested map"
+  [idx st]
+  (reduce index-add idx st))
+
+(defn simple-graph
+  "Creates a nested-map version of a graph from a sequence of triples"
+  [triples]
+  (add-all (ordered-map) triples))
+
+(defn parsed-graph
+  "Converts a graph parsed by Raphael into a nested map, with metadata for the prefixes and base."
+  [{:keys [base namespaces triples] :as parsed}]
+  (with-meta (simple-graph triples) {:namespaces namespaces :base base}))
+
+(defn parse-turtle
+  "Parses TTL input and creates a graph"
+  [s]
+  (let [s (if (str/starts-with? s "http")
+            (slurp s)
+            s)]
+    (parsed-graph (raphael/parse s (round-trip-generator)))))
 
 (defprotocol LinkedData
   "This is a protocol for parsing RDF models. 
@@ -1067,7 +1160,9 @@
                                            :else (throw (ex-info "Could not generate IRI for Node." {:subject iri})))
                                          (map (fn [[pred triples]]
                                                 (let [k       (g/data pred)
-                                                      objects (mapv #(g/data (.getObject ^Triple %)) triples)]
+                                                      objects (into #_#{} []
+                                                                    (map #(g/data (.getObject ^Triple %)))
+                                                                    triples)]
                                                   [k (if (= 1 (count objects))
                                                        (first objects)
                                                        objects)])))
@@ -1150,6 +1245,14 @@
   clojure.lang.Sequential
   (box [xs]
     (mapv box xs))
+
+  clojure.lang.IPersistentSet
+  (box [xs]
+    (into #{} (map box) xs))
+
+  clojure.lang.IPersistentCollection
+  (box [xs]
+    (into (empty xs) (map box) xs))
 
   clojure.lang.IPersistentMap
   (box [m]

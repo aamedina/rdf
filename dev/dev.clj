@@ -47,7 +47,8 @@
    [asami.core :as asami]
    [quoll.raphael.core :as raphael]
    [donatello.ttl :as ttl]
-   [michelangelo.core :as ma]))
+   [michelangelo.core :as ma]
+   [tiara.data :refer [ordered-map ordered-set]]))
 
 (set-init
   (fn [_]
@@ -208,27 +209,38 @@
 (comment
   (materialize boot-db))
 
-(defn asami-ns-graph
-  []
-  (rdf/all-ns-metaobjects))
-
-(def db-uri "asami:local://rdf")
+(comment
+  (asami/transact (:conn (:asami system))
+                  {:tx-data (->> (rdf/all-ns-metaobjects)
+                                 (walk/prewalk rdf/unroll-tagged-literals)
+                                 (walk/prewalk rdf/unroll-langString)
+                                 (walk/prewalk (fn [form]
+                                                 (if (map-entry? form)
+                                                   (let [[k v] form]
+                                                     [k (cond
+                                                          (isa? (:rdfs/range rdf/*metaobjects*) k :rdf/List)
+                                                          (vector v)
+                                                          (sequential? v)
+                                                          (set v)
+                                                          :else v)])
+                                                   form)))
+                                 (into []))}))
 
 (comment
-  (asami/create-database db-uri)
-  (def conn (asami/connect db-uri))
-  (asami/transact conn {:tx-data (->> (rdf/all-ns-metaobjects)
-                                      (walk/prewalk rdf/unroll-tagged-literals)
-                                      (walk/prewalk rdf/unroll-langString)
-                                      (walk/prewalk (fn [form]
-                                                      (if (map-entry? form)
-                                                        (let [[k v] form]
-                                                          [k (cond
-                                                               (isa? (:rdfs/range rdf/*metaobjects*) k :rdf/List)
-                                                               (vector v)
-                                                               (sequential? v)
-                                                               (set v)
-                                                               :else v)])
-                                                        form)))
-                                      (into []))})
-  (def asami-db (asami/db conn)))
+  (def d3f
+    (reduce-kv (fn [nodes k v]
+                 (cond
+                   (qualified-keyword? k)
+                   (update nodes :idents conj (assoc v :db/ident k))
+
+                   (:rdfa/uri k)
+                   (update nodes :uris conj (assoc v :rdfa/uri (:rdfa/uri k)))
+
+                   (:id k)
+                   (update nodes :blanks conj (assoc v :db/id (:id k)))
+
+                   :else nodes))
+               {:idents []
+                :blanks []
+                :uris   []}
+               (rdf/parse-turtle (slurp "/home/adrian/src/py/d3fend-ontology/build/d3fend-full.ttl")))))
