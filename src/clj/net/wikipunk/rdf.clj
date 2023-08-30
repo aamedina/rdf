@@ -52,155 +52,9 @@
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
 
-(defrecord Asami [uri conn]
-  com/Lifecycle
-  (start [this]
-    (asami/create-database uri)
-    (assoc this :conn (asami/connect uri)))
-  (stop [this]
-    (assoc this :conn nil))
-
-  asami.storage/Connection
-  (open? [_] (asami.storage/open? conn))
-  (get-name [_] (asami.storage/get-name conn))
-  (get-url [_] (asami.storage/get-url conn))
-  (next-tx [_] (asami.storage/next-tx conn))
-  (get-lock [_] (asami.storage/get-lock conn))
-  (db [_] (asami.storage/db conn))
-  (delete-database [_] (asami.storage/delete-database conn))
-  (release [_] (asami.storage/release conn))
-  (transact-update [_ update-fn] (asami.storage/transact-update conn update-fn))
-  (transact-data [_ updates! asserts retracts] (asami.storage/transact-data conn updates! asserts retracts))
-  (transact-data [_ updates! generator-fn] (asami.storage/transact-data conn updates! generator-fn))
-
-  asami.storage/Database
-  (as-of [_ t] (asami.storage/as-of (asami/db conn) t))
-  (as-of-t [_] (asami.storage/as-of-t (asami/db conn)))
-  (as-of-time [_] (asami.storage/as-of-time (asami/db conn)))
-  (since [_ t] (asami.storage/since (asami/db conn) t))
-  (since-t [_] (asami.storage/since-t (asami/db conn)))
-  (graph [_] (asami.storage/graph (asami/db conn)))
-  (entity [_ id nested?] (asami.storage/entity (asami/db conn) id nested?)))
-
-;; Source: https://github.com/quoll/michelangelo/blob/main/src/michelangelo/core.clj
-(defrecord RoundTripGenerator [counter bnode-cache namespaces]
-  raphael/NodeGenerator
-  (new-node [this]
-    [(update this :counter inc) (ttl/->BlankNode counter)])
-  (new-node [this label]
-    (if-let [node (get bnode-cache label)]
-      [this node]
-      (let [node (ttl/->BlankNode counter)]
-        [(-> this
-             (update :counter inc)
-             (update :bnode-cache assoc label node))
-         node])))
-  (add-base [this iri] (update this :namespaces assoc :base (str iri)))
-  (add-prefix [this prefix iri] (update this :namespaces assoc prefix (str iri)))
-  (iri-for [this prefix] (get namespaces prefix))
-  (get-namespaces [this] (dissoc namespaces :base))
-  (get-base [this] (:base namespaces))
-  (new-qname [this prefix local] (keyword prefix local))
-  (new-iri [this iri]
-    {:rdfa/uri iri})
-  (new-literal [this s]
-    (try
-      (java.net.URL. s)
-      {:rdfa/uri s}
-      (catch java.net.MalformedURLException _
-        (if (str/starts-with? s "pkg:")
-          (try
-            (PackageURL. s)
-            {:rdfa/uri s}
-            (catch com.github.packageurl.MalformedPackageURLException ex
-              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
-          {:rdf/value s}))))
-  (new-literal [this s t]
-    (case t
-      :xsd/anyURI
-      {:rdfa/uri s}
-      
-      (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
-      (clojure.instant/read-instant-date s)
-      
-      (:xsd/integer :xsd/nonNegativeInteger :xsd/nonPositiveInteger :xsd/positiveInteger :xsd/negativeInteger)
-      (bigint s)
-      
-      :xsd/decimal
-      (bigdec s)
-      
-      (:xsd/long :xsd/int :xsd/short :xsd/byte)
-      (Long/parseLong s)
-      
-      :xsd/float
-      (Float/parseFloat s)
-      
-      :xsd/double
-      (Double/parseDouble s)
-      
-      (:xsd/string :xsd/normalizedString :xsd/token :xsd/language)
-      s
-      
-      :xsd/boolean
-      (Boolean/parseBoolean s)
-      
-      ; else
-      {:rdf/value s :rdf/type t}))
-  (new-lang-string [this s lang]
-    {:rdf/value s :rdf/language lang})
-  (rdf-type [this] :rdf/type)
-  (rdf-first [this] :rdf/first)
-  (rdf-rest [this] :rdf/rest)
-  (rdf-nil [this] :rdf/nil))
-
-(defmethod ttl/serialize ont_app.vocabulary.lstr.LangStr
-  [^ont_app.vocabulary.lstr.LangStr lstr]
-  (str \" (ttl/escape (str lstr)) "\"@" (lstr/lang lstr)))
-
-(defmethod ttl/serialize clojure.lang.TaggedLiteral
-  [{:keys [tag form]}]
-  (str \" (ttl/escape (str form)) "\"^^" (ttl/serialize (keyword tag))))
-
-(defn round-trip-generator
-  "Creates a new RoundTripGenerator"
-  []
-  (->RoundTripGenerator 0 {} EMPTY_MAP))
-
-(defn index-add
-  "Merges a single triple into a nested map"
-  [idx [a b c]]
-  (if-let [idxb (get idx a)]
-    (if-let [idxc (get idxb b)]
-      (if (set? idxc)
-        (if (get idxc c)
-          idx
-          (assoc idx a (assoc idxb b (conj idxc c))))
-        (assoc idx a (assoc idxb b (ordered-set idxc c))))
-      (assoc idx a (assoc idxb b c)))
-    (assoc idx a (ordered-map b c))))
-
-(defn add-all
-  "Inserts all triples in a sequence into a nested map"
-  [idx st]
-  (reduce index-add idx st))
-
-(defn simple-graph
-  "Creates a nested-map version of a graph from a sequence of triples"
-  [triples]
-  (add-all (ordered-map) triples))
-
-(defn parsed-graph
-  "Converts a graph parsed by Raphael into a nested map, with metadata for the prefixes and base."
-  [{:keys [base namespaces triples] :as parsed}]
-  (with-meta (simple-graph triples) {:namespaces namespaces :base base}))
-
-(defn parse-turtle
-  "Parses TTL input and creates a graph"
-  [s]
-  (let [s (if (str/starts-with? s "http")
-            (slurp s)
-            s)]
-    (parsed-graph (raphael/parse s (round-trip-generator)))))
+(defprotocol Environment
+  (entity [env eid]
+    "Returns entity in environment given some identifier."))
 
 (defprotocol LinkedData
   "This is a protocol for parsing RDF models. 
@@ -438,7 +292,10 @@
         (pmap (fn [v]
                 (reduce (fn [entity term]
                           (if (contains? entity term)
-                            (update entity term #(cond (vector? %) % (nil? %) [] :else [%]))
+                            (update entity term #(cond
+                                                   (and (coll? %) (not (map? %))) %
+                                                   (nil? %) #{}
+                                                   :else #{%}))
                             entity))
                         (reduce-kv (fn [m k v]
                                      (if (and (qualified-keyword? k)
@@ -1160,7 +1017,7 @@
                                            :else (throw (ex-info "Could not generate IRI for Node." {:subject iri})))
                                          (map (fn [[pred triples]]
                                                 (let [k       (g/data pred)
-                                                      objects (into #_#{} []
+                                                      objects (into #{} #_[]
                                                                     (map #(g/data (.getObject ^Triple %)))
                                                                     triples)]
                                                   [k (if (= 1 (count objects))
@@ -1407,13 +1264,13 @@
                         (map (fn [form]
                                (reduce (fn [form term]
                                          (if (contains? form term)
-                                           (update form term #(cond (coll? %) % (nil? %) [] :else [%]))
+                                           (update form term #(cond (coll? %) % (nil? %) #{} :else #{%}))
                                            form))
                                        form +props+)))
                         (keep (some-fn :madsrdf/hasMADSSchemeMember
                                        :skos/member
                                        :skos/broader))
-                        (mapcat (fn [x] (if (sequential? x) x [x])))
+                        #_(mapcat (fn [x] (if (sequential? x) x [x])))
                         (distinct)
                         (pmap (fn [ident]
                                 (when (and (keyword? ident)
@@ -1537,9 +1394,9 @@
                                 (if (and (pos? *recurse*)
                                          (some #(or (isa? % :skos/Concept)
                                                     (isa? % :skos/ConceptScheme))
-                                               (if (sequential? (:rdf/type form))
+                                               (if (and (coll? (:rdf/type form)) (not (map? (:rdf/type form))))
                                                  (:rdf/type form)
-                                                 [(:rdf/type form)])))
+                                                 #{(:rdf/type form)})))
                                   (try
                                     (when-some [x (parse (:db/ident form))]
                                       (or (some-> (group-by :db/ident (unroll-forms x))
@@ -1814,7 +1671,13 @@
       (qualified-symbol? ident)
       (resolve ident)
 
-      :else (find-ns (symbol ident)))))
+      :else (find-ns (symbol ident))))
+
+  clojure.lang.IPersistentMap
+  (datafy [m]
+    (if-some [uri (:rdfa/uri m)]
+      (mop/find-class {:rdfa/uri uri})
+      m)))
 
 (defmulti import-from
   "Import metaobjects `from` into `to`"
@@ -2037,3 +1900,159 @@
   nil
   (sniff [_] nil))
 
+
+(defrecord Asami [uri conn]
+  com/Lifecycle
+  (start [this]
+    (asami/create-database uri)
+    (assoc this :conn (asami/connect uri)))
+  (stop [this]
+    (assoc this :conn nil))
+
+  asami.storage/Connection
+  (open? [_] (asami.storage/open? conn))
+  (get-name [_] (asami.storage/get-name conn))
+  (get-url [_] (asami.storage/get-url conn))
+  (next-tx [_] (asami.storage/next-tx conn))
+  (get-lock [_] (asami.storage/get-lock conn))
+  (db [_] (asami.storage/db conn))
+  (delete-database [_] (asami.storage/delete-database conn))
+  (release [_] (asami.storage/release conn))
+  (transact-update [_ update-fn] (asami.storage/transact-update conn update-fn))
+  (transact-data [_ updates! asserts retracts] (asami.storage/transact-data conn updates! asserts retracts))
+  (transact-data [_ updates! generator-fn] (asami.storage/transact-data conn updates! generator-fn))
+
+  asami.storage/Database
+  (as-of [_ t] (asami.storage/as-of (asami/db conn) t))
+  (as-of-t [_] (asami.storage/as-of-t (asami/db conn)))
+  (as-of-time [_] (asami.storage/as-of-time (asami/db conn)))
+  (since [_ t] (asami.storage/since (asami/db conn) t))
+  (since-t [_] (asami.storage/since-t (asami/db conn)))
+  (graph [_] (asami.storage/graph (asami/db conn)))
+  (entity [_ id nested?]
+    (let [e (asami.storage/entity (asami/db conn) id nested?)]
+      (if (qualified-keyword? id)
+        (assoc e :db/ident id)
+        e))))
+
+;; Source: https://github.com/quoll/michelangelo/blob/main/src/michelangelo/core.clj
+(defrecord RoundTripGenerator [counter bnode-cache namespaces]
+  raphael/NodeGenerator
+  (new-node [this]
+    [(update this :counter inc) (ttl/->BlankNode counter)])
+  (new-node [this label]
+    (if-let [node (get bnode-cache label)]
+      [this node]
+      (let [node (ttl/->BlankNode counter)]
+        [(-> this
+             (update :counter inc)
+             (update :bnode-cache assoc label node))
+         node])))
+  (add-base [this iri] (update this :namespaces assoc :base (str iri)))
+  (add-prefix [this prefix iri] (update this :namespaces assoc prefix (str iri)))
+  (iri-for [this prefix] (get namespaces prefix))
+  (get-namespaces [this] (dissoc namespaces :base))
+  (get-base [this] (:base namespaces))
+  (new-qname [this prefix local] (keyword prefix local))
+  (new-iri [this iri]
+    (if-some [k (kw iri)]
+      k
+      {:rdfa/uri iri}))
+  (new-literal [this s]
+    (try
+      (java.net.URL. s)
+      {:rdfa/uri s}
+      (catch java.net.MalformedURLException _
+        (if (str/starts-with? s "pkg:")
+          (try
+            (PackageURL. s)
+            {:rdfa/uri s}
+            (catch com.github.packageurl.MalformedPackageURLException ex
+              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
+          {:rdf/value s}))))
+  (new-literal [this s t]
+    (case t
+      :xsd/anyURI
+      {:rdfa/uri s}
+      
+      (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
+      (clojure.instant/read-instant-date s)
+      
+      (:xsd/integer :xsd/nonNegativeInteger :xsd/nonPositiveInteger :xsd/positiveInteger :xsd/negativeInteger)
+      (bigint s)
+      
+      :xsd/decimal
+      (bigdec s)
+      
+      (:xsd/long :xsd/int :xsd/short :xsd/byte)
+      (Long/parseLong s)
+      
+      :xsd/float
+      (Float/parseFloat s)
+      
+      :xsd/double
+      (Double/parseDouble s)
+      
+      (:xsd/string :xsd/normalizedString :xsd/token :xsd/language)
+      s
+      
+      :xsd/boolean
+      (Boolean/parseBoolean s)
+      
+      ; else
+      {:rdf/value s :rdf/type t}))
+  (new-lang-string [this s lang]
+    {:rdf/value s :rdf/language lang})
+  (rdf-type [this] :rdf/type)
+  (rdf-first [this] :rdf/first)
+  (rdf-rest [this] :rdf/rest)
+  (rdf-nil [this] :rdf/nil))
+
+(defmethod ttl/serialize ont_app.vocabulary.lstr.LangStr
+  [^ont_app.vocabulary.lstr.LangStr lstr]
+  (str \" (ttl/escape (str lstr)) "\"@" (lstr/lang lstr)))
+
+(defmethod ttl/serialize clojure.lang.TaggedLiteral
+  [{:keys [tag form]}]
+  (str \" (ttl/escape (str form)) "\"^^" (ttl/serialize (keyword tag))))
+
+(defn round-trip-generator
+  "Creates a new RoundTripGenerator"
+  []
+  (->RoundTripGenerator 0 {} EMPTY_MAP))
+
+(defn index-add
+  "Merges a single triple into a nested map"
+  [idx [a b c]]
+  (if-let [idxb (get idx a)]
+    (if-let [idxc (get idxb b)]
+      (if (set? idxc)
+        (if (get idxc c)
+          idx
+          (assoc idx a (assoc idxb b (conj idxc c))))
+        (assoc idx a (assoc idxb b (ordered-set idxc c))))
+      (assoc idx a (assoc idxb b c)))
+    (assoc idx a (ordered-map b c))))
+
+(defn add-all
+  "Inserts all triples in a sequence into a nested map"
+  [idx st]
+  (reduce index-add idx st))
+
+(defn simple-graph
+  "Creates a nested-map version of a graph from a sequence of triples"
+  [triples]
+  (add-all (ordered-map) triples))
+
+(defn parsed-graph
+  "Converts a graph parsed by Raphael into a nested map, with metadata for the prefixes and base."
+  [{:keys [base namespaces triples] :as parsed}]
+  (with-meta (simple-graph triples) {:namespaces namespaces :base base}))
+
+(defn parse-turtle
+  "Parses TTL input and creates a graph"
+  [s]
+  (let [s (if (str/starts-with? s "http")
+            (slurp s)
+            s)]
+    (parsed-graph (raphael/parse s (round-trip-generator)))))

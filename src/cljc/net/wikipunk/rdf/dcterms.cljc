@@ -18,7 +18,7 @@
   "A resource that acts or has the power to act."
   {:db/ident         :dcterms/Agent,
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-00:00",
-   :rdf/type         [:rdfs/Class :dcterms/AgentClass],
+   :rdf/type         #{:dcterms/AgentClass :rdfs/Class},
    :rdfs/comment     #rdf/langString
                       "A resource that acts or has the power to act.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
@@ -524,7 +524,7 @@
    :rdfs/comment       #rdf/langString "A summary of the resource.@en",
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label         #rdf/langString "Abstract@en",
-   :rdfs/subPropertyOf [:dcterms/description :dc11/description]})
+   :rdfs/subPropertyOf #{:dcterms/description :dc11/description}})
 
 (def accessRights
   "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."
@@ -540,7 +540,7 @@
     "Information about who access the resource or an indication of its security status.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Access Rights@en",
-   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights]})
+   :rdfs/subPropertyOf #{:dcterms/rights :dc11/rights}})
 
 (def accrualMethod
   "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."
@@ -601,7 +601,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Alternative Title@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/title :dc11/title]})
+   :rdfs/subPropertyOf #{:dc11/title :dcterms/title}})
 
 (def audience
   "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."
@@ -631,7 +631,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Available@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def bibliographicCitation
   "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."
@@ -646,7 +646,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Bibliographic Citation@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/identifier :dc11/identifier]})
+   :rdfs/subPropertyOf #{:dcterms/identifier :dc11/identifier}})
 
 (def conformsTo
   "An established standard to which the described resource conforms."
@@ -659,7 +659,7 @@
     "An established standard to which the described resource conforms.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Conforms To@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def contributor
   "The guidelines for using names of persons or organizations as creators apply to contributors."
@@ -680,8 +680,8 @@
 (def coverage
   "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage."
   {:db/ident :dcterms/coverage,
-   :dcam/rangeIncludes
-   [:dcterms/Jurisdiction :dcterms/Period :dcterms/Location],
+   :dcam/rangeIncludes #{:dcterms/Period :dcterms/Jurisdiction
+                         :dcterms/Location},
    :dcterms/description
    #rdf/langString
     "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage.@en",
@@ -706,7 +706,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Created@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def creator
   "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."
@@ -722,7 +722,7 @@
                   "An entity responsible for making the resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Creator@en",
-   :rdfs/subPropertyOf [:dc11/creator :dcterms/contributor]})
+   :rdfs/subPropertyOf #{:dc11/creator :dcterms/contributor}})
 
 (def date
   "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing."
@@ -752,7 +752,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Accepted@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def dateCopyrighted
   "Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -766,7 +766,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Copyrighted@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def dateSubmitted
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal)."
@@ -780,7 +780,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Submitted@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def description
   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
@@ -820,12 +820,12 @@
    :rdfs/comment #rdf/langString "The size or duration of the resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Extent@en",
-   :rdfs/subPropertyOf [:dcterms/format :dc11/format]})
+   :rdfs/subPropertyOf #{:dc11/format :dcterms/format}})
 
 (def format
   "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration."
   {:db/ident :dcterms/format,
-   :dcam/rangeIncludes [:dcterms/MediaType :dcterms/Extent],
+   :dcam/rangeIncludes #{:dcterms/MediaType :dcterms/Extent},
    :dcterms/description
    #rdf/langString
     "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration.@en",
@@ -851,7 +851,7 @@
     "A related resource that is substantially the same as the pre-existing described resource, but in another format.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Has Format@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def hasPart
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."
@@ -866,7 +866,7 @@
     "A related resource that is included either physically or logically in the described resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Has Part@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def hasVersion
   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of."
@@ -881,7 +881,7 @@
     "A related resource that is a version, edition, or adaptation of the described resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Has Version@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def identifier
   "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."
@@ -927,7 +927,7 @@
     "A pre-existing related resource that is substantially the same as the described resource, but in another format.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Is Format Of@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def isPartOf
   "This property is intended to be used with non-literal values. This property is an inverse property of Has Part."
@@ -942,7 +942,7 @@
     "A related resource in which the described resource is physically or logically included.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Is Part Of@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def isReferencedBy
   "This property is intended to be used with non-literal values. This property is an inverse property of References."
@@ -957,7 +957,7 @@
     "A related resource that references, cites, or otherwise points to the described resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Is Referenced By@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def isReplacedBy
   "This property is intended to be used with non-literal values. This property is an inverse property of Replaces."
@@ -972,7 +972,7 @@
     "A related resource that supplants, displaces, or supersedes the described resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Is Replaced By@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def isRequiredBy
   "This property is intended to be used with non-literal values. This property is an inverse property of Requires."
@@ -987,7 +987,7 @@
     "A related resource that requires the described resource to support its function, delivery, or coherence.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Is Required By@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def isVersionOf
   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version."
@@ -1002,7 +1002,7 @@
     "A related resource of which the described resource is a version, edition, or adaptation.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Is Version Of@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def issued
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -1016,7 +1016,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Issued@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def language
   "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."
@@ -1046,7 +1046,7 @@
     "A legal document giving official permission to do something with the resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "License@en",
-   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights]})
+   :rdfs/subPropertyOf #{:dcterms/rights :dc11/rights}})
 
 (def mediator
   "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."
@@ -1074,7 +1074,7 @@
                          "The material or physical carrier of the resource.@en",
    :rdfs/isDefinedBy    {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label          #rdf/langString "Medium@en",
-   :rdfs/subPropertyOf  [:dcterms/format :dc11/format]})
+   :rdfs/subPropertyOf  #{:dc11/format :dcterms/format}})
 
 (def modified
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -1088,7 +1088,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Modified@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
 (def provenance
   "The statement may include a description of any changes successive custodians made to the resource."
@@ -1130,7 +1130,7 @@
     "A related resource that is referenced, cited, or otherwise pointed to by the described resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "References@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def relation
   "Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided."
@@ -1158,7 +1158,7 @@
     "A related resource that is supplanted, displaced, or superseded by the described resource.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Replaces@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def requires
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By."
@@ -1173,7 +1173,7 @@
     "A related resource that is required by the described resource to support its function, delivery, or coherence.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Requires@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/relation}})
 
 (def rights
   "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided."
@@ -1218,7 +1218,7 @@
     "A related resource from which the described resource is derived.@en",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Source@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/source]})
+   :rdfs/subPropertyOf #{:dcterms/relation :dc11/source}})
 
 (def spatial
   "Spatial characteristics of the resource."
@@ -1230,7 +1230,7 @@
                         "Spatial characteristics of the resource.@en",
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label         #rdf/langString "Spatial Coverage@en",
-   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage]})
+   :rdfs/subPropertyOf #{:dc11/coverage :dcterms/coverage}})
 
 (def subject
   "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary."
@@ -1253,7 +1253,7 @@
    :rdfs/comment       #rdf/langString "A list of subunits of the resource.@en",
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label         #rdf/langString "Table Of Contents@en",
-   :rdfs/subPropertyOf [:dcterms/description :dc11/description]})
+   :rdfs/subPropertyOf #{:dcterms/description :dc11/description}})
 
 (def temporal
   "Temporal characteristics of the resource."
@@ -1265,7 +1265,7 @@
                         "Temporal characteristics of the resource.@en",
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label         #rdf/langString "Temporal Coverage@en",
-   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage]})
+   :rdfs/subPropertyOf #{:dc11/coverage :dcterms/coverage}})
 
 (def title
   "A name given to the resource."
@@ -1304,4 +1304,4 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/terms/"},
    :rdfs/label #rdf/langString "Date Valid@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})

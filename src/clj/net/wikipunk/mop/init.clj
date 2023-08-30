@@ -56,7 +56,7 @@
                                                  (identical? (mop/slot-definition-allocation slot) :instance))
                                           (conj added-slots n)
                                           added-slots)))
-                                    []
+                                    #{}
                                     current-slots)]
     
     (mop/shared-initialize current added-slots initargs)))
@@ -204,9 +204,9 @@
       (not-empty (set/union (descendants (:rdfs/domain rdf/*metaobjects*) ident)
                             (reduce set/union (map mop/class-direct-slots intersectionOf))
                             (reduce set/union (map mop/class-direct-slots unionOf))
-                            (when (coll? subClassOf)
+                            (when (and (coll? subClassOf) (not (map? subClassOf)))
                               (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf))))
-                            (when (coll? type)
+                            (when (and (coll? type) (not (map? type)))
                               (reduce set/union (map mop/class-direct-slots (remove keyword? type))))))))
 
 (defmethod mop/class-default-initargs :rdfs/Class
