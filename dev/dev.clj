@@ -216,8 +216,9 @@
   []
   (rdf/all-ns-metaobjects))
 
+(def db-uri "asami:local://rdf")
+
 (comment
-  (def db-uri "asami:mem://rdf")
   (asami/create-database db-uri)
   (def conn (asami/connect db-uri))
   (asami/transact conn {:tx-data (->> (rdf/all-ns-metaobjects)
@@ -226,13 +227,12 @@
                                       (walk/prewalk (fn [form]
                                                       (if (map-entry? form)
                                                         (let [[k v] form]
-                                                          [k (if (isa? k :rdf/Property)
-                                                               (case (rdf/infer-datomic-type k)
-                                                                 :rdf/List v
-                                                                 (if (sequential? v)
-                                                                   (set v)
-                                                                   v))
-                                                               v)])
+                                                          [k (cond
+                                                               (isa? (:rdfs/range rdf/*metaobjects*) k :rdf/List)
+                                                               (vector v)
+                                                               (sequential? v)
+                                                               (set v)
+                                                               :else v)])
                                                         form)))
                                       (into []))})
   (def asami-db (asami/db conn)))
