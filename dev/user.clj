@@ -5,7 +5,7 @@
    [clojure.repl]
    [clojure.tools.namespace.repl]
    [ont-app.vocabulary.lstr]
-   [clojure.tools.reader]
+   [clojure.tools.reader]   
    [com.stuartsierra.component.user-helpers :refer [dev go reset]]))
 
 (alter-var-root #'*default-data-reader-fn* (constantly tagged-literal))

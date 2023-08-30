@@ -19,6 +19,7 @@
    [clojure.string :as str]
    [clojure.walk :as walk]
    [clojure.repl]
+   [clojure.instant]
    [com.stuartsierra.component :as com]
    [ont-app.vocabulary.lstr :as lstr]
    [net.wikipunk.boot :as boot]
@@ -26,7 +27,6 @@
    [taoensso.nippy :as nippy]
    [xtdb.api :as xt]
    [xtdb.node]
-   [xtdb.lucene]
    [zprint.core :as zprint]
    [net.wikipunk.ext]
    [net.wikipunk.rdf.rdf]
@@ -803,6 +803,10 @@
                                 (drop-last fragment-seq)))
           (last fragment-seq))))))
 
+(def ^:private ^java.nio.charset.Charset
+  +utf-8+
+  (java.nio.charset.Charset/forName "UTF-8"))
+
 (defn kw
   "returns a keyword for IRI accounting for unreadable symbols in
   Clojure"
@@ -837,20 +841,20 @@
       (keyword (namespace k)
                (str \|
                     (if (re-find #"[\s\(\)!,@\"\\~`^;/]" (name k))
-                      (java.net.URLEncoder/encode (name k))
+                      (java.net.URLEncoder/encode (name k) +utf-8+)
                       (name k))
                     \|))
 
       (or (re-find #"[\s\(\)!,@\"\\~`^;/]" (name k))
           (re-find #"::" (name k)))
-      (keyword (namespace k) (java.net.URLEncoder/encode (name k)))
+      (keyword (namespace k) (java.net.URLEncoder/encode (name k) +utf-8+))
 
-      (re-find #"[\s\(\)!,@\"\\~`^;/]" (java.net.URLDecoder/decode (name k)))
+      (re-find #"[\s\(\)!,@\"\\~`^;/]" (java.net.URLDecoder/decode (name k) +utf-8+))
       k
 
       :else (keyword (namespace k)
                      (try
-                       (let [n (java.net.URLDecoder/decode (name k))]
+                       (let [n (java.net.URLDecoder/decode (name k) +utf-8+)]
                          (if (or (re-find #"/" n)
                                  (re-find #"[\(\)\"]" n))
                            (name k)
@@ -903,7 +907,7 @@
   [^Node_Literal node]
   (let [uri (.getLiteralDatatypeURI node)]
     (if (instance? BaseDatatype$TypedValue (.getLiteralValue node))
-      (tagged-literal (symbol (kw uri)) (.-lexicalValue (.getLiteralValue node)))
+      (tagged-literal (symbol (kw uri)) (.-lexicalValue ^BaseDatatype$TypedValue (.getLiteralValue node)))
       (.getLiteralValue node))))
 
 (extend-protocol g/AsClojureData
@@ -939,7 +943,7 @@
                                 (str/replace #"\|$" "")
                                 (str/replace #"_SLASH_" "/"))]
                       (try
-                        (java.net.URLDecoder/decode n)
+                        (java.net.URLDecoder/decode n +utf-8+)
                         (catch Throwable ex
                           n))))))
 
@@ -958,10 +962,10 @@
 
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
-  [g & {:as md}]
+  [^Graph g & {:as md}]
   (let [reasoner      (:reasoner md #_(ReasonerRegistry/getRDFSSimpleReasoner))
-        g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
-                        (.bind reasoner g)
+        ^Graph g      (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
+                        (.bind ^org.apache.jena.reasoner.Reasoner reasoner g)
                         g)
         ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
                           (dissoc (cond-> (into {} (.getNsPrefixMap (.getPrefixMapping g)))
@@ -1214,7 +1218,7 @@
   (let [md             (walk/prewalk walk-dcterms (meta model))
         prefix         (or (:rdfa/prefix md)
                            (:vann/preferredNamespacePrefix md)
-                           (some-> (:ns md) ns-name #(str/split #"\.") peek))
+                           (some-> (:ns md) ns-name (str/split #"\.") peek))
         model-by-ident (update-vals (group-by (some-fn :db/id :db/ident) model) first)
         index          (update-vals model-by-ident #(dissoc % :db/id))
         forms          (->> index
@@ -1737,10 +1741,11 @@
            :dcat/keys [downloadURL]
            :rdf/keys  [value]
            :keys      [format]} md
-          parser                (if value
-                                  (doto (RDFParser/fromString value)
-                                    (.lang (get a/formats (or format :ttl))))
-                                  (RDFParser/source (or downloadURL uri)))]
+          ^org.apache.jena.riot.RDFParserBuilder parser
+          (if value
+            (doto (RDFParser/fromString value)
+              (.lang (get a/formats (or format :ttl))))
+            (RDFParser/source (str (or downloadURL uri))))]
       (try
         (.toGraph parser)
         (catch org.apache.jena.riot.RiotException ex
