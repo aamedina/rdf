@@ -39,8 +39,7 @@
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.mop]
-   [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]]
-   [methodical.core :as mm])
+   [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]])
   (:import
    (com.github.packageurl PackageURL)
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -158,6 +157,30 @@
   {:arglists '([class])}
   type-of)
 
+;; The :rdfa/uri is used to download the model is a :dcat/downloadURL
+;;   is not provided. The :rdfa/prefix is used to bind @base URI of the
+;;   RDF model to that prefix.
+
+;;   {:rdfa/uri \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
+;;    :rdfa/prefix \"rdf\" 
+;;    ;; used to override the :rdfa/uri for downloading a RDF model
+;;    :dcat/downloadURL \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
+;;    ;; optionally force Jena to parse a specific format
+;;    :format :turtle 
+;;    ;; optional and used to override the models
+;;    specified prefixes which becomes invaluable when the source model
+;;    has odd prefixes for standard vocabularies
+;;    :rdf/ns-prefix-map {...}}
+
+;; Options:
+;;  :emit -- set to false to prevent emitting the namespace
+;;  :recurse -- set to number of recursive calls you are willing to make for linked data
+;;  :reasoner -- set to your preferred org.apache.jena.reasoner.Reasoner
+;;  instance or nil for no reasoning (defaults to RDFSSimpleReasoner)
+;;  :private -- set to truthy value to emit ^:private vars, but inspect
+;;  the namespace after to make sure there are no var name conflicts
+;;  :slash -- If a vocab term has a slash in its name you should set this to true (edge case for D3FEND).
+
 (defmulti parse
   "Parses the RDF model described by the object."
   type-of)
@@ -173,49 +196,6 @@
 (defmulti graph
   "Returns Jena Graph from parsed from the object."
   type-of)
-
-#_(defprotocol LinkedData
-    "This is a protocol for parsing Linked Data from RDF models. 
-
-  Usually, the input is a map like so:
-
-  The :rdfa/uri is used to download the model is a :dcat/downloadURL
-  is not provided. The :rdfa/prefix is used to bind @base URI of the
-  RDF model to that prefix.
-
-  {:rdfa/uri \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
-   :rdfa/prefix \"rdf\" 
-   ;; used to override the :rdfa/uri for downloading a RDF model
-   :dcat/downloadURL \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
-   ;; optionally force Jena to parse a specific format
-   :format :turtle 
-   ;; optional and used to override the models
-   specified prefixes which becomes invaluable when the source model
-   has odd prefixes for standard vocabularies
-   :rdf/ns-prefix-map {...}}
-
-  (Note: not all keys are required. You can try just passing the URL
-  of the model.)"
-    (parse [x]
-      "Parses source using Apache Jena's RDFParser and converts it to
-  Clojure data using Aristotle.
-
-  Adapted from arachne.aristotle.graph/graph->clj
-
- Options:
- :emit -- set to false to prevent emitting the namespace
- :recurse -- set to number of recursive calls you are willing to make for linked data
- :reasoner -- set to your preferred org.apache.jena.reasoner.Reasoner
- instance or nil for no reasoning (defaults to RDFSSimpleReasoner)
- :private -- set to truthy value to emit ^:private vars, but inspect
- the namespace after to make sure there are no var name conflicts
- :slash -- If a vocab term has a slash in its name you should set this to true (edge case for D3FEND).")
-    (graph [x]
-      "Returns Jena Graph from x.")
-    (sniff [x]
-      "Follow your nose.")
-    (emit [x arg-map]
-      "Write Clojure namespace after parsing x with arg-map."))
 
 (def ^:dynamic *slash*
   "generate keywords with _SLASH_ in name (used for D3FEND)"
@@ -2018,7 +1998,6 @@
     (let [model (sniff {:rdf/value s})]
       (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
 
-
 (defmethod parse java.net.URI
   [uri]
   (parse {:dcat/downloadURL (str uri)}))
@@ -2059,176 +2038,16 @@
 (defmethod parse :rdfa/PrefixMapping
   [{:rdfa/keys [uri prefix]
     :dcat/keys [downloadURL]
-    :as m}]
-  (parse (dissoc m :rdf/type)))
+    :as prefix-mapping}]
+  ((get-method parse clojure.lang.IPersistentMap) prefix-mapping))
 
 (defmethod emit :rdfa/PrefixMapping
   [prefix-mapping arg-map]
-  (emit (dissoc prefix-mapping :rdf/type) arg-map))
+  ((get-method emit clojure.lang.IPersistentMap) prefix-mapping arg-map))
 
-#_(defmethod parse clojure.lang.IPersistentMap
-    [{:rdfa/keys [uri prefix]
-      :dcat/keys [downloadURL]}]
-    )
-
-#_(extend-protocol LinkedData
-    java.util.List
-    (emit [xs arg-map]
-      (dorun (pmap #(try
-                      (emit % arg-map)
-                      (catch Throwable ex
-                        (println % (.getMessage ex))))
-                   xs)))
-    (sniff [lookup-ref]
-      (when mop/*env*
-        (when (and (= (count lookup-ref) 2)
-                   (qualified-keyword? (first lookup-ref)))
-          (mop/find-class lookup-ref))))
-  
-    clojure.lang.IPersistentMap
-    (parse [md]
-      (binding [*graph*   (graph md)
-                *slash*   (:slash md)
-                *private* (:private md)
-                *recurse* (:recurse md 0)]
-        (parse-with-meta *graph* md)))
-    (graph [md]
-      (let [{:rdfa/keys [uri prefix]
-             :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
-             :dcat/keys [downloadURL]
-             :rdf/keys  [value]
-             :keys      [format]} md
-            ^org.apache.jena.riot.RDFParserBuilder parser
-            (if value
-              (doto (RDFParser/fromString value)
-                (.lang (get a/formats (or format :ttl))))
-              (RDFParser/source (str (or downloadURL uri))))]
-        (try
-          (.toGraph parser)
-          (catch org.apache.jena.riot.RiotException ex
-            ;; if an appropriate content-type cannot be inferred try Turtle
-            (try
-              (.toGraph (doto parser (.lang Lang/TTL)))
-              (catch org.apache.jena.riot.RiotException ex
-                ;; ...try RDF/XML?
-                (try
-                  (.toGraph (doto parser (.lang Lang/RDFXML)))
-                  (catch org.apache.jena.riot.RiotException ex
-                    ;; ...try N3?
-                    (try
-                      (.toGraph (doto parser (.lang Lang/N3)))
-                      (catch org.apache.jena.riot.RiotException ex
-                        ;; ...try JSONLD?
-                        (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
-    (emit [x arg-map]
-      (when (:emit x true)
-        (let [model (parse x)
-              md    (meta model)]
-          (emit-ns model md arg-map))))
-    (sniff [m]
-      (if-some [id (:db/id m)]
-        (when mop/*env*
-          (mop/find-class id))
-        (let [model (parse m)]
-          (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model)))))
-
-    clojure.lang.Keyword
-    (parse [ident]
-      (when-some [url (iri ident)]
-        (parse {:rdfa/prefix      (namespace ident)
-                :dcat/downloadURL url})))
-    (graph [ident]
-      (when-some [url (iri ident)]
-        (graph {:rdfa/prefix      (namespace ident)
-                :dcat/downloadURL url})))
-    (sniff [k]
-      (or (datafy k)
-          (try
-            (when-some [model (parse k)]
-              (let [forms (mapv #(dissoc % :private) (unroll-forms model))
-                    idx   (group-by :db/ident forms)]
-                (if-some [val (get idx k)]
-                  (with-meta (first val)
-                    (merge (meta model)
-                           (update-vals (dissoc idx k) first)))
-                  (with-meta (peek forms)
-                    (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
-            (catch Throwable ex
-              (log/debug (.getMessage ex))))))
-
-    clojure.lang.Named
-    (parse [ident]
-      (if (qualified-ident? ident)
-        (some-> (resolve ident) deref parse)
-        (some-> (find-ns ident) meta parse)))
-    (graph [ident]
-      (if (qualified-ident? ident)
-        (some-> (resolve ident) deref graph)
-        (some-> (find-ns ident) meta graph)))
-    (emit [n arg-map]
-      (when-some [x (if (qualified-ident? n)
-                      (some-> (resolve (symbol n)) deref)
-                      (find-ns (symbol n)))]
-        (emit x arg-map)))
-
-    clojure.lang.Namespace
-    (parse [ns]
-      (parse (meta ns)))
-    (graph [ns]
-      (graph (meta ns)))
-    (emit [ns arg-map]
-      (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map))
-
-    String
-    (parse [s]
-      (if (or (str/starts-with? s "http")
-              (str/starts-with? s "/"))
-        (parse {:dcat/downloadURL s})
-        (parse {:rdf/value s})))
-    (graph [s]
-      (if (or (str/starts-with? s "http")
-              (str/starts-with? s "/"))
-        (graph {:dcat/downloadURL s})
-        (graph {:rdf/value s})))
-    (emit [s arg-map]
-      (emit {:dcat/downloadURL s} arg-map))
-    (sniff [s]
-      (if (or (str/starts-with? s "http")
-              (str/starts-with? s "/"))      
-        (sniff {:dcat/downloadURL s})
-        (let [model (sniff {:rdf/value s})]
-          (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
-
-    java.net.URI
-    (parse [uri]
-      (parse {:dcat/downloadURL (str uri)}))
-    (graph [uri]
-      (graph {:dcat/downloadURL (str uri)}))
-    (sniff [uri]
-      (sniff {:dcat/downloadURL (str uri)}))
-
-    java.net.URL
-    (parse [url]
-      (parse {:dcat/downloadURL (str url)}))
-    (graph [url]
-      (graph {:dcat/downloadURL (str url)}))
-    (sniff [url]
-      (sniff {:dcat/downloadURL (str url)}))
-
-    Graph
-    (parse [g]
-      (binding [*graph* g]
-        (parse-with-meta g nil)))
-    (graph [g] g)
-
-    java.lang.Long
-    (sniff [id]
-      (when mop/*env*
-        (mop/find-class id)))
-
-    nil
-    (sniff [_] nil))
-
+(defmethod graph :rdfa/PrefixMapping
+  [prefix-mapping]
+  ((get-method graph clojure.lang.IPersistentMap) prefix-mapping))
 
 (defrecord Asami [uri conn]
   com/Lifecycle
