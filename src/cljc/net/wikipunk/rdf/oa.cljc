@@ -1,12 +1,12 @@
 (ns net.wikipunk.rdf.oa
   "The Web Annotation ontology defines the terms of the Web Annotation vocabulary. Any changes to this document MUST be from a Working Group in the W3C that has established expertise in the area."
   {:dc11/title "Web Annotation Ontology",
-   :dcterms/creator [{:foaf/name "Benjamin Young",
-                      :rdf/type  :foaf/Person}
-                     {:foaf/name "Paolo Ciccarese",
-                      :rdf/type  :foaf/Person}
-                     {:foaf/name "Robert Sanderson",
-                      :rdf/type  :foaf/Person}],
+   :dcterms/creator #{{:foaf/name "Benjamin Young",
+                       :rdf/type  :foaf/Person}
+                      {:foaf/name "Robert Sanderson",
+                       :rdf/type  :foaf/Person}
+                      {:foaf/name "Paolo Ciccarese",
+                       :rdf/type  :foaf/Person}},
    :dcterms/modified "2016-11-12T21:28:11Z",
    :owl/versionInfo "2016-11-12T21:28:11Z",
    :prov/wasRevisionOf
@@ -54,8 +54,7 @@
    :rdf/type         :rdfs/Class,
    :rdfs/comment     "The class for Web Annotations.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label       "Annotation",
-   :rdfs/subClassOf  :rdfs/Resource})
+   :rdfs/label       "Annotation"})
 
 (def Choice
   "A subClass of  as:OrderedCollection  that conveys to a consuming application that it should select one of the resources in the  as:items  list to use, rather than all of them.  This is typically used to provide a choice of resources to render to the user, based on further supplied properties.  If the consuming application cannot determine the user's preference, then it should use the first in the list."
@@ -65,7 +64,7 @@
    "A subClass of  as:OrderedCollection  that conveys to a consuming application that it should select one of the resources in the  as:items  list to use, rather than all of them.  This is typically used to provide a choice of resources to render to the user, based on further supplied properties.  If the consuming application cannot determine the user's preference, then it should use the first in the list.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "Choice",
-   :rdfs/subClassOf [:rdfs/Resource :as/OrderedCollection]})
+   :rdfs/subClassOf :as/OrderedCollection})
 
 (def CssSelector
   "A CssSelector describes a Segment of interest in a representation that conforms to the Document Object Model through the use of the CSS selector specification."
@@ -75,7 +74,7 @@
    "A CssSelector describes a Segment of interest in a representation that conforms to the Document Object Model through the use of the CSS selector specification.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "CssSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def CssStyle
   "A resource which describes styles for resources participating in the Annotation using CSS."
@@ -85,7 +84,7 @@
    "A resource which describes styles for resources participating in the Annotation using CSS.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "CssStyle",
-   :rdfs/subClassOf [:oa/Style :rdfs/Resource]})
+   :rdfs/subClassOf :oa/Style})
 
 (def DataPositionSelector
   "DataPositionSelector describes a range of data by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first byte, position 1 would be immediately before the second byte, and so on. The start byte is thus included in the list, but the end byte is not."
@@ -95,7 +94,7 @@
    "DataPositionSelector describes a range of data by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first byte, position 1 would be immediately before the second byte, and so on. The start byte is thus included in the list, but the end byte is not.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "DataPositionSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def Direction
   "A class to encapsulate the different text directions that a textual resource might take.  It is not used directly in the Annotation Model, only its three instances."
@@ -104,8 +103,7 @@
    :rdfs/comment
    "A class to encapsulate the different text directions that a textual resource might take.  It is not used directly in the Annotation Model, only its three instances.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label "Direction",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Direction"})
 
 (def FragmentSelector
   "The FragmentSelector class is used to record the segment of a representation using the IRI fragment specification defined by the representation's media type."
@@ -115,7 +113,7 @@
    "The FragmentSelector class is used to record the segment of a representation using the IRI fragment specification defined by the representation's media type.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "FragmentSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def HttpRequestState
   "The HttpRequestState class is used to record the HTTP request headers that a client SHOULD use to request the correct representation from the resource. "
@@ -125,7 +123,7 @@
    "The HttpRequestState class is used to record the HTTP request headers that a client SHOULD use to request the correct representation from the resource. ",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "HttpRequestState",
-   :rdfs/subClassOf [:rdfs/Resource :oa/State]})
+   :rdfs/subClassOf :oa/State})
 
 (def Motivation
   "The Motivation class is used to record the user's intent or motivation for the creation of the Annotation, or the inclusion of the body or target, that it is associated with."
@@ -135,7 +133,7 @@
    "The Motivation class is used to record the user's intent or motivation for the creation of the Annotation, or the inclusion of the body or target, that it is associated with.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "Motivation",
-   :rdfs/subClassOf [:rdfs/Resource :skos/Concept]})
+   :rdfs/subClassOf :skos/Concept})
 
 (def PreferContainedDescriptions
   "An IRI to signal the client prefers to receive full descriptions of the Annotations from a container, not just their IRIs."
@@ -163,7 +161,7 @@
    "A Range Selector can be used to identify the beginning and the end of the selection by using other Selectors. The selection consists of everything from the beginning of the starting selector through to the beginning of the ending selector, but not including it.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "RangeSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def ResourceSelection
   "Instances of the ResourceSelection class identify part (described by an oa:Selector) of another resource (referenced with oa:hasSource), possibly from a particular representation of a resource (described by an oa:State). Please note that ResourceSelection is not used directly in the Web Annotation model, but is provided as a separate class for further application profiles to use, separate from oa:SpecificResource which has many Annotation specific features."
@@ -172,8 +170,7 @@
    :rdfs/comment
    "Instances of the ResourceSelection class identify part (described by an oa:Selector) of another resource (referenced with oa:hasSource), possibly from a particular representation of a resource (described by an oa:State). Please note that ResourceSelection is not used directly in the Web Annotation model, but is provided as a separate class for further application profiles to use, separate from oa:SpecificResource which has many Annotation specific features.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label "ResourceSelection",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "ResourceSelection"})
 
 (def Selector
   "A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector from the Specific Resource. This class is not used directly in the Annotation model, only its subclasses."
@@ -182,8 +179,7 @@
    :rdfs/comment
    "A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector from the Specific Resource. This class is not used directly in the Annotation model, only its subclasses.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label "Selector",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Selector"})
 
 (def SpecificResource
   "Instances of the SpecificResource class identify part of another resource (referenced with oa:hasSource), a particular representation of a resource, a resource with styling hints for renders, or any combination of these, as used within an Annotation."
@@ -193,7 +189,7 @@
    "Instances of the SpecificResource class identify part of another resource (referenced with oa:hasSource), a particular representation of a resource, a resource with styling hints for renders, or any combination of these, as used within an Annotation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "SpecificResource",
-   :rdfs/subClassOf [:rdfs/Resource :oa/ResourceSelection]})
+   :rdfs/subClassOf :oa/ResourceSelection})
 
 (def State
   "A State describes the intended state of a resource as applied to the particular Annotation, and thus provides the information needed to retrieve the correct representation of that resource."
@@ -202,8 +198,7 @@
    :rdfs/comment
    "A State describes the intended state of a resource as applied to the particular Annotation, and thus provides the information needed to retrieve the correct representation of that resource.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label "State",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "State"})
 
 (def Style
   "A Style describes the intended styling of a resource as applied to the particular Annotation, and thus provides the information to ensure that rendering is consistent across implementations."
@@ -212,8 +207,7 @@
    :rdfs/comment
    "A Style describes the intended styling of a resource as applied to the particular Annotation, and thus provides the information to ensure that rendering is consistent across implementations.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label "Style",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Style"})
 
 (def SvgSelector
   "An SvgSelector defines an area through the use of the Scalable Vector Graphics [SVG] standard. This allows the user to select a non-rectangular area of the content, such as a circle or polygon by describing the region using SVG. The SVG may be either embedded within the Annotation or referenced as an External Resource."
@@ -223,7 +217,7 @@
    "An SvgSelector defines an area through the use of the Scalable Vector Graphics [SVG] standard. This allows the user to select a non-rectangular area of the content, such as a circle or polygon by describing the region using SVG. The SVG may be either embedded within the Annotation or referenced as an External Resource.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "SvgSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def TextPositionSelector
   "The TextPositionSelector describes a range of text by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first character, position 1 would be immediately before the second character, and so on."
@@ -233,7 +227,7 @@
    "The TextPositionSelector describes a range of text by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first character, position 1 would be immediately before the second character, and so on.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "TextPositionSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def TextQuoteSelector
   "The TextQuoteSelector describes a range of text by copying it, and including some of the text immediately before (a prefix) and after (a suffix) it to distinguish between multiple copies of the same sequence of characters."
@@ -243,7 +237,7 @@
    "The TextQuoteSelector describes a range of text by copying it, and including some of the text immediately before (a prefix) and after (a suffix) it to distinguish between multiple copies of the same sequence of characters.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "TextQuoteSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def TextualBody
   ""
@@ -251,8 +245,7 @@
    :rdf/type         :rdfs/Class,
    :rdfs/comment     "",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
-   :rdfs/label       "TextualBody",
-   :rdfs/subClassOf  :rdfs/Resource})
+   :rdfs/label       "TextualBody"})
 
 (def TimeState
   "A TimeState records the time at which the resource's state is appropriate for the Annotation, typically the time that the Annotation was created and/or a link to a persistent copy of the current version."
@@ -262,7 +255,7 @@
    "A TimeState records the time at which the resource's state is appropriate for the Annotation, typically the time that the Annotation was created and/or a link to a persistent copy of the current version.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "TimeState",
-   :rdfs/subClassOf [:rdfs/Resource :oa/State]})
+   :rdfs/subClassOf :oa/State})
 
 (def XPathSelector
   " An XPathSelector is used to select elements and content within a resource that supports the Document Object Model via a specified XPath value."
@@ -272,7 +265,7 @@
    " An XPathSelector is used to select elements and content within a resource that supports the Document Object Model via a specified XPath value.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label "XPathSelector",
-   :rdfs/subClassOf [:rdfs/Resource :oa/Selector]})
+   :rdfs/subClassOf :oa/Selector})
 
 (def annotationService
   "The object of the relationship is the end point of a service that conforms to the annotation-protocol, and it may be associated with any resource.  The expectation of asserting the relationship is that the object is the preferred service for maintaining annotations about the subject resource, according to the publisher of the relationship.\n\n  This relationship is intended to be used both within Linked Data descriptions and as the  rel  type of a Link, via HTTP Link Headers rfc5988 for binary resources and in HTML <link> elements.  For more information about these, please see the Annotation Protocol specification annotation-protocol.\n  "
@@ -286,7 +279,7 @@
 (def assessing
   "The motivation for when the user intends to provide an assessment about the Target resource."
   {:db/ident :oa/assessing,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to provide an assessment about the Target resource.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -306,7 +299,7 @@
 (def bookmarking
   "The motivation for when the user intends to create a bookmark to the Target or part thereof."
   {:db/ident :oa/bookmarking,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to create a bookmark to the Target or part thereof.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -334,7 +327,7 @@
 (def classifying
   "The motivation for when the user intends to that classify the Target as something."
   {:db/ident :oa/classifying,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to that classify the Target as something.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -343,7 +336,7 @@
 (def commenting
   "The motivation for when the user intends to comment about the Target."
   {:db/ident :oa/commenting,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to comment about the Target.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -352,7 +345,7 @@
 (def describing
   "The motivation for when the user intends to describe the Target, as opposed to a comment about them."
   {:db/ident :oa/describing,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to describe the Target, as opposed to a comment about them.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -361,7 +354,7 @@
 (def editing
   "The motivation for when the user intends to request a change or edit to the Target resource."
   {:db/ident :oa/editing,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to request a change or edit to the Target resource.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -482,7 +475,7 @@
 (def highlighting
   "The motivation for when the user intends to highlight the Target resource or segment of it."
   {:db/ident :oa/highlighting,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to highlight the Target resource or segment of it.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -491,7 +484,7 @@
 (def identifying
   "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target."
   {:db/ident :oa/identifying,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -500,7 +493,7 @@
 (def linking
   "The motivation for when the user intends to link to a resource related to the Target."
   {:db/ident :oa/linking,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to link to a resource related to the Target.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -509,7 +502,7 @@
 (def ltrDirection
   "The direction of text that is read from left to right."
   {:db/ident         :oa/ltrDirection,
-   :rdf/type         [:oa/Direction :rdfs/Resource],
+   :rdf/type         :oa/Direction,
    :rdfs/comment     "The direction of text that is read from left to right.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label       "ltrDirection"})
@@ -517,7 +510,7 @@
 (def moderating
   "The motivation for when the user intends to assign some value or quality to the Target."
   {:db/ident :oa/moderating,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to assign some value or quality to the Target.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -557,7 +550,7 @@
 (def questioning
   "The motivation for when the user intends to ask a question about the Target."
   {:db/ident :oa/questioning,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to ask a question about the Target.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -585,7 +578,7 @@
 (def replying
   "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource."
   {:db/ident :oa/replying,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
@@ -594,7 +587,7 @@
 (def rtlDirection
   "The direction of text that is read from right to left."
   {:db/ident         :oa/rtlDirection,
-   :rdf/type         [:oa/Direction :rdfs/Resource],
+   :rdf/type         :oa/Direction,
    :rdfs/comment     "The direction of text that is read from right to left.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},
    :rdfs/label       "rtlDirection"})
@@ -677,7 +670,7 @@
 (def tagging
   "The motivation for when the user intends to associate a tag with the Target."
   {:db/ident :oa/tagging,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type :oa/Motivation,
    :rdfs/comment
    "The motivation for when the user intends to associate a tag with the Target.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/oa#"},

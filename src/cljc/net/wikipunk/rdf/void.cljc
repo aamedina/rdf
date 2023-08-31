@@ -20,37 +20,35 @@
 (def Dataset
   "A set of RDF triples that are published, maintained or aggregated by a single provider."
   {:db/ident :void/Dataset,
-   :rdf/type [:owl/Class :rdfs/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
    "A set of RDF triples that are published, maintained or aggregated by a single provider.",
-   :rdfs/label "dataset",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "dataset"})
 
 (def DatasetDescription
   "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets."
   {:db/ident :void/DatasetDescription,
-   :rdf/type [:owl/Class :rdfs/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
    "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets.",
    :rdfs/label "dataset description",
-   :rdfs/subClassOf [:rdfs/Resource :foaf/Document]})
+   :rdfs/subClassOf :foaf/Document})
 
 (def Linkset
   "A collection of RDF links between two void:Datasets."
   {:db/ident        :void/Linkset,
-   :rdf/type        [:owl/Class :rdfs/Class],
+   :rdf/type        #{:rdfs/Class :owl/Class},
    :rdfs/comment    "A collection of RDF links between two void:Datasets.",
    :rdfs/label      "linkset",
-   :rdfs/subClassOf [:void/Dataset :rdfs/Resource]})
+   :rdfs/subClassOf :void/Dataset})
 
 (def TechnicalFeature
   "A technical feature of a void:Dataset, such as a supported RDF serialization format."
   {:db/ident :void/TechnicalFeature,
-   :rdf/type [:owl/Class :rdfs/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
    "A technical feature of a void:Dataset, such as a supported RDF serialization format.",
-   :rdfs/label "technical feature",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "technical feature"})
 
 (def class
   "The rdfs:Class that is the rdf:type of all entities in a class-based partition."

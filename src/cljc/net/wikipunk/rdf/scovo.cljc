@@ -18,27 +18,24 @@
 
 (def Dataset
   "a statistical dataset"
-  {:db/ident        :scovo/Dataset,
-   :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    "a statistical dataset",
-   :rdfs/label      "Dataset",
-   :rdfs/subClassOf :rdfs/Resource})
+  {:db/ident     :scovo/Dataset,
+   :rdf/type     #{:rdfs/Class :owl/Class},
+   :rdfs/comment "a statistical dataset",
+   :rdfs/label   "Dataset"})
 
 (def Dimension
   "a dimension of a statistical data item"
-  {:db/ident        :scovo/Dimension,
-   :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    "a dimension of a statistical data item",
-   :rdfs/label      "Dimension",
-   :rdfs/subClassOf :rdfs/Resource})
+  {:db/ident     :scovo/Dimension,
+   :rdf/type     #{:rdfs/Class :owl/Class},
+   :rdfs/comment "a dimension of a statistical data item",
+   :rdfs/label   "Dimension"})
 
 (def Item
   "a statistical data item"
-  {:db/ident        :scovo/Item,
-   :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    "a statistical data item",
-   :rdfs/label      "Item",
-   :rdfs/subClassOf :rdfs/Resource})
+  {:db/ident     :scovo/Item,
+   :rdf/type     #{:rdfs/Class :owl/Class},
+   :rdfs/comment "a statistical data item",
+   :rdfs/label   "Item"})
 
 (def dataset
   "belongs to dataset"

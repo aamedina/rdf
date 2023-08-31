@@ -17,11 +17,11 @@
    "This ontology provides an informal representation of the concepts and terms as defined in the LDP specification.  Consult the LDP specification for normative reference.",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/ldp/"},
    :rdfs/label "W3C Linked Data Platform (LDP)",
-   :rdfs/seeAlso [{:rdfa/uri "http://www.w3.org/TR/ldp/"}
-                  {:rdfa/uri "http://www.w3.org/TR/ldp-ucr/"}
-                  {:rdfa/uri "http://www.w3.org/2012/ldp"}
-                  {:rdfa/uri "http://www.w3.org/2011/09/LinkedData/"}
-                  {:rdfa/uri "http://www.w3.org/TR/ldp-paging/"}]})
+   :rdfs/seeAlso #{{:rdfa/uri "http://www.w3.org/2011/09/LinkedData/"}
+                   {:rdfa/uri "http://www.w3.org/TR/ldp/"}
+                   {:rdfa/uri "http://www.w3.org/2012/ldp"}
+                   {:rdfa/uri "http://www.w3.org/TR/ldp-ucr/"}
+                   {:rdfa/uri "http://www.w3.org/TR/ldp-paging/"}}})
 
 (def Ascending
   "Ascending order."
@@ -40,8 +40,7 @@
    "An LDPC that uses a predefined predicate to simply link to its contained resources.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "BasicContainer",
-   :rdfs/subClassOf
-   [:ldp/Container :rdfs/Resource :ldp/Resource :ldp/RDFSource],
+   :rdfs/subClassOf :ldp/Container,
    :vs/term_status "stable"})
 
 (def Container
@@ -52,7 +51,7 @@
    "A Linked Data Platform RDF Source (LDP-RS) that also conforms to additional patterns and conventions for managing membership. Readers should refer to the specification defining this ontology for the list of behaviors associated with it.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "Container",
-   :rdfs/subClassOf [:ldp/RDFSource :rdfs/Resource :ldp/Resource],
+   :rdfs/subClassOf :ldp/RDFSource,
    :vs/term_status "stable"})
 
 (def Descending
@@ -72,8 +71,7 @@
    "An LDPC that is similar to a LDP-DC but it allows an indirection with the ability to list as member a resource, such as a URI representing a real-world object, that is different from the resource that is created.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "DirectContainer",
-   :rdfs/subClassOf
-   [:ldp/Container :rdfs/Resource :ldp/Resource :ldp/RDFSource],
+   :rdfs/subClassOf :ldp/Container,
    :vs/term_status "stable"})
 
 (def IndirectContainer
@@ -84,8 +82,7 @@
    "An LDPC that has the flexibility of choosing what form the membership triples take.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "IndirectContainer",
-   :rdfs/subClassOf
-   [:ldp/Container :rdfs/Resource :ldp/Resource :ldp/RDFSource],
+   :rdfs/subClassOf :ldp/Container,
    :vs/term_status "stable"})
 
 (def MemberSubject
@@ -106,7 +103,7 @@
    "A Linked Data Platform Resource (LDPR) whose state is NOT represented as RDF.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "NonRDFSource",
-   :rdfs/subClassOf [:ldp/Resource :rdfs/Resource],
+   :rdfs/subClassOf :ldp/Resource,
    :vs/term_status "stable"})
 
 (def Page
@@ -117,7 +114,6 @@
    "URI signifying that the resource is an in-sequence page resource, as defined by LDP Paging.  Typically used on Link rel='type' response headers.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "Page",
-   :rdfs/subClassOf :rdfs/Resource,
    :vs/term_status "testing"})
 
 (def PageSortCriterion
@@ -128,7 +124,6 @@
    "Element in the list of sorting criteria used by the server to assign container members to pages.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "PageSortCriterion",
-   :rdfs/subClassOf :rdfs/Resource,
    :vs/term_status "testing"})
 
 (def PreferContainment
@@ -180,7 +175,7 @@
    "A Linked Data Platform Resource (LDPR) whose state is represented as RDF.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "RDFSource",
-   :rdfs/subClassOf [:ldp/Resource :rdfs/Resource],
+   :rdfs/subClassOf :ldp/Resource,
    :vs/term_status "stable"})
 
 (def Resource
@@ -191,7 +186,6 @@
    "A HTTP-addressable resource whose lifecycle is managed by a LDP server.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/ldp#"},
    :rdfs/label "Resource",
-   :rdfs/subClassOf :rdfs/Resource,
    :vs/term_status "stable"})
 
 (def constrainedBy
@@ -233,9 +227,9 @@
 (def inbox
   "Links a resource to a container where notifications for the resource can be created and discovered."
   {:db/ident :ldp/inbox,
-   :dcterms/creator [{:rdfa/uri "https://rhiaro.co.uk/#me"}
-                     {:rdfa/uri "http://csarven.ca/#i"}],
-   :dcterms/issued #xsd/date #inst "2016-09-29T00:00:00.000-04:00",
+   :dcterms/creator #{{:rdfa/uri "https://rhiaro.co.uk/#me"}
+                      {:rdfa/uri "http://csarven.ca/#i"}},
+   :dcterms/issued #inst "2016-09-29T00:00:00.000-00:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
    "Links a resource to a container where notifications for the resource can be created and discovered.",

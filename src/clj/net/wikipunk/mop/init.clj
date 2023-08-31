@@ -1,6 +1,7 @@
 (ns net.wikipunk.mop.init
   "The Metaobject Initialization Protocol"
   (:require
+   [asami.core :as asami]
    [xtdb.api :as xt]
    [clojure.datafy :refer [datafy]]
    [clojure.set :as set]
@@ -25,6 +26,10 @@
 (defmethod mop/find-class-using-env [Object xtdb.node.XtdbNode]
   [ident env]
   nil)
+
+(defmethod mop/find-class-using-env [Object net.wikipunk.rdf.Asami]
+  [ident env]
+  (asami/entity env ident))
 
 (defmethod mop/make-instance :rdfs/Class
   [class & {:as initargs}]
@@ -291,6 +296,13 @@
   [class env]
   (try
     (xt/submit-tx env [[::xt/put (rdf/freezable class)]])
+    (catch Throwable ex
+      (throw (ex-info (.getMessage ex) {:class class} ex)))))
+
+(defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.rdf.Asami]
+  [class env]
+  (try
+    (asami/transact (:conn env) {:tx-data [class]})
     (catch Throwable ex
       (throw (ex-info (.getMessage ex) {:class class} ex)))))
 

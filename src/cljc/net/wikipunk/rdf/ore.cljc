@@ -19,8 +19,7 @@
    :rdfs/comment
    "A resource which is included in an Aggregation. Note that asserting that a resource is a member of the class of Aggregated Resources does not imply anything other than that it is aggregated by at least one Aggregation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.openarchives.org/ore/terms/"},
-   :rdfs/label "Aggregated Resource",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Aggregated Resource"})
 
 (def Aggregation
   "A set of related resources (Aggregated Resources), grouped together such that the set can be treated as a single resource. This is the entity described within the ORE interoperability framework by a Resource Map."
@@ -30,7 +29,7 @@
    "A set of related resources (Aggregated Resources), grouped together such that the set can be treated as a single resource. This is the entity described within the ORE interoperability framework by a Resource Map.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.openarchives.org/ore/terms/"},
    :rdfs/label "Aggregation",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Collection]})
+   :rdfs/subClassOf :dcmitype/Collection})
 
 (def Proxy
   "A Proxy represents an Aggregated Resource as it exists in a specific Aggregation. All assertions made about an entity are globally true, not only within the context of the Aggregation. As such, in order to make assertions which are only true of a resource as it exists in an Aggregation, a Proxy object is required. For example, one might want to cite an article as it appears in a specific journal, or assign aggregation-specific metadata to a Resource."
@@ -39,8 +38,7 @@
    :rdfs/comment
    "A Proxy represents an Aggregated Resource as it exists in a specific Aggregation. All assertions made about an entity are globally true, not only within the context of the Aggregation. As such, in order to make assertions which are only true of a resource as it exists in an Aggregation, a Proxy object is required. For example, one might want to cite an article as it appears in a specific journal, or assign aggregation-specific metadata to a Resource.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.openarchives.org/ore/terms/"},
-   :rdfs/label "Proxy",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Proxy"})
 
 (def ResourceMap
   "A description of an Aggregation according to the OAI-ORE data model. Resource Maps are serialised to a machine readable format according to the implementation guidelines."
@@ -50,7 +48,7 @@
    "A description of an Aggregation according to the OAI-ORE data model. Resource Maps are serialised to a machine readable format according to the implementation guidelines.",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.openarchives.org/ore/terms/"},
    :rdfs/label "Resource Map",
-   :rdfs/subClassOf [:rdfs/Resource :rdfg/Graph]})
+   :rdfs/subClassOf :rdfg/Graph})
 
 (def aggregates
   "Aggregations, by definition, aggregate resources. The ore:aggregates relationship expresses that the object resource is a member of the set of Aggregated Resources of the subject (the Aggregation). This relationship between the Aggregation and its Aggregated Resources is thus more specific than a simple part/whole relationship, as expressed by dcterms:hasPart for example."

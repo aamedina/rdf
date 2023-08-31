@@ -1,14 +1,15 @@
 (ns net.wikipunk.rdf.duv
   "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."
-  {:dcterms/created #xsd/date #inst "2015-12-17T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name "Bernadette Farias Lóscio"}
-                     {:foaf/name "Eric G. Stephan"}
-                     {:foaf/name "Sumit Purohit"}],
+  {:dcterms/created #inst "2015-12-17T00:00:00.000-00:00",
+   :dcterms/creator #{{:foaf/name "Sumit Purohit"}
+                      {:foaf/name "Eric G. Stephan"}
+                      {:foaf/name "Bernadette Farias Lóscio"}},
    :dcterms/description
-   #rdf/langString
-    "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective.@en",
-   :dcterms/modified [#xsd/date #inst "2016-08-30T00:00:00.000-04:00"
-                      #xsd/date #inst "2017-01-23T00:00:00.000-05:00"],
+   {:rdf/language "en",
+    :rdf/value
+    "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."},
+   :dcterms/modified #{#inst "2016-08-30T00:00:00.000-00:00"
+                       #inst "2017-01-23T00:00:00.000-00:00"},
    :dcterms/publisher {:rdfa/uri "http://www.w3.org/data#W3C"},
    :dcterms/title "Dataset Usage Vocabulary",
    :dcterms/type {:rdfa/uri "http://purl.org/adms/assettype/Ontology"},
@@ -40,97 +41,116 @@
 (def RatingFeedback
   "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values."
   {:db/ident :duv/RatingFeedback,
-   :rdf/type [:rdfs/Class :owl/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
-   #rdf/langString
-    "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values.@en",
-   :rdfs/label #rdf/langString "Rating Feedback@en",
-   :rdfs/subClassOf :rdfs/Resource,
+   {:rdf/language "en",
+    :rdf/value
+    "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Rating Feedback"},
    :rdfs/subclassOf :duv/UserFeedback})
 
 (def Usage
   "A helpful description of actions that can be performed on a given dataset or distribution."
   {:db/ident :duv/Usage,
-   :rdf/type [:rdfs/Class :owl/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
-   #rdf/langString
-    "A helpful description of actions that can be performed on a given dataset or distribution.@en",
-   :rdfs/label #rdf/langString "Usage@en",
-   :rdfs/subClassOf :rdfs/Resource})
+   {:rdf/language "en",
+    :rdf/value
+    "A helpful description of actions that can be performed on a given dataset or distribution."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Usage"}})
 
 (def UsageTool
   "A synopsis describing the way a tool can use a dataset or distribution."
   {:db/ident :duv/UsageTool,
-   :rdf/type [:rdfs/Class :owl/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
-   #rdf/langString
-    "A synopsis describing the way a tool can use a dataset or distribution.@en",
-   :rdfs/label #rdf/langString "UsageTool@en",
-   :rdfs/subClassOf :rdfs/Resource})
+   {:rdf/language "en",
+    :rdf/value
+    "A synopsis describing the way a tool can use a dataset or distribution."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "UsageTool"}})
 
 (def UserFeedback
   "User feedback on the dataset. Expresses whether the dataset was useful or not, for example."
   {:db/ident :duv/UserFeedback,
-   :rdf/type [:rdfs/Class :owl/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
-   #rdf/langString
-    "User feedback on the dataset. Expresses whether the dataset was useful or not, for example.@en",
-   :rdfs/label #rdf/langString "User Feedback@en",
-   :rdfs/subClassOf :rdfs/Resource})
+   {:rdf/language "en",
+    :rdf/value
+    "User feedback on the dataset. Expresses whether the dataset was useful or not, for example."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "User Feedback"}})
 
 (def hasDistributor
   "The distributor is the organization that makes the dataset available for downloading and use."
   {:db/ident :duv/hasDistributor,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #rdf/langString
-    "The distributor is the organization that makes the dataset available for downloading and use.@en",
-   :rdfs/label #rdf/langString "has distributor@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The distributor is the organization that makes the dataset available for downloading and use."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has distributor"},
    :vann/usageNote
-   [#rdf/langString
-     "dcat:Distribution (subject) duv:hasDistributor (predicate) foaf:Agent (object)@en"
-    #rdf/langString
-     "dcat:Dataset (subject) duv:hasDistributor (predicate) foaf:Agent (object)@en"]})
+   #{{:rdf/language "en",
+      :rdf/value
+      "dcat:Dataset (subject) duv:hasDistributor (predicate) foaf:Agent (object)"}
+     {:rdf/language "en",
+      :rdf/value
+      "dcat:Distribution (subject) duv:hasDistributor (predicate) foaf:Agent (object)"}}})
 
 (def hasFeedback
   "User feedback associated with Dataset or distribution"
   {:db/ident :duv/hasFeedback,
    :rdf/type :rdf/Property,
-   :rdfs/comment #rdf/langString
-                  "User feedback associated with Dataset or distribution@en",
-   :rdfs/label #rdf/langString "has dataset feedback@en",
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value
+                  "User feedback associated with Dataset or distribution"},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has dataset feedback"},
    :vann/usageNote
-   [#rdf/langString
-     "dcat:Distribution (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)@en"
-    #rdf/langString
-     "dcat:Dataset (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)@en"]})
+   #{{:rdf/language "en",
+      :rdf/value
+      "dcat:Dataset (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)"}
+     {:rdf/language "en",
+      :rdf/value
+      "dcat:Distribution (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)"}}})
 
 (def hasRating
   "Rating Feedback has rating opinion"
   {:db/ident     :duv/hasRating,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #rdf/langString "Rating Feedback has rating opinion@en",
-   :rdfs/label   #rdf/langString "has rating@en"})
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Rating Feedback has rating opinion"},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "has rating"}})
 
 (def hasUsage
   "Dataset/distribution usage guidance or instructions."
   {:db/ident     :duv/hasUsage,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #rdf/langString
-                  "Dataset/distribution usage guidance or instructions.@en",
-   :rdfs/label   #rdf/langString "has dataset/distribution usage@en"})
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value
+                  "Dataset/distribution usage guidance or instructions."},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "has dataset/distribution usage"}})
 
 (def hasUsageTool
   "Describes the tool that provides the Usage "
   {:db/ident     :duv/hasUsageTool,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #rdf/langString
-                  "Describes the tool that provides the Usage @en",
-   :rdfs/label   #rdf/langString "has usage tool@en"})
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Describes the tool that provides the Usage "},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "has usage tool"}})
 
 (def refersTo
   "Dataset associated with Usage. "
   {:db/ident     :duv/refersTo,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #rdf/langString "Dataset associated with Usage. @en",
-   :rdfs/label   #rdf/langString "refers to dataset@en"})
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Dataset associated with Usage. "},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "refers to dataset"}})

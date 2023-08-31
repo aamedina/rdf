@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.ma
-  {:dc11/date #xsd/date #inst "2013-03-20T00:00:00.000-04:00",
+  "Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
+  {:dc11/date #inst "2013-03-20T00:00:00.000-00:00",
    :owl/imports {:rdfa/uri "http://dublincore.org/2008/01/14/dcelements.rdf"},
    :owl/versionInfo "R36",
    :rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
@@ -12,19 +13,16 @@
    :rdfa/prefix "ma",
    :rdfa/uri "http://www.w3.org/ns/ma-ont",
    :rdfs/comment
-   ["THE CONTENT OF THIS MA-ONT.RDF AND DERIVED MA-ONT.TTL FILES PREVAIL OVER THE SPECIFICATION."
-    "Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."],
+   #{"Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
+     "THE CONTENT OF THIS MA-ONT.RDF AND DERIVED MA-ONT.TTL FILES PREVAIL OVER THE SPECIFICATION."},
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.w3.org/TR/2012/REC-mediaont-10-20120209/"}})
 
 (def Agent
   "A person or organisation contributing to the media resource."
   {:db/ident :ma/Agent,
-   :owl/disjointWith [:ma/TargetAudience
-                      :ma/Rating
-                      :ma/MediaResource
-                      :ma/Location
-                      :ma/Collection],
+   :owl/disjointWith #{:ma/MediaResource :ma/TargetAudience :ma/Location
+                       :ma/Collection :ma/Rating},
    :rdf/type :owl/Class,
    :rdfs/comment
    "A person or organisation contributing to the media resource."})
@@ -32,19 +30,17 @@
 (def AudioTrack
   "A specialisation of Track for Audio to provide a link to specific data properties such as sampleRate, etc. Specialisation is defined through object properties."
   {:db/ident :ma/AudioTrack,
-   :owl/disjointWith [:ma/VideoTrack :ma/DataTrack],
+   :owl/disjointWith #{:ma/VideoTrack :ma/DataTrack},
    :rdf/type :owl/Class,
    :rdfs/comment
    "A specialisation of Track for Audio to provide a link to specific data properties such as sampleRate, etc. Specialisation is defined through object properties.",
-   :rdfs/subClassOf [:ma/Track :ma/MediaFragment :ma/MediaResource]})
+   :rdfs/subClassOf :ma/Track})
 
 (def Collection
   "Any group of media resource e.g. a series."
   {:db/ident         :ma/Collection,
-   :owl/disjointWith [:ma/TargetAudience
-                      :ma/Rating
-                      :ma/MediaResource
-                      :ma/Location],
+   :owl/disjointWith #{:ma/MediaResource :ma/TargetAudience :ma/Location
+                       :ma/Rating},
    :rdf/type         :owl/Class,
    :rdfs/comment     "Any group of media resource e.g. a series."})
 
@@ -55,7 +51,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "Ancillary data track e.g. captioning  in addition to video and audio tracks. Specialisation is made through the use of appropriate object properties.",
-   :rdfs/subClassOf [:ma/Track :ma/MediaFragment :ma/MediaResource]})
+   :rdfs/subClassOf :ma/Track})
 
 (def Image
   "A still image / thumbnail / key frame related to the media resource or being the media resource itself."
@@ -68,7 +64,7 @@
 (def Location
   "A location related to the media resource, e.g. depicted in the resource (possibly fictional) or where the resource was created (shooting location), etc."
   {:db/ident :ma/Location,
-   :owl/disjointWith [:ma/TargetAudience :ma/Rating :ma/MediaResource],
+   :owl/disjointWith #{:ma/MediaResource :ma/TargetAudience :ma/Rating},
    :rdf/type :owl/Class,
    :rdfs/comment
    "A location related to the media resource, e.g. depicted in the resource (possibly fictional) or where the resource was created (shooting location), etc."})
@@ -84,7 +80,7 @@
 (def MediaResource
   "An image or an audiovisual media resource, which can be composed of one or more fragment / track."
   {:db/ident :ma/MediaResource,
-   :owl/disjointWith [:ma/TargetAudience :ma/Rating],
+   :owl/disjointWith #{:ma/TargetAudience :ma/Rating},
    :rdf/type :owl/Class,
    :rdfs/comment
    "An image or an audiovisual media resource, which can be composed of one or more fragment / track."})
@@ -123,7 +119,7 @@
   {:db/ident :ma/Track,
    :rdf/type :owl/Class,
    :rdfs/comment "A specialisation of MediaFragment for audiovisual content.",
-   :rdfs/subClassOf [:ma/MediaFragment :ma/MediaResource]})
+   :rdfs/subClassOf :ma/MediaFragment})
 
 (def VideoTrack
   "A specialisation of Track for Video to provide a link to specific data properties such as frameRate, etc. Signing is another possible example of video track. Specialisation is defined through object properties."
@@ -131,7 +127,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A specialisation of Track for Video to provide a link to specific data properties such as frameRate, etc. Signing is another possible example of video track. Specialisation is defined through object properties.",
-   :rdfs/subClassOf [:ma/Track :ma/MediaFragment :ma/MediaResource]})
+   :rdfs/subClassOf :ma/Track})
 
 (def alternativeTitle
   "Corresponds to 'title.title' in the Ontology for Media Resources with a 'title.type' meaning \"alternative\"."
@@ -297,7 +293,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"audio-description\".",
-   :rdfs/subPropertyOf [:ma/hasCaptioning :ma/hasFragment]})
+   :rdfs/subPropertyOf :ma/hasCaptioning})
 
 (def hasCaptioning
   "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"captioning\". This property can for example point to a spatial fragment, a VideoTrack or a DataTrack. The language of the captioning track can be expressed by attaching a 'hasLanguage' property to the specific track."
@@ -532,7 +528,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"subtitling\".",
-   :rdfs/subPropertyOf [:ma/hasCaptioning :ma/hasFragment]})
+   :rdfs/subPropertyOf :ma/hasCaptioning})
 
 (def hasTargetAudience
   "Corresponds to 'targetAudience' in the Ontology for Media Resources."

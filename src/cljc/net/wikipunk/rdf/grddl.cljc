@@ -22,8 +22,7 @@
    :rdfs/isDefinedBy
    {:rdfa/uri
     "http://www.w3.org/TR/2004/REC-webarch-20041215/#def-information-resource"},
-   :rdfs/label "InformationResource",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "InformationResource"})
 
 (def RDFGraph
   "a\n    set of RDF triples"
@@ -33,8 +32,7 @@
    :rdfs/isDefinedBy
    {:rdfa/uri
     "http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-rdf-graph"},
-   :rdfs/label ["RDFGraph" "RDF graphs"],
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label #{"RDF graphs" "RDFGraph"}})
 
 (def RootNode
   "the root of the tree in the XPath data\n    model"
@@ -43,8 +41,7 @@
    :rdfs/comment     "the root of the tree in the XPath data\n    model",
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.w3.org/TR/1999/REC-xpath-19991116#root-node"},
-   :rdfs/label       ["XML document root nodes" "RootNode"],
-   :rdfs/subClassOf  :rdfs/Resource})
+   :rdfs/label       #{"XML document root nodes" "RootNode"}})
 
 (def Transformation
   "an InformationResource that specifies\n    a transformation from a set of XML documents to RDF graphs"
@@ -55,7 +52,7 @@
    :rdfs/comment
    "an InformationResource that specifies\n    a transformation from a set of XML documents to RDF graphs",
    :rdfs/label "Transformation",
-   :rdfs/subClassOf [:grddl/InformationResource :rdfs/Resource]})
+   :rdfs/subClassOf :grddl/InformationResource})
 
 (def TransformationProperty
   "a FunctionalProperty that relates\n    XML document root nodes to\n    RDF graphs"
@@ -66,7 +63,7 @@
    :rdfs/domain :grddl/RootNode,
    :rdfs/label "TransformationProperty",
    :rdfs/range :grddl/RDFGraph,
-   :rdfs/subClassOf [:rdfs/Resource :owl/FunctionalProperty]})
+   :rdfs/subClassOf :owl/FunctionalProperty})
 
 (def danc
   "Dan Connolly"

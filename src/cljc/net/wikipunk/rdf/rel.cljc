@@ -20,11 +20,12 @@
   {:db/ident :rel/Relationship,
    :rdf/type :rdfs/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Relationship@en",
-   :rdfs/subClassOf :rdfs/Resource,
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Relationship"},
    :skos/definition
-   #rdf/langString
-    "A particular type of connection existing between people related to or having dealings with each other.@en"})
+   {:rdf/language "en",
+    :rdf/value
+    "A particular type of connection existing between people related to or having dealings with each other."}})
 
 (def acquaintanceOf
   "Acquaintance Of"
@@ -34,18 +35,19 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Acquaintance Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Acquaintance Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person having more than slight or superficial knowledge of this person but short of friendship.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person having more than slight or superficial knowledge of this person but short of friendship."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def ambivalentOf
   "Ambivalent Of"
@@ -55,23 +57,23 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Ambivalent Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Ambivalent Of"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
    :skos/definition
-   #rdf/langString
-    "A person towards whom this person has mixed feelings or emotions.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person towards whom this person has mixed feelings or emotions."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be ambivalent of another without that person knowing the first."}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be ambivalent of another without that person knowing the first."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def ancestorOf
   "Ancestor Of"
@@ -80,22 +82,21 @@
    :rdf/type :owl/TransitiveProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Ancestor Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Ancestor Of"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
-   :skos/definition #rdf/langString
-                     "A person who is a descendant of this person.@en",
+   :skos/definition {:rdf/language "en",
+                     :rdf/value "A person who is a descendant of this person."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant ancestors."}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant ancestors."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def antagonistOf
   "Antagonist Of"
@@ -105,17 +106,18 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Antagonist Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Antagonist Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
-   :skos/definition
-   #rdf/langString "A person who opposes and contends against this person.@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "A person who opposes and contends against this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def apprenticeTo
   "Apprentice To"
@@ -124,18 +126,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Apprentice To@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Apprentice To"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person to whom this person serves as a trusted counselor or teacher.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person to whom this person serves as a trusted counselor or teacher."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def childOf
   "Child Of"
@@ -146,18 +149,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Child Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Child Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who was given birth to or nurtured and raised by this person.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who was given birth to or nurtured and raised by this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def closeFriendOf
   "Close Friend Of"
@@ -165,18 +169,19 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Close Friend Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Close Friend Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who shares a close mutual friendship with this person.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who shares a close mutual friendship with this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def collaboratesWith
   "Collaborates With"
@@ -184,18 +189,18 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Collaborates With@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Collaborates With"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who works towards a common goal with this person.@en",
+   {:rdf/language "en",
+    :rdf/value    "A person who works towards a common goal with this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def colleagueOf
   "Colleague Of"
@@ -203,41 +208,43 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Colleague Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Colleague Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who is a member of the same profession as this person.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who is a member of the same profession as this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def descendantOf
+  "Descendant Of"
   {:db/ident :rel/descendantOf,
    :owl/inverseOf :rel/ancestorOf,
    :rdf/type :owl/TransitiveProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label [#rdf/langString "Descendant Of@en" "Descendant Of"],
+   :rdfs/label #{"Descendant Of"
+                 {:rdf/language "en",
+                  :rdf/value    "Descendant Of"}},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
-   :skos/definition #rdf/langString
-                     "A person from whom this person is descended.@en",
+   :skos/definition {:rdf/language "en",
+                     :rdf/value "A person from whom this person is descended."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant descendants."}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant descendants."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def employedBy
   "Employed By"
@@ -246,18 +253,18 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Employed By@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Employed By"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person for whom this person's services have been engaged.@en",
+   {:rdf/language "en",
+    :rdf/value "A person for whom this person's services have been engaged."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def employerOf
   "Employer Of"
@@ -266,17 +273,18 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Employer Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Employer Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
-   :skos/definition #rdf/langString
-                     "A person who engages the services of this person.@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "A person who engages the services of this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def enemyOf
   "Enemy Of"
@@ -286,18 +294,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Enemy Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Enemy Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person towards whom this person feels hatred, intends injury to, or opposes the interests of.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person towards whom this person feels hatred, intends injury to, or opposes the interests of."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def engagedTo
   "Engaged To"
@@ -305,17 +314,17 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Engaged To@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Engaged To"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
-   :skos/definition #rdf/langString
-                     "A person to whom this person is betrothed.@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value "A person to whom this person is betrothed."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def friendOf
   "Friend Of"
@@ -325,19 +334,21 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Friend Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Friend Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
-   :skos/definition
-   #rdf/langString "A person who shares mutual friendship with this person.@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "A person who shares mutual friendship with this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def grandchildOf
+  "Grandchild Of"
   {:db/ident :rel/grandchildOf,
    :owl/equivalentClass
    {:rdfa/uri "http://www.perceive.net/schemas/relationship/grandchildOf"},
@@ -345,18 +356,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label ["Grandchild Of" #rdf/langString "Grandchild Of@en"],
+   :rdfs/label #{"Grandchild Of"
+                 {:rdf/language "en",
+                  :rdf/value    "Grandchild Of"}},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who is a child of any of this person's children.@en",
+   {:rdf/language "en",
+    :rdf/value    "A person who is a child of any of this person's children."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def grandparentOf
   "Grandparent Of"
@@ -365,18 +377,18 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Grandparent Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Grandparent Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who is the parent of any of this person's parents.@en",
+   {:rdf/language "en",
+    :rdf/value "A person who is the parent of any of this person's parents."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def hasMet
   "Has Met"
@@ -384,18 +396,19 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Has Met@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Has Met"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who has met this person whether in passing or longer.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who has met this person whether in passing or longer."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def influencedBy
   "Influenced By"
@@ -403,22 +416,21 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Influenced By@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Influenced By"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
-   :skos/definition #rdf/langString
-                     "a person who has influenced this person.@en",
+   :skos/definition {:rdf/language "en",
+                     :rdf/value    "a person who has influenced this person."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be influenced by another by reputation without that person knowing the first."}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be influenced by another by reputation without that person knowing the first."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def knowsByReputation
   "Knows By Reputation"
@@ -426,23 +438,23 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Knows By Reputation@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Knows By Reputation"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
    :skos/definition
-   #rdf/langString
-    "A person known by this person primarily for a particular action, position or field of endeavour.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person known by this person primarily for a particular action, position or field of endeavour."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to know of another by reputation without that person knowing the first."}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to know of another by reputation without that person knowing the first."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def knowsInPassing
   "Knows In Passing"
@@ -450,18 +462,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Knows In Passing@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Knows In Passing"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person whom this person has slight or superficial knowledge of.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person whom this person has slight or superficial knowledge of."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def knowsOf
   "Knows Of"
@@ -469,27 +482,26 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Knows Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Knows Of"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
    :skos/definition
-   #rdf/langString
-    "A person who has come to be known to this person through their actions or position.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who has come to be known to this person through their actions or position."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to know of another without that person knowing the first."}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value {:xsd/string
-                 "Assert that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date    "2010-02-09",
+      :rdf/value    "Assert that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to know of another without that person knowing the first."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def lifePartnerOf
   "Life Partner of"
@@ -497,36 +509,38 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Life Partner of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Life Partner of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who has made a long-term commitment to this person's.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who has made a long-term commitment to this person's."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def livesWith
   "Lives With"
   {:db/ident :rel/livesWith,
-   :rdf/type [:owl/TransitiveProperty :owl/SymmetricProperty],
+   :rdf/type #{:owl/SymmetricProperty :owl/TransitiveProperty},
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Lives With@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Lives With"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
-   :skos/definition #rdf/langString
-                     "A person who shares a residence with this person.@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "A person who shares a residence with this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def lostContactWith
   "Lost Contact With"
@@ -534,18 +548,19 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Lost Contact With@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Lost Contact With"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who was once known by this person but has subsequently become uncontactable.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who was once known by this person but has subsequently become uncontactable."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def mentorOf
   "Mentor Of"
@@ -554,18 +569,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Mentor Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Mentor Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who serves as a trusted counselor or teacher to this person.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who serves as a trusted counselor or teacher to this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def neighborOf
   "Neighbor Of"
@@ -573,21 +589,21 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Neighbor Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Neighbor Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
-   :skos/definition
-   #rdf/langString "A person who lives in the same locality as this person.@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "A person who lives in the same locality as this person."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2010-02-09",
-     :rdf/value    {:xsd/string
-                    "Removed assertion that this property is transitive."}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date    "2010-02-09",
+      :rdf/value    "Removed assertion that this property is transitive."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def parentOf
   "Parent Of"
@@ -598,18 +614,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Parent Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Parent Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who has given birth to or nurtured and raised this person.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person who has given birth to or nurtured and raised this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def participant
   "Participant"
@@ -617,14 +634,14 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :rel/Relationship,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Participant@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Participant"},
    :rdfs/range :foaf/Person,
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Removed assertion that this property is a sub-property of foaf:knows."}}})
+    "Removed assertion that this property is a sub-property of foaf:knows."}})
 
 (def participantIn
   "Participant In"
@@ -632,14 +649,14 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Participant In@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Participant In"},
    :rdfs/range :rel/Relationship,
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Removed assertion that this property is a sub-property of foaf:knows."}}})
+    "Removed assertion that this property is a sub-property of foaf:knows."}})
 
 (def siblingOf
   "Sibling Of"
@@ -649,18 +666,19 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Sibling Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Sibling Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person having one or both parents in common with this person.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A person having one or both parents in common with this person."},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def spouseOf
   "Spouse Of"
@@ -669,16 +687,17 @@
    {:rdfa/uri "http://www.perceive.net/schemas/relationship/spouseOf"},
    :rdf/type :owl/SymmetricProperty,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Spouse Of@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Spouse Of"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :foaf/knows :rel/knowsOf],
-   :skos/definition #rdf/langString "A person who is married to this person@en",
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
+   :skos/definition {:rdf/language "en",
+                     :rdf/value    "A person who is married to this person"},
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-02-09",
     :rdf/value
-    {:xsd/string
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
+    "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def worksWith
   "Works With"
@@ -686,22 +705,21 @@
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Works With@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Works With"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:foaf/knows :owl/differentFrom :rel/knowsOf],
+   :rdfs/subPropertyOf #{:owl/differentFrom :foaf/knows},
    :skos/definition
-   #rdf/langString
-    "A person who works for the same employer as this person.@en",
+   {:rdf/language "en",
+    :rdf/value    "A person who works for the same employer as this person."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2010-02-09",
-     :rdf/value    {:xsd/string
-                    "Removed assertion that this property is transitive."}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date    "2010-02-09",
+      :rdf/value    "Removed assertion that this property is transitive."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def wouldLikeToKnow
   "Would Like To Know"
@@ -709,20 +727,19 @@
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
-   :rdfs/label #rdf/langString "Would Like To Know@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Would Like To Know"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :owl/differentFrom,
    :skos/definition
-   #rdf/langString
-    "A person whom this person would desire to know more closely.@en",
+   {:rdf/language "en",
+    :rdf/value "A person whom this person would desire to know more closely."},
    :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2010-02-09",
-     :rdf/value
-     {:xsd/string
-      "Removed assertion that this property is a sub-property of foaf:knows which would imply that the two people already know one another."}}]})
+   #{{:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Removed assertion that this property is a sub-property of foaf:knows which would imply that the two people already know one another."}
+     {:dc11/creator "Ian Davis",
+      :dc11/date "2010-02-09",
+      :rdf/value
+      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})

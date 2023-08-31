@@ -8,11 +8,10 @@
 
 (def Graph
   "\nAn RDF graph (with intensional semantics).\n      "
-  {:db/ident        :rdfg/Graph,
-   :rdf/type        :rdfs/Class,
-   :rdfs/comment    "\nAn RDF graph (with intensional semantics).\n      ",
-   :rdfs/label      "Graph",
-   :rdfs/subClassOf :rdfs/Resource})
+  {:db/ident     :rdfg/Graph,
+   :rdf/type     :rdfs/Class,
+   :rdfs/comment "\nAn RDF graph (with intensional semantics).\n      ",
+   :rdfs/label   "Graph"})
 
 (def equivalentGraph
   "\nThe graphs associated with the subject and object are equivalent.\n      "

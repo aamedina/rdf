@@ -611,13 +611,13 @@
 
 (declare iri)
 
-(defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db]
+(defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db asami]
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]
       (require (or init-ns 'net.wikipunk.mop.init))
-      (let [all                           (all-metaobjects (when-not node
+      (let [all                           (all-metaobjects (when-not (or asami node)
                                                              ;; when a :db has been provided and we are not bootstrapping with XTDB then use the :db as the environment to find metaobjects
                                                              db))
             node                          (when config (xt/start-node config))
@@ -628,11 +628,16 @@
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))        
         (alter-var-root #'*metaobjects* (constantly hierarchies))
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
-        (when db
+        #_(when db
           (alter-var-root #'mop/*env* (constantly db)))
-        (when node
-          (alter-var-root #'mop/*env* (constantly node)))        
-        (when node
+        #_(when node
+          (alter-var-root #'mop/*env* (constantly node)))
+        #_(when asami
+          (alter-var-root #'mop/*env* (constantly asami))
+          #_(doseq [mo all]
+            (asami/transact (:conn asami) {:tx-data [mo]}))
+          #_(finalize))
+        #_(when node
           (try
             (xt/submit-tx node (into []
                                      (map (juxt (constantly ::xt/put) freezable))
@@ -646,6 +651,7 @@
   (stop [this]
     (when (instance? java.io.Closeable node)
       (.close ^java.io.Closeable node))
+    (alter-var-root #'mop/*env* (constantly nil))
     (assoc this :node nil))
 
   LinkedData
@@ -893,7 +899,9 @@
 
 (defmethod rdf-literal :rdf/langString
   [^Node_Literal node]
-  (lstr/->LangStr (.getLiteralValue node) (.getLiteralLanguage node)))
+  #_(lstr/->LangStr (.getLiteralValue node) (.getLiteralLanguage node))
+  {:rdf/language (.getLiteralLanguage node)
+   :rdf/value (.getLiteralValue node)})
 
 (defmethod rdf-literal :xsd/anyURI
   [^Node_Literal node]
@@ -1097,7 +1105,8 @@
             {:rdfa/uri s}
             (catch com.github.packageurl.MalformedPackageURLException ex
               (throw (ex-info (.getMessage ex) {:xsd/string s}))))
-          {:xsd/string s}))))
+          s
+          #_{:xsd/string s}))))
 
   clojure.lang.Sequential
   (box [xs]
@@ -1334,6 +1343,7 @@
       :else (type x))))
 
 (defmethod rdf-doc :default [_] nil)
+(defmethod rdf-doc clojure.lang.IPersistentMap [m] (:rdf/value m))
 (defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
 (defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x]
   (when (str/starts-with? (lstr/lang x) *lang*)
@@ -1649,7 +1659,7 @@
                                   (:mop/classDirectSlots                                     
                                    :mop/classSlots)
                                   (if (seq v)
-                                    (assoc m k (mapv (some-fn :db/ident identity) v))
+                                    (assoc m k (into #{} (map (some-fn :db/ident identity)) v))
                                     m)
 
                                   (:mop/classDefaultInitargs

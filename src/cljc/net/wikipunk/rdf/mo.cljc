@@ -44,7 +44,7 @@
    :rdfs/comment     "\n        An analog signal.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "analogue signal",
-   :rdfs/subClassOf  [:mo/Signal :frbr/Expression :mo/MusicalExpression],
+   :rdfs/subClassOf  :mo/Signal,
    :vs/term_status   "stable"})
 
 (def Arrangement
@@ -80,7 +80,7 @@
    "An audio file, which may be available on a local file system or through http, ftp, etc.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "audio file",
-   :rdfs/subClassOf [:foaf/Document :mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf #{:foaf/Document :mo/Medium},
    :vs/term_status "unstable"})
 
 (def CD
@@ -92,7 +92,7 @@
    "Compact Disc used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "CD",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def Composer
@@ -152,7 +152,7 @@
    "Digital Audio Tape used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "DAT",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def DCC
@@ -164,7 +164,7 @@
    "Digital Compact Cassette used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "DCC",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def DVDA
@@ -175,7 +175,7 @@
    :rdfs/comment "DVD-Audio used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "DVDA",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def DigitalSignal
@@ -187,7 +187,7 @@
    :rdfs/comment     "\n        A digital signal\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "digital signal",
-   :rdfs/subClassOf  [:mo/Signal :frbr/Expression :mo/MusicalExpression],
+   :rdfs/subClassOf  :mo/Signal,
    :vs/term_status   "stable"})
 
 (def ED2K
@@ -199,7 +199,7 @@
    "Something available on the E-Donkey peer-2-peer filesharing network",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "ED2K",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def Festival
@@ -246,7 +246,7 @@
    "\n        Instrumentation deals with the techniques of writing music for a specific instrument, \n        including the limitations of the instrument, playing techniques and idiomatic handling of the instrument.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "instrumentation",
-   :rdfs/subClassOf [:mo/Arrangement :event/Event],
+   :rdfs/subClassOf :mo/Arrangement,
    :vs/term_status "stable"})
 
 (def Label
@@ -258,7 +258,7 @@
    "Trade name of a company that produces musical works or expression of musical works.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "label",
-   :rdfs/subClassOf [:mo/CorporateBody :foaf/Organization],
+   :rdfs/subClassOf :mo/CorporateBody,
    :vs/term_status "stable"})
 
 (def Libretto
@@ -269,7 +269,7 @@
    :rdfs/comment     "\n                Libretto\n        ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "libretto",
-   :rdfs/subClassOf  [:mo/MusicalExpression :frbr/Expression],
+   :rdfs/subClassOf  :mo/MusicalExpression,
    :vs/term_status   "stable"})
 
 (def Listener
@@ -292,7 +292,7 @@
    :rdfs/comment     "\n        Lyrics\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "lyrics",
-   :rdfs/subClassOf  [:mo/MusicalExpression :frbr/Expression],
+   :rdfs/subClassOf  :mo/MusicalExpression,
    :vs/term_status   "stable"})
 
 (def MD
@@ -303,7 +303,7 @@
    :rdfs/comment "Mini Disc used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "MD",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def MagneticTape
@@ -315,7 +315,7 @@
    "Magnetic analogue tape used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "MagneticTape",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def Medium
@@ -351,7 +351,7 @@
    "A movement is a self-contained part of a musical work. While individual or selected movements from a composition are sometimes performed separately, a performance of the complete work requires all the movements to be performed in succession.\n\nOften a composer attempts to interrelate the movements thematically, or sometimes in more subtle ways, in order that the individual\nmovements exert a cumulative effect. In some forms, composers sometimes link the movements, or ask for them to be played without a\npause between them.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "movement",
-   :rdfs/subClassOf [:mo/MusicalWork :frbr/Work],
+   :rdfs/subClassOf :mo/MusicalWork,
    :vs/term_status "unstable"})
 
 (def MusicArtist
@@ -375,7 +375,7 @@
    "Group of musicians, or musical ensemble, usually popular or folk, playing parts of or improvising off of a musical arrangement. ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "music group",
-   :rdfs/subClassOf [:mo/MusicArtist :foaf/Group :foaf/Agent],
+   :rdfs/subClassOf #{:foaf/Group :mo/MusicArtist},
    :vs/term_status "stable"})
 
 (def MusicalExpression
@@ -434,7 +434,7 @@
    "\n            Orchestration includes, in addition to instrumentation, the handling of groups of instruments and their balance and interaction.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "orchestration",
-   :rdfs/subClassOf [:mo/Arrangement :event/Event],
+   :rdfs/subClassOf :mo/Arrangement,
    :vs/term_status "stable"})
 
 (def Performance
@@ -469,7 +469,7 @@
    :rdfs/comment     "A published libretto",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "published libretto",
-   :rdfs/subClassOf  [:mo/MusicalManifestation :frbr/Manifestation],
+   :rdfs/subClassOf  :mo/MusicalManifestation,
    :vs/term_status   "stable"})
 
 (def PublishedLyrics
@@ -480,7 +480,7 @@
    :rdfs/comment "Published lyrics, as a book or as a text file, for example",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "published lyrics",
-   :rdfs/subClassOf [:mo/MusicalManifestation :frbr/Manifestation],
+   :rdfs/subClassOf :mo/MusicalManifestation,
    :vs/term_status "stable"})
 
 (def PublishedScore
@@ -491,7 +491,7 @@
    :rdfs/comment     "A published score (subclass of MusicalManifestation)",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "published score",
-   :rdfs/subClassOf  [:mo/MusicalManifestation :frbr/Manifestation],
+   :rdfs/subClassOf  :mo/MusicalManifestation,
    :vs/term_status   "stable"})
 
 (def Record
@@ -503,7 +503,7 @@
    "A published record (manifestation which first aim is to render the product of a recording)",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "record",
-   :rdfs/subClassOf [:mo/MusicalManifestation :frbr/Manifestation],
+   :rdfs/subClassOf :mo/MusicalManifestation,
    :vs/term_status "stable"})
 
 (def Recording
@@ -539,7 +539,7 @@
    "A specific release, with barcode, box, liner notes, cover art, and a number of records",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "release",
-   :rdfs/subClassOf [:mo/MusicalManifestation :frbr/Manifestation],
+   :rdfs/subClassOf :mo/MusicalManifestation,
    :vs/term_status "testing"})
 
 (def ReleaseEvent
@@ -584,7 +584,7 @@
    "Super Audio Compact Disc used as medium to record a musical manifestation.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "SACD",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def Score
@@ -596,7 +596,7 @@
    "\n        Here, we are dealing with the informational object (the MusicalExpression), not the actually \"published\" score.\n        This may be, for example, the product of an arrangement process.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "score",
-   :rdfs/subClassOf [:mo/MusicalExpression :frbr/Expression],
+   :rdfs/subClassOf :mo/MusicalExpression,
    :vs/term_status "stable"})
 
 (def Show
@@ -620,7 +620,7 @@
    "\n        A subclass of MusicalExpression, representing a signal, for example a master signal produced by a performance and a recording.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "signal",
-   :rdfs/subClassOf [:mo/MusicalExpression :frbr/Expression],
+   :rdfs/subClassOf :mo/MusicalExpression,
    :vs/term_status "stable"})
 
 (def SignalGroup
@@ -632,7 +632,7 @@
    "\n        A musical expression representing a group of signals, for example a set of masters resulting from a whole recording/mastering session.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "signal group",
-   :rdfs/subClassOf [:mo/MusicalExpression :frbr/Expression],
+   :rdfs/subClassOf :mo/MusicalExpression,
    :vs/term_status "testing"})
 
 (def SoloMusicArtist
@@ -644,7 +644,7 @@
    "Single person whose musical creative work shows sensitivity and imagination.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "solo music artist",
-   :rdfs/subClassOf [:mo/MusicArtist :foaf/Person :foaf/Agent],
+   :rdfs/subClassOf #{:foaf/Person :mo/MusicArtist},
    :vs/term_status "stable"})
 
 (def Sound
@@ -656,7 +656,7 @@
    "\n        A subclass of MusicalExpression, representing a sound. Realisation of a MusicalWork during a musical Performance.\n    ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "sound",
-   :rdfs/subClassOf [:mo/MusicalExpression :event/Event :frbr/Expression],
+   :rdfs/subClassOf #{:mo/MusicalExpression :event/Event},
    :vs/term_status "stable"})
 
 (def SoundEngineer
@@ -680,7 +680,7 @@
    "Transmission over a network  used as medium to broadcast a musical manifestation",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "Stream",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def Torrent
@@ -692,7 +692,7 @@
    "Something available on the Bittorrent peer-2-peer filesharing network",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "Torrent",
-   :rdfs/subClassOf [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf :mo/Medium,
    :vs/term_status "unstable"})
 
 (def Track
@@ -703,7 +703,7 @@
    :rdfs/comment     "A track on a particular record",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "track",
-   :rdfs/subClassOf  [:mo/MusicalManifestation :frbr/Manifestation],
+   :rdfs/subClassOf  :mo/MusicalManifestation,
    :vs/term_status   "stable"})
 
 (def Transcription
@@ -725,7 +725,7 @@
    :rdfs/comment     "Vinyl used as medium to record a musical manifestation",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label       "Vinyl",
-   :rdfs/subClassOf  [:mo/Medium :mo/MusicalItem],
+   :rdfs/subClassOf  :mo/Medium,
    :vs/term_status   "unstable"})
 
 (def activity
@@ -878,7 +878,7 @@
   "\n        Associates a digital signal to the number a bits used to encode one sample. Range is xsd:int.\n    "
   {:db/ident :mo/bitsPerSample,
    :mo/level "1",
-   :rdf/type [:owl/DatatypeProperty :owl/FunctionalProperty],
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    "\n        Associates a digital signal to the number a bits used to encode one sample. Range is xsd:int.\n    ",
    :rdfs/domain :mo/DigitalSignal,
@@ -920,14 +920,14 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "catalogue number",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "testing"})
 
 (def channels
   "\n        Associates a signal to the number of channels it holds (mono --> 1, stereo --> 2). Range is xsd:int.\n    "
   {:db/ident :mo/channels,
    :mo/level "1",
-   :rdf/type [:owl/DatatypeProperty :owl/FunctionalProperty],
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    "\n        Associates a signal to the number of channels it holds (mono --> 1, stereo --> 2). Range is xsd:int.\n    ",
    :rdfs/domain :mo/Signal,
@@ -939,7 +939,7 @@
   "Used to relate two collaborating people on a work."
   {:db/ident         :mo/collaborated_with,
    :mo/level         "1",
-   :rdf/type         [:owl/ObjectProperty :owl/SymmetricProperty],
+   :rdf/type         #{:owl/SymmetricProperty :owl/ObjectProperty},
    :rdfs/comment     "Used to relate two collaborating people on a work.",
    :rdfs/domain      :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
@@ -1038,7 +1038,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "conducted",
    :rdfs/range :mo/Performance,
-   :rdfs/subPropertyOf [:bio/event :event/isAgentIn],
+   :rdfs/subPropertyOf #{:event/isAgentIn :bio/event},
    :vs/term_status "unstable"})
 
 (def conductor
@@ -1063,7 +1063,7 @@
    "\n        Relates a signal to another signal, which has been sampled.\n        ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "contains_sample_from",
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "unstable"})
 
 (def derived_from
@@ -1121,7 +1121,7 @@
    "Indicates that all (or most of) the tracks of a musical work or the expression of a musical work were mixed together from all (or most of) the tracks from another musical work or the expression of a musical work to form a so called DJ-Mix. \n    \nThe tracks might have been altered by pitching (so that the tempo of one track matches the tempo of the following track) and fading (so that one track blends in smoothly with the other). If the tracks have been more substantially altered, the \"mo:remix\" relationship type is more appropriate. ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "djmix_of",
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "unstable"})
 
 (def djmixed
@@ -1250,7 +1250,7 @@
    :rdfs/range
    {:owl/unionOf [:mo/Performance :mo/Recording :mo/RecordingSession],
     :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:bio/event :event/isAgentIn],
+   :rdfs/subPropertyOf #{:event/isAgentIn :bio/event},
    :vs/term_status "unstable"})
 
 (def ep
@@ -1321,7 +1321,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "free download",
    :rdfs/range :foaf/Document,
-   :rdfs/subPropertyOf [:mo/download :foaf/isPrimaryTopicOf],
+   :rdfs/subPropertyOf #{:foaf/isPrimaryTopicOf :mo/download},
    :vs/term_status "stable"})
 
 (def freedownload
@@ -1366,7 +1366,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "GRid",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "testing"})
 
 (def group
@@ -1409,7 +1409,7 @@
    :rdfs/comment       "Relates a performance to the headliner(s) involved",
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label         "headliner",
-   :rdfs/subPropertyOf [:mo/performer :event/agent],
+   :rdfs/subPropertyOf :mo/performer,
    :vs/term_status     "testing"})
 
 (def homepage
@@ -1514,7 +1514,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "ipi",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "testing"})
 
 (def ismn
@@ -1530,7 +1530,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "ismn",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "testing"})
 
 (def isrc
@@ -1544,7 +1544,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "isrc",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "stable"})
 
 (def iswc
@@ -1557,7 +1557,7 @@
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label         "iswc",
    :rdfs/range         :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status     "testing"})
 
 (def item
@@ -1570,7 +1570,7 @@
    :rdfs/domain :mo/MusicalManifestation,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/range :mo/MusicalItem,
-   :rdfs/subPropertyOf [:mo/available_as :frbr/exemplar],
+   :rdfs/subPropertyOf :mo/available_as,
    :vs/term_status "testing"})
 
 (def key
@@ -1612,7 +1612,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "lc",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "testing"})
 
 (def level
@@ -1649,7 +1649,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "listened",
    :rdfs/range :mo/Performance,
-   :rdfs/subPropertyOf [:bio/event :event/isAgentIn],
+   :rdfs/subPropertyOf #{:event/isAgentIn :bio/event},
    :vs/term_status "unstable"})
 
 (def listener
@@ -1712,7 +1712,7 @@
    "Indicates that musical works or the expressions of a musical work were mashed up on this album or track. \n    \nThis means that two musical works or the expressions of a musical work by different artists are mixed together, over each other, or otherwise combined into a single musical work (usually by a third artist, the remixer).",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "mashup_of",
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "unstable"})
 
 (def media_type
@@ -1738,7 +1738,7 @@
    "Indicates that a musical expression is a medley of several other musical expressions. \n    \nThis means that the orignial musical expression were rearranged to create a new musical expression in the form of a medley. ",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "medley_of",
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "unstable"})
 
 (def member
@@ -1854,7 +1854,7 @@
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "Musicbrainz GUID",
-   :rdfs/subPropertyOf [:mo/uuid :dcterms/identifier],
+   :rdfs/subPropertyOf :mo/uuid,
    :vs/term_status "testing"})
 
 (def musicmoz
@@ -1955,7 +1955,7 @@
   "Indicates that two musical manifestations are essentially the same."
   {:db/ident :mo/other_release_of,
    :mo/level "1",
-   :rdf/type [:owl/ObjectProperty :owl/SymmetricProperty],
+   :rdf/type #{:owl/SymmetricProperty :owl/ObjectProperty},
    :rdfs/comment
    "Indicates that two musical manifestations are essentially the same.",
    :rdfs/domain :mo/MusicalManifestation,
@@ -1977,7 +1977,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "paid download",
    :rdfs/range :foaf/Document,
-   :rdfs/subPropertyOf [:mo/download :foaf/isPrimaryTopicOf],
+   :rdfs/subPropertyOf #{:foaf/isPrimaryTopicOf :mo/download},
    :vs/term_status "stable"})
 
 (def paiddownload
@@ -2014,7 +2014,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "performed",
    :rdfs/range :mo/Performance,
-   :rdfs/subPropertyOf [:bio/event :event/isAgentIn],
+   :rdfs/subPropertyOf #{:event/isAgentIn :bio/event},
    :vs/term_status "unstable"})
 
 (def performed_in
@@ -2069,7 +2069,7 @@
    :rdfs/domain :mo/MusicalManifestation,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/range :mo/MusicalItem,
-   :rdfs/subPropertyOf [:mo/available_as :frbr/exemplar],
+   :rdfs/subPropertyOf :mo/available_as,
    :vs/term_status "testing"})
 
 (def preview_download
@@ -2085,7 +2085,7 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "preview download",
    :rdfs/range :foaf/Document,
-   :rdfs/subPropertyOf [:foaf/isPrimaryTopicOf :mo/download],
+   :rdfs/subPropertyOf #{:foaf/isPrimaryTopicOf :mo/download},
    :vs/term_status "stable"})
 
 (def primary_instrument
@@ -2512,7 +2512,7 @@
    "This relates two musical work or the expression of a musical work, where one is a remaster of the other. \n    \nA remaster is a new version made for release from source recordings that were earlier released separately. This is usually done to improve the audio quality or adjust for more modern playback equipment. The process generally doesn't involve changing the music in any artistically important way. It may, however, result in tracks that are a few seconds longer or shorter.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "remaster_of",
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "unstable"})
 
 (def remix
@@ -2534,7 +2534,7 @@
    "Used to relate the remix of a musical work in a substantially altered version produced by mixing together individual tracks or segments of an original musical source work.",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "remix_of",
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "unstable"})
 
 (def remixed
@@ -2589,7 +2589,7 @@
   "\n        Associates a digital signal to its sample rate. It might be easier to express it this way instead of\n        defining a timeline map:-) Range is xsd:float.\n    "
   {:db/ident :mo/sample_rate,
    :mo/level "1",
-   :rdf/type [:owl/DatatypeProperty :owl/FunctionalProperty],
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    "\n        Associates a digital signal to its sample rate. It might be easier to express it this way instead of\n        defining a timeline map:-) Range is xsd:float.\n    ",
    :rdfs/domain :mo/DigitalSignal,
@@ -2636,14 +2636,14 @@
   {:db/ident :mo/sampled_version_of,
    :mo/level "2",
    :owl/inverseOf :mo/sampled_version,
-   :rdf/type [:owl/FunctionalProperty :owl/ObjectProperty],
+   :rdf/type #{:owl/ObjectProperty :owl/FunctionalProperty},
    :rdfs/comment
    "\n        Associates a digital signal with the analog version of it\n    ",
    :rdfs/domain :mo/DigitalSignal,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/label "sampled version of",
    :rdfs/range :mo/AnalogSignal,
-   :rdfs/subPropertyOf [:mo/derived_from :dcterms/source],
+   :rdfs/subPropertyOf :mo/derived_from,
    :vs/term_status "stable"})
 
 (def sampler
@@ -2726,7 +2726,7 @@
    :rdfs/domain        :mo/Performance,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/mo/"},
    :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf [:mo/performer :event/agent],
+   :rdfs/subPropertyOf :mo/performer,
    :vs/term_status     "stable"})
 
 (def single
@@ -2801,7 +2801,7 @@
   "\n        Associates a Signal to a time object - its actual domain\n    "
   {:db/ident :mo/time,
    :mo/level "1",
-   :rdf/type [:owl/ObjectProperty :owl/FunctionalProperty],
+   :rdf/type #{:owl/ObjectProperty :owl/FunctionalProperty},
    :rdfs/comment
    "\n        Associates a Signal to a time object - its actual domain\n    ",
    :rdfs/domain :mo/Signal,

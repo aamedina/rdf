@@ -47,14 +47,14 @@
   "is the top level class of the hierarchy"
   {:db/ident :rdfa/PGClass,
    :dcterms/description "is the top level class of the hierarchy",
-   :rdf/type [:owl/Class :rdfs/Class]})
+   :rdf/type #{:rdfs/Class :owl/Class}})
 
 (def Pattern
   "Class to identify an (RDF) resource whose properties are to be copied to another resource"
   {:db/ident :rdfa/Pattern,
    :dcterms/description
    "Class to identify an (RDF) resource whose properties are to be copied to another resource",
-   :rdf/type [:owl/Class :rdfs/Class]})
+   :rdf/type #{:rdfs/Class :owl/Class}})
 
 (def PrefixMapping
   "is the class for prefix mappings"
@@ -67,7 +67,7 @@
   "is the top level class for prefix or term mappings"
   {:db/ident :rdfa/PrefixOrTermMapping,
    :dcterms/description "is the top level class for prefix or term mappings",
-   :rdf/type [:owl/Class :rdfs/Class]})
+   :rdf/type #{:rdfs/Class :owl/Class}})
 
 (def PrefixRedefinition
   "warning; to be used when a prefix, either from the initial context or inherited from an ancestor node, is redefined in an element"
@@ -118,7 +118,7 @@
   {:db/ident    :rdfa/context,
    :dcterms/description
    "provides extra context for the error, eg, http response, an XPointer/XPath information, or simply the URI that created the error",
-   :rdf/type    [:owl/ObjectProperty :rdf/Property],
+   :rdf/type    #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain :rdfa/PGClass})
 
 (def copy
@@ -126,14 +126,14 @@
   {:db/ident :rdfa/copy,
    :dcterms/description
    "identifies the resource (i.e., pattern) whose properties and values should be copied to replace the current triple (retaining the subject of the triple).",
-   :rdf/type [:owl/ObjectProperty :rdf/Property]})
+   :rdf/type #{:owl/ObjectProperty :rdf/Property}})
 
 (def prefix
   "defines a prefix mapping for a URI; the value is supposed to be a NMTOKEN"
   {:db/ident    :rdfa/prefix,
    :dcterms/description
    "defines a prefix mapping for a URI; the value is supposed to be a NMTOKEN",
-   :rdf/type    [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type    #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :rdfa/PrefixMapping})
 
 (def term
@@ -141,7 +141,7 @@
   {:db/ident    :rdfa/term,
    :dcterms/description
    "defines a term mapping for a URI; the value is supposed to be a NMTOKEN",
-   :rdf/type    [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type    #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :rdfa/TermMapping})
 
 (def uri
@@ -149,18 +149,18 @@
   {:db/ident    :rdfa/uri,
    :dcterms/description
    "defines the URI for either a prefix or a term mapping; the value is supposed to be an absolute URI",
-   :rdf/type    [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type    #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :rdfa/PrefixOrTermMapping})
 
 (def usesVocabulary
   {:db/ident :rdfa/usesVocabulary,
    :dcterms/description
    "provides a relationship between the host document and a vocabulary\n\tdefined using the @vocab facility of RDFa1.1",
-   :rdf/type [:owl/ObjectProperty :rdf/Property]})
+   :rdf/type #{:owl/ObjectProperty :rdf/Property}})
 
 (def vocabulary
   "defines an absolute URI to be used as a default vocabulary; the value is can be any string; for documentation purposes it is advised to use the string 'true' or 'True'."
   {:db/ident :rdfa/vocabulary,
    :dcterms/description
    "defines an absolute URI to be used as a default vocabulary; the value is can be any string; for documentation purposes it is advised to use the string 'true' or 'True'.",
-   :rdf/type [:owl/DatatypeProperty :rdf/Property]})
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property}})

@@ -1,34 +1,33 @@
 (ns net.wikipunk.rdf.cco
   "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins"
   {:dc11/creator
-   [{:rdfa/uri "http://tobyinkster.co.uk/#i"}
-    "Yan Wang"
-    {:rdfa/uri "http://foaf.me/zazi#me"}
-    {:rdfa/uri "http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf#me"}
-    {:rdfa/uri "http://sw.deri.org/~sheila/foaf.rdf#me"}
-    {:rdfa/uri "http://www.johnbreslin.com/foaf/foaf.rdf#me"}
-    {:rdfa/uri "http://danbri.org/foaf.rdf#danbri"}
-    "Danica Damljanovic"
-    "Yi Zeng"
-    "Zhisheng Huang"],
-   :dc11/date #xsd/dateTime #inst "2010-09-26T11:16:52.000+00:00",
+   #{{:rdfa/uri "http://www.johnbreslin.com/foaf/foaf.rdf#me"}
+     "Danica Damljanovic" {:rdfa/uri "http://foaf.me/zazi#me"} "Zhisheng Huang"
+     {:rdfa/uri "http://tobyinkster.co.uk/#i"} "Yan Wang"
+     {:rdfa/uri
+      "http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf#me"}
+     {:rdfa/uri "http://danbri.org/foaf.rdf#danbri"} "Yi Zeng"
+     {:rdfa/uri "http://sw.deri.org/~sheila/foaf.rdf#me"}},
+   :dc11/date #inst "2010-09-26T11:16:52.000-00:00",
    :dc11/description
-   #rdf/langString
-    "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins@en",
-   :dc11/title #rdf/langString "Cognitive Characteristics Ontology@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins"},
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "Cognitive Characteristics Ontology"},
    :dcat/downloadURL
    "http://purl.org/ontology/cco/cognitivecharacteristics.owl",
-   :owl/imports [{:rdfa/uri "http://purl.org/NET/scovo"}
-                 {:rdfa/uri "http://purl.org/ontology/wo/core"}
-                 {:rdfa/uri "http://purl.org/dc/terms/"}
-                 {:rdfa/uri "http://purl.org/dc/elements/1.1/"}
-                 {:rdfa/uri "http://purl.org/vocab/vann/"}
-                 {:rdfa/uri "http://www.w3.org/2006/time"}
-                 {:rdfa/uri "http://purl.org/NET/c4dm/event.owl"}
-                 {:rdfa/uri "http://www.w3.org/2003/06/sw-vocab-status/ns"}
-                 {:rdfa/uri "http://xmlns.com/foaf/0.1/"}
-                 {:rdfa/uri "http://purl.org/ontology/ao/core"}],
-   :owl/versionInfo #xsd/decimal 0.2M,
+   :owl/imports #{{:rdfa/uri "http://purl.org/ontology/ao/core"}
+                  {:rdfa/uri "http://purl.org/NET/scovo"}
+                  {:rdfa/uri "http://www.w3.org/2006/time"}
+                  {:rdfa/uri "http://purl.org/ontology/wo/core"}
+                  {:rdfa/uri "http://purl.org/vocab/vann/"}
+                  {:rdfa/uri "http://purl.org/NET/c4dm/event.owl"}
+                  {:rdfa/uri "http://purl.org/dc/elements/1.1/"}
+                  {:rdfa/uri "http://purl.org/dc/terms/"}
+                  {:rdfa/uri "http://xmlns.com/foaf/0.1/"}
+                  {:rdfa/uri "http://www.w3.org/2003/06/sw-vocab-status/ns"}},
+   :owl/versionInfo 0.2M,
    :rdf/ns-prefix-map {"ao"    "http://purl.org/ontology/ao/core#",
                        "cco"   "http://purl.org/ontology/cco/core#",
                        "dc11"  "http://purl.org/dc/elements/1.1/",
@@ -53,314 +52,387 @@
 (def CharacteristicDynamics
   "An event concept for describing dynamics of characteristics, e.g. weight changes, periods of interest."
   {:db/ident :cco/CharacteristicDynamics,
-   :rdf/type [:rdfs/Class :owl/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
-   #rdf/langString
-    "An event concept for describing dynamics of characteristics, e.g. weight changes, periods of interest.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "An event concept for describing dynamics of characteristics, e.g. weight changes, periods of interest."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "Characteristic Dynamics@en",
-   :rdfs/subClassOf [:rdfs/Resource :wo/Weight],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Characteristic Dynamics"},
+   :rdfs/subClassOf :wo/Weight,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def CognitiveCharacteristic
   "A cognitive characteristic object, which also can have weightings and characteristic dynamics etc. for describing a cognitive pattern."
   {:db/ident :cco/CognitiveCharacteristic,
-   :rdf/type [:owl/Class :rdfs/Class],
+   :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
-   #rdf/langString
-    "A cognitive characteristic object, which also can have weightings and characteristic dynamics etc. for describing a cognitive pattern.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A cognitive characteristic object, which also can have weightings and characteristic dynamics etc. for describing a cognitive pattern."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "Cognitive Characteristic@en",
-   :rdfs/subClassOf [:rdfs/Resource :scovo/Item],
-   :vs/term_status #rdf/langString "unstable@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Cognitive Characteristic"},
+   :rdfs/subClassOf :scovo/Item,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "unstable"}})
 
 (def ExplicitMining
   "An explicitly mined cognitive pattern"
   {:db/ident         :cco/ExplicitMining,
-   :dc11/description #rdf/langString "An explicitly mined cognitive pattern@en",
-   :dc11/title       #rdf/langString "Explicit Mining@en",
+   :dc11/description {:rdf/language "en",
+                      :rdf/value    "An explicitly mined cognitive pattern"},
+   :dc11/title       {:rdf/language "en",
+                      :rdf/value    "Explicit Mining"},
    :rdf/type         :scovo/Dimension,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :vs/term_status   #rdf/langString "testing@en"})
+   :vs/term_status   {:rdf/language "en",
+                      :rdf/value    "testing"}})
 
 (def ImplicitMining
   "An implicitly mined cognitive pattern"
   {:db/ident         :cco/ImplicitMining,
-   :dc11/description #rdf/langString "An implicitly mined cognitive pattern@en",
-   :dc11/title       #rdf/langString "Implicit Mining@en",
+   :dc11/description {:rdf/language "en",
+                      :rdf/value    "An implicitly mined cognitive pattern"},
+   :dc11/title       {:rdf/language "en",
+                      :rdf/value    "Implicit Mining"},
    :rdf/type         :scovo/Dimension,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :vs/term_status   #rdf/langString "testing@en"})
+   :vs/term_status   {:rdf/language "en",
+                      :rdf/value    "testing"}})
 
 (def activity
   "An activity, which is related to a topic of a cognitive charateristic description, e.g. if the topic is football a related activity can be playing or watching."
   {:db/ident :cco/activity,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "An activity, which is related to a topic of a cognitive charateristic description, e.g. if the topic is football a related activity can be playing or watching.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "An activity, which is related to a topic of a cognitive charateristic description, e.g. if the topic is football a related activity can be playing or watching."},
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has activity@en",
-   :rdfs/subPropertyOf [:ao/activity :event/factor],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has activity"},
+   :rdfs/subPropertyOf #{:event/factor :ao/activity},
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def agent
   "A link from a mined cognitive characteristic to the related person"
   {:db/ident :cco/agent,
    :owl/inverseOf :cco/habit,
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "A link from a mined cognitive characteristic to the related person@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A link from a mined cognitive characteristic to the related person"},
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has agent@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has agent"},
    :rdfs/range :foaf/Agent,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def appear_time
   "The time when the cognitive pattern appears in a certain kind of scenario."
   {:db/ident :cco/appear_time,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "The time when the cognitive pattern appears in a certain kind of scenario.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The time when the cognitive pattern appears in a certain kind of scenario."},
    :rdfs/domain {:owl/unionOf [:cco/CognitiveCharacteristic
                                :cco/CharacteristicDynamics],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has appear time@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has appear time"},
    :rdfs/subPropertyOf :event/time,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def attention_duration
   "An interval of attention for a cognitive pattern."
   {:db/ident           :cco/attention_duration,
-   :rdf/type           [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment       #rdf/langString
-                        "An interval of attention for a cognitive pattern.@en",
+   :rdf/type           #{:owl/ObjectProperty :rdf/Property},
+   :rdfs/comment       {:rdf/language "en",
+                        :rdf/value
+                        "An interval of attention for a cognitive pattern."},
    :rdfs/domain        :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label         #rdf/langString "has attention duration@en",
+   :rdfs/label         {:rdf/language "en",
+                        :rdf/value    "has attention duration"},
    :rdfs/range         :time/Interval,
-   :rdfs/subPropertyOf [:scovo/dimension :event/time],
-   :vs/term_status     #rdf/langString "testing@en"})
+   :rdfs/subPropertyOf #{:event/time :scovo/dimension},
+   :vs/term_status     {:rdf/language "en",
+                        :rdf/value    "testing"}})
 
 (def belief
   "An uncertain relation for competence representation. That means beliefs, persuasions or opinions, which can also be misconceptions."
   {:db/ident :cco/belief,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "An uncertain relation for competence representation. That means beliefs, persuasions or opinions, which can also be misconceptions.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "An uncertain relation for competence representation. That means beliefs, persuasions or opinions, which can also be misconceptions."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has belief@en",
-   :rdfs/subPropertyOf [:cco/competence :cco/cognitive_characteristic],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has belief"},
+   :rdfs/subPropertyOf :cco/competence,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def characteristic
   "Relates to the applied cognitive characteristic (property), e.g. competence, belief, expertise, skill, interest or setting."
   {:db/ident :cco/characteristic,
-   :rdf/type [:owl/FunctionalProperty :rdf/Property],
+   :rdf/type #{:rdf/Property :owl/FunctionalProperty},
    :rdfs/comment
-   #rdf/langString
-    "Relates to the applied cognitive characteristic (property), e.g. competence, belief, expertise, skill, interest or setting.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "Relates to the applied cognitive characteristic (property), e.g. competence, belief, expertise, skill, interest or setting."},
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has characteristic@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has characteristic"},
    :rdfs/range :rdf/Property,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def characteristic_dynamics
   "To relate a cognitive characteristic to its temporal dynamics."
   {:db/ident :cco/characteristic_dynamics,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "To relate a cognitive characteristic to its temporal dynamics.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "To relate a cognitive characteristic to its temporal dynamics."},
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has characteristic dynamics@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has characteristic dynamics"},
    :rdfs/range :cco/CharacteristicDynamics,
    :rdfs/subPropertyOf :event/sub_event,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def cognitive_characteristic
   "This is the super property to describe cognitive characteristics of the user of the cognitive pattern dimension, e.g. interests, skills, or expertise."
   {:db/ident :cco/cognitive_characteristic,
    :owl/propertyChainAxiom [:cco/habit :cco/topic],
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "This is the super property to describe cognitive characteristics of the user of the cognitive pattern dimension, e.g. interests, skills, or expertise.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "This is the super property to describe cognitive characteristics of the user of the cognitive pattern dimension, e.g. interests, skills, or expertise."},
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has cognitive characteristic@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has cognitive characteristic"},
    :rdfs/range :owl/Thing,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def competence
   "The competence to (be able to) do or know something. That means abilities, skills, knowledge, expertise, beliefs etc."
   {:db/ident :cco/competence,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "The competence to (be able to) do or know something. That means abilities, skills, knowledge, expertise, beliefs etc.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The competence to (be able to) do or know something. That means abilities, skills, knowledge, expertise, beliefs etc."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has competence@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has competence"},
    :rdfs/subPropertyOf :cco/cognitive_characteristic,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def evidence
   "A link between a context and evidence supporting the interpretation of habits in a context"
   {:db/ident :cco/evidence,
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "A link between a context and evidence supporting the interpretation of habits in a context@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A link between a context and evidence supporting the interpretation of habits in a context"},
    :rdfs/domain {:owl/unionOf [:cco/CognitiveCharacteristic
                                :cco/CharacteristicDynamics],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has evidence@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has evidence"},
    :rdfs/subPropertyOf :event/factor,
-   :vs/term_status #rdf/langString "unstable@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "unstable"}})
 
 (def expertise
   "The knowledge or expertise in a certain domain or specific topic, e.g. football, programming languages or music."
   {:db/ident :cco/expertise,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "The knowledge or expertise in a certain domain or specific topic, e.g. football, programming languages or music.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The knowledge or expertise in a certain domain or specific topic, e.g. football, programming languages or music."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has expertise@en",
-   :rdfs/subPropertyOf [:cco/competence :cco/cognitive_characteristic],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has expertise"},
+   :rdfs/subPropertyOf :cco/competence,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def habit
   "A link between an agent and a cognitive characteristic description"
   {:db/ident :cco/habit,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "A link between an agent and a cognitive characteristic description@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A link between an agent and a cognitive characteristic description"},
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has habit@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has habit"},
    :rdfs/range :cco/CognitiveCharacteristic,
-   :vs/term_status #rdf/langString "unstable@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "unstable"}})
 
 (def interest
   "This property relates a certain area of interest or preference to an agent. That means this agent likes this topic somehow."
   {:db/ident :cco/interest,
    :owl/equivalentProperty :foaf/topic_interest,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "This property relates a certain area of interest or preference to an agent. That means this agent likes this topic somehow.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "This property relates a certain area of interest or preference to an agent. That means this agent likes this topic somehow."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has interest@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has interest"},
    :rdfs/subPropertyOf :cco/cognitive_characteristic,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def longest_duration
   "The longest continuous interval of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 4 years."
   {:db/ident :cco/longest_duration,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "The longest continuous interval of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 4 years.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The longest continuous interval of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 4 years."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has longest duration@en",
-   :rdfs/subPropertyOf [:cco/attention_duration :scovo/dimension :event/time],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has longest duration"},
+   :rdfs/subPropertyOf :cco/attention_duration,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def not_interested_in
   "A link between an agent and a topic of no interest to them"
   {:db/ident :cco/not_interested_in,
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment
-   #rdf/langString
-    "A link between an agent and a topic of no interest to them@en",
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value
+                  "A link between an agent and a topic of no interest to them"},
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "is not interested in@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "is not interested in"},
    :rdfs/range :owl/Thing,
-   :vs/term_status #rdf/langString "unstable@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "unstable"}})
 
 (def overall_weight
   "This weight reflects the overall interest in a topic and should be different from the actual weight of a cognitive characteristic."
   {:db/ident :cco/overall_weight,
-   :rdf/type [:owl/ObjectProperty :owl/FunctionalProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty},
    :rdfs/comment
-   #rdf/langString
-    "This weight reflects the overall interest in a topic and should be different from the actual weight of a cognitive characteristic.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "This weight reflects the overall interest in a topic and should be different from the actual weight of a cognitive characteristic."},
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has overall weight@en",
-   :rdfs/subPropertyOf [:scovo/dimension :wo/weight],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has overall weight"},
+   :rdfs/subPropertyOf #{:wo/weight :scovo/dimension},
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def setting
   "A certain setting or preference. Often re. a specific environment, e.g. an application."
   {:db/ident :cco/setting,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "A certain setting or preference. Often re. a specific environment, e.g. an application.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A certain setting or preference. Often re. a specific environment, e.g. an application."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has setting@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has setting"},
    :rdfs/subPropertyOf :cco/cognitive_characteristic,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def skill
   "The ability or skill to (be able to) do something, e.g. to walk, to play the piano or to work in a team."
   {:db/ident :cco/skill,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "The ability or skill to (be able to) do something, e.g. to walk, to play the piano or to work in a team.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The ability or skill to (be able to) do something, e.g. to walk, to play the piano or to work in a team."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has skill@en",
-   :rdfs/subPropertyOf [:cco/competence :cco/cognitive_characteristic],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has skill"},
+   :rdfs/subPropertyOf :cco/competence,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def statistical_item
   "A link from a cognitive characteristic to statistics about itself"
   {:db/ident :cco/statistical_item,
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "A link from a cognitive characteristic to statistics about itself@en",
+   {:rdf/language "en",
+    :rdf/value
+    "A link from a cognitive characteristic to statistics about itself"},
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has statistical item@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has statistical item"},
    :rdfs/range :scovo/Item,
-   :vs/term_status #rdf/langString "testing@en"})
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})
 
 (def topic
   "A topic of the cognitive characteristic."
   {:db/ident           :cco/topic,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       #rdf/langString
-                        "A topic of the cognitive characteristic.@en",
+   :rdf/type           #{:owl/ObjectProperty :rdf/Property},
+   :rdfs/comment       {:rdf/language "en",
+                        :rdf/value "A topic of the cognitive characteristic."},
    :rdfs/domain        :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label         #rdf/langString "has topic@en",
+   :rdfs/label         {:rdf/language "en",
+                        :rdf/value    "has topic"},
    :rdfs/range         :owl/Thing,
    :rdfs/subPropertyOf :dcterms/subject,
-   :vs/term_status     #rdf/langString "unstable@en"})
+   :vs/term_status     {:rdf/language "en",
+                        :rdf/value    "unstable"}})
 
 (def ultimative_duration
   "The overall duration of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 7 years."
   {:db/ident :cco/ultimative_duration,
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
-   #rdf/langString
-    "The overall duration of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 7 years.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The overall duration of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 7 years."},
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/cco/core#"},
-   :rdfs/label #rdf/langString "has ultimative duration@en",
-   :rdfs/subPropertyOf [:cco/attention_duration :scovo/dimension :event/time],
-   :vs/term_status #rdf/langString "testing@en"})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has ultimative duration"},
+   :rdfs/subPropertyOf :cco/attention_duration,
+   :vs/term_status {:rdf/language "en",
+                    :rdf/value    "testing"}})

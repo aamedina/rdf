@@ -496,7 +496,7 @@
 (def role
   "role indicates the purpose of the\n      resource. See the XHTML Role\n      Vocabulary for roles in this vocabulary space, and XHTMLROLE for information on extending the\n      collection of roles. "
   {:db/ident :xhv/role,
-   :rdf/type [:rdf/Property :rdf/Bag],
+   :rdf/type #{:rdf/Bag :rdf/Property},
    :rdfa/term "role",
    :rdfa/uri "http://www.w3.org/1999/xhtml/vocab#role",
    :rdfs/comment
@@ -505,7 +505,7 @@
 
 (def role-properties
   {:db/ident :xhv/role-properties,
-   :rdf/type [:rdfs/member :rdf/Bag]})
+   :rdf/type #{:rdfs/member :rdf/Bag}})
 
 (def row
   "A row of cells\n      in a grid."

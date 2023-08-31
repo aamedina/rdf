@@ -198,9 +198,9 @@
 (def fractionDigits
   "The total number of digits to the right of the decimal point required to represent a value."
   {:db/ident       :xsd/fractionDigits,
-   :db/cardinality :db.cardinality/one
-   :db/valueType   :db.type/bigint
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :db/cardinality :db.cardinality/one,
+   :db/valueType   :db.type/bigint,
+   :rdf/type       :owl/DatatypeProperty,
    :rdfs/comment
    "The total number of digits to the right of the decimal point required to represent a value.",
    :rdfs/label     "fraction digits",
@@ -293,7 +293,7 @@
   {:db/ident       :xsd/maxExclusive,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/bigdec
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type       :owl/DatatypeProperty
    :rdfs/comment   "The exclusive upper bound of an ordered datatype.",
    :rdfs/label     "max exclusive"})
 
@@ -302,7 +302,7 @@
   {:db/ident       :xsd/maxInclusive,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/bigdec
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type       :owl/DatatypeProperty
    :rdfs/comment   "The inclusive upper bound of an ordered datatype.",
    :rdfs/label     "max inclusive"})
 
@@ -311,7 +311,7 @@
   {:db/ident       :xsd/minExclusive,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/bigdec
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type       :owl/DatatypeProperty
    :rdfs/comment   "The exclusive lower bound of an ordered datatype.",
    :rdfs/label     "min exclusive"})
 
@@ -320,7 +320,7 @@
   {:db/ident       :xsd/minInclusive,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/bigdec
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type       :owl/DatatypeProperty
    :rdfs/comment   "The inclusive lower bound of an ordered datatype.",
    :rdfs/label     "min inclusive"})
 
@@ -367,7 +367,7 @@
   {:db/ident       :xsd/pattern,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/string
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type       :owl/DatatypeProperty
    :rdfs/comment   "A regular expression that matches complete valid literals.",
    :rdfs/label     "pattern"})
 
@@ -463,7 +463,7 @@
   {:db/ident       :xsd/whiteSpace,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/string
-   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdf/type       #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/comment
    "A string that describes whitespace normalization for a string type.",
    :rdfs/label     "white space",

@@ -1,13 +1,13 @@
-{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :sc/refs      [:db]
-          :boot         [net.wikipunk.boot
-                         net.wikipunk.ext]
-          :config       {}}
+{:asami  {:sc/create-fn net.wikipunk.rdf/map->Asami
+          :uri          "asami:local://.vocab"}
  :client {:sc/create-fn datomic.client.api/client
           :server-type  :datomic-local
           :system       "dev"}
  :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
           :sc/refs      [:client]
           :db-name      "rdf"}
- :asami  {:sc/create-fn net.wikipunk.rdf/map->Asami
-          :uri          "asami:local://.vocab"}}
+ :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          :sc/refs      [:asami :db]
+          :boot         [net.wikipunk.boot
+                         net.wikipunk.ext]
+          :config       {}}}

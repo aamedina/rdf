@@ -18,12 +18,12 @@
    :rdfs/comment
    "An instance of sd:Aggregate represents an aggregate that may be used in a SPARQL aggregate query (for instance in a HAVING clause or SELECT expression) besides the standard list of supported aggregates COUNT, SUM, MIN, MAX, AVG, GROUP_CONCAT, and SAMPLE.",
    :rdfs/label "Aggregate",
-   :rdfs/subClassOf [:sd/Feature :rdfs/Resource]})
+   :rdfs/subClassOf :sd/Feature})
 
 (def BasicFederatedQuery
   "sd:BasicFederatedQuery, when used as the object of the sd:feature property, indicates that the SPARQL service supports basic federated query using the SERVICE keyword as defined by SPARQL 1.1 Federation Extensions."
   {:db/ident :sd/BasicFederatedQuery,
-   :rdf/type [:sd/Feature :rdfs/Resource],
+   :rdf/type :sd/Feature,
    :rdfs/comment
    "sd:BasicFederatedQuery, when used as the object of the sd:feature property, indicates that the SPARQL service supports basic federated query using the SERVICE keyword as defined by SPARQL 1.1 Federation Extensions.",
    :rdfs/label "Basic Federated Query"})
@@ -35,12 +35,12 @@
    :rdfs/comment
    "An instance of sd:Dataset represents a RDF Dataset comprised of a default graph and zero or more named graphs.",
    :rdfs/label "Dataset",
-   :rdfs/subClassOf [:rdfs/Resource :sd/GraphCollection]})
+   :rdfs/subClassOf :sd/GraphCollection})
 
 (def DereferencesURIs
   "sd:DereferencesURIs, when used as the object of the sd:feature property, indicates that a SPARQL service will dereference URIs used in FROM/FROM NAMED and USING/USING NAMED clauses and use the resulting RDF in the dataset during query evaluation."
   {:db/ident :sd/DereferencesURIs,
-   :rdf/type [:sd/Feature :rdfs/Resource],
+   :rdf/type :sd/Feature,
    :rdfs/comment
    "sd:DereferencesURIs, when used as the object of the sd:feature property, indicates that a SPARQL service will dereference URIs used in FROM/FROM NAMED and USING/USING NAMED clauses and use the resulting RDF in the dataset during query evaluation.",
    :rdfs/label "Dereferences URIs"})
@@ -48,7 +48,7 @@
 (def EmptyGraphs
   "sd:EmptyGraphs, when used as the object of the sd:feature property, indicates that the underlying graph store supports empty graphs. A graph store that supports empty graphs MUST NOT remove graphs that are left empty after triples are removed from them."
   {:db/ident :sd/EmptyGraphs,
-   :rdf/type [:sd/Feature :rdfs/Resource],
+   :rdf/type :sd/Feature,
    :rdfs/comment
    "sd:EmptyGraphs, when used as the object of the sd:feature property, indicates that the underlying graph store supports empty graphs. A graph store that supports empty graphs MUST NOT remove graphs that are left empty after triples are removed from them.",
    :rdfs/label "Empty Graphs"})
@@ -60,7 +60,7 @@
    :rdfs/comment
    "An instance of sd:EntailmentProfile represents a profile of an entailment regime. An entailment profile MAY impose restrictions on what constitutes valid RDF with respect to entailment.",
    :rdfs/label "Entailment Profile",
-   :rdfs/subClassOf [:sd/Feature :rdfs/Resource]})
+   :rdfs/subClassOf :sd/Feature})
 
 (def EntailmentRegime
   "An instance of sd:EntailmentRegime represents an entailment regime used in basic graph pattern matching (as described by SPARQL 1.1 Query Language)."
@@ -69,7 +69,7 @@
    :rdfs/comment
    "An instance of sd:EntailmentRegime represents an entailment regime used in basic graph pattern matching (as described by SPARQL 1.1 Query Language).",
    :rdfs/label "Entailment Regime",
-   :rdfs/subClassOf [:rdfs/Resource :sd/Feature]})
+   :rdfs/subClassOf :sd/Feature})
 
 (def Feature
   "An instance of sd:Feature represents a feature of a SPARQL service. Specific types of features include functions, aggregates, languages, and entailment regimes and profiles. This document defines five instances of sd:Feature: sd:DereferencesURIs, sd:UnionDefaultGraph, sd:RequiresDataset, sd:EmptyGraphs, and sd:BasicFederatedQuery."
@@ -77,8 +77,7 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An instance of sd:Feature represents a feature of a SPARQL service. Specific types of features include functions, aggregates, languages, and entailment regimes and profiles. This document defines five instances of sd:Feature: sd:DereferencesURIs, sd:UnionDefaultGraph, sd:RequiresDataset, sd:EmptyGraphs, and sd:BasicFederatedQuery.",
-   :rdfs/label "Feature",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Feature"})
 
 (def Function
   "An instance of sd:Function represents a function that may be used in a SPARQL SELECT expression or a FILTER, HAVING, GROUP BY, ORDER BY, or BIND clause."
@@ -87,7 +86,7 @@
    :rdfs/comment
    "An instance of sd:Function represents a function that may be used in a SPARQL SELECT expression or a FILTER, HAVING, GROUP BY, ORDER BY, or BIND clause.",
    :rdfs/label "Function",
-   :rdfs/subClassOf [:rdfs/Resource :sd/Feature]})
+   :rdfs/subClassOf :sd/Feature})
 
 (def Graph
   "An instance of sd:Graph represents the description of an RDF graph."
@@ -95,8 +94,7 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An instance of sd:Graph represents the description of an RDF graph.",
-   :rdfs/label "Graph",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Graph"})
 
 (def GraphCollection
   "An instance of sd:GraphCollection represents a collection of zero or more named graph descriptions. Each named graph description belonging to an sd:GraphCollection MUST be linked with the sd:namedGraph predicate."
@@ -104,8 +102,7 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An instance of sd:GraphCollection represents a collection of zero or more named graph descriptions. Each named graph description belonging to an sd:GraphCollection MUST be linked with the sd:namedGraph predicate.",
-   :rdfs/label "Graph Collection",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Graph Collection"})
 
 (def Language
   "An instance of sd:Language represents one of the SPARQL languages, including specific configurations providing particular features or extensions. This document defines three instances of sd:Language: sd:SPARQL10Query, sd:SPARQL11Query, and sd:SPARQL11Update."
@@ -114,7 +111,7 @@
    :rdfs/comment
    "An instance of sd:Language represents one of the SPARQL languages, including specific configurations providing particular features or extensions. This document defines three instances of sd:Language: sd:SPARQL10Query, sd:SPARQL11Query, and sd:SPARQL11Update.",
    :rdfs/label "Language",
-   :rdfs/subClassOf [:sd/Feature :rdfs/Resource]})
+   :rdfs/subClassOf :sd/Feature})
 
 (def NamedGraph
   "An instance of sd:NamedGraph represents a named graph having a name (via sd:name) and an optional graph description (via sd:graph)."
@@ -122,13 +119,12 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An instance of sd:NamedGraph represents a named graph having a name (via sd:name) and an optional graph description (via sd:graph).",
-   :rdfs/label "Named Graph",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Named Graph"})
 
 (def RequiresDataset
   "sd:RequiresDataset, when used as the object of the sd:feature property, indicates that the SPARQL service requires an explicit dataset declaration (based on either FROM/FROM NAMED clauses in a query, USING/USING NAMED clauses in an update, or the appropriate SPARQL Protocol parameters)."
   {:db/ident :sd/RequiresDataset,
-   :rdf/type [:sd/Feature :rdfs/Resource],
+   :rdf/type :sd/Feature,
    :rdfs/comment
    "sd:RequiresDataset, when used as the object of the sd:feature property, indicates that the SPARQL service requires an explicit dataset declaration (based on either FROM/FROM NAMED clauses in a query, USING/USING NAMED clauses in an update, or the appropriate SPARQL Protocol parameters).",
    :rdfs/label "Requires Dataset"})
@@ -136,7 +132,7 @@
 (def SPARQL10Query
   "sd:SPARQL10Query is an sd:Language representing the SPARQL 1.0 Query language."
   {:db/ident :sd/SPARQL10Query,
-   :rdf/type [:sd/Language :rdfs/Resource :sd/Feature],
+   :rdf/type :sd/Language,
    :rdfs/comment
    "sd:SPARQL10Query is an sd:Language representing the SPARQL 1.0 Query language.",
    :rdfs/label "SPARQL 1.0 Query"})
@@ -144,7 +140,7 @@
 (def SPARQL11Query
   "sd:SPARQL11Query is an sd:Language representing the SPARQL 1.1 Query language."
   {:db/ident :sd/SPARQL11Query,
-   :rdf/type [:sd/Language :rdfs/Resource :sd/Feature],
+   :rdf/type :sd/Language,
    :rdfs/comment
    "sd:SPARQL11Query is an sd:Language representing the SPARQL 1.1 Query language.",
    :rdfs/label "SPARQL 1.1 Query"})
@@ -152,7 +148,7 @@
 (def SPARQL11Update
   "sd:SPARQLUpdate is an sd:Language representing the SPARQL 1.1 Update language."
   {:db/ident :sd/SPARQL11Update,
-   :rdf/type [:sd/Language :rdfs/Resource :sd/Feature],
+   :rdf/type :sd/Language,
    :rdfs/comment
    "sd:SPARQLUpdate is an sd:Language representing the SPARQL 1.1 Update language.",
    :rdfs/label "SPARQL 1.1 Update"})
@@ -163,13 +159,12 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An instance of sd:Service represents a SPARQL service made available via the SPARQL Protocol.",
-   :rdfs/label "Service",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Service"})
 
 (def UnionDefaultGraph
   "sd:UnionDefaultGraph, when used as the object of the sd:feature property, indicates that the default graph of the dataset used during query and update evaluation (when an explicit dataset is not specified) is comprised of the union of all the named graphs in that dataset."
   {:db/ident :sd/UnionDefaultGraph,
-   :rdf/type [:sd/Feature :rdfs/Resource],
+   :rdf/type :sd/Feature,
    :rdfs/comment
    "sd:UnionDefaultGraph, when used as the object of the sd:feature property, indicates that the default graph of the dataset used during query and update evaluation (when an explicit dataset is not specified) is comprised of the union of all the named graphs in that dataset.",
    :rdfs/label "Union Default Graph"})
@@ -187,7 +182,7 @@
 (def defaultDataset
   "Relates an instance of sd:Service to a description of the default dataset available when no explicit dataset is specified in the query, update request or via protocol parameters."
   {:db/ident :sd/defaultDataset,
-   :rdf/type [:owl/InverseFunctionalProperty :rdf/Property],
+   :rdf/type #{:rdf/Property :owl/InverseFunctionalProperty},
    :rdfs/comment
    "Relates an instance of sd:Service to a description of the default dataset available when no explicit dataset is specified in the query, update request or via protocol parameters.",
    :rdfs/domain :sd/Service,
@@ -229,7 +224,7 @@
 (def endpoint
   "The SPARQL endpoint of an sd:Service that implements the SPARQL Protocol service. The object of the sd:endpoint property is an IRI."
   {:db/ident :sd/endpoint,
-   :rdf/type [:owl/InverseFunctionalProperty :rdf/Property],
+   :rdf/type #{:rdf/Property :owl/InverseFunctionalProperty},
    :rdfs/comment
    "The SPARQL endpoint of an sd:Service that implements the SPARQL Protocol service. The object of the sd:endpoint property is an IRI.",
    :rdfs/domain :sd/Service,

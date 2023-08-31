@@ -13,10 +13,10 @@
    :rdfs/comment "The system ontology of Wikibase",
    :rdfs/label "Wikibase system ontology",
    :rdfs/seeAlso
-   [{:rdfa/uri
-     "https://www.mediawiki.org/wiki/Extension:WikibaseLexeme/RDF_mapping"}
-    {:rdfa/uri
-     "https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format"}]})
+   #{{:rdfa/uri
+      "https://www.mediawiki.org/wiki/Extension:WikibaseLexeme/RDF_mapping"}
+     {:rdfa/uri
+      "https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format"}}})
 
 (def BestRank
   "This class marks statement that has the best rank for its property."
@@ -29,14 +29,14 @@
 (def CommonsMedia
   "Wikimedia Commons reference type."
   {:db/ident     :wikibase/CommonsMedia,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Wikimedia Commons reference type.",
    :rdfs/label   "CommonsMedia"})
 
 (def DeprecatedRank
   "Deprecated statement rank."
   {:db/ident     :wikibase/DeprecatedRank,
-   :rdf/type     [:wikibase/Rank :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/Rank :owl/NamedIndividual},
    :rdfs/comment "Deprecated statement rank.",
    :rdfs/label   "DeprecatedRank"})
 
@@ -57,7 +57,7 @@
 (def ExternalId
   "Type for referring to ID defined by external authority."
   {:db/ident     :wikibase/ExternalId,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for referring to ID defined by external authority.",
    :rdfs/label   "WikibaseExternalId"})
 
@@ -80,14 +80,14 @@
 (def GeoShape
   "Type for storing links to geoshape data."
   {:db/ident     :wikibase/GeoShape,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for storing links to geoshape data.",
    :rdfs/label   "GeoShape"})
 
 (def Globecoordinate
   "Coordinate type."
   {:db/ident     :wikibase/Globecoordinate,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Coordinate type.",
    :rdfs/label   "Globecoordinate"})
 
@@ -118,7 +118,7 @@
 (def MathClass
   "Type for mathematical expressions as supported by the Math extension."
   {:db/ident :wikibase/Math,
-   :rdf/type [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment
    "Type for mathematical expressions as supported by the Math extension.",
    :rdfs/label "Mathematial expression"})
@@ -126,14 +126,14 @@
 (def Monolingualtext
   "Type for text in single language."
   {:db/ident     :wikibase/Monolingualtext,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for text in single language.",
    :rdfs/label   "Monolingualtext"})
 
 (def MusicalNotation
   "Type for storing musical scores written in LilyPond notation as supported by the Score extension."
   {:db/ident :wikibase/MusicalNotation,
-   :rdf/type [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment
    "Type for storing musical scores written in LilyPond notation as supported by the Score extension.",
    :rdfs/label "MusicalNotation"})
@@ -141,14 +141,14 @@
 (def NormalRank
   "Normal statement rank."
   {:db/ident     :wikibase/NormalRank,
-   :rdf/type     [:wikibase/Rank :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/Rank :owl/NamedIndividual},
    :rdfs/comment "Normal statement rank.",
    :rdfs/label   "NormalRank"})
 
 (def PreferredRank
   "Preferred statement rank."
   {:db/ident     :wikibase/PreferredRank,
-   :rdf/type     [:wikibase/Rank :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/Rank :owl/NamedIndividual},
    :rdfs/comment "Preferred statement rank.",
    :rdfs/label   "PreferredRank"})
 
@@ -170,7 +170,7 @@
 (def Quantity
   "Type for numerical quantity."
   {:db/ident     :wikibase/Quantity,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for numerical quantity.",
    :rdfs/label   "Quantity"})
 
@@ -214,21 +214,21 @@
 (def StringClass
   "Basic string type."
   {:db/ident     :wikibase/String,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Basic string type.",
    :rdfs/label   "String"})
 
 (def TabularData
   "Type for storing links to tabular data."
   {:db/ident     :wikibase/TabularData,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for storing links to tabular data.",
    :rdfs/label   "TabularData"})
 
 (def Time
   "Date and time value type."
   {:db/ident     :wikibase/Time,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Date and time value type.",
    :rdfs/label   "Time"})
 
@@ -243,7 +243,7 @@
 (def Url
   "URL link type."
   {:db/ident     :wikibase/Url,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "URL link type.",
    :rdfs/label   "Url"})
 
@@ -257,14 +257,14 @@
 (def WikibaseItem
   "Type for referring to another Wikibase item."
   {:db/ident     :wikibase/WikibaseItem,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for referring to another Wikibase item.",
    :rdfs/label   "WikibaseItem"})
 
 (def WikibaseProperty
   "Type for referring to a Wikibase property."
   {:db/ident     :wikibase/WikibaseProperty,
-   :rdf/type     [:wikibase/PropertyType :owl/NamedIndividual],
+   :rdf/type     #{:wikibase/PropertyType :owl/NamedIndividual},
    :rdfs/comment "Type for referring to a Wikibase property.",
    :rdfs/label   "WikibaseProperty"})
 

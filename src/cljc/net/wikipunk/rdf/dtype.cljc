@@ -18,78 +18,45 @@
   "Codelist"
   {:db/ident :dtype/CodeList,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "Codelist",
-   :rdfs/subClassOf [:dtype/Enumeration
-                     :owl/Thing
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}],
+   :rdfs/subClassOf :dtype/Enumeration,
    :vaem/comment
    "A codelist is a controlled vocabulary of terms that are used to represent permissible values of a variable in information systems. The representaiton of codes in \"dtype\" has been influenced by CCTS and UBL."})
 
 (def CompositeCodeList
   "Composite Code List"
   {:db/ident :dtype/CompositeCodeList,
-   :owl/disjointWith [:dtype/DerivedCodeList :dtype/SimpleCodeList],
+   :owl/disjointWith #{:dtype/SimpleCodeList :dtype/DerivedCodeList},
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "Composite Code List",
-   :rdfs/subClassOf [:dtype/CodeList
-                     {:owl/allValuesFrom :dtype/CodeList,
-                      :owl/onProperty    :dtype/compositeOf,
-                      :rdf/type          :owl/Restriction}
-                     :owl/Thing
-                     :dtype/Enumeration
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}],
+   :rdfs/subClassOf #{:dtype/CodeList
+                      {:owl/allValuesFrom :dtype/CodeList,
+                       :owl/onProperty    :dtype/compositeOf,
+                       :rdf/type          :owl/Restriction}},
    :vaem/comment
    "A composite codelist is a codelist made up of other codelists. It does not introduce any new codes."})
 
 (def DerivedCodeList
   "Derived Code List"
   {:db/ident :dtype/DerivedCodeList,
-   :owl/disjointWith [:dtype/SimpleCodeList :dtype/CompositeCodeList],
+   :owl/disjointWith #{:dtype/CompositeCodeList :dtype/SimpleCodeList},
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "Derived Code List",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/derivedFrom,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/CodeList,
-                      :owl/onProperty    :dtype/derivedFrom,
-                      :rdf/type          :owl/Restriction}
-                     :dtype/CodeList
-                     {:owl/allValuesFrom :dtype/ValueReference,
-                      :owl/onProperty    :dtype/hasMember,
-                      :rdf/type          :owl/Restriction}
-                     :owl/Thing
-                     :dtype/Enumeration
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}],
+   :rdfs/subClassOf #{{:owl/maxCardinality 1,
+                       :owl/onProperty     :dtype/derivedFrom,
+                       :rdf/type           :owl/Restriction} :dtype/CodeList
+                      {:owl/allValuesFrom :dtype/CodeList,
+                       :owl/onProperty    :dtype/derivedFrom,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :dtype/ValueReference,
+                       :owl/onProperty    :dtype/hasMember,
+                       :rdf/type          :owl/Restriction}},
    :vaem/comment
    "A derived codelist is a sublist of another codelist. The members that it has must be members of the source list."})
 
@@ -99,95 +66,82 @@
    :dc11/description
    "The base class for datatypes that have values that are restriced to a set of literals or tokens. The members of the restriction may themselve be restriced by facets that apply to scalar data types.",
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}
-                      {:rdfa/uri
-                       "http://www.linkedmodel.org/1.1/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "DTYPE Enumerated value",
-   :rdfs/subClassOf [{:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/code,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/position,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :dtype/value,
-                      :rdf/type        :owl/Restriction}
-                     :owl/Thing
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/order,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality #xsd/nonNegativeInteger 0,
-                      :owl/onProperty     :vaem/url,
-                      :rdf/type           :owl/Restriction}]})
+   :rdfs/subClassOf #{:owl/Thing
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :vaem/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :dtype/order,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :dtype/value,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :dtype/position,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :dtype/code,
+                       :rdf/type           :owl/Restriction}}})
 
 (def Enumeration
   "DTYPE Enumeration"
   {:db/ident :dtype/Enumeration,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "DTYPE Enumeration",
-   :rdfs/subClassOf [:owl/Thing
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}],
+   :rdfs/subClassOf #{{:owl/maxCardinality 1,
+                       :owl/onProperty     :dtype/defaultValue,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                       :owl/onProperty    :dtype/defaultValue,
+                       :rdf/type          :owl/Restriction} :owl/Thing
+                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                       :owl/onProperty    :dtype/value,
+                       :rdf/type          :owl/Restriction}},
    :vaem/comment
    "A type that serves as a container for the enumerated values of an enumeration. This enables the enumeration itself to be referenceable. One need for this is in determing the default value of an enumeration , another need is in the management of sub-enumerations and composite enumerations."})
 
 (def SimpleCodeList
   "Simple Code List"
   {:db/ident :dtype/SimpleCodeList,
-   :owl/disjointWith [:dtype/CompositeCodeList :dtype/DerivedCodeList],
+   :owl/disjointWith #{:dtype/CompositeCodeList :dtype/DerivedCodeList},
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "Simple Code List",
-   :rdfs/subClassOf [:dtype/CodeList
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/hasMember,
-                      :rdf/type          :owl/Restriction}
-                     :owl/Thing
-                     :dtype/Enumeration
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}],
+   :rdfs/subClassOf #{:dtype/CodeList
+                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                       :owl/onProperty    :dtype/hasMember,
+                       :rdf/type          :owl/Restriction}},
    :vaem/comment "A simple codelist is one made up only of enumerated values."})
 
 (def ValueReference
   "Value Reference"
   {:db/ident :dtype/ValueReference,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "Value Reference",
-   :rdfs/subClassOf [:owl/Thing
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/refersTo,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :dtype/refersTo,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty     :dtype/position,
-                      :rdf/type           :owl/Restriction}],
+   :rdfs/subClassOf #{:owl/Thing
+                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                       :owl/onProperty    :dtype/refersTo,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :dtype/refersTo,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :dtype/position,
+                       :rdf/type           :owl/Restriction}},
    :vaem/comment
    "A value reference is a pointer to an Enumerated Value. The original position of the value can be overridden by the position attribute."})
 
@@ -195,8 +149,8 @@
   "code"
   {:db/ident :dtype/code,
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "code",
    :rdfs/range :xsd/anySimpleType,
    :vaem/comment
@@ -206,8 +160,8 @@
   "composite of"
   {:db/ident         :dtype/compositeOf,
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label       "composite of",
    :vaem/comment     "Aproperty for constructing composite data structures"})
 
@@ -215,8 +169,8 @@
   "default value"
   {:db/ident :dtype/defaultValue,
    :rdf/type :rdf/Property,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "default value",
    :vaem/comment
    "The property \"dtype:defaultValue\" is a general property for specifying a value in situations where none is specified, or can be determined. In some cases of use, this property could have a scalar value and in other cases may need to refer to a first class concept that holds a \"value object\".  For this reason, the  type of this property is set as \"rdf:Property\" and the property is rangeless."})
@@ -225,8 +179,8 @@
   "derived from"
   {:db/ident         :dtype/derivedFrom,
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label       "derived from",
    :vaem/comment     "A property for specifying a derivation relationship."})
 
@@ -234,8 +188,8 @@
   "has member"
   {:db/ident :dtype/hasMember,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "has member",
    :vaem/comment
    "A property for specifying how member elements make up a data structure."})
@@ -244,8 +198,8 @@
   "is invalid"
   {:db/ident :dtype/isInvalid,
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "is invalid",
    :rdfs/range :xsd/boolean,
    :vaem/comment
@@ -255,8 +209,8 @@
   "literal"
   {:db/ident         :dtype/literal,
    :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label       "literal",
    :rdfs/range       :xsd/string,
    :vaem/comment     "A general purpose property for holding string literals."})
@@ -270,8 +224,8 @@
    {:owl/unionOf [:xsd/float :xsd/decimal :xsd/integer :xsd/double],
     :rdf/type    :rdfs/Datatype},
    :rdf/type :rdfs/Datatype,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "numeric union",
    :rdfs/subClassOf :rdfs/Resource})
 
@@ -279,8 +233,8 @@
   "order"
   {:db/ident :dtype/order,
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "order",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/seeAlso :dtype/orderIndex,
@@ -291,8 +245,8 @@
   "order index"
   {:db/ident :dtype/orderIndex,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "order index",
    :rdfs/range :xsd/nonNegativeInteger,
    :vaem/comment
@@ -302,8 +256,8 @@
   "position"
   {:db/ident         :dtype/position,
    :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label       "position",
    :rdfs/range       :xsd/nonNegativeInteger})
 
@@ -311,8 +265,8 @@
   "refers to"
   {:db/ident :dtype/refersTo,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "refers to",
    :vaem/comment
    "An indirection pointer for relating a slot in am occurrence data structure, such as \"dtype:ValueReference\" with another resource."})
@@ -321,16 +275,16 @@
   "datatype"
   {:db/ident         :dtype/type,
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label       "datatype"})
 
 (def value
   "value"
   {:db/ident :dtype/value,
    :rdf/type :rdf/Property,
-   :rdfs/isDefinedBy [{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
-                      {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}],
+   :rdfs/isDefinedBy #{{:rdfa/uri "http://www.linkedmodel.org/1.1/schema/dtype"}
+                       {:rdfa/uri "http://www.linkedmodel.org/schema/dtype"}},
    :rdfs/label "value",
    :vaem/comment
    "The property \"dtype:value\" is a general property that in some cases could have scalar values and in other cases may refer to a first class concept that is a \"value object\". For this reason, the  type of this property is set as \"rdf:Property\" and the property is rangeless."})

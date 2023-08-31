@@ -9,11 +9,10 @@
 
 (def Bookmark
   "The class to which all bookmarks belong."
-  {:db/ident        :annotea/Bookmark,
-   :rdf/type        :rdfs/Class,
-   :rdfs/comment    "The class to which all bookmarks belong.",
-   :rdfs/label      "Bookmark",
-   :rdfs/subClassOf :rdfs/Resource})
+  {:db/ident     :annotea/Bookmark,
+   :rdf/type     :rdfs/Class,
+   :rdfs/comment "The class to which all bookmarks belong.",
+   :rdfs/label   "Bookmark"})
 
 (def Shortcut
   "Specifies a behavior; when the\n                object of type 'Shortcut' is activated, the\n                client follows the 'recalls' property and\n                activates the object at the end of that\n                'recalls' property.  The target object may\n                be another Bookmark or may be a Topic."
@@ -21,15 +20,13 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "Specifies a behavior; when the\n                object of type 'Shortcut' is activated, the\n                client follows the 'recalls' property and\n                activates the object at the end of that\n                'recalls' property.  The target object may\n                be another Bookmark or may be a Topic.",
-   :rdfs/label "Shortcut",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "Shortcut"})
 
 (def Topic
   "Topic"
-  {:db/ident        :annotea/Topic,
-   :rdf/type        :rdfs/Class,
-   :rdfs/label      "Topic",
-   :rdfs/subClassOf :rdfs/Resource})
+  {:db/ident   :annotea/Topic,
+   :rdf/type   :rdfs/Class,
+   :rdfs/label "Topic"})
 
 (def bookmarks
   "This corresponds to XBEL:href an\n                object of type Bookmark is expected to have a\n                'recalls' relationship to the document being\n                bookmarked.  The 'bookmarks' property is an older\n                name for the 'recalls' relationship."
@@ -52,8 +49,9 @@
   {:db/ident :annotea/leadsTo,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #rdf/langString
-    "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic@en"})
+   {:rdf/language "en",
+    :rdf/value
+    "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic"}})
 
 (def recalls
   "Relates a bookmark with the resource that\n                has been bookmarked.  This corresponds to XBEL:href;\n                an object of type Bookmark is expected to have a\n                'recalls' relationship to the document being\n                bookmarked "

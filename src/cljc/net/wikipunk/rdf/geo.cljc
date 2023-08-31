@@ -9,14 +9,14 @@
   (:refer-clojure :exclude [long]))
 
 (def Point
-  "point"
+  "A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "
   {:db/ident :geo/Point,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   [" \nUniquely identified by lat/long/alt. i.e.\n\nspaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),\n  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).\n\nsameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).\n  "
-    "A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "],
+   #{"A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "
+     " \nUniquely identified by lat/long/alt. i.e.\n\nspaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),\n  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).\n\nsameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).\n  "},
    :rdfs/label "point",
-   :rdfs/subClassOf [:geo/SpatialThing :rdfs/Resource]})
+   :rdfs/subClassOf :geo/SpatialThing})
 
 (def SpatialThing
   "Anything with spatial extent, i.e. size, shape, or position.\n e.g. people, places, bowling balls, as well as abstract areas like cubes.\n"
@@ -24,8 +24,7 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "Anything with spatial extent, i.e. size, shape, or position.\n e.g. people, places, bowling balls, as well as abstract areas like cubes.\n",
-   :rdfs/label "SpatialThing",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label "SpatialThing"})
 
 (def alt
   "The WGS84 altitude of a SpatialThing (decimal meters \nabove the local reference ellipsoid)."
