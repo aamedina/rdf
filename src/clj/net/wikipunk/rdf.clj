@@ -39,7 +39,8 @@
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.mop]
-   [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]])
+   [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]]
+   [methodical.core :as mm])
   (:import
    (com.github.packageurl PackageURL)
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -52,12 +53,129 @@
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
 
+(defmulti type-of
+  "Returns the RDF type of the given object. If the object is a map
+  with a single `:rdf/type` entry, it returns the value of `:rdf/type`. If
+  `:rdf/type` is a set, it returns the first type (identified by
+  keyword) that satisfies the isa? relation, sorted in ascending
+  order. If there is no `:rdf/type` entry, it returns the type of the
+  object using `clojure.core/type`."
+  {:arglists '([obj & args])}
+  (fn [obj & args]
+    (type obj)))
+
+(defmethod type-of :default
+  [obj & args]
+  (if-some [rdf-type (:rdf/type obj)]
+    (if (set? rdf-type)
+      (first (sort isa? (filter keyword? rdf-type)))
+      rdf-type)
+    (type obj)))
+
+(def ^:dynamic *env*
+  "The `*env*` dynamic variable represents the environment in which
+  metaobjects are resolved by certain functions (like the
+  implementation of `datafy`).
+
+  This could be a Datomic database, Asami, XTDB, or, if `*env*` is
+  nil, Clojure namespaces themselves are searched."
+  nil)
+
+(def ^:dynamic *metaobjects*
+  "Contains a map of multimethod hierarchies derived from loaded
+  metaobjects when the Universal Translator was started.
+
+  :rdfs/Resource - a hierarchy of all RDF resources (everything)
+  :rdfs/Class - a hierarchy of RDF classes
+  :rdf/Property - a hierarchy of RDF properties
+  :rdfs/domain - a hierarchy of property domains
+  :rdfs/range - a hierarchy of property ranges"
+  nil)
+
+(def ^:dynamic *ns-aliases*
+  "Configured by `make-boot-context` holding a map of namespace
+  aliases mapping prefixes to delays which when dereferenced return a
+  Clojure namespace or nil if none could be found."
+  {})
+
+(def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
+(def ^:dynamic *output-to* "src/cljc/net/wikipunk/rdf/")
+
 (defprotocol Environment
   (entity [env eid]
     "Returns entity in environment given some identifier."))
 
-(defprotocol LinkedData
-  "This is a protocol for parsing RDF models. 
+(extend-protocol Environment
+  nil
+  (entity [_ eid]
+    #_(when (qualified-keyword? ident)
+      (when-some [var (if (= (namespace ident) "obo")
+                        (find-obo-metaobject ident)
+                        (or (try
+                              (requiring-resolve
+                                (symbol (str (or (get *ns-aliases* (namespace ident))
+                                                 (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                                        (name (unmunge ident))))
+                              (catch java.io.FileNotFoundException ex nil))
+                            (some-> (find-ns (symbol (namespace ident)))
+                                    (ns-name)
+                                    (as-> ns-name
+                                        (ns-resolve ns-name (unmunge ident))))
+                            (try
+                              (as-> (symbol (str *ns-prefix* (namespace ident))) ns-name
+                                (doto ns-name (require))
+                                (when (find-ns ns-name)
+                                  (ns-resolve ns-name (unmunge ident))))
+                              (catch java.io.FileNotFoundException _ nil))
+                            (try
+                              (as-> (symbol (str "net.wikipunk.rdf." (namespace ident))) ns-name
+                                (doto ns-name (require))
+                                (when (find-ns ns-name)
+                                  (ns-resolve ns-name (unmunge ident))))
+                              (catch java.io.FileNotFoundException _ nil))))]
+        (with-meta @var {:var var :type (or (and (keyword? (type var))
+                                                 (type var))
+                                            (:type (alter-meta! var assoc :type (type-of @var)))
+                                            :rdfs/Resource)})))))
+
+(defmulti compute-class-precedence-list
+  "This multimethod is called to determine the class precedence
+  list of a class.
+
+  The result is a list which contains each of class and its
+  superclasses once and only once. The first element of the sequence
+  is class and the last element is the class named :rdfs/Class.
+
+  All methods on this multimethod must compute the class precedence
+  list as a function of the ordered direct superclasses of the
+  superclasses of class. The results are undefined if the rules used
+  to compute the class precedence list depend on any other factors.
+
+  When a class is finalized, `finalize-inheritance` calls this
+  multimethod and associates the returned value with the class
+  metaobject. The value can then be accessed by calling
+  `class-precedence-list`."
+  {:arglists '([class])}
+  type-of)
+
+(defmulti parse
+  "Parses the RDF model described by the object."
+  type-of)
+
+(defmulti sniff
+  "Follow your nose."
+  type-of)
+
+(defmulti emit
+  "Write a Clojure namespace from RDF parsed from the object."
+  type-of)
+
+(defmulti graph
+  "Returns Jena Graph from parsed from the object."
+  type-of)
+
+#_(defprotocol LinkedData
+    "This is a protocol for parsing Linked Data from RDF models. 
 
   Usually, the input is a map like so:
 
@@ -78,8 +196,8 @@
 
   (Note: not all keys are required. You can try just passing the URL
   of the model.)"
-  (parse [x]
-    "Parses source using Apache Jena's RDFParser and converts it to
+    (parse [x]
+      "Parses source using Apache Jena's RDFParser and converts it to
   Clojure data using Aristotle.
 
   Adapted from arachne.aristotle.graph/graph->clj
@@ -92,26 +210,12 @@
  :private -- set to truthy value to emit ^:private vars, but inspect
  the namespace after to make sure there are no var name conflicts
  :slash -- If a vocab term has a slash in its name you should set this to true (edge case for D3FEND).")
-  (graph [x]
-    "Returns Jena Graph from x.")
-  (sniff [x]
-    "Follow your nose.")
-  (emit [x arg-map]
-    "Write Clojure namespace after parsing x with arg-map."))
-
-(def ^:dynamic *metaobjects*
-  "Contains a map of multimethod hierarchies derived from loaded
-  metaobjects when the Universal Translator was started."
-  nil)
-
-(def ^:dynamic *ns-aliases*
-  "Configured by `make-boot-context` holding a map of namespace
-  aliases mapping prefixes to delays which when dereferenced return a
-  Clojure namespace or nil if none could be found."
-  {})
-
-(def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
-(def ^:dynamic *target* "src/cljc/net/wikipunk/rdf/")
+    (graph [x]
+      "Returns Jena Graph from x.")
+    (sniff [x]
+      "Follow your nose.")
+    (emit [x arg-map]
+      "Write Clojure namespace after parsing x with arg-map."))
 
 (def ^:dynamic *slash*
   "generate keywords with _SLASH_ in name (used for D3FEND)"
@@ -502,7 +606,7 @@
 ;; the prefix string to use when locating metaobjects in your system
 ;; (optional, defaults to above)
 
-;; :target
+;; :output-to
 ;; the output directory where the Universal Translator should place
 ;; emitted Clojure namespaces from RDF models 
 ;; (optional, defaults to above)
@@ -611,12 +715,19 @@
 
 (declare iri)
 
-(defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db asami]
+(defrecord UniversalTranslator [counter bnode-cache namespaces ; raphael/NodeGenerator
+                                ns-prefix ; used to name the Clojure namespace when emitting 
+                                output-to ; used to configure the default path where namespaces are emitted
+                                context ; used to declare what namespaces should be in the boot context
+                                node ; XTDB node
+                                asami ; Asami component
+                                db ; Datomic component
+                                config]
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
-              *target*    (or target *target*)]
-      (require (or init-ns 'net.wikipunk.mop.init))
+              *output-to*    (or output-to *output-to*)]
+      (require 'net.wikipunk.mop.init)
       (let [all                           (all-metaobjects (when-not (or asami node)
                                                              ;; when a :db has been provided and we are not bootstrapping with XTDB then use the :db as the environment to find metaobjects
                                                              db))
@@ -630,14 +741,14 @@
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         #_(when db
           (alter-var-root #'mop/*env* (constantly db)))
-        #_(when node
+        (when node
           (alter-var-root #'mop/*env* (constantly node)))
         #_(when asami
           (alter-var-root #'mop/*env* (constantly asami))
           #_(doseq [mo all]
             (asami/transact (:conn asami) {:tx-data [mo]}))
           #_(finalize))
-        #_(when node
+        (when node
           (try
             (xt/submit-tx node (into []
                                      (map (juxt (constantly ::xt/put) freezable))
@@ -653,12 +764,6 @@
       (.close ^java.io.Closeable node))
     (alter-var-root #'mop/*env* (constantly nil))
     (assoc this :node nil))
-
-  LinkedData
-  (emit [_ arg-map]
-    (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
-              *target*    (or target *target*)]
-      (emit boot arg-map)))
 
   xt/DBProvider
   (db [_]
@@ -733,6 +838,12 @@
     (xt/valid-time (xt/db node)))
   (with-tx [_ tx-ops]
     (xt/with-tx (xt/db node) tx-ops)))
+
+(defmethod emit UniversalTranslator
+  [{:keys [ns-prefix output-to context]} arg-map]
+  (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
+            *output-to* (or output-to *output-to*)]
+    (emit context arg-map)))
 
 ;; Make Apache Jena iterators reducible
 
@@ -1478,7 +1589,7 @@
     (if-some [prefix (or (:prefix arg-map)
                          (:rdfa/prefix md)
                          (:vann/preferredNamespacePrefix md))]
-      (spit (str (or (:target arg-map) *target*)
+      (spit (str (or (:output-to arg-map) *output-to*)
                  (namespace-munge (str/replace prefix #"\." "/"))
                  ".cljc")
             (binding [*print-namespace-maps* nil
@@ -1674,7 +1785,7 @@
                                   
                                   (if (contains? *dont-datafy* k)
                                     m
-                                    (assoc m k v)))
+                                    (assoc m k (if (and (coll? v) (== (count v) 1)) (first v) v))))
                                 m))
                             {} (dissoc (mop/find-class ident) :xt/id)))
 
@@ -1752,163 +1863,371 @@
           (map deref (vals (ns-publics ns))))
     @idents))
 
-(extend-protocol LinkedData
-  java.util.List
-  (emit [xs arg-map]
-    (dorun (pmap #(try
-                    (emit % arg-map)
-                    (catch Throwable ex
-                      (println % (.getMessage ex))))
-                 xs)))
-  (sniff [lookup-ref]
-    (when mop/*env*
-      (when (and (= (count lookup-ref) 2)
-                 (qualified-keyword? (first lookup-ref)))
-        (mop/find-class lookup-ref))))
-  
-  clojure.lang.IPersistentMap
-  (parse [md]
-    (binding [*graph*   (graph md)
-              *slash*   (:slash md)
-              *private* (:private md)
-              *recurse* (:recurse md 0)]
-      (parse-with-meta *graph* md)))
-  (graph [md]
-    (let [{:rdfa/keys [uri prefix]
-           :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
-           :dcat/keys [downloadURL]
-           :rdf/keys  [value]
-           :keys      [format]} md
-          ^org.apache.jena.riot.RDFParserBuilder parser
-          (if value
-            (doto (RDFParser/fromString value)
-              (.lang (get a/formats (or format :ttl))))
-            (RDFParser/source (str (or downloadURL uri))))]
-      (try
-        (.toGraph parser)
-        (catch org.apache.jena.riot.RiotException ex
-          ;; if an appropriate content-type cannot be inferred try Turtle
-          (try
-            (.toGraph (doto parser (.lang Lang/TTL)))
-            (catch org.apache.jena.riot.RiotException ex
-              ;; ...try RDF/XML?
-              (try
-                (.toGraph (doto parser (.lang Lang/RDFXML)))
-                (catch org.apache.jena.riot.RiotException ex
-                  ;; ...try N3?
-                  (try
-                    (.toGraph (doto parser (.lang Lang/N3)))
-                    (catch org.apache.jena.riot.RiotException ex
-                      ;; ...try JSONLD?
-                      (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
-  (emit [x arg-map]
-    (when (:emit x true)
-      (let [model (parse x)
-            md    (meta model)]
-        (emit-ns model md arg-map))))
-  (sniff [m]
-    (if-some [id (:db/id m)]
-      (when mop/*env*
-        (mop/find-class id))
-      (let [model (parse m)]
-        (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model)))))
+(defmethod emit java.util.List
+  [xs arg-map]
+  (dorun (pmap #(try
+                  (emit % arg-map)
+                  (catch Throwable ex
+                    (println % (.getMessage ex))))
+               xs)))
 
-  clojure.lang.Keyword
-  (parse [ident]
-    (when-some [url (iri ident)]
-      (parse {:rdfa/prefix      (namespace ident)
-              :dcat/downloadURL url})))
-  (graph [ident]
-    (when-some [url (iri ident)]
-      (graph {:rdfa/prefix      (namespace ident)
-              :dcat/downloadURL url})))
-  (sniff [k]
-    (or (datafy k)
+(defmethod sniff java.util.List
+  [lookup-ref]
+  (when mop/*env*
+    (when (and (= (count lookup-ref) 2)
+               (qualified-keyword? (first lookup-ref)))
+      (mop/find-class lookup-ref))))
+
+
+(defmethod parse clojure.lang.IPersistentMap
+  [md]
+  (binding [*graph*   (graph md)
+            *slash*   (:slash md)
+            *private* (:private md)
+            *recurse* (:recurse md 0)]
+    (parse-with-meta *graph* md)))
+
+(defmethod graph clojure.lang.IPersistentMap
+  [md]
+  (let [{:rdfa/keys [uri prefix]
+         :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
+         :dcat/keys [downloadURL]
+         :rdf/keys  [value]
+         :keys      [format]} md
+        ^org.apache.jena.riot.RDFParserBuilder parser
+        (if value
+          (doto (RDFParser/fromString value)
+            (.lang (get a/formats (or format :ttl))))
+          (RDFParser/source (str (or downloadURL uri))))]
+    (try
+      (.toGraph parser)
+      (catch org.apache.jena.riot.RiotException ex
+        ;; if an appropriate content-type cannot be inferred try Turtle
         (try
-          (when-some [model (parse k)]
-            (let [forms (mapv #(dissoc % :private) (unroll-forms model))
-                  idx   (group-by :db/ident forms)]
-              (if-some [val (get idx k)]
-                (with-meta (first val)
-                  (merge (meta model)
-                         (update-vals (dissoc idx k) first)))
-                (with-meta (peek forms)
-                  (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
-          (catch Throwable ex
-            (log/debug (.getMessage ex))))))
+          (.toGraph (doto parser (.lang Lang/TTL)))
+          (catch org.apache.jena.riot.RiotException ex
+            ;; ...try RDF/XML?
+            (try
+              (.toGraph (doto parser (.lang Lang/RDFXML)))
+              (catch org.apache.jena.riot.RiotException ex
+                ;; ...try N3?
+                (try
+                  (.toGraph (doto parser (.lang Lang/N3)))
+                  (catch org.apache.jena.riot.RiotException ex
+                    ;; ...try JSONLD?
+                    (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
 
-  clojure.lang.Named
-  (parse [ident]
-    (if (qualified-ident? ident)
-      (some-> (resolve ident) deref parse)
-      (some-> (find-ns ident) meta parse)))
-  (graph [ident]
-    (if (qualified-ident? ident)
-      (some-> (resolve ident) deref graph)
-      (some-> (find-ns ident) meta graph)))
-  (emit [n arg-map]
-    (when-some [x (if (qualified-ident? n)
-                    (some-> (resolve (symbol n)) deref)
-                    (find-ns (symbol n)))]
-      (emit x arg-map)))
+(defmethod emit clojure.lang.IPersistentMap
+  [x arg-map]
+  (when (:emit x true)
+    (let [model (parse x)
+          md    (meta model)]
+      (emit-ns model md arg-map))))
 
-  clojure.lang.Namespace
-  (parse [ns]
-    (parse (meta ns)))
-  (graph [ns]
-    (graph (meta ns)))
-  (emit [ns arg-map]
-    (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map))
-
-  String
-  (parse [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))
-      (parse {:dcat/downloadURL s})
-      (parse {:rdf/value s})))
-  (graph [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))
-      (graph {:dcat/downloadURL s})
-      (graph {:rdf/value s})))
-  (emit [s arg-map]
-    (emit {:dcat/downloadURL s} arg-map))
-  (sniff [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))      
-      (sniff {:dcat/downloadURL s})
-      (let [model (sniff {:rdf/value s})]
-        (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
-
-  java.net.URI
-  (parse [uri]
-    (parse {:dcat/downloadURL (str uri)}))
-  (graph [uri]
-    (graph {:dcat/downloadURL (str uri)}))
-  (sniff [uri]
-    (sniff {:dcat/downloadURL (str uri)}))
-
-  java.net.URL
-  (parse [url]
-    (parse {:dcat/downloadURL (str url)}))
-  (graph [url]
-    (graph {:dcat/downloadURL (str url)}))
-  (sniff [url]
-    (sniff {:dcat/downloadURL (str url)}))
-
-  Graph
-  (parse [g]
-    (binding [*graph* g]
-      (parse-with-meta g nil)))
-  (graph [g] g)
-
-  java.lang.Long
-  (sniff [id]
+(defmethod sniff clojure.lang.IPersistentMap
+  [m]
+  (if-some [id (:db/id m)]
     (when mop/*env*
-      (mop/find-class id)))
+      (mop/find-class id))
+    (let [model (parse m)]
+      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model)))))
 
-  nil
-  (sniff [_] nil))
+(defmethod parse clojure.lang.Keyword
+  [ident]
+  (when-some [url (iri ident)]
+    (parse {:rdfa/prefix      (namespace ident)
+            :dcat/downloadURL url})))
+
+(defmethod graph clojure.lang.Keyword
+  [ident]
+  (when-some [url (iri ident)]
+    (graph {:rdfa/prefix      (namespace ident)
+            :dcat/downloadURL url})))
+
+(defmethod sniff clojure.lang.Keyword
+  [k]
+  (or (datafy k)
+      (try
+        (when-some [model (parse k)]
+          (let [forms (mapv #(dissoc % :private) (unroll-forms model))
+                idx   (group-by :db/ident forms)]
+            (if-some [val (get idx k)]
+              (with-meta (first val)
+                (merge (meta model)
+                       (update-vals (dissoc idx k) first)))
+              (with-meta (peek forms)
+                (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
+        (catch Throwable ex
+          (log/debug (.getMessage ex))))))
+
+(defmethod parse clojure.lang.Named
+  [ident]
+  (if (qualified-ident? ident)
+    (some-> (resolve ident) deref parse)
+    (some-> (find-ns ident) meta parse)))
+
+(defmethod graph clojure.lang.Named
+  [ident]
+  (if (qualified-ident? ident)
+    (some-> (resolve ident) deref graph)
+    (some-> (find-ns ident) meta graph)))
+
+(defmethod emit clojure.lang.Named
+  [n arg-map]
+  (when-some [x (if (qualified-ident? n)
+                  (some-> (resolve (symbol n)) deref)
+                  (find-ns (symbol n)))]
+    (emit x arg-map)))
+
+
+(defmethod parse clojure.lang.Namespace
+  [ns]
+  (parse (meta ns)))
+
+(defmethod graph clojure.lang.Namespace
+  [ns]
+  (graph (meta ns)))
+
+(defmethod emit clojure.lang.Namespace
+  [ns arg-map]
+  (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map))
+
+(defmethod parse String
+  [s]
+  (if (or (str/starts-with? s "http")
+          (str/starts-with? s "/"))
+    (parse {:dcat/downloadURL s})
+    (parse {:rdf/value s})))
+
+(defmethod graph String
+  [s]
+  (if (or (str/starts-with? s "http")
+          (str/starts-with? s "/"))
+    (graph {:dcat/downloadURL s})
+    (graph {:rdf/value s})))
+
+(defmethod emit String
+  [s arg-map]
+  (emit {:dcat/downloadURL s} arg-map))
+
+(defmethod sniff String
+  [s]
+  (if (or (str/starts-with? s "http")
+          (str/starts-with? s "/"))      
+    (sniff {:dcat/downloadURL s})
+    (let [model (sniff {:rdf/value s})]
+      (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
+
+
+(defmethod parse java.net.URI
+  [uri]
+  (parse {:dcat/downloadURL (str uri)}))
+
+(defmethod graph java.net.URI
+  [uri]
+  (graph {:dcat/downloadURL (str uri)}))
+
+(defmethod sniff java.net.URI
+  [uri]
+  (sniff {:dcat/downloadURL (str uri)}))
+
+(defmethod parse java.net.URL
+  [url]
+  (parse {:dcat/downloadURL (str url)}))
+
+(defmethod graph java.net.URL
+  [url]
+  (graph {:dcat/downloadURL (str url)}))
+
+(defmethod sniff java.net.URL
+  [url]
+  (sniff {:dcat/downloadURL (str url)}))
+
+(defmethod parse Graph [g]
+  (binding [*graph* g]
+    (parse-with-meta g nil)))
+
+(defmethod graph Graph [g] g)
+
+(defmethod sniff java.lang.Long
+  [id]
+  (when mop/*env*
+    (mop/find-class id)))
+
+(defmethod sniff nil [_] nil)
+
+(defmethod parse :rdfa/PrefixMapping
+  [{:rdfa/keys [uri prefix]
+    :dcat/keys [downloadURL]
+    :as m}]
+  (parse (dissoc m :rdf/type)))
+
+(defmethod emit :rdfa/PrefixMapping
+  [prefix-mapping arg-map]
+  (emit (dissoc prefix-mapping :rdf/type) arg-map))
+
+#_(defmethod parse clojure.lang.IPersistentMap
+    [{:rdfa/keys [uri prefix]
+      :dcat/keys [downloadURL]}]
+    )
+
+#_(extend-protocol LinkedData
+    java.util.List
+    (emit [xs arg-map]
+      (dorun (pmap #(try
+                      (emit % arg-map)
+                      (catch Throwable ex
+                        (println % (.getMessage ex))))
+                   xs)))
+    (sniff [lookup-ref]
+      (when mop/*env*
+        (when (and (= (count lookup-ref) 2)
+                   (qualified-keyword? (first lookup-ref)))
+          (mop/find-class lookup-ref))))
+  
+    clojure.lang.IPersistentMap
+    (parse [md]
+      (binding [*graph*   (graph md)
+                *slash*   (:slash md)
+                *private* (:private md)
+                *recurse* (:recurse md 0)]
+        (parse-with-meta *graph* md)))
+    (graph [md]
+      (let [{:rdfa/keys [uri prefix]
+             :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
+             :dcat/keys [downloadURL]
+             :rdf/keys  [value]
+             :keys      [format]} md
+            ^org.apache.jena.riot.RDFParserBuilder parser
+            (if value
+              (doto (RDFParser/fromString value)
+                (.lang (get a/formats (or format :ttl))))
+              (RDFParser/source (str (or downloadURL uri))))]
+        (try
+          (.toGraph parser)
+          (catch org.apache.jena.riot.RiotException ex
+            ;; if an appropriate content-type cannot be inferred try Turtle
+            (try
+              (.toGraph (doto parser (.lang Lang/TTL)))
+              (catch org.apache.jena.riot.RiotException ex
+                ;; ...try RDF/XML?
+                (try
+                  (.toGraph (doto parser (.lang Lang/RDFXML)))
+                  (catch org.apache.jena.riot.RiotException ex
+                    ;; ...try N3?
+                    (try
+                      (.toGraph (doto parser (.lang Lang/N3)))
+                      (catch org.apache.jena.riot.RiotException ex
+                        ;; ...try JSONLD?
+                        (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
+    (emit [x arg-map]
+      (when (:emit x true)
+        (let [model (parse x)
+              md    (meta model)]
+          (emit-ns model md arg-map))))
+    (sniff [m]
+      (if-some [id (:db/id m)]
+        (when mop/*env*
+          (mop/find-class id))
+        (let [model (parse m)]
+          (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model)))))
+
+    clojure.lang.Keyword
+    (parse [ident]
+      (when-some [url (iri ident)]
+        (parse {:rdfa/prefix      (namespace ident)
+                :dcat/downloadURL url})))
+    (graph [ident]
+      (when-some [url (iri ident)]
+        (graph {:rdfa/prefix      (namespace ident)
+                :dcat/downloadURL url})))
+    (sniff [k]
+      (or (datafy k)
+          (try
+            (when-some [model (parse k)]
+              (let [forms (mapv #(dissoc % :private) (unroll-forms model))
+                    idx   (group-by :db/ident forms)]
+                (if-some [val (get idx k)]
+                  (with-meta (first val)
+                    (merge (meta model)
+                           (update-vals (dissoc idx k) first)))
+                  (with-meta (peek forms)
+                    (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
+            (catch Throwable ex
+              (log/debug (.getMessage ex))))))
+
+    clojure.lang.Named
+    (parse [ident]
+      (if (qualified-ident? ident)
+        (some-> (resolve ident) deref parse)
+        (some-> (find-ns ident) meta parse)))
+    (graph [ident]
+      (if (qualified-ident? ident)
+        (some-> (resolve ident) deref graph)
+        (some-> (find-ns ident) meta graph)))
+    (emit [n arg-map]
+      (when-some [x (if (qualified-ident? n)
+                      (some-> (resolve (symbol n)) deref)
+                      (find-ns (symbol n)))]
+        (emit x arg-map)))
+
+    clojure.lang.Namespace
+    (parse [ns]
+      (parse (meta ns)))
+    (graph [ns]
+      (graph (meta ns)))
+    (emit [ns arg-map]
+      (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map))
+
+    String
+    (parse [s]
+      (if (or (str/starts-with? s "http")
+              (str/starts-with? s "/"))
+        (parse {:dcat/downloadURL s})
+        (parse {:rdf/value s})))
+    (graph [s]
+      (if (or (str/starts-with? s "http")
+              (str/starts-with? s "/"))
+        (graph {:dcat/downloadURL s})
+        (graph {:rdf/value s})))
+    (emit [s arg-map]
+      (emit {:dcat/downloadURL s} arg-map))
+    (sniff [s]
+      (if (or (str/starts-with? s "http")
+              (str/starts-with? s "/"))      
+        (sniff {:dcat/downloadURL s})
+        (let [model (sniff {:rdf/value s})]
+          (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
+
+    java.net.URI
+    (parse [uri]
+      (parse {:dcat/downloadURL (str uri)}))
+    (graph [uri]
+      (graph {:dcat/downloadURL (str uri)}))
+    (sniff [uri]
+      (sniff {:dcat/downloadURL (str uri)}))
+
+    java.net.URL
+    (parse [url]
+      (parse {:dcat/downloadURL (str url)}))
+    (graph [url]
+      (graph {:dcat/downloadURL (str url)}))
+    (sniff [url]
+      (sniff {:dcat/downloadURL (str url)}))
+
+    Graph
+    (parse [g]
+      (binding [*graph* g]
+        (parse-with-meta g nil)))
+    (graph [g] g)
+
+    java.lang.Long
+    (sniff [id]
+      (when mop/*env*
+        (mop/find-class id)))
+
+    nil
+    (sniff [_] nil))
 
 
 (defrecord Asami [uri conn]

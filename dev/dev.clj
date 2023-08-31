@@ -48,7 +48,8 @@
    [quoll.raphael.core :as raphael]
    [donatello.ttl :as ttl]
    [michelangelo.core :as ma]
-   [tiara.data :refer [ordered-map ordered-set]]))
+   [tiara.data :refer [ordered-map ordered-set]]
+   [methodical.core :as mm]))
 
 (set-init
   (fn [_]

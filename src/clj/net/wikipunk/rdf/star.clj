@@ -36,7 +36,7 @@
     (if-some [prefix (or (:prefix arg-map)
                          (:rdfa/prefix md)
                          (:vann/preferredNamespacePrefix md))]
-      (spit (str (or (:target arg-map) rdf/*target*)
+      (spit (str (or (:output-to arg-map) rdf/*output-to*)
                  (namespace-munge (str/replace prefix #"\." "/"))
                  ".cljc")
             (binding [*print-namespace-maps* nil
