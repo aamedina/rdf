@@ -87,6 +87,16 @@
 
 (def ^:dynamic *schema* nil)
 
+(defn unroll-blank
+  "used to add :db/id's to blank nodes"
+  [form]
+  (if (and (map? form)
+           (and (not (contains? form :rdfa/uri))
+                (not (contains? form :db/ident))
+                (not (contains? form :db/id))))
+    (assoc form :db/id (str (random-uuid)))
+    form))
+
 (extend-protocol Seed
   clojure.lang.Sequential
   (select-attributes [xs] xs)
@@ -136,8 +146,8 @@
                             m
                             (dissoc m k)))
                         m m)
-             (walk/prewalk rdf/unroll-langString)
-             (walk/prewalk rdf/box-values)
+             #_(walk/prewalk rdf/unroll-langString)
+             #_(walk/prewalk rdf/box-values)
              (walk/postwalk (fn [form]
                               (cond
                                 (and (map-entry? form)
@@ -151,15 +161,18 @@
                                            (case (rdf/infer-datomic-type k)
                                              :db.type/string (cond
                                                                (map? v)
-                                                               (or (:rdfa/uri v) (pr-str v))
+                                                               (or (:rdfa/uri v)
+                                                                   (:xsd/string v)
+                                                                   (:rdf/value v)
+                                                                   (pr-str v))
                                                                
                                                                (coll? v)
                                                                v
                                                                
                                                                :else
                                                                (str v))
-                                             :db.type/long    (if (vector? v)
-                                                                (mapv long v)
+                                             :db.type/long    (if (coll? v)
+                                                                (into #{} (map long) v)
                                                                 (long v))
                                              :db.type/double  (double v)
                                              :db.type/instant (if (string? v)
@@ -168,13 +181,17 @@
                                              :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
                                                                         k :rdf/List)
                                                                 (g/rdf-list v)
-                                                                (mapv (fn [v]
-                                                                        (if (not (or (map? v) (keyword? v)))
-                                                                          (rdf/box v)
-                                                                          v))
+                                                                (into (if (and (coll? v) (not (map? v)))
+                                                                        (empty v)
+                                                                        #{})
+                                                                      (map (fn [v]
+                                                                             (println v)
+                                                                             (if (not (or (map? v) (keyword? v)))
+                                                                               (rdf/box v)
+                                                                               v)))
                                                                       (if (and (coll? v) (not (map? v)))
                                                                         v
-                                                                        [v])))
+                                                                        #{v})))
                                              
                                              :db.type/bigint (bigint v)
                                              :db.type/bigdec (bigdec v)
@@ -193,8 +210,8 @@
                                            v')]
                                   [k v'])
                                 :else form)))
-             (walk/prewalk rdf/unroll-blank)
-             (walk/prewalk rdf/box-values)
+             (walk/prewalk unroll-blank)
+             #_(walk/prewalk rdf/box-values)
              (walk/prewalk (fn [form]
                              (if (and (string? form)
                                       (>= (count form) 4096))
@@ -264,7 +281,7 @@
     (when unionOf
       (some rdf/infer-datomic-type unionOf))))
 
-(defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
+#_(defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
 
 (prefer-method rdf/infer-datomic-type :rdfs/Literal :rdfs/Datatype)
 (defmethod rdf/infer-datomic-type :rdfs/seeAlso [_] :db.type/ref)
@@ -273,7 +290,7 @@
 (defmethod rdf/infer-datomic-type :rdfa/term [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :rdfa/prefix [_] :db.type/string)
 
-(defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
+#_(defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :owl/real [_] :db.type/bigdec)
 (defmethod rdf/infer-datomic-type :owl/deprecated [_] :db.type/boolean)
 (defmethod rdf/infer-datomic-type :owl/versionInfo [_] :db.type/string)

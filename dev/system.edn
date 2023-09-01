@@ -1,4 +1,4 @@
-{:asami  {:sc/create-fn net.wikipunk.rdf/map->Asami
+{:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
           :uri          "asami:local://.vocab"}
  :client {:sc/create-fn datomic.client.api/client
           :server-type  :datomic-local
@@ -7,9 +7,8 @@
           :sc/refs      [:client]
           :db-name      "rdf"}
  :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :sc/refs      [:asami :db]
+          :sc/refs      {:env :asami}
           :ns-prefix    "net.wikipunk.rdf."
           :output-to    "src/cljc/net/wikipunk/rdf/"
           :context      [net.wikipunk.boot
-                         net.wikipunk.ext]
-          :config       {}}}
+                         net.wikipunk.ext]}}

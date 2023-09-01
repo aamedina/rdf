@@ -303,7 +303,7 @@
   {:db/ident    :keys/mode,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/domain :keys/Key,
-   :rdfs/range  {:owl/oneOf ["major" "minor"],
+   :rdfs/range  {:owl/oneOf [{:xsd/string "major"} {:xsd/string "minor"}],
                  :rdf/type  :owl/DataRange}})
 
 (def tonic

@@ -11,7 +11,7 @@
 
 (def as
   "Activity Vocabulary"
-  {:dcat/downloadURL "resources/activitystreams2.ttl"
+  {:dcat/downloadURL "net/wikipunk/boot/activitystreams2.ttl"
    :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
    :rdfa/prefix      "as",
    :rdfs/isDefinedBy {:rdfa/uri
@@ -44,7 +44,7 @@
 
 (def dc11
   "Dublin Core Metadata Element Set, Version 1.1"
-  {:dcat/downloadURL "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_elements.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dublin_core_elements.ttl"
    :rdfa/uri         "http://purl.org/dc/elements/1.1/",
    :rdfa/prefix      "dc11",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/elements/1.1/"},
@@ -59,7 +59,7 @@
 
 (def dcterms
   "Dublin Core Metadata Terms"
-  {:dcat/downloadURL "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl"
+  {:dcat/downloadURL "net/wikipunk/boot/dublin_core_terms.ttl"
    :rdfa/uri         "http://purl.org/dc/terms/",
    :rdfa/prefix      "dcterms",
    :rdfs/isDefinedBy {:rdfa/uri
@@ -144,7 +144,7 @@
 
 (def jsonld
   "JSON-LD"
-  {:dcat/downloadURL "resources/json-ld.jsonld"
+  {:dcat/downloadURL "net/wikipunk/boot/json-ld.jsonld"
    :rdfa/uri         "http://www.w3.org/ns/json-ld#",
    :rdfa/prefix      "jsonld",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/json-ld/"},
@@ -153,7 +153,7 @@
 
 (def ldp
   "Linked Data Platform Vocabulary"
-  {:dcat/downloadURL "resources/ldp.rdf"
+  {:dcat/downloadURL "net/wikipunk/boot/ldp.rdf"
    :rdfa/uri         "http://www.w3.org/ns/ldp#",
    :rdfa/prefix      "ldp",
    :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/ldp/"},
@@ -290,7 +290,7 @@
 
 (def sioc
   "SIOC Core Ontology"
-  {:dcat/downloadURL "resources/sioc.rdf"
+  {:dcat/downloadURL "net/wikipunk/boot/sioc.rdf"
    :rdfa/uri    "http://rdfs.org/sioc/ns#",
    :rdfa/prefix "sioc",
    :rdfs/isDefinedBy
@@ -358,7 +358,7 @@
 
 (def void
   "VoID"
-  {:dcat/downloadURL "resources/void.ttl"
+  {:dcat/downloadURL "net/wikipunk/boot/void.ttl"
    :rdfa/uri         "http://rdfs.org/ns/void#",
    :rdfa/prefix      "void",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/void/"},

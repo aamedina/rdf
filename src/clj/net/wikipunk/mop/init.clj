@@ -1,8 +1,6 @@
 (ns net.wikipunk.mop.init
   "The Metaobject Initialization Protocol"
   (:require
-   [asami.core :as asami]
-   [xtdb.api :as xt]
    [clojure.datafy :refer [datafy]]
    [clojure.set :as set]
    [clojure.string :as str]
@@ -10,26 +8,12 @@
    [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf :as rdf]
    [net.wikipunk.boot]
-   [net.wikipunk.ext]
-   [taoensso.nippy :as nippy]))
+   [net.wikipunk.ext]))
 
 (defmethod mop/find-class-using-env :default
   [ident env]
   (when (qualified-keyword? ident)
     (mop/find-class-using-env ident nil)))
-
-(defmethod mop/find-class-using-env [clojure.lang.Keyword xtdb.node.XtdbNode]
-  [ident env]
-  (or (xt/entity (xt/db env) ident)
-      (mop/find-class-using-env ident nil)))
-
-(defmethod mop/find-class-using-env [Object xtdb.node.XtdbNode]
-  [ident env]
-  nil)
-
-(defmethod mop/find-class-using-env [Object net.wikipunk.rdf.Asami]
-  [ident env]
-  (asami/entity env ident))
 
 (defmethod mop/make-instance :rdfs/Class
   [class & {:as initargs}]
@@ -268,7 +252,7 @@
                                                                        :metaclass))
                               mop/*env*))
 
-(defmethod mop/finalize-inheritance :rdfs/Class
+#_(defmethod mop/finalize-inheritance :rdfs/Class
   [class]
   (let [class (assoc class
                      :mop/classDirectSlots
@@ -292,19 +276,19 @@
                      (mop/class-direct-subclasses class))]
     (mop/intern-class-using-env class mop/*env*)))
 
-(defmethod mop/intern-class-using-env [:rdfs/Class xtdb.node.XtdbNode]
-  [class env]
-  (try
-    (xt/submit-tx env [[::xt/put (rdf/freezable class)]])
-    (catch Throwable ex
-      (throw (ex-info (.getMessage ex) {:class class} ex)))))
+(defmethod mop/finalize-inheritance :rdfs/Class
+  [class]
+  (let [cds (mop/class-direct-slots class)
+        cpl (mop/class-precedence-list class)]    
+    (mop/intern-class-using-env
+      (cond-> class
+        (seq cds) (assoc :mop/classDirectSlots cds)
+        (seq cpl) (assoc :mop/classPrecedenceList cpl))
+      mop/*env*)))
 
-(defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.rdf.Asami]
+(defmethod mop/intern-class-using-env [:rdfs/Class nil]
   [class env]
-  (try
-    (asami/transact (:conn env) {:tx-data [class]})
-    (catch Throwable ex
-      (throw (ex-info (.getMessage ex) {:class class} ex)))))
+  class)
 
 (defmethod mop/compute-default-initargs :rdfs/Class
   [{:mop/keys [classPrecedenceList
@@ -318,16 +302,6 @@
 
 ;; 1. Compute the direct slots for each class in its class-precedence-list.
 ;; 2. Combine all of the slots into a single set.
-
-#_(defmethod mop/compute-slots :owl/NamedIndividual
-    [{:db/keys   [ident]
-      :rdf/keys  [type]
-      :rdfs/keys [subClassOf]
-      :owl/keys  [deprecated equivalentClass]
-      :as        class}]
-    (mop/class-direct-slots ident))
-
-#_(remove-method mop/compute-slots :owl/NamedIndividual)
 
 (defmethod mop/compute-slots :rdfs/Class
   [{:mop/keys  [classPrecedenceList
@@ -353,34 +327,7 @@
          (take-while (complement #{:owl/Class :rdfs/Class :sh/Shape :sh/NodeShape}))
          (map mop/class-direct-slots) ;; get the direct slots of each class
          (reduce set/union) ;; combine them into a single set
-         ))
-  
-  
-  #_(->> (filter keyword? (concat (take-while (complement (cond
-                                                            (isa? ident :owl/NamedIndividual)
-                                                            #{:owl/NamedIndividual :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
-
-                                                            (isa? ident :owl/Class)
-                                                            #{:owl/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
-
-                                                            (identical? ident :rdfs/Class)
-                                                            #{:rdfs/Resource}
-
-                                                            (identical? ident :rdfs/Resource)
-                                                            #{}
-
-                                                            :else
-                                                            #{:rdfs/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}))
-                                              (or classPrecedenceList
-                                                  (mop/compute-class-precedence-list class)))
-                                  (remove #{:rdfs/Resource} subClassOf)
-                                  equivalentClass))
-         (mapcat mop/class-direct-slots)
-         (remove (fn [{:db/keys [ident] :rdf/keys [type]}] (some #(isa? % :owl/AnnotationProperty) type)))
-         (filter (fn [{:rdfs/keys [domain] :as slot}]
-                   (some #(isa? ident %) domain)))
-         (group-by :db/ident)
-         (mapv #(mop/compute-effective-slot-definition class (key %) (val %)))))
+         )))
 
 (defmethod mop/slot-definition-initfunction :rdfs/Class
   [slot]
@@ -743,3 +690,6 @@
   [class superclass]
   (some-> (mop/find-class class)
           (mop/validate-superclass superclass)))
+
+
+

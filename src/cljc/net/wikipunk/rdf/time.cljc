@@ -439,7 +439,7 @@
    :rdfs/subClassOf #{{:owl/hasValue   :time/unitMonth,
                        :owl/onProperty :time/unitType,
                        :rdf/type       :owl/Restriction}
-                      {:owl/hasValue   "--01",
+                      {:owl/hasValue   {:xsd/string "--01"},
                        :owl/onProperty :time/month,
                        :rdf/type       :owl/Restriction}
                       :time/DateTimeDescription},

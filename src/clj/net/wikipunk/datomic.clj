@@ -131,6 +131,6 @@
 (defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.datomic.Connection]
   [class env]
   (try
-    (d/transact env {:tx-data [(dissoc (rdf/freezable class) :xt/id)]})
+    (d/transact env {:tx-data [class]})
     (catch Throwable ex
       (throw (ex-info (.getMessage ex) {:class class} ex)))))

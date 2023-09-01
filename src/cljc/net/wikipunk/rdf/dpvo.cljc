@@ -12,7 +12,8 @@
      "Bud Bruegger" "Piero Bonatti" "Elmar Kiesling" "Javier D. Fernández"
      "Mark Lizar"},
    :dcterms/created #inst "2019-06-18T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -46,8 +47,10 @@
   "Purposes associated with conducting or assisting with research conducted in an academic context e.g. within universities"
   {:db/ident :dpvo/AcademicResearch,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -66,7 +69,7 @@
   "Organisations related to academia or scientific pursuits e.g. Universities, Schools, Research Bodies"
   {:db/ident :dpvo/AcademicScientificOrganisation,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -85,7 +88,8 @@
   "to access data"
   {:db/ident            :dpvo/Access,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to access data"},
    :rdf/type            :owl/Class,
@@ -100,8 +104,9 @@
   "Methods which restrict access to a place or resource"
   {:db/ident :dpvo/AccessControlMethod,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Methods which restrict access to a place or resource"},
@@ -117,8 +122,9 @@
   "Account Management refers to purposes associated with account management, such as to create, provide, maintain, and manage accounts"
   {:db/ident :dpvo/AccountManagement,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -152,8 +158,9 @@
   "The right(s) applicable, provided, or expected that need to be (actively) exercised"
   {:db/ident :dpvo/ActiveRight,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Beatriz Esteves" "Paul Ryan"
-                      "Harshvardhan J Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan J Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -174,7 +181,7 @@
   "State of an activity that has completed i.e. is fully in the past"
   {:db/ident :dpvo/ActivityCompleted,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -190,7 +197,7 @@
   "State of an activity that was occuring in the past, and has been halted or paused or stoped"
   {:db/ident :dpvo/ActivityHalted,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -206,7 +213,7 @@
   "Monitoring of activities including assessing whether they have been successfully initiated and completed"
   {:db/ident :dpvo/ActivityMonitoring,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -226,7 +233,7 @@
   "State of an activity that could not be completed, but has reached some end state"
   {:db/ident :dpvo/ActivityNotCompleted,
    :dcterms/created #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -246,7 +253,7 @@
   "State of an activity occuring in continuation i.e. currently ongoing"
   {:db/ident :dpvo/ActivityOngoing,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -262,7 +269,7 @@
   "State of an activity being proposed or planned i.e. yet to occur"
   {:db/ident :dpvo/ActivityProposed,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -278,7 +285,7 @@
   "Status associated with activity operations and lifecycles"
   {:db/ident :dpvo/ActivityStatus,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Status associated with activity operations and lifecycles"},
@@ -312,7 +319,7 @@
   "A natural person that is not a child i.e. has attained some legally specified age of adulthood"
   {:db/ident :dpvo/Adult,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Georg Krog",
+   :dcterms/creator {:xsd/string "Georg Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -329,8 +336,9 @@
   "Purposes associated with conducting advertising i.e. process or artefact used to call attention to a product, service, etc. through announcements, notices, or other forms of communication"
   {:db/ident :dpvo/Advertising,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -351,7 +359,7 @@
   "The algorithmic logic applied or used"
   {:db/ident :dpvo/AlgorithmicLogic,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "The algorithmic logic applied or used"},
    :dcterms/modified #inst "2022-06-15T00:00:00.000-00:00",
@@ -423,8 +431,9 @@
   "Anonymisation is the process by which data is irreversibly altered in such a way that a data subject can no longer be identified directly or indirectly, either by the entity holding the data alone or in collaboration with other entities and information sources"
   {:db/ident :dpvo/Anonymisation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -463,7 +472,7 @@
   "Personal Data that has been (fully and completely) anonymised so that it is no longer considered Personal Data"
   {:db/ident :dpvo/AnonymisedData,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Piero Bonatti",
+   :dcterms/creator {:xsd/string "Piero Bonatti"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -484,7 +493,7 @@
   "Purposes associated with activities that detect, prevent, mitigate, or perform other activities for anti-terrorism"
   {:db/ident :dpvo/AntiTerrorismOperations,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -501,8 +510,11 @@
   "Data subjects that are applicants in some context"
   {:db/ident            :dpvo/Applicant,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Data subjects that are applicants in some context"},
@@ -518,7 +530,8 @@
   "to assess data for some criteria"
   {:db/ident            :dpvo/Assess,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to assess data for some criteria"},
    :rdf/type            :owl/Class,
@@ -533,7 +546,7 @@
   "The document, plan, or process for assessment or determination towards a purpose e.g. assessment of legality or impact assessments"
   {:db/ident :dpvo/Assessment,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -550,7 +563,7 @@
   "Procedures related to management of assets"
   {:db/ident :dpvo/AssetManagementProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Procedures related to management of assets"},
@@ -569,7 +582,7 @@
   "Data subjects that are asylum seekers"
   {:db/ident            :dpvo/AsylumSeeker,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Georg P Krog",
+   :dcterms/creator     {:xsd/string "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Data subjects that are asylum seekers"},
    :rdf/type            :owl/Class,
@@ -584,7 +597,7 @@
   "Use of public-key cryptography or asymmetric cryptography involving a public and private pair of keys"
   {:db/ident :dpvo/AsymmetricCryptography,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -604,7 +617,7 @@
   "Use of asymmetric cryptography to encrypt data"
   {:db/ident :dpvo/AsymmetricEncryption,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Use of asymmetric cryptography to encrypt data"},
@@ -623,7 +636,7 @@
   "State of being approved through the audit"
   {:db/ident            :dpvo/AuditApproved,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of being approved through the audit"},
@@ -638,7 +651,7 @@
   "State of being conditionally approved through the audit"
   {:db/ident :dpvo/AuditConditionallyApproved,
    :dcterms/created #inst "2022-06-29T00:00:00.000-00:00",
-   :dcterms/creator "Paul Ryan",
+   :dcterms/creator {:xsd/string "Paul Ryan"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State of being conditionally approved through the audit"},
@@ -657,7 +670,7 @@
   "State where an audit is determined as not being required"
   {:db/ident :dpvo/AuditNotRequired,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State where an audit is determined as not being required"},
@@ -672,7 +685,7 @@
   "State of not being approved or being rejected through the audit"
   {:db/ident :dpvo/AuditRejected,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -688,7 +701,7 @@
   "State of an audit being requested whose outcome is not yet known"
   {:db/ident :dpvo/AuditRequested,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -704,7 +717,7 @@
   "State where an audit is determined as being required but has not been conducted"
   {:db/ident :dpvo/AuditRequired,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -720,7 +733,7 @@
   "Status associated with Auditing or Investigation"
   {:db/ident            :dpvo/AuditStatus,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Status associated with Auditing or Investigation"},
@@ -736,7 +749,7 @@
   "Use of Attribute Based Credentials (ABC) to perform and manage authentication"
   {:db/ident :dpvo/Authentication-ABC,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -756,7 +769,7 @@
   "Use of Privacy-enhacing Attribute Based Credentials (ABC) to perform and manage authentication"
   {:db/ident :dpvo/Authentication-PABC,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -776,8 +789,9 @@
   "Protocols involving validation of identity i.e. authentication of a person or information"
   {:db/ident :dpvo/AuthenticationProtocols,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -794,8 +808,9 @@
   "Procedures for determining authorisation through permission or authority"
   {:db/ident :dpvo/AuthorisationProcedure,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -816,7 +831,7 @@
   "Protocols involving authorisation of roles or profiles to determine permission, rights, or privileges"
   {:db/ident :dpvo/AuthorisationProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -836,7 +851,8 @@
   "An authority with the power to create or enforce laws, or determine their compliance."
   {:db/ident :dpvo/Authority,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "Paul Ryan" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Georg Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -853,7 +869,8 @@
   "Processing that involves automated decision making"
   {:db/ident :dpvo/AutomatedDecisionMaking,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Piero Bonatti"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Piero Bonatti"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Processing that involves automated decision making"},
@@ -876,7 +893,7 @@
   "Processing that is automated and involves inputs by Humans"
   {:db/ident :dpvo/AutomatedProcessingWithHumanInput,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Processing that is automated and involves inputs by Humans"},
@@ -897,7 +914,7 @@
   "Processing that is automated and involves oversight by Humans"
   {:db/ident :dpvo/AutomatedProcessingWithHumanOversight,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Processing that is automated and involves oversight by Humans"},
@@ -918,7 +935,7 @@
   "Processing that is automated and involves review by Humans"
   {:db/ident :dpvo/AutomatedProcessingWithHumanReview,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Processing that is automated and involves review by Humans"},
@@ -939,7 +956,7 @@
   "Contextual information about the degree of automation and human involvement associated with Processing"
   {:db/ident :dpvo/AutomationOfProcessing,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -960,7 +977,7 @@
   "Procedure where the background of an entity is assessed to identity vulnerabilities and threats due to their current or intended role"
   {:db/ident :dpvo/BackgroundChecks,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -980,9 +997,12 @@
   "Impact(s) that acts as or causes benefits"
   {:db/ident            :dpvo/Benefit,
    :dcterms/created     #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Axel Polleres"
-                          "Harshvardhan J. Pandit" "Beatriz Esteves"
-                          "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator     #{{:xsd/string "Fajar Ekaputra"}
+                          {:xsd/string "Axel Polleres"}
+                          {:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Impact(s) that acts as or causes benefits"},
@@ -998,7 +1018,7 @@
   "Use of biometric data for authentication"
   {:db/ident :dpvo/BiometricAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Use of biometric data for authentication"},
    :dcterms/source
@@ -1016,8 +1036,9 @@
   "Certification mechanisms, seals, and marks for the purpose of demonstrating compliance"
   {:db/ident :dpvo/Certification,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1034,8 +1055,9 @@
   "Certifications, seals, and marks indicating compliance to regulations or practices"
   {:db/ident :dpvo/CertificationSeal,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1052,7 +1074,7 @@
   "A 'child' is a natural legal person who is below a certain legal age depending on the legal jurisdiction."
   {:db/ident :dpvo/Child,
    :dcterms/created #inst "2020-11-25T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1074,8 +1096,10 @@
   "Data subjects that are citizens (for a jurisdiction)"
   {:db/ident :dpvo/Citizen,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Data subjects that are citizens (for a jurisdiction)"},
@@ -1091,7 +1115,7 @@
   "A region consisting of urban population and commerce"
   {:db/ident :dpvo/City,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A region consisting of urban population and commerce"},
@@ -1107,8 +1131,10 @@
   "Data subjects that are clients or recipients of services"
   {:db/ident :dpvo/Client,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Data subjects that are clients or recipients of services"},
@@ -1124,7 +1150,7 @@
   "Location that is in the 'cloud' i.e. a logical location operated over the internet"
   {:db/ident :dpvo/CloudLocation,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1142,8 +1168,9 @@
   "A set of rules or procedures outlining the norms and practices for conducting activities"
   {:db/ident :dpvo/CodeOfConduct,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1179,7 +1206,7 @@
   "Personal Data that has been collected from another source such as the Data Subject"
   {:db/ident :dpvo/CollectedPersonalData,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1219,8 +1246,10 @@
   "Purposes associated with conducting research in a commercial setting or with intention to commercialise e.g. in a company or sponsored by a company"
   {:db/ident :dpvo/CommercialResearch,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1239,8 +1268,9 @@
   "Customer Care Communication refers to purposes associated with communicating with customers for assisting them, resolving issues, ensuring satisfaction, etc. in relation to services provided"
   {:db/ident :dpvo/CommunicationForCustomerCare,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1257,8 +1287,9 @@
   "Communication Management refers to purposes associated with providing or managing communication activities e.g. to send an email for notifying some information"
   {:db/ident :dpvo/CommunicationManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1279,7 +1310,7 @@
   "Processing that is completely un-automated or fully manual"
   {:db/ident :dpvo/CompletelyManualProcessing,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Processing that is completely un-automated or fully manual"},
@@ -1297,7 +1328,7 @@
   "State where the status of compliance has not been fully assessed, evaluated, or determined"
   {:db/ident :dpvo/ComplianceIndeterminate,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1313,7 +1344,7 @@
   "Monitoring of compliance (e.g. internal policy, regulations)"
   {:db/ident :dpvo/ComplianceMonitoring,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Monitoring of compliance (e.g. internal policy, regulations)"},
@@ -1332,7 +1363,7 @@
   "Status associated with Compliance with some norms, objectives, or requirements"
   {:db/ident :dpvo/ComplianceStatus,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1349,7 +1380,7 @@
   "State where the status of compliance is unknown"
   {:db/ident            :dpvo/ComplianceUnknown,
    :dcterms/created     #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State where the status of compliance is unknown"},
@@ -1364,7 +1395,7 @@
   "State where compliance cannot be achieved due to requirements being violated"
   {:db/ident :dpvo/ComplianceViolation,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1385,7 +1416,7 @@
   "State of being fully compliant"
   {:db/ident            :dpvo/Compliant,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of being fully compliant"},
    :rdf/type            #{:dpvo/ComplianceStatus :owl/NamedIndividual},
@@ -1399,7 +1430,7 @@
   "Status associated with conformance to a standard, guideline, code, or recommendation"
   {:db/ident :dpvo/ConformanceStatus,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1416,7 +1447,7 @@
   "State of being conformant"
   {:db/ident            :dpvo/Conformant,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of being conformant"},
    :rdf/type            #{:dpvo/ConformanceStatus :owl/NamedIndividual},
@@ -1430,7 +1461,7 @@
   "Consent of the Data Subject for specified processing"
   {:db/ident :dpvo/Consent,
    :dcterms/created #inst "2021-04-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Consent of the Data Subject for specified processing"},
@@ -1446,8 +1477,9 @@
   "The state where the temporal or contextual validity of consent has 'expired'"
   {:db/ident :dpvo/ConsentExpired,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1468,8 +1500,9 @@
   "The state where consent has been given"
   {:db/ident :dpvo/ConsentGiven,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The state where consent has been given"},
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
@@ -1488,8 +1521,9 @@
   "The state where consent has been deemed to be invalid"
   {:db/ident :dpvo/ConsentInvalidated,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "The state where consent has been deemed to be invalid"},
@@ -1509,8 +1543,9 @@
   "A Notice for information provision associated with Consent"
   {:db/ident :dpvo/ConsentNotice,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A Notice for information provision associated with Consent"},
@@ -1526,8 +1561,10 @@
   "A Record of Consent or Consent related activities"
   {:db/ident            :dpvo/ConsentRecord,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                          "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "A Record of Consent or Consent related activities"},
@@ -1543,8 +1580,9 @@
   "The state where consent has been refused"
   {:db/ident :dpvo/ConsentRefused,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The state where consent has been refused"},
    :dcterms/source {:rdfa/uri "https://w3id.org/GConsent"},
@@ -1563,8 +1601,9 @@
   "State where a request for consent has been deferred without a decision"
   {:db/ident :dpvo/ConsentRequestDeferred,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1585,8 +1624,9 @@
   "State where a request for consent has been made and is awaiting a decision"
   {:db/ident :dpvo/ConsentRequested,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1607,8 +1647,9 @@
   "The state where the consent is revoked by an entity other than the data subject and which prevents it from being further used as a valid state"
   {:db/ident :dpvo/ConsentRevoked,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1629,8 +1670,9 @@
   "The state or status of 'consent' that provides information reflecting its operational status and validity for processing data"
   {:db/ident :dpvo/ConsentStatus,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1652,8 +1694,9 @@
   "States of consent that cannot be used as valid justifications for processing data"
   {:db/ident :dpvo/ConsentStatusInvalidForProcessing,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1675,8 +1718,9 @@
   "States of consent that can be used as valid justifications for processing data"
   {:db/ident :dpvo/ConsentStatusValidForProcessing,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1698,8 +1742,9 @@
   "State where information about consent is not available or is unknown"
   {:db/ident :dpvo/ConsentUnknown,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1720,8 +1765,9 @@
   "The state where the consent is withdrawn or revoked specifically by the data subject and which prevents it from being further used as a valid state"
   {:db/ident :dpvo/ConsentWithdrawn,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1742,7 +1788,7 @@
   "The consequence(s) possible or arising from specified context"
   {:db/ident :dpvo/Consequence,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "The consequence(s) possible or arising from specified context"},
@@ -1757,7 +1803,7 @@
   "The consequence(s) possible or arising as a side-effect of specified context"
   {:db/ident :dpvo/ConsequenceAsSideEffect,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1774,7 +1820,8 @@
   "The consequence(s) possible or arising from failure of specified context"
   {:db/ident :dpvo/ConsequenceOfFailure,
    :dcterms/created #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1791,7 +1838,8 @@
   "The consequence(s) possible or arising from success of specified context"
   {:db/ident :dpvo/ConsequenceOfSuccess,
    :dcterms/created #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1827,7 +1875,9 @@
   "Consultation is a process of receiving feedback, advice, or opinion from an external agency"
   {:db/ident :dpvo/Consultation,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1844,7 +1894,9 @@
   "Consultation with an authority or authoritative entity"
   {:db/ident :dpvo/ConsultationWithAuthority,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Consultation with an authority or authoritative entity"},
@@ -1860,7 +1912,8 @@
   "Consultation with Data Protection Officer(s)"
   {:db/ident            :dpvo/ConsultationWithDPO,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Consultation with Data Protection Officer(s)"},
@@ -1876,7 +1929,8 @@
   "Consultation with data subject(s) or their representative(s)"
   {:db/ident :dpvo/ConsultationWithDataSubject,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Consultation with data subject(s) or their representative(s)"},
@@ -1892,7 +1946,8 @@
   "Consultation with representative of data subject(s)"
   {:db/ident            :dpvo/ConsultationWithDataSubjectRepresentative,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Consultation with representative of data subject(s)"},
@@ -1909,8 +1964,10 @@
   "Data subjects that consume goods or services for direct use"
   {:db/ident :dpvo/Consumer,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Data subjects that consume goods or services for direct use"},
@@ -1926,8 +1983,10 @@
   "Contextually relevant information not possible to represent through other core concepts"
   {:db/ident :dpvo/Context,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1944,7 +2003,7 @@
   "Frequency where occurences are continous"
   {:db/ident            :dpvo/ContinousFrequency,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Frequency where occurences are continous"},
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-00:00",
@@ -1960,7 +2019,7 @@
   "Creation, completion, fulfilment, or performance of a contract involving specified processing"
   {:db/ident :dpvo/Contract,
    :dcterms/created #inst "2021-04-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1977,7 +2036,9 @@
   "Fulfilment or performance of a contract involving specified processing"
   {:db/ident :dpvo/ContractPerformance,
    :dcterms/created #inst "2021-04-07T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1994,8 +2055,9 @@
   "Contractual terms governing data handling within or with an entity"
   {:db/ident :dpvo/ContractualTerms,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2012,8 +2074,10 @@
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller and a Data Processor"
   {:db/ident :dpvo/ControllerProcessorAgreement,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2049,7 +2113,7 @@
   "Purposes associated with detection, prevention, and mitigation of mitigate money laundering"
   {:db/ident :dpvo/CounterMoneyLaundering,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2066,7 +2130,8 @@
   "A political entity indicative of a sovereign or non-sovereign territorial state comprising of distinct geographical areas"
   {:db/ident :dpvo/Country,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2087,7 +2152,7 @@
   "Management of credentials and their use in authorisations"
   {:db/ident :dpvo/CredentialManagement,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Management of credentials and their use in authorisations"},
@@ -2103,7 +2168,7 @@
   "Purposes associated with monitoring, performing, or assessing credit worthiness or solvency"
   {:db/ident :dpvo/CreditChecking,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2120,7 +2185,7 @@
   "Use of cryptography for authentication"
   {:db/ident :dpvo/CryptographicAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Use of cryptography for authentication"},
    :dcterms/source
@@ -2138,7 +2203,7 @@
   "Management of cryptographic keys, including their generation, storage, assessment, and safekeeping"
   {:db/ident :dpvo/CryptographicKeyManagement,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2158,7 +2223,7 @@
   "Use of cryptographic methods to perform tasks"
   {:db/ident :dpvo/CryptographicMethods,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Use of cryptographic methods to perform tasks"},
@@ -2177,8 +2242,10 @@
   "Data subjects that purchase goods or services"
   {:db/ident :dpvo/Customer,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Data subjects that purchase goods or services"},
@@ -2198,8 +2265,10 @@
   "Customer Care refers to purposes associated with purposes for providing assistance, resolving issues, ensuring satisfaction, etc. in relation to services provided"
   {:db/ident :dpvo/CustomerCare,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2218,7 +2287,8 @@
   "Customer Claims Management refers to purposes associated with managing claims, including repayment of monies owed"
   {:db/ident :dpvo/CustomerClaimsManagement,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz"},
+   :dcterms/creator #{{:xsd/string "Beatriz"} {:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2238,7 +2308,8 @@
   "Customer Management refers to purposes associated with managing activities related with past, current, and future customers"
   {:db/ident :dpvo/CustomerManagement,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz"},
+   :dcterms/creator #{{:xsd/string "Beatriz"} {:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2255,7 +2326,8 @@
   "Customer Order Management refers to purposes associated with managing customer orders i.e. processing of an order related to customer's purchase of good or services"
   {:db/ident :dpvo/CustomerOrderManagement,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz"},
+   :dcterms/creator #{{:xsd/string "Beatriz"} {:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2275,7 +2347,8 @@
   "Customer Relationship Management refers to purposes associated with managing and analysing interactions with past, current, and potential customers"
   {:db/ident :dpvo/CustomerRelationshipManagement,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz"},
+   :dcterms/creator #{{:xsd/string "Beatriz"} {:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2292,7 +2365,8 @@
   "Customer Solvency Monitoring refers to purposes associated with monitor solvency of customers for financial diligence"
   {:db/ident :dpvo/CustomerSolvencyMonitoring,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz"},
+   :dcterms/creator #{{:xsd/string "Beatriz"} {:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2312,7 +2386,7 @@
   "Assessment of cybersecurity capabilities in terms of vulnerabilities and effectiveness of controls"
   {:db/ident :dpvo/CybersecurityAssessment,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2332,7 +2406,7 @@
   "Training methods related to cybersecurity"
   {:db/ident :dpvo/CybersecurityTraining,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Training methods related to cybersecurity"},
@@ -2351,7 +2425,9 @@
   "A DPIA involves determining the potential and actual impact of processing activities on individuals or groups of individuals"
   {:db/ident :dpvo/DPIA,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2371,7 +2447,7 @@
   "Impact that acts as or causes damages"
   {:db/ident            :dpvo/Damage,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Impact that acts as or causes damages"},
    :rdf/type            :owl/Class,
@@ -2386,7 +2462,7 @@
   "A broad concept representing  'data' or 'information'"
   {:db/ident :dpvo/Data,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A broad concept representing  'data' or 'information'"},
@@ -2401,7 +2477,7 @@
   "Protocols or plans for backing up of data"
   {:db/ident            :dpvo/DataBackupProtocols,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Georg P Krog",
+   :dcterms/creator     {:xsd/string "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Protocols or plans for backing up of data"},
@@ -2417,7 +2493,8 @@
   "The individual or organisation that decides (or controls) the purpose(s) of processing personal data."
   {:db/ident :dpvo/DataController,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2441,8 +2518,9 @@
   "An entity that 'exports' data where exporting is considered a form of data transfer"
   {:db/ident :dpvo/DataExporter,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "David Hickey" "Paul Ryan"
-                      "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "David Hickey"} {:xsd/string "Georg Krog"}
+                      {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2466,8 +2544,9 @@
   "An entity that 'imports' data where importing is considered a form of data transfer"
   {:db/ident :dpvo/DataImporter,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "David Hickey" "Paul Ryan"
-                      "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "David Hickey"} {:xsd/string "Georg Krog"}
+                      {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2491,8 +2570,10 @@
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data"
   {:db/ident :dpvo/DataProcessingAgreement,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2513,7 +2594,7 @@
   "Record of personal data processing, whether ex-ante or ex-post"
   {:db/ident :dpvo/DataProcessingRecord,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2530,7 +2611,7 @@
   "A ‘processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller."
   {:db/ident :dpvo/DataProcessor,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2549,7 +2630,8 @@
   "An authority tasked with overseeing legal compliance regarding privacy and data protection laws."
   {:db/ident :dpvo/DataProtectionAuthority,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "Paul Ryan" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Georg Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2566,7 +2648,7 @@
   "An entity within or authorised by an organisation to monitor internal compliance, inform and advise on data protection obligations and act as a contact point for data subjects and the supervisory authority."
   {:db/ident :dpvo/DataProtectionOfficer,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Paul Ryan" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Georg Krog"} {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2586,7 +2668,7 @@
   "Training intended to increase knowledge regarding data protection"
   {:db/ident :dpvo/DataProtectionTraining,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2606,7 +2688,7 @@
   "Data is published by the data subject"
   {:db/ident :dpvo/DataPublishedByDataSubject,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Julian Flake",
+   :dcterms/creator {:xsd/string "Julian Flake"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Data is published by the data subject"},
    :rdf/type #{:dpvo/DataSource :owl/NamedIndividual},
@@ -2624,7 +2706,7 @@
   "Removal of sensitive information from a data or document"
   {:db/ident :dpvo/DataRedaction,
    :dcterms/created #inst "2020-10-01T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Removal of sensitive information from a data or document"},
@@ -2640,7 +2722,7 @@
   "Cleaning or any removal or re-organisation of elements in data based on selective criteria"
   {:db/ident :dpvo/DataSanitisationTechnique,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2660,8 +2742,9 @@
   "The source or origin of data"
   {:db/ident :dpvo/DataSource,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "The source or origin of data"},
    :rdf/type :owl/Class,
@@ -2680,7 +2763,7 @@
   "A 'sub-processor' is a processor engaged by another processor"
   {:db/ident :dpvo/DataSubProcessor,
    :dcterms/created #inst "2020-11-25T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "A 'sub-processor' is a processor engaged by another processor"},
@@ -2700,7 +2783,8 @@
   "The individual (or category of individuals) whose personal data is being processed"
   {:db/ident :dpvo/DataSubject,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2724,7 +2808,9 @@
   "The rights applicable or provided to a Data Subject"
   {:db/ident :dpvo/DataSubjectRight,
    :dcterms/created #inst "2020-11-18T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "Georg P Krog" "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "The rights applicable or provided to a Data Subject"},
@@ -2744,8 +2830,9 @@
   "Scale of Data Subject(s)"
   {:db/ident            :dpvo/DataSubjectScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"
-                          "Rana Saniei"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Rana Saniei"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Scale of Data Subject(s)"},
    :rdf/type            :owl/Class,
@@ -2760,7 +2847,9 @@
   "Impact Assessment for conducting data transfers"
   {:db/ident            :dpvo/DataTransferImpactAssessment,
    :dcterms/created     #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Impact Assessment for conducting data transfers"},
@@ -2776,7 +2865,8 @@
   "Specific or special categories and instances of legal basis intended for justifying data transfers"
   {:db/ident :dpvo/DataTransferLegalBasis,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krogg"},
+   :dcterms/creator #{{:xsd/string "David Hickey"}
+                      {:xsd/string "Georg P Krogg"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2793,8 +2883,9 @@
   "Volume or Scale of Data"
   {:db/ident            :dpvo/DataVolume,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"
-                          "Rana Saniei"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Rana Saniei"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Volume or Scale of Data"},
    :rdf/type            :owl/Class,
@@ -2809,7 +2900,7 @@
   "Location that is spread across multiple separate areas with no distinction between their importance"
   {:db/ident :dpvo/DecentralisedLocations,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2827,7 +2918,7 @@
   "Processing that involves decision making"
   {:db/ident            :dpvo/DecisionMaking,
    :dcterms/created     #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Processing that involves decision making"},
    :rdf/type            :owl/Class,
@@ -2842,8 +2933,9 @@
   "Removal of identity or information to reduce identifiability"
   {:db/ident :dpvo/Deidentification,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Removal of identity or information to reduce identifiability"},
@@ -2862,8 +2954,10 @@
   "Purposes associated with delivering goods and services requested or asked by consumer"
   {:db/ident :dpvo/DeliveryOfGoods,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2905,8 +2999,8 @@
   "Personal Data that is obtained or derived from other data"
   {:db/ident :dpvo/DerivedPersonalData,
    :dcterms/created #inst "2019-05-07T00:00:00.000-00:00",
-   :dcterms/creator #{"Elmar Kiesling; Harshvardhan J. Pandit"
-                      "Fajar Ekaputra"},
+   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
+                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Personal Data that is obtained or derived from other data"},
@@ -2930,8 +3024,9 @@
   "A set of rules or guidelines outlining criterias for design"
   {:db/ident :dpvo/DesignStandard,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "A set of rules or guidelines outlining criterias for design"},
@@ -2965,7 +3060,7 @@
   "Pseudonymisation achieved through a deterministic function"
   {:db/ident :dpvo/DeterministicPseudonymisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Pseudonymisation achieved through a deterministic function"},
@@ -2984,8 +3079,11 @@
   "Impact that acts as or causes detriments"
   {:db/ident            :dpvo/Detriment,
    :dcterms/created     #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator     #{{:xsd/string "Fajar Ekaputra"}
+                          {:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Impact that acts as or causes detriments"},
    :rdf/type            :owl/Class,
@@ -3000,7 +3098,7 @@
   "Utilisation of differential privacy where information is shared as patterns or groups to withold individual elements"
   {:db/ident :dpvo/DifferentialPrivacy,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3020,7 +3118,7 @@
   "Management of access, use, and other operations associated with digital content"
   {:db/ident :dpvo/DigitalRightsManagement,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3040,7 +3138,7 @@
   "Expression and authentication of identity through digital information containing cryptographic signatures"
   {:db/ident :dpvo/DigitalSignatures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3060,8 +3158,9 @@
   "Purposes associated with conducting direct marketing i.e. marketing communicated directly to the individual"
   {:db/ident :dpvo/DirectMarketing,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3078,7 +3177,7 @@
   "Procedures related to management of disasters and recovery"
   {:db/ident :dpvo/DisasterRecoveryProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Procedures related to management of disasters and recovery"},
@@ -3130,8 +3229,9 @@
   "Purposes associated with activities that manage disputes by natural persons, private bodies, or public authorities relevant to organisation"
   {:db/ident :dpvo/DisputeManagement,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3167,7 +3267,7 @@
   "Security implementations provided using or over a distributed system"
   {:db/ident :dpvo/DistributedSystemSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3187,7 +3287,7 @@
   "Use of randomised pseudonymisation where the same elements are assigned different values in the same document or database"
   {:db/ident :dpvo/DocumentRandomisedPseudonymisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3207,7 +3307,7 @@
   "Security measures enacted over documents to protect against tampering or restrict access"
   {:db/ident :dpvo/DocumentSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3227,7 +3327,7 @@
   "The duration or temporal limitation"
   {:db/ident            :dpvo/Duration,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "The duration or temporal limitation"},
    :rdf/type            :owl/Class,
@@ -3242,7 +3342,7 @@
   "A political union of two or more countries based on economic or trade agreements"
   {:db/ident :dpvo/EconomicUnion,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3259,7 +3359,7 @@
   "Training methods that are intended to provide education on topic(s)"
   {:db/ident :dpvo/EducationalTraining,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3279,7 +3379,7 @@
   "Procedures intended to determine effectiveness of other measures"
   {:db/ident :dpvo/EffectivenessDeterminationProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3299,7 +3399,7 @@
   "Data subjects that are considered elderly (i.e. based on age)"
   {:db/ident :dpvo/ElderlyDataSubject,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Data subjects that are considered elderly (i.e. based on age)"},
@@ -3315,8 +3415,11 @@
   "Data subjects that are employees"
   {:db/ident            :dpvo/Employee,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Data subjects that are employees"},
    :rdf/type            :owl/Class,
@@ -3331,8 +3434,10 @@
   "Technical measures consisting of encryption"
   {:db/ident            :dpvo/Encryption,
    :dcterms/created     #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                          "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Rob Brennan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technical measures consisting of encryption"},
@@ -3348,8 +3453,9 @@
   "Encryption of data when being stored (persistent encryption)"
   {:db/ident :dpvo/EncryptionAtRest,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Encryption of data when being stored (persistent encryption)"},
@@ -3365,8 +3471,9 @@
   "Encryption of data in transit e.g. when being transferred from one location to another, including sharing"
   {:db/ident :dpvo/EncryptionInTransfer,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3383,7 +3490,7 @@
   "Encryption of data when it is being used"
   {:db/ident            :dpvo/EncryptionInUse,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Encryption of data when it is being used"},
    :rdf/type            :owl/Class,
@@ -3398,7 +3505,7 @@
   "Encrypted communications where data is encrypted by the sender and decrypted by the intended receiver to prevent access to any third party"
   {:db/ident :dpvo/EndToEndEncryption,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3418,7 +3525,7 @@
   "Duration that is (known or intended to be) open ended or without an end"
   {:db/ident :dpvo/EndlessDuration,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3435,8 +3542,10 @@
   "Purposes associated with conducting or enforcing access control as a form of security"
   {:db/ident :dpvo/EnforceAccessControl,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3459,8 +3568,10 @@
   "Purposes associated with ensuring and enforcing security for data, personnel, or other related matters"
   {:db/ident :dpvo/EnforceSecurity,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3481,7 +3592,9 @@
   "Processing necessary to enter into contract"
   {:db/ident            :dpvo/EnterIntoContract,
    :dcterms/created     #inst "2021-04-07T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Processing necessary to enter into contract"},
@@ -3497,7 +3610,7 @@
   "A human or non-human 'thing' that constitutes as an entity"
   {:db/ident :dpvo/Entity,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A human or non-human 'thing' that constitutes as an entity"},
@@ -3528,7 +3641,8 @@
   "Purposes associated with carrying out data processing to establish an agreement, such as for entering into a contract"
   {:db/ident :dpvo/EstablishContractualAgreement,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3545,7 +3659,7 @@
   "Processing that involves evaluation of individuals"
   {:db/ident :dpvo/EvaluationOfIndividuals,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Processing that involves evaluation of individuals"},
@@ -3564,7 +3678,8 @@
   "Processing that involves evaluation and scoring of individuals"
   {:db/ident :dpvo/EvaluationScoring,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Piero Bonatti"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Piero Bonatti"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3583,8 +3698,9 @@
   "Consent that is expressed through an explicit action solely conveying a consenting decision"
   {:db/ident :dpvo/ExplicitlyExpressedConsent,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3605,8 +3721,9 @@
   "Consent that is expressed through an action intended to convey a consenting decision"
   {:db/ident :dpvo/ExpressedConsent,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3627,7 +3744,7 @@
   "Location that is federated across multiple separate areas with designation of a primary or central location"
   {:db/ident :dpvo/FederatedLocations,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3645,7 +3762,7 @@
   "Security implemented over a file system"
   {:db/ident :dpvo/FileSystemSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Security implemented over a file system"},
    :dcterms/source
@@ -3663,7 +3780,8 @@
   "to filter or keep data for some criteria"
   {:db/ident            :dpvo/Filter,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "to filter or keep data for some criteria"},
    :rdf/type            :owl/Class,
@@ -3678,7 +3796,7 @@
   "Location that is fixed i.e. known to occur at a specific place"
   {:db/ident :dpvo/FixedLocation,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3696,7 +3814,7 @@
   "Location that is fixed with multiple places e.g. multiple cities"
   {:db/ident :dpvo/FixedMultipleLocations,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3714,7 +3832,7 @@
   "Duration that takes place a fixed number of times e.g. 3 times"
   {:db/ident :dpvo/FixedOccurencesDuration,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3732,7 +3850,7 @@
   "Location that is fixed at a specific place e.g. a city"
   {:db/ident :dpvo/FixedSingularLocation,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Location that is fixed at a specific place e.g. a city"},
@@ -3749,7 +3867,7 @@
   "An organisation that aims to achieve profit as its primary goal"
   {:db/ident :dpvo/ForProfitOrganisation,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3767,8 +3885,10 @@
   "Purposes associated with fraud detection, prevention, and mitigation"
   {:db/ident :dpvo/FraudPreventionAndDetection,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3787,7 +3907,7 @@
   "The frequency or information about periods and repetitions in terms of recurrence."
   {:db/ident :dpvo/Frequency,
    :dcterms/created #inst "2022-02-16T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3804,7 +3924,8 @@
   "Purposes associated with carrying out data processing to fulfill a contractual obligation"
   {:db/ident :dpvo/FulfilmentOfContractualObligation,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3821,7 +3942,8 @@
   "Purposes associated with carrying out data processing to fulfill an obligation"
   {:db/ident :dpvo/FulfilmentOfObligation,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3838,7 +3960,7 @@
   "Processing that is fully automated"
   {:db/ident            :dpvo/FullyAutomatedProcessing,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Processing that is fully automated"},
    :rdf/type            #{:dpvo/AutomationOfProcessing :owl/NamedIndividual},
@@ -3852,7 +3974,7 @@
   "Use of randomised pseudonymisation where the same elements are assigned different values each time they occur"
   {:db/ident :dpvo/FullyRandomisedPseudonymisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3872,7 +3994,7 @@
   "to generate or create data"
   {:db/ident            :dpvo/Generate,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to generate or create data"},
    :rdf/type            :owl/Class,
@@ -3887,7 +4009,7 @@
   "Personal Data that is generated or brought into existence without relation to existing data i.e. it is not derived or inferred from other data"
   {:db/ident :dpvo/GeneratedPersonalData,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3908,7 +4030,9 @@
   "Indicate of scale in terms of geographic coverage"
   {:db/ident            :dpvo/GeographicCoverage,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicate of scale in terms of geographic coverage"},
@@ -3924,7 +4048,7 @@
   "Geographic coverage spanning the entire globe"
   {:db/ident            :dpvo/GlobalScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Geographic coverage spanning the entire globe"},
@@ -3939,7 +4063,7 @@
   "Procedures related to governance (e.g. organisation, unit, team, process, system)"
   {:db/ident :dpvo/GovernanceProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3959,7 +4083,7 @@
   "An organisation managed or part of government"
   {:db/ident            :dpvo/GovernmentalOrganisation,
    :dcterms/created     #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "An organisation managed or part of government"},
@@ -3976,7 +4100,7 @@
   "Guardian(s) of data subjects such as children"
   {:db/ident            :dpvo/GuardianOfDataSubject,
    :dcterms/created     #inst "2022-08-03T00:00:00.000-00:00",
-   :dcterms/creator     "Georg P Krog",
+   :dcterms/creator     {:xsd/string "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Guardian(s) of data subjects such as children"},
@@ -3992,8 +4116,9 @@
   "Guidelines or Principles regarding processing and operational measures"
   {:db/ident :dpvo/GuidelinesPrinciple,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4010,7 +4135,7 @@
   "Security protocols implemented at or within hardware"
   {:db/ident :dpvo/HardwareSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Security protocols implemented at or within hardware"},
@@ -4029,8 +4154,11 @@
   "Impact that acts as or causes harms"
   {:db/ident            :dpvo/Harm,
    :dcterms/created     #inst "2022-08-13T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator     #{{:xsd/string "Fajar Ekaputra"}
+                          {:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Impact that acts as or causes harms"},
    :rdf/type            :owl/Class,
@@ -4045,7 +4173,7 @@
   "Use of hash functions to map information or to retrieve a prior categorisation"
   {:db/ident :dpvo/HashFunctions,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4065,7 +4193,7 @@
   "Use of HMAC where message authentication code (MAC) utilise a cryptographic hash function and a secret cryptographic key"
   {:db/ident :dpvo/HashMessageAuthenticationCode,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4085,7 +4213,7 @@
   "Use of Homomorphic encryption that permits computations on encrypted data without decrypting it"
   {:db/ident :dpvo/HomomorphicEncryption,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4105,7 +4233,7 @@
   "Data volume that is considered huge or more than large within the context"
   {:db/ident :dpvo/HugeDataVolume,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4121,7 +4249,7 @@
   "Scale of data subjects considered huge or more than large within the context"
   {:db/ident :dpvo/HugeScaleOfDataSubjects,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4137,7 +4265,7 @@
   "The involvement of humans in specified context"
   {:db/ident :dpvo/HumanInvolvement,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "The involvement of humans in specified context"},
@@ -4158,7 +4286,7 @@
   "Human involvement for the purposes of providing inputs"
   {:db/ident :dpvo/HumanInvolvementForInput,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Human involvement for the purposes of providing inputs"},
@@ -4173,7 +4301,7 @@
   "Human involvement for the purposes of having oversight over a system, its operations, inputs, or outputs"
   {:db/ident :dpvo/HumanInvolvementForOversight,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4189,7 +4317,7 @@
   "Human involvement for the purposes of verification of a system, its operations, inputs, or outputs"
   {:db/ident :dpvo/HumanInvolvementForVerification,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4205,8 +4333,10 @@
   "Purposes associated with managing humans and 'human resources' within the organisation for effective and efficient operations."
   {:db/ident :dpvo/HumanResourceManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4230,7 +4360,7 @@
   "Management of identity and identity-based processes"
   {:db/ident :dpvo/IdentityManagementMethod,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Management of identity and identity-based processes"},
@@ -4249,8 +4379,10 @@
   "Purposes associated with verifying or authorising identity as a form of security"
   {:db/ident :dpvo/IdentityVerification,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4267,8 +4399,10 @@
   "Data subjects that are immigrants (for a jurisdiction)"
   {:db/ident :dpvo/Immigrant,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Data subjects that are immigrants (for a jurisdiction)"},
@@ -4284,8 +4418,10 @@
   "The impact(s) possible or arising as a consequence from specified context"
   {:db/ident :dpvo/Impact,
    :dcterms/created #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Georg P Krog"}
+     {:xsd/string "Harshvardhan J. Pandit"} {:xsd/string "Beatriz Esteves"}
+     {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4306,7 +4442,9 @@
   "Calculating or determining the likelihood of impact of an existing or proposed process, which can involve risks or detriments."
   {:db/ident :dpvo/ImpactAssessment,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4323,8 +4461,9 @@
   "Consent that is implied indirectly through an action not associated solely with conveying a consenting decision"
   {:db/ident :dpvo/ImpliedConsent,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4345,8 +4484,10 @@
   "An indication of 'importance' within a context"
   {:db/ident :dpvo/Importance,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "An indication of 'importance' within a context"},
@@ -4366,8 +4507,10 @@
   "Purposes associated with improving existing products and services"
   {:db/ident :dpvo/ImproveExistingProductsAndServices,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4384,8 +4527,10 @@
   "Purposes associated with improving customer-relationship management (CRM) processes"
   {:db/ident :dpvo/ImproveInternalCRMProcesses,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4403,7 +4548,7 @@
   "Procedures related to management of incidents"
   {:db/ident :dpvo/IncidentManagementProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Procedures related to management of incidents"},
@@ -4422,7 +4567,7 @@
   "Procedures related to management of incident reporting"
   {:db/ident :dpvo/IncidentReportingCommunication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Procedures related to management of incident reporting"},
@@ -4441,7 +4586,7 @@
   "Data that is known to be incorrect or inconsistent with some quality requirements"
   {:db/ident :dpvo/IncorrectData,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4458,8 +4603,10 @@
   "Purposes associated with improving robustness and resilience of services"
   {:db/ident :dpvo/IncreaseServiceRobustness,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4476,7 +4623,7 @@
   "Duration that is indeterminate or cannot be determined"
   {:db/ident :dpvo/IndeterminateDuration,
    :dcterms/created #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Duration that is indeterminate or cannot be determined"},
@@ -4495,7 +4642,7 @@
   "A consortium established and comprising on industry organisations"
   {:db/ident :dpvo/IndustryConsortium,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4514,7 +4661,7 @@
   "to infer data from existing data"
   {:db/ident :dpvo/Infer,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to infer data from existing data"},
    :dcterms/modified #inst "2022-10-14T00:00:00.000-00:00",
@@ -4534,7 +4681,7 @@
   "Personal Data that is obtained through inference from other data"
   {:db/ident :dpvo/InferredPersonalData,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4555,7 +4702,7 @@
   "Use of measures to control information flows"
   {:db/ident :dpvo/InformationFlowControl,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Use of measures to control information flows"},
@@ -4574,7 +4721,7 @@
   "Policy regarding security of information"
   {:db/ident :dpvo/InformationSecurityPolicy,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Policy regarding security of information"},
    :dcterms/source
@@ -4592,8 +4739,9 @@
   "Consent that is informed i.e. with the requirement to provide sufficient information to make a consenting decision"
   {:db/ident :dpvo/InformedConsent,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4614,7 +4762,8 @@
   "Processing that involves use of innovative and new technologies"
   {:db/ident :dpvo/InnovativeUseOfNewTechnologies,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Piero Bonatti"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Piero Bonatti"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4633,8 +4782,10 @@
   "Purposes associated with optimisation of internal resource availability and usage for organisation"
   {:db/ident :dpvo/InternalResourceOptimisation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4651,7 +4802,8 @@
   "An organisation and its subordinate bodies governed by public international law, or any other body which is set up by, or on the basis of, an agreement between two or more countries"
   {:db/ident :dpvo/InternationalOrganisation,
    :dcterms/created #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4671,7 +4823,7 @@
   "Use of measures to detect intrusions and other unauthorised attempts to gain access to a system"
   {:db/ident :dpvo/IntrusionDetectionSystem,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4691,8 +4843,11 @@
   "Data subjects that apply for jobs or employments"
   {:db/ident            :dpvo/JobApplicant,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Data subjects that apply for jobs or employments"},
@@ -4708,7 +4863,8 @@
   "A group of Data Controllers that jointly determine the purposes and means of processing"
   {:db/ident :dpvo/JointDataControllers,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Georg Krog"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4728,8 +4884,10 @@
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between Controllers within a Joint Controllers relationship"
   {:db/ident :dpvo/JointDataControllersAgreement,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4746,7 +4904,7 @@
   "A form of documentation providing reaosns, explanations, or justifications"
   {:db/ident :dpvo/Justification,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4763,7 +4921,7 @@
   "Data volume that is considered large within the context"
   {:db/ident :dpvo/LargeDataVolume,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Data volume that is considered large within the context"},
@@ -4778,7 +4936,7 @@
   "Scale of data subjects considered large within the context"
   {:db/ident :dpvo/LargeScaleOfDataSubjects,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Scale of data subjects considered large within the context"},
@@ -4793,7 +4951,8 @@
   "Processing that takes place at large scales (as specified by some criteria)"
   {:db/ident :dpvo/LargeScaleProcessing,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Piero Bonatti"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Piero Bonatti"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4816,7 +4975,7 @@
   "A law is a set of rules created by government or authorities"
   {:db/ident :dpvo/Law,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "A law is a set of rules created by government or authorities"},
@@ -4831,7 +4990,7 @@
   "State of being lawful or legally compliant"
   {:db/ident            :dpvo/Lawful,
    :dcterms/created     #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of being lawful or legally compliant"},
@@ -4846,7 +5005,7 @@
   "Status associated with expressing lawfullness or legal compliance"
   {:db/ident :dpvo/Lawfulness,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4863,7 +5022,7 @@
   "State of the lawfulness not being known"
   {:db/ident            :dpvo/LawfulnessUnkown,
    :dcterms/created     #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "State of the lawfulness not being known"},
    :rdf/type            #{:owl/NamedIndividual :dpvo/Lawfulness},
@@ -4877,8 +5036,10 @@
   "A legally binding agreement"
   {:db/ident            :dpvo/LegalAgreement,
    :dcterms/created     #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                          "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Rob Brennan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "A legally binding agreement"},
    :rdf/type            :owl/Class,
@@ -4893,7 +5054,8 @@
   "The Legal basis used to justify processing of personal data"
   {:db/ident :dpvo/LegalBasis,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "The Legal basis used to justify processing of personal data"},
@@ -4913,8 +5075,9 @@
   "Purposes associated with carrying out data processing to fulfill a legal or statutory obligation"
   {:db/ident :dpvo/LegalCompliance,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4936,7 +5099,7 @@
   "A human or non-human 'thing' that constitutes as an entity and which is recognised and defined in law"
   {:db/ident :dpvo/LegalEntity,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4953,7 +5116,7 @@
   "Legal Obligation to conduct the specified processing"
   {:db/ident :dpvo/LegalObligation,
    :dcterms/created #inst "2021-04-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Legal Obligation to conduct the specified processing"},
@@ -4969,7 +5132,7 @@
   "Legitimate Interests of a Party as justification for specified processing"
   {:db/ident :dpvo/LegitimateInterest,
    :dcterms/created #inst "2021-05-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4986,7 +5149,9 @@
   "Indicates an assessment regarding the use of legitimate interest as a lawful basis by the data controller"
   {:db/ident :dpvo/LegitimateInterestAssessment,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5003,7 +5168,9 @@
   "Legitimate Interests of a Data Controller in conducting specified processing"
   {:db/ident :dpvo/LegitimateInterestOfController,
    :dcterms/created #inst "2021-05-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5020,7 +5187,7 @@
   "Legitimate Interests of the Data Subject in conducting specified processing"
   {:db/ident :dpvo/LegitimateInterestOfDataSubject,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5037,7 +5204,9 @@
   "Legitimate Interests of a Third Party in conducting specified processing"
   {:db/ident :dpvo/LegitimateInterestOfThirdParty,
    :dcterms/created #inst "2021-05-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5054,7 +5223,7 @@
   "The likelihood or probability or chance of something taking place or occuring"
   {:db/ident :dpvo/Likelihood,
    :dcterms/created #inst "2022-07-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5074,7 +5243,7 @@
   "Geographic coverage spanning a specific environment within the locality"
   {:db/ident :dpvo/LocalEnvironmentScale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5094,7 +5263,7 @@
   "Location is local"
   {:db/ident            :dpvo/LocalLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Location is local"},
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-00:00",
@@ -5110,7 +5279,7 @@
   "Geographic coverage spanning a specific locality"
   {:db/ident :dpvo/LocalityScale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Geographic coverage spanning a specific locality"},
@@ -5129,7 +5298,8 @@
   "A location is a position, site, or area where something is located"
   {:db/ident :dpvo/Location,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5148,7 +5318,7 @@
   "The fixture of location refers to whether the location is fixed"
   {:db/ident :dpvo/LocationFixture,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5164,7 +5334,7 @@
   "Locality refers to whether the specified location is local within some context, e.g. for the user"
   {:db/ident :dpvo/LocationLocality,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5182,7 +5352,7 @@
   "Policy for logging of information"
   {:db/ident :dpvo/LoggingPolicies,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Policy for logging of information"},
    :dcterms/source
@@ -5200,7 +5370,8 @@
   "Purposes associated with maintaining a Credit Checking Database"
   {:db/ident :dpvo/MaintainCreditCheckingDatabase,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5217,7 +5388,8 @@
   "Purposes associated with maintaining a Credit Rating Database"
   {:db/ident :dpvo/MaintainCreditRatingDatabase,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Purposes associated with maintaining a Credit Rating Database"},
@@ -5233,7 +5405,8 @@
   "Purposes associated with maintaining a database related to identifying and identified fraud risks and fraud incidents"
   {:db/ident :dpvo/MaintainFraudDatabase,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5266,8 +5439,9 @@
   "Purposes associated with conducting marketing in relation to organisation or products or services e.g. promoting, selling, and distributing"
   {:db/ident :dpvo/Marketing,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5288,7 +5462,7 @@
   "to combine, compare, or match data from different sources"
   {:db/ident :dpvo/Match,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "to combine, compare, or match data from different sources"},
@@ -5306,7 +5480,7 @@
   "Impact that acts as or causes material damages"
   {:db/ident            :dpvo/MaterialDamage,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Impact that acts as or causes material damages"},
@@ -5322,7 +5496,9 @@
   "Data volume that is considered medium i.e. neither large nor small within the context"
   {:db/ident :dpvo/MediumDataVolume,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5338,7 +5514,9 @@
   "Scale of data subjects considered medium i.e. neither large nor small within the context"
   {:db/ident :dpvo/MediumScaleOfDataSubjects,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5354,7 +5532,7 @@
   "Processing that takes place at medium scales (as specified by some criteria)"
   {:db/ident :dpvo/MediumScaleProcessing,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5370,8 +5548,10 @@
   "Data subjects that are members of a group, organisation, or other collectives"
   {:db/ident :dpvo/Member,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5388,8 +5568,9 @@
   "Purposes associated with maintaining a registry of shareholders, members, or partners for governance, administration, and management functions"
   {:db/ident :dpvo/MemberPartnerManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5409,7 +5590,7 @@
   "Data subjects that are considered mentally vulnerable"
   {:db/ident :dpvo/MentallyVulnerableDataSubject,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Data subjects that are considered mentally vulnerable"},
@@ -5425,7 +5606,7 @@
   "Use of cryptographic methods to authenticate messages"
   {:db/ident :dpvo/MessageAuthenticationCodes,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Use of cryptographic methods to authenticate messages"},
@@ -5444,7 +5625,7 @@
   "Security implemented over a mobile platform"
   {:db/ident :dpvo/MobilePlatformSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Security implemented over a mobile platform"},
@@ -5463,7 +5644,8 @@
   "to modify or change data"
   {:db/ident            :dpvo/Modify,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to modify or change data"},
    :rdf/type            :owl/Class,
@@ -5478,7 +5660,8 @@
   "to monitor data for some criteria"
   {:db/ident            :dpvo/Monitor,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to monitor data for some criteria"},
    :rdf/type            :owl/Class,
@@ -5493,7 +5676,7 @@
   "Policy for monitoring (e.g. progress, performance)"
   {:db/ident :dpvo/MonitoringPolicies,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Policy for monitoring (e.g. progress, performance)"},
@@ -5512,7 +5695,7 @@
   "A simple pseudonymisation method where identifiers are substituted by a number chosen by a monotonic counter"
   {:db/ident :dpvo/MonotonicCounterPseudonymisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5553,7 +5736,7 @@
   "An authentication system that uses two or more methods to authenticate"
   {:db/ident :dpvo/MultiFactorAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5573,7 +5756,7 @@
   "Geographic coverage spanning multiple nations"
   {:db/ident            :dpvo/MultiNationalScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Geographic coverage spanning multiple nations"},
@@ -5588,8 +5771,9 @@
   "Non-disclosure Agreements e.g. preserving confidentiality of information"
   {:db/ident :dpvo/NDA,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5606,7 +5790,7 @@
   "An authority tasked with overseeing legal compliance for a nation"
   {:db/ident :dpvo/NationalAuthority,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5624,7 +5808,7 @@
   "Geographic coverage spanning a nation"
   {:db/ident            :dpvo/NationalScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Geographic coverage spanning a nation"},
    :rdf/type            #{:owl/NamedIndividual :dpvo/GeographicCoverage},
@@ -5638,7 +5822,7 @@
   "A human"
   {:db/ident            :dpvo/NaturalPerson,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "A human"},
    :rdf/type            :owl/Class,
@@ -5653,7 +5837,7 @@
   "Geographic coverage nearly spanning the entire globe"
   {:db/ident :dpvo/NearlyGlobalScale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Geographic coverage nearly spanning the entire globe"},
@@ -5668,8 +5852,10 @@
   "An indication of 'necessity' within a context"
   {:db/ident :dpvo/Necessity,
    :dcterms/created #inst "2022-02-12T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "An indication of 'necessity' within a context"},
@@ -5689,7 +5875,7 @@
   "Use of network routing using proxy"
   {:db/ident :dpvo/NetworkProxyRouting,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Use of network routing using proxy"},
    :dcterms/source
@@ -5707,7 +5893,7 @@
   "Security implemented at or over networks protocols"
   {:db/ident :dpvo/NetworkSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Security implemented at or over networks protocols"},
@@ -5726,8 +5912,10 @@
   "Data subjects that are not citizens (for a jurisdiction)"
   {:db/ident :dpvo/NonCitizen,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Data subjects that are not citizens (for a jurisdiction)"},
@@ -5743,8 +5931,10 @@
   "Purposes associated with conducting research in a non-commercial setting e.g. for a non-profit-organisation (NGO)"
   {:db/ident :dpvo/NonCommercialResearch,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5761,7 +5951,7 @@
   "State of non-compliance where objectives have not been met, but have not been violated"
   {:db/ident :dpvo/NonCompliant,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5782,7 +5972,7 @@
   "State of being non-conformant"
   {:db/ident            :dpvo/NonConformant,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of being non-conformant"},
    :rdf/type            #{:dpvo/ConformanceStatus :owl/NamedIndividual},
@@ -5796,7 +5986,7 @@
   "An organisation not part of or independent from the government"
   {:db/ident :dpvo/NonGovernmentalOrganisation,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5815,7 +6005,7 @@
   "Impact that acts as or causes non-material damages"
   {:db/ident            :dpvo/NonMaterialDamage,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Impact that acts as or causes non-material damages"},
@@ -5831,7 +6021,7 @@
   "Data that is not Personal Data"
   {:db/ident :dpvo/NonPersonalData,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Data that is not Personal Data"},
    :rdf/type :owl/Class,
@@ -5850,7 +6040,7 @@
   "An organisation that does not aim to achieve profit as its primary goal"
   {:db/ident :dpvo/NonProfitOrganisation,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5869,8 +6059,10 @@
   "A source of data that is not publicly accessible or available"
   {:db/ident :dpvo/NonPublicDataSource,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "A source of data that is not publicly accessible or available"},
@@ -5885,8 +6077,10 @@
   "Indication of neither being required nor optional i.e. not relevant or needed"
   {:db/ident :dpvo/NotRequired,
    :dcterms/created #inst "2022-02-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5902,8 +6096,9 @@
   "A notice is an artefact for providing information, choices, or controls"
   {:db/ident :dpvo/Notice,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5920,8 +6115,9 @@
   "A rule describing an obligation for performing an activity"
   {:db/ident :dpvo/Obligation,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A rule describing an obligation for performing an activity"},
@@ -5937,7 +6133,8 @@
   "to obtain data through observation"
   {:db/ident            :dpvo/Observe,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to obtain data through observation"},
    :rdf/type            :owl/Class,
@@ -5952,7 +6149,7 @@
   "Personal Data that has been collected through observation of the Data Subject(s)"
   {:db/ident :dpvo/ObservedPersonalData,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5985,7 +6182,9 @@
   "Processing necessary or authorised through the official authority granted to or vested in the Data Controller"
   {:db/ident :dpvo/OfficialAuthorityOfController,
    :dcterms/created #inst "2021-05-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6002,7 +6201,7 @@
   "Frequency where occurences are often or frequent, but not continous"
   {:db/ident :dpvo/OftenFrequency,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6020,7 +6219,7 @@
   "Security implemented at or through operating systems"
   {:db/ident :dpvo/OperatingSystemSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Security implemented at or through operating systems"},
@@ -6039,8 +6238,10 @@
   "Purposes associated with optimisation of activities and services for consumer or user"
   {:db/ident :dpvo/OptimisationForConsumer,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6063,8 +6264,10 @@
   "Purposes associated with optimisation of activities and services for provider or controller"
   {:db/ident :dpvo/OptimisationForController,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6081,8 +6284,10 @@
   "Purposes associated with optimisation of interfaces presented to the user"
   {:db/ident :dpvo/OptimiseUserInterface,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6099,8 +6304,11 @@
   "Indication of 'optional' or 'voluntary'"
   {:db/ident            :dpvo/Optional,
    :dcterms/created     #inst "2022-02-14T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Indication of 'optional' or 'voluntary'"},
    :rdf/type            #{:dpvo/Necessity :owl/NamedIndividual},
@@ -6114,7 +6322,7 @@
   "A general term reflecting a company or a business or a group acting as a unit"
   {:db/ident :dpvo/Organisation,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6131,8 +6339,9 @@
   "Purposes associated with managing compliance for organisation in relation to internal policies"
   {:db/ident :dpvo/OrganisationComplianceManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6153,8 +6362,9 @@
   "Purposes associated with conducting activities and functions for governance of an organisation"
   {:db/ident :dpvo/OrganisationGovernance,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6174,8 +6384,9 @@
   "Purposes associated with managing risk for organisation's activities"
   {:db/ident :dpvo/OrganisationRiskManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6192,8 +6403,9 @@
   "Organisational measures required/followed when processing data of the declared category"
   {:db/ident :dpvo/OrganisationalMeasure,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6210,7 +6422,8 @@
   "Entity within an organisation that does not constitute as a separate legal entity"
   {:db/ident :dpvo/OrganisationalUnit,
    :dcterms/created #inst "2022-03-23T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6244,7 +6457,9 @@
   "Carrying out an impact assessment regarding privacy risks"
   {:db/ident :dpvo/PIA,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Carrying out an impact assessment regarding privacy risks"},
@@ -6260,7 +6475,7 @@
   "Parent(s) of data subjects such as children"
   {:db/ident            :dpvo/ParentOfDataSubject,
    :dcterms/created     #inst "2022-08-03T00:00:00.000-00:00",
-   :dcterms/creator     "Georg P Krog",
+   :dcterms/creator     {:xsd/string "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Parent(s) of data subjects such as children"},
@@ -6276,7 +6491,7 @@
   "Processing that is partially automated or semi-automated"
   {:db/ident :dpvo/PartiallyAutomatedProcessing,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Processing that is partially automated or semi-automated"},
@@ -6295,7 +6510,7 @@
   "State of partially being compliant i.e. only some objectives have been met, and others have not been in violation"
   {:db/ident :dpvo/PartiallyCompliant,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6311,8 +6526,10 @@
   "Data subjects that participate in some context such as volunteers in a function"
   {:db/ident :dpvo/Participant,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6329,8 +6546,9 @@
   "The right(s) applicable, provided, or expected that are always (passively) applicable"
   {:db/ident :dpvo/PassiveRight,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Beatriz Esteves" "Paul Ryan"
-                      "Harshvardhan J Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan J Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6351,7 +6569,7 @@
   "Use of passwords to perform authentication"
   {:db/ident :dpvo/PasswordAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Use of passwords to perform authentication"},
@@ -6370,8 +6588,10 @@
   "Data subjects that receive medican attention, treatment, care, advice, or other health related services"
   {:db/ident :dpvo/Patient,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6388,8 +6608,9 @@
   "Purposes associated with processing and managing payment in relation to service, including invoicing and records"
   {:db/ident :dpvo/PaymentManagement,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6406,7 +6627,7 @@
   "Use of penetration testing to identity weaknessess and vulnerabilities through simulations"
   {:db/ident :dpvo/PenetrationTestingMethods,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6426,8 +6647,9 @@
   "A rule describing a permission to perform an activity"
   {:db/ident :dpvo/Permission,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A rule describing a permission to perform an activity"},
@@ -6443,7 +6665,7 @@
   "Data directly or indirectly associated or related to an individual."
   {:db/ident :dpvo/PersonalData,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6469,7 +6691,8 @@
   "A high-level Class to describe 'data handling'. This can consist of personal data being processed for a purpose, involving entities, using technical and organisational measures, applicable risks, rights, and legal basis."
   {:db/ident :dpvo/PersonalDataHandling,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6486,7 +6709,7 @@
   "Purposes associated with creating and providing customisation based on attributes and/or needs of person(s) or context(s)."
   {:db/ident :dpvo/Personalisation,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6507,8 +6730,9 @@
   "Purposes associated with creating and providing personalised advertising"
   {:db/ident :dpvo/PersonalisedAdvertising,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6525,8 +6749,10 @@
   "Purposes associated with creating and providing personalised benefits for a service"
   {:db/ident :dpvo/PersonalisedBenefits,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6543,7 +6769,7 @@
   "Purposes associated with management and execution of hiring processes of personnel"
   {:db/ident :dpvo/PersonnelHiring,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6560,7 +6786,8 @@
   "Purposes associated with management of personnel associated with the organisation e.g. evaluation and management of employees and intermediaries"
   {:db/ident :dpvo/PersonnelManagement,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6580,7 +6807,7 @@
   "Purposes associated with management and execution of payment of personnel"
   {:db/ident :dpvo/PersonnelPayment,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6597,7 +6824,7 @@
   "Access control applied for physical access e.g. premises or equipement"
   {:db/ident :dpvo/PhysicalAccessControlMethod,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6614,8 +6841,9 @@
   "A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols."
   {:db/ident :dpvo/Policy,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6632,7 +6860,7 @@
   "Use of algorithms that are intended to be secure against cryptanalytic attack by a quantum computer"
   {:db/ident :dpvo/PostQuantumCryptography,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6652,8 +6880,10 @@
   "Indication of 'primary' or 'main' or 'core' importance"
   {:db/ident :dpvo/PrimaryImportance,
    :dcterms/created #inst "2022-02-10T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indication of 'primary' or 'main' or 'core' importance"},
@@ -6668,8 +6898,9 @@
   "Practices regarding selecting appropriate data protection and privacy measures as the 'default' in an activity or service"
   {:db/ident :dpvo/PrivacyByDefault,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6686,8 +6917,9 @@
   "Practices regarding incorporating data protection and privacy in the design of information and services"
   {:db/ident :dpvo/PrivacyByDesign,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6704,8 +6936,9 @@
   "Represents a notice or document outlining information regarding privacy"
   {:db/ident :dpvo/PrivacyNotice,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6722,7 +6955,7 @@
   "Use of protocols designed with the intention of provided additional guarentees regarding privacy"
   {:db/ident :dpvo/PrivacyPreservingProtocol,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6742,7 +6975,7 @@
   "Use of cryptographic methods to retrieve a record from a system without revealing which record is retrieved"
   {:db/ident :dpvo/PrivateInformationRetrieval,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6762,7 +6995,7 @@
   "Location that is not or cannot be accessed by the public and is controlled as a private space"
   {:db/ident :dpvo/PrivateLocation,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6779,7 +7012,8 @@
   "The processing performed on personal data"
   {:db/ident :dpvo/Processing,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "The processing performed on personal data"},
@@ -6799,7 +7033,7 @@
   "Context or conditions within which processing takes place"
   {:db/ident :dpvo/ProcessingContext,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Context or conditions within which processing takes place"},
@@ -6815,7 +7049,8 @@
   "Scale of Processing"
   {:db/ident :dpvo/ProcessingScale,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Piero Bonatti"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Piero Bonatti"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Scale of Processing"},
    :rdf/type :owl/Class,
@@ -6834,7 +7069,7 @@
   "Training methods that are intended to provide professional knowledge and expertise"
   {:db/ident :dpvo/ProfessionalTraining,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6871,8 +7106,9 @@
   "A rule describing a prohibition to perform an activity"
   {:db/ident :dpvo/Prohibition,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A rule describing a prohibition to perform an activity"},
@@ -6888,7 +7124,8 @@
   "Purposes associated with creating and providing personalised recommendations for events"
   {:db/ident :dpvo/ProvideEventRecommendations,
    :dcterms/created #inst "2019-11-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Rudy Jacob"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rudy Jacob"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6907,7 +7144,8 @@
   "Purposes associated with creating and providing personalised recommendations"
   {:db/ident :dpvo/ProvidePersonalisedRecommendations,
    :dcterms/created #inst "2019-11-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Rudy Jacob"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rudy Jacob"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6926,8 +7164,10 @@
   "Purposes associated with creating and providing product recommendations e.g. suggest similar products"
   {:db/ident :dpvo/ProvideProductRecommendations,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6947,8 +7187,9 @@
   "Pseudonymisation means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person;"
   {:db/ident :dpvo/Pseudonymisation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6968,7 +7209,7 @@
   "to replace personal identifiable information by artificial identifiers"
   {:db/ident :dpvo/Pseudonymise,
    :dcterms/created #inst "2019-05-07T00:00:00.000-00:00",
-   :dcterms/creator "2022-10-14",
+   :dcterms/creator {:xsd/string "2022-10-14"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6987,7 +7228,7 @@
   "Personal Data that has undergone a pseudonymisation process or a partial (incomplete) anonymisation process such that it is still considered Personal Data"
   {:db/ident :dpvo/PseudonymisedData,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7004,8 +7245,10 @@
   "A source of data that is publicly accessible or available"
   {:db/ident :dpvo/PublicDataSource,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A source of data that is publicly accessible or available"},
@@ -7024,7 +7267,7 @@
   "Processing is necessary or beneficial for interest of the public or society at large"
   {:db/ident :dpvo/PublicInterest,
    :dcterms/created #inst "2021-04-21T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7041,7 +7284,7 @@
   "Location that is or can be accessed by the public"
   {:db/ident            :dpvo/PublicLocation,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     "Georg P Krog",
+   :dcterms/creator     {:xsd/string "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Location that is or can be accessed by the public"},
@@ -7057,8 +7300,9 @@
   "Purposes associated with managing and conducting public relations processes, including creating goodwill for the organisation"
   {:db/ident :dpvo/PublicRelations,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7078,7 +7322,8 @@
   "The purpose of processing personal data"
   {:db/ident :dpvo/Purpose,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The purpose of processing personal data"},
    :dcterms/modified #inst "2020-11-04T00:00:00.000-00:00",
@@ -7097,7 +7342,7 @@
   "Cryptographic methods that utilise quantum mechanical properties to perform cryptographic tasks"
   {:db/ident :dpvo/QuantumCryptography,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7117,7 +7362,7 @@
   "to query or make enquiries over data"
   {:db/ident            :dpvo/Query,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to query or make enquiries over data"},
    :rdf/type            :owl/Class,
@@ -7132,7 +7377,7 @@
   "A pseudonymisation method where identifiers are substituted by a number chosen by a Random Number Generator (RNG)"
   {:db/ident :dpvo/RNGPseudonymisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7153,7 +7398,7 @@
   "Location that is random or unknown"
   {:db/ident            :dpvo/RandomLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Location that is random or unknown"},
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-00:00",
@@ -7168,7 +7413,8 @@
   "Entities that receive personal data"
   {:db/ident :dpvo/Recipient,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Entities that receive personal data"},
    :dcterms/modified #inst "2020-11-04T00:00:00.000-00:00",
@@ -7210,8 +7456,9 @@
   "Purposes associated with manage creation, storage, and use of records relevant to operations, events, and processes e.g. to store logs or access requests"
   {:db/ident :dpvo/RecordManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7232,7 +7479,9 @@
   "Records of activities within some context such as maintainence tasks or governance functions"
   {:db/ident :dpvo/RecordsOfActivities,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7249,7 +7498,7 @@
   "A region is an area or site that is considered a location"
   {:db/ident :dpvo/Region,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A region is an area or site that is considered a location"},
@@ -7265,7 +7514,7 @@
   "An authority tasked with overseeing legal compliance for a region"
   {:db/ident :dpvo/RegionalAuthority,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7283,7 +7532,7 @@
   "Geographic coverage spanning a specific region or regions"
   {:db/ident :dpvo/RegionalScale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Geographic coverage spanning a specific region or regions"},
@@ -7298,7 +7547,9 @@
   "A ROPA is a document maintained by Data Controllers detailing processing activities carried out under their responsibility"
   {:db/ident :dpvo/RegisterOfProcessingActivities,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7319,8 +7570,9 @@
   "Policy regarding repetition or renewal of existing certification(s)"
   {:db/ident :dpvo/RegularityOfRecertification,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7337,7 +7589,7 @@
   "Location is remote i.e. not local"
   {:db/ident            :dpvo/RemoteLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Location is remote i.e. not local"},
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-00:00",
@@ -7369,8 +7621,9 @@
   "The state where a previously given consent has been 'renewed' or 'refreshed' or 'reaffirmed' to form a new instance of given consent"
   {:db/ident :dpvo/RenewedConsentGiven,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7391,7 +7644,7 @@
   "Purposes associated with identifying, rectifying, or otherwise undertaking activities intended to fix or repair impairments to existing functionalities"
   {:db/ident :dpvo/RepairImpairments,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7412,8 +7665,9 @@
   "A representative of a legal entity"
   {:db/ident :dpvo/Representative,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Paul Ryan"
-                      "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "A representative of a legal entity"},
    :dcterms/source {:rdfa/uri
@@ -7430,7 +7684,7 @@
   "State of a request being accepted towards fulfilment"
   {:db/ident :dpvo/RequestAccepted,
    :dcterms/created #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State of a request being accepted towards fulfilment"},
@@ -7445,7 +7699,7 @@
   "State of a request being acknowledged"
   {:db/ident            :dpvo/RequestAcknowledged,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of a request being acknowledged"},
    :rdf/type            #{:dpvo/RequestStatus :owl/NamedIndividual},
@@ -7459,7 +7713,7 @@
   "State of a request being delayed towards fulfilment"
   {:db/ident            :dpvo/RequestActionDelayed,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of a request being delayed towards fulfilment"},
@@ -7474,7 +7728,7 @@
   "State of a request being fulfilled"
   {:db/ident            :dpvo/RequestFulfilled,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of a request being fulfilled"},
    :rdf/type            #{:dpvo/RequestStatus :owl/NamedIndividual},
@@ -7488,7 +7742,7 @@
   "State of a request being initiated"
   {:db/ident            :dpvo/RequestInitiated,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of a request being initiated"},
    :rdf/type            #{:dpvo/RequestStatus :owl/NamedIndividual},
@@ -7502,7 +7756,7 @@
   "State of a request being rejected towards non-fulfilment"
   {:db/ident :dpvo/RequestRejected,
    :dcterms/created #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State of a request being rejected towards non-fulfilment"},
@@ -7517,7 +7771,7 @@
   "State of a request's required action having been performed by the other party"
   {:db/ident :dpvo/RequestRequiredActionPerformed,
    :dcterms/created #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7533,7 +7787,7 @@
   "State of a request requiring an action to be performed from another party"
   {:db/ident :dpvo/RequestRequiresAction,
    :dcterms/created #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7549,7 +7803,7 @@
   "Status associated with requests"
   {:db/ident            :dpvo/RequestStatus,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Status associated with requests"},
    :rdf/type            :owl/Class,
@@ -7564,7 +7818,7 @@
   "State of a request's status being queried"
   {:db/ident            :dpvo/RequestStatusQuery,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of a request's status being queried"},
@@ -7579,7 +7833,7 @@
   "State of a request being unfulfilled"
   {:db/ident            :dpvo/RequestUnfulfilled,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "State of a request being unfulfilled"},
    :rdf/type            #{:dpvo/RequestStatus :owl/NamedIndividual},
@@ -7593,8 +7847,9 @@
   "Purposes associated with delivering services as requested by user or consumer"
   {:db/ident :dpvo/RequestedServiceProvision,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7615,8 +7870,11 @@
   "Indication of 'required' or 'necessary'"
   {:db/ident            :dpvo/Required,
    :dcterms/created     #inst "2022-02-13T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Indication of 'required' or 'necessary'"},
    :rdf/type            #{:dpvo/Necessity :owl/NamedIndividual},
@@ -7630,8 +7888,10 @@
   "Purposes associated with conducting research and development for new methods, products, or services"
   {:db/ident :dpvo/ResearchAndDevelopment,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7682,7 +7942,8 @@
   "Procedures to review impact assessments in terms of continued validity, adequacy for intended purposes, and conformance of processes with findings"
   {:db/ident :dpvo/ReviewImpactAssessment,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7699,7 +7960,8 @@
   "A procedure or process that reviews the correctness and validity of other measures and processes"
   {:db/ident :dpvo/ReviewProcedure,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7716,7 +7978,9 @@
   "The right(s) applicable, provided, or expected."
   {:db/ident :dpvo/Right,
    :dcterms/created #inst "2020-11-18T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Beatriz Esteves" "Harshvardhan J Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan J Pandit"}},
    :dcterms/description
    #{{:rdf/language "en",
       :rdf/value    "The right(s) applicable, provided, or expected."}
@@ -7737,8 +8001,9 @@
   "An activity representing an exercising of an active right"
   {:db/ident :dpvo/RightExerciseActivity,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Beatriz Esteves" "Paul Ryan"
-                      "Harshvardhan J Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan J Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "An activity representing an exercising of an active right"},
@@ -7757,8 +8022,9 @@
   "Information associated with exercising of an active right"
   {:db/ident :dpvo/RightExerciseNotice,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Beatriz Esteves" "Paul Ryan"
-                      "Harshvardhan J Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan J Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information associated with exercising of an active right"},
@@ -7777,8 +8043,9 @@
   "Record of a Right being exercised"
   {:db/ident :dpvo/RightExerciseRecord,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Beatriz Esteves" "Paul Ryan"
-                      "Harshvardhan J Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Harshvardhan J Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Record of a Right being exercised"},
    :rdf/type #{:dpvo/Record :owl/NamedIndividual},
@@ -7796,7 +8063,8 @@
   "Notice provided regarding fulfilment of a right"
   {:db/ident :dpvo/RightFulfilmentNotice,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Notice provided regarding fulfilment of a right"},
@@ -7816,7 +8084,8 @@
   "Notice provided regarding non-fulfilment of a right"
   {:db/ident :dpvo/RightNonFulfilmentNotice,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Notice provided regarding non-fulfilment of a right"},
@@ -7836,7 +8105,7 @@
   "A risk or possibility or uncertainty of negative effects, impacts, or consequences."
   {:db/ident :dpvo/Risk,
    :dcterms/created #inst "2020-11-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7856,7 +8125,7 @@
   "The magnitude of a risk expressed as an indication to aid in its management"
   {:db/ident :dpvo/RiskLevel,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7876,7 +8145,7 @@
   "A scheme within the risk management framework specifying the approach, the management components, and resources to be applied to the management of risk"
   {:db/ident :dpvo/RiskManagementPlan,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7894,7 +8163,7 @@
   "A policy or statement of the overall intentions and direction of an organisation related to risk management"
   {:db/ident :dpvo/RiskManagementPolicy,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7912,7 +8181,7 @@
   "The systematic application of management policies, procedures and practices to the activities of communicating, consulting, establishing the context, and identifying, analysing, evaluating, treating, monitoring, and reviewing risk"
   {:db/ident :dpvo/RiskManagementProcess,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7932,7 +8201,9 @@
   "Measures intended to mitigate, minimise, or prevent risk."
   {:db/ident :dpvo/RiskMitigationMeasure,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Measures intended to mitigate, minimise, or prevent risk."},
@@ -7948,8 +8219,9 @@
   "A rule describing a process or control that directs or determines if and how an activity should be conducted"
   {:db/ident :dpvo/Rule,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7965,8 +8237,9 @@
   "A safeguard is a precautionary measure for the protection against or mitigation of negative effects"
   {:db/ident :dpvo/Safeguard,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -7987,8 +8260,9 @@
   "Represents a safeguard used for data transfer. Can include technical or organisational measures."
   {:db/ident :dpvo/SafeguardForDataTransfer,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8005,7 +8279,8 @@
   "A measurement along some dimension"
   {:db/ident :dpvo/Scale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Rana Saniei"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "Rana Saniei"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "A measurement along some dimension"},
    :rdf/type :owl/Class,
@@ -8024,7 +8299,7 @@
   "Indication of the extent or range or boundaries associated with(in) a context"
   {:db/ident :dpvo/Scope,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8041,7 +8316,7 @@
   "Processing that involves scoring of individuals"
   {:db/ident :dpvo/ScoringOfIndividuals,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Processing that involves scoring of individuals"},
@@ -8060,7 +8335,8 @@
   "to remove data for some criteria"
   {:db/ident            :dpvo/Screen,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "to remove data for some criteria"},
    :rdf/type            :owl/Class,
@@ -8075,8 +8351,9 @@
   "A seal or a mark indicating proof of certification to some certification or standard"
   {:db/ident :dpvo/Seal,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8093,7 +8370,7 @@
   "Purposes associated with providing searching, querying, or other forms of information retrieval related functionalities"
   {:db/ident :dpvo/SearchFunctionalities,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8110,8 +8387,10 @@
   "Indication of 'secondary' or 'minor' or 'auxiliary' importance"
   {:db/ident :dpvo/SecondaryImportance,
    :dcterms/created #inst "2022-02-11T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8127,7 +8406,7 @@
   "Use of secret sharing schemes where the secret can only be reconstructed through combination of sufficient number of individuals"
   {:db/ident :dpvo/SecretSharingSchemes,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8147,8 +8426,10 @@
   "Sector describes the area of application or domain that indicates or restricts scope for interpretation and application of purpose e.g. Agriculture, Banking"
   {:db/ident :dpvo/Sector,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8168,7 +8449,7 @@
   "Use of cryptographic methods for entities to jointly compute functions without revealing inputs"
   {:db/ident :dpvo/SecureMultiPartyComputation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8188,7 +8469,7 @@
   "Assessment of security intended to identity gaps, vulnerabilities, risks, and effectiveness of controls"
   {:db/ident :dpvo/SecurityAssessment,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8208,7 +8489,7 @@
   "Training intended to increase knowledge regarding security"
   {:db/ident :dpvo/SecurityKnowledgeTraining,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Training intended to increase knowledge regarding security"},
@@ -8227,7 +8508,7 @@
   "Methods that relate to creating and providing security"
   {:db/ident :dpvo/SecurityMethod,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Methods that relate to creating and providing security"},
@@ -8243,7 +8524,7 @@
   "Procedures associated with assessing, implementing, and evaluating security"
   {:db/ident :dpvo/SecurityProcedure,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8260,7 +8541,7 @@
   "Procedures related to security roles"
   {:db/ident :dpvo/SecurityRoleProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Procedures related to security roles"},
    :dcterms/source
@@ -8278,8 +8559,10 @@
   "Purposes associated with selling or sharing data or information to third parties"
   {:db/ident :dpvo/SellDataToThirdParties,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8300,8 +8583,10 @@
   "Purposes associated with selling or sharing insights obtained from analysis of data"
   {:db/ident :dpvo/SellInsightsFromData,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8322,8 +8607,9 @@
   "Purposes associated with selling products or services"
   {:db/ident :dpvo/SellProducts,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Purposes associated with selling products or services"},
@@ -8343,8 +8629,10 @@
   "Purposes associated with selling products or services to the user, consumer, or data subjects"
   {:db/ident :dpvo/SellProductsToDataSubject,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8365,7 +8653,7 @@
   "Personal data that is considered 'sensitive' in terms of privacy and/or impact, and therefore requires additional considerations and/or protection"
   {:db/ident :dpvo/SensitivePersonalData,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8386,8 +8674,10 @@
   "Purposes associated with optimisation of services or activities"
   {:db/ident :dpvo/ServiceOptimisation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8408,8 +8698,10 @@
   "Purposes associated with providing personalisation within services or product or activities"
   {:db/ident :dpvo/ServicePersonalisation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8426,8 +8718,10 @@
   "Purposes associated with providing service or product or activities"
   {:db/ident :dpvo/ServiceProvision,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8444,8 +8738,9 @@
   "Purposes associated with registering users and collecting information required for providing a service"
   {:db/ident :dpvo/ServiceRegistration,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8466,8 +8761,9 @@
   "Purposes associated with conducting analysis and reporting related to usage of services or products"
   {:db/ident :dpvo/ServiceUsageAnalytics,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8489,7 +8785,7 @@
   "The magnitude of being unwanted or having negative effects such as harmful impacts"
   {:db/ident :dpvo/Severity,
    :dcterms/created #inst "2022-07-21T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8526,7 +8822,9 @@
   "Use of credentials or processes that enable using one set of credentials to authenticate multiple contexts."
   {:db/ident :dpvo/SingleSignOn,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8543,7 +8841,7 @@
   "Data volume that is considered singular i.e. a specific instance or single item"
   {:db/ident :dpvo/SingularDataVolume,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8559,7 +8857,7 @@
   "Frequency where occurences are singular i.e. they take place only once"
   {:db/ident :dpvo/SingularFrequency,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8577,7 +8875,7 @@
   "Scale of data subjects considered singular i.e. a specific data subject"
   {:db/ident :dpvo/SingularScaleOfDataSubjects,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8593,7 +8891,7 @@
   "Data volume that is considered small or limited within the context"
   {:db/ident :dpvo/SmallDataVolume,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8609,7 +8907,7 @@
   "Scale of data subjects considered small or limited within the context"
   {:db/ident :dpvo/SmallScaleOfDataSubjects,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8625,7 +8923,7 @@
   "Processing that takes place at small scales (as specified by some criteria)"
   {:db/ident :dpvo/SmallScaleProcessing,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8641,8 +8939,9 @@
   "Purposes associated with conducting marketing through social media"
   {:db/ident :dpvo/SocialMediaMarketing,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"
-                      "Beatriz Esteves"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8659,8 +8958,8 @@
   "Sensitive Personal Data whose use requires specific legal permission or justification"
   {:db/ident :dpvo/SpecialCategoryPersonalData,
    :dcterms/created #inst "2019-05-07T00:00:00.000-00:00",
-   :dcterms/creator #{"Elmar Kiesling; Harshvardhan J. Pandit"
-                      "Fajar Ekaputra"},
+   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
+                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8684,7 +8983,7 @@
   "Data volume that is considered sporadic or sparse within the context"
   {:db/ident :dpvo/SporadicDataVolume,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8700,7 +8999,7 @@
   "Frequency where occurences are sporadic or infrequent or sparse"
   {:db/ident :dpvo/SporadicFrequency,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8718,7 +9017,7 @@
   "Scale of data subjects considered sporadic or sparse within the context"
   {:db/ident :dpvo/SporadicScaleOfDataSubjects,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8734,8 +9033,9 @@
   "Practices and policies regarding training of staff members"
   {:db/ident :dpvo/StaffTraining,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Practices and policies regarding training of staff members"},
@@ -8751,7 +9051,7 @@
   "The status or state of something"
   {:db/ident            :dpvo/Status,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "The status or state of something"},
    :rdf/type            :owl/Class,
@@ -8766,8 +9066,9 @@
   "Conditions required or followed regarding storage of data"
   {:db/ident :dpvo/StorageCondition,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Conditions required or followed regarding storage of data"},
@@ -8783,8 +9084,9 @@
   "Deletion or Erasure of data including any deletion guarantees"
   {:db/ident :dpvo/StorageDeletion,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Deletion or Erasure of data including any deletion guarantees"},
@@ -8800,8 +9102,9 @@
   "Duration or temporal limitation on storage of personal data"
   {:db/ident :dpvo/StorageDuration,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Duration or temporal limitation on storage of personal data"},
@@ -8817,8 +9120,9 @@
   "Location or geospatial scope where the data is stored"
   {:db/ident :dpvo/StorageLocation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Location or geospatial scope where the data is stored"},
@@ -8834,8 +9138,9 @@
   "Regularity and temporal span of data restoration/backup mechanisms that guarantee that data is preserved"
   {:db/ident :dpvo/StorageRestoration,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8884,8 +9189,11 @@
   "Data subjects that are students"
   {:db/ident            :dpvo/Student,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Data subjects that are students"},
    :rdf/type            :owl/Class,
@@ -8900,8 +9208,10 @@
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Processor and a Data (Sub-)Processor"
   {:db/ident :dpvo/SubProcessorAgreement,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8918,8 +9228,11 @@
   "Data subjects that subscribe to service(s)"
   {:db/ident            :dpvo/Subscriber,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Data subjects that subscribe to service(s)"},
@@ -8938,7 +9251,7 @@
   "An authority tasked with overseeing legal compliance for a supra-national union e.g. EU"
   {:db/ident :dpvo/SupraNationalAuthority,
    :dcterms/created #inst "2022-02-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8956,7 +9269,7 @@
   "A political union of two or more countries with an establishment of common authority"
   {:db/ident :dpvo/SupraNationalUnion,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8973,7 +9286,7 @@
   "Use of cryptography where the same keys are utilised for encryption and descryption of information"
   {:db/ident :dpvo/SymmetricCryptography,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -8993,7 +9306,7 @@
   "Use of symmetric cryptography to encrypt data"
   {:db/ident :dpvo/SymmetricEncryption,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Use of symmetric cryptography to encrypt data"},
@@ -9012,7 +9325,7 @@
   "Synthetic data reffers to artificially created data such that it is intended to resemble real data (personal or non-personal), but does not refer to any specific identified or identifiable individual, or to the real measure of an observable parameter in the case of non-personal data"
   {:db/ident :dpvo/SyntheticData,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9032,7 +9345,8 @@
   "Processing that involves systematic monitoring of individuals"
   {:db/ident :dpvo/SystematicMonitoring,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Piero Bonatti"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Piero Bonatti"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Processing that involves systematic monitoring of individuals"},
@@ -9050,7 +9364,7 @@
   "Purposes associated with creating and providing pesonalised advertisement where the personalisation is targeted to a specific individual or group of individuals"
   {:db/ident :dpvo/TargetedAdvertising,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9067,8 +9381,9 @@
   "Technical measures required/followed when processing data of the declared category"
   {:db/ident :dpvo/TechnicalMeasure,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                      "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rob Brennan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9085,7 +9400,7 @@
   "The Technical and Organisational measures used."
   {:db/ident            :dpvo/TechnicalOrganisationalMeasure,
    :dcterms/created     #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator     "Bud Bruegger",
+   :dcterms/creator     {:xsd/string "Bud Bruegger"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "The Technical and Organisational measures used."},
@@ -9101,7 +9416,7 @@
   "Purposes associated with managing and providing technical processes and functions necessary for delivering services"
   {:db/ident :dpvo/TechnicalServiceProvision,
    :dcterms/created #inst "2021-09-08T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9118,7 +9433,7 @@
   "The technology, technological implementation, or any techniques, skills, methods, and processes used or applied"
   {:db/ident :dpvo/Technology,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9138,7 +9453,7 @@
   "Duration that has a fixed temporal duration e.g. 6 months"
   {:db/ident :dpvo/TemporalDuration,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Duration that has a fixed temporal duration e.g. 6 months"},
@@ -9155,7 +9470,7 @@
   "Represents a country outside applicable or compatible jurisdiction as outlined in law"
   {:db/ident :dpvo/ThirdCountry,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9172,7 +9487,7 @@
   "A ‘third party’ means a natural or legal person, public authority, agency or body other than the data subject, controller, processor and people who, under the direct authority of the controller or processor, are authorised to process personal data."
   {:db/ident :dpvo/ThirdParty,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9191,7 +9506,7 @@
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller or Processor and a Third Party"
   {:db/ident :dpvo/ThirdPartyAgreement,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9208,7 +9523,7 @@
   "Procedures related to security associated with Third Parties"
   {:db/ident :dpvo/ThirdPartySecurityProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Procedures related to security associated with Third Parties"},
@@ -9227,8 +9542,10 @@
   "Data subjects that are tourists i.e. not citizens and not immigrants"
   {:db/ident :dpvo/Tourist,
    :dcterms/created #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9295,7 +9612,7 @@
   "Use of cryptographic methods to restrict access and execution to trusted parties and code"
   {:db/ident :dpvo/TrustedComputing,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9315,7 +9632,7 @@
   "Use of cryptographic methods to restrict access and execution to trusted parties and code within a dedicated execution environment"
   {:db/ident :dpvo/TrustedExecutionEnvironments,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9335,7 +9652,7 @@
   "Utilisation of a trusted third party to provide or carry out a measure"
   {:db/ident :dpvo/TrustedThirdPartyUtilisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9355,8 +9672,9 @@
   "Consent that is uninformed i.e. without requirement to provide sufficient information to make a consenting decision"
   {:db/ident :dpvo/UninformedConsent,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9373,7 +9691,7 @@
   "State of being unlawful or legally non-compliant"
   {:db/ident            :dpvo/Unlawful,
    :dcterms/created     #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of being unlawful or legally non-compliant"},
@@ -9388,7 +9706,7 @@
   "Duration that takes place until a specific event occurs e.g. Account Closure"
   {:db/ident :dpvo/UntilEventDuration,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9406,7 +9724,7 @@
   "Duration that has a fixed end date e.g. 2022-12-31"
   {:db/ident            :dpvo/UntilTimeDuration,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Duration that has a fixed end date e.g. 2022-12-31"},
@@ -9423,7 +9741,7 @@
   "Data that has not been verified in terms of accuracy, inconsistency, or quality"
   {:db/ident :dpvo/UnverifiedData,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9440,7 +9758,7 @@
   "Management of usage, which is intended to be broader than access control and may cover trust, digital rights, or other relevant controls"
   {:db/ident :dpvo/UsageControl,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9476,7 +9794,7 @@
   "Use of synthetic data to preserve privacy, security, or other effects and side-effects"
   {:db/ident :dpvo/UseSyntheticData,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9496,8 +9814,11 @@
   "Data subjects that use service(s)"
   {:db/ident            :dpvo/User,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Data subjects that use service(s)"},
    :rdf/type            :owl/Class,
@@ -9512,8 +9833,10 @@
   "Purposes associated with personalisation of interfaces presented to the user"
   {:db/ident :dpvo/UserInterfacePersonalisation,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit"
-                      "Elmar Kiesling" "Fajar Ekaputra" "Javier Fernandez"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Axel Polleres"}
+     {:xsd/string "Elmar Kiesling"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Simon Steyskal"} {:xsd/string "Javier Fernandez"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9534,7 +9857,7 @@
   "Location that is known but is variable e.g. somewhere within a given area"
   {:db/ident :dpvo/VariableLocation,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9552,8 +9875,9 @@
   "Purposes associated with manage orders, payment, evaluation, and prospecting related to vendors"
   {:db/ident :dpvo/VendorManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9573,8 +9897,9 @@
   "Purposes associated with managing payment of vendors"
   {:db/ident :dpvo/VendorPayment,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Purposes associated with managing payment of vendors"},
@@ -9593,8 +9918,9 @@
   "Purposes associated with managing records and orders related to vendors"
   {:db/ident :dpvo/VendorRecordsManagement,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9614,8 +9940,9 @@
   "Purposes associated with managing selection, assessment, and evaluation related to vendors"
   {:db/ident :dpvo/VendorSelectionAssessment,
    :dcterms/created #inst "2021-09-01T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9635,7 +9962,7 @@
   "Data that has been verified in terms of accuracy, inconsistency, or quality"
   {:db/ident :dpvo/VerifiedData,
    :dcterms/created #inst "2022-11-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9652,7 +9979,7 @@
   "Security implemented at or through virtualised environments"
   {:db/ident :dpvo/VirtualisationSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Security implemented at or through virtualised environments"},
@@ -9671,8 +9998,11 @@
   "Data subjects that are temporary visitors"
   {:db/ident            :dpvo/Visitor,
    :dcterms/created     #inst "2022-04-06T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P. Krog" "Harshvardhan J. Pandit"
-                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P. Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Data subjects that are temporary visitors"},
@@ -9688,7 +10018,7 @@
   "Processing is necessary or required to protect vital interests of a data subject or other natural person"
   {:db/ident :dpvo/VitalInterest,
    :dcterms/created #inst "2021-04-21T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9705,7 +10035,9 @@
   "Processing is necessary or required to protect vital interests of a data subject"
   {:db/ident :dpvo/VitalInterestOfDataSubject,
    :dcterms/created #inst "2021-04-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9722,7 +10054,9 @@
   "Processing is necessary or required to protect vital interests of a natural person"
   {:db/ident :dpvo/VitalInterestOfNaturalPerson,
    :dcterms/created #inst "2021-04-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9739,7 +10073,7 @@
   "Methods that assess or discover vulnerabilities in a system"
   {:db/ident :dpvo/VulnerabilityTestingMethods,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Methods that assess or discover vulnerabilities in a system"},
@@ -9758,7 +10092,8 @@
   "Data Subjects which should be considered 'vulnerable' and therefore would require additional measures and safeguards"
   {:db/ident :dpvo/VulnerableDataSubject,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan Pandit" "Paul Ryan" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Georg Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Harshvardhan Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9779,7 +10114,7 @@
   "Security implemented at or over web browsers"
   {:db/ident :dpvo/WebBrowserSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Security implemented at or over web browsers"},
@@ -9798,7 +10133,7 @@
   "Security implemented at or over web-based protocols"
   {:db/ident :dpvo/WebSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Security implemented at or over web-based protocols"},
@@ -9817,7 +10152,7 @@
   "Security implemented at or over wireless communication protocols"
   {:db/ident :dpvo/WirelessSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9837,7 +10172,7 @@
   "Location is local and entirely within a device, such as a smartphone"
   {:db/ident :dpvo/WithinDevice,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9855,7 +10190,7 @@
   "Location is local and entirely within a physical environment, such as a room"
   {:db/ident :dpvo/WithinPhysicalEnvironment,
    :dcterms/created #inst "2020-10-06T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9872,7 +10207,7 @@
   "Location is local and entirely within a virtual environment, such as a shared network directory"
   {:db/ident :dpvo/WithinVirtualEnvironment,
    :dcterms/created #inst "2020-10-06T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9889,7 +10224,7 @@
   "Authentication using Zero-Knowledge proofs"
   {:db/ident :dpvo/ZeroKnowledgeAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Authentication using Zero-Knowledge proofs"},
@@ -9908,7 +10243,7 @@
   "Indicates the status of activity of specified concept"
   {:db/ident :dpvo/hasActivityStatus,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates the status of activity of specified concept"},
@@ -9926,8 +10261,9 @@
   "Specifies address of a legal entity such as street address or pin code"
   {:db/ident :dpvo/hasAddress,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J.Pandit" "Georg P Krog" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J.Pandit"}
+                      {:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9945,7 +10281,9 @@
   "Indicates the logic used in processing such as for automated decision making"
   {:db/ident :dpvo/hasAlgorithmicLogic,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9964,7 +10302,7 @@
   "Indicates applicability of a Law"
   {:db/ident            :dpvo/hasApplicableLaw,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates applicability of a Law"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -9980,7 +10318,7 @@
   "Indicates the status of audit associated with specified concept"
   {:db/ident :dpvo/hasAuditStatus,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -9999,7 +10337,8 @@
   "Indicates applicability of authority for a jurisdiction"
   {:db/ident :dpvo/hasAuthority,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates applicability of authority for a jurisdiction"},
@@ -10016,7 +10355,7 @@
   "Indicates the status of compliance of specified concept"
   {:db/ident :dpvo/hasComplianceStatus,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates the status of compliance of specified concept"},
@@ -10034,8 +10373,10 @@
   "Specifies the state or status of consent"
   {:db/ident            :dpvo/hasConsentStatus,
    :dcterms/created     #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                          "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Specifies the state or status of consent"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -10051,8 +10392,10 @@
   "Indicates consenquence(s) possible or arising from specified concept"
   {:db/ident :dpvo/hasConsequence,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Georg P Krog"}
+     {:xsd/string "Harshvardhan J. Pandit"} {:xsd/string "Beatriz Esteves"}
+     {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10073,7 +10416,8 @@
   "Indicates the thing (e.g. plan, process, or entity) affected by a consequence"
   {:db/ident :dpvo/hasConsequenceOn,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10091,8 +10435,9 @@
   "Specifies contact details of a legal entity such as phone  or email"
   {:db/ident :dpvo/hasContact,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J.Pandit" "Georg P Krog" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J.Pandit"}
+                      {:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10126,7 +10471,8 @@
   "Indicates applicability of specified country"
   {:db/ident            :dpvo/hasCountry,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates applicability of specified country"},
@@ -10144,7 +10490,7 @@
   "Indicates associated with Data (may or may not be personal)"
   {:db/ident :dpvo/hasData,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Indicates associated with Data (may or may not be personal)"},
@@ -10161,8 +10507,11 @@
   "Indicates association with Data Controller"
   {:db/ident            :dpvo/hasDataController,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Javier Fernández"
-                          "Harshvardhan J. Pandit" "Bud Bruegger" "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Bud Bruegger"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates association with Data Controller"},
@@ -10181,7 +10530,9 @@
   "Indiciates inclusion or applicability of a LegalEntity in the role of Data Exporter"
   {:db/ident :dpvo/hasDataExporter,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10200,7 +10551,9 @@
   "Indiciates inclusion or applicability of a LegalEntity in the role of Data Importer"
   {:db/ident :dpvo/hasDataImporter,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10219,7 +10572,9 @@
   "Indiciates inclusion or applicability of a Data Processor"
   {:db/ident :dpvo/hasDataProcessor,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indiciates inclusion or applicability of a Data Processor"},
@@ -10237,7 +10592,8 @@
   "Specifices an associated data protection officer"
   {:db/ident            :dpvo/hasDataProtectionOfficer,
    :dcterms/created     #inst "2022-03-02T00:00:00.000-00:00",
-   :dcterms/creator     #{"Rob Brennan" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Paul Ryan"}
+                          {:xsd/string "Rob Brennan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Specifices an associated data protection officer"},
@@ -10255,7 +10611,9 @@
   "Indicates the source or origin of data being processed"
   {:db/ident :dpvo/hasDataSource,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates the source or origin of data being processed"},
@@ -10272,8 +10630,11 @@
   "Indicates association with Data Subject"
   {:db/ident            :dpvo/hasDataSubject,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Javier Fernández"
-                          "Harshvardhan J. Pandit" "Bud Bruegger" "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Bud Bruegger"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Indicates association with Data Subject"},
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-00:00",
@@ -10291,7 +10652,7 @@
   "Indicates the scale of data subjects"
   {:db/ident            :dpvo/hasDataSubjectScale,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates the scale of data subjects"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -10308,7 +10669,7 @@
   "Indicates the volume of data"
   {:db/ident            :dpvo/hasDataVolume,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates the volume of data"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -10325,8 +10686,10 @@
   "Indicates information about duration"
   {:db/ident            :dpvo/hasDuration,
    :dcterms/created     #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                          "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Rob Brennan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates information about duration"},
    :dcterms/source      {:rdfa/uri "https://specialprivacy.ercim.eu/"},
@@ -10343,7 +10706,7 @@
   "Indicates inclusion or applicability of an entity to some concept"
   {:db/ident :dpvo/hasEntity,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10365,7 +10728,7 @@
   "Indicates the frequency with which something takes place"
   {:db/ident :dpvo/hasFrequency,
    :dcterms/created #inst "2022-02-16T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates the frequency with which something takes place"},
@@ -10382,7 +10745,7 @@
   "Indicate the geographic coverage (of specified context)"
   {:db/ident :dpvo/hasGeographicCoverage,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicate the geographic coverage (of specified context)"},
@@ -10400,7 +10763,9 @@
   "Indicates Involvement of humans in processing such as within automated decision making process"
   {:db/ident :dpvo/hasHumanInvolvement,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10421,8 +10786,9 @@
   "Indicates an identifier associated for identification or reference"
   {:db/ident :dpvo/hasIdentifier,
    :dcterms/created #inst "2020-11-25T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J.Pandit" "Georg P Krog" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J.Pandit"}
+                      {:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10440,8 +10806,10 @@
   "Indicates impact(s) possible or arising as consequences from specified concept"
   {:db/ident :dpvo/hasImpact,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Georg P Krog"}
+     {:xsd/string "Harshvardhan J. Pandit"} {:xsd/string "Beatriz Esteves"}
+     {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10460,8 +10828,10 @@
   "Indicates the thing (e.g. plan, process, or entity) affected by an impact"
   {:db/ident :dpvo/hasImpactOn,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Fajar Ekaputra"},
+   :dcterms/creator
+   #{{:xsd/string "Fajar Ekaputra"} {:xsd/string "Georg P Krog"}
+     {:xsd/string "Harshvardhan J. Pandit"} {:xsd/string "Beatriz Esteves"}
+     {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10480,8 +10850,9 @@
   "Specifies the method by which an entity has indicated the specific context"
   {:db/ident :dpvo/hasIndicationMethod,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10498,7 +10869,9 @@
   "Indicates inclusion or applicability of a Joint Data Controller"
   {:db/ident :dpvo/hasJointDataControllers,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10517,7 +10890,7 @@
   "Indicates applicability of specified jurisdiction"
   {:db/ident            :dpvo/hasJurisdiction,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates applicability of specified jurisdiction"},
@@ -10534,7 +10907,7 @@
   "Indicates a justification for specified concept or context"
   {:db/ident :dpvo/hasJustification,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates a justification for specified concept or context"},
@@ -10551,7 +10924,7 @@
   "Indicates the status of being lawful or legally compliant"
   {:db/ident :dpvo/hasLawfulness,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates the status of being lawful or legally compliant"},
@@ -10569,7 +10942,8 @@
   "Indicates use or applicability of a Legal Basis"
   {:db/ident            :dpvo/hasLegalBasis,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Javier Fernández"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates use or applicability of a Legal Basis"},
@@ -10587,8 +10961,10 @@
   "Indicates the likelihood associated with a concept"
   {:db/ident            :dpvo/hasLikelihood,
    :dcterms/created     #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                          "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates the likelihood associated with a concept"},
@@ -10605,8 +10981,10 @@
   "Indicates information about location"
   {:db/ident            :dpvo/hasLocation,
    :dcterms/created     #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                          "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Rob Brennan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates information about location"},
    :dcterms/source      {:rdfa/uri "https://specialprivacy.ercim.eu/"},
@@ -10623,8 +11001,9 @@
   "Specifies name of a legal entity"
   {:db/ident            :dpvo/hasName,
    :dcterms/created     #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Harshvardhan J.Pandit" "Georg P Krog"
-                          "Beatriz Esteves" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Harshvardhan J.Pandit"}
+                          {:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Specifies name of a legal entity"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -10640,8 +11019,9 @@
   "Indicates the use or applicability of a Notice for the specified context"
   {:db/ident :dpvo/hasNotice,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10660,8 +11040,9 @@
   "Specifying applicability or inclusion of an obligation rule within specified context"
   {:db/ident :dpvo/hasObligation,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10680,7 +11061,7 @@
   "Indicates use or applicability of Organisational measure"
   {:db/ident :dpvo/hasOrganisationalMeasure,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates use or applicability of Organisational measure"},
@@ -10698,7 +11079,7 @@
   "Indicates an outcome of specified concept or context"
   {:db/ident :dpvo/hasOutcome,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates an outcome of specified concept or context"},
@@ -10715,8 +11096,9 @@
   "Specifying applicability or inclusion of a permission rule within specified context"
   {:db/ident :dpvo/hasPermission,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10735,7 +11117,7 @@
   "Indicates association with Personal Data"
   {:db/ident            :dpvo/hasPersonalData,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Indicates association with Personal Data"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -10752,7 +11134,8 @@
   "Indicates association with Personal Data Handling"
   {:db/ident            :dpvo/hasPersonalDataHandling,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates association with Personal Data Handling"},
@@ -10769,7 +11152,7 @@
   "Indicates policy applicable or used"
   {:db/ident            :dpvo/hasPolicy,
    :dcterms/created     #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates policy applicable or used"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -10786,8 +11169,11 @@
   "Indicates association with Processing"
   {:db/ident            :dpvo/hasProcessing,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Javier Fernández"
-                          "Harshvardhan J. Pandit" "Bud Bruegger" "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Bud Bruegger"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates association with Processing"},
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-00:00",
@@ -10805,7 +11191,7 @@
   "Indicates the use or extent of automation associated with processing"
   {:db/ident :dpvo/hasProcessingAutomation,
    :dcterms/created #inst "2022-08-13T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10823,8 +11209,9 @@
   "Specifying applicability or inclusion of a prohibition rule within specified context"
   {:db/ident :dpvo/hasProhibition,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10843,8 +11230,11 @@
   "Indicates association with Purpose"
   {:db/ident            :dpvo/hasPurpose,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Javier Fernández"
-                          "Harshvardhan J. Pandit" "Bud Bruegger" "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Bud Bruegger"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates association with Purpose"},
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-00:00",
@@ -10862,8 +11252,11 @@
   "Indicates Recipient of Personal Data"
   {:db/ident            :dpvo/hasRecipient,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Javier Fernández"
-                          "Harshvardhan J. Pandit" "Bud Bruegger" "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Bud Bruegger"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Javier Fernández"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates Recipient of Personal Data"},
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-00:00",
@@ -10882,7 +11275,9 @@
   "Indiciates inclusion or applicability of a Data Controller as a Recipient of persona data"
   {:db/ident :dpvo/hasRecipientDataController,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10901,7 +11296,9 @@
   "Indiciates inclusion or applicability of a Third Party as a Recipient of persona data"
   {:db/ident :dpvo/hasRecipientThirdParty,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10920,8 +11317,9 @@
   "Indicates the relation between specified Entity and Data Subject"
   {:db/ident :dpvo/hasRelationWithDataSubject,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10940,8 +11338,9 @@
   "Specifies representative of the legal entity"
   {:db/ident            :dpvo/hasRepresentative,
    :dcterms/created     #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator     #{"Harshvardhan J.Pandit" "Georg P Krog"
-                          "Beatriz Esteves" "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Harshvardhan J.Pandit"}
+                          {:xsd/string "Georg P Krog"} {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Specifies representative of the legal entity"},
@@ -10959,8 +11358,9 @@
   "Indicates the associated risk is the remaining or residual risk from applying mitigation measures or treatments to this risk"
   {:db/ident :dpvo/hasResidualRisk,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10978,7 +11378,7 @@
   "Specifies the indicated entity is responsible within some context"
   {:db/ident :dpvo/hasResponsibleEntity,
    :dcterms/created #inst "2022-03-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -10997,7 +11397,7 @@
   "Indicates use or applicability of Right"
   {:db/ident            :dpvo/hasRight,
    :dcterms/created     #inst "2020-11-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Indicates use or applicability of Right"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -11013,7 +11413,7 @@
   "Indicates applicability of Risk for this concept"
   {:db/ident            :dpvo/hasRisk,
    :dcterms/created     #inst "2020-11-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description #{{:rdf/language "en",
                            :rdf/value
                            "Indicates applicability of Risk for this concept"}
@@ -11032,8 +11432,9 @@
   "Indicates the associated risk level associated with a risk"
   {:db/ident :dpvo/hasRiskLevel,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates the associated risk level associated with a risk"},
@@ -11050,8 +11451,9 @@
   "Specifying applicability or inclusion of a rule within specified context"
   {:db/ident :dpvo/hasRule,
    :dcterms/created #inst "2022-10-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Paul Ryan"},
+   :dcterms/creator
+   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
+     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11069,7 +11471,7 @@
   "Indicates the scale of specified concept"
   {:db/ident            :dpvo/hasScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Indicates the scale of specified concept"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -11085,7 +11487,7 @@
   "Indicates the scope of specified concept or context"
   {:db/ident            :dpvo/hasScope,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates the scope of specified concept or context"},
@@ -11119,8 +11521,10 @@
   "Indicates the severity associated with a concept"
   {:db/ident            :dpvo/hasSeverity,
    :dcterms/created     #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                          "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates the severity associated with a concept"},
@@ -11137,7 +11541,7 @@
   "Indicates the status of specified concept"
   {:db/ident            :dpvo/hasStatus,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates the status of specified concept"},
@@ -11154,8 +11558,10 @@
   "Indicates information about storage condition"
   {:db/ident            :dpvo/hasStorageCondition,
    :dcterms/created     #inst "2022-08-13T00:00:00.000-00:00",
-   :dcterms/creator     #{"Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"
-                          "Mark Lizar"},
+   :dcterms/creator     #{{:xsd/string "Axel Polleres"}
+                          {:xsd/string "Mark Lizar"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Rob Brennan"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates information about storage condition"},
@@ -11173,7 +11579,7 @@
   "Indicates use or applicability of Technical measure"
   {:db/ident            :dpvo/hasTechnicalMeasure,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates use or applicability of Technical measure"},
@@ -11191,8 +11597,10 @@
   "Indicates use or applicability of Technical or Organisational measure"
   {:db/ident :dpvo/hasTechnicalOrganisationalMeasure,
    :dcterms/created #inst "2019-04-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Javier Fernández"
-                      "Harshvardhan J. Pandit" "Bud Bruegger" "Mark Lizar"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"} {:xsd/string "Mark Lizar"}
+                      {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Javier Fernández"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11211,7 +11619,8 @@
   "Indicates applicability or relevance of a 'third country'"
   {:db/ident :dpvo/hasThirdCountry,
    :dcterms/created #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates applicability or relevance of a 'third country'"},
@@ -11229,7 +11638,9 @@
   "Indicates the specified concepts is 'after' this concept in some context"
   {:db/ident :dpvo/isAfter,
    :dcterms/created #inst "2022-03-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11247,7 +11658,8 @@
   "Indicates area, scope, or applicability of an Authority"
   {:db/ident :dpvo/isAuthorityFor,
    :dcterms/created #inst "2022-01-19T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates area, scope, or applicability of an Authority"},
@@ -11264,7 +11676,9 @@
   "Indicates the specified concepts is 'before' this concept in some context"
   {:db/ident :dpvo/isBefore,
    :dcterms/created #inst "2022-03-02T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P. Krog" "Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Georg P. Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11282,7 +11696,7 @@
   "Indicates context or information about exercising a right"
   {:db/ident :dpvo/isExercisedAt,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indicates context or information about exercising a right"},
@@ -11299,8 +11713,10 @@
   "Indicates implementation details such as entities or agents"
   {:db/ident :dpvo/isImplementedByEntity,
    :dcterms/created #inst "2019-05-07T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit" "Beatriz Esteves"
-                      "Julian Flake" "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Indicates implementation details such as entities or agents"},
@@ -11322,8 +11738,9 @@
   "Indicates implementation details such as technologies or processes"
   {:db/ident :dpvo/isImplementedUsingTechnology,
    :dcterms/created #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}
+                      {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11346,8 +11763,9 @@
   "Specifies the temporal information for when the entity has indicated the specific context"
   {:db/ident :dpvo/isIndicatedAtTime,
    :dcterms/created #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11364,8 +11782,10 @@
   "Specifies entity who indicates the specific context"
   {:db/ident            :dpvo/isIndicatedBy,
    :dcterms/created     #inst "2022-06-21T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                          "Paul Ryan"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}
+                          {:xsd/string "Paul Ryan"}
+                          {:xsd/string "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Specifies entity who indicates the specific context"},
@@ -11382,7 +11802,7 @@
   "Indicate a risk is mitigated by specified measure"
   {:db/ident            :dpvo/isMitigatedByMeasure,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicate a risk is mitigated by specified measure"},
@@ -11400,7 +11820,7 @@
   "Indicates the context or application of policy"
   {:db/ident            :dpvo/isPolicyFor,
    :dcterms/created     #inst "2022-01-26T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates the context or application of policy"},
@@ -11417,7 +11837,7 @@
   "Indicates the entity is a representative for specified entity"
   {:db/ident :dpvo/isRepresentativeFor,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Indicates the entity is a representative for specified entity"},
@@ -11435,8 +11855,9 @@
   "Indicates this risk is the remaining or residual risk from applying mitigation measures or treatments to specified risk"
   {:db/ident :dpvo/isResidualRiskOf,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -11454,7 +11875,7 @@
   "Indicates risks mitigated by this concept"
   {:db/ident            :dpvo/mitigatesRisk,
    :dcterms/created     #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates risks mitigated by this concept"},

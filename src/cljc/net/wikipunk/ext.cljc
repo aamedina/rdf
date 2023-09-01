@@ -26,13 +26,13 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def bio
-  {:dcat/downloadURL "resources/bio.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/bio.rdf"
    :rdfa/uri         "http://purl.org/vocab/bio/0.1/"
    :rdfa/prefix      "bio"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def cnt
-  {:dcat/downloadURL "resources/content.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/content.rdf"
    :rdfa/uri    "http://www.w3.org/2011/content#"
    :rdfa/prefix "cnt"
    :rdf/type    :rdfa/PrefixMapping})
@@ -58,7 +58,7 @@
 
 (def dpvo
   "Data Privacy Vocabulary OWL"
-  {:dcat/downloadURL "resources/dpv-owl/dpv.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv.ttl"
    :rdfa/uri         "https://w3id.org/dpv/dpv-owl#"
    :rdfa/prefix      "dpvo",
    :rdf/type         :rdfa/PrefixMapping
@@ -77,7 +77,7 @@
     "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
 
 (def dpvo-pd
-  {:dcat/downloadURL "resources/dpv-owl/dpv-pd/dpv-pd.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-pd/dpv-pd.ttl"
    :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-pd#"
    :rdfa/prefix "dpvo-pd",
    :rdf/type    :rdfa/PrefixMapping
@@ -91,31 +91,31 @@
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
 
 (def dpvo-gdpr
-  {:dcat/downloadURL "resources/dpv-owl/dpv-gdpr/dpv-gdpr.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-gdpr/dpv-gdpr.ttl"
    :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#"
    :rdfa/prefix "dpvo-gdpr",
    :rdf/type    :rdfa/PrefixMapping})
 
 (def dpvo-risk
-  {:dcat/downloadURL "resources/dpv-owl/risk/risk.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/risk/risk.ttl"
    :rdfa/uri    "https://w3id.org/dpv/dpv-owl/risk#"
    :rdfa/prefix "dpvo-risk",
    :rdf/type    :rdfa/PrefixMapping})
 
 (def dpvo-legal
-  {:dcat/downloadURL "resources/dpv-owl/dpv-legal/dpv-legal.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-legal/dpv-legal.ttl"
    :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-legal#"
    :rdfa/prefix "dpvo-legal",
    :rdf/type    :rdfa/PrefixMapping})
 
 (def dpvo-tech
-  {:dcat/downloadURL "resources/dpv-owl/dpv-tech/dpv-tech.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-tech/dpv-tech.ttl"
    :rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-tech#"
    :rdfa/prefix "dpvo-tech",
    :rdf/type    :rdfa/PrefixMapping})
 
 (def dpvo-rights-eu
-  {:dcat/downloadURL "resources/dpv-owl/rights/eu/rights-eu.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/rights/eu/rights-eu.ttl"
    :rdfa/uri    "https://w3id.org/dpv/dpv-owl/rights/eu#"
    :rdfa/prefix "dpvo-rights-eu",
    :rdf/type    :rdfa/PrefixMapping})
@@ -134,20 +134,20 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def exif
-  {:dcat/downloadURL "resources/exif.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/exif.rdf"
    :rdfa/uri    "http://www.w3.org/2003/12/exif/ns#"
    :rdfa/prefix "exif"
    :rdf/type    :rdfa/PrefixMapping
    :reasoner nil})
 
 (def frbr
-  {:dcat/downloadURL "resources/frbr-core-20050810.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/frbr-core-20050810.rdf"
    :rdfa/uri         "http://purl.org/vocab/frbr/core#"
    :rdfa/prefix      "frbr"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def gen
-  {:dcat/downloadURL "resources/gen.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/gen.rdf"
    :rdfa/uri    "http://www.w3.org/2006/gen/ont#"
    :rdfa/prefix "gen"
    :rdf/type    :rdfa/PrefixMapping})
@@ -169,7 +169,7 @@
   {:rdfa/uri    "https://www.w3.org/2019/wot/json-schema#"
    :rdfa/prefix "jsonschema",
    :rdf/type    :rdfa/PrefixMapping
-   :dcat/downloadURL "resources/json-schema.ttl"})
+   :dcat/downloadURL "net/wikipunk/ext/json-schema.ttl"})
 
 (def ore
   {:rdfa/uri    "http://www.openarchives.org/ore/terms/"
@@ -225,7 +225,7 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def voaf
-  {:dcat/downloadURL "resources/voaf.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/voaf.ttl"
    :rdfa/uri         "http://purl.org/vocommons/voaf#"
    :rdfa/prefix      "voaf"
    :rdf/type         :rdfa/PrefixMapping
@@ -255,7 +255,7 @@
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
 (def d3f
-  {:dcat/downloadURL  "resources/d3fend-full.ttl"
+  {:dcat/downloadURL  "net/wikipunk/ext/d3fend-full.ttl"
    :rdfa/uri          "http://d3fend.mitre.org/ontologies/d3fend.owl#"
    :rdfa/prefix       "d3f"
    :rdf/type          :rdfa/PrefixMapping
@@ -281,13 +281,13 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def voag
-  {:dcat/downloadURL "resources/voag.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/voag.ttl"
    :rdfa/uri         "http://voag.linkedmodel.org/schema/voag#"
    :rdfa/prefix      "voag"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def vaem
-  {:dcat/downloadURL "resources/vaem_2014-08-11.n3"
+  {:dcat/downloadURL "net/wikipunk/ext/vaem_2014-08-11.n3"
    :rdfa/uri    "http://www.linkedmodel.org/schema/vaem#"
    :rdfa/prefix "vaem",
    :rdf/type    :rdfa/PrefixMapping
@@ -305,7 +305,7 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def sioc.types
-  {:dcat/downloadURL "resources/sioc.types.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/sioc.types.rdf"
    :rdfa/uri    "http://rdfs.org/sioc/types#",
    :rdfa/prefix "sioc.types",
    :rdf/type    :rdfa/PrefixMapping
@@ -362,25 +362,25 @@
    :rdfa/prefix      "event"})
 
 (def http
-  {:dcat/downloadURL "resources/http.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/http.rdf"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http#"
    :rdfa/prefix      "http"})
 
 (def http-headers
-  {:dcat/downloadURL "resources/http-headers.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/http-headers.rdf"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http-headers#"
    :rdfa/prefix      "http-headers"})
 
 (def http-methods
-  {:dcat/downloadURL "resources/http-methods.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/http-methods.rdf"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http-methods#"
    :rdfa/prefix      "http-methods"})
 
 (def http-statusCodes
-  {:dcat/downloadURL "resources/http-statusCodes.rdf"
+  {:dcat/downloadURL "net/wikipunk/ext/http-statusCodes.rdf"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http-statusCodes#"
    :rdfa/prefix      "http-statusCodes"})
@@ -707,7 +707,7 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def wotsec
-  {:dcat/downloadURL "resources/security.ttl"
+  {:dcat/downloadURL "net/wikipunk/ext/security.ttl"
    :rdfa/prefix      "wotsec"
    :rdfa/uri         "https://www.w3.org/2019/wot/security#"
    :rdf/type         :rdfa/PrefixMapping})
@@ -732,7 +732,8 @@
    :emit false})
 
 (def rml
-  {:rdf/type    :rdfa/PrefixMapping
+  {:dcat/downloadURL "net/wikipunk/ext/rml.ttl"
+   :rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://semweb.mmlab.be/ns/rml#"
    :rdfa/prefix "rml"})
 

@@ -3,8 +3,9 @@
   {:dcat/downloadURL "https://www.w3.org/ns/odrl/2/ODRL22.jsonld",
    :dcterms/contributor
    "W3C Permissions & Obligations Expression Working Group",
-   :dcterms/creator #{"Stuart Myles" "Michael Steidl" "Víctor Rodríguez-Doncel"
-                      "Renato Iannella"},
+   :dcterms/creator
+   #{{:xsd/string "Víctor Rodríguez-Doncel"} {:xsd/string "Stuart Myles"}
+     {:xsd/string "Michael Steidl"} {:xsd/string "Renato Iannella"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

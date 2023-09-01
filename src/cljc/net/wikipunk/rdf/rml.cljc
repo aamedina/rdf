@@ -115,8 +115,7 @@
     :rdf/value
     "Represents the logical target to where triples are exported to. This can be a pointer to any dataset."},
    :rdfs/domain :rr/TriplesMap,
-   :rdfs/label "logical target",
-   :rdfs/range :rmlt/LogicalTarget})
+   :rdfs/label "logical target"})
 
 (def query
   "A valid query."

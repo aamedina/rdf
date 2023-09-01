@@ -690,9 +690,9 @@
    :db/ident :d3f/ApplicationShim,
    :rdf/type :owl/Class,
    :rdfs/label "Application Shim",
-   :rdfs/seeAlso #{"d3f:Shim"
-                   {:rdfa/uri
-                    "http://dbpedia.org/resource/Shim_(computing)#Examples"}},
+   :rdfs/seeAlso #{{:rdfa/uri
+                    "http://dbpedia.org/resource/Shim_(computing)#Examples"}
+                   {:xsd/string "d3f:Shim"}},
    :rdfs/subClassOf :d3f/Shim})
 
 (def ApproximateStringMatching
@@ -734,8 +734,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Artifact",
    :rdfs/seeAlso #{{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00022119-n"}
-                   "Asset"
-                   {:rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl"}},
+                   {:rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl"}
+                   {:xsd/string "Asset"}},
    :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def ArtifactServer
@@ -773,14 +773,16 @@
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://wordnet-rdf.princeton.edu/id/05741528-n"},
    :rdfs/label "Assessment",
-   :rdfs/subClassOf
-   #{{:owl/onProperty     :d3f/author,
-      :owl/someValuesFrom :d3f/Agent,
-      :rdf/type           :owl/Restriction} :d3f/D3FENDCatalogThing
-     {:owl/allValuesFrom {:owl/oneOf ["below" "exceeded" "met"],
-                          :rdf/type  :rdfs/Datatype},
-      :owl/onProperty    :d3f/expectation-rating,
-      :rdf/type          :owl/Restriction}}})
+   :rdfs/subClassOf #{{:owl/allValuesFrom {:owl/oneOf [{:xsd/string "below"}
+                                                       {:xsd/string "exceeded"}
+                                                       {:xsd/string "met"}],
+                                           :rdf/type  :rdfs/Datatype},
+                       :owl/onProperty    :d3f/expectation-rating,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/onProperty     :d3f/author,
+                       :owl/someValuesFrom :d3f/Agent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/D3FENDCatalogThing}})
 
 (def AssetInventory
   "Asset inventorying identifies and records the organization's assets and enriches each inventory item with knowledge about their vulnerabilities."
@@ -1584,7 +1586,7 @@
 (def CCICatalog_v2022-04-05
   "CCI Catalog v2022-04-05"
   {:d3f/archived-at {:rdfa/uri "https://public.cyber.mil/stigs/cci/"},
-   :d3f/version     "2022-04-05",
+   :d3f/version     {:xsd/string "2022-04-05"},
    :db/ident        :d3f/CCICatalog_v2022-04-05,
    :rdf/type        #{:d3f/ControlCorrelationIdentifierCatalog
                       :owl/NamedIndividual},
@@ -9913,7 +9915,7 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Command History Log",
    :rdfs/seeAlso    #{{:rdfa/uri "http://dbpedia.org/resource/Command_history"}
-                      "d3f:CommandLineInterface"},
+                      {:xsd/string "d3f:CommandLineInterface"}},
    :rdfs/subClassOf :d3f/EventLog})
 
 (def CommandHistoryLogFile
@@ -11239,32 +11241,38 @@
    :db/ident :d3f/DefensiveTechniqueAssessment,
    :rdf/type :owl/Class,
    :rdfs/label "Defensive Technique Assessment",
-   :rdfs/subClassOf
-   #{{:owl/onDataRange :xsd/string,
-      :owl/onProperty  :d3f/stage,
-      :owl/qualifiedCardinality 1,
-      :rdf/type        :owl/Restriction}
-     {:owl/onProperty     :d3f/counters,
-      :owl/someValuesFrom :d3f/OffensiveTechnique,
-      :rdf/type           :owl/Restriction} :d3f/FeatureAssessment
-     {:owl/allValuesFrom {:owl/oneOf ["0" "1" "2" "3"],
-                          :rdf/type  :rdfs/Datatype},
-      :owl/onProperty    :d3f/rating,
-      :rdf/type          :owl/Restriction}
-     {:owl/onProperty     :d3f/assesses,
-      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
-      :rdf/type           :owl/Restriction}
-     {:owl/allValuesFrom {:owl/oneOf
-                          ["Deceive" "Detect" "Evict" "Harden" "Isolate"],
-                          :rdf/type :rdfs/Datatype},
-      :owl/onProperty    :d3f/stage,
-      :rdf/type          :owl/Restriction}
-     {:owl/cardinality 1,
-      :owl/onProperty  :d3f/rating,
-      :rdf/type        :owl/Restriction}
-     {:owl/onProperty     :d3f/confidence,
-      :owl/someValuesFrom :xsd/integer,
-      :rdf/type           :owl/Restriction}}})
+   :rdfs/subClassOf #{{:owl/onDataRange :xsd/string,
+                       :owl/onProperty  :d3f/stage,
+                       :owl/qualifiedCardinality 1,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/onProperty     :d3f/counters,
+                       :owl/someValuesFrom :d3f/OffensiveTechnique,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/FeatureAssessment
+                      {:owl/allValuesFrom {:owl/oneOf [{:xsd/string "0"}
+                                                       {:xsd/string "1"}
+                                                       {:xsd/string "2"}
+                                                       {:xsd/string "3"}],
+                                           :rdf/type  :rdfs/Datatype},
+                       :owl/onProperty    :d3f/rating,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/onProperty     :d3f/assesses,
+                       :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom {:owl/oneOf [{:xsd/string "Deceive"}
+                                                       {:xsd/string "Detect"}
+                                                       {:xsd/string "Evict"}
+                                                       {:xsd/string "Harden"}
+                                                       {:xsd/string "Isolate"}],
+                                           :rdf/type  :rdfs/Datatype},
+                       :owl/onProperty    :d3f/stage,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :d3f/rating,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/onProperty     :d3f/confidence,
+                       :owl/someValuesFrom :xsd/integer,
+                       :rdf/type           :owl/Restriction}}})
 
 (def DefensiveTechniqueClaim
   "Countermeasure Claim"
@@ -11994,7 +12002,7 @@
    :db/ident :d3f/EndpointSensor,
    :rdf/type :owl/Class,
    :rdfs/label "Endpoint Sensor",
-   :rdfs/seeAlso "d3f:Platform",
+   :rdfs/seeAlso {:xsd/string "d3f:Platform"},
    :rdfs/subClassOf :d3f/Sensor})
 
 (def EnsembleLearning
@@ -13163,7 +13171,7 @@
    :db/ident        :d3f/GraphicsCardFirmware,
    :rdf/type        :owl/Class,
    :rdfs/label      "Graphics Card Firmware",
-   :rdfs/seeAlso    "d3f:Firmware",
+   :rdfs/seeAlso    {:xsd/string "d3f:Firmware"},
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel   "Video Card Firmware"})
 
@@ -13821,7 +13829,7 @@
    :rdf/type :owl/Class,
    :rdfs/label "Image Code Segment",
    :rdfs/seeAlso #{{:rdfa/uri "http://dbpedia.org/resource/Code_segment"}
-                   "Process Code Segment"},
+                   {:xsd/string "Process Code Segment"}},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Subroutine,
                        :rdf/type           :owl/Restriction}
@@ -13834,7 +13842,7 @@
    :db/ident :d3f/ImageDataSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Image Data Segment",
-   :rdfs/seeAlso #{"Process Data Segment"
+   :rdfs/seeAlso #{{:xsd/string "Process Data Segment"}
                    {:rdfa/uri "http://dbpedia.org/resource/Data_segment"}},
    :rdfs/subClassOf :d3f/ImageSegment})
 
@@ -13856,8 +13864,8 @@
    :db/ident :d3f/ImageSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Image Segment",
-   :rdfs/seeAlso #{"Object File"
-                   {:rdfa/uri "http://dbpedia.org/resource/Object_file"}},
+   :rdfs/seeAlso #{{:rdfa/uri "http://dbpedia.org/resource/Object_file"}
+                   {:xsd/string "Object File"}},
    :rdfs/subClassOf #{:d3f/FileSection :d3f/BinarySegment}})
 
 (def ImageSynthesisGAN
@@ -14043,7 +14051,8 @@
   "Information Content Entity"
   {:db/ident         :d3f/InformationContentEntity,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "BFO, Cyc equiv, SUMO equiv, [Ontology Works] equiv",
+   :rdfs/isDefinedBy {:xsd/string
+                      "BFO, Cyc equiv, SUMO equiv, [Ontology Works] equiv"},
    :rdfs/label       "Information Content Entity",
    :rdfs/subClassOf  #{{:owl/onProperty     :d3f/archived-at,
                         :owl/someValuesFrom :xsd/anyURI,
@@ -14501,9 +14510,10 @@
    :db/ident :d3f/JobSchedulerSoftware,
    :rdf/type :owl/Class,
    :rdfs/label "Job Scheduler Software",
-   :rdfs/seeAlso
-   #{{:rdfa/uri "http://dbpedia.org/resource/Cron"} "Scheduled Task"
-     {:rdfa/uri "http://dbpedia.org/resource/Windows_Task_Scheduler"}},
+   :rdfs/seeAlso #{{:xsd/string "Scheduled Task"}
+                   {:rdfa/uri "http://dbpedia.org/resource/Cron"}
+                   {:rdfa/uri
+                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/JobSchedule,
                        :rdf/type           :owl/Restriction}
@@ -17337,7 +17347,7 @@
    :db/ident :d3f/OfficeApplicationFile,
    :rdf/type :owl/Class,
    :rdfs/label "Office Application File",
-   :rdfs/seeAlso "d3f:OfficeApplication",
+   :rdfs/seeAlso {:xsd/string "d3f:OfficeApplication"},
    :rdfs/subClassOf :d3f/DocumentFile})
 
 (def One-timePassword
@@ -17448,8 +17458,9 @@
    :db/ident :d3f/OperatingSystemConfigurationFile,
    :rdf/type :owl/Class,
    :rdfs/label "Operating System Configuration File",
-   :rdfs/seeAlso #{{:rdfa/uri "http://dbpedia.org/resource/Configuration_file"}
-                   "Configuration File" "Operating System"},
+   :rdfs/seeAlso #{{:xsd/string "Configuration File"}
+                   {:rdfa/uri "http://dbpedia.org/resource/Configuration_file"}
+                   {:xsd/string "Operating System"}},
    :rdfs/subClassOf #{:d3f/ConfigurationFile :d3f/OperatingSystemFile},
    :skos/altLabel "System Configuration File"})
 
@@ -17481,7 +17492,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Log_file"},
    :rdfs/label "Operating System Log File",
-   :rdfs/seeAlso "Log File",
+   :rdfs/seeAlso {:xsd/string "Log File"},
    :rdfs/subClassOf #{:d3f/LogFile :d3f/OperatingSystemFile}})
 
 (def OperatingSystemMonitoring
@@ -17654,7 +17665,7 @@
    :db/ident :d3f/OrchestrationWorker,
    :rdf/type :owl/Class,
    :rdfs/label "Orchestration Worker",
-   :rdfs/seeAlso "d3f:OrchestrationController",
+   :rdfs/seeAlso {:xsd/string "d3f:OrchestrationController"},
    :rdfs/subClassOf :d3f/OrchestrationServer})
 
 (def Organization
@@ -17920,7 +17931,7 @@
    "A page table  is the data structure used by the MMU in a virtual memory computer system  to store the mapping between virtual addresses (virtual pages) and physical addresses (page frames).",
    :db/ident :d3f/PageTable,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "Page table - Wikipedia",
+   :rdfs/isDefinedBy {:xsd/string "Page table - Wikipedia"},
    :rdfs/label "Page Table",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
                       {:owl/onProperty     :d3f/contains,
@@ -18780,8 +18791,8 @@
    :db/ident :d3f/ProcessDataSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Process Data Segment",
-   :rdfs/seeAlso #{"Image Data Segment"
-                   {:rdfa/uri "http://dbpedia.org/resource/Data_segment"}},
+   :rdfs/seeAlso #{{:rdfa/uri "http://dbpedia.org/resource/Data_segment"}
+                   {:xsd/string "Image Data Segment"}},
    :rdfs/subClassOf :d3f/ProcessSegment})
 
 (def ProcessEnvironmentVariable
@@ -19031,9 +19042,9 @@
    :db/ident :d3f/ProcessTree,
    :rdf/type :owl/Class,
    :rdfs/label "Process Tree",
-   :rdfs/seeAlso #{{:rdfa/uri "http://dbpedia.org/resource/Child_process"}
-                   {:rdfa/uri "http://dbpedia.org/resource/Parent_process"}
-                   "Process Spawn"},
+   :rdfs/seeAlso #{{:xsd/string "Process Spawn"}
+                   {:rdfa/uri "http://dbpedia.org/resource/Child_process"}
+                   {:rdfa/uri "http://dbpedia.org/resource/Parent_process"}},
    :rdfs/subClassOf #{:d3f/DigitalArtifact
                       {:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Process,
@@ -35545,7 +35556,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/User_(computing)"},
    :rdfs/label "User",
-   :rdfs/seeAlso #{"UserAccount"
+   :rdfs/seeAlso #{{:xsd/string "UserAccount"}
                    {:rdfa/uri
                     "http://wordnet-rdf.princeton.edu/id/10761247-n"}},
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -36490,7 +36501,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Wireless_router"},
    :rdfs/label "Wireless Router",
-   :rdfs/seeAlso "Wireless Access Point",
+   :rdfs/seeAlso {:xsd/string "Wireless Access Point"},
    :rdfs/subClassOf #{:d3f/WirelessAccessPoint :d3f/Router}})
 
 (def WriteFile
@@ -36653,7 +36664,7 @@
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://wordnet-rdf.princeton.edu/id/01980375-s"},
    :rdfs/label "attached-to",
-   :rdfs/seeAlso "d3f:connects",
+   :rdfs/seeAlso {:xsd/string "d3f:connects"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def attack-id
@@ -36940,7 +36951,7 @@
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://wordnet-rdf.princeton.edu/id/01630392-v"},
    :rdfs/label "creates",
-   :rdfs/seeAlso "produces",
+   :rdfs/seeAlso {:xsd/string "produces"},
    :rdfs/subPropertyOf #{:d3f/may-create :d3f/associated-with}})
 
 (def creator
@@ -37212,8 +37223,9 @@
    :owl/inverseOf :d3f/has-dependent,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
-   #{{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00729216-a"}
-     "x depends-on y: The entity x is contingent on y being available; x relies on y."},
+   #{{:xsd/string
+      "x depends-on y: The entity x is contingent on y being available; x relies on y."}
+     {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00729216-a"}},
    :rdfs/label "depends-on",
    :rdfs/seeAlso {:rdfa/uri "https://www.cisa.gov/what-are-dependencies"},
    :rdfs/subPropertyOf :d3f/associated-with})
@@ -38612,7 +38624,7 @@
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://wordnet-rdf.princeton.edu/id/01625832-v"},
    :rdfs/label "produces",
-   :rdfs/seeAlso "creates",
+   :rdfs/seeAlso {:xsd/string "creates"},
    :rdfs/subPropertyOf #{:d3f/may-produce :d3f/associated-with
                          :d3f/d3fend-catalog-object-property},
    :skos/altLabel "outputs"})

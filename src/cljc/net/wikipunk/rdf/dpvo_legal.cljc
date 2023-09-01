@@ -7,7 +7,7 @@
     "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."},
    :dcterms/contributor #{"Harshvardhan J. Pandit" "Julian Flake"},
    :dcterms/created #inst "2022-04-02T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -45,7 +45,7 @@
   "AD"
   {:db/ident              :dpvo-legal/AD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "AD",
    :dpvo-legal/iso_alpha3 "AND",
@@ -62,7 +62,7 @@
   "AE"
   {:db/ident              :dpvo-legal/AE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "AE",
    :dpvo-legal/iso_alpha3 "ARE",
@@ -79,7 +79,7 @@
   "AF"
   {:db/ident              :dpvo-legal/AF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "AF",
    :dpvo-legal/iso_alpha3 "AFG",
@@ -96,7 +96,7 @@
   "AG"
   {:db/ident              :dpvo-legal/AG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -115,7 +115,7 @@
   "AI"
   {:db/ident              :dpvo-legal/AI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -134,7 +134,7 @@
   "AL"
   {:db/ident              :dpvo-legal/AL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "AL",
    :dpvo-legal/iso_alpha3 "ALB",
@@ -151,7 +151,7 @@
   "AM"
   {:db/ident              :dpvo-legal/AM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "AM",
    :dpvo-legal/iso_alpha3 "ARM",
@@ -168,7 +168,7 @@
   "AO"
   {:db/ident              :dpvo-legal/AO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "AO",
@@ -186,7 +186,7 @@
   "AQ"
   {:db/ident              :dpvo-legal/AQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo-legal/iso_alpha2 "AQ",
    :dpvo-legal/iso_alpha3 "ATA",
    :dpvo-legal/iso_numeric "10",
@@ -202,7 +202,7 @@
   "AR"
   {:db/ident              :dpvo-legal/AR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -221,7 +221,7 @@
   "AS"
   {:db/ident              :dpvo-legal/AS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "AS",
    :dpvo-legal/iso_alpha3 "ASM",
@@ -238,7 +238,7 @@
   "AT"
   {:db/ident               :dpvo-legal/AT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -261,7 +261,7 @@
   "AU"
   {:db/ident              :dpvo-legal/AU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania
                             :dpvo-legal/AustraliaandNewZealand},
    :dpvo-legal/iso_alpha2 "AU",
@@ -279,7 +279,7 @@
   "AW"
   {:db/ident              :dpvo-legal/AW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -298,7 +298,7 @@
   "AX"
   {:db/ident              :dpvo-legal/AX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "AX",
    :dpvo-legal/iso_alpha3 "ALA",
@@ -315,7 +315,7 @@
   "AZ"
   {:db/ident              :dpvo-legal/AZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "AZ",
    :dpvo-legal/iso_alpha3 "AZE",
@@ -332,7 +332,7 @@
   "EU Adequacy Decision for Andorra"
   {:db/ident :dpvo-legal/Adequacy-EU-AD,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2010-10-21T00:00:00.000-00:00"}},
@@ -351,7 +351,7 @@
   "EU Adequacy Decision for Argentina"
   {:db/ident :dpvo-legal/Adequacy-EU-AR,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2003-07-05T00:00:00.000-00:00"}},
@@ -370,7 +370,7 @@
   "EU Adequacy Decision for Canada (commercial organisations)"
   {:db/ident :dpvo-legal/Adequacy-EU-CA,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2002-01-04T00:00:00.000-00:00"}},
@@ -390,7 +390,7 @@
   "EU Adequacy Decision for Switzerland"
   {:db/ident :dpvo-legal/Adequacy-EU-CH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2000-08-25T00:00:00.000-00:00"}},
@@ -409,7 +409,7 @@
   "EU Adequacy Decision for Faroe Islands"
   {:db/ident :dpvo-legal/Adequacy-EU-FO,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2010-03-09T00:00:00.000-00:00"}},
@@ -428,7 +428,7 @@
   "EU Adequacy Decision for United Kingdom"
   {:db/ident :dpvo-legal/Adequacy-EU-GB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2021-06-28T00:00:00.000-00:00"}},
@@ -447,7 +447,7 @@
   "EU Adequacy Decision for Guernsey"
   {:db/ident :dpvo-legal/Adequacy-EU-GG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2003-11-21T00:00:00.000-00:00"}},
@@ -466,7 +466,7 @@
   "EU Adequacy Decision for Israel"
   {:db/ident :dpvo-legal/Adequacy-EU-IL,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2011-02-01T00:00:00.000-00:00"}},
@@ -485,7 +485,7 @@
   "EU Adequacy Decision for Isle of Man"
   {:db/ident :dpvo-legal/Adequacy-EU-IM,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2004-04-30T00:00:00.000-00:00"}},
@@ -504,7 +504,7 @@
   "EU Adequacy Decision for Jersey"
   {:db/ident :dpvo-legal/Adequacy-EU-JE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2008-05-26T00:00:00.000-00:00"}},
@@ -523,7 +523,7 @@
   "EU Adequacy Decision for Japan"
   {:db/ident             :dpvo-legal/Adequacy-EU-JP,
    :dcterms/created      #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator      "Harshvardhan J. Pandit",
+   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal     {:rdf/type :time/ProperInterval,
                           :time/hasBeginning
                           {:time/inXSDDate #inst
@@ -542,7 +542,7 @@
   "EU Adequacy Decision for New Zealand"
   {:db/ident :dpvo-legal/Adequacy-EU-NZ,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2012-12-20T00:00:00.000-00:00"}},
@@ -561,7 +561,7 @@
   "EU Adequacy Decision for Uruguay"
   {:db/ident :dpvo-legal/Adequacy-EU-UY,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2012-08-22T00:00:00.000-00:00"}},
@@ -580,7 +580,7 @@
   "Africa"
   {:db/ident         :dpvo-legal/Africa,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/BI :dpvo-legal/CF :dpvo-legal/DJ
                        :dpvo-legal/LS :dpvo-legal/KE :dpvo-legal/TZ
                        :dpvo-legal/CM :dpvo-legal/SN :dpvo-legal/CI
@@ -613,7 +613,7 @@
   "Americas"
   {:db/ident         :dpvo-legal/Americas,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/SV :dpvo-legal/JM :dpvo-legal/GD
                        :dpvo-legal/BR :dpvo-legal/US :dpvo-legal/DM
                        :dpvo-legal/BB :dpvo-legal/UY :dpvo-legal/FK
@@ -646,7 +646,7 @@
   "Asia"
   {:db/ident         :dpvo-legal/Asia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/MO :dpvo-legal/CN :dpvo-legal/TH
                        :dpvo-legal/HK :dpvo-legal/JP :dpvo-legal/BT
                        :dpvo-legal/TM :dpvo-legal/GE :dpvo-legal/AZ
@@ -677,7 +677,7 @@
   "AustraliaandNewZealand"
   {:db/ident         :dpvo-legal/AustraliaandNewZealand,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/NZ :dpvo-legal/NF :dpvo-legal/AU
                        :dpvo-legal/CC :dpvo-legal/HM :dpvo-legal/CX},
    :dcterms/isPartOf :dpvo-legal/Oceania,
@@ -692,7 +692,7 @@
   "BA"
   {:db/ident              :dpvo-legal/BA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "BA",
    :dpvo-legal/iso_alpha3 "BIH",
@@ -709,7 +709,7 @@
   "BB"
   {:db/ident              :dpvo-legal/BB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -728,7 +728,7 @@
   "BD"
   {:db/ident              :dpvo-legal/BD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "BD",
    :dpvo-legal/iso_alpha3 "BGD",
@@ -745,7 +745,7 @@
   "BE"
   {:db/ident               :dpvo-legal/BE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -768,7 +768,7 @@
   "BF"
   {:db/ident              :dpvo-legal/BF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "BF",
@@ -786,7 +786,7 @@
   "BG"
   {:db/ident               :dpvo-legal/BG,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -809,7 +809,7 @@
   "BH"
   {:db/ident              :dpvo-legal/BH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "BH",
    :dpvo-legal/iso_alpha3 "BHR",
@@ -826,7 +826,7 @@
   "BI"
   {:db/ident              :dpvo-legal/BI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "BI",
@@ -844,7 +844,7 @@
   "BJ"
   {:db/ident              :dpvo-legal/BJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "BJ",
@@ -862,7 +862,7 @@
   "BL"
   {:db/ident              :dpvo-legal/BL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -881,7 +881,7 @@
   "BM"
   {:db/ident              :dpvo-legal/BM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Americas :dpvo-legal/NorthernAmerica},
    :dpvo-legal/iso_alpha2 "BM",
    :dpvo-legal/iso_alpha3 "BMU",
@@ -898,7 +898,7 @@
   "BN"
   {:db/ident              :dpvo-legal/BN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "BN",
    :dpvo-legal/iso_alpha3 "BRN",
@@ -915,7 +915,7 @@
   "BO"
   {:db/ident              :dpvo-legal/BO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -934,7 +934,7 @@
   "BQ"
   {:db/ident              :dpvo-legal/BQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -953,7 +953,7 @@
   "BR"
   {:db/ident              :dpvo-legal/BR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -972,7 +972,7 @@
   "BS"
   {:db/ident              :dpvo-legal/BS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -991,7 +991,7 @@
   "BT"
   {:db/ident              :dpvo-legal/BT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "BT",
    :dpvo-legal/iso_alpha3 "BTN",
@@ -1008,7 +1008,7 @@
   "BV"
   {:db/ident              :dpvo-legal/BV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1027,7 +1027,7 @@
   "BW"
   {:db/ident              :dpvo-legal/BW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SouthernAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "BW",
@@ -1045,7 +1045,7 @@
   "BY"
   {:db/ident              :dpvo-legal/BY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/EasternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2 "BY",
    :dpvo-legal/iso_alpha3 "BLR",
@@ -1062,7 +1062,7 @@
   "BZ"
   {:db/ident              :dpvo-legal/BZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1081,7 +1081,7 @@
   "CA"
   {:db/ident              :dpvo-legal/CA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Americas :dpvo-legal/NorthernAmerica},
    :dpvo-legal/iso_alpha2 "CA",
    :dpvo-legal/iso_alpha3 "CAN",
@@ -1098,7 +1098,7 @@
   "CC"
   {:db/ident              :dpvo-legal/CC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania
                             :dpvo-legal/AustraliaandNewZealand},
    :dpvo-legal/iso_alpha2 "CC",
@@ -1116,7 +1116,7 @@
   "CD"
   {:db/ident              :dpvo-legal/CD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "CD",
@@ -1134,7 +1134,7 @@
   "CF"
   {:db/ident              :dpvo-legal/CF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "CF",
@@ -1152,7 +1152,7 @@
   "CG"
   {:db/ident              :dpvo-legal/CG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "CG",
@@ -1170,7 +1170,7 @@
   "CH"
   {:db/ident              :dpvo-legal/CH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2 "CH",
    :dpvo-legal/iso_alpha3 "CHE",
@@ -1187,7 +1187,7 @@
   "CI"
   {:db/ident              :dpvo-legal/CI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "CI",
@@ -1205,7 +1205,7 @@
   "CK"
   {:db/ident              :dpvo-legal/CK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "CK",
    :dpvo-legal/iso_alpha3 "COK",
@@ -1222,7 +1222,7 @@
   "CL"
   {:db/ident              :dpvo-legal/CL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1241,7 +1241,7 @@
   "CM"
   {:db/ident              :dpvo-legal/CM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "CM",
@@ -1259,7 +1259,7 @@
   "CN"
   {:db/ident              :dpvo-legal/CN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "CN",
    :dpvo-legal/iso_alpha3 "CHN",
@@ -1276,7 +1276,7 @@
   "CO"
   {:db/ident              :dpvo-legal/CO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1295,7 +1295,7 @@
   "CR"
   {:db/ident              :dpvo-legal/CR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1314,7 +1314,7 @@
   "CU"
   {:db/ident              :dpvo-legal/CU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1333,7 +1333,7 @@
   "CV"
   {:db/ident              :dpvo-legal/CV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "CV",
@@ -1351,7 +1351,7 @@
   "CW"
   {:db/ident              :dpvo-legal/CW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -1370,7 +1370,7 @@
   "CX"
   {:db/ident              :dpvo-legal/CX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania
                             :dpvo-legal/AustraliaandNewZealand},
    :dpvo-legal/iso_alpha2 "CX",
@@ -1388,7 +1388,7 @@
   "CY"
   {:db/ident               :dpvo-legal/CY,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -1411,7 +1411,7 @@
   "CZ"
   {:db/ident               :dpvo-legal/CZ,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -1434,7 +1434,7 @@
   "Caribbean"
   {:db/ident         :dpvo-legal/Caribbean,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/JM :dpvo-legal/GD :dpvo-legal/DM
                        :dpvo-legal/BB :dpvo-legal/AG :dpvo-legal/AW
                        :dpvo-legal/KY :dpvo-legal/MQ :dpvo-legal/LC
@@ -1457,7 +1457,7 @@
   "CentralAmerica"
   {:db/ident         :dpvo-legal/CentralAmerica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/SV :dpvo-legal/PA :dpvo-legal/NI
                        :dpvo-legal/BZ :dpvo-legal/GT :dpvo-legal/HN
                        :dpvo-legal/CR :dpvo-legal/MX},
@@ -1473,7 +1473,7 @@
   "CentralAsia"
   {:db/ident         :dpvo-legal/CentralAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/TM :dpvo-legal/TJ :dpvo-legal/KZ
                        :dpvo-legal/KG :dpvo-legal/UZ},
    :dcterms/isPartOf :dpvo-legal/Asia,
@@ -1488,7 +1488,7 @@
   "ChannelIslands"
   {:db/ident         :dpvo-legal/ChannelIslands,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/JE :dpvo-legal/Sark :dpvo-legal/GG},
    :dcterms/isPartOf :dpvo-legal/NorthernEurope,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
@@ -1502,7 +1502,7 @@
   "DE"
   {:db/ident               :dpvo-legal/DE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/DE-HE :dpvo-legal/DE-BY
                              :dpvo-legal/DE-SH :dpvo-legal/DE-BB
                              :dpvo-legal/DE-TH :dpvo-legal/DE-NI
@@ -1532,7 +1532,7 @@
   "Brandenburg"
   {:db/ident              :dpvo-legal/DE-BB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-BE-BbgDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -1548,7 +1548,8 @@
   "Bundesdatenschutzgesetz (BDSG)"
   {:db/ident             :dpvo-legal/DE-BDSG,
    :dcterms/created      #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator      #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator      #{{:xsd/string "Harshvardhan J. Pandit"}
+                           {:xsd/string "Julian Flake"}},
    :dcterms/temporal     {:rdf/type :time/ProperInterval,
                           :time/hasBeginning
                           {:time/inXSDDate #inst
@@ -1583,7 +1584,7 @@
   "Berlin"
   {:db/ident              :dpvo-legal/DE-BE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BE-BlnDSG},
@@ -1599,7 +1600,8 @@
   "Brandenburgisches Datenschutzgesetz (BbgDSG)"
   {:db/ident :dpvo-legal/DE-BE-BbgDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-BB,
    :dpvo/hasJurisdiction :dpvo-legal/DE-BB,
    :foaf/homepage
@@ -1618,7 +1620,8 @@
   "Berlin Data Protection Act (BlnDSG)"
   {:db/ident :dpvo-legal/DE-BE-BlnDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-BE,
    :dpvo/hasJurisdiction :dpvo-legal/DE-BE,
    :foaf/homepage
@@ -1637,7 +1640,7 @@
   "Baden-Württemberg"
   {:db/ident              :dpvo-legal/DE-BW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-BW-LDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -1652,7 +1655,8 @@
   "Landesdatenschutzgesetz (LDSG) (BW)"
   {:db/ident :dpvo-legal/DE-BW-LDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BW,
    :foaf/homepage
    {:rdfa/uri
@@ -1670,7 +1674,7 @@
   "Bavaria"
   {:db/ident              :dpvo-legal/DE-BY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BY-BayDSG},
@@ -1687,7 +1691,8 @@
   "Bavarian Data Protection Act (BayDSG)"
   {:db/ident :dpvo-legal/DE-BY-BayDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority #{:dpvo-legal/DPA-DE-BY-public
                         :dpvo-legal/DPA-DE-BY-non-public},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
@@ -1707,7 +1712,7 @@
   "Bremen"
   {:db/ident              :dpvo-legal/DE-HB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-HB-BremDSGVOAG},
@@ -1723,7 +1728,8 @@
   "Bremen Implementing Act for the EU General Data Protection Regulation (BremDSGVOAG)"
   {:db/ident :dpvo-legal/DE-HB-BremDSGVOAG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-HB,
    :dpvo/hasJurisdiction :dpvo-legal/DE-HB,
    :foaf/homepage
@@ -1745,7 +1751,7 @@
   "Hesse"
   {:db/ident              :dpvo-legal/DE-HE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-HE-HDISG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -1761,7 +1767,8 @@
   "Hessisches Datenschutz- und Informationsfreiheitsgesetz (HDSIG)"
   {:db/ident :dpvo-legal/DE-HE-HDISG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-HE,
    :dpvo/hasJurisdiction :dpvo-legal/DE-HE,
    :foaf/homepage
@@ -1783,7 +1790,7 @@
   "Hamburg"
   {:db/ident              :dpvo-legal/DE-HH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-HH-HmbDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -1799,7 +1806,8 @@
   "Hamburg Data Protection Act (HmbDSG)"
   {:db/ident :dpvo-legal/DE-HH-HmbDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-HH,
    :dpvo/hasJurisdiction :dpvo-legal/DE-HH,
    :foaf/homepage {:rdfa/uri
@@ -1817,7 +1825,8 @@
   "Law on the protection of personal data of citizens (Saxony-Anhalt Data Protection Act - DSG LSA)"
   {:db/ident :dpvo-legal/DE-LSA-DSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-ST,
    :dpvo/hasJurisdiction :dpvo-legal/DE-ST,
    :foaf/homepage
@@ -1839,7 +1848,7 @@
   "Mecklenburg-Western-Pomerania"
   {:db/ident              :dpvo-legal/DE-MV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-MV-DSG},
@@ -1855,7 +1864,8 @@
   "Act to adapt the State Data Protection Act and other data protection regulations in the area of ​​responsibility of the Ministry of the Interior and Europe Mecklenburg-West Pomerania to Regulation (EU) 2016/679 and to implement Directive (EU) 2016/680"
   {:db/ident :dpvo-legal/DE-MV-DSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-MV,
    :dpvo/hasJurisdiction :dpvo-legal/DE-MV,
    :foaf/homepage
@@ -1877,7 +1887,7 @@
   "Lower-Saxony"
   {:db/ident              :dpvo-legal/DE-NI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-NI-NDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -1893,7 +1903,8 @@
   "Lower Saxony Data Protection Act (NDSG)"
   {:db/ident :dpvo-legal/DE-NI-NDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-NI,
    :dpvo/hasJurisdiction :dpvo-legal/DE-NI,
    :foaf/homepage
@@ -1912,7 +1923,7 @@
   "North-Rhine Westphalia"
   {:db/ident              :dpvo-legal/DE-NW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-NW-DSG},
@@ -1928,7 +1939,8 @@
   "Datenschutzgesetz Nordrhein-Westfalen (DSG NRW)"
   {:db/ident :dpvo-legal/DE-NW-DSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-NW,
    :dpvo/hasJurisdiction :dpvo-legal/DE-NW,
    :foaf/homepage
@@ -1948,7 +1960,7 @@
   "Rhineland-Palatinate"
   {:db/ident              :dpvo-legal/DE-RP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-RP-LDSG},
@@ -1963,7 +1975,8 @@
   "State Data Protection Act (LDSG)"
   {:db/ident :dpvo-legal/DE-RP-LDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-RP,
    :dpvo/hasJurisdiction :dpvo-legal/DE-RP,
    :foaf/homepage
@@ -1981,7 +1994,7 @@
   "Schleswig-Holstein"
   {:db/ident              :dpvo-legal/DE-SH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-SH-LDSG},
@@ -1997,7 +2010,8 @@
   "Schleswig-Holstein law for the protection of personal data (state data protection law - LDSG)"
   {:db/ident :dpvo-legal/DE-SH-LDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-SH,
    :dpvo/hasJurisdiction :dpvo-legal/DE-SH,
    :foaf/homepage
@@ -2019,7 +2033,7 @@
   "Saarland"
   {:db/ident              :dpvo-legal/DE-SL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-SL-SDSG
                             :dpvo-legal/DE-BDSG},
@@ -2035,7 +2049,8 @@
   "Saarländisches Datenschutzgesetz"
   {:db/ident :dpvo-legal/DE-SL-SDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-SL,
    :dpvo/hasJurisdiction :dpvo-legal/DE-SL,
    :foaf/homepage
@@ -2053,7 +2068,7 @@
   "Saxony"
   {:db/ident              :dpvo-legal/DE-SN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-SN-SächsDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -2069,7 +2084,8 @@
   "Law for the Protection of Informational Self-Determination in the Free State of Saxony (Saxon Data Protection Act - SächsDSG)"
   {:db/ident :dpvo-legal/DE-SN-SächsDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-SN,
    :dpvo/hasJurisdiction :dpvo-legal/DE-SN,
    :foaf/homepage
@@ -2090,7 +2106,7 @@
   "Saxony-Anhalt"
   {:db/ident              :dpvo-legal/DE-ST,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-LSA-DSG},
@@ -2106,7 +2122,7 @@
   "Thuringia"
   {:db/ident              :dpvo-legal/DE-TH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/DE,
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-TH-ThürDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
@@ -2122,7 +2138,8 @@
   "Thüringer Datenschutzgesetz (ThürDSG)"
   {:db/ident :dpvo-legal/DE-TH-ThürDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-TH,
    :dpvo/hasJurisdiction :dpvo-legal/DE-TH,
    :foaf/homepage
@@ -2141,7 +2158,7 @@
   "DJ"
   {:db/ident              :dpvo-legal/DJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "DJ",
@@ -2159,7 +2176,7 @@
   "DK"
   {:db/ident               :dpvo-legal/DK,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -2182,7 +2199,7 @@
   "DM"
   {:db/ident              :dpvo-legal/DM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -2201,7 +2218,7 @@
   "DO"
   {:db/ident              :dpvo-legal/DO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -2220,7 +2237,7 @@
   "Austrian Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-AT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/AT,
    :foaf/homepage         {:rdfa/uri "https://dsb.gv.at"},
@@ -2235,7 +2252,7 @@
   "Belgian Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-BE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/BE,
    :foaf/homepage         {:rdfa/uri "https://www.dataprotectionauthority.be/"},
@@ -2250,7 +2267,7 @@
   "Commission for Personal Data Protection"
   {:db/ident              :dpvo-legal/DPA-BG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/BG,
    :foaf/homepage         {:rdfa/uri "https://www.cpdp.bg/"},
@@ -2266,7 +2283,7 @@
   "Commissioner for Personal Data Protection"
   {:db/ident              :dpvo-legal/DPA-CY,
    :dcterms/created       #inst "2023-06-16T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/CY,
    :foaf/homepage         {:rdfa/uri "http://www.dataprotection.gov.cy/"},
@@ -2282,7 +2299,7 @@
   "Office for Personal Data Protection"
   {:db/ident              :dpvo-legal/DPA-CZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/CZ,
    :foaf/homepage         {:rdfa/uri "https://www.uoou.cz/"},
@@ -2297,7 +2314,7 @@
   "The Federal Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE,
    :foaf/homepage {:rdfa/uri "http://www.bfdi.bund.de/"},
@@ -2314,7 +2331,8 @@
   "The state representative for data protection and the right to inspect files in Brandenburg"
   {:db/ident :dpvo-legal/DPA-DE-BB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-BE-BbgDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BB,
@@ -2335,7 +2353,8 @@
   "Berlin Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE-BE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BE-BlnDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BE,
@@ -2356,7 +2375,8 @@
   "Bavarian State Office for Data Protection Supervision"
   {:db/ident :dpvo-legal/DPA-DE-BY-non-public,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BY-BayDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
@@ -2375,7 +2395,8 @@
   "The Bavarian State Commissioner for Data Protection"
   {:db/ident :dpvo-legal/DPA-DE-BY-public,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BY-BayDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
@@ -2394,7 +2415,8 @@
   "Die Landesbeauftragte für Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen"
   {:db/ident :dpvo-legal/DPA-DE-HB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-HB-BremDSGVOAG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-HB,
@@ -2415,7 +2437,8 @@
   "The Hessian Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE-HE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-HE-HDISG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-HE,
@@ -2436,7 +2459,8 @@
   "Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit"
   {:db/ident :dpvo-legal/DPA-DE-HH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-HH-HmbDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-HH,
@@ -2457,7 +2481,8 @@
   "Der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern"
   {:db/ident :dpvo-legal/DPA-DE-MV,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-MV-DSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-MV,
@@ -2478,7 +2503,8 @@
   "Die Landesbeauftragte für den Datenschutz Niedersachsen"
   {:db/ident :dpvo-legal/DPA-DE-NI,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-NI-NDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-NI,
@@ -2497,7 +2523,8 @@
   "State Commissioner for Data Protection and Freedom of Information North Rhine-Westphalia"
   {:db/ident :dpvo-legal/DPA-DE-NW,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-NW-DSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-NW,
@@ -2518,7 +2545,7 @@
   "The state commissioner for data protection and freedom of information in Rhineland-Palatinate"
   {:db/ident :dpvo-legal/DPA-DE-RP,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-RP-LDSG},
    :foaf/homepage {:rdfa/uri "https://www.datenschutz.rlp.de/"},
@@ -2538,7 +2565,8 @@
   "Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein"
   {:db/ident :dpvo-legal/DPA-DE-SH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-SH-LDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-SH,
@@ -2559,7 +2587,8 @@
   "Independent Data Protection Center Saarland - State Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE-SL,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-SL-SDSG
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-SL,
@@ -2580,7 +2609,8 @@
   "The Saxon data protection officer"
   {:db/ident              :dpvo-legal/DPA-DE-SN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator       #{{:xsd/string "Harshvardhan J. Pandit"}
+                            {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-SN-SächsDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction  :dpvo-legal/DE-SN,
@@ -2599,7 +2629,8 @@
   "State representative for data protection in Saxony-Anhalt"
   {:db/ident :dpvo-legal/DPA-DE-ST,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-LSA-DSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-ST,
@@ -2618,7 +2649,8 @@
   "Thuringia state commissioner for data protection and freedom of information"
   {:db/ident :dpvo-legal/DPA-DE-TH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Julian Flake"}},
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-TH-ThürDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-TH,
@@ -2639,7 +2671,7 @@
   "Danish Data Protection Agency"
   {:db/ident              :dpvo-legal/DPA-DK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/DK,
    :foaf/homepage         {:rdfa/uri "http://www.datatilsynet.dk/"},
@@ -2654,7 +2686,7 @@
   "Estonian Data Protection Inspectorate"
   {:db/ident              :dpvo-legal/DPA-EE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/EE,
    :foaf/homepage         {:rdfa/uri "http://www.aki.ee/"},
@@ -2669,7 +2701,7 @@
   "Spanish Data Protection Agency (AEPD)"
   {:db/ident              :dpvo-legal/DPA-ES,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/ES,
    :foaf/homepage         {:rdfa/uri "https://www.aepd.es/"},
@@ -2698,7 +2730,7 @@
   "Office of the Data Protection Ombudsman"
   {:db/ident              :dpvo-legal/DPA-FI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/FI,
    :foaf/homepage         {:rdfa/uri "https://tietosuoja.fi/"},
@@ -2714,7 +2746,7 @@
   "National Commission on Informatics and Liberty (CNIL)"
   {:db/ident :dpvo-legal/DPA-FR,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/FR,
    :foaf/homepage {:rdfa/uri "https://www.cnil.fr/"},
@@ -2730,7 +2762,7 @@
   "Information Commissioner's Office"
   {:db/ident              :dpvo-legal/DPA-GB,
    :dcterms/created       #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw #{:dpvo-legal/UK-GDPR :dpvo-legal/UK-DPA-2018},
    :dpvo/hasJurisdiction  :dpvo-legal/GB,
    :foaf/homepage         {:rdfa/uri "https://ico.org.uk/"},
@@ -2745,7 +2777,7 @@
   "Hellenic Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-GR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/GR,
    :foaf/homepage         {:rdfa/uri "http://dpa.gr"},
@@ -2760,7 +2792,7 @@
   "Croatian Personal Data Protection Agency"
   {:db/ident              :dpvo-legal/DPA-HR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/HR,
    :foaf/homepage         {:rdfa/uri "http://www.azop.hr/"},
@@ -2776,7 +2808,7 @@
   "Hungarian National Authority for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-HU,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/HU,
    :foaf/homepage {:rdfa/uri "http://www.naih.hu/"},
@@ -2793,7 +2825,7 @@
   "Data Protection Commission (DPC)"
   {:db/ident              :dpvo-legal/DPA-IE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/IE,
    :foaf/homepage         {:rdfa/uri "http://www.dataprotection.ie"},
@@ -2822,7 +2854,7 @@
   "Data Protection Commission"
   {:db/ident              :dpvo-legal/DPA-IT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/IT,
    :foaf/homepage         {:rdfa/uri "https://www.garanteprivacy.it/"},
@@ -2837,7 +2869,7 @@
   "State Data Protection Inspectorate"
   {:db/ident              :dpvo-legal/DPA-LT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LT,
    :foaf/homepage         {:rdfa/uri "https://ada.lt"},
@@ -2852,7 +2884,7 @@
   "National Commission for Data Protection"
   {:db/ident              :dpvo-legal/DPA-LU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LU,
    :foaf/homepage         {:rdfa/uri "https://cnpd.public.lu"},
@@ -2868,7 +2900,7 @@
   "Data State Inspectorate"
   {:db/ident              :dpvo-legal/DPA-LV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LV,
    :foaf/homepage         {:rdfa/uri "http://www.dvi.gov.lv/"},
@@ -2883,7 +2915,7 @@
   "Office of the Information and Data Protection Commissioner"
   {:db/ident :dpvo-legal/DPA-MT,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/MT,
    :foaf/homepage {:rdfa/uri "https://idpc.org.mt"},
@@ -2899,7 +2931,7 @@
   "Dutch Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-NL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/NL,
    :foaf/homepage         {:rdfa/uri "https://autoriteitpersoonsgegevens.nl"},
@@ -2914,7 +2946,7 @@
   "Personal Data Protection Office"
   {:db/ident              :dpvo-legal/DPA-PL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/PL,
    :foaf/homepage         {:rdfa/uri "https://uodo.gov.pl/"},
@@ -2929,7 +2961,7 @@
   "Comissão Nacional de Protecção de Dados"
   {:db/ident              :dpvo-legal/DPA-PT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/PT,
    :foaf/homepage         {:rdfa/uri "https://www.cnpd.pt"},
@@ -2945,7 +2977,7 @@
   "National Supervisory Authority for Personal Data Processing"
   {:db/ident :dpvo-legal/DPA-RO,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/RO,
    :foaf/homepage {:rdfa/uri "http://www.dataprotection.ro/"},
@@ -2961,7 +2993,7 @@
   "Swedish Authority for Privacy Protection"
   {:db/ident              :dpvo-legal/DPA-SE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/SE,
    :foaf/homepage         {:rdfa/uri "https://www.imy.se/"},
@@ -2977,7 +3009,7 @@
   "Information Commissioner of the Republic of Slovenia"
   {:db/ident :dpvo-legal/DPA-SI,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/SI,
    :foaf/homepage {:rdfa/uri "https://www.ip-rs.si/"},
@@ -2993,7 +3025,7 @@
   "Office for Personal Data Protection of the Slovak Republic"
   {:db/ident :dpvo-legal/DPA-SK,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/SK,
    :foaf/homepage {:rdfa/uri "http://www.dataprotection.gov.sk/"},
@@ -3009,7 +3041,7 @@
   "Colorado Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-CO,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator       "Jonathan Bowker",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-CO-CPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-CO,
    :foaf/homepage         {:rdfa/uri "https://coag.gov"},
@@ -3024,7 +3056,7 @@
   "Connecticut Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-CT,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator       "Jonathan Bowker",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-CT-CTPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-CT,
    :foaf/homepage         {:rdfa/uri "https://portal.ct.gov/AG"},
@@ -3039,7 +3071,7 @@
   "Nevada Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-NV,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator       "Jonathan Bowker",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-NV-NPICICA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-NV,
    :foaf/homepage         {:rdfa/uri "https://ag.nv.gov/"},
@@ -3054,7 +3086,7 @@
   "Utah Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-UT,
    :dcterms/created       #inst "2022-11-22T00:00:00.000-00:00",
-   :dcterms/creator       "Jonathan Bowker",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-UT-UCPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-UT,
    :foaf/homepage         {:rdfa/uri "https://attorneygeneral.utah.gov/"},
@@ -3069,7 +3101,7 @@
   "Virginia Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-VA,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator       "Jonathan Bowker",
+   :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-VA-VCDPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-VA,
    :foaf/homepage         {:rdfa/uri "https://www.oag.state.va.us"},
@@ -3113,7 +3145,7 @@
   "DZ"
   {:db/ident              :dpvo-legal/DZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "DZ",
    :dpvo-legal/iso_alpha3 "DZA",
@@ -3130,7 +3162,7 @@
   "EC"
   {:db/ident              :dpvo-legal/EC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -3149,7 +3181,7 @@
   "EE"
   {:db/ident               :dpvo-legal/EE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -3172,7 +3204,7 @@
   "European Economic Area (EEA)"
   {:db/ident         :dpvo-legal/EEA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/EEA31 :dpvo-legal/EEA30},
    :dcterms/isPartOf #{:dpvo-legal/NL :dpvo-legal/GR :dpvo-legal/BG
                        :dpvo-legal/LT :dpvo-legal/EE :dpvo-legal/AT
@@ -3203,7 +3235,7 @@
   "European Economic Area (EEA-30)"
   {:db/ident         :dpvo-legal/EEA30,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf #{:dpvo-legal/EEA :dpvo-legal/NL :dpvo-legal/GR
                        :dpvo-legal/BG :dpvo-legal/LT :dpvo-legal/EE
                        :dpvo-legal/AT :dpvo-legal/MT :dpvo-legal/FI
@@ -3238,7 +3270,7 @@
   "European Economic Area (EEA-31)"
   {:db/ident         :dpvo-legal/EEA31,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf #{:dpvo-legal/EEA :dpvo-legal/NL :dpvo-legal/GR
                        :dpvo-legal/BG :dpvo-legal/LT :dpvo-legal/EE
                        :dpvo-legal/AT :dpvo-legal/MT :dpvo-legal/FI
@@ -3277,7 +3309,7 @@
   "EG"
   {:db/ident              :dpvo-legal/EG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "EG",
    :dpvo-legal/iso_alpha3 "EGY",
@@ -3294,7 +3326,7 @@
   "EH"
   {:db/ident              :dpvo-legal/EH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "EH",
    :dpvo-legal/iso_alpha3 "ESH",
@@ -3311,7 +3343,7 @@
   "ER"
   {:db/ident              :dpvo-legal/ER,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "ER",
@@ -3329,7 +3361,7 @@
   "ES"
   {:db/ident               :dpvo-legal/ES,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -3352,7 +3384,7 @@
   "ET"
   {:db/ident              :dpvo-legal/ET,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "ET",
@@ -3370,7 +3402,7 @@
   "European Union (EU)"
   {:db/ident          :dpvo-legal/EU,
    :dcterms/created   #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator   "Harshvardhan J. Pandit",
+   :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart   #{:dpvo-legal/EU27 :dpvo-legal/EU28},
    :dcterms/isPartOf  #{:dpvo-legal/NL :dpvo-legal/GR :dpvo-legal/BG
                         :dpvo-legal/LT :dpvo-legal/EE :dpvo-legal/AT
@@ -3402,7 +3434,7 @@
   "General Data Protection Regulation (GDPR)"
   {:db/ident             :dpvo-legal/EU-GDPR,
    :dcterms/created      #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator      "Harshvardhan J. Pandit",
+   :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal     {:rdf/type :time/ProperInterval,
                           :time/hasBeginning
                           {:time/inXSDDate #inst
@@ -3460,7 +3492,7 @@
   "European Union (EU-27)"
   {:db/ident         :dpvo-legal/EU27,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf #{:dpvo-legal/NL :dpvo-legal/GR :dpvo-legal/BG
                        :dpvo-legal/LT :dpvo-legal/EE :dpvo-legal/AT
                        :dpvo-legal/MT :dpvo-legal/FI :dpvo-legal/PL
@@ -3495,7 +3527,7 @@
   "European Union (EU-28)"
   {:db/ident         :dpvo-legal/EU28,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf #{:dpvo-legal/NL :dpvo-legal/GR :dpvo-legal/BG
                        :dpvo-legal/LT :dpvo-legal/EE :dpvo-legal/AT
                        :dpvo-legal/MT :dpvo-legal/FI :dpvo-legal/PL
@@ -3534,7 +3566,7 @@
   "EasternAfrica"
   {:db/ident         :dpvo-legal/EasternAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/BI :dpvo-legal/DJ :dpvo-legal/KE
                        :dpvo-legal/TZ :dpvo-legal/ZM :dpvo-legal/KM
                        :dpvo-legal/ER :dpvo-legal/MZ :dpvo-legal/RW
@@ -3555,7 +3587,7 @@
   "EasternAsia"
   {:db/ident         :dpvo-legal/EasternAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/MO :dpvo-legal/CN :dpvo-legal/HK
                        :dpvo-legal/JP :dpvo-legal/KP :dpvo-legal/KR
                        :dpvo-legal/MN},
@@ -3571,7 +3603,7 @@
   "EasternEurope"
   {:db/ident         :dpvo-legal/EasternEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/UA :dpvo-legal/BG :dpvo-legal/BY
                        :dpvo-legal/PL :dpvo-legal/CZ :dpvo-legal/HU
                        :dpvo-legal/SK :dpvo-legal/RO :dpvo-legal/RU
@@ -3588,7 +3620,7 @@
   "Europe"
   {:db/ident         :dpvo-legal/Europe,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/IS :dpvo-legal/LI :dpvo-legal/WesternEurope
                        :dpvo-legal/NL :dpvo-legal/JE :dpvo-legal/UA
                        :dpvo-legal/GR :dpvo-legal/BG :dpvo-legal/LT
@@ -3619,7 +3651,7 @@
   "FI"
   {:db/ident               :dpvo-legal/FI,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -3642,7 +3674,7 @@
   "FJ"
   {:db/ident              :dpvo-legal/FJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Melanesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "FJ",
    :dpvo-legal/iso_alpha3 "FJI",
@@ -3659,7 +3691,7 @@
   "FK"
   {:db/ident              :dpvo-legal/FK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -3678,7 +3710,7 @@
   "FM"
   {:db/ident              :dpvo-legal/FM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "FM",
    :dpvo-legal/iso_alpha3 "FSM",
@@ -3695,7 +3727,7 @@
   "FO"
   {:db/ident              :dpvo-legal/FO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "FO",
    :dpvo-legal/iso_alpha3 "FRO",
@@ -3712,7 +3744,7 @@
   "FR"
   {:db/ident               :dpvo-legal/FR,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -3735,7 +3767,7 @@
   "GA"
   {:db/ident              :dpvo-legal/GA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "GA",
@@ -3753,7 +3785,7 @@
   "GB"
   {:db/ident :dpvo-legal/GB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart #{:dpvo-legal/EEA31 :dpvo-legal/EU28},
    :dcterms/isPartOf #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "GB",
@@ -3774,7 +3806,7 @@
   "Data Protection Act (DPA)"
   {:db/ident :dpvo-legal/GB-DPA,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/modified #inst "2022-10-14T00:00:00.000-00:00",
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
@@ -3793,7 +3825,7 @@
   "General Data Protection Regulation (GDPR)"
   {:db/ident :dpvo-legal/GB-GDPR,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/modified #inst "2022-10-14T00:00:00.000-00:00",
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
@@ -3812,7 +3844,7 @@
   "GD"
   {:db/ident              :dpvo-legal/GD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -3831,7 +3863,7 @@
   "GE"
   {:db/ident              :dpvo-legal/GE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "GE",
    :dpvo-legal/iso_alpha3 "GEO",
@@ -3848,7 +3880,7 @@
   "GF"
   {:db/ident              :dpvo-legal/GF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -3867,7 +3899,7 @@
   "GG"
   {:db/ident              :dpvo-legal/GG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/ChannelIslands :dpvo-legal/Europe
                             :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "GG",
@@ -3885,7 +3917,7 @@
   "GH"
   {:db/ident              :dpvo-legal/GH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "GH",
@@ -3903,7 +3935,7 @@
   "GI"
   {:db/ident              :dpvo-legal/GI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "GI",
    :dpvo-legal/iso_alpha3 "GIB",
@@ -3920,7 +3952,7 @@
   "GL"
   {:db/ident              :dpvo-legal/GL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Americas :dpvo-legal/NorthernAmerica},
    :dpvo-legal/iso_alpha2 "GL",
    :dpvo-legal/iso_alpha3 "GRL",
@@ -3937,7 +3969,7 @@
   "GM"
   {:db/ident              :dpvo-legal/GM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "GM",
@@ -3955,7 +3987,7 @@
   "GN"
   {:db/ident              :dpvo-legal/GN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "GN",
@@ -3973,7 +4005,7 @@
   "GP"
   {:db/ident              :dpvo-legal/GP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -3992,7 +4024,7 @@
   "GQ"
   {:db/ident              :dpvo-legal/GQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "GQ",
@@ -4010,7 +4042,7 @@
   "GR"
   {:db/ident               :dpvo-legal/GR,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4033,7 +4065,7 @@
   "GS"
   {:db/ident              :dpvo-legal/GS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4053,7 +4085,7 @@
   "GT"
   {:db/ident              :dpvo-legal/GT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4072,7 +4104,7 @@
   "GU"
   {:db/ident              :dpvo-legal/GU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "GU",
    :dpvo-legal/iso_alpha3 "GUM",
@@ -4089,7 +4121,7 @@
   "GW"
   {:db/ident              :dpvo-legal/GW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "GW",
@@ -4107,7 +4139,7 @@
   "GY"
   {:db/ident              :dpvo-legal/GY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4126,7 +4158,7 @@
   "HK"
   {:db/ident              :dpvo-legal/HK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "HK",
    :dpvo-legal/iso_alpha3 "HKG",
@@ -4144,7 +4176,7 @@
   "HM"
   {:db/ident              :dpvo-legal/HM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania
                             :dpvo-legal/AustraliaandNewZealand},
    :dpvo-legal/iso_alpha2 "HM",
@@ -4162,7 +4194,7 @@
   "HN"
   {:db/ident              :dpvo-legal/HN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4181,7 +4213,7 @@
   "HR"
   {:db/ident               :dpvo-legal/HR,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4204,7 +4236,7 @@
   "HT"
   {:db/ident              :dpvo-legal/HT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4223,7 +4255,7 @@
   "HU"
   {:db/ident               :dpvo-legal/HU,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4246,7 +4278,7 @@
   "ID"
   {:db/ident              :dpvo-legal/ID,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "ID",
    :dpvo-legal/iso_alpha3 "IDN",
@@ -4263,7 +4295,7 @@
   "IE"
   {:db/ident               :dpvo-legal/IE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4286,7 +4318,7 @@
   "IL"
   {:db/ident              :dpvo-legal/IL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "IL",
    :dpvo-legal/iso_alpha3 "ISR",
@@ -4303,7 +4335,7 @@
   "IM"
   {:db/ident              :dpvo-legal/IM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "IM",
    :dpvo-legal/iso_alpha3 "IMN",
@@ -4320,7 +4352,7 @@
   "IN"
   {:db/ident              :dpvo-legal/IN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "IN",
    :dpvo-legal/iso_alpha3 "IND",
@@ -4337,7 +4369,7 @@
   "IO"
   {:db/ident              :dpvo-legal/IO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "IO",
@@ -4355,7 +4387,7 @@
   "IQ"
   {:db/ident              :dpvo-legal/IQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "IQ",
    :dpvo-legal/iso_alpha3 "IRQ",
@@ -4372,7 +4404,7 @@
   "IR"
   {:db/ident              :dpvo-legal/IR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "IR",
    :dpvo-legal/iso_alpha3 "IRN",
@@ -4389,7 +4421,7 @@
   "IS"
   {:db/ident               :dpvo-legal/IS,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf       #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2  "IS",
    :dpvo-legal/iso_alpha3  "ISL",
@@ -4408,7 +4440,7 @@
   "IT"
   {:db/ident               :dpvo-legal/IT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4431,7 +4463,7 @@
   "JE"
   {:db/ident              :dpvo-legal/JE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/ChannelIslands :dpvo-legal/Europe
                             :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "JE",
@@ -4449,7 +4481,7 @@
   "JM"
   {:db/ident              :dpvo-legal/JM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4468,7 +4500,7 @@
   "JO"
   {:db/ident              :dpvo-legal/JO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "JO",
    :dpvo-legal/iso_alpha3 "JOR",
@@ -4485,7 +4517,7 @@
   "JP"
   {:db/ident              :dpvo-legal/JP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "JP",
    :dpvo-legal/iso_alpha3 "JPN",
@@ -4502,7 +4534,7 @@
   "KE"
   {:db/ident              :dpvo-legal/KE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "KE",
@@ -4520,7 +4552,7 @@
   "KG"
   {:db/ident              :dpvo-legal/KG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "KG",
    :dpvo-legal/iso_alpha3 "KGZ",
@@ -4537,7 +4569,7 @@
   "KH"
   {:db/ident              :dpvo-legal/KH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "KH",
    :dpvo-legal/iso_alpha3 "KHM",
@@ -4554,7 +4586,7 @@
   "KI"
   {:db/ident              :dpvo-legal/KI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "KI",
    :dpvo-legal/iso_alpha3 "KIR",
@@ -4571,7 +4603,7 @@
   "KM"
   {:db/ident              :dpvo-legal/KM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "KM",
@@ -4589,7 +4621,7 @@
   "KN"
   {:db/ident              :dpvo-legal/KN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4608,7 +4640,7 @@
   "KP"
   {:db/ident              :dpvo-legal/KP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "KP",
    :dpvo-legal/iso_alpha3 "PRK",
@@ -4625,7 +4657,7 @@
   "KR"
   {:db/ident              :dpvo-legal/KR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "KR",
    :dpvo-legal/iso_alpha3 "KOR",
@@ -4642,7 +4674,7 @@
   "KW"
   {:db/ident              :dpvo-legal/KW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "KW",
    :dpvo-legal/iso_alpha3 "KWT",
@@ -4659,7 +4691,7 @@
   "KY"
   {:db/ident              :dpvo-legal/KY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4678,7 +4710,7 @@
   "KZ"
   {:db/ident              :dpvo-legal/KZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "KZ",
    :dpvo-legal/iso_alpha3 "KAZ",
@@ -4695,7 +4727,7 @@
   "LA"
   {:db/ident              :dpvo-legal/LA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "LA",
    :dpvo-legal/iso_alpha3 "LAO",
@@ -4712,7 +4744,7 @@
   "LB"
   {:db/ident              :dpvo-legal/LB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "LB",
    :dpvo-legal/iso_alpha3 "LBN",
@@ -4729,7 +4761,7 @@
   "LC"
   {:db/ident              :dpvo-legal/LC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -4748,7 +4780,7 @@
   "LI"
   {:db/ident               :dpvo-legal/LI,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf       #{:dpvo-legal/WesternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2  "LI",
    :dpvo-legal/iso_alpha3  "LIE",
@@ -4767,7 +4799,7 @@
   "LK"
   {:db/ident              :dpvo-legal/LK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "LK",
    :dpvo-legal/iso_alpha3 "LKA",
@@ -4784,7 +4816,7 @@
   "LR"
   {:db/ident              :dpvo-legal/LR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "LR",
@@ -4802,7 +4834,7 @@
   "LS"
   {:db/ident              :dpvo-legal/LS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SouthernAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "LS",
@@ -4820,7 +4852,7 @@
   "LT"
   {:db/ident               :dpvo-legal/LT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4843,7 +4875,7 @@
   "LU"
   {:db/ident               :dpvo-legal/LU,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4866,7 +4898,7 @@
   "LV"
   {:db/ident               :dpvo-legal/LV,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -4889,7 +4921,7 @@
   "LY"
   {:db/ident              :dpvo-legal/LY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "LY",
    :dpvo-legal/iso_alpha3 "LBY",
@@ -4906,7 +4938,7 @@
   "LatinAmericaandtheCaribbean"
   {:db/ident         :dpvo-legal/LatinAmericaandtheCaribbean,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/SV :dpvo-legal/JM :dpvo-legal/GD
                        :dpvo-legal/BR :dpvo-legal/DM :dpvo-legal/BB
                        :dpvo-legal/UY :dpvo-legal/FK :dpvo-legal/AG
@@ -4938,7 +4970,7 @@
   "MA"
   {:db/ident              :dpvo-legal/MA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "MA",
    :dpvo-legal/iso_alpha3 "MAR",
@@ -4955,7 +4987,7 @@
   "MC"
   {:db/ident              :dpvo-legal/MC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2 "MC",
    :dpvo-legal/iso_alpha3 "MCO",
@@ -4972,7 +5004,7 @@
   "MD"
   {:db/ident              :dpvo-legal/MD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/EasternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2 "MD",
    :dpvo-legal/iso_alpha3 "MDA",
@@ -4989,7 +5021,7 @@
   "ME"
   {:db/ident              :dpvo-legal/ME,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "ME",
    :dpvo-legal/iso_alpha3 "MNE",
@@ -5006,7 +5038,7 @@
   "MF"
   {:db/ident              :dpvo-legal/MF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5025,7 +5057,7 @@
   "MG"
   {:db/ident              :dpvo-legal/MG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "MG",
@@ -5043,7 +5075,7 @@
   "MH"
   {:db/ident              :dpvo-legal/MH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "MH",
    :dpvo-legal/iso_alpha3 "MHL",
@@ -5060,7 +5092,7 @@
   "MK"
   {:db/ident              :dpvo-legal/MK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "MK",
    :dpvo-legal/iso_alpha3 "MKD",
@@ -5077,7 +5109,7 @@
   "ML"
   {:db/ident              :dpvo-legal/ML,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "ML",
@@ -5095,7 +5127,7 @@
   "MM"
   {:db/ident              :dpvo-legal/MM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "MM",
    :dpvo-legal/iso_alpha3 "MMR",
@@ -5112,7 +5144,7 @@
   "MN"
   {:db/ident              :dpvo-legal/MN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "MN",
    :dpvo-legal/iso_alpha3 "MNG",
@@ -5129,7 +5161,7 @@
   "MO"
   {:db/ident              :dpvo-legal/MO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/EasternAsia},
    :dpvo-legal/iso_alpha2 "MO",
    :dpvo-legal/iso_alpha3 "MAC",
@@ -5147,7 +5179,7 @@
   "MP"
   {:db/ident              :dpvo-legal/MP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "MP",
    :dpvo-legal/iso_alpha3 "MNP",
@@ -5164,7 +5196,7 @@
   "MQ"
   {:db/ident              :dpvo-legal/MQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5183,7 +5215,7 @@
   "MR"
   {:db/ident              :dpvo-legal/MR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "MR",
@@ -5201,7 +5233,7 @@
   "MS"
   {:db/ident              :dpvo-legal/MS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5220,7 +5252,7 @@
   "MT"
   {:db/ident               :dpvo-legal/MT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -5243,7 +5275,7 @@
   "MU"
   {:db/ident              :dpvo-legal/MU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "MU",
@@ -5261,7 +5293,7 @@
   "MV"
   {:db/ident              :dpvo-legal/MV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "MV",
    :dpvo-legal/iso_alpha3 "MDV",
@@ -5278,7 +5310,7 @@
   "MW"
   {:db/ident              :dpvo-legal/MW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "MW",
@@ -5296,7 +5328,7 @@
   "MX"
   {:db/ident              :dpvo-legal/MX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5315,7 +5347,7 @@
   "MY"
   {:db/ident              :dpvo-legal/MY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "MY",
    :dpvo-legal/iso_alpha3 "MYS",
@@ -5332,7 +5364,7 @@
   "MZ"
   {:db/ident              :dpvo-legal/MZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "MZ",
@@ -5350,7 +5382,7 @@
   "Melanesia"
   {:db/ident         :dpvo-legal/Melanesia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/FJ :dpvo-legal/NC :dpvo-legal/SB
                        :dpvo-legal/PG :dpvo-legal/VU},
    :dcterms/isPartOf :dpvo-legal/Oceania,
@@ -5365,7 +5397,7 @@
   "Micronesia"
   {:db/ident         :dpvo-legal/Micronesia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/UM :dpvo-legal/PW :dpvo-legal/MP
                        :dpvo-legal/GU :dpvo-legal/FM :dpvo-legal/MH
                        :dpvo-legal/NR :dpvo-legal/KI},
@@ -5381,7 +5413,7 @@
   "MiddleAfrica"
   {:db/ident         :dpvo-legal/MiddleAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/CF :dpvo-legal/CM :dpvo-legal/CG
                        :dpvo-legal/TD :dpvo-legal/GQ :dpvo-legal/AO
                        :dpvo-legal/CD :dpvo-legal/GA :dpvo-legal/ST},
@@ -5397,7 +5429,7 @@
   "NA"
   {:db/ident              :dpvo-legal/NA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SouthernAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "NA",
@@ -5415,7 +5447,7 @@
   "NC"
   {:db/ident              :dpvo-legal/NC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Melanesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "NC",
    :dpvo-legal/iso_alpha3 "NCL",
@@ -5432,7 +5464,7 @@
   "NE"
   {:db/ident              :dpvo-legal/NE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "NE",
@@ -5450,7 +5482,7 @@
   "NF"
   {:db/ident              :dpvo-legal/NF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania
                             :dpvo-legal/AustraliaandNewZealand},
    :dpvo-legal/iso_alpha2 "NF",
@@ -5468,7 +5500,7 @@
   "NG"
   {:db/ident              :dpvo-legal/NG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "NG",
@@ -5486,7 +5518,7 @@
   "NI"
   {:db/ident              :dpvo-legal/NI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5505,7 +5537,7 @@
   "NL"
   {:db/ident               :dpvo-legal/NL,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -5528,7 +5560,7 @@
   "NO"
   {:db/ident               :dpvo-legal/NO,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf       #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2  "NO",
    :dpvo-legal/iso_alpha3  "NOR",
@@ -5547,7 +5579,7 @@
   "NP"
   {:db/ident              :dpvo-legal/NP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "NP",
    :dpvo-legal/iso_alpha3 "NPL",
@@ -5564,7 +5596,7 @@
   "NR"
   {:db/ident              :dpvo-legal/NR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "NR",
    :dpvo-legal/iso_alpha3 "NRU",
@@ -5581,7 +5613,7 @@
   "NU"
   {:db/ident              :dpvo-legal/NU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "NU",
    :dpvo-legal/iso_alpha3 "NIU",
@@ -5598,7 +5630,7 @@
   "NZ"
   {:db/ident              :dpvo-legal/NZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania
                             :dpvo-legal/AustraliaandNewZealand},
    :dpvo-legal/iso_alpha2 "NZ",
@@ -5616,7 +5648,7 @@
   "NorthernAfrica"
   {:db/ident         :dpvo-legal/NorthernAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/TN :dpvo-legal/DZ :dpvo-legal/EG
                        :dpvo-legal/EH :dpvo-legal/SD :dpvo-legal/LY
                        :dpvo-legal/MA},
@@ -5632,7 +5664,7 @@
   "NorthernAmerica"
   {:db/ident         :dpvo-legal/NorthernAmerica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/US :dpvo-legal/GL :dpvo-legal/BM
                        :dpvo-legal/CA :dpvo-legal/PM},
    :dcterms/isPartOf :dpvo-legal/Americas,
@@ -5647,7 +5679,7 @@
   "NorthernEurope"
   {:db/ident         :dpvo-legal/NorthernEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/IS :dpvo-legal/JE :dpvo-legal/ChannelIslands
                        :dpvo-legal/LT :dpvo-legal/EE :dpvo-legal/IM
                        :dpvo-legal/FO :dpvo-legal/FI :dpvo-legal/SJ
@@ -5666,7 +5698,7 @@
   "OM"
   {:db/ident              :dpvo-legal/OM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "OM",
    :dpvo-legal/iso_alpha3 "OMN",
@@ -5683,7 +5715,7 @@
   "Oceania"
   {:db/ident         :dpvo-legal/Oceania,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/WF :dpvo-legal/NZ :dpvo-legal/NF
                        :dpvo-legal/UM :dpvo-legal/FJ :dpvo-legal/PW
                        :dpvo-legal/NC :dpvo-legal/MP :dpvo-legal/TK
@@ -5707,7 +5739,7 @@
   "PA"
   {:db/ident              :dpvo-legal/PA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5726,7 +5758,7 @@
   "PE"
   {:db/ident              :dpvo-legal/PE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5745,7 +5777,7 @@
   "PF"
   {:db/ident              :dpvo-legal/PF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "PF",
    :dpvo-legal/iso_alpha3 "PYF",
@@ -5762,7 +5794,7 @@
   "PG"
   {:db/ident              :dpvo-legal/PG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Melanesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "PG",
    :dpvo-legal/iso_alpha3 "PNG",
@@ -5779,7 +5811,7 @@
   "PH"
   {:db/ident              :dpvo-legal/PH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "PH",
    :dpvo-legal/iso_alpha3 "PHL",
@@ -5796,7 +5828,7 @@
   "PK"
   {:db/ident              :dpvo-legal/PK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthernAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "PK",
    :dpvo-legal/iso_alpha3 "PAK",
@@ -5813,7 +5845,7 @@
   "PL"
   {:db/ident               :dpvo-legal/PL,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -5836,7 +5868,7 @@
   "PM"
   {:db/ident              :dpvo-legal/PM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Americas :dpvo-legal/NorthernAmerica},
    :dpvo-legal/iso_alpha2 "PM",
    :dpvo-legal/iso_alpha3 "SPM",
@@ -5853,7 +5885,7 @@
   "PN"
   {:db/ident              :dpvo-legal/PN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "PN",
    :dpvo-legal/iso_alpha3 "PCN",
@@ -5870,7 +5902,7 @@
   "PR"
   {:db/ident              :dpvo-legal/PR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5889,7 +5921,7 @@
   "PS"
   {:db/ident              :dpvo-legal/PS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "PS",
    :dpvo-legal/iso_alpha3 "PSE",
@@ -5906,7 +5938,7 @@
   "PT"
   {:db/ident               :dpvo-legal/PT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -5929,7 +5961,7 @@
   "PW"
   {:db/ident              :dpvo-legal/PW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "PW",
    :dpvo-legal/iso_alpha3 "PLW",
@@ -5946,7 +5978,7 @@
   "PY"
   {:db/ident              :dpvo-legal/PY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -5965,7 +5997,7 @@
   "Polynesia"
   {:db/ident         :dpvo-legal/Polynesia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/WF :dpvo-legal/TK :dpvo-legal/TO
                        :dpvo-legal/PF :dpvo-legal/NU :dpvo-legal/WS
                        :dpvo-legal/TV :dpvo-legal/AS :dpvo-legal/PN
@@ -5982,7 +6014,7 @@
   "QA"
   {:db/ident              :dpvo-legal/QA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "QA",
    :dpvo-legal/iso_alpha3 "QAT",
@@ -5999,7 +6031,7 @@
   "RE"
   {:db/ident              :dpvo-legal/RE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "RE",
@@ -6017,7 +6049,7 @@
   "RO"
   {:db/ident               :dpvo-legal/RO,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -6040,7 +6072,7 @@
   "RS"
   {:db/ident              :dpvo-legal/RS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "RS",
    :dpvo-legal/iso_alpha3 "SRB",
@@ -6057,7 +6089,7 @@
   "RU"
   {:db/ident              :dpvo-legal/RU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/EasternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2 "RU",
    :dpvo-legal/iso_alpha3 "RUS",
@@ -6074,7 +6106,7 @@
   "RW"
   {:db/ident              :dpvo-legal/RW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "RW",
@@ -6092,7 +6124,7 @@
   "SA"
   {:db/ident              :dpvo-legal/SA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "SA",
    :dpvo-legal/iso_alpha3 "SAU",
@@ -6109,7 +6141,7 @@
   "SB"
   {:db/ident              :dpvo-legal/SB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Melanesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "SB",
    :dpvo-legal/iso_alpha3 "SLB",
@@ -6126,7 +6158,7 @@
   "SC"
   {:db/ident              :dpvo-legal/SC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "SC",
@@ -6144,7 +6176,7 @@
   "SD"
   {:db/ident              :dpvo-legal/SD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "SD",
    :dpvo-legal/iso_alpha3 "SDN",
@@ -6161,7 +6193,7 @@
   "SE"
   {:db/ident               :dpvo-legal/SE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -6184,7 +6216,7 @@
   "SG"
   {:db/ident              :dpvo-legal/SG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "SG",
    :dpvo-legal/iso_alpha3 "SGP",
@@ -6201,7 +6233,7 @@
   "SH"
   {:db/ident              :dpvo-legal/SH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "SH",
@@ -6219,7 +6251,7 @@
   "SI"
   {:db/ident               :dpvo-legal/SI,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -6242,7 +6274,7 @@
   "SJ"
   {:db/ident              :dpvo-legal/SJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/NorthernEurope},
    :dpvo-legal/iso_alpha2 "SJ",
    :dpvo-legal/iso_alpha3 "SJM",
@@ -6259,7 +6291,7 @@
   "SK"
   {:db/ident               :dpvo-legal/SK,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/EEA :dpvo-legal/EU27 :dpvo-legal/EU
                              :dpvo-legal/EEA31 :dpvo-legal/EEA30
                              :dpvo-legal/EU28},
@@ -6282,7 +6314,7 @@
   "SL"
   {:db/ident              :dpvo-legal/SL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "SL",
@@ -6300,7 +6332,7 @@
   "SM"
   {:db/ident              :dpvo-legal/SM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "SM",
    :dpvo-legal/iso_alpha3 "SMR",
@@ -6317,7 +6349,7 @@
   "SN"
   {:db/ident              :dpvo-legal/SN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "SN",
@@ -6335,7 +6367,7 @@
   "SO"
   {:db/ident              :dpvo-legal/SO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "SO",
@@ -6353,7 +6385,7 @@
   "SR"
   {:db/ident              :dpvo-legal/SR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -6372,7 +6404,7 @@
   "SS"
   {:db/ident              :dpvo-legal/SS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "SS",
@@ -6390,7 +6422,7 @@
   "ST"
   {:db/ident              :dpvo-legal/ST,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "ST",
@@ -6408,7 +6440,7 @@
   "SV"
   {:db/ident              :dpvo-legal/SV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -6427,7 +6459,7 @@
   "SX"
   {:db/ident              :dpvo-legal/SX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -6446,7 +6478,7 @@
   "SY"
   {:db/ident              :dpvo-legal/SY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "SY",
    :dpvo-legal/iso_alpha3 "SYR",
@@ -6463,7 +6495,7 @@
   "SZ"
   {:db/ident              :dpvo-legal/SZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SouthernAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "SZ",
@@ -6481,7 +6513,7 @@
   "Sark"
   {:db/ident         :dpvo-legal/Sark,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf #{:dpvo-legal/ChannelIslands :dpvo-legal/Europe
                        :dpvo-legal/NorthernEurope},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
@@ -6495,7 +6527,7 @@
   "SouthAmerica"
   {:db/ident         :dpvo-legal/SouthAmerica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/BR :dpvo-legal/UY :dpvo-legal/FK
                        :dpvo-legal/GS :dpvo-legal/GF :dpvo-legal/BV
                        :dpvo-legal/GY :dpvo-legal/VE :dpvo-legal/CL
@@ -6514,7 +6546,7 @@
   "SoutheasternAsia"
   {:db/ident         :dpvo-legal/SoutheasternAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/TH :dpvo-legal/MM :dpvo-legal/ID
                        :dpvo-legal/TL :dpvo-legal/PH :dpvo-legal/MY
                        :dpvo-legal/SG :dpvo-legal/LA :dpvo-legal/BN
@@ -6531,7 +6563,7 @@
   "SouthernAfrica"
   {:db/ident         :dpvo-legal/SouthernAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/LS :dpvo-legal/BW :dpvo-legal/ZA
                        :dpvo-legal/NA :dpvo-legal/SZ},
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
@@ -6546,7 +6578,7 @@
   "SouthernAsia"
   {:db/ident         :dpvo-legal/SouthernAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/BT :dpvo-legal/NP :dpvo-legal/BD
                        :dpvo-legal/LK :dpvo-legal/IR :dpvo-legal/IN
                        :dpvo-legal/AF :dpvo-legal/PK :dpvo-legal/MV},
@@ -6562,7 +6594,7 @@
   "SouthernEurope"
   {:db/ident         :dpvo-legal/SouthernEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/GR :dpvo-legal/MT :dpvo-legal/MK
                        :dpvo-legal/IT :dpvo-legal/VA :dpvo-legal/PT
                        :dpvo-legal/HR :dpvo-legal/BA :dpvo-legal/SI
@@ -6581,7 +6613,7 @@
   "SubSaharanAfrica"
   {:db/ident         :dpvo-legal/SubSaharanAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/BI :dpvo-legal/CF :dpvo-legal/DJ
                        :dpvo-legal/LS :dpvo-legal/KE :dpvo-legal/TZ
                        :dpvo-legal/CM :dpvo-legal/SN :dpvo-legal/CI
@@ -6613,7 +6645,7 @@
   "TC"
   {:db/ident              :dpvo-legal/TC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -6632,7 +6664,7 @@
   "TD"
   {:db/ident              :dpvo-legal/TD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/MiddleAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "TD",
@@ -6650,7 +6682,7 @@
   "TF"
   {:db/ident              :dpvo-legal/TF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "TF",
@@ -6668,7 +6700,7 @@
   "TG"
   {:db/ident              :dpvo-legal/TG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/WesternAfrica :dpvo-legal/Africa
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "TG",
@@ -6686,7 +6718,7 @@
   "TH"
   {:db/ident              :dpvo-legal/TH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "TH",
    :dpvo-legal/iso_alpha3 "THA",
@@ -6703,7 +6735,7 @@
   "TJ"
   {:db/ident              :dpvo-legal/TJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "TJ",
    :dpvo-legal/iso_alpha3 "TJK",
@@ -6720,7 +6752,7 @@
   "TK"
   {:db/ident              :dpvo-legal/TK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "TK",
    :dpvo-legal/iso_alpha3 "TKL",
@@ -6737,7 +6769,7 @@
   "TL"
   {:db/ident              :dpvo-legal/TL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "TL",
    :dpvo-legal/iso_alpha3 "TLS",
@@ -6754,7 +6786,7 @@
   "TM"
   {:db/ident              :dpvo-legal/TM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "TM",
    :dpvo-legal/iso_alpha3 "TKM",
@@ -6771,7 +6803,7 @@
   "TN"
   {:db/ident              :dpvo-legal/TN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/NorthernAfrica},
    :dpvo-legal/iso_alpha2 "TN",
    :dpvo-legal/iso_alpha3 "TUN",
@@ -6788,7 +6820,7 @@
   "TO"
   {:db/ident              :dpvo-legal/TO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "TO",
    :dpvo-legal/iso_alpha3 "TON",
@@ -6805,7 +6837,7 @@
   "TR"
   {:db/ident              :dpvo-legal/TR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "TR",
    :dpvo-legal/iso_alpha3 "TUR",
@@ -6822,7 +6854,7 @@
   "TT"
   {:db/ident              :dpvo-legal/TT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -6841,7 +6873,7 @@
   "TV"
   {:db/ident              :dpvo-legal/TV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "TV",
    :dpvo-legal/iso_alpha3 "TUV",
@@ -6858,7 +6890,7 @@
   "Taiwan (Province of China)"
   {:db/ident         :dpvo-legal/TW,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :rdf/type         #{:owl/NamedIndividual :dpvo/Country},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
@@ -6870,7 +6902,7 @@
   "TZ"
   {:db/ident              :dpvo-legal/TZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "TZ",
@@ -6888,7 +6920,7 @@
   "UA"
   {:db/ident              :dpvo-legal/UA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/EasternEurope :dpvo-legal/Europe},
    :dpvo-legal/iso_alpha2 "UA",
    :dpvo-legal/iso_alpha3 "UKR",
@@ -6905,7 +6937,7 @@
   "UG"
   {:db/ident              :dpvo-legal/UG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "UG",
@@ -6931,7 +6963,7 @@
   "UM"
   {:db/ident              :dpvo-legal/UM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Oceania :dpvo-legal/Micronesia},
    :dpvo-legal/iso_alpha2 "UM",
    :dpvo-legal/iso_alpha3 "UMI",
@@ -6948,7 +6980,7 @@
   "US"
   {:db/ident               :dpvo-legal/US,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator        "Harshvardhan J. Pandit",
+   :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart        #{:dpvo-legal/US-MS :dpvo-legal/US-CO
                              :dpvo-legal/US-AR :dpvo-legal/US-AK
                              :dpvo-legal/US-WI :dpvo-legal/US-IA
@@ -6995,7 +7027,7 @@
   "Alaska"
   {:db/ident         :dpvo-legal/US-AK,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7008,7 +7040,7 @@
   "Alabama"
   {:db/ident         :dpvo-legal/US-AL,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7021,7 +7053,7 @@
   "Arkansas"
   {:db/ident         :dpvo-legal/US-AR,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7034,7 +7066,7 @@
   "American Samoa"
   {:db/ident         :dpvo-legal/US-AS,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7047,7 +7079,7 @@
   "Arizona"
   {:db/ident         :dpvo-legal/US-AZ,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7060,7 +7092,7 @@
   "California"
   {:db/ident              :dpvo-legal/US-CA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw #{:dpvo-legal/US-CA-CCPA :dpvo-legal/US-CA-CPRA},
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
@@ -7074,7 +7106,7 @@
   "California Consumer Privacy Act (CCPA)"
   {:db/ident :dpvo-legal/US-CA-CCPA,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2020-01-01T00:00:00.000-00:00"}},
@@ -7093,7 +7125,7 @@
   "California Privacy Rights Act (CPRA)"
   {:db/ident :dpvo-legal/US-CA-CPRA,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2023-01-01T00:00:00.000-00:00"}},
@@ -7112,7 +7144,7 @@
   "Colorado"
   {:db/ident              :dpvo-legal/US-CO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw :dpvo-legal/US-CO-CPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-CO,
@@ -7127,7 +7159,7 @@
   "Colorado Privacy Act (CPA)"
   {:db/ident             :dpvo-legal/US-CO-CPA,
    :dcterms/created      #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator      "Jonathan Bowker",
+   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
    :dcterms/temporal     {:rdf/type :time/ProperInterval,
                           :time/hasBeginning
                           {:time/inXSDDate #inst
@@ -7146,7 +7178,7 @@
   "Connecticut"
   {:db/ident              :dpvo-legal/US-CT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw :dpvo-legal/US-CT-CTPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-CT,
@@ -7161,7 +7193,7 @@
   "Connecticut Data Privacy Act (CTPA)"
   {:db/ident :dpvo-legal/US-CT-CTPA,
    :dcterms/created #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator "Jonathan Bowker",
+   :dcterms/creator {:xsd/string "Jonathan Bowker"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2023-01-07T00:00:00.000-00:00"}},
@@ -7181,7 +7213,7 @@
   "District of Columbia"
   {:db/ident         :dpvo-legal/US-DC,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7194,7 +7226,7 @@
   "Delaware"
   {:db/ident         :dpvo-legal/US-DE,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7207,7 +7239,7 @@
   "Florida"
   {:db/ident         :dpvo-legal/US-FL,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7220,7 +7252,7 @@
   "Georgia"
   {:db/ident         :dpvo-legal/US-GA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7233,7 +7265,7 @@
   "Guam"
   {:db/ident         :dpvo-legal/US-GU,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7246,7 +7278,7 @@
   "Hawaii"
   {:db/ident         :dpvo-legal/US-HI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7259,7 +7291,7 @@
   "Iowa"
   {:db/ident         :dpvo-legal/US-IA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7272,7 +7304,7 @@
   "Idaho"
   {:db/ident         :dpvo-legal/US-ID,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7285,7 +7317,7 @@
   "Illinois"
   {:db/ident         :dpvo-legal/US-IL,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7298,7 +7330,7 @@
   "Indiana"
   {:db/ident         :dpvo-legal/US-IN,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7311,7 +7343,7 @@
   "Kansas"
   {:db/ident         :dpvo-legal/US-KS,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7324,7 +7356,7 @@
   "Kentucky"
   {:db/ident         :dpvo-legal/US-KY,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7337,7 +7369,7 @@
   "Louisiana"
   {:db/ident         :dpvo-legal/US-LA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7350,7 +7382,7 @@
   "Massachusetts"
   {:db/ident         :dpvo-legal/US-MA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7363,7 +7395,7 @@
   "Maryland"
   {:db/ident         :dpvo-legal/US-MD,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7376,7 +7408,7 @@
   "Maine"
   {:db/ident         :dpvo-legal/US-ME,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7389,7 +7421,7 @@
   "Michigan"
   {:db/ident         :dpvo-legal/US-MI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7402,7 +7434,7 @@
   "Minnesota"
   {:db/ident         :dpvo-legal/US-MN,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7415,7 +7447,7 @@
   "Missouri"
   {:db/ident         :dpvo-legal/US-MO,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7428,7 +7460,7 @@
   "Northern Mariana Islands"
   {:db/ident         :dpvo-legal/US-MP,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7441,7 +7473,7 @@
   "Mississippi"
   {:db/ident         :dpvo-legal/US-MS,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7454,7 +7486,7 @@
   "Montana"
   {:db/ident         :dpvo-legal/US-MT,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7467,7 +7499,7 @@
   "North Carolina"
   {:db/ident         :dpvo-legal/US-NC,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7480,7 +7512,7 @@
   "North Dakota"
   {:db/ident         :dpvo-legal/US-ND,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7493,7 +7525,7 @@
   "Nebraska"
   {:db/ident         :dpvo-legal/US-NE,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7506,7 +7538,7 @@
   "New Hampshire"
   {:db/ident         :dpvo-legal/US-NH,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7519,7 +7551,7 @@
   "New Jersey"
   {:db/ident         :dpvo-legal/US-NJ,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7532,7 +7564,7 @@
   "New Mexico"
   {:db/ident         :dpvo-legal/US-NM,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7545,7 +7577,7 @@
   "Nevada"
   {:db/ident              :dpvo-legal/US-NV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw :dpvo-legal/US-NV-NPICICA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-NV,
@@ -7560,7 +7592,7 @@
   "Nevada Privacy of Information Collected on the Internet from Consumers Act (NPICICA)"
   {:db/ident :dpvo-legal/US-NV-NPICICA,
    :dcterms/created #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator "Jonathan Bowker",
+   :dcterms/creator {:xsd/string "Jonathan Bowker"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2021-01-10T00:00:00.000-00:00"}},
@@ -7580,7 +7612,7 @@
   "New York"
   {:db/ident         :dpvo-legal/US-NY,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7593,7 +7625,7 @@
   "Ohio"
   {:db/ident         :dpvo-legal/US-OH,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7606,7 +7638,7 @@
   "Oklahoma"
   {:db/ident         :dpvo-legal/US-OK,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7619,7 +7651,7 @@
   "Oregon"
   {:db/ident         :dpvo-legal/US-OR,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7632,7 +7664,7 @@
   "Pennsylvania"
   {:db/ident         :dpvo-legal/US-PA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7645,7 +7677,7 @@
   "Puerto Rico"
   {:db/ident         :dpvo-legal/US-PR,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7658,7 +7690,7 @@
   "Rhode Island"
   {:db/ident         :dpvo-legal/US-RI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7671,7 +7703,7 @@
   "South Carolina"
   {:db/ident         :dpvo-legal/US-SC,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7684,7 +7716,7 @@
   "South Dakota"
   {:db/ident         :dpvo-legal/US-SD,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7697,7 +7729,7 @@
   "Tennessee"
   {:db/ident         :dpvo-legal/US-TN,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7710,7 +7742,7 @@
   "Texas"
   {:db/ident         :dpvo-legal/US-TX,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7723,7 +7755,7 @@
   "United States Minor Outlying Islands"
   {:db/ident         :dpvo-legal/US-UM,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7736,7 +7768,7 @@
   "Utah"
   {:db/ident              :dpvo-legal/US-UT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw :dpvo-legal/US-UT-UCPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-UT,
@@ -7751,7 +7783,7 @@
   "Utah Consumer Privacy Act (UCPA)"
   {:db/ident             :dpvo-legal/US-UT-UCPA,
    :dcterms/created      #inst "2022-11-22T00:00:00.000-00:00",
-   :dcterms/creator      "Jonathan Bowker",
+   :dcterms/creator      {:xsd/string "Jonathan Bowker"},
    :dpvo/hasAuthority    :dpvo-legal/DPA-US-UT,
    :dpvo/hasJurisdiction :dpvo-legal/US-UT,
    :foaf/homepage        {:rdfa/uri
@@ -7767,7 +7799,7 @@
   "Virginia"
   {:db/ident              :dpvo-legal/US-VA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw :dpvo-legal/US-VA-VCDPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-VA,
@@ -7782,7 +7814,7 @@
   "Virginia Consumer Data Protection Act (VCDPA)"
   {:db/ident :dpvo-legal/US-VA-VCDPA,
    :dcterms/created #inst "2022-11-23T00:00:00.000-00:00",
-   :dcterms/creator "Jonathan Bowker",
+   :dcterms/creator {:xsd/string "Jonathan Bowker"},
    :dcterms/temporal {:rdf/type :time/ProperInterval,
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2023-01-01T00:00:00.000-00:00"}},
@@ -7801,7 +7833,7 @@
   "U.S. Virgin Islands"
   {:db/ident         :dpvo-legal/US-VI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7814,7 +7846,7 @@
   "Vermont"
   {:db/ident         :dpvo-legal/US-VT,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7827,7 +7859,7 @@
   "Washington"
   {:db/ident         :dpvo-legal/US-WA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7840,7 +7872,7 @@
   "Wisconsin"
   {:db/ident         :dpvo-legal/US-WI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7853,7 +7885,7 @@
   "West Virginia"
   {:db/ident         :dpvo-legal/US-WV,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7866,7 +7898,7 @@
   "Wyoming"
   {:db/ident         :dpvo-legal/US-WY,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
    :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
@@ -7879,7 +7911,7 @@
   "UY"
   {:db/ident              :dpvo-legal/UY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -7898,7 +7930,7 @@
   "UZ"
   {:db/ident              :dpvo-legal/UZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/CentralAsia :dpvo-legal/Asia},
    :dpvo-legal/iso_alpha2 "UZ",
    :dpvo-legal/iso_alpha3 "UZB",
@@ -7915,7 +7947,7 @@
   "VA"
   {:db/ident              :dpvo-legal/VA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Europe :dpvo-legal/SouthernEurope},
    :dpvo-legal/iso_alpha2 "VA",
    :dpvo-legal/iso_alpha3 "VAT",
@@ -7932,7 +7964,7 @@
   "VC"
   {:db/ident              :dpvo-legal/VC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -7951,7 +7983,7 @@
   "VE"
   {:db/ident              :dpvo-legal/VE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/SouthAmerica
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -7970,7 +8002,7 @@
   "VG"
   {:db/ident              :dpvo-legal/VG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -7989,7 +8021,7 @@
   "VI"
   {:db/ident              :dpvo-legal/VI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Caribbean
                             :dpvo-legal/LatinAmericaandtheCaribbean
                             :dpvo-legal/Americas},
@@ -8008,7 +8040,7 @@
   "VN"
   {:db/ident              :dpvo-legal/VN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/SoutheasternAsia},
    :dpvo-legal/iso_alpha2 "VN",
    :dpvo-legal/iso_alpha3 "VNM",
@@ -8025,7 +8057,7 @@
   "VU"
   {:db/ident              :dpvo-legal/VU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Melanesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "VU",
    :dpvo-legal/iso_alpha3 "VUT",
@@ -8042,7 +8074,7 @@
   "WF"
   {:db/ident              :dpvo-legal/WF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "WF",
    :dpvo-legal/iso_alpha3 "WLF",
@@ -8059,7 +8091,7 @@
   "WS"
   {:db/ident              :dpvo-legal/WS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Polynesia :dpvo-legal/Oceania},
    :dpvo-legal/iso_alpha2 "WS",
    :dpvo-legal/iso_alpha3 "WSM",
@@ -8076,7 +8108,7 @@
   "WesternAfrica"
   {:db/ident         :dpvo-legal/WesternAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/SN :dpvo-legal/CI :dpvo-legal/GW
                        :dpvo-legal/BF :dpvo-legal/NG :dpvo-legal/GM
                        :dpvo-legal/GH :dpvo-legal/SL :dpvo-legal/LR
@@ -8095,7 +8127,7 @@
   "WesternAsia"
   {:db/ident         :dpvo-legal/WesternAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/GE :dpvo-legal/AZ :dpvo-legal/TR
                        :dpvo-legal/SY :dpvo-legal/AE :dpvo-legal/YE
                        :dpvo-legal/AM :dpvo-legal/SA :dpvo-legal/IQ
@@ -8114,7 +8146,7 @@
   "WesternEurope"
   {:db/ident         :dpvo-legal/WesternEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator  "Harshvardhan J. Pandit",
+   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/LI :dpvo-legal/NL :dpvo-legal/AT
                        :dpvo-legal/CH :dpvo-legal/FR :dpvo-legal/LU
                        :dpvo-legal/DE :dpvo-legal/MC :dpvo-legal/BE},
@@ -8130,7 +8162,7 @@
   "YE"
   {:db/ident              :dpvo-legal/YE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Asia :dpvo-legal/WesternAsia},
    :dpvo-legal/iso_alpha2 "YE",
    :dpvo-legal/iso_alpha3 "YEM",
@@ -8147,7 +8179,7 @@
   "YT"
   {:db/ident              :dpvo-legal/YT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "YT",
@@ -8165,7 +8197,7 @@
   "ZA"
   {:db/ident              :dpvo-legal/ZA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SouthernAfrica
                             :dpvo-legal/SubSaharanAfrica},
    :dpvo-legal/iso_alpha2 "ZA",
@@ -8183,7 +8215,7 @@
   "ZM"
   {:db/ident              :dpvo-legal/ZM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "ZM",
@@ -8201,7 +8233,7 @@
   "ZW"
   {:db/ident              :dpvo-legal/ZW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator       "Harshvardhan J. Pandit",
+   :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      #{:dpvo-legal/Africa :dpvo-legal/SubSaharanAfrica
                             :dpvo-legal/EasternAfrica},
    :dpvo-legal/iso_alpha2 "ZW",
@@ -8219,7 +8251,7 @@
   "The ISO-Alpha2 code for a given region"
   {:db/ident            :dpvo-legal/iso_alpha2,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The ISO-Alpha2 code for a given region"},
    :dcterms/source      {:rdfa/uri
@@ -8238,7 +8270,7 @@
   "The ISO-Alpha3 code for a given region"
   {:db/ident            :dpvo-legal/iso_alpha3,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The ISO-Alpha3 code for a given region"},
    :dcterms/source      {:rdfa/uri
@@ -8257,7 +8289,7 @@
   "The ISO-Numeric code for a given region"
   {:db/ident            :dpvo-legal/iso_numeric,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The ISO-Numeric code for a given region"},
    :dcterms/source      {:rdfa/uri
@@ -8276,7 +8308,7 @@
   "The UN-M49 code for a given region"
   {:db/ident            :dpvo-legal/un_m49,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "The UN-M49 code for a given region"},
    :dcterms/source      {:rdfa/uri

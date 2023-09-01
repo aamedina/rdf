@@ -1,40 +1,28 @@
 (ns net.wikipunk.mop
   "The Art of the Metaobject Protocol in Wikipunk.net
 
-  The Metaobject Protocol (MOP) in wikipunk.net is a powerful and
-  flexible system for defining and interacting with objects and
-  classes. It provides a way to customize the behavior of objects,
-  classes, and other constructs, enabling programmers to create more
-  expressive and dynamic systems.
-
-  Key Components
-
-  `*env*`
-
-  A dynamic variable that represents the environment in which
-  metaobject idents are resolved. This could be a Datomic database, an
-  XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
-  searched.
-
-  !!! WARNING: VERY EXPERIMENTAL !!!
-
   Docstrings based on AMOP."
   {:rdfs/seeAlso ["http://www.lispworks.com/documentation/lw80/MOP/mop/index.html"]})
 
 (def ^:dynamic *env*
   "The `*env*` dynamic variable represents the environment in which
-  metaobject idents are resolved. This could be a Datomic database, an
-  XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
-  searched."
+  metaobject are resolved. 
+
+  Supports one of:
+  * Datomic (`net.wikipunk.datomic.Connection`)
+  * Asami (`net.wikipunk.asami.Connection`)
+  * nil (Clojure namespaces themselves are the environment)"
   nil)
 
 (declare find-class)
 
 (defmulti type-of
-  "Returns the type of the given object. If the object is a persistent map with a :rdf/type entry, 
-  it returns the value of :rdf/type. If :rdf/type is a collection, it returns the first type that 
-  satisfies the isa? relation, sorted in ascending order. If there is no :rdf/type entry, it returns 
-  the Clojure type of the object."
+  "Returns the RDF type of the given object. If the object is a map
+  with a single `:rdf/type` entry, it returns the value of `:rdf/type`. If
+  `:rdf/type` is a set, it returns the first type (identified by
+  keyword) that satisfies the isa? relation, sorted in ascending
+  order. If there is no `:rdf/type` entry, it returns the type of the
+  object using `clojure.core/type`."
   {:arglists '([obj & args])}
   (fn [obj & args]
     (type obj)))
@@ -42,8 +30,8 @@
 (defmethod type-of :default
   [obj & args]
   (if-some [rdf-type (:rdf/type obj)]
-    (if (coll? rdf-type)
-      (first (sort isa? rdf-type))
+    (if (set? rdf-type)
+      (first (sort isa? (filter keyword? rdf-type)))
       rdf-type)
     (type obj)))
 

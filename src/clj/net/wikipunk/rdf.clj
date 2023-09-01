@@ -39,6 +39,7 @@
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.mop]
+   [net.wikipunk.asami]
    [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]])
   (:import
    (com.github.packageurl PackageURL)
@@ -51,34 +52,6 @@
    (org.apache.jena.query ResultSet)
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
-
-(defmulti type-of
-  "Returns the RDF type of the given object. If the object is a map
-  with a single `:rdf/type` entry, it returns the value of `:rdf/type`. If
-  `:rdf/type` is a set, it returns the first type (identified by
-  keyword) that satisfies the isa? relation, sorted in ascending
-  order. If there is no `:rdf/type` entry, it returns the type of the
-  object using `clojure.core/type`."
-  {:arglists '([obj & args])}
-  (fn [obj & args]
-    (type obj)))
-
-(defmethod type-of :default
-  [obj & args]
-  (if-some [rdf-type (:rdf/type obj)]
-    (if (set? rdf-type)
-      (first (sort isa? (filter keyword? rdf-type)))
-      rdf-type)
-    (type obj)))
-
-(def ^:dynamic *env*
-  "The `*env*` dynamic variable represents the environment in which
-  metaobjects are resolved by certain functions (like the
-  implementation of `datafy`).
-
-  This could be a Datomic database, Asami, XTDB, or, if `*env*` is
-  nil, Clojure namespaces themselves are searched."
-  nil)
 
 (def ^:dynamic *metaobjects*
   "Contains a map of multimethod hierarchies derived from loaded
@@ -100,62 +73,140 @@
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *output-to* "src/cljc/net/wikipunk/rdf/")
 
-(defprotocol Environment
-  (entity [env eid]
-    "Returns entity in environment given some identifier."))
+(declare kw)
 
-(extend-protocol Environment
-  nil
-  (entity [_ eid]
-    #_(when (qualified-keyword? ident)
-      (when-some [var (if (= (namespace ident) "obo")
-                        (find-obo-metaobject ident)
-                        (or (try
-                              (requiring-resolve
-                                (symbol (str (or (get *ns-aliases* (namespace ident))
-                                                 (get (ns-aliases *ns*) (symbol (namespace ident)))))
-                                        (name (unmunge ident))))
-                              (catch java.io.FileNotFoundException ex nil))
-                            (some-> (find-ns (symbol (namespace ident)))
-                                    (ns-name)
-                                    (as-> ns-name
-                                        (ns-resolve ns-name (unmunge ident))))
-                            (try
-                              (as-> (symbol (str *ns-prefix* (namespace ident))) ns-name
-                                (doto ns-name (require))
-                                (when (find-ns ns-name)
-                                  (ns-resolve ns-name (unmunge ident))))
-                              (catch java.io.FileNotFoundException _ nil))
-                            (try
-                              (as-> (symbol (str "net.wikipunk.rdf." (namespace ident))) ns-name
-                                (doto ns-name (require))
-                                (when (find-ns ns-name)
-                                  (ns-resolve ns-name (unmunge ident))))
-                              (catch java.io.FileNotFoundException _ nil))))]
-        (with-meta @var {:var var :type (or (and (keyword? (type var))
-                                                 (type var))
-                                            (:type (alter-meta! var assoc :type (type-of @var)))
-                                            :rdfs/Resource)})))))
+(def ^:dynamic *gen*
+  "Node generator used by Raphael when parsing Turtle."
+  nil)
 
-(defmulti compute-class-precedence-list
-  "This multimethod is called to determine the class precedence
-  list of a class.
+;; Source: https://github.com/quoll/michelangelo/blob/main/src/michelangelo/core.clj
+(defrecord RoundTripGenerator [counter bnode-cache namespaces]
+  raphael/NodeGenerator
+  (new-node [this]
+    [(update this :counter inc) (ttl/->BlankNode counter)])
+  (new-node [this label]    
+    (if-let [node (get bnode-cache label)]
+      [this node]
+      (let [node (ttl/->BlankNode counter)]
+        [(-> this
+             (update :counter inc)
+             (update :bnode-cache assoc label node))
+         node])))
+  (add-base [this iri]
+    (update this :namespaces assoc :base (str iri)))
+  (add-prefix [this prefix iri]    
+    (update this :namespaces assoc prefix (str iri)))
+  (iri-for [this prefix]
+    (get namespaces prefix))
+  (get-namespaces [this]
+    (dissoc namespaces :base))
+  (get-base [this]
+    (:base namespaces))
+  (new-qname [this prefix local]
+    (keyword prefix local))
+  (new-iri [this iri]
+    (if-some [k (kw iri)]
+      k
+      {:rdfa/uri iri}))
+  (new-literal [this s]
+    (try
+      (java.net.URL. s)
+      {:rdfa/uri s}
+      (catch java.net.MalformedURLException _
+        (if (str/starts-with? s "pkg:")
+          (try
+            (PackageURL. s)
+            {:rdfa/uri s}
+            (catch com.github.packageurl.MalformedPackageURLException ex
+              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
+          {:rdf/value s}))))
+  (new-literal [this s t]
+    (case t
+      :xsd/anyURI
+      {:rdfa/uri s}
+      
+      (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
+      (clojure.instant/read-instant-date s)
+      
+      (:xsd/integer :xsd/nonNegativeInteger :xsd/nonPositiveInteger :xsd/positiveInteger :xsd/negativeInteger)
+      (bigint s)
+      
+      :xsd/decimal
+      (bigdec s)
+      
+      (:xsd/long :xsd/int :xsd/short :xsd/byte)
+      (Long/parseLong s)
+      
+      :xsd/float
+      (Float/parseFloat s)
+      
+      :xsd/double
+      (Double/parseDouble s)
+      
+      (:xsd/string :xsd/normalizedString :xsd/token :xsd/language)
+      {:rdf/value s}
+      
+      :xsd/boolean
+      (Boolean/parseBoolean s)
+      
+      ;; else
+      {:rdf/value s :rdf/type t}))
+  (new-lang-string [this s lang]
+    {:rdf/value s :rdf/language lang})
+  (rdf-type [this] :rdf/type)
+  (rdf-first [this] :rdf/first)
+  (rdf-rest [this] :rdf/rest)
+  (rdf-nil [this] :rdf/nil))
 
-  The result is a list which contains each of class and its
-  superclasses once and only once. The first element of the sequence
-  is class and the last element is the class named :rdfs/Class.
+(defmethod ttl/serialize ont_app.vocabulary.lstr.LangStr
+  [^ont_app.vocabulary.lstr.LangStr lstr]
+  (str \" (ttl/escape (str lstr)) "\"@" (lstr/lang lstr)))
 
-  All methods on this multimethod must compute the class precedence
-  list as a function of the ordered direct superclasses of the
-  superclasses of class. The results are undefined if the rules used
-  to compute the class precedence list depend on any other factors.
+(defmethod ttl/serialize clojure.lang.TaggedLiteral
+  [{:keys [tag form]}]
+  (str \" (ttl/escape (str form)) "\"^^" (ttl/serialize (keyword tag))))
 
-  When a class is finalized, `finalize-inheritance` calls this
-  multimethod and associates the returned value with the class
-  metaobject. The value can then be accessed by calling
-  `class-precedence-list`."
-  {:arglists '([class])}
-  type-of)
+(defn round-trip-generator
+  "Creates a new RoundTripGenerator"
+  []
+  (->RoundTripGenerator 0 {} EMPTY_MAP))
+
+(defn index-add
+  "Merges a single triple into a nested map"
+  [idx [a b c]]
+  (if-let [idxb (get idx a)]
+    (if-let [idxc (get idxb b)]
+      (if (set? idxc)
+        (if (get idxc c)
+          idx
+          (assoc idx a (assoc idxb b (conj idxc c))))
+        (assoc idx a (assoc idxb b (ordered-set idxc c))))
+      (assoc idx a (assoc idxb b c)))
+    (assoc idx a (ordered-map b c))))
+
+(defn add-all
+  "Inserts all triples in a sequence into a nested map"
+  [idx st]
+  (reduce index-add idx st))
+
+(defn simple-graph
+  "Creates a nested-map version of a graph from a sequence of triples"
+  [triples]
+  (add-all (ordered-map) triples))
+
+(defn parsed-graph
+  "Converts a graph parsed by Raphael into a nested map, with metadata for the prefixes and base."
+  [{:keys [base namespaces triples] :as parsed}]
+  (with-meta (simple-graph triples) {:namespaces namespaces :base base}))
+
+(defn parse-turtle
+  "Parses TTL input and creates a graph"
+  [s]
+  (let [s (if (str/starts-with? s "http")
+            (slurp s)
+            (or (some-> (io/resource s) (slurp))
+                s))]
+    (parsed-graph (raphael/parse s *gen*))))
 
 ;; The :rdfa/uri is used to download the model is a :dcat/downloadURL
 ;;   is not provided. The :rdfa/prefix is used to bind @base URI of the
@@ -183,19 +234,19 @@
 
 (defmulti parse
   "Parses the RDF model described by the object."
-  type-of)
+  mop/type-of)
 
 (defmulti sniff
   "Follow your nose."
-  type-of)
+  mop/type-of)
 
 (defmulti emit
   "Write a Clojure namespace from RDF parsed from the object."
-  type-of)
+  mop/type-of)
 
 (defmulti graph
   "Returns Jena Graph from parsed from the object."
-  type-of)
+  mop/type-of)
 
 (def ^:dynamic *slash*
   "generate keywords with _SLASH_ in name (used for D3FEND)"
@@ -391,9 +442,10 @@
   ([env]
    (all-ns-metaobjects)))
 
-(defmethod all-metaobjects :default
-  [_]
-  (all-ns-metaobjects))
+(defmulti find-classes
+  "Given an environment return all instances of :rdfs/Class."
+  {:arglists '([env])}
+  mop/type-of)
 
 (defn make-class-hierarchy
   "The make-class-hierarchy function creates a hierarchy of classes
@@ -402,7 +454,7 @@
 
   The resulting class hierarchy is returned."
   ([]
-   (make-class-hierarchy (all-metaobjects mop/*env*)))
+   (make-class-hierarchy (all-ns-metaobjects mop/*env*)))
   ([metaobjects]
    (reduce (fn [h {:db/keys   [ident]
                    :rdf/keys  [type]
@@ -443,7 +495,7 @@
   property to the hierarchy. Finally, it returns the hierarchy of
   properties."
   ([classes]
-   (make-property-hierarchy classes (all-metaobjects mop/*env*)))
+   (make-property-hierarchy classes (all-ns-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
      (fn [h {:db/keys     [ident]
@@ -467,7 +519,7 @@
   declared in the :rdfs/domain or :schema/domainIncludes of some
   :rdf/Property."
   ([classes]
-   (make-domain-hierarchy classes (all-metaobjects mop/*env*)))
+   (make-domain-hierarchy classes (all-ns-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
      (fn [h {:db/keys     [ident]
@@ -492,7 +544,7 @@
   declared in the :rdfs/range or :schema/rangeIncludes of some
   :rdf/Property."
   ([classes]
-   (make-range-hierarchy classes (all-metaobjects mop/*env*)))
+   (make-range-hierarchy classes (all-ns-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
      (fn [h {:db/keys     [ident]
@@ -522,7 +574,7 @@
 
     A hierarchy of metaobjects derived from the input RDF classes and properties."
   ([classes properties]
-   (make-metaobject-hierarchy classes properties (all-metaobjects mop/*env*)))
+   (make-metaobject-hierarchy classes properties (all-ns-metaobjects mop/*env*)))
   ([classes properties metaobjects]
    (reduce
      (fn [h {:db/keys   [ident]
@@ -648,176 +700,68 @@
         form))
     form))
 
-(comment
-  (case (infer-datomic-type k)
-    :db.type/string  (if (map? v)
-                       (or (:rdfa/uri v) (pr-str v))
-                       (str v))
-    :db.type/long    (long v)
-    :db.type/double  (double v)
-    :db.type/instant (if (string? v)
-                       (clojure.instant/read-instant-date v)
-                       v)
-    :db.type/ref     (if-not (or (map? v) (keyword? v))
-                       (box v)
-                       v)
-    :db.type/bigint  (bigint v)
-    :db.type/bigdec  (bigdec v)
-    v))
-
-(nippy/extend-freeze ont_app.vocabulary.lstr.LangStr :rdf/langString
-  [x data-output]
-  (.writeUTF data-output (str x))
-  (.writeUTF data-output (lstr/lang x)))
-
-(nippy/extend-thaw :rdf/langString
-  [data-input]
-  (lstr/->LangStr (.readUTF data-input) (.readUTF data-input)))
-
-;; TODO: rewrite this when we figure out the right future proof
-;; approach to tagged literals
-
-(defn freezable
-  "Ensure the metaobject can be frozen and thawed by Nippy."
-  [mo]
-  (->> (assoc mo :xt/id (:db/ident mo))
-       (walk/prewalk unroll-langString)
-       (walk/prewalk unroll-tagged-literals)
-       (walk/postwalk (fn [form]
-                        (cond
-                          (map? form)
-                          (reduce-kv (fn [m k v]
-                                       (if (nippy/freezable? v)
-                                         (assoc m k v)
-                                         m))
-                                     {} form)
-                          :else form)))))
-
 (declare iri)
 
 (defrecord UniversalTranslator [counter bnode-cache namespaces ; raphael/NodeGenerator
                                 ns-prefix ; used to name the Clojure namespace when emitting 
                                 output-to ; used to configure the default path where namespaces are emitted
                                 context ; used to declare what namespaces should be in the boot context
-                                node ; XTDB node
-                                asami ; Asami component
-                                db ; Datomic component
-                                config]
+                                env ; the environment is where metaobjects are resolved
+                                gen ; Raphael node generator
+                                ]
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
-              *output-to*    (or output-to *output-to*)]
+              *output-to* (or output-to *output-to*)]
       (require 'net.wikipunk.mop.init)
-      (let [all                           (all-metaobjects (when-not (or asami node)
-                                                             ;; when a :db has been provided and we are not bootstrapping with XTDB then use the :db as the environment to find metaobjects
-                                                             db))
-            node                          (when config (xt/start-node config))
+      (let [all                           (all-ns-metaobjects env)
             {:keys [registry ns-aliases]} (make-boot-context)
-            hierarchies                   (make-hierarchies all)]
+            hierarchies                   (make-hierarchies all)
+            gen                           (atom (round-trip-generator))]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))        
         (alter-var-root #'*metaobjects* (constantly hierarchies))
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
-        #_(when db
-          (alter-var-root #'mop/*env* (constantly db)))
-        (when node
-          (alter-var-root #'mop/*env* (constantly node)))
-        #_(when asami
-          (alter-var-root #'mop/*env* (constantly asami))
-          #_(doseq [mo all]
-            (asami/transact (:conn asami) {:tx-data [mo]}))
-          #_(finalize))
-        (when node
-          (try
-            (xt/submit-tx node (into []
-                                     (map (juxt (constantly ::xt/put) freezable))
-                                     all))
-            (xt/sync node)            
-            (finalize)
-            (catch Throwable ex
-              (log/error ex))))
-        (cond-> this
-          node (assoc :node node)))))
+        (alter-var-root #'mop/*env* (constantly env))
+        (assoc this :gen gen))))
   (stop [this]
-    (when (instance? java.io.Closeable node)
-      (.close ^java.io.Closeable node))
     (alter-var-root #'mop/*env* (constantly nil))
-    (assoc this :node nil))
+    this)
 
-  xt/DBProvider
-  (db [_]
-    (xt/db node))
-  (db [_ valid-time-or-basis]
-    (xt/db node valid-time-or-basis))
-  (open-db [_]
-    (xt/open-db node))
-  (open-db [_ valid-time-or-basis]
-    (xt/open-db node valid-time-or-basis))
-
-  xt/PXtdb
-  (active-queries [_]
-    (xt/active-queries node))
-  (attribute-stats [_]
-    (xt/attribute-stats node))
-  (await-tx [_ tx]
-    (xt/await-tx node tx))
-  (await-tx [_ tx timeout]
-    (xt/await-tx node tx timeout))
-  (await-tx-time [_ tx-time]
-    (xt/await-tx-time node tx-time))
-  (await-tx-time [_ tx-time timeout]
-    (xt/await-tx-time node tx-time timeout))
-  (latest-completed-tx [_]
-    (xt/latest-completed-tx node))
-  (latest-submitted-tx [_]
-    (xt/latest-submitted-tx node))
-  (listen [_ event-opts f]
-    (xt/listen node event-opts f))
-  (recent-queries [_]
-    (xt/recent-queries node))
-  (slowest-queries [_]
-    (xt/slowest-queries node))
-  (status [_]
-    (xt/status node))
-  (sync [_]
-    (xt/sync node))
-  (sync [_ timeout]
-    (xt/sync node timeout))
-  (sync [_ tx-time timeout]
-    (xt/sync node tx-time timeout))
-  (tx-committed? [_ submitted-tx]
-    (xt/tx-committed? node submitted-tx))
-
-  xt/PXtdbDatasource
-  (db-basis [_]
-    (xt/db-basis (xt/db node)))
-  (entity [_ eid]
-    (xt/entity (xt/db node) eid))
-  (entity-history [_ eid sort-order]
-    (xt/entity-history (xt/db node) eid sort-order))
-  (entity-history [_ eid sort-order opts]
-    (xt/entity-history (xt/db node) eid sort-order opts))
-  (entity-tx [_ eid]
-    (xt/entity-tx (xt/db node) eid))
-  (open-entity-history [_ eid sort-order]
-    (xt/open-entity-history (xt/db node) eid sort-order))
-  (open-entity-history [_ eid sort-order opts]
-    (xt/open-entity-history (xt/db node) eid sort-order opts))
-  (open-q* [_ query args]
-    (xt/open-q* (xt/db node) query args))
-  (pull [_ query eid]
-    (xt/pull (xt/db node) query eid))
-  (pull-many [_ query eids]
-    (xt/pull-many (xt/db node) query eids))
-  (q* [_ query args]
-    (xt/q* (xt/db node) query args))
-  (transaction-time [_]
-    (xt/transaction-time (xt/db node)))
-  (valid-time [_]
-    (xt/valid-time (xt/db node)))
-  (with-tx [_ tx-ops]
-    (xt/with-tx (xt/db node) tx-ops)))
+  raphael/NodeGenerator
+  (new-node [this]
+    (swap! @gen raphael/new-node))
+  (new-node [this label]
+    (swap! @gen raphael/new-node label))
+  (add-base [this iri]
+    (swap! gen update :namespaces assoc :base (str iri)))
+  (add-prefix [this prefix iri]    
+    (swap! gen update :namespaces assoc prefix (str iri)))
+  (iri-for [_ prefix]
+    (raphael/iri-for @gen prefix))
+  (get-namespaces [_]
+    (raphael/get-namespaces @gen))
+  (get-base [_]
+    (raphael/get-base @gen))
+  (new-qname [_ prefix local]
+    (raphael/new-qname @gen prefix local))
+  (new-iri [_ iri]
+    (raphael/new-iri @gen iri))
+  (new-literal [_ s]
+    (raphael/new-literal @gen s))
+  (new-literal [_ s t]
+    (raphael/new-literal @gen s t))
+  (new-lang-string [_ s lang]
+    (raphael/new-lang-string @gen s lang))
+  (rdf-type [_]
+    (raphael/rdf-type @gen))
+  (rdf-first [_]
+    (raphael/rdf-first @gen))
+  (rdf-rest [_]
+    (raphael/rdf-rest @gen))
+  (rdf-nil [this]
+    (raphael/rdf-nil @gen)))
 
 (defmethod emit UniversalTranslator
   [{:keys [ns-prefix output-to context]} arg-map]
@@ -1196,8 +1140,7 @@
             {:rdfa/uri s}
             (catch com.github.packageurl.MalformedPackageURLException ex
               (throw (ex-info (.getMessage ex) {:xsd/string s}))))
-          s
-          #_{:xsd/string s}))))
+          {:xsd/string s}))))
 
   clojure.lang.Sequential
   (box [xs]
@@ -1260,8 +1203,8 @@
         (some? (:owl/hasValue form))
         (box-value update :owl/hasValue)
 
-        (some? (:rdf/value form))
-        (box-value update :rdf/value)
+        ;; (some? (:rdf/value form))
+        ;; (box-value update :rdf/value)
 
         (some? (:qudt/value form))
         (box-value update :qudt/value)
@@ -1659,14 +1602,14 @@
                                           :rdfs/Resource)}))))
 
 (defn print-doc
-  "Prints documentation from metadata on a metaobject's var"
+  "Prints documentation for metaobject."
   [ident]
-  (when-some [metaobject (mop/find-class ident)]
+  (when-some [metaobject (datafy ident)]
     (println "-------------------------")
     (println (:db/ident metaobject))
     (when-some [doc (get-doc metaobject)]
       (println " " doc))
-    (when-some [supers (next (mop/compute-class-precedence-list metaobject))]
+    (when-some [supers (mop/class-precedence-list metaobject)]
       (println "  isa?")
       (reduce (fn [cnt class]
                 (println (str (apply str (repeat cnt \space)) class))
@@ -1694,16 +1637,6 @@
       (resolve name)                         `(#'clojure.repl/print-doc (meta (var ~name)))
       :else                                  nil)))
 
-(defn unroll-blank
-  "used to add :db/id's to blank nodes"
-  [form]
-  (if (and (map? form)
-           (and (not (contains? form :rdfa/uri))
-                (not (contains? form :db/ident))
-                (not (contains? form :db/id))))
-    (assoc form :db/id (str (random-uuid)))
-    form))
-
 (defn unroll-missing-uris
   "not sure if this is needed"
   [form]
@@ -1728,16 +1661,21 @@
                              (mop/class-direct-subclasses :rdf/Property)
                              (descendants :owl/Class))))
   ([force? metaobjects]
-   (dorun
-     (pmap (fn [ident]
-             (if-some [mo (mop/find-class ident)]
-               (try
-                 (when (or force? (not (mop/class-finalized? mo)))
-                   (mop/finalize-inheritance mo))
-                 (catch Throwable ex
-                   (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
-               (throw (ex-info "Could not locate metaobject" {:ident ident}))))
-           metaobjects))))
+   (finalize force?
+             (binding [mop/*env* nil]
+               (doall
+                 (pmap (fn [ident]
+                         (if-some [class (mop/find-class ident)]
+                           (try
+                             (when (or force? (not (mop/class-finalized? class)))
+                               (mop/finalize-inheritance class))
+                             (catch Throwable ex
+                               (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
+                           (throw (ex-info "Could not locate metaobject" {:ident ident}))))
+                       metaobjects)))
+             mop/*env*))
+  ([force? metaobjects env]
+   (mop/intern-class-using-env metaobjects env)))
 
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
@@ -1762,10 +1700,12 @@
                                   (if (seq v)
                                     (assoc m k v)
                                     m)
-                                  
+
                                   (if (contains? *dont-datafy* k)
                                     m
-                                    (assoc m k (if (and (coll? v) (== (count v) 1)) (first v) v))))
+                                    (assoc m k (if (and (set? v) (== (count v) 1))
+                                                 (first v)
+                                                 v))))
                                 m))
                             {} (dissoc (mop/find-class ident) :xt/id)))
 
@@ -2049,158 +1989,12 @@
   [prefix-mapping]
   ((get-method graph clojure.lang.IPersistentMap) prefix-mapping))
 
-(defrecord Asami [uri conn]
-  com/Lifecycle
-  (start [this]
-    (asami/create-database uri)
-    (assoc this :conn (asami/connect uri)))
-  (stop [this]
-    (assoc this :conn nil))
-
-  asami.storage/Connection
-  (open? [_] (asami.storage/open? conn))
-  (get-name [_] (asami.storage/get-name conn))
-  (get-url [_] (asami.storage/get-url conn))
-  (next-tx [_] (asami.storage/next-tx conn))
-  (get-lock [_] (asami.storage/get-lock conn))
-  (db [_] (asami.storage/db conn))
-  (delete-database [_] (asami.storage/delete-database conn))
-  (release [_] (asami.storage/release conn))
-  (transact-update [_ update-fn] (asami.storage/transact-update conn update-fn))
-  (transact-data [_ updates! asserts retracts] (asami.storage/transact-data conn updates! asserts retracts))
-  (transact-data [_ updates! generator-fn] (asami.storage/transact-data conn updates! generator-fn))
-
-  asami.storage/Database
-  (as-of [_ t] (asami.storage/as-of (asami/db conn) t))
-  (as-of-t [_] (asami.storage/as-of-t (asami/db conn)))
-  (as-of-time [_] (asami.storage/as-of-time (asami/db conn)))
-  (since [_ t] (asami.storage/since (asami/db conn) t))
-  (since-t [_] (asami.storage/since-t (asami/db conn)))
-  (graph [_] (asami.storage/graph (asami/db conn)))
-  (entity [_ id nested?]
-    (let [e (asami.storage/entity (asami/db conn) id nested?)]
-      (if (qualified-keyword? id)
-        (assoc e :db/ident id)
-        e))))
-
-;; Source: https://github.com/quoll/michelangelo/blob/main/src/michelangelo/core.clj
-(defrecord RoundTripGenerator [counter bnode-cache namespaces]
-  raphael/NodeGenerator
-  (new-node [this]
-    [(update this :counter inc) (ttl/->BlankNode counter)])
-  (new-node [this label]
-    (if-let [node (get bnode-cache label)]
-      [this node]
-      (let [node (ttl/->BlankNode counter)]
-        [(-> this
-             (update :counter inc)
-             (update :bnode-cache assoc label node))
-         node])))
-  (add-base [this iri] (update this :namespaces assoc :base (str iri)))
-  (add-prefix [this prefix iri] (update this :namespaces assoc prefix (str iri)))
-  (iri-for [this prefix] (get namespaces prefix))
-  (get-namespaces [this] (dissoc namespaces :base))
-  (get-base [this] (:base namespaces))
-  (new-qname [this prefix local] (keyword prefix local))
-  (new-iri [this iri]
-    (if-some [k (kw iri)]
-      k
-      {:rdfa/uri iri}))
-  (new-literal [this s]
-    (try
-      (java.net.URL. s)
-      {:rdfa/uri s}
-      (catch java.net.MalformedURLException _
-        (if (str/starts-with? s "pkg:")
-          (try
-            (PackageURL. s)
-            {:rdfa/uri s}
-            (catch com.github.packageurl.MalformedPackageURLException ex
-              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
-          {:rdf/value s}))))
-  (new-literal [this s t]
-    (case t
-      :xsd/anyURI
-      {:rdfa/uri s}
-      
-      (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
-      (clojure.instant/read-instant-date s)
-      
-      (:xsd/integer :xsd/nonNegativeInteger :xsd/nonPositiveInteger :xsd/positiveInteger :xsd/negativeInteger)
-      (bigint s)
-      
-      :xsd/decimal
-      (bigdec s)
-      
-      (:xsd/long :xsd/int :xsd/short :xsd/byte)
-      (Long/parseLong s)
-      
-      :xsd/float
-      (Float/parseFloat s)
-      
-      :xsd/double
-      (Double/parseDouble s)
-      
-      (:xsd/string :xsd/normalizedString :xsd/token :xsd/language)
-      s
-      
-      :xsd/boolean
-      (Boolean/parseBoolean s)
-      
-      ; else
-      {:rdf/value s :rdf/type t}))
-  (new-lang-string [this s lang]
-    {:rdf/value s :rdf/language lang})
-  (rdf-type [this] :rdf/type)
-  (rdf-first [this] :rdf/first)
-  (rdf-rest [this] :rdf/rest)
-  (rdf-nil [this] :rdf/nil))
-
-(defmethod ttl/serialize ont_app.vocabulary.lstr.LangStr
-  [^ont_app.vocabulary.lstr.LangStr lstr]
-  (str \" (ttl/escape (str lstr)) "\"@" (lstr/lang lstr)))
-
-(defmethod ttl/serialize clojure.lang.TaggedLiteral
-  [{:keys [tag form]}]
-  (str \" (ttl/escape (str form)) "\"^^" (ttl/serialize (keyword tag))))
-
-(defn round-trip-generator
-  "Creates a new RoundTripGenerator"
-  []
-  (->RoundTripGenerator 0 {} EMPTY_MAP))
-
-(defn index-add
-  "Merges a single triple into a nested map"
-  [idx [a b c]]
-  (if-let [idxb (get idx a)]
-    (if-let [idxc (get idxb b)]
-      (if (set? idxc)
-        (if (get idxc c)
-          idx
-          (assoc idx a (assoc idxb b (conj idxc c))))
-        (assoc idx a (assoc idxb b (ordered-set idxc c))))
-      (assoc idx a (assoc idxb b c)))
-    (assoc idx a (ordered-map b c))))
-
-(defn add-all
-  "Inserts all triples in a sequence into a nested map"
-  [idx st]
-  (reduce index-add idx st))
-
-(defn simple-graph
-  "Creates a nested-map version of a graph from a sequence of triples"
-  [triples]
-  (add-all (ordered-map) triples))
-
-(defn parsed-graph
-  "Converts a graph parsed by Raphael into a nested map, with metadata for the prefixes and base."
-  [{:keys [base namespaces triples] :as parsed}]
-  (with-meta (simple-graph triples) {:namespaces namespaces :base base}))
-
-(defn parse-turtle
-  "Parses TTL input and creates a graph"
-  [s]
-  (let [s (if (str/starts-with? s "http")
-            (slurp s)
-            s)]
-    (parsed-graph (raphael/parse s (round-trip-generator)))))
+(comment
+  {:rdf/type      :rdf/Statement
+   :rdf/subject   {:rdfa/prefix "schema",
+                   :rdfa/term   "3DModel",
+                   :rdfa/uri    "http://schema.org/3DModel"}
+   :rdf/predicate {:rdfa/prefix "rdfs",
+                   :rdfa/term   "comment"
+                   :rdfa/uri    "http://www.w3.org/2000/01/rdf-schema#comment"}
+   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}})

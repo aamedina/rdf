@@ -12,7 +12,8 @@
      "Bert Bos" "Julian Flake" "Paul Ryan" "Bud Bruegger" "Piero Bonatti"
      "Elmar Kiesling" "Javier D. Fernández" "Mark Lizar"},
    :dcterms/created #inst "2019-06-18T00:00:00.000-00:00",
-   :dcterms/creator #{"Axel Polleres" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -47,7 +48,9 @@
   "information to be provided where personal data is directly collected from data subject"
   {:db/ident :dpvo-gdpr/A13,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -66,7 +69,9 @@
   "information to be provided where personal data is collected from other sources"
   {:db/ident :dpvo-gdpr/A14,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -85,7 +90,9 @@
   "Right of access"
   {:db/ident :dpvo-gdpr/A15,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Right of access"},
    :dcterms/source {:rdfa/uri
@@ -102,7 +109,9 @@
   "Right to rectification"
   {:db/ident :dpvo-gdpr/A16,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Right to rectification"},
    :dcterms/source {:rdfa/uri
@@ -119,7 +128,9 @@
   "Right to erasure ('Right to be forgotten')"
   {:db/ident :dpvo-gdpr/A17,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Right to erasure ('Right to be forgotten')"},
@@ -137,7 +148,9 @@
   "Right to restriction of processing"
   {:db/ident :dpvo-gdpr/A18,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Right to restriction of processing"},
    :dcterms/source {:rdfa/uri
@@ -154,7 +167,9 @@
   "Right to be notified in case of rectification or erasure of personal data or restriction of processing"
   {:db/ident :dpvo-gdpr/A19,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -173,7 +188,9 @@
   "Right to data portability"
   {:db/ident :dpvo-gdpr/A20,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Right to data portability"},
    :dcterms/source {:rdfa/uri
@@ -190,7 +207,9 @@
   "Right to object to processing of personal data"
   {:db/ident :dpvo-gdpr/A21,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Right to object to processing of personal data"},
@@ -208,7 +227,9 @@
   "Right not to be subject to a decision based solely on automated processing including profiling"
   {:db/ident :dpvo-gdpr/A22,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -227,7 +248,7 @@
   "Personal data can flow freely from the EU to a third country with an Adequacy Decision without any further safeguard being necessary."
   {:db/ident :dpvo-gdpr/A45-3,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -251,7 +272,7 @@
   "A legally binding and enforceable instrument between public authorities or bodies"
   {:db/ident :dpvo-gdpr/A46-2-a,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -276,7 +297,7 @@
   "Binding corporate rules"
   {:db/ident :dpvo-gdpr/A46-2-b,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Binding corporate rules"},
    :dcterms/modified #inst "2021-09-08T00:00:00.000-00:00",
@@ -300,7 +321,7 @@
   "Standard data protection clauses adopted by the Commission"
   {:db/ident :dpvo-gdpr/A46-2-c,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Standard data protection clauses adopted by the Commission"},
@@ -325,7 +346,7 @@
   "Standard data protection clauses adopted by a Supervisory Authority"
   {:db/ident :dpvo-gdpr/A46-2-d,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -352,7 +373,7 @@
   "An approved code of conduct pursuant to GDPR Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards individuals´ rights"
   {:db/ident :dpvo-gdpr/A46-2-e,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -377,7 +398,7 @@
   "An approved certification mechanism pursuant to GDPR Article 42 together with binding and enforceable commitments of the controller or processor in the third country to appy the appropriate safeguards, including as regards individuals` rights"
   {:db/ident :dpvo-gdpr/A46-2-f,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -402,7 +423,7 @@
   "Contractual clauses with controller, processor or recipient of the personal data in the third country or the international organisation."
   {:db/ident :dpvo-gdpr/A46-3-a,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -427,7 +448,7 @@
   "Provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights"
   {:db/ident :dpvo-gdpr/A46-3-b,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -452,7 +473,7 @@
   "The data subject has explicitly consented to the proposed transfer, after having been informed of the possible risks of such transfers for the data subject due to the absence of an adequacy decision and appropriate safeguards."
   {:db/ident :dpvo-gdpr/A49-1-a,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -478,7 +499,7 @@
   "The transfer is necessary for the performance of a contract between the data subject and controller or the implementation of pre-contractual measures taken at the data subject´s request."
   {:db/ident :dpvo-gdpr/A49-1-b,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -503,7 +524,7 @@
   "The transfer is necessary for the conclusion or performance of a contract concluded in the interest of the data subject and controller and another natural or legal person."
   {:db/ident :dpvo-gdpr/A49-1-c,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -528,7 +549,7 @@
   "The transfer is necessary for important reasons of public interest."
   {:db/ident :dpvo-gdpr/A49-1-d,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -553,7 +574,7 @@
   "The transfer is necessary for the establishment, exercise or defence of legal claims."
   {:db/ident :dpvo-gdpr/A49-1-e,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -578,7 +599,7 @@
   "The transfer is necessary in order to protect the vital interests of the data subject or of other persons, where the person is physically or legally incapable of giving consent."
   {:db/ident :dpvo-gdpr/A49-1-f,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -604,7 +625,7 @@
   "The transfer is made from a register which according to Union or Member State law is intended to provide information to the public in general or by any person who can demonstrate a legitimate interest, but only to the extent that the conditions laid down by Union or Member State law for consultation are fulfilled in the particular case."
   {:db/ident :dpvo-gdpr/A49-1-g,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -629,7 +650,7 @@
   "The transfer is not repetetive, concerns only a limited number of data subjects, is necessary for the purposes of compelling legitimate interests pursued by controller which are not overridden by the interests or rights and freedoms of the data subject, and controller has assessed all the circumstances surrounding the data transfer and have on the basis of that assessment provided suitable safeguards with regard to the protection of personal data."
   {:db/ident :dpvo-gdpr/A49-2,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -653,7 +674,7 @@
   "Legal basis based on data subject's given consent to the processing of his or her personal data for one or more specific purposes"
   {:db/ident :dpvo-gdpr/A6-1-a,
    :dcterms/created #inst "2022-09-07T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -678,8 +699,9 @@
   "Legal basis based on data subject's given explicit consent to the processing of his or her personal data for one or more specific purposes"
   {:db/ident :dpvo-gdpr/A6-1-a-explicit-consent,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Rigo Wenning" "Harshvardhan J. Pandit" "Eva Schlehahn"
-                      "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rigo Wenning"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -704,8 +726,9 @@
   "Legal basis based on data subject's given non-explicit express consent to the processing of his or her personal data for one or more specific purposes"
   {:db/ident :dpvo-gdpr/A6-1-a-non-explicit-consent,
    :dcterms/created #inst "2019-04-10T00:00:00.000-00:00",
-   :dcterms/creator #{"Rigo Wenning" "Harshvardhan J. Pandit" "Eva Schlehahn"
-                      "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Rigo Wenning"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -730,7 +753,8 @@
   "Legal basis based on performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract"
   {:db/ident :dpvo-gdpr/A6-1-b,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -751,7 +775,7 @@
   "Legal basis based on performance of a contract to which the data subject is party"
   {:db/ident :dpvo-gdpr/A6-1-b-contract-performance,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -772,7 +796,7 @@
   "Legal basis based on taking steps at the request of the data subject prior to entering into a contract"
   {:db/ident :dpvo-gdpr/A6-1-b-enter-into-contract,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -793,7 +817,8 @@
   "Legal basis based on compliance with a legal obligation to which the controller is subject"
   {:db/ident :dpvo-gdpr/A6-1-c,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -814,7 +839,8 @@
   "Legal basis based on protecting the vital interests of the data subject or of another natural person"
   {:db/ident :dpvo-gdpr/A6-1-d,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -835,7 +861,7 @@
   "Legal basis based on protecting the vital interests of the data subject"
   {:db/ident :dpvo-gdpr/A6-1-d-data-subject,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -857,7 +883,7 @@
   "Legal basis based on protecting the vital interests of another natural person that is not the data subject"
   {:db/ident :dpvo-gdpr/A6-1-d-natural-person,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -879,7 +905,8 @@
   "Legal basis based on performance of a task carried out in the public interest or in the exercise of official authority vested in the controller"
   {:db/ident :dpvo-gdpr/A6-1-e,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -900,7 +927,7 @@
   "Legal basis based on the exercise of official authority vested in the controller"
   {:db/ident :dpvo-gdpr/A6-1-e-official-authority,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -921,7 +948,7 @@
   "Legal basis based on performance of a task carried out in the public interest"
   {:db/ident :dpvo-gdpr/A6-1-e-public-interest,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -942,7 +969,8 @@
   "Legal basis based on the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child"
   {:db/ident :dpvo-gdpr/A6-1-f,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"} {:xsd/string "Bud Bruegger"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -963,7 +991,7 @@
   "Legal basis based on the purposes of the legitimate interests pursued by the controller, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child"
   {:db/ident :dpvo-gdpr/A6-1-f-controller,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -984,7 +1012,7 @@
   "Legal basis based on the purposes of the legitimate interests pursued by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child"
   {:db/ident :dpvo-gdpr/A6-1-f-third-party,
    :dcterms/created #inst "2022-11-24T00:00:00.000-00:00",
-   :dcterms/creator "Georg P Krog",
+   :dcterms/creator {:xsd/string "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1005,7 +1033,9 @@
   "Right to withdraw consent at any time"
   {:db/ident :dpvo-gdpr/A7-3,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Right to withdraw consent at any time"},
    :dcterms/source
@@ -1022,7 +1052,9 @@
   "Right to lodge a complaint with a supervisory authority"
   {:db/ident :dpvo-gdpr/A77,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Right to lodge a complaint with a supervisory authority"},
@@ -1040,7 +1072,8 @@
   "explicit consent with special categories of data"
   {:db/ident :dpvo-gdpr/A9-2-a,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "explicit consent with special categories of data"},
@@ -1060,7 +1093,8 @@
   "employment and social security and social protection law"
   {:db/ident :dpvo-gdpr/A9-2-b,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "employment and social security and social protection law"},
@@ -1080,7 +1114,8 @@
   "protection of the vital interests"
   {:db/ident :dpvo-gdpr/A9-2-c,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "protection of the vital interests"},
    :dcterms/modified #inst "2021-09-08T00:00:00.000-00:00",
@@ -1099,7 +1134,8 @@
   "legitimate activities with appropriate safeguards by a foundation, association or any other not-for-profit body with a political, philosophical, religious or trade union aim and on condition that the processing relates solely to the members or to former members of the body or to persons who have regular contact with it in connection with its purposes and that the personal data are not disclosed outside that body without the consent of the data subjects;"
   {:db/ident :dpvo-gdpr/A9-2-d,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1120,7 +1156,8 @@
   "data manifestly made public by the data subject"
   {:db/ident :dpvo-gdpr/A9-2-e,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "data manifestly made public by the data subject"},
@@ -1139,7 +1176,8 @@
   "establishment, exercise or defence of legal claims / courts acting in their judicial capacity"
   {:db/ident :dpvo-gdpr/A9-2-f,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1159,7 +1197,8 @@
   "substantial public interest, on the basis of Union or Member State law"
   {:db/ident :dpvo-gdpr/A9-2-g,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1180,7 +1219,8 @@
   "preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3"
   {:db/ident :dpvo-gdpr/A9-2-h,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1200,7 +1240,8 @@
   "public interest in public health"
   {:db/ident :dpvo-gdpr/A9-2-i,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "public interest in public health"},
    :dcterms/modified #inst "2021-09-08T00:00:00.000-00:00",
@@ -1219,7 +1260,8 @@
   "public interest, scientific or historical research purposes or statistical purposes based on Union or Member State law"
   {:db/ident :dpvo-gdpr/A9-2-j,
    :dcterms/created #inst "2019-04-05T00:00:00.000-00:00",
-   :dcterms/creator #{"Eva Schlehahn" "Bud Bruegger"},
+   :dcterms/creator #{{:xsd/string "Eva Schlehahn"}
+                      {:xsd/string "Bud Bruegger"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1242,7 +1284,7 @@
   "Contractual Clauses not drafted by the EU Commission, e.g. by the Controller"
   {:db/ident :dpvo-gdpr/AdHocContractualClauses,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1262,8 +1304,9 @@
   "Binding corporate rules (BCR) are data protection policies adhered to by companies established in the EU for transfers of personal data outside the EU within a group of undertakings or enterprises."
   {:db/ident :dpvo-gdpr/BindingCorporateRules,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1282,7 +1325,7 @@
   "Certification and its binding or specified mechanisms intended to provide sufficient safeguards for data transfers"
   {:db/ident :dpvo-gdpr/CertificationMechanismsForDataTransfers,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1302,7 +1345,7 @@
   "Codes of Conduct that outline sufficient safeguards for carrying out data transfers"
   {:db/ident :dpvo-gdpr/CodesOfConductForDataTransfers,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1322,7 +1365,8 @@
   "Expressing the specified process is conformant with a DPIA"
   {:db/ident :dpvo-gdpr/DPIAConformant,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Expressing the specified process is conformant with a DPIA"},
@@ -1337,7 +1381,8 @@
   "Conformity of a process with a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAConformity,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Conformity of a process with a DPIA"},
    :rdf/type            :owl/Class,
@@ -1352,7 +1397,7 @@
   "DPIA identifying high risk levels"
   {:db/ident            :dpvo-gdpr/DPIAIndicatesHighRisk,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "DPIA identifying high risk levels"},
    :rdf/type            #{:dpvo-gdpr/DPIARiskStatus :owl/NamedIndividual},
@@ -1366,7 +1411,7 @@
   "DPIA identifying low risk levels"
   {:db/ident            :dpvo-gdpr/DPIAIndicatesLowRisk,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "DPIA identifying low risk levels"},
    :rdf/type            #{:dpvo-gdpr/DPIARiskStatus :owl/NamedIndividual},
@@ -1380,7 +1425,7 @@
   "DPIA identifying no risk is present"
   {:db/ident            :dpvo-gdpr/DPIAIndicatesNoRisk,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "DPIA identifying no risk is present"},
    :rdf/type            #{:dpvo-gdpr/DPIARiskStatus :owl/NamedIndividual},
@@ -1394,7 +1439,7 @@
   "Process that determines whether a DPIA is necessary"
   {:db/ident            :dpvo-gdpr/DPIANecessityAssessment,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Process that determines whether a DPIA is necessary"},
@@ -1410,7 +1455,7 @@
   "Status reflecting whether a DPIA is necessary"
   {:db/ident            :dpvo-gdpr/DPIANecessityStatus,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Status reflecting whether a DPIA is necessary"},
@@ -1426,7 +1471,8 @@
   "Expressing the specified process is not conformant with a DPIA"
   {:db/ident :dpvo-gdpr/DPIANonConformant,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1442,7 +1488,7 @@
   "Condition where a DPIA is not required"
   {:db/ident            :dpvo-gdpr/DPIANotRequired,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Condition where a DPIA is not required"},
    :rdf/type            #{:dpvo-gdpr/DPIANecessityStatus :owl/NamedIndividual},
@@ -1456,7 +1502,7 @@
   "Process representing determining outcome of a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAOutcome,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Process representing determining outcome of a DPIA"},
@@ -1472,7 +1518,7 @@
   "DPIA outcome status indicating a DPA consultation is required"
   {:db/ident :dpvo-gdpr/DPIAOutcomeDPAConsultation,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "DPIA outcome status indicating a DPA consultation is required"},
@@ -1487,7 +1533,7 @@
   "DPIA outcome status indicating high residual risk which are not acceptable for continuation"
   {:db/ident :dpvo-gdpr/DPIAOutcomeHighResidualRisk,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1503,7 +1549,7 @@
   "DPIA outcome status indicating (all) risks have been mitigated"
   {:db/ident :dpvo-gdpr/DPIAOutcomeRisksMitigated,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1519,7 +1565,7 @@
   "Status reflecting the outcomes of a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAOutcomeStatus,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Status reflecting the outcomes of a DPIA"},
    :rdf/type            :owl/Class,
@@ -1534,7 +1580,7 @@
   "Process representing carrying out a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAProcedure,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Process representing carrying out a DPIA"},
    :rdf/type            :owl/Class,
@@ -1549,7 +1595,8 @@
   "Recommendation from the DPIA regarding processing"
   {:db/ident            :dpvo-gdpr/DPIAProcessingRecommendation,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
+                          {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Recommendation from the DPIA regarding processing"},
@@ -1565,7 +1612,8 @@
   "Recommendation from a DPIA that the processing may continue"
   {:db/ident :dpvo-gdpr/DPIARecommendsProcessingContinue,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Recommendation from a DPIA that the processing may continue"},
@@ -1580,7 +1628,8 @@
   "Recommendation from a DPIA that the processing should not continue"
   {:db/ident :dpvo-gdpr/DPIARecommendsProcessingNotContinue,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator #{"Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1596,7 +1645,7 @@
   "Condition where a DPIA is required"
   {:db/ident            :dpvo-gdpr/DPIARequired,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Condition where a DPIA is required"},
    :rdf/type            #{:dpvo-gdpr/DPIANecessityStatus :owl/NamedIndividual},
@@ -1610,7 +1659,7 @@
   "Status reflecting the status of risk associated with a DPIA"
   {:db/ident :dpvo-gdpr/DPIARiskStatus,
    :dcterms/created #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Status reflecting the status of risk associated with a DPIA"},
@@ -1626,7 +1675,8 @@
   "A legal instrument or tool intended to assist or justify data transfers"
   {:db/ident :dpvo-gdpr/DataTransferTool,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1647,7 +1697,9 @@
   "A Notice provided in fulfilment of GDPR's Art.13 regarding information to be provided where personal data are collected from the data subject"
   {:db/ident :dpvo-gdpr/DirectDataCollectionNotice,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1664,7 +1716,7 @@
   "State where lawfulness or compliance with GDPR is unknown"
   {:db/ident :dpvo-gdpr/GDPRComplianceUnknown,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State where lawfulness or compliance with GDPR is unknown"},
@@ -1679,7 +1731,7 @@
   "State of being lawful or legally compliant for GDPR"
   {:db/ident            :dpvo-gdpr/GDPRCompliant,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of being lawful or legally compliant for GDPR"},
@@ -1694,7 +1746,7 @@
   "Status or state associated with being lawful or legally compliant regarding GDPR"
   {:db/ident :dpvo-gdpr/GDPRLawfulness,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1711,7 +1763,7 @@
   "State of being unlawful or legally non-compliant for GDPR"
   {:db/ident :dpvo-gdpr/GDPRNonCompliant,
    :dcterms/created #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State of being unlawful or legally non-compliant for GDPR"},
@@ -1726,7 +1778,9 @@
   "A Notice provided in fulfilment of GDPR's Art.14 regarding information to be provided where personal data are not collected from the data subject"
   {:db/ident :dpvo-gdpr/IndirectDataCollectionNotice,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1743,7 +1797,9 @@
   "A Notice provided in fulfilment of GDPR's Art.19 regarding Recipients to whom a rights exercise has been communicated, such as regarding rectification (A.16) or erasure of personal data (A.17) or restriction of processing (A.18)"
   {:db/ident :dpvo-gdpr/RightsRecipientsNotice,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1760,7 +1816,9 @@
   "A Notice provided in fulfilment of GDPR's Art.15 regarding information to be provided for Right of Access or Subject Access Request (SAR)"
   {:db/ident :dpvo-gdpr/SARNotice,
    :dcterms/created #inst "2022-11-09T00:00:00.000-00:00",
-   :dcterms/creator #{"Harshvardhan J. Pandit" "Beatriz Esteves" "Georg Krog"},
+   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Georg Krog"}
+                      {:xsd/string "Beatriz Esteves"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1777,8 +1835,9 @@
   "Standard contractual clauses adopted by the Commission in accordance with the examination procedure referred to in GDPR Article 93(2)"
   {:db/ident :dpvo-gdpr/SCCByCommission,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1799,8 +1858,9 @@
   "Standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in GDPR Article 93(2)"
   {:db/ident :dpvo-gdpr/SCCBySupervisoryAuthority,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1821,8 +1881,9 @@
   "Standard Contractual Clauses (SCCs) are pre-approved clauses by the EU for ensuring appropriate data protection safeguards intended for data transfers from the EU to third countries"
   {:db/ident :dpvo-gdpr/StandardContractualClauses,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"
-                      "Paul Ryan"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}
+                      {:xsd/string "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1841,7 +1902,8 @@
   "Supplementary measures are intended to additionally provide safeguards or guarentees to bring the resulting protection in line with EU requirements"
   {:db/ident :dpvo-gdpr/SupplementaryMeasure,
    :dcterms/created #inst "2021-09-22T00:00:00.000-00:00",
-   :dcterms/creator #{"David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"},
+   :dcterms/creator #{{:xsd/string "Georg P Krog"} {:xsd/string "David Hickey"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
