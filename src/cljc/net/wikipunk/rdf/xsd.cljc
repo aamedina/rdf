@@ -59,6 +59,7 @@
   {:db/ident       :xsd/anyURI,
    :db/cardinality :db.cardinality/one
    :db/valueType   :db.type/string
+   :db/unique      :db.unique/identity
    :owl/onDatatype :xsd/anySimpleType,
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "any URI"})

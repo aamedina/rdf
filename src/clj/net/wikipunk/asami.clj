@@ -35,9 +35,17 @@
   (graph [_] (asami.storage/graph (asami/db conn)))
   (entity [_ id nested?]
     (when-some [e (asami.storage/entity (asami/db conn) id nested?)]
-      (if (qualified-keyword? id)
-        (assoc e :db/ident id)
-        e))))
+      (reduce-kv (fn [m k v]
+                   (case k
+                     (:mop/classDirectSlots                                     
+                      :mop/classSlots
+                      :mop/classDirectSubclasses)
+                     (assoc m k (if (keyword? v) #{v} v))
+                     (assoc m k v)))
+                 nil
+                 (if (qualified-keyword? id)
+                   (assoc e :db/ident id)
+                   e)))))
 
 (defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.asami.Connection]
   [class env]

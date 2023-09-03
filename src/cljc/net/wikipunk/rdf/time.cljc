@@ -2,14 +2,16 @@
   "Tiempo en OWL"
   {:dcat/downloadURL
    "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time.ttl",
-   :dcterms/contributor #{{:rdfa/uri "mailto:chris.little@metoffice.gov.uk"}
-                          {:rdfa/uri "https://orcid.org/0000-0001-8269-8171"}},
+   :dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
+                          {:xsd/anyURI
+                           "https://orcid.org/0000-0001-8269-8171"}},
    :dcterms/created #inst "2006-09-27T00:00:00.000-00:00",
-   :dcterms/creator #{{:rdfa/uri "https://en.wikipedia.org/wiki/Jerry_Hobbs"}
-                      {:rdfa/uri "mailto:panfeng66@gmail.com"}
-                      {:rdfa/uri "http://orcid.org/0000-0002-3884-3420"}},
-   :dcterms/isVersionOf {:rdfa/uri "http://www.w3.org/TR/owl-time"},
-   :dcterms/license {:rdfa/uri "https://creativecommons.org/licenses/by/4.0/"},
+   :dcterms/creator #{{:xsd/anyURI "https://en.wikipedia.org/wiki/Jerry_Hobbs"}
+                      {:xsd/anyURI "http://orcid.org/0000-0002-3884-3420"}
+                      {:xsd/anyURI "mailto:panfeng66@gmail.com"}},
+   :dcterms/isVersionOf {:xsd/anyURI "http://www.w3.org/TR/owl-time"},
+   :dcterms/license {:xsd/anyURI
+                     "https://creativecommons.org/licenses/by/4.0/"},
    :dcterms/modified #inst "2021-01-27T00:00:00.000-00:00",
    :dcterms/rights
    {:rdf/language "en",
@@ -26,7 +28,7 @@
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "time",
-   :rdfa/uri "http://www.w3.org/2006/time",
+   :rdfa/uri "http://www.w3.org/2006/time#",
    :rdfs/isDefinedBy {:rdfa/uri
                       "https://www.w3.org/TR/2017/REC-owl-time-20171019/"},
    :rdfs/label #{{:rdf/language "es",
@@ -34,10 +36,10 @@
                  {:rdf/language "en",
                   :rdf/value    "OWL-Time"}},
    :rdfs/seeAlso
-   #{{:rdfa/uri "http://www.w3.org/TR/owl-time"}
-     {:rdfa/uri "http://dx.doi.org/10.3233/SW-150187"}
-     {:rdfa/uri
-      "http://www.semantic-web-journal.net/content/time-ontology-extended-non-gregorian-calendar-applications"}},
+   #{{:xsd/anyURI
+      "http://www.semantic-web-journal.net/content/time-ontology-extended-non-gregorian-calendar-applications"}
+     {:xsd/anyURI "http://dx.doi.org/10.3233/SW-150187"}
+     {:xsd/anyURI "http://www.w3.org/TR/owl-time"}},
    :skos/changeNote
    #{"2017-02 - intervalIn, intervalDisjoint, monthOfYear added; TemporalUnit subclass of TemporalDuration"
      "2016-12-20 - restore time:Year and time:January which were present in the 2006 version of the ontology, but now marked \"deprecated\". "
@@ -48,11 +50,11 @@
    :skos/historyNote
    {:rdf/language "en",
     :rdf/value
-    "Update of OWL-Time ontology, extended to support general temporal reference systems. \n\nOntology engineering by Simon J D Cox"}}
+    "Update of OWL-Time ontology, extended to support general temporal reference systems. \n\nOntology engineering by Simon J D Cox"},
+   :xsd/anyURI "http://www.w3.org/2006/time"}
   (:refer-clojure :exclude [second]))
 
 (def DateTimeDescription
-  "Description of date and time structured with separate values for the various elements of a calendar-clock system. The temporal reference system is fixed to Gregorian Calendar, and the range of year, month, day properties restricted to corresponding XML Schema types xsd:gYear, xsd:gMonth and xsd:gDay, respectively."
   {:db/ident :time/DateTimeDescription,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -66,20 +68,21 @@
                   :rdf/value    "descripción de fecha-tiempo"}
                  {:rdf/language "en",
                   :rdf/value    "Date-Time description"}},
-   :rdfs/subClassOf
-   #{{:owl/hasValue   {:rdfa/uri
-                       "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
-      :owl/onProperty :time/hasTRS,
-      :rdf/type       :owl/Restriction} :time/GeneralDateTimeDescription
-     {:owl/allValuesFrom :xsd/gDay,
-      :owl/onProperty    :time/day,
-      :rdf/type          :owl/Restriction}
-     {:owl/allValuesFrom :xsd/gMonth,
-      :owl/onProperty    :time/month,
-      :rdf/type          :owl/Restriction}
-     {:owl/allValuesFrom :xsd/gYear,
-      :owl/onProperty    :time/year,
-      :rdf/type          :owl/Restriction}},
+   :rdfs/subClassOf #{:time/GeneralDateTimeDescription
+                      {:owl/allValuesFrom :xsd/gDay,
+                       :owl/onProperty    :time/day,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :xsd/gMonth,
+                       :owl/onProperty    :time/month,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/hasValue
+                       {:xsd/anyURI
+                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
+                       :owl/onProperty :time/hasTRS,
+                       :rdf/type :owl/Restriction}
+                      {:owl/allValuesFrom :xsd/gYear,
+                       :owl/onProperty    :time/year,
+                       :rdf/type          :owl/Restriction}},
    :skos/definition
    #{{:rdf/language "en",
       :rdf/value
@@ -89,7 +92,6 @@
       "Descripción de fecha y tiempo estructurada con valores separados para los diferentes elementos de un sistema calendario-reloj. El sistema de referencia temporal está fijado al calendario gregoriano, y el rango de las propiedades año, mes, día restringidas a los correspondientes tipos del XML Schema xsd:gYear, xsd:gMonth y xsd:gDay respectivamente."}}})
 
 (def DateTimeInterval
-  "DateTimeInterval is a subclass of ProperInterval, defined using the multi-element DateTimeDescription."
   {:db/ident :time/DateTimeInterval,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -120,7 +122,6 @@
       ":DateTimeInterval can only be used for an interval whose limits coincide with a date-time element aligned to the calendar and timezone indicated. For example, while both have a duration of one day, the 24-hour interval beginning at midnight at the beginning of 8 May in Central Europe can be expressed as a :DateTimeInterval, but the 24-hour interval starting at 1:30pm cannot."}}})
 
 (def DayOfWeek
-  "El día de la semana"
   {:db/ident :time/DayOfWeek,
    :rdf/type :owl/Class,
    :rdfs/comment #{{:rdf/language "es",
@@ -149,7 +150,6 @@
       "La pertenencia a la clase 'día de la semana' está abierta, para permitir longitudes de semana alternativas y diferentes nombres de días."}}})
 
 (def Duration
-  "Duración de una extensión temporal expresada como un número escalado por una unidad temporal."
   {:db/ident :time/Duration,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -184,7 +184,6 @@
       "Alternativa a 'descripción de tiempo' para proporcionar descripción soporte a una duración temporal diferente a utilizar un sistema de calendario/reloj."}}})
 
 (def DurationDescription
-  "Description of temporal extent structured with separate values for the various elements of a calendar-clock system. The temporal reference system is fixed to Gregorian Calendar, and the range of each of the numeric properties is restricted to xsd:decimal"
   {:db/ident :time/DurationDescription,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -205,17 +204,17 @@
                       {:owl/allValuesFrom :xsd/decimal,
                        :owl/onProperty    :time/days,
                        :rdf/type          :owl/Restriction}
-                      {:owl/hasValue
-                       {:rdfa/uri
-                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
-                       :owl/onProperty :time/hasTRS,
-                       :rdf/type :owl/Restriction}
                       {:owl/allValuesFrom :xsd/decimal,
                        :owl/onProperty    :time/weeks,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :xsd/decimal,
                        :owl/onProperty    :time/hours,
                        :rdf/type          :owl/Restriction}
+                      {:owl/hasValue
+                       {:xsd/anyURI
+                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
+                       :owl/onProperty :time/hasTRS,
+                       :rdf/type :owl/Restriction}
                       {:owl/allValuesFrom :xsd/decimal,
                        :owl/onProperty    :time/months,
                        :rdf/type          :owl/Restriction}
@@ -241,7 +240,6 @@
       "In the Gregorian calendar the length of the month is not fixed. Therefore, a value like \"2.5 months\" cannot be exactly compared with a similar duration expressed in terms of weeks or days."}}})
 
 (def Friday
-  "الجمعة"
   {:db/ident       :time/Friday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -272,7 +270,6 @@
                       :rdf/value    "Vrijdag"}}})
 
 (def GeneralDateTimeDescription
-  "Descripción de fecha y hora estructurada con valores separados para los distintos elementos de un sistema calendario-reloj."
   {:db/ident :time/GeneralDateTimeDescription,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -335,7 +332,6 @@
       "Algunas combinaciones de propiedades son redundantes - por ejemplo, dentro de un 'año' especificado si se proporciona 'día del año' entonces 'día' y 'mes' se pueden computar, y viceversa. Los valores individuales deberían ser consistentes entre ellos y con el calendario, indicado a través del valor de la propiedad 'tiene TRS'."}}})
 
 (def GeneralDurationDescription
-  "Descripción de extensión temporal estructurada con valores separados para los distintos elementos de un sistema de horario-calendario."
   {:db/ident :time/GeneralDurationDescription,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -389,7 +385,6 @@
       "La extensión de una duración de tiempo expresada como una 'descripción de duración general' depende del Sistema de Referencia Temporal. En algunos calendarios la longitud de la semana o del mes no es constante a lo largo del año. Por tanto, un valor como \"25 meses\" puede no ser necesariamente ser comparado con un duración similar expresada en términos de semanas o días. Cuando se consideran calendarios que no están basados en el movimiento de la Tierra, se deben tomar incluso más precauciones en la comparación de duraciones."}}})
 
 (def Instant
-  "Una entidad temporal con una extensión o duración cero."
   {:db/ident :time/Instant,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -409,7 +404,6 @@
       :rdf/value    "A temporal entity with zero extent or duration"}}})
 
 (def Interval
-  "A temporal entity with an extent or duration"
   {:db/ident        :time/Interval,
    :rdf/type        :owl/Class,
    :rdfs/comment    #{{:rdf/language "en",
@@ -431,7 +425,6 @@
                        "Una entidad temporal con una extensión o duración."}}})
 
 (def January
-  "January"
   {:db/ident :time/January,
    :owl/deprecated true,
    :rdf/type #{:owl/DeprecatedClass :owl/Class},
@@ -447,7 +440,6 @@
    "This class was present in the 2006 version of OWL-Time. It was presented as an example of how DateTimeDescription could be specialized, but does not belong in the revised ontology. "})
 
 (def Monday
-  "الاثنين"
   {:db/ident       :time/Monday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -478,7 +470,6 @@
                       :rdf/value    "Montag"}}})
 
 (def MonthOfYear
-  "The month of the year"
   {:db/ident :time/MonthOfYear,
    :rdf/type :owl/Class,
    :rdfs/comment #{{:rdf/language "en",
@@ -534,7 +525,6 @@
       "Membership of the class :MonthOfYear is open, to allow for alternative annual calendars and different month names."}}})
 
 (def ProperInterval
-  "Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes."
   {:db/ident :time/ProperInterval,
    :owl/disjointWith :time/Instant,
    :rdf/type :owl/Class,
@@ -559,7 +549,6 @@
       "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different"}}})
 
 (def Saturday
-  "土曜日"
   {:db/ident       :time/Saturday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -590,7 +579,6 @@
                       :rdf/value    "Zaterdag"}}})
 
 (def Sunday
-  "Niedziela"
   {:db/ident       :time/Sunday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -621,7 +609,6 @@
                       :rdf/value    "Воскресенье"}}})
 
 (def TRS
-  "Un sistema de referencia temporal, tal como un sistema de coordenadas temporales (con un origen, una dirección y una escala), una combinación calendario-reloj, o un sistema ordinal (posiblemente jerárquico).\n        Esta clase comodín representa el conjunto de todos los sistemas de referencia temporal."
   {:db/ident :time/TRS,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -651,7 +638,6 @@
       "En el ISO 19108:2002 [ISO19108] se proporciona una taxonomía de sistemas de referencia temporal, incluyendo (a) sistemas de calendario + reloj; (b) sistemas de coordenadas temporales (es decir, desplazamiento numérico a partir de una época); (c) sistemas de referencia ordinales temporales (es decir, secuencia ordenada de intervalos nombrados, no necesariamente de igual duración)."}}})
 
 (def TemporalDuration
-  "Extensión de tiempo; duración de un intervalo de tiempo independiente de su posición de inicio particular."
   {:db/ident :time/TemporalDuration,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -674,7 +660,6 @@
       "Time extent; duration of a time interval separate from its particular start position"}}})
 
 (def TemporalEntity
-  "Un intervalo temporal o un instante."
   {:db/ident        :time/TemporalEntity,
    :owl/unionOf     [:time/Instant :time/Interval],
    :rdf/type        :owl/Class,
@@ -693,7 +678,6 @@
                        :rdf/value    "A temporal interval or instant."}}})
 
 (def TemporalPosition
-  "Una posición sobre una línea de tiempo."
   {:db/ident        :time/TemporalPosition,
    :rdf/type        :owl/Class,
    :rdfs/comment    #{{:rdf/language "es",
@@ -713,7 +697,6 @@
                        :rdf/value    "A position on a time-line"}}})
 
 (def TemporalUnit
-  "A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position."
   {:db/ident :time/TemporalUnit,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -748,7 +731,6 @@
       "La pertenencia de la clase 'unidad de tiempo' está abierta, para permitir otras unidades de tiempo utilizadas en algunas aplicaciones técnicas (por ejemplo, millones de años o el mes Baha'i)."}}})
 
 (def Thursday
-  "Donderdag"
   {:db/ident       :time/Thursday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -779,7 +761,6 @@
                       :rdf/value    "Quinta-feira"}}})
 
 (def TimePosition
-  "A temporal position described using either a (nominal) value from an ordinal reference system, or a (numeric) value in a temporal coordinate system. "
   {:db/ident :time/TimePosition,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -810,7 +791,6 @@
       "Una posición temporal descrita utilizando bien un valor (nominal) de un sistema de referencia ordinal, o un valor (numérico) en un sistema de coordenadas temporales."}}})
 
 (def TimeZone
-  "A Time Zone specifies the amount by which the local time is offset from UTC. \n\tA time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a given region. \nThe region where it applies and the offset from UTC are specified by a locally recognised governing authority."
   {:db/ident :time/TimeZone,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -853,7 +833,6 @@
       "En esta implementación 'huso horario' no tiene definidas propiedades. Se debería pensar como una superclase \"abstracta\" de todas las implementaciones de huso horario específicas."}}})
 
 (def Tuesday
-  "Dinsdag"
   {:db/ident       :time/Tuesday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -884,7 +863,6 @@
                       :rdf/value    "Martes"}}})
 
 (def Wednesday
-  "الأربعاء"
   {:db/ident       :time/Wednesday,
    :rdf/type       :time/DayOfWeek,
    :rdfs/label     {:rdf/language "en",
@@ -915,7 +893,6 @@
                       :rdf/value    "Quarta-feira"}}})
 
 (def Year
-  "Year duration"
   {:db/ident :time/Year,
    :owl/deprecated true,
    :rdf/type #{:owl/DeprecatedClass :owl/Class},
@@ -973,7 +950,6 @@
                       :rdf/value    "Anno"}}})
 
 (def after
-  "The subject is a temporal entity that occurs after the object. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."
   {:db/ident :time/after,
    :owl/inverseOf :time/before,
    :rdf/type :owl/ObjectProperty,
@@ -999,7 +975,6 @@
       "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."}}})
 
 (def before
-  "Asume una dirección en el tiempo. Si una entidad temporal T1 está antes que otra entidad temporal T2, entonces el final de T1 está antes que el principio de T2. Así, \"antes\" se puede considerar básica para instantes y derivada para intervalos."
   {:db/ident :time/before,
    :owl/inverseOf :time/after,
    :rdf/type #{:owl/TransitiveProperty :owl/ObjectProperty},
@@ -1025,7 +1000,6 @@
       "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."}}})
 
 (def day
-  "Day position in a calendar-clock system.\n\nThe range of this property is not specified, so can be replaced by any specific representation of a calendar day from any calendar. "
   {:db/ident :time/day,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1048,7 +1022,6 @@
       "Day position in a calendar-clock system.\n\nThe range of this property is not specified, so can be replaced by any specific representation of a calendar day from any calendar. "}}})
 
 (def dayOfWeek
-  "The day of week, whose value is a member of the class time:DayOfWeek"
   {:db/ident :time/dayOfWeek,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1071,7 +1044,6 @@
       "The day of week, whose value is a member of the class time:DayOfWeek"}}})
 
 (def dayOfYear
-  "The number of the day within the year"
   {:db/ident        :time/dayOfYear,
    :rdf/type        :owl/DatatypeProperty,
    :rdfs/comment    #{{:rdf/language "en",
@@ -1090,7 +1062,6 @@
                        :rdf/value    "El número de día en el año."}}})
 
 (def days
-  "length of, or element of the length of, a temporal extent expressed in days"
   {:db/ident :time/days,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1115,7 +1086,6 @@
       "Longitud de, o elemento de la longitud de, una extensión temporal expresada en días."}}})
 
 (def generalDay
-  "Día del mes - formulado como una cadena de texto con una restricción patrón para reproducir la misma forma léxica que gDay, excepto que se permiten valores hasta el 99, con el propósito de proporcionar soporte a calendarios con meses con más de 31 días.\n            Nótese que el espacio de valores no está definido, por tanto, un procesador genérico de OWL2 no puede computar relaciones de orden de valores de este tipo."
   {:db/ident :time/generalDay,
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
@@ -1142,7 +1112,6 @@
       "Day of month - formulated as a text string with a pattern constraint to reproduce the same lexical form as gDay, except that values up to 99 are permitted, in order to support calendars with more than 31 days in a month. \nNote that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."}}})
 
 (def generalMonth
-  "Mes del año - formulado como una cadena de texto con una restricción patrón para reproducir la misma forma léxica que gMonth, excepto que se permiten valores hasta el 20, con el propósito de proporcionar soporte a calendarios con años con más de 12 meses.\n            Nótese que el espacio de valores no está definido, por tanto, un procesador genérico de OWL2 no puede computar relaciones de orden de valores de este tipo."
   {:db/ident :time/generalMonth,
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
@@ -1169,7 +1138,6 @@
       "Month of year - formulated as a text string with a pattern constraint to reproduce the same lexical form as gMonth, except that values up to 20 are permitted, in order to support calendars with more than 12 months in the year. \nNote that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."}}})
 
 (def generalYear
-  "Número de año - formulado como una cadena de texto con una restricción patrón para reproducir la misma forma léxica que gYear, aunque no está restringido a valores del calendario gregoriano.\n            Nótese que el espacio de valores no está definido, por tanto, un procesador genérico de OWL2 no puede computar relaciones de orden de valores de este tipo."
   {:db/ident :time/generalYear,
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
@@ -1196,7 +1164,6 @@
       "Year number - formulated as a text string with a pattern constraint to reproduce the same lexical form as gYear, but not restricted to values from the Gregorian calendar. \nNote that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."}}})
 
 (def hasBeginning
-  "Beginning of a temporal entity"
   {:db/ident           :time/hasBeginning,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/comment       #{{:rdf/language "en",
@@ -1216,7 +1183,6 @@
                           :rdf/value    "Comienzo de una entidad temporal."}}})
 
 (def hasDateTimeDescription
-  "Value of DateTimeInterval expressed as a structured value. The beginning and end of the interval coincide with the limits of the shortest element in the description."
   {:db/ident :time/hasDateTimeDescription,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1241,7 +1207,6 @@
       "Valor de intervalo de fecha-hora expresado como un valor estructurado. El principio y el final del intervalo coincide con los límites del elemento más corto en la descripción."}}})
 
 (def hasDuration
-  "Duración de una entidad temporal, expresada como un valor escalado o un valor nominal."
   {:db/ident :time/hasDuration,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1266,7 +1231,6 @@
       "Duración de una entidad temporal, evento o actividad, o cosa, expresada como un valor escalado."}}})
 
 (def hasDurationDescription
-  "Duración de una entidad temporal, expresada utilizando una descripción estructurada."
   {:db/ident :time/hasDurationDescription,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1291,7 +1255,6 @@
       "Duration of a temporal entity, expressed using a structured description"}}})
 
 (def hasEnd
-  "End of a temporal entity."
   {:db/ident           :time/hasEnd,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/comment       #{{:rdf/language "en",
@@ -1311,7 +1274,6 @@
                           :rdf/value    "Final de una entidad temporal."}}})
 
 (def hasTRS
-  "The temporal reference system used by a temporal position or extent description. "
   {:db/ident :time/hasTRS,
    :rdf/type #{:owl/ObjectProperty :owl/FunctionalProperty},
    :rdfs/comment
@@ -1338,7 +1300,6 @@
       "El sistema de referencia temporal utilizado por una posición temporal o descripción de extensión."}}})
 
 (def hasTemporalDuration
-  "Duration of a temporal entity."
   {:db/ident        :time/hasTemporalDuration,
    :rdf/type        :owl/ObjectProperty,
    :rdfs/comment    #{{:rdf/language "en",
@@ -1357,7 +1318,6 @@
                        :rdf/value    "Duración de una entidad temporal."}}})
 
 (def hasTime
-  "Supports the association of a temporal entity (instant or interval) to any thing"
   {:db/ident :time/hasTime,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1388,7 +1348,6 @@
       "Feature at risk - added in 2017 revision, and not yet widely used. "}}})
 
 (def hasXSDDuration
-  "Extensión de una entidad temporal, expresada utilizando xsd:duration."
   {:db/ident :time/hasXSDDuration,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1418,7 +1377,6 @@
       "Feature at risk - added in 2017 revision, and not yet widely used. "}}})
 
 (def hour
-  "Hour position in a calendar-clock system."
   {:db/ident        :time/hour,
    :rdf/type        :owl/DatatypeProperty,
    :rdfs/comment    #{{:rdf/language "en",
@@ -1439,7 +1397,6 @@
                        "Posición de hora en un sistema calendario-reloj."}}})
 
 (def hours
-  "Longitud de, o elemento de la longitud de, una extensión temporal expresada en horas."
   {:db/ident :time/hours,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1464,7 +1421,6 @@
       "length of, or element of the length of, a temporal extent expressed in hours"}}})
 
 (def inDateTime
-  "Posición de un instante, expresada utilizando una descripción estructurada."
   {:db/ident :time/inDateTime,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1490,7 +1446,6 @@
       "Position of an instant, expressed using a structured description"}}})
 
 (def inTemporalPosition
-  "Position of a time instant"
   {:db/ident        :time/inTemporalPosition,
    :rdf/type        :owl/ObjectProperty,
    :rdfs/comment    #{{:rdf/language "en",
@@ -1509,7 +1464,6 @@
                        :rdf/value    "Posición de un instante de tiempo."}}})
 
 (def inTimePosition
-  "Posición de un instante, expresada como una coordenada temporal o un valor nominal."
   {:db/ident :time/inTimePosition,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1534,7 +1488,6 @@
       :rdf/value    "Position of a time instant expressed as a TimePosition"}}})
 
 (def inXSDDate
-  "Position of an instant, expressed using xsd:date"
   {:db/ident :time/inXSDDate,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1555,7 +1508,6 @@
       :rdf/value "Posición de un instante, expresado utilizando xsd:date."}}})
 
 (def inXSDDateTime
-  "Posición de un instante, expresado utilizando xsd:dateTime."
   {:db/ident :time/inXSDDateTime,
    :owl/deprecated true,
    :rdf/type #{:owl/DeprecatedProperty :owl/DatatypeProperty},
@@ -1584,7 +1536,6 @@
       "La propiedad 'en fecha-hora XSD' ha sido reemplazada por 'en fecha-sello de tiempo XSD' que hace obligatorio el campo 'huso horario'."}}})
 
 (def inXSDDateTimeStamp
-  "Position of an instant, expressed using xsd:dateTimeStamp"
   {:db/ident :time/inXSDDateTimeStamp,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1607,7 +1558,6 @@
       "Posición de un instante, expresado utilizando xsd:dateTimeStamp."}}})
 
 (def inXSDgYear
-  "Position of an instant, expressed using xsd:gYear"
   {:db/ident :time/inXSDgYear,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1628,7 +1578,6 @@
       :rdf/value "Posición de un instante, expresado utilizando xsd:gYear."}}})
 
 (def inXSDgYearMonth
-  "Posición de un instante, expresado utilizando xsd:gYearMonth."
   {:db/ident :time/inXSDgYearMonth,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1651,7 +1600,6 @@
       :rdf/value    "Position of an instant, expressed using xsd:gYearMonth"}}})
 
 (def inside
-  "An instant that falls inside the interval. It is not intended to include beginnings and ends of intervals."
   {:db/ident :time/inside,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1676,7 +1624,6 @@
       "Un instante que cae dentro del intervalo. Se asume que no es ni el principio ni el final de ningún intervalo."}}})
 
 (def intervalAfter
-  "Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2."
   {:db/ident :time/intervalAfter,
    :owl/inverseOf :time/intervalBefore,
    :rdf/type :owl/ObjectProperty,
@@ -1701,7 +1648,6 @@
       "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."}}})
 
 (def intervalBefore
-  "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."
   {:db/ident :time/intervalBefore,
    :owl/inverseOf :time/intervalAfter,
    :rdf/type :owl/ObjectProperty,
@@ -1728,7 +1674,6 @@
       "Si un intervalo propio T1 está antes que otro intervalo propio T2, entonces el final de T1 está antes que el principio de T2."}}})
 
 (def intervalContains
-  "Si un intervalo propio T1 contiene otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 está después del final de T2."
   {:db/ident :time/intervalContains,
    :owl/inverseOf :time/intervalDuring,
    :rdf/type :owl/ObjectProperty,
@@ -1754,7 +1699,6 @@
       "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."}}})
 
 (def intervalDisjoint
-  "Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca."
   {:db/ident :time/intervalDisjoint,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1786,7 +1730,6 @@
       "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of :intervalBefore v :intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with :intervalBefore , :intervalAfter as sub-properties"}}})
 
 (def intervalDuring
-  "Si un intervalo propio T1 está durante otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 está antes que el final de T2."
   {:db/ident :time/intervalDuring,
    :owl/inverseOf :time/intervalContains,
    :rdf/type :owl/ObjectProperty,
@@ -1813,7 +1756,6 @@
       "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."}}})
 
 (def intervalEquals
-  "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."
   {:db/ident :time/intervalEquals,
    :owl/propertyDisjointWith :time/intervalIn,
    :rdf/type :owl/ObjectProperty,
@@ -1839,7 +1781,6 @@
       "Si un intervalo propio T1 es igual a otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 coincide con el final de T2."}}})
 
 (def intervalFinishedBy
-  "Si un intervalo propio T1 está terminado por otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 coincide con el final de T2."
   {:db/ident :time/intervalFinishedBy,
    :owl/inverseOf :time/intervalFinishes,
    :rdf/type :owl/ObjectProperty,
@@ -1865,7 +1806,6 @@
       "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."}}})
 
 (def intervalFinishes
-  "Si un intervalo propio T1 termina otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 coincide con el final de T2."
   {:db/ident :time/intervalFinishes,
    :owl/inverseOf :time/intervalFinishedBy,
    :rdf/type :owl/ObjectProperty,
@@ -1892,7 +1832,6 @@
       "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."}}})
 
 (def intervalIn
-  "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."
   {:db/ident :time/intervalIn,
    :owl/propertyDisjointWith :time/intervalEquals,
    :rdf/type :owl/ObjectProperty,
@@ -1925,7 +1864,6 @@
       "Esta relación entre intervalos no estaba incluida en las 13 relaciones básicas definidas por Allen (1984), pero se hace referencia a ella como \"una relación importante\" en Allen y Ferguson (1997). Es la unión disjunta de 'intervalo empieza', 'intervalo durante' y con 'intervalo termina'. Sin embargo, esto está fuera de la expresividad de OWL2, por tanto, se implementa como una propiedad explícita, con 'intervalo empieza', 'intervalo durante' e 'intervalo termina' como sub-propiedades."}}})
 
 (def intervalMeets
-  "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."
   {:db/ident :time/intervalMeets,
    :owl/inverseOf :time/intervalMetBy,
    :rdf/type :owl/ObjectProperty,
@@ -1951,7 +1889,6 @@
       "Si un intervalo propio T1 se encuentra con otro intervalo propio T2, entonces el final de T1 coincide con el principio de T2."}}})
 
 (def intervalMetBy
-  "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."
   {:db/ident :time/intervalMetBy,
    :owl/inverseOf :time/intervalMeets,
    :rdf/type :owl/ObjectProperty,
@@ -1977,7 +1914,6 @@
       "Si un intervalo propio T1 es 'intervalo encontrado por' otro intervalo propio T2, entonces el principio de T1 coincide con el final de T2."}}})
 
 (def intervalOverlappedBy
-  "Si un intervalo propio T1 es 'intervalo solapado por' otro intervalo propio T2, entonces el principio de T1 es posterior al principio de T2, y el principio de T1 es anterior al final de T2, y el final de T1 es posterior al final de T2."
   {:db/ident :time/intervalOverlappedBy,
    :owl/inverseOf :time/intervalOverlaps,
    :rdf/type :owl/ObjectProperty,
@@ -2003,7 +1939,6 @@
       "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."}}})
 
 (def intervalOverlaps
-  "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."
   {:db/ident :time/intervalOverlaps,
    :owl/inverseOf :time/intervalOverlappedBy,
    :rdf/type :owl/ObjectProperty,
@@ -2032,7 +1967,6 @@
       "Si un intervalo propio T1 se solapa con otro intervalo propio T2, entonces el principio de T1 es anterior al principio de T2, el final de T1 es posterior al principio de T2, y el final de T1 es anterior al final de T2."}}})
 
 (def intervalStartedBy
-  "Si un intervalo propio T1 es empezado por otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 es posterior al final de T2."
   {:db/ident :time/intervalStartedBy,
    :owl/inverseOf :time/intervalStarts,
    :rdf/type :owl/ObjectProperty,
@@ -2056,7 +1990,6 @@
       "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."}}})
 
 (def intervalStarts
-  "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."
   {:db/ident :time/intervalStarts,
    :owl/inverseOf :time/intervalStartedBy,
    :rdf/type :owl/ObjectProperty,
@@ -2083,7 +2016,6 @@
       "Si un intervalo propio T1 empieza otro intervalo propio T2, entonces del principio de T1 con el final de T2, y el final de T1 es anterior al final de T2."}}})
 
 (def minute
-  "Posición de minuto en un sistema calendario-reloj."
   {:db/ident        :time/minute,
    :rdf/type        :owl/DatatypeProperty,
    :rdfs/comment    #{{:rdf/language "es",
@@ -2106,7 +2038,6 @@
                        "Minute position in a calendar-clock system."}}})
 
 (def minutes
-  "Longitud de, o elemento de la longitud de, una extensión temporal expresada en minutos."
   {:db/ident :time/minutes,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2131,7 +2062,6 @@
       "length, or element of, a temporal extent expressed in minutes"}}})
 
 (def month
-  "Month position in a calendar-clock system.\n\nThe range of this property is not specified, so can be replaced by any specific representation of a calendar month from any calendar. "
   {:db/ident :time/month,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2155,7 +2085,6 @@
       "Posición de mes en un sistema calendario-reloj.\n            El rango de esta propiedad no está especificado, por tanto, se puede reemplazar por cualquier representación específica de un mes de calendario de un calendario cualquiera."}}})
 
 (def monthOfYear
-  "The month of the year, whose value is a member of the class time:MonthOfYear"
   {:db/ident :time/monthOfYear,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2187,7 +2116,6 @@
       "Feature at risk - added in 2017 revision, and not yet widely used. "}}})
 
 (def months
-  "length of, or element of the length of, a temporal extent expressed in months"
   {:db/ident :time/months,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2212,7 +2140,6 @@
       "Longitud de, o elemento de la longitud de, una extensión temporal expresada en meses."}}})
 
 (def nominalPosition
-  "The (nominal) value indicating temporal position in an ordinal reference system "
   {:db/ident :time/nominalPosition,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2237,7 +2164,6 @@
       "El valor (nominal) que indica posición temporal en un sistema de referencia ordinal."}}})
 
 (def numericDuration
-  "Valor de una extensión temporal expresada como un número decimal escalado por una unidad de tiempo."
   {:db/ident :time/numericDuration,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2262,7 +2188,6 @@
       "Value of a temporal extent expressed as a decimal number scaled by a temporal unit"}}})
 
 (def numericPosition
-  "El valor (numérico) que indica posición temporal en un sistema de referencia ordinal."
   {:db/ident :time/numericPosition,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2287,7 +2212,6 @@
       "The (numeric) value indicating position within a temporal coordinate system "}}})
 
 (def second
-  "Second position in a calendar-clock system."
   {:db/ident     :time/second,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment #{{:rdf/language "en",
@@ -2303,7 +2227,6 @@
    :rdfs/range   :xsd/decimal})
 
 (def seconds
-  "length of, or element of the length of, a temporal extent expressed in seconds"
   {:db/ident :time/seconds,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2320,10 +2243,9 @@
                   :rdf/value    "seconds duration"}},
    :rdfs/range :xsd/decimal,
    :rdfs/seeAlso
-   {:rdfa/uri "http://www.bipm.org/en/publications/si-brochure/second.html"}})
+   {:xsd/anyURI "http://www.bipm.org/en/publications/si-brochure/second.html"}})
 
 (def timeZone
-  "The time zone for clock elements in the temporal position"
   {:db/ident :time/timeZone,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment {:rdf/language "en",
@@ -2347,7 +2269,6 @@
       "IANA mantiene una base de datos de husos horarios. Éstas están bien mantenidas y generalmente se consideran autorizadas, pero los ítems individuales no están disponibles en URIs individuales, por tanto, no se pueden utilizar directamente en datos expresados utilizando OWL-Time.\n            La BDPedia proporciona un conjunto de recursos correspondientes a los husos horarios de IANA, con una URI para cada uno (por ejemplo, http://dbpedia.org/resource/Australia/Eucla). El Servicio de Reloj Mundial también proporciona una lista de husos horarios con la descripción de cada uno de los disponibles como una página Web individual con una URI adecuada individual (por ejemplo, https://www.timeanddate.com/time/zones/acwst). Éstos, y otros recursos similares, se puden usar como un valor de la propiedad 'huso horario'."}}})
 
 (def unitCentury
-  "secolo"
   {:db/ident       :time/unitCentury,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2387,7 +2308,6 @@
    :time/years     100})
 
 (def unitDay
-  "día"
   {:db/ident       :time/unitDay,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2425,7 +2345,6 @@
    :time/years     0})
 
 (def unitDecade
-  "十年"
   {:db/ident       :time/unitDecade,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2465,7 +2384,6 @@
    :time/years     10})
 
 (def unitHour
-  "hora"
   {:db/ident       :time/unitHour,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2503,7 +2421,6 @@
    :time/years     0})
 
 (def unitMillenium
-  "ミレニアム"
   {:db/ident       :time/unitMillenium,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2543,7 +2460,6 @@
    :time/years     1000})
 
 (def unitMinute
-  "minuto"
   {:db/ident       :time/unitMinute,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2583,7 +2499,6 @@
    :time/years     0})
 
 (def unitMonth
-  "mese"
   {:db/ident       :time/unitMonth,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2621,7 +2536,6 @@
    :time/years     0})
 
 (def unitSecond
-  "一秒"
   {:db/ident       :time/unitSecond,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2659,7 +2573,6 @@
    :time/years     0})
 
 (def unitType
-  "La unidad de tiempo que proporciona la precisión de un valor fecha-hora o la escala de una extensión temporal."
   {:db/ident :time/unitType,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2678,7 +2591,6 @@
    :rdfs/range :time/TemporalUnit})
 
 (def unitWeek
-  "week"
   {:db/ident       :time/unitWeek,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2718,7 +2630,6 @@
    :time/years     0})
 
 (def unitYear
-  "rok"
   {:db/ident       :time/unitYear,
    :rdf/type       :time/TemporalUnit,
    :rdfs/label     {:rdf/language "en",
@@ -2758,7 +2669,6 @@
    :time/years     1})
 
 (def week
-  "Número de semana en el año."
   {:db/ident :time/week,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment #{{:rdf/language "es",
@@ -2781,7 +2691,6 @@
     "Las semanas están numeradas de forma diferente dependiendo del calendario en uso y de las convenciones lingüísticas y culturales locales (locale en inglés). El ISO-8601 especifica que la primera semana del año incluye al menos cuatro días, y que el lunes es el primer día de la semana. En ese sistema, la semana 1 es la semana que contiene el primer jueves del año."}})
 
 (def weeks
-  "Longitud de, o elemento de la longitud de, una extensión temporal expresada en semanas."
   {:db/ident :time/weeks,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2799,7 +2708,6 @@
    :rdfs/range :xsd/decimal})
 
 (def xsdDateTime
-  "Value of DateTimeInterval expressed as a compact value."
   {:db/ident :time/xsdDateTime,
    :owl/deprecated true,
    :rdf/type #{:owl/DeprecatedProperty :owl/DatatypeProperty},
@@ -2822,7 +2730,6 @@
       "Using xsd:dateTime in this place means that the duration of the interval is implicit: it corresponds to the length of the smallest non-zero element of the date-time literal. However, this rule cannot be used for intervals whose duration is more than one rank smaller than the starting time - e.g. the first minute or second of a day, the first hour of a month, or the first day of a year. In these cases the desired interval cannot be distinguished from the interval corresponding to the next rank up. Because of this essential ambiguity, use of this property is not recommended and it is deprecated."}}})
 
 (def year
-  "Year position in a calendar-clock system.\n\nThe range of this property is not specified, so can be replaced by any specific representation of a calendar year from any calendar. "
   {:db/ident :time/year,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2837,7 +2744,6 @@
                 :rdf/value    "year"}})
 
 (def years
-  "length of, or element of the length of, a temporal extent expressed in years"
   {:db/ident :time/years,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment

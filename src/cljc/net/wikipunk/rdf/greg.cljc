@@ -3,8 +3,8 @@
   {:dcat/downloadURL
    "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time-gregorian.ttl",
    :dcterms/created #inst "2017-01-20T00:00:00.000-00:00",
-   :dcterms/creator {:rdfa/uri "http://orcid.org/0000-0002-3884-3420"},
-   :owl/imports {:rdfa/uri "http://www.w3.org/2006/time"},
+   :dcterms/creator {:xsd/anyURI "http://orcid.org/0000-0002-3884-3420"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/2006/time"},
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "greg"    "http://www.w3.org/ns/time/gregorian/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -15,15 +15,15 @@
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "greg",
-   :rdfa/uri "http://www.w3.org/ns/time/gregorian",
+   :rdfa/uri "http://www.w3.org/ns/time/gregorian/",
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The set of months-of-the-year from the Gregorian calendar."},
    :rdfs/label {:rdf/language "en",
-                :rdf/value    "The gregorian months"}})
+                :rdf/value    "The gregorian months"},
+   :xsd/anyURI "http://www.w3.org/ns/time/gregorian"})
 
 (def April
-  "April"
   {:db/ident        :greg/April,
    :rdf/type        :time/MonthOfYear,
    :rdfs/label      {:rdf/language "en",
@@ -59,7 +59,6 @@
    :time/unitType   :time/unitMonth})
 
 (def August
-  "8月"
   {:db/ident       :greg/August,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -92,7 +91,6 @@
    :time/unitType  :time/unitMonth})
 
 (def December
-  "December"
   {:db/ident       :greg/December,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -124,7 +122,6 @@
    :time/month     #inst "2000-12-15T00:00:00.000-05:00"})
 
 (def February
-  "Febbraio"
   {:db/ident       :greg/February,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -156,7 +153,6 @@
    :time/month     #inst "2000-02-15T00:00:00.000-05:00"})
 
 (def January
-  "January"
   {:db/ident :greg/January,
    :rdf/type :time/MonthOfYear,
    :rdfs/label "January",
@@ -189,7 +185,6 @@
    :time/month #inst "2000-01-15T00:00:00.000-05:00"})
 
 (def July
-  "July"
   {:db/ident       :greg/July,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -221,7 +216,6 @@
    :time/month     #inst "2000-07-15T00:00:00.000-04:00"})
 
 (def June
-  "Giugno"
   {:db/ident       :greg/June,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -253,7 +247,6 @@
    :time/month     #inst "2000-06-15T00:00:00.000-04:00"})
 
 (def March
-  "March"
   {:db/ident       :greg/March,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -285,7 +278,6 @@
    :time/month     #inst "2000-03-15T00:00:00.000-05:00"})
 
 (def May
-  "May"
   {:db/ident       :greg/May,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -317,7 +309,6 @@
    :time/month     #inst "2000-05-15T00:00:00.000-04:00"})
 
 (def November
-  "Novembre"
   {:db/ident       :greg/November,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -349,7 +340,6 @@
    :time/month     #inst "2000-11-15T00:00:00.000-05:00"})
 
 (def October
-  "October"
   {:db/ident       :greg/October,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",
@@ -381,7 +371,6 @@
    :time/month     #inst "2000-10-15T00:00:00.000-04:00"})
 
 (def September
-  "Сентябрь"
   {:db/ident       :greg/September,
    :rdf/type       :time/MonthOfYear,
    :rdfs/label     {:rdf/language "en",

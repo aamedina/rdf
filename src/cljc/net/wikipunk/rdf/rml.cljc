@@ -1,6 +1,7 @@
 (ns net.wikipunk.rdf.rml
   "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"
-  {:cc/license {:rdfa/uri "http://creativecommons.org/licenses/by/3.0/"},
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcat/downloadURL "net/wikipunk/ext/rml.ttl",
    :dcterms/creator #{{:foaf/name "Miel Vander Sande"}
                       {:foaf/name "Anastasia Dimou"}},
    :dcterms/description
@@ -11,7 +12,7 @@
    :dcterms/modified #inst "2014-09-10T00:00:00.000-00:00",
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "RML: Generic Mapping Language for RDF"},
-   :owl/imports {:rdfa/uri "http://www.w3.org/ns/r2rml#"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/ns/r2rml#"},
    :rdf/ns-prefix-map {"cc"      "http://creativecommons.org/ns#",
                        "dcterms" "http://purl.org/dc/terms/",
                        "foaf"    "http://xmlns.com/foaf/0.1/",
@@ -27,12 +28,12 @@
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
    :rdfa/prefix "rml",
-   :rdfa/uri "http://semweb.mmlab.be/ns/rml",
+   :rdfa/uri "http://semweb.mmlab.be/ns/rml#",
    :vann/preferredNamespacePrefix "rml",
-   :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#"})
+   :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#",
+   :xsd/anyURI "http://semweb.mmlab.be/ns/rml"})
 
 (def BaseSource
-  "Base Source"
   {:db/ident        :rml/BaseSource,
    :rdf/type        :owl/Class,
    :rdfs/comment    #{"Base Source"
@@ -42,7 +43,6 @@
    :rdfs/subClassOf :rml/LogicalSource})
 
 (def LogicalSource
-  "Represents a logical source."
   {:db/ident        :rml/LogicalSource,
    :rdf/type        :owl/Class,
    :rdfs/comment    {:rdf/language "en",
@@ -59,7 +59,6 @@
                        :rdf/type       :owl/Restriction}}})
 
 (def ReferenceFormulation
-  "Represents a Reference Formulation."
   {:db/ident     :rml/ReferenceFormulation,
    :rdf/type     :owl/Class,
    :rdfs/comment {:rdf/language "en",
@@ -67,7 +66,6 @@
    :rdfs/label   "Reference Formulation"})
 
 (def TriplesMap
-  "Represents a triples map."
   {:db/ident        :rml/TriplesMap,
    :rdf/type        :rdfs/Class,
    :rdfs/comment    {:rdf/language "en",
@@ -83,7 +81,6 @@
                        :rdf/type       :owl/Restriction}}})
 
 (def iterator
-  "an expression qualified according to the reference formulation specified for pointing to an extract of the source data. "
   {:db/ident :rml/iterator,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -95,7 +92,6 @@
    :rdfs/range :xsd/string})
 
 (def logicalSource
-  "Represents the logical source to be mapped. This can be a pointer to any dataset."
   {:db/ident :rml/logicalSource,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -107,7 +103,6 @@
    :rdfs/range :rml/LogicalSource})
 
 (def logicalTarget
-  "Represents the logical target to where triples are exported to. This can be a pointer to any dataset."
   {:db/ident :rml/logicalTarget,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -118,7 +113,6 @@
    :rdfs/label "logical target"})
 
 (def query
-  "A valid query."
   {:db/ident     :rml/query,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment {:rdf/language "en",
@@ -126,7 +120,6 @@
    :rdfs/domain  :rml/LogicalSource})
 
 (def reference
-  "A valid expression that selects values from the source data. The reference should confront to the syntax rules/grammar of the specified Reference Formulation. "
   {:db/ident :rml/reference,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -138,7 +131,6 @@
    :rdfs/range :xsd/string})
 
 (def referenceFormulation
-  "The reference formulation used to refer to extracts of the source data. "
   {:db/ident :rml/referenceFormulation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -150,7 +142,6 @@
    :rdfs/range :rml/ReferenceFormulation})
 
 (def source
-  "qualified name of the source data."
   {:db/ident     :rml/source,
    :rdf/type     :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -159,7 +150,6 @@
    :rdfs/label   "source"})
 
 (def version
-  "It defines the version of the reference Formulation used. "
   {:db/ident     :rml/version,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment {:rdf/language "en",

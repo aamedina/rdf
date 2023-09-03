@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.wo
   "A vocabulary for describing weightings and their referenced scales."
-  {:dc11/creator {:rdfa/uri "http://foaf.me/zazi#me"},
+  {:dc11/creator {:xsd/anyURI "http://foaf.me/zazi#me"},
    :dc11/date #inst "2010-09-14T10:40:52.000-00:00",
    :dc11/description
    {:rdf/language "en",
@@ -9,12 +9,12 @@
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Weighting Ontology"},
    :dcat/downloadURL "http://purl.org/ontology/wo/weightingontology.owl",
-   :owl/imports #{{:rdfa/uri "http://purl.org/NET/scovo"}
-                  {:rdfa/uri "http://purl.org/vocab/vann/"}
-                  {:rdfa/uri "http://purl.org/NET/c4dm/event.owl"}
-                  {:rdfa/uri "http://purl.org/dc/elements/1.1/"}
-                  {:rdfa/uri "http://purl.org/stuff/rev"}
-                  {:rdfa/uri "http://www.w3.org/2003/06/sw-vocab-status/ns"}},
+   :owl/imports #{{:xsd/anyURI "http://purl.org/stuff/rev"}
+                  {:xsd/anyURI "http://www.w3.org/2003/06/sw-vocab-status/ns"}
+                  {:xsd/anyURI "http://purl.org/vocab/vann/"}
+                  {:xsd/anyURI "http://purl.org/dc/elements/1.1/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}
+                  {:xsd/anyURI "http://purl.org/NET/scovo"}},
    :owl/versionInfo 0.1M,
    :rdf/ns-prefix-map {"dc11"  "http://purl.org/dc/elements/1.1/",
                        "event" "http://purl.org/NET/c4dm/event.owl#",
@@ -31,16 +31,16 @@
    :rdfa/prefix "wo",
    :rdfa/uri "http://purl.org/ontology/wo/core#",
    :vann/preferredNamespacePrefix "wo",
-   :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#"})
+   :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#",
+   :xsd/anyURI "http://purl.org/ontology/wo/core#"})
 
 (def Scale
-  "A concept for describing scales for weights."
   {:db/ident         :wo/Scale,
    :rdf/type         #{:rdfs/Class :owl/Class},
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A concept for describing scales for weights."},
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Scale"},
    :rdfs/subClassOf  :scovo/Dimension,
@@ -48,7 +48,6 @@
                       :rdf/value    "unstable"}})
 
 (def Weight
-  "A weight class to enable timestamped (etc.) weights."
   {:db/ident :wo/Weight,
    :owl/equivalentClass {:owl/cardinality 1,
                          :owl/onProperty  :wo/weight_value,
@@ -57,7 +56,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "A weight class to enable timestamped (etc.) weights."},
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Weight"},
    :rdfs/subClassOf :scovo/Item,
@@ -65,14 +64,13 @@
                     :rdf/value    "testing"}})
 
 (def max_weight
-  "A maximum weight of a scale."
   {:db/ident           :wo/max_weight,
    :rdf/type           #{:owl/DatatypeProperty :rdf/Property
                          :owl/FunctionalProperty},
    :rdfs/comment       {:rdf/language "en",
                         :rdf/value    "A maximum weight of a scale."},
    :rdfs/domain        :wo/Scale,
-   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy   {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "has max weight"},
    :rdfs/range         :xsd/decimal,
@@ -81,14 +79,13 @@
                         :rdf/value    "unstable"}})
 
 (def min_weight
-  "A minimum weight of a scale."
   {:db/ident           :wo/min_weight,
    :rdf/type           #{:owl/DatatypeProperty :rdf/Property
                          :owl/FunctionalProperty},
    :rdfs/comment       {:rdf/language "en",
                         :rdf/value    "A minimum weight of a scale."},
    :rdfs/domain        :wo/Scale,
-   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy   {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "has min weight"},
    :rdfs/range         :xsd/decimal,
@@ -97,7 +94,6 @@
                         :rdf/value    "unstable"}})
 
 (def scale
-  "A scale for the weighting of some relation."
   {:db/ident           :wo/scale,
    :rdf/type           #{:owl/ObjectProperty :rdf/Property
                          :owl/FunctionalProperty},
@@ -105,7 +101,7 @@
                         :rdf/value
                         "A scale for the weighting of some relation."},
    :rdfs/domain        :wo/Weight,
-   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy   {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "has scale"},
    :rdfs/range         :wo/Scale,
@@ -114,7 +110,6 @@
                         :rdf/value    "unstable"}})
 
 (def step_size
-  "A predefined step size for weight of a specific scale."
   {:db/ident         :wo/step_size,
    :rdf/type         #{:owl/DatatypeProperty :rdf/Property
                        :owl/FunctionalProperty},
@@ -122,7 +117,7 @@
                       :rdf/value
                       "A predefined step size for weight of a specific scale."},
    :rdfs/domain      :wo/Scale,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "has step size"},
    :rdfs/range       :xsd/decimal,
@@ -130,7 +125,6 @@
                       :rdf/value    "unstable"}})
 
 (def weight
-  "The weight on some relation, e.g. a interest in a topic, or of an interest that is valid for a specific period of time or was raised up in a specific period of time."
   {:db/ident :wo/weight,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -138,7 +132,7 @@
     :rdf/value
     "The weight on some relation, e.g. a interest in a topic, or of an interest that is valid for a specific period of time or was raised up in a specific period of time."},
    :rdfs/domain :owl/Thing,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "has weight"},
    :rdfs/range :wo/Weight,
@@ -147,14 +141,13 @@
                     :rdf/value    "unstable"}})
 
 (def weight_value
-  "The specific value of a weight."
   {:db/ident         :wo/weight_value,
    :rdf/type         #{:owl/DatatypeProperty :rdf/Property
                        :owl/FunctionalProperty},
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The specific value of a weight."},
    :rdfs/domain      :wo/Weight,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/ontology/wo/core#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/ontology/wo/core#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "has weight value"},
    :rdfs/range       :xsd/decimal,

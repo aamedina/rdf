@@ -44,7 +44,7 @@
 
 (def dc11
   "Dublin Core Metadata Element Set, Version 1.1"
-  {:dcat/downloadURL "net/wikipunk/ext/dublin_core_elements.ttl"
+  {:dcat/downloadURL "net/wikipunk/boot/dublin_core_elements.ttl"
    :rdfa/uri         "http://purl.org/dc/elements/1.1/",
    :rdfa/prefix      "dc11",
    :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/dc/elements/1.1/"},

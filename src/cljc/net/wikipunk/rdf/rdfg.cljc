@@ -7,14 +7,12 @@
    :rdfa/uri          "http://www.w3.org/2004/03/trix/rdfg-1/"})
 
 (def Graph
-  "\nAn RDF graph (with intensional semantics).\n      "
   {:db/ident     :rdfg/Graph,
    :rdf/type     :rdfs/Class,
    :rdfs/comment "\nAn RDF graph (with intensional semantics).\n      ",
    :rdfs/label   "Graph"})
 
 (def equivalentGraph
-  "\nThe graphs associated with the subject and object are equivalent.\n      "
   {:db/ident :rdfg/equivalentGraph,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -24,7 +22,6 @@
    :rdfs/range :rdfg/Graph})
 
 (def subGraphOf
-  "\nThe graph associated with the subject is a subgraph of a graph equivalent\nto that associated with the object.\n      "
   {:db/ident :rdfg/subGraphOf,
    :rdf/type :rdf/Property,
    :rdfs/comment

@@ -8,7 +8,6 @@
    :rdfa/uri          "http://www.w3.org/2006/03/test-description#"})
 
 (def ReviewStatus
-  "A particular stage in a review process"
   {:db/ident     :test/ReviewStatus,
    :rdf/type     :owl/Class,
    :rdfs/comment "A particular stage in a review process",
@@ -16,7 +15,6 @@
                   :rdf/value    "Status in a review process"}})
 
 (def SimpleReviewStatus
-  "A status for a simple review process containing 6 possible stages"
   {:db/ident :test/SimpleReviewStatus,
    :owl/oneOf [:test/unreviewed
                :test/accepted
@@ -32,7 +30,6 @@
    :rdfs/subClassOf :test/ReviewStatus})
 
 (def SpecificationTestCase
-  "A test case which relates to a requirement set in a specification"
   {:db/ident :test/SpecificationTestCase,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -45,7 +42,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def TestCase
-  "A set of test inputs, execution conditions, and expected results developed for a particular objective, such as to exercise a particular program path or to verify compliance with a specific requirement"
   {:db/ident :test/TestCase,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -78,7 +74,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def accepted
-  "the item has gone through a first review, which shows it as valid for further processing"
   {:db/ident :test/accepted,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
@@ -87,7 +82,6 @@
                 :rdf/value    "accepted"}})
 
 (def approved
-  "the item has gone through the review process and was approved"
   {:db/ident :test/approved,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
@@ -96,7 +90,6 @@
                 :rdf/value    "approved"}})
 
 (def assigned
-  "a more specific review of the item has been assigned to someone"
   {:db/ident :test/assigned,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
@@ -105,7 +98,6 @@
                 :rdf/value    "assigned"}})
 
 (def expectedResults
-  "The results that a conformant implementation is expected to produce when this test is executed"
   {:db/ident :test/expectedResults,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -115,7 +107,6 @@
                 :rdf/value    "expected results"}})
 
 (def informationResourceInput
-  "Information Resource (e.g. a file) used as input for the test case"
   {:db/ident :test/informationResourceInput,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -128,7 +119,6 @@
    :rdfs/subPropertyOf :test/input})
 
 (def informationResourceResults
-  "Information Resource (e.g. a file) that contains the expected results for the test case"
   {:db/ident :test/informationResourceResults,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -139,7 +129,6 @@
    :rdfs/subPropertyOf :test/expectedResults})
 
 (def input
-  "Parameters or data that are needed for the test execution."
   {:db/ident     :test/input,
    :rdf/type     :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -150,7 +139,6 @@
                   :rdf/value    "input"}})
 
 (def onhold
-  "the item had already gone through the review process, but the results of the review need to be re-assessed due to new input"
   {:db/ident :test/onhold,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
@@ -158,7 +146,6 @@
    :rdfs/label "on hold"})
 
 (def preCondition
-  "a condition that must be met before the test is executed"
   {:db/ident     :test/preCondition,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment {:rdf/language "en",
@@ -170,7 +157,6 @@
    :rdfs/range   :rdfs/Literal})
 
 (def purpose
-  "purpose"
   {:db/ident    :test/purpose,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/domain :test/TestCase,
@@ -179,7 +165,6 @@
    :rdfs/range  :rdfs/Literal})
 
 (def rejected
-  "the item has gone through the review process and was rejected"
   {:db/ident :test/rejected,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment
@@ -188,7 +173,6 @@
                 :rdf/value    "rejected"}})
 
 (def reviewStatus
-  "status of review"
   {:db/ident   :test/reviewStatus,
    :rdf/type   :owl/ObjectProperty,
    :rdfs/label {:rdf/language "en",
@@ -196,7 +180,6 @@
    :rdfs/range :test/ReviewStatus})
 
 (def specificationReference
-  "a description or a link of what part of which specification lead to the creation of this test case"
   {:db/ident :test/specificationReference,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -209,7 +192,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def unreviewed
-  "the item has been proposed, but hasn't been reviewed (e.g. for completeness) yet"
   {:db/ident :test/unreviewed,
    :rdf/type :test/ReviewStatus,
    :rdfs/comment

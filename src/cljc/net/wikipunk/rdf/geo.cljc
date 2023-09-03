@@ -9,7 +9,6 @@
   (:refer-clojure :exclude [long]))
 
 (def Point
-  "A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "
   {:db/ident :geo/Point,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -19,7 +18,6 @@
    :rdfs/subClassOf :geo/SpatialThing})
 
 (def SpatialThing
-  "Anything with spatial extent, i.e. size, shape, or position.\n e.g. people, places, bowling balls, as well as abstract areas like cubes.\n"
   {:db/ident :geo/SpatialThing,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -27,7 +25,6 @@
    :rdfs/label "SpatialThing"})
 
 (def alt
-  "The WGS84 altitude of a SpatialThing (decimal meters \nabove the local reference ellipsoid)."
   {:db/ident :geo/alt,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -36,7 +33,6 @@
    :rdfs/label "altitude"})
 
 (def lat
-  "The WGS84 latitude of a SpatialThing (decimal degrees)."
   {:db/ident     :geo/lat,
    :rdf/type     :rdf/Property,
    :rdfs/comment "The WGS84 latitude of a SpatialThing (decimal degrees).",
@@ -44,7 +40,6 @@
    :rdfs/label   "latitude"})
 
 (def lat_long
-  "A comma-separated representation of a latitude, longitude coordinate."
   {:db/ident :geo/lat_long,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -52,7 +47,6 @@
    :rdfs/label "lat/long"})
 
 (def location
-  "The relation between something and the point, \n or other geometrical thing in space, where it is.  For example, the realtionship between\n a radio tower and a Point with a given lat and long.\n Or a relationship between a park and its outline as a closed arc of points, or a road and\n its location as a arc (a sequence of points).\n Clearly in practice there will be limit to the accuracy of any such statement, but one would expect\n an accuracy appropriate for the size of the object and uses such as mapping .\n "
   {:db/ident :geo/location,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -62,7 +56,6 @@
    :rdfs/subPropertyOf :foaf/based_near})
 
 (def long
-  "The WGS84 longitude of a SpatialThing (decimal degrees)."
   {:db/ident     :geo/long,
    :rdf/type     :rdf/Property,
    :rdfs/comment "The WGS84 longitude of a SpatialThing (decimal degrees).",

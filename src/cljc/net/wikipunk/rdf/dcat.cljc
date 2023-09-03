@@ -1,72 +1,74 @@
 (ns net.wikipunk.rdf.dcat
   "DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema."
   {:dcterms/contributor
-   #{{:foaf/homepage      {:rdfa/uri "http://www.w3.org/People/all#phila"},
-      :foaf/name          "Phil Archer",
-      :rdfs/seeAlso       {:rdfa/uri "http://philarcher.org/foaf.rdf#me"},
-      :schema/affiliation {:rdfa/uri "http://www.w3.org/data#W3C"}}
-     {:foaf/homepage {:rdfa/uri "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
-      :foaf/name     "Shuji Kamitsuna"}
-     {:foaf/homepage
-      #{{:rdfa/uri "https://w3id.org/people/ralbertoni/"}
-        {:rdfa/uri
-         "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"}},
-      :foaf/name "Riccardo Albertoni",
-      :rdfs/seeAlso {:rdfa/uri "https://orcid.org/0000-0001-5648-2713"}}
-     {:foaf/name "Richard Cyganiak"}
-     {:foaf/name "Vassilios Peristeras",
-      :schema/affiliation {:foaf/homepage
-                           {:rdfa/uri "http://ec.europa.eu/dgs/informatics/"},
-                           :foaf/name "European Commission, DG DIGIT"}}
-     {:foaf/homepage {:rdfa/uri "https://jakub.klímek.com/"},
+   #{{:foaf/homepage {:xsd/anyURI "https://jakub.klímek.com/"},
       :foaf/name     "Jakub Klímek",
-      :rdfs/seeAlso  {:rdfa/uri "https://jakub.klímek.com/#me"}}
-     {:foaf/name "Boris Villazón-Terrazas"} {:foaf/name "Marios Meimaris"}
-     {:foaf/name "Simon J D Cox",
-      :foaf/workInfoHomepage {:rdfa/uri "http://people.csiro.au/Simon-Cox"},
-      :rdf/type :foaf/Person,
-      :rdfs/seeAlso {:rdfa/uri "https://orcid.org/0000-0002-3884-3420"},
-      :schema/affiliation
-      {:foaf/homepage {:rdfa/uri "https://csiro.au"},
-       :foaf/name
-       "Commonwealth Scientific and Industrial Research Organisation"}}
-     {:foaf/homepage {:rdfa/uri "http://www.andrea-perego.name/foaf/#me"},
-      :foaf/name     "Andrea Perego",
-      :rdfs/seeAlso  {:rdfa/uri "https://orcid.org/0000-0001-9300-2694"}}
+      :rdfs/seeAlso  {:xsd/anyURI "https://jakub.klímek.com/#me"}}
+     {:foaf/homepage {:xsd/anyURI "http://makxdekkers.com/"},
+      :foaf/name     "Makx Dekkers",
+      :rdfs/seeAlso  {:xsd/anyURI "http://makxdekkers.com/makxdekkers.rdf#me"}}
+     {:foaf/name "Richard Cyganiak"} {:foaf/name "Boris Villazón-Terrazas"}
      {:foaf/name "David Browning",
-      :schema/affiliation {:foaf/homepage {:rdfa/uri
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI
                                            "http://www.refinitiv.com"},
                            :foaf/name     "Refinitiv"}}
-     {:foaf/homepage {:rdfa/uri "http://makxdekkers.com/"},
-      :foaf/name     "Makx Dekkers",
-      :rdfs/seeAlso  {:rdfa/uri "http://makxdekkers.com/makxdekkers.rdf#me"}}
-     {:foaf/name "Martin Alvarez-Espinar"}
-     {:foaf/homepage      {:rdfa/uri "https://agbeltran.github.io"},
+     {:foaf/name "Marios Meimaris"}
+     {:foaf/name "Simon J D Cox",
+      :foaf/workInfoHomepage {:xsd/anyURI "http://people.csiro.au/Simon-Cox"},
+      :rdf/type :foaf/Person,
+      :rdfs/seeAlso {:xsd/anyURI "https://orcid.org/0000-0002-3884-3420"},
+      :schema/affiliation
+      {:foaf/homepage {:xsd/anyURI "https://csiro.au"},
+       :foaf/name
+       "Commonwealth Scientific and Industrial Research Organisation"}}
+     {:foaf/name "Rufus Pollock",
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI "http://okfn.org"},
+                           :foaf/name     "Open Knowledge Foundation"}}
+     {:foaf/homepage      {:xsd/anyURI "https://agbeltran.github.io"},
       :foaf/name          "Alejandra Gonzalez-Beltran",
-      :rdfs/seeAlso       {:rdfa/uri "https://orcid.org/0000-0003-3499-8262"},
-      :schema/affiliation {:foaf/homepage {:rdfa/uri "http://stfc.ac.uk"},
+      :rdfs/seeAlso       {:xsd/anyURI "https://orcid.org/0000-0003-3499-8262"},
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI "http://stfc.ac.uk"},
                            :foaf/name
                            "Science and Technology Facilities Council, UK"}}
-     {:foaf/name "Rufus Pollock",
-      :schema/affiliation {:foaf/homepage {:rdfa/uri "http://okfn.org"},
-                           :foaf/name     "Open Knowledge Foundation"}}
+     {:foaf/name "Vassilios Peristeras",
+      :schema/affiliation {:foaf/homepage
+                           {:xsd/anyURI "http://ec.europa.eu/dgs/informatics/"},
+                           :foaf/name "European Commission, DG DIGIT"}}
+     {:foaf/homepage {:xsd/anyURI "http://www.andrea-perego.name/foaf/#me"},
+      :foaf/name     "Andrea Perego",
+      :rdfs/seeAlso  {:xsd/anyURI "https://orcid.org/0000-0001-9300-2694"}}
+     {:foaf/homepage      {:xsd/anyURI "http://www.w3.org/People/all#phila"},
+      :foaf/name          "Phil Archer",
+      :rdfs/seeAlso       {:xsd/anyURI "http://philarcher.org/foaf.rdf#me"},
+      :schema/affiliation {:xsd/anyURI "http://www.w3.org/data#W3C"}}
+     {:foaf/homepage {:xsd/anyURI "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
+      :foaf/name     "Shuji Kamitsuna"}
+     {:foaf/homepage
+      #{{:xsd/anyURI "https://w3id.org/people/ralbertoni/"}
+        {:xsd/anyURI
+         "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"}},
+      :foaf/name "Riccardo Albertoni",
+      :rdfs/seeAlso {:xsd/anyURI "https://orcid.org/0000-0001-5648-2713"}}
+     {:foaf/name "Martin Alvarez-Espinar"}
      {:foaf/name    "Ghislain Auguste Atemezing",
-      :rdfs/seeAlso {:rdfa/uri
+      :rdfs/seeAlso {:xsd/anyURI
                      "http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf"}}},
    :dcterms/creator #{{:foaf/name "John Erickson"}
                       {:foaf/name    "Fadi Maali",
-                       :rdfs/seeAlso {:rdfa/uri "http://fadmaa.me/foaf.ttl"}}},
-   :dcterms/license {:rdfa/uri "https://creativecommons.org/licenses/by/4.0/"},
+                       :rdfs/seeAlso {:xsd/anyURI
+                                      "http://fadmaa.me/foaf.ttl"}}},
+   :dcterms/license {:xsd/anyURI
+                     "https://creativecommons.org/licenses/by/4.0/"},
    :dcterms/modified
    #{#inst "2017-12-19T00:00:00.000-00:00" #inst "2013-09-20T00:00:00.000-00:00"
      #inst "2013-11-28T00:00:00.000-00:00" #inst "2012-04-24T00:00:00.000-00:00"
      #inst "2020-11-30T00:00:00.000-00:00" "2019"
      #inst "2021-09-14T00:00:00.000-00:00"},
-   :foaf/maker {:foaf/homepage {:rdfa/uri "http://www.w3.org/2011/gld/"},
+   :foaf/maker {:foaf/homepage {:xsd/anyURI "http://www.w3.org/2011/gld/"},
                 :foaf/name     "Government Linked Data WG"},
-   :owl/imports #{{:rdfa/uri "http://www.w3.org/2004/02/skos/core"}
-                  {:rdfa/uri "http://www.w3.org/ns/prov-o#"}
-                  {:rdfa/uri "http://purl.org/dc/terms/"}},
+   :owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/prov-o#"}
+                  {:xsd/anyURI "http://purl.org/dc/terms/"}
+                  {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
    :owl/versionInfo
    #{{:rdf/language "es",
       :rdf/value
@@ -97,7 +99,7 @@
                        "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "dcat",
-   :rdfa/uri "http://www.w3.org/ns/dcat",
+   :rdfa/uri "http://www.w3.org/ns/dcat#",
    :rdfs/comment
    #{{:rdf/language "en",
       :rdf/value
@@ -148,11 +150,11 @@
    :skos/editorialNote
    {:rdf/language "en",
     :rdf/value
-    "English language definitions updated in this revision in line with ED. Multilingual text unevenly updated."}}
+    "English language definitions updated in this revision in line with ED. Multilingual text unevenly updated."},
+   :xsd/anyURI "http://www.w3.org/ns/dcat"}
   (:refer-clojure :exclude [keyword]))
 
 (def Catalog
-  "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalog)."
   {:db/ident :dcat/Catalog,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -179,7 +181,7 @@
      {:rdf/language "fr",
       :rdf/value
       "Une collection élaborée de métadonnées sur les jeux de données"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "cs",
                   :rdf/value    "Katalog"}
                  {:rdf/language "en",
@@ -252,7 +254,6 @@
       "Συνήθως, ένας κατάλογος δεδομένων στον Παγκόσμιο Ιστό αναπαρίσταται ως ένα στιγμιότυπο αυτής της κλάσης."}}})
 
 (def CatalogRecord
-  "Un record in un catalogo di dati che descrive un singolo dataset o servizio di dati."
   {:db/ident :dcat/CatalogRecord,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -279,7 +280,7 @@
      {:rdf/language "en",
       :rdf/value
       "A record in a data catalog, describing the registration of a single dataset or data service."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "Registro del catálogo"}
                  {:rdf/language "cs",
@@ -359,7 +360,6 @@
       "Denne klasse er valgfri og ikke alle kataloger vil anvende denne klasse. Den kan anvendes i de kataloger hvor der skelnes mellem metadata om datasættet eller datatjenesten og metadata om selve posten til registreringen af datasættet eller datatjenesten i kataloget. Udgivelsesdatoen for datasættet afspejler for eksempel den dato hvor informationerne oprindeligt blev gjort tilgængelige af udgiveren, hvorimod udgivelsesdatoen for katalogposten er den dato hvor datasættet blev føjet til kataloget. I de tilfælde hvor de to datoer er forskellige eller hvor blot sidstnævnte er kendt, bør udgivelsesdatoen kun angives for katalogposten. Bemærk at W3Cs PROV ontologi gør til muligt at tilføje yderligere proveniensoplysninger eksempelvis om processen eller aktøren involveret i en given ændring af datasættet."}}})
 
 (def DataService
-  "Un sito o end-point che fornisce operazioni relative alla scoperta, all'accesso o all'elaborazione di funzioni su dati o risorse correlate."
   {:db/ident :dcat/DataService,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -448,7 +448,6 @@
       "Pokud je dcat:DataService navázána na jednu či více Datových sad, jsou tyto indikovány vlstností dcat:servesDataset."}}})
 
 (def Dataset
-  "Kolekce dat poskytovaná či řízená jedním zdrojem, která je k dispozici pro přístup či stažení v jednom či více formátech."
   {:db/ident :dcat/Dataset,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -478,7 +477,7 @@
       "Una colección de datos, publicados o conservados por una única fuente, y disponibles para ser accedidos o descargados en uno o más formatos."}
      {:rdf/language "ja",
       :rdf/value "1つのエージェントによって公開またはキュレートされ、1つ以上の形式でアクセスまたはダウンロードできるデータの集合。"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "ja",
                   :rdf/value    "データセット"}
                  {:rdf/language "ar",
@@ -585,7 +584,6 @@
       "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter."}}})
 
 (def Distribution
-  "Αναπαριστά μία συγκεκριμένη διαθέσιμη μορφή ενός συνόλου δεδομένων. Κάθε σύνολο δεδομενων μπορεί να είναι διαθέσιμο σε διαφορετικές μορφές, οι μορφές αυτές μπορεί να αναπαριστούν διαφορετικές μορφές αρχείων ή διαφορετικά σημεία διάθεσης. Παραδείγματα διανομών συμπεριλαμβάνουν ένα μεταφορτώσιμο αρχείο μορφής CSV, ένα API ή ένα RSS feed."
   {:db/ident :dcat/Distribution,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -616,7 +614,7 @@
      {:rdf/language "ar",
       :rdf/value
       "شكل محدد لقائمة البيانات يمكن الوصول إليه. قائمة بيانات ما يمكن أن تكون متاحه باشكال و أنواع متعددة.  ملف يمكن تحميله أو واجهة برمجية يمكن من خلالها الوصول إلى البيانات هي أمثلة على ذلك."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "ja",
                   :rdf/value    "配信"}
                  {:rdf/language "ar",
@@ -698,7 +696,6 @@
       "Ceci représente une disponibilité générale du jeu de données, et implique qu'il n'existe pas d'information sur la méthode d'accès réelle des données, par exple, si c'est un lien de téléchargement direct ou à travers une page Web."}}})
 
 (def Relationship
-  "En associationsklasse til brug for tilknytning af yderligere information til en relation mellem DCAT-ressourcer."
   {:db/ident :dcat/Relationship,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -771,7 +768,6 @@
       "Use to characterize a relationship between datasets, and potentially other resources, where the nature of the relationship is known but is not adequately characterized by the standard Dublin Core properties (dct:hasPart, dct:isPartOf, dct:conformsTo, dct:isFormatOf, dct:hasFormat, dct:isVersionOf, dct:hasVersion, dct:replaces, dct:isReplacedBy, dct:references, dct:isReferencedBy, dct:requires, dct:isRequiredBy) or PROV-O properties (prov:wasDerivedFrom, prov:wasInfluencedBy, prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource, prov:alternateOf, prov:specializationOf)."}}})
 
 (def Resource
-  "Recurso publicado o curado por un agente único."
   {:db/ident :dcat/Resource,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -851,7 +847,6 @@
       "Klassen for alle katalogiserede ressourcer, den overordnede klasse for dcat:Dataset, dcat:DataService, dcat:Catalog og enhvert medlem af et dcat:Catalog. Denne klasse bærer egenskaber der gælder alle katalogiserede ressourcer, herunder dataset og datatjenester. Det anbefales kraftigt at mere specifikke subklasser oprettes. Når der beskrives ressourcer der ikke er dcat:Dataset eller dcat:DataService, anbefales det at oprette passende subklasser af dcat:Resource eller at dcat:Resource anvendes sammen med egenskaben dct:type til opmærkning med en specifik typeangivelse."}}})
 
 (def Role
-  "A role is the function of a resource or agent with respect to another resource, in the context of resource attribution or resource relationships."
   {:db/ident :dcat/Role,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -957,7 +952,6 @@
       "Použito v kvalifikovaném vztahu pro specifikaci role Entity ve vztahu k jiné Entitě. Je doporučeno množinu hodnot spravovat jako řízený slovník rolí entit, jako například ISO 19115 DS_AssociationTypeCode http://registry.it.csiro.au/def/isotc211/DS_AssociationTypeCode, IANA Registry of Link Relations https://www.iana.org/assignments/link-relation, DataCite metadata schema, či MARC relators https://id.loc.gov/vocabulary/relators."}}})
 
 (def accessService
-  "Et websted eller endpoint der giver adgang til en repræsentation af datasættet."
   {:db/ident :dcat/accessService,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1015,7 +1009,6 @@
       "Un sito o end-point che dà accesso alla distribuzione del set di dati."}}})
 
 (def accessURL
-  "A URL of a resource that gives access to a distribution of the dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."
   {:db/ident :dcat/accessURL,
    :owl/propertyChainAxiom [:dcat/accessService :dcat/endpointURL],
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1048,7 +1041,7 @@
       :rdf/value
       "データセットの配信にアクセス権を与えるランディング・ページ、フィード、SPARQLエンドポイント、その他の種類の資源。"}},
    :rdfs/domain :dcat/Distribution,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "da",
                   :rdf/value    "adgangsadresse"}
                  {:rdf/language "fr",
@@ -1132,7 +1125,6 @@
       "Η τιμή είναι ένα URL. Αν η/οι διανομή/ές είναι προσβάσιμη/ες μόνο μέσω μίας ιστοσελίδας αρχικής πρόσβασης (δηλαδή αν δεν υπάρχουν γνωστές διευθύνσεις άμεσης μεταφόρτωσης), τότε ο σύνδεσμος της ιστοσελίδας αρχικής πρόσβασης πρέπει να αναπαραχθεί ως accessURL σε μία διανομή."}}})
 
 (def bbox
-  "ohraničení oblasti"
   {:db/ident :dcat/bbox,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :dcterms/Location,
@@ -1186,7 +1178,6 @@
       "Il range di questa proprietà è volutamente generica, con lo scopo di consentire diverse codifiche geometriche. Ad esempio, la geometria potrebbe essere codificata con WKT (geosparql:wktLiteral [GeoSPARQL]) o [GML] (geosparql:asGML [GeoSPARQL])."}}})
 
 (def byteSize
-  "La taille de la distribution en octects"
   {:db/ident :dcat/byteSize,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/comment #{{:rdf/language "fr",
@@ -1209,7 +1200,7 @@
                    {:rdf/language "ja",
                     :rdf/value    "バイトによる配信のサイズ。"}},
    :rdfs/domain :dcat/Distribution,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "byte size"}
                  {:rdf/language "it",
@@ -1276,7 +1267,6 @@
       "Velikost v bajtech může být přibližná, pokud její přesná hodnota není známa. Literál s hodnotou dcat:byteSize by měl mít datový typ xsd:decimal."}}})
 
 (def catalog
-  "A catalog whose contents are of interest in the context of this catalog."
   {:db/ident :dcat/catalog,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1334,7 +1324,6 @@
       "Et katalog hvis indhold er relevant i forhold til det aktuelle katalog."}}})
 
 (def centroid
-  "centroide"
   {:db/ident :dcat/centroid,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :dcterms/Location,
@@ -1390,7 +1379,6 @@
       "Il range di questa proprietà è volutamente generica, con lo scopo di consentire diverse codifiche geometriche. Ad esempio, la geometria potrebbe essere codificata con WKT (geosparql:wktLiteral [GeoSPARQL]) o [GML] (geosparql:asGML [GeoSPARQL])."}}})
 
 (def compressFormat
-  "Il formato di compressione della distribuzione nel quale i dati sono in forma compressa, ad es. per ridurre le dimensioni del file da scaricare."
   {:db/ident :dcat/compressFormat,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1410,7 +1398,7 @@
       :rdf/value
       "Kompressionsformatet for distributionen som indeholder data i et komprimeret format, fx for at reducere størrelsen af downloadfilen."}},
    :rdfs/domain :dcat/Distribution,
-   :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/vocab-dcat-2/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/vocab-dcat-2/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "formato de compresión"}
                  {:rdf/language "en",
@@ -1467,7 +1455,6 @@
       "Esta propiedad se debe usar cuando los archivos de la distribución están comprimidos, por ejemplo en un archivo ZIP. El formato DEBERÍA expresarse usando un 'media type', tales como los definidos en el registro IANA de 'media types' https://www.iana.org/assignments/media-types/, si está disponibles."}}})
 
 (def contactPoint
-  "تربط قائمة البيانات بعنوان اتصال موصف  باستخدام VCard"
   {:db/ident :dcat/contactPoint,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1496,7 +1483,7 @@
      {:rdf/language "da",
       :rdf/value
       "Relevante kontaktoplysninger for den katalogiserede ressource. Anvendelse af vCard anbefales."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "point de contact"}
                  {:rdf/language "en",
@@ -1548,7 +1535,6 @@
     "Status: English Definition text modified by DCAT revision team, Italian, Spanish and Czech translations provided, other translations pending."}})
 
 (def dataset
-  "A collection of data that is listed in the catalog."
   {:db/ident :dcat/dataset,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1573,7 +1559,7 @@
       :rdf/value
       "Relie un catalogue à un jeu de données faisant partie de ce catalogue."}},
    :rdfs/domain :dcat/Catalog,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "conjunto de datos"}
                  {:rdf/language "ja",
@@ -1625,7 +1611,6 @@
     "Status: English Definition text modified by DCAT revision team, Italian, Spanish and Czech translation provided, other translations pending."}})
 
 (def distribution
-  "An available distribution of the dataset."
   {:db/ident :dcat/distribution,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1649,7 +1634,7 @@
      {:rdf/language "ja",
       :rdf/value    "データセットを、その利用可能な配信に接続します。"}},
    :rdfs/domain :dcat/Dataset,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "cs",
                   :rdf/value    "distribuce"}
                  {:rdf/language "fr",
@@ -1698,7 +1683,6 @@
     "Status: English Definition text modified by DCAT revision team, translations pending (except for Italian, Spanish and Czech)."}})
 
 (def downloadURL
-  "Ceci est un lien direct à un fichier téléchargeable en un format donnée. Exple fichier CSV ou RDF. Le format est décrit par les propriétés de distribution dct:format et/ou dcat:mediaType."
   {:db/ident :dcat/downloadURL,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1730,7 +1714,7 @@
       :rdf/value
       "رابط مباشر لملف يمكن تحميله. نوع الملف يتم توصيفه باستخدام الخاصية dct:format dcat:mediaType "}},
    :rdfs/domain :dcat/Distribution,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "download URL"}
                  {:rdf/language "fr",
@@ -1806,7 +1790,6 @@
       :rdf/value    "La valeur est une URL."}}})
 
 (def endDate
-  "sluttidspunkt"
   {:db/ident :dcat/endDate,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :dcterms/PeriodOfTime,
@@ -1861,7 +1844,6 @@
       "La range di questa proprietà è volutamente generico, con lo scopo di consentire diversi livelli di precisione temporale per specificare la fine di un periodo. Ad esempio, può essere espresso con una data (xsd:date), una data e un'ora (xsd:dateTime), o un anno (xsd:gYear)."}}})
 
 (def endpointDescription
-  "Una descrizione dell'endpoint del servizio, incluse le sue operazioni, parametri, ecc."
   {:db/ident :dcat/endpointDescription,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1950,7 +1932,6 @@
       "Endpointbeskrivelsen giver specifikke oplysninger om den konkrete endpointinstans, mens dct:conformsTo anvendes til at indikere den overordnede standard eller specifikation som endpointet er i overensstemmelse med."}}})
 
 (def endpointURL
-  "The root location or primary endpoint of the service (a web-resolvable IRI)."
   {:db/ident :dcat/endpointURL,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2007,7 +1988,6 @@
       "Rodplaceringen eller det primære endpoint for en tjeneste (en web-resolverbar IRI)."}}})
 
 (def hadRole
-  "Den funktion en entitet eller aktør har i forhold til en anden ressource."
   {:db/ident :dcat/hadRole,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2107,7 +2087,6 @@
       "Può essere utilizzata in una relazione qualificata per specificare il ruolo di un'entità rispetto a un'altra entità. Si raccomanda che il valore sia preso da un vocabolario controllato di ruoli di entità come ISO 19115 DS_AssociationTypeCode http://registry.it.csiro.au/def/isotc211/DS_AssociationTypeCode, IANA Registry of Link Relations https://www.iana.org/assignments/link-relation, DataCite metadata schema, o MARC relators https://id.loc.gov/vocabulary/relators."}}})
 
 (def keyword
-  "データセットを記述しているキーワードまたはタグ。"
   {:db/ident :dcat/keyword,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/comment
@@ -2130,7 +2109,7 @@
       :rdf/value "Una parola chiave o un'etichetta per descrivere la risorsa."}
      {:rdf/language "cs",
       :rdf/value    "Klíčové slovo nebo značka popisující zdroj."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "el",
                   :rdf/value    "λέξη-κλειδί"}
                  {:rdf/language "en",
@@ -2173,7 +2152,6 @@
       :rdf/value    "Klíčové slovo nebo značka popisující zdroj."}}})
 
 (def landingPage
-  "En webside som der kan navigeres til i en webbrowser for at få adgang til kataloget, et datasæt, dets distributioner og/eller yderligere information."
   {:db/ident :dcat/landingPage,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -2203,7 +2181,7 @@
       "Una página web que puede ser visitada en un explorador Web para tener acceso el catálogo, un conjunto de datos, sus distribuciones y/o información adicional."}
      {:rdf/language "ja",
       :rdf/value "データセット、その配信および（または）追加情報にアクセスするためにウエブ・ブラウザでナビゲートできるウェブページ。"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "el",
                   :rdf/value    "ιστοσελίδα αρχικής πρόσβασης"}
                  {:rdf/language "ja",
@@ -2278,7 +2256,6 @@
       "Si la distribución es accesible solamente través de una página de aterrizaje (i.e., no se conoce una URL de descarga directa), entonces el enlance a la página de aterrizaje debe ser duplicado como accessURL sobre la distribución."}}})
 
 (def mediaType
-  "Il tipo di media della distribuzione come definito da IANA"
   {:db/ident :dcat/mediaType,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -2305,7 +2282,7 @@
       :rdf/value
       "Cette propriété doit être utilisée quand c'est définit le type de média de la distribution en IANA, sinon dct:format DOIT être utilisé avec différentes valeurs."}},
    :rdfs/domain :dcat/Distribution,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "tipo de media"}
                  {:rdf/language "ja",
@@ -2380,7 +2357,6 @@
       "Esta propiedad DEBERÍA usarse cuando el 'media type' de la distribución está definido en el registro IANA de 'media types' https://www.iana.org/assignments/media-types/, de lo contrario, dct:format PUEDE usarse con distintos valores."}}})
 
 (def packageFormat
-  "Format til pakning af data med henblik på distribution af en eller flere relaterede datafiler der samles til en enhed med henblik på samlet distribution. "
   {:db/ident :dcat/packageFormat,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -2400,7 +2376,7 @@
       :rdf/value
       "Balíčkový formát souboru, ve kterém je jeden či více souborů seskupeno dohromady, např. aby bylo možné stáhnout sadu souvisejících souborů naráz."}},
    :rdfs/domain :dcat/Distribution,
-   :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/vocab-dcat-2/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/vocab-dcat-2/"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "packaging format"}
                  {:rdf/language "da",
@@ -2454,7 +2430,6 @@
       "Denne egenskab kan anvendes hvis filerne i en distribution er pakket, fx i en TAR-fil, en Frictionless Data Package eller en Bagit-fil. Formatet BØR udtrykkes ved en medietype som defineret i 'IANA media types registry', hvis der optræder en relevant medietype dér: https://www.iana.org/assignments/media-types/."}}})
 
 (def qualifiedRelation
-  "Link a una descrizione di una relazione con un'altra risorsa."
   {:db/ident :dcat/qualifiedRelation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2541,7 +2516,6 @@
       "Anvendes til at referere til en anden ressource hvor relationens betydning er kendt men ikke matcher en af de standardiserede egenskaber fra Dublin Core (dct:hasPart, dct:isPartOf, dct:conformsTo, dct:isFormatOf, dct:hasFormat, dct:isVersionOf, dct:hasVersion, dct:replaces, dct:isReplacedBy, dct:references, dct:isReferencedBy, dct:requires, dct:isRequiredBy) eller PROV-O-egenskaber (prov:wasDerivedFrom, prov:wasInfluencedBy, prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource, prov:alternateOf, prov:specializationOf)."}}})
 
 (def record
-  "Záznam popisující registraci jedné datové sady či datové služby jakožto součásti katalogu."
   {:db/ident :dcat/record,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -2571,7 +2545,7 @@
      {:rdf/language "el",
       :rdf/value    "Συνδέει έναν κατάλογο με τις καταγραφές του."}},
    :rdfs/domain :dcat/Catalog,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "registro"}
                  {:rdf/language "ja",
@@ -2625,7 +2599,6 @@
     "Status: English, Italian, Spanish and Czech Definitions modified by DCAT revision team, other translations pending."}})
 
 (def servesDataset
-  "A collection of data that this DataService can distribute."
   {:db/ident :dcat/servesDataset,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2682,7 +2655,6 @@
       "Una colección de datos que este Servicio de Datos puede distribuir."}}})
 
 (def service
-  "Un sitio o 'endpoint' que está listado en el catálogo."
   {:db/ident :dcat/service,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -2732,7 +2704,6 @@
       :rdf/value    "Un sito o endpoint elencato nel catalogo."}}})
 
 (def spatialResolutionInMeters
-  "separazione spaziale minima risolvibile in un set di dati, misurata in metri."
   {:db/ident :dcat/spatialResolutionInMeters,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2839,7 +2810,6 @@
       "Alternative geografiske opløsninger kan leveres som forskellige datasætdistributioner."}}})
 
 (def startDate
-  "starttidspunkt"
   {:db/ident :dcat/startDate,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :dcterms/PeriodOfTime,
@@ -2892,7 +2862,6 @@
       "Il range di questa proprietà è volutamente generico, con lo scopo di consentire diversi livelli di precisione temporale per specificare l'inizio di un periodo. Ad esempio, può essere espresso con una data (xsd:date), una data e un'ora (xsd:dateTime), o un anno (xsd:gYear)."}}})
 
 (def temporalResolution
-  "mindste tidsperiode der kan resolveres i datasættet."
   {:db/ident :dcat/temporalResolution,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2979,7 +2948,6 @@
       "Se il set di dati è una serie temporale, questo dovrebbe corrispondere alla spaziatura degli elementi della serie. Per altri tipi di set di dati, questa proprietà di solito indica la più piccola differenza di tempo tra gli elementi nel set di dati."}}})
 
 (def theme
-  "التصنيف الرئيسي لقائمة البيانات. قائمة البيانات يمكن أن تملك أكثر من تصنيف رئيسي واحد."
   {:db/ident :dcat/theme,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -3008,7 +2976,7 @@
      {:rdf/language "it",
       :rdf/value
       "La categoria principale della risorsa. Una risorsa può avere più temi."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "tema"}
                  {:rdf/language "cs",
@@ -3088,7 +3056,6 @@
       "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."}}})
 
 (def themeTaxonomy
-  "Το σύστημα οργάνωσης γνώσης που χρησιμοποιείται για την κατηγοριοποίηση των συνόλων δεδομένων του καταλόγου."
   {:db/ident :dcat/themeTaxonomy,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -3119,7 +3086,7 @@
       :rdf/value
       "El sistema de organización del conocimiento utilizado para clasificar conjuntos de datos de catálogos."}},
    :rdfs/domain :dcat/Catalog,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-dcat/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "ja",
                   :rdf/value    "テーマ"}
                  {:rdf/language "it",

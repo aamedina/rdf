@@ -16,10 +16,9 @@
    :rdfa/uri          "http://purl.org/vocab/relationship/"})
 
 (def Relationship
-  "Relationship"
   {:db/ident :rel/Relationship,
    :rdf/type :rdfs/Class,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Relationship"},
    :skos/definition
@@ -28,13 +27,12 @@
     "A particular type of connection existing between people related to or having dealings with each other."}})
 
 (def acquaintanceOf
-  "Acquaintance Of"
   {:db/ident :rel/acquaintanceOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/acquaintanceOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/acquaintanceOf"},
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Acquaintance Of"},
    :rdfs/range :foaf/Person,
@@ -50,13 +48,12 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def ambivalentOf
-  "Ambivalent Of"
   {:db/ident :rel/ambivalentOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/ambivalentOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/ambivalentOf"},
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ambivalent Of"},
    :rdfs/range :foaf/Person,
@@ -76,12 +73,11 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def ancestorOf
-  "Ancestor Of"
   {:db/ident :rel/ancestorOf,
    :owl/inverseOf :rel/descendantOf,
    :rdf/type :owl/TransitiveProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ancestor Of"},
    :rdfs/range :foaf/Person,
@@ -99,13 +95,12 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def antagonistOf
-  "Antagonist Of"
   {:db/ident :rel/antagonistOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/antagonistOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/antagonistOf"},
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Antagonist Of"},
    :rdfs/range :foaf/Person,
@@ -120,12 +115,11 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def apprenticeTo
-  "Apprentice To"
   {:db/ident :rel/apprenticeTo,
    :owl/inverseOf :rel/mentorOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Apprentice To"},
    :rdfs/range :foaf/Person,
@@ -141,14 +135,13 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def childOf
-  "Child Of"
   {:db/ident :rel/childOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/childOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/childOf"},
    :owl/inverseOf :rel/parentOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Child Of"},
    :rdfs/range :foaf/Person,
@@ -164,11 +157,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def closeFriendOf
-  "Close Friend Of"
   {:db/ident :rel/closeFriendOf,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Close Friend Of"},
    :rdfs/range :foaf/Person,
@@ -184,11 +176,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def collaboratesWith
-  "Collaborates With"
   {:db/ident :rel/collaboratesWith,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Collaborates With"},
    :rdfs/range :foaf/Person,
@@ -203,11 +194,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def colleagueOf
-  "Colleague Of"
   {:db/ident :rel/colleagueOf,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Colleague Of"},
    :rdfs/range :foaf/Person,
@@ -223,12 +213,11 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def descendantOf
-  "Descendant Of"
   {:db/ident :rel/descendantOf,
    :owl/inverseOf :rel/ancestorOf,
    :rdf/type :owl/TransitiveProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label #{"Descendant Of"
                  {:rdf/language "en",
                   :rdf/value    "Descendant Of"}},
@@ -247,12 +236,11 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def employedBy
-  "Employed By"
   {:db/ident :rel/employedBy,
    :owl/inverseOf :rel/employerOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Employed By"},
    :rdfs/range :foaf/Person,
@@ -267,12 +255,11 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def employerOf
-  "Employer Of"
   {:db/ident :rel/employerOf,
    :owl/inverseOf :rel/employedBy,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Employer Of"},
    :rdfs/range :foaf/Person,
@@ -287,13 +274,12 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def enemyOf
-  "Enemy Of"
   {:db/ident :rel/enemyOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/enemyOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/enemyOf"},
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Enemy Of"},
    :rdfs/range :foaf/Person,
@@ -309,11 +295,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def engagedTo
-  "Engaged To"
   {:db/ident :rel/engagedTo,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Engaged To"},
    :rdfs/range :foaf/Person,
@@ -327,13 +312,12 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def friendOf
-  "Friend Of"
   {:db/ident :rel/friendOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/friendOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/friendOf"},
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Friend Of"},
    :rdfs/range :foaf/Person,
@@ -348,14 +332,13 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def grandchildOf
-  "Grandchild Of"
   {:db/ident :rel/grandchildOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/grandchildOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/grandchildOf"},
    :owl/inverseOf :rel/grandparentOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label #{"Grandchild Of"
                  {:rdf/language "en",
                   :rdf/value    "Grandchild Of"}},
@@ -371,12 +354,11 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def grandparentOf
-  "Grandparent Of"
   {:db/ident :rel/grandparentOf,
    :owl/inverseOf :rel/grandchildOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Grandparent Of"},
    :rdfs/range :foaf/Person,
@@ -391,11 +373,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def hasMet
-  "Has Met"
   {:db/ident :rel/hasMet,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Has Met"},
    :rdfs/range :foaf/Person,
@@ -411,11 +392,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def influencedBy
-  "Influenced By"
   {:db/ident :rel/influencedBy,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Influenced By"},
    :rdfs/range :foaf/Person,
@@ -433,11 +413,10 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def knowsByReputation
-  "Knows By Reputation"
   {:db/ident :rel/knowsByReputation,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Knows By Reputation"},
    :rdfs/range :foaf/Person,
@@ -457,11 +436,10 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def knowsInPassing
-  "Knows In Passing"
   {:db/ident :rel/knowsInPassing,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Knows In Passing"},
    :rdfs/range :foaf/Person,
@@ -477,11 +455,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def knowsOf
-  "Knows Of"
   {:db/ident :rel/knowsOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Knows Of"},
    :rdfs/range :foaf/Person,
@@ -504,11 +481,10 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def lifePartnerOf
-  "Life Partner of"
   {:db/ident :rel/lifePartnerOf,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Life Partner of"},
    :rdfs/range :foaf/Person,
@@ -524,11 +500,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def livesWith
-  "Lives With"
   {:db/ident :rel/livesWith,
    :rdf/type #{:owl/SymmetricProperty :owl/TransitiveProperty},
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Lives With"},
    :rdfs/range :foaf/Person,
@@ -543,11 +518,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def lostContactWith
-  "Lost Contact With"
   {:db/ident :rel/lostContactWith,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Lost Contact With"},
    :rdfs/range :foaf/Person,
@@ -563,12 +537,11 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def mentorOf
-  "Mentor Of"
   {:db/ident :rel/mentorOf,
    :owl/inverseOf :rel/apprenticeTo,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mentor Of"},
    :rdfs/range :foaf/Person,
@@ -584,11 +557,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def neighborOf
-  "Neighbor Of"
   {:db/ident :rel/neighborOf,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Neighbor Of"},
    :rdfs/range :foaf/Person,
@@ -606,14 +578,13 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def parentOf
-  "Parent Of"
   {:db/ident :rel/parentOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/parentOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/parentOf"},
    :owl/inverseOf :rel/childOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Parent Of"},
    :rdfs/range :foaf/Person,
@@ -629,11 +600,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def participant
-  "Participant"
   {:db/ident :rel/participant,
    :rdf/type :rdf/Property,
    :rdfs/domain :rel/Relationship,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Participant"},
    :rdfs/range :foaf/Person,
@@ -644,11 +614,10 @@
     "Removed assertion that this property is a sub-property of foaf:knows."}})
 
 (def participantIn
-  "Participant In"
   {:db/ident :rel/participantIn,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Participant In"},
    :rdfs/range :rel/Relationship,
@@ -659,13 +628,12 @@
     "Removed assertion that this property is a sub-property of foaf:knows."}})
 
 (def siblingOf
-  "Sibling Of"
   {:db/ident :rel/siblingOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/siblingOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/siblingOf"},
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Sibling Of"},
    :rdfs/range :foaf/Person,
@@ -681,12 +649,11 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def spouseOf
-  "Spouse Of"
   {:db/ident :rel/spouseOf,
    :owl/equivalentClass
-   {:rdfa/uri "http://www.perceive.net/schemas/relationship/spouseOf"},
+   {:xsd/anyURI "http://www.perceive.net/schemas/relationship/spouseOf"},
    :rdf/type :owl/SymmetricProperty,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Spouse Of"},
    :rdfs/range :foaf/Person,
@@ -700,11 +667,10 @@
     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}})
 
 (def worksWith
-  "Works With"
   {:db/ident :rel/worksWith,
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Works With"},
    :rdfs/range :foaf/Person,
@@ -722,11 +688,10 @@
       "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}}})
 
 (def wouldLikeToKnow
-  "Would Like To Know"
   {:db/ident :rel/wouldLikeToKnow,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/relationship/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/vocab/relationship/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Would Like To Know"},
    :rdfs/range :foaf/Person,

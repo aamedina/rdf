@@ -14,37 +14,33 @@
                        "http://www.w3.org/TR/2007/REC-grddl-20070911/"}})
 
 (def InformationResource
-  "A resource which has the property that all of its essential characteristics can be conveyed in a message"
   {:db/ident :grddl/InformationResource,
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "A resource which has the property that all of its essential characteristics can be conveyed in a message",
    :rdfs/isDefinedBy
-   {:rdfa/uri
+   {:xsd/anyURI
     "http://www.w3.org/TR/2004/REC-webarch-20041215/#def-information-resource"},
    :rdfs/label "InformationResource"})
 
 (def RDFGraph
-  "a\n    set of RDF triples"
   {:db/ident :grddl/RDFGraph,
    :rdf/type :rdfs/Class,
    :rdfs/comment "a\n    set of RDF triples",
    :rdfs/isDefinedBy
-   {:rdfa/uri
+   {:xsd/anyURI
     "http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-rdf-graph"},
    :rdfs/label #{"RDF graphs" "RDFGraph"}})
 
 (def RootNode
-  "the root of the tree in the XPath data\n    model"
   {:db/ident         :grddl/RootNode,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     "the root of the tree in the XPath data\n    model",
-   :rdfs/isDefinedBy {:rdfa/uri
+   :rdfs/isDefinedBy {:xsd/anyURI
                       "http://www.w3.org/TR/1999/REC-xpath-19991116#root-node"},
    :rdfs/label       #{"XML document root nodes" "RootNode"}})
 
 (def Transformation
-  "an InformationResource that specifies\n    a transformation from a set of XML documents to RDF graphs"
   {:db/ident :grddl/Transformation,
    :owl/onProperty :grddl/transformationProperty,
    :owl/someValuesFrom :grddl/TransformationProperty,
@@ -55,7 +51,6 @@
    :rdfs/subClassOf :grddl/InformationResource})
 
 (def TransformationProperty
-  "a FunctionalProperty that relates\n    XML document root nodes to\n    RDF graphs"
   {:db/ident :grddl/TransformationProperty,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -66,25 +61,23 @@
    :rdfs/subClassOf :owl/FunctionalProperty})
 
 (def danc
-  "Dan Connolly"
   {:db/ident      :grddl/danc,
-   :foaf/homepage {:rdfa/uri "http://www.w3.org/People/Connolly/"},
+   :foaf/homepage {:xsd/anyURI "http://www.w3.org/People/Connolly/"},
    :foaf/name     "Dan Connolly"})
 
 (def grddl-wg
   {:db/ident      :grddl/grddl-wg,
-   :foaf/homepage {:rdfa/uri "http://www.w3.org/2001/sw-grddl-wg/"}})
+   :foaf/homepage {:xsd/anyURI "http://www.w3.org/2001/sw-grddl-wg/"}})
 
 (def grddlProject
   {:db/ident :grddl/grddlProject,
-   :doap/homepage {:rdfa/uri "http://www.w3.org/2003/g/data-view"},
+   :doap/homepage {:xsd/anyURI "http://www.w3.org/2003/g/data-view"},
    :doap/mailing-list
-   {:rdfa/uri "http://lists.w3.org/Archives/Public/public-grddl-comments/"},
+   {:xsd/anyURI "http://lists.w3.org/Archives/Public/public-grddl-comments/"},
    :doap/shortdesc
    "GRDDL\n    is a technique for gleaning resource\n    descriptions from dialects of\n    languages. It's a way of extracting Semantic Web\n    data in RDF from XML formats (especially\n    XHTML dialects or microformats) via\n    transformations identified by URIs and typically expressed in\n    XSLT."})
 
 (def namespaceTransformation
-  "relates a namespace to a transformation for\n    all documents in that namespace"
   {:db/ident :grddl/namespaceTransformation,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -93,7 +86,6 @@
    :rdfs/range :grddl/Transformation})
 
 (def profileTransformation
-  "relates a profile document to a\n    transformation for all documents bearing that profile"
   {:db/ident :grddl/profileTransformation,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -102,7 +94,6 @@
    :rdfs/range :grddl/Transformation})
 
 (def result
-  "an\n    RDF graph obtained from an information resource by directly\n    parsing a representation in the standard RDF/XML syntax or\n    indirectly by parsing some other dialect using a transformation\n    nominated by the document"
   {:db/ident :grddl/result,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -112,7 +103,6 @@
    :rdfs/range :grddl/RDFGraph})
 
 (def transformation
-  "relates a source document to a\n    transformation, usually represented in XSLT, that relates the source document syntax\n    to the RDF graph syntax"
   {:db/ident :grddl/transformation,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -122,7 +112,6 @@
    :rdfs/range :grddl/Transformation})
 
 (def transformationProperty
-  "relates a transformation to the algorithm\n    specified by the property that computes an RDF graph from an XML\n    document node"
   {:db/ident :grddl/transformationProperty,
    :rdf/type :owl/FunctionalProperty,
    :rdfs/comment

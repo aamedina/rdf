@@ -13,7 +13,6 @@
   (:refer-clojure :exclude [agent]))
 
 (def Access
-  "Any kind of access to a resource. Don't use this, use R W and RW"
   {:db/ident :acl/Access,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -22,7 +21,6 @@
                 :rdf/value    "access"}})
 
 (def Append
-  "Append accesses are specific write access which only add information, and do not remove information.\n    For text files, for example, append access allows bytes to be added onto the end of the file.\n    For RDF graphs, Append access allows adds triples to the graph but does not remove any.\n    Append access is useful for dropbox functionality.\n    Dropbox can be used for link notification, which the information added is a notification\n    that a some link has been made elsewhere relevant to the given resource.\n    "
   {:db/ident :acl/Append,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -32,7 +30,6 @@
    :rdfs/subClassOf #{:acl/Write :acl/Access}})
 
 (def AuthenticatedAgent
-  "A class of agents who have been authenticated.\nIn other words, anyone can access this resource, but not anonymously.\nThe social expectation is that the authentication process will provide an\nidentify and a name, or pseudonym.\n(A new ID should not be minted for every access: the intent is that the user\nis able to continue to use the ID for continues interactions with peers,\nand for example to develop a reputation)\n"
   {:db/ident :acl/AuthenticatedAgent,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -41,7 +38,6 @@
    :rdfs/subClassOf :foaf/Agent})
 
 (def Authorization
-  "An element of access control,\n    allowing agent to agents access of some kind to resources or classes of resources"
   {:db/ident :acl/Authorization,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -49,7 +45,6 @@
    :rdfs/label "authorization"})
 
 (def Control
-  "Allows read/write access to the ACL for the resource(s)"
   {:db/ident        :acl/Control,
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "Allows read/write access to the ACL for the resource(s)",
@@ -58,18 +53,16 @@
    :rdfs/subClassOf :acl/Access})
 
 (def Origin
-  "An Origin is basically a web site\n        (Note WITHOUT the trailing slash after the domain name and port in its URI)\n        and is the basis for controlling access to data by web apps\n        in the Same Origin Model of web security.\n        All scripts from the same origin are given the same right."
   {:db/ident :acl/Origin,
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An Origin is basically a web site\n        (Note WITHOUT the trailing slash after the domain name and port in its URI)\n        and is the basis for controlling access to data by web apps\n        in the Same Origin Model of web security.\n        All scripts from the same origin are given the same right.",
    :rdfs/label "Origin",
    :rdfs/seeAlso
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"}})
 
 (def Read
-  "The class of read operations"
   {:db/ident        :acl/Read,
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "The class of read operations",
@@ -78,7 +71,6 @@
    :rdfs/subClassOf :acl/Access})
 
 (def Write
-  "write"
   {:db/ident        :acl/Write,
    :rdf/type        :rdfs/Class,
    :rdfs/label      {:rdf/language "en",
@@ -86,7 +78,6 @@
    :rdfs/subClassOf :acl/Access})
 
 (def accessControl
-  "The Access Control file for this information resource.\n        This may of course be a virtual resource implemented by the access control system.\n        Note that HTTP header `Link: <foo.acl>; rel=\"acl\"` can also be used for this."
   {:db/ident :acl/accessControl,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -94,12 +85,11 @@
    :rdfs/domain :gen/InformationResource,
    :rdfs/label "access control",
    :rdfs/range :gen/InformationResource,
-   :rdfs/seeAlso {:rdfa/uri
+   :rdfs/seeAlso {:xsd/anyURI
                   "https://solidproject.org/TR/wac#acl-link-relation"},
    :rdfs/subPropertyOf :rdfs/seeAlso})
 
 (def accessTo
-  "The information resource to which access is being granted."
   {:db/ident     :acl/accessTo,
    :rdf/type     :rdf/Property,
    :rdfs/comment "The information resource to which access is being granted.",
@@ -108,7 +98,6 @@
    :rdfs/range   :gen/InformationResource})
 
 (def accessToClass
-  "A class of information resources to which access is being granted."
   {:db/ident :acl/accessToClass,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -118,7 +107,6 @@
    :rdfs/range :rdfs/Class})
 
 (def agent
-  "A person or social entity to being given the right"
   {:db/ident     :acl/agent,
    :rdf/type     :rdf/Property,
    :rdfs/comment "A person or social entity to being given the right",
@@ -127,7 +115,6 @@
    :rdfs/range   :foaf/Agent})
 
 (def agentClass
-  "A class of persons or social entities to being given the right"
   {:db/ident :acl/agentClass,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -137,7 +124,6 @@
    :rdfs/range :rdfs/Class})
 
 (def agentGroup
-  "A group of persons or social entities to being given the right.\n          The right is given to any entity which is a vcard:member of the group,\n          as defined by the document received when the Group is dereferenced."
   {:db/ident :acl/agentGroup,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -147,7 +133,6 @@
    :rdfs/range :vcard/Group})
 
 (def default
-  "If a resource has no ACL file (it is 404),\n        then access to the resource is given by the ACL of the immediately\n        containing directory, or failing that (404) the ACL of the recursively next\n        containing directory which has an ACL file.\n        Within that ACL file,\n        any Authorization which has that directory as its acl:default applies to the\n        resource. (The highest directory must have an ACL file.)\n"
   {:db/ident :acl/default,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -156,7 +141,6 @@
    :rdfs/label "default access for things in this"})
 
 (def defaultForNew
-  "THIS IS OBSOLETE AS OF 2017-08-01.   See 'default'.\n        Was: A directory for which this authorization is used for new files in the directory."
   {:db/ident :acl/defaultForNew,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -165,7 +149,6 @@
    :rdfs/label "default access for new things in the object"})
 
 (def delegates
-  "Delegates a person or another agent to act on behalf of the agent.\n    For example, Alice delegates Bob to act on behalf of Alice for ACL purposes."
   {:db/ident :acl/delegates,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -175,7 +158,6 @@
    :rdfs/range :foaf/Agent})
 
 (def mode
-  "A mode of access such as read or write."
   {:db/ident     :acl/mode,
    :rdf/type     :rdf/Property,
    :rdfs/comment "A mode of access such as read or write.",
@@ -184,7 +166,6 @@
    :rdfs/range   :rdfs/Class})
 
 (def origin
-  "A web application, identified by its Origin, such as\n        <https://scripts.example.com>, being given the right.\n        When a user of the web application at a certain origin accesses the server,\n        then the browser sets the Origin: header to warn that a possibly untrusted webapp\n        is being used.\n        Then, BOTH the user AND the origin must have the required access."
   {:db/ident :acl/origin,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -193,11 +174,10 @@
    :rdfs/label "origin",
    :rdfs/range :acl/Origin,
    :rdfs/seeAlso
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"}})
 
 (def owner
-  "The person or other agent which owns this.\n    For example, the owner of a file in a filesystem.\n    There is a sense of \"right to control\".   Typically defaults to the agent who created\n    something, but can be changed."
   {:db/ident :acl/owner,
    :rdf/type :rdf/Property,
    :rdfs/comment

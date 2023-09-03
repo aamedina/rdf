@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.sampling
-  {:owl/imports       #{{:rdfa/uri "http://www.w3.org/2004/02/skos/core"}
-                        {:rdfa/uri "http://www.w3.org/ns/sosa/"}},
+  {:owl/imports       #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
+                        {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
    :rdf/ns-prefix-map {"owl"      "http://www.w3.org/2002/07/owl#",
                        "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
@@ -11,10 +11,10 @@
                        "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type          :owl/Ontology,
    :rdfa/prefix       "sampling",
-   :rdfa/uri          "http://www.w3.org/ns/sosa/sampling/"})
+   :rdfa/uri          "http://www.w3.org/ns/sosa/sampling/",
+   :xsd/anyURI        "http://www.w3.org/ns/sosa/sampling/"})
 
 (def RelationshipNature
-  "Nature of relationship (between samples)"
   {:db/ident :sampling/RelationshipNature,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/label {:rdf/language "en",
@@ -32,7 +32,6 @@
      "Station along a traverse"}})
 
 (def SampleRelationship
-  "Sample relationship"
   {:db/ident :sampling/SampleRelationship,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/label {:rdf/language "en",
@@ -43,7 +42,6 @@
     "Members of this class represent a relationship between a sample and another"}})
 
 (def hasSampleRelationship
-  "has sample relationship"
   {:db/ident :sampling/hasSampleRelationship,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label {:rdf/language "en",
@@ -56,7 +54,6 @@
     "Links a sample to a sample relationship (which links to a related sample)"}})
 
 (def natureOfRelationship
-  "nature of (sample) relationship"
   {:db/ident :sampling/natureOfRelationship,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label {:rdf/language "en",
@@ -69,7 +66,6 @@
     "Links a SampleRelationship to an indication of the nature of the relationship"}})
 
 (def relatedSample
-  "related sample"
   {:db/ident        :sampling/relatedSample,
    :rdf/type        :owl/ObjectProperty,
    :rdfs/label      {:rdf/language "en",

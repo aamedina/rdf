@@ -1,26 +1,26 @@
 (ns net.wikipunk.rdf.org
   "Vocabolario per descrivere strutture organizzative, le quali possono essere specializzate in una vasta varietà di tipi di organizzazione"
-  {:dcterms/contributor #{{:foaf/mbox "dguardiola@quinode.fr",
-                           :foaf/name "Dominique Guardiola"}
-                          {:foaf/mbox "mpoveda@fi.upm.es",
-                           :foaf/name "María Poveda Villalón"}
-                          {:foaf/homepage
-                           {:rdfa/uri "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
-                           :foaf/name "Shuji Kamitsuna"}
-                          {:foaf/mbox "giorgia.lodi@agid.gov.it",
-                           :foaf/name "Giorgia Lodi"}
-                          {:foaf/mbox "antonio.maccioni@agid.gov.it",
-                           :foaf/name "Antonio Maccioni"}
-                          {:foaf/mbox "ogiraldo@fi.upm.es",
-                           :foaf/name "Olga Ximena Giraldo"}
-                          {:foaf/mbox "dave@epimorphics.com",
-                           :foaf/name "Dave Reynolds"}
-                          {:foaf/mbox "emontiel@fi.upm.es",
-                           :foaf/name "Elena Montiel Ponsoda"}
-                          {:foaf/mbox "lupe@fi.upm.es",
-                           :foaf/name "Guadalupe Aguado de Cea"}},
+  {:dcterms/contributor
+   #{{:foaf/mbox "dguardiola@quinode.fr",
+      :foaf/name "Dominique Guardiola"}
+     {:foaf/mbox "mpoveda@fi.upm.es",
+      :foaf/name "María Poveda Villalón"}
+     {:foaf/mbox "giorgia.lodi@agid.gov.it",
+      :foaf/name "Giorgia Lodi"}
+     {:foaf/mbox "antonio.maccioni@agid.gov.it",
+      :foaf/name "Antonio Maccioni"}
+     {:foaf/mbox "ogiraldo@fi.upm.es",
+      :foaf/name "Olga Ximena Giraldo"}
+     {:foaf/mbox "dave@epimorphics.com",
+      :foaf/name "Dave Reynolds"}
+     {:foaf/mbox "emontiel@fi.upm.es",
+      :foaf/name "Elena Montiel Ponsoda"}
+     {:foaf/mbox "lupe@fi.upm.es",
+      :foaf/name "Guadalupe Aguado de Cea"}
+     {:foaf/homepage {:xsd/anyURI "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
+      :foaf/name     "Shuji Kamitsuna"}},
    :dcterms/created #inst "2010-05-28T00:00:00.000-00:00",
-   :dcterms/license {:rdfa/uri
+   :dcterms/license {:xsd/anyURI
                      "http://www.opendatacommons.org/licenses/pddl/1.0/"},
    :dcterms/modified
    #{#inst "2013-12-16T00:00:00.000-00:00" #inst "2014-02-05T00:00:00.000-00:00"
@@ -72,10 +72,10 @@
                   :rdf/value    "Ontología de organizaciones"}
                  {:rdf/language "fr",
                   :rdf/value    "Ontologie des organisations"}},
-   :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/TR/vocab-org/"}})
+   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/TR/vocab-org/"},
+   :xsd/anyURI "http://www.w3.org/ns/org#"})
 
 (def ChangeEvent
-  "Evento que da como resultado un cambio sustancial en la organización, por ejemplo, una fusión o una reestructuración total. Está pensado para situaciones en las que la organización resultante es lo suficientemente distinta de las organizaciones originales, tiene una identidad distinta y una URI también distinta. Se deberían definir subtipos de eventos mediante vocabularios específicos (Extension vocabularies) para referirse a categorías de eventos específicos. El momento o periodo en el que el evento ocurre se debería expresar mediante las propiedades `prov:startAtTime` y `prov:endedAtTime`, y una descripción del mismo se debería incluir mediante el uso de la propiedad `dct:description`."
   {:db/ident :org/ChangeEvent,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -94,7 +94,7 @@
      {:rdf/language "it",
       :rdf/value
       "Rappresenta un evento risultato essere un importante cambiamento per un'organizzazione come ad esempio una fusione o una riorganizzazione. È pensato per quelle situazioni in cui l'organizzazione risultante si distingue da quella originale sufficientemente da essere rappresentata con una URI differente. Le estensioni del vocabolario dovrebbero definire le sotto-classi per esprimere particolari categorie di eventi. L'istante o l'intervallo in cui l'evento accade dovrebbe essere espresso tramite `prov:startAtTime` e`prov:endedAtTime`. Una descrizione dovrebbe essere fornita attraverso `dct:description`."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "Évènement"}
                  {:rdf/language "es",
@@ -106,7 +106,6 @@
    :rdfs/subClassOf :prov/Activity})
 
 (def FormalOrganization
-  "Organización reconocida a nivel mundial, en particular en jurisdicciones legales, con derechos y responsabilidades asociadas. Algunos ejemplos son: organización corporativa, organización benéfica, organización gubernamental, organización religiosa. Se debe tener en cuenta que ésta es una superclase de `gr:BusinessEntity` y que se recomienda el uso del vocabulario GoodRelations para referirse a clasificaciones de negocios tales como DUNS o NAICS."
   {:db/ident :org/FormalOrganization,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -125,7 +124,7 @@
      {:rdf/language "en",
       :rdf/value
       "An Organization which is recognized in the world at large, in particular in legal jurisdictions, with associated rights and responsibilities. Examples include a Corporation, Charity, Government or Church. Note that this is a super class of `gr:BusinessEntity` and it is recommended to use the GoodRelations vocabulary to denote Business classifications such as DUNS or NAICS."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "Organisation Formelle"}
                  {:rdf/language "es",
@@ -137,7 +136,6 @@
    :rdfs/subClassOf #{:org/Organization :foaf/Organization}})
 
 (def Head
-  "Actividad correspondiente a la propiedad `org:headOf`."
   {:db/ident :org/Head,
    :org/roleProperty :org/headOf,
    :rdf/type :org/Role,
@@ -150,7 +148,7 @@
       :rdf/value    "Un rôle correspondant à la propriété `org:headOf`"}
      {:rdf/language "en",
       :rdf/value    "A role corresponding to the `org:headOf` property"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "directora ejecutiva"}
                  {:rdf/language "it",
@@ -169,7 +167,6 @@
                       :rdf/value    "head"}}})
 
 (def Membership
-  "組織のエージェントの構成員の本質を示します。"
   {:db/ident :org/Membership,
    :owl/disjointWith #{:org/Site :org/ChangeEvent},
    :rdf/type #{:rdfs/Class :owl/Class},
@@ -188,7 +185,7 @@
      {:rdf/language "en",
       :rdf/value
       "Indicates the nature of an Agent's membership of an organization. Represents an n-ary relation between an Agent, an Organization and a Role. It is possible to directly indicate membership, independent of the specific Role, through use of the `org:memberOf` property."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Membership"}
                  {:rdf/language "it",
@@ -199,7 +196,6 @@
                   :rdf/value    "membresía"}}})
 
 (def Organization
-  "Représente un groupe de personnes organisées en communauté où tout autre forme de structure sociale, commerciale ou politique. Le groupe a un but commun ou une raison d'être qui va au-delà de la somme des personnes qui en font partie et peut agir en tant que \"Agent\". Les organisations sont souvent décomposables en structures hiérarchisées. Il est recommandé que des labels lexicaux SKOS soient utilisés pour nommer l'Organisation. En particulier `skos:prefLabel` pour le nom principal (en général le nom légal), `skos:altLabel` pour les noms alternatifs (marques, sigles, appellations familières) et `skos:notation` pour indiquer un code provenant d'une liste de code."
   {:db/ident :org/Organization,
    :owl/disjointWith #{:org/Site :org/Role :org/Membership :org/ChangeEvent},
    :owl/equivalentClass :foaf/Organization,
@@ -221,7 +217,7 @@
      {:rdf/language "es",
       :rdf/value
       "Grupo de personas que se organiza en una comunidad u otro tipo de estructura social, comercial o política. Dicho grupo tiene un objetivo o motivo común para su existencia que va más allá del conjunto de personas que lo forman y que puede actuar como “agente”. A menudo las organizaciones se pueden agrupar en estructuras jerárquicas. Se recomienda el uso de etiquetas de SKOS para denominar a cada “organización”. En concreto, `skos:prefLabel` para la denominación principal o recomendada (aquella reconocida legalmente, siempre que sea posible), `skos:altLabel` para denominaciones alternativas (nombre comercial, sigla, denominación por la que se conoce a la organización coloquialmente) y `skos:notation` para referirse al código que identifique a la organización en una lista de códigos. Denominaciones alternativas: _colectivo_ _corporación_ _grupo_"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "Organizzazione"}
                  {:rdf/language "en",
@@ -233,7 +229,6 @@
    :rdfs/subClassOf :foaf/Agent})
 
 (def OrganizationalCollaboration
-  "プロジェクトなどの2つ以上の組織間のコラボレーション。それは、アイデンティティを有し、その特定のメンバーとは無関係に目的を定めているという点で、組織としての基準を満たしますが、正式に認識された法的実体でも、あるより大きな組織内のサブユニットでもありません。一般的には、その内部の組織よりも存続期間が短いかもしれませんが、必ずしもそうとは限りません。"
   {:db/ident :org/OrganizationalCollaboration,
    :owl/equivalentClass {:owl/intersectionOf [:org/Organization
                                               {:owl/allValuesFrom
@@ -258,7 +253,7 @@
      {:rdf/language "es",
       :rdf/value
       "Colaboración determinada entre dos o más organizaciones, como en el caso de un proyecto común. Cumple con los criterios de ser una organización en sí misma, en la medida en que tiene una identidad y un propósito definido independiente de sus miembros en particular, pero no es una entidad legal formalmente reconocida ni una sub-unidad dentro de una organización más grande. La duración suele ser más corta que la de las organizaciones que lo componen, pero no necesariamente. Todos sus miembros son de tipo `org:Organization` en vez de individuos, y desempeñan una actividad concreta en el marco del proyecto de cooperación."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "Collaborazione"}
                  {:rdf/language "es",
@@ -270,7 +265,6 @@
    :rdfs/subClassOf :org/Organization})
 
 (def OrganizationalUnit
-  "Une organisation telle que le support informatique d'une université, qui fait partie d'une Organisation Formelle plus importante et qui ne peut être reconnue qu'en tant que membre de cette organisation supérieure, ce n'est pas une entité légale en elle-même. Les unités opérationnelles peuvent être étendues, complexes et inclure elles-mêmes d'autres branches ou Unités Opérationnelles, voire des Organisations Formelles."
   {:db/ident :org/OrganizationalUnit,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -289,7 +283,7 @@
      {:rdf/language "ja",
       :rdf/value
       "あるより大きな組織の一部であり、その組織の中においてのみ完全に認識される部局や支援部署などの組織です。特に、その単位はそれ自体では法的実体と見なされません。"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "Unità Organizzativa"}
                  {:rdf/language "fr",
@@ -301,7 +295,6 @@
    :rdfs/subClassOf :org/Organization})
 
 (def Post
-  "Un Poste représente une position au sein d'une Organisation qui existe indépendamment de la personne ou des personnes qui le remplissent. Les postes peuvent être utilisés pour représenter des situations où une personne est membre d'une Organisation d'office (par exemple, le Secrétaire d'Etat pour l'Ecosse fait partie du Cabinet du Royaume-Uni du fait d'être Secrétaire d'Etat pour l'Ecosse, non pas comme une personne physique). Un poste après peut être occupé par plusieurs personnes et peut donc être considéré comme une Organisation à part entière."
   {:db/ident :org/Post,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -320,7 +313,7 @@
      {:rdf/language "es",
       :rdf/value
       "Puesto o posición que representa algún tipo de empleo dentro de una organización, que existe independientemente de la persona o personas que lo desempeñan. Esta clase puede utilizarse para representar situaciones en las que una persona es miembro de una organización ex oficio (por ejemplo, el Secretario de Estado escocés es parte del Gabinete del gobierno británico por virtud de ser Secretario de Estado en Escocia, y no como individuo). Un puesto puede ser desempeñado por múltiples individuos y de aquí que sea tratado como una organización en sí misma."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "Poste"}
                  {:rdf/language "es",
@@ -331,7 +324,6 @@
                   :rdf/value    "Post"}}})
 
 (def Role
-  "人またはその他のエージェントが組織で担うことができる役割を表わします。この種のインスタンスは、抽象的な役割を記述します。特定の組織でその役割を担っている人の特定のインスタンスを示すためには、org:Membershipのインスタンスを使用します。"
   {:db/ident :org/Role,
    :owl/disjointWith #{:org/Site :org/Membership :org/ChangeEvent},
    :rdf/type #{:rdfs/Class :owl/Class},
@@ -351,7 +343,7 @@
      {:rdf/language "en",
       :rdf/value
       "Denotes a role that a Person or other Agent can take in an organization. Instances of this class describe the abstract role; to denote a specific instance of a person playing that role in a specific organization use an instance of `org:Membership`. It is common for roles to be arranged in some taxonomic structure and we use SKOS to represent that. The normal SKOS lexical properties should be used when labelling the Role. Additional descriptive properties for the Role, such as a Salary band, may be added by extension vocabularies."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "Ruolo"}
                  {:rdf/language "en",
@@ -363,7 +355,6 @@
    :rdfs/subClassOf :skos/Concept})
 
 (def Site
-  "An office or other premise at which the organization is located. Many organizations are spread across multiple sites and many sites will host multiple locations. In most cases a Site will be a physical location. However, we don't exclude the possibility of non-physical sites such as a virtual office with an associated post box and phone reception service. Extensions may provide subclasses to denote particular types of site."
   {:db/ident :org/Site,
    :owl/disjointWith :org/ChangeEvent,
    :rdf/type #{:rdfs/Class :owl/Class},
@@ -382,7 +373,7 @@
      {:rdf/language "it",
       :rdf/value
       "Un ufficio o altra sede dovei l'organizzazione è situata. Molte organizzazione sono distribuite su più sedi e molte sedi ospitano più ubicazioni. Nella maggior parte dei casi un Site è una locazione fisica. Non si esclude la possibilità di indicare sedi non fisiche come ad esempio gli uffici virtuali. Le estensioni dell'ontologia potrebbero usare delle sottoclassi per rappresentare i tipi particolari di sede."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "Sede"}
                  {:rdf/language "fr",
@@ -393,7 +384,6 @@
                   :rdf/value    "Site"}}})
 
 (def basedAt
-  "Indicates the site at which a person is based. We do not restrict the possibility that a person is based at multiple sites."
   {:db/ident :org/basedAt,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -412,7 +402,7 @@
       :rdf/value
       "Indica la sede in cui una è stabilita una persona. Non esclude la possibilità che una persona sia allocata su più sedi."}},
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "trabaja en la sede"}
                  {:rdf/language "fr",
@@ -424,7 +414,6 @@
    :rdfs/range :org/Site})
 
 (def changedBy
-  "この組織の変更のきっかけとなった出来事を示します。"
   {:db/ident :org/changedBy,
    :owl/inverseOf :org/originalOrganization,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -444,7 +433,7 @@
       :rdf/value
       "Evento de cambio que resulta en una modificación en la organización. Dependiendo del evento, la organización puede dejar de existir tras el cambio. Es la relación inversa de `org:originalOrganization`."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "modifiée par"}
                  {:rdf/language "it",
@@ -458,7 +447,6 @@
    :rdfs/range :org/ChangeEvent})
 
 (def classification
-  "ある分類表内のこの組織に対する分類を示します。\nアプリケーションがorg:Organizationのサブクラスを組織的なカテゴリーを表わす手段として定義することも許容されることに注意してください。"
   {:db/ident :org/classification,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -478,7 +466,7 @@
       :rdf/value
       "Indicates a classification for this Organization within some classification scheme. Extension vocabularies may wish to specialize this property to have a range corresponding to a specific `skos:ConceptScheme`. This property is under discussion and may be revised or removed - in many cases organizations are best categorized by defining a sub-class hierarchy in an extension vocabulary."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "classificazione"}
                  {:rdf/language "en",
@@ -490,7 +478,6 @@
    :rdfs/range :skos/Concept})
 
 (def hasMember
-  "Indique une personne membre de l'Organisation sujet. Inverse de `org:memberOf`, voyez la description de cette propriété pour plus de précisions. Fourni pour la compatibilité avec `foaf:member`."
   {:db/ident :org/hasMember,
    :owl/equivalentProperty :foaf/member,
    :owl/inverseOf :org/memberOf,
@@ -512,7 +499,7 @@
       :rdf/value
       "対象組織のメンバーであるエージェント（人または他の組織）を示します。org:memberOfの逆。さらに明確な説明については、そのプロパティーを参照してください。"}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "possède un membre"}
                  {:rdf/language "es",
@@ -524,7 +511,6 @@
    :rdfs/range :foaf/Agent})
 
 (def hasMembership
-  "Indica una relazione di appartenenza che coinvolge un Agent. È l'inverso di `org:member`."
   {:db/ident :org/hasMembership,
    :owl/inverseOf :org/member,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -544,7 +530,7 @@
       :rdf/value
       "Indicates a membership relationship that the Agent plays. Inverse of `org:member`."}},
    :rdfs/domain :foaf/Agent,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "engagement"}
                  {:rdf/language "en",
@@ -556,7 +542,6 @@
    :rdfs/range :org/Membership})
 
 (def hasPost
-  "Indicates a Post which exists within the Organization."
   {:db/ident :org/hasPost,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -571,7 +556,7 @@
      {:rdf/language "ja",
       :rdf/value    "組織内に存在するポストを示します。"}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "impiego"}
                  {:rdf/language "es",
@@ -583,7 +568,6 @@
    :rdfs/range :org/Post})
 
 (def hasPrimarySite
-  "組織の主要サイトを示します。組織の窓口となりえるデフォルトの手段ですが、正式な本部とは限りません。"
   {:db/ident :org/hasPrimarySite,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -602,7 +586,7 @@
       :rdf/value
       "Indique le site principal d'une Organisation, le moyen par défaut par lequel l'Organisation peut être contactée et pas nécessairement le siège social légal."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "primary Site"}
                  {:rdf/language "es",
@@ -615,7 +599,6 @@
    :rdfs/subPropertyOf :org/hasSite})
 
 (def hasRegisteredSite
-  "組織の法律上登録されたサイトを示し、多くの法的管轄区域では、会社や慈善団体などのFormalOrganizations（正式な組織）がそのような主要サイトを持っているという要件があります。"
   {:db/ident :org/hasRegisteredSite,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -635,7 +618,7 @@
       :rdf/value
       "Indique l'établissement principal légalement enregistré pour l'Organisation. Dans de nombreuses juridictions existe l'obligation pour une Organisation Formelle d'avoir un tel site principal. "}},
    :rdfs/domain :org/FormalOrganization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "sede legale"}
                  {:rdf/language "fr",
@@ -648,7 +631,6 @@
    :rdfs/subPropertyOf :org/hasPrimarySite})
 
 (def hasSite
-  "Lugar en donde la organización tiene algún tipo de presencia, incluso si es de forma indirecta (por ejemplo, una oficina virtual o servicio profesional que hagan la función de dirección registrada de la compañía). Es la relación inversa de `org:siteOf`."
   {:db/ident :org/hasSite,
    :owl/inverseOf :org/siteOf,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -669,7 +651,7 @@
       :rdf/value
       "Indicates a site at which the Organization has some presence even if only indirect (e.g. virtual office or a professional service which is acting as the registered address for a company). Inverse of `org:siteOf`."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "tiene sede en"}
                  {:rdf/language "en",
@@ -681,7 +663,6 @@
    :rdfs/range :org/Site})
 
 (def hasSubOrganization
-  "Indique le statut de dépendance hiérarchique pour des Organisations ou des Unités Opérationnelles; indique une Organisation qui est une sous-partie ou une branche d'une Organisation plus large. C'est la propriété inverse de `org:subOrganizationOf`."
   {:db/ident :org/hasSubOrganization,
    :owl/inverseOf :org/subOrganizationOf,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -701,7 +682,7 @@
      {:rdf/language "ja",
       :rdf/value    "組織または組織単位の階層的包含を表わします。この組織のサブパートまたは子である組織を示します。"}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "has SubOrganization"}
                  {:rdf/language "es",
@@ -713,7 +694,6 @@
    :rdfs/range :org/Organization})
 
 (def hasUnit
-  "Indica un'unità che è parte di questa Organization, come ad esempio un dipartimento facente parte di una più ampia FormalOrganization. È l'inverso di `org:unitOf`."
   {:db/ident :org/hasUnit,
    :owl/inverseOf :org/unitOf,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -733,7 +713,7 @@
      {:rdf/language "ja",
       :rdf/value    "例えば、より大きな組織内の部局など、この組織の一部である単位を示します。"}},
    :rdfs/domain :org/FormalOrganization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "possède une Unité"}
                  {:rdf/language "es",
@@ -746,7 +726,6 @@
    :rdfs/subPropertyOf :org/hasSubOrganization})
 
 (def headOf
-  "Persona que es jefe o jefa, representante ,,director o directora de la organización. Esto significa que dicha persona es el rango de la relación `org:reportsTo` en el organigrama de la organización (acíclico), aunque una organización puede tener más de un jefe."
   {:db/ident :org/headOf,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -765,7 +744,7 @@
       :rdf/value
       "Indica che una persona è leader o responsabile formale di una Organization. Questo significa che la persona è alla radice del grafo (aciclico) creato dalle `org:reportsTo`, sebbene un'organizzazione possa avere più di un responsabile."}},
    :rdfs/domain :foaf/Agent,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "es director ejecutivo de"}
                  {:rdf/language "it",
@@ -778,7 +757,6 @@
    :rdfs/subPropertyOf :org/memberOf})
 
 (def heldBy
-  "Agente que ocupa un puesto."
   {:db/ident         :org/heldBy,
    :rdf/type         #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment     #{{:rdf/language "es",
@@ -792,7 +770,7 @@
                        {:rdf/language "en",
                         :rdf/value "Indicates an Agent which holds a Post."}},
    :rdfs/domain      :org/Post,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label       #{{:rdf/language "es",
                         :rdf/value    "ocupado por"}
                        {:rdf/language "en",
@@ -804,7 +782,6 @@
    :rdfs/range       :foaf/Agent})
 
 (def holds
-  "Indicates a Post held by some Agent."
   {:db/ident         :org/holds,
    :owl/inverseOf    :org/heldBy,
    :rdf/type         #{:owl/ObjectProperty :rdf/Property},
@@ -819,7 +796,7 @@
                        {:rdf/language "es",
                         :rdf/value    "Puesto ocupado por algún agente."}},
    :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "holds"}
                        {:rdf/language "es",
@@ -831,7 +808,6 @@
    :rdfs/range       :org/Post})
 
 (def identifier
-  "Código o identificador, como por ejemplo el CIF de una empresa, que permite identificar de forma inequívoca a una organización. Existen muchos códigos de identificación tanto nacionales como internacionales. Esta ontología no obliga al uso de ningún esquema en concreto. Los códigos de identificación utilizados en cada caso se deberían indicar mediante el uso de la propiedad “datatype” del valor del identificador. El uso de la propiedad “datatype” para especificar el esquema de notación utilizado está en consonancia con las buenas prácticas recomendadas para el uso de la propiedad `skos:notation`, de la que esta propiedad es una especialización."
   {:db/ident :org/identifier,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/comment
@@ -850,7 +826,7 @@
       :rdf/value
       "Donne un identifiant, comme par exemple le numéro d'enregistrement d'une entreprise, qui peut être utilisé comme identifiant unique pour l'Organisation. De nombreux schémas nationaux et internationaux sont disponibles. Cette ontologie reste neutre par rapport au schéma utilisé. Le schéma particulier utilisé devrait être indiqué par le `datatype` de la valeur de l'identifiant. Utiliser les datatypes pour distinguer les schémas de notation est cohérent avec les bonnes pratiques pour `skos:notation` dont cette propriété est une spécialisation."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "identifiant"}
                  {:rdf/language "en",
@@ -862,7 +838,6 @@
    :rdfs/subPropertyOf :skos/notation})
 
 (def linkedTo
-  "Relación arbitraria entre dos organizaciones. Las especializaciones de esta relación se pueden utilizar para denotar relaciones de financiación o suministro, entre otras."
   {:db/ident :org/linkedTo,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -881,7 +856,7 @@
       :rdf/value
       "Indicates an arbitrary relationship between two organizations. Specializations of this can be used to, for example, denote funding or supply chain relationships."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "está relacionada con"}
                  {:rdf/language "fr",
@@ -895,7 +870,6 @@
    :rdfs/range :org/Organization})
 
 (def location
-  "Indique la description de l'endroit ou est basé une personne de l'Organisation, par exemple pour des besoins de messagerie interne (Bureau 42)."
   {:db/ident :org/location,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/comment
@@ -914,7 +888,7 @@
      {:rdf/language "ja",
       :rdf/value    "例えば、内部配送目的のメール・ストップ（Mail Stop）などの、組織内の人の位置記述を提供します。"}},
    :rdfs/domain :foaf/Person,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "localisation"}
                  {:rdf/language "es",
@@ -928,7 +902,6 @@
    :rdfs/range :xsd/string})
 
 (def member
-  "Indicates the Person (or other Agent including Organization) involved in the Membership relationship. Inverse of `org:hasMembership`"
   {:db/ident :org/member,
    :owl/inverseOf :org/hasMembership,
    :rdf/type #{:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty},
@@ -948,7 +921,7 @@
       :rdf/value
       "Indica la Person (o un altro Agent) coinvolto in una relazione di Membership. È l'inverso di `org:hasMembership`."}},
    :rdfs/domain :org/Membership,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "membre"}
                  {:rdf/language "en",
@@ -960,7 +933,6 @@
    :rdfs/range :foaf/Agent})
 
 (def memberDuring
-  "Proprietà opzionale per indicare l'intervallo per il quale l'appartenenza è/è stata valida."
   {:db/ident :org/memberDuring,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -979,7 +951,7 @@
       :rdf/value
       "Propriété optionnelle pour indiquer l'intervalle durant lequel l'engagemnet est ou était valide."}},
    :rdfs/domain :org/Membership,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "es miembro durante"}
                  {:rdf/language "fr",
@@ -990,7 +962,6 @@
                   :rdf/value    "membro durante"}}})
 
 (def memberOf
-  "Indicates that a person is a member of the Organization with no indication of the nature of that membership or the role played. Note that the choice of property name is not meant to limit the property to only formal membership arrangements, it is also indended to cover related concepts such as affilliation or other involvement in the organization. Extensions can specialize this relationship to indicate particular roles within the organization or more nuanced relationships to the organization. Has an optional inverse, `org:hasmember`."
   {:db/ident :org/memberOf,
    :owl/inverseOf :org/hasMember,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1011,7 +982,7 @@
       :rdf/value
       "エージェント（人または他の組織）が組織のメンバーであることを示します。ただし、その構成員の本質や担う役割は示しません。プロパティー名の選択は、プロパティーを正式な構成員配置のみに制限することが目的ではないことに注意してください。所属や組織へのその他の関与などの関連する概念をカバーすることも意図されています。拡張により、この関係を特殊化し、組織内の特定の役割やよりニュアンスを含んだ組織との関係を示すことができます。"}},
    :rdfs/domain :foaf/Agent,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "membre de"}
                  {:rdf/language "it",
@@ -1023,7 +994,6 @@
    :rdfs/range :org/Organization})
 
 (def organization
-  "エージェントがメンバーである組織を示します。"
   {:db/ident :org/organization,
    :rdf/type #{:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty},
    :rdfs/comment
@@ -1039,7 +1009,7 @@
      {:rdf/language "en",
       :rdf/value    "Indicates Organization in which the Agent is a member."}},
    :rdfs/domain :org/Membership,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "organizzazione"}
                  {:rdf/language "en",
@@ -1051,7 +1021,6 @@
    :rdfs/range :org/Organization})
 
 (def originalOrganization
-  "Indicates one or more organizations that existed before the change event. Depending on the event they may or may not have continued to exist after the event. Inverse of `org:changedBy`."
   {:db/ident :org/originalOrganization,
    :owl/inverseOf :org/changedBy,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1072,7 +1041,7 @@
       :rdf/value
       "Indique une ou plusieurs organisations qui ont existé avant un évènement de changement. Selon l'évènement, ces organisations ont pu continuer à exister ou non. Inverse de `org:changedBy`. "}},
    :rdfs/domain :org/ChangeEvent,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "organisation originelle"}
                  {:rdf/language "en",
@@ -1085,7 +1054,6 @@
    :rdfs/subPropertyOf :prov/used})
 
 (def postIn
-  "Organización en la que existe el puesto."
   {:db/ident :org/postIn,
    :owl/inverseOf :org/hasPost,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1101,7 +1069,7 @@
      {:rdf/language "ja",
       :rdf/value    "ポストが存在する組織を示します。"}},
    :rdfs/domain :org/Post,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "post in"}
                  {:rdf/language "es",
@@ -1113,7 +1081,6 @@
    :rdfs/range :org/Organization})
 
 (def purpose
-  "Indica l'obiettivo di questa Organization. In generale, si possono esprimere gli obiettivi di un'organizzazione secondo diversi livelli di astrazione, ma la natura stessa dell'organizzazione ha una ragione d'essere ed è proprio questa che deve essere catturata con tale proprietà. Inoltre, un'Organization può avere obiettivi multipli. È raccomandabile che l'obiettivo faccia parte di una code list, e che sia preferibilmente un `skos:Concept`. Ad ogni modo, il codominio della proprietà è lasciato aperto per consentire altri tipi di di descrizione. Conseguentemente, eventuali specializzazioni o profili applicativi possono utilizzare quel vocabolario come codominio della proprietà."
   {:db/ident :org/purpose,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1133,7 +1100,7 @@
       :rdf/value
       "Indicates the purpose of this Organization. There can be many purposes at different levels of abstraction but the nature of an organization is to have a reason for existence and this property is a means to document that reason. An Organization may have multiple purposes. It is recommended that the purpose be denoted by a controlled term or code list, ideally a `skos:Concept`. However, the range is left open to allow for other types of descriptive schemes. It is expected that specializations or application profiles of this vocabulary will constrain the range of the purpose. Alternative names: _remit_ _responsibility_ (esp. if applied to OrganizationalUnits such as Government Departments)."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "purpose"}
                  {:rdf/language "it",
@@ -1144,7 +1111,6 @@
                   :rdf/value    "tiene objetivo"}}})
 
 (def remuneration
-  "Salario o cualquier otra remuneración asociada con la actividad. La forma usual de referirse a dicha remuneración será utilizando un esquema de representación como el propuesto en la ontología GoodRelations `gr:PriceSpecification`, pero el rango se deja abierto a que las distintas aplicaciones lo especialicen (por ejemplo, remunerationInGBP)"
   {:db/ident :org/remuneration,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1163,7 +1129,7 @@
       :rdf/value
       "Indique un salaire ou tout autre compensation associée au Rôle. Typiquement, ceci sera annoté en utilisant un schéma existant comme  `gr:PriceSpecification` mais le champ de cette propriété est laissé ouvert afin de permettre aux applications de la spécialiser (par exemple remunerationEuro)."}},
    :rdfs/domain :org/Role,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "remuneration"}
                  {:rdf/language "it",
@@ -1174,7 +1140,6 @@
                   :rdf/value    "recibe remuneración"}}})
 
 (def reportsTo
-  "Indica una relazione di subordinazione all'interno dell'organigramma. La semantica precisa può variare a seconda dell'organizzazione, per esempio può essere usata per rappresentare la proprietà di supervisione oppure per le relazioni di rendicontazione."
   {:db/ident :org/reportsTo,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1195,7 +1160,7 @@
       "組織図で描かれるかもしれないような上下関係を示します。エージェント間またはエージェントが就くことができるポスト間の上下関係を直接的に示すために使用できます。"}},
    :rdfs/domain {:owl/unionOf [:foaf/Agent :org/Post],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "reports to"}
                  {:rdf/language "es",
@@ -1208,7 +1173,6 @@
                 :rdf/type    :owl/Class}})
 
 (def resultedFrom
-  "Indicates an event which resulted in this organization. Inverse of `org:resultingOrganization`."
   {:db/ident :org/resultedFrom,
    :owl/inverseOf :org/resultingOrganization,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1228,7 +1192,7 @@
       :rdf/value
       "Indique un évènement dont est issue l'Organisation. Inverse de `org:resultingOrganization`."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "resulted from"}
                  {:rdf/language "es",
@@ -1241,7 +1205,6 @@
    :rdfs/subPropertyOf :prov/wasGeneratedBy})
 
 (def resultingOrganization
-  "Organización que ha sido creada o modificada tras un evento específico.  Es la relación inversa de `org:resultedFrom`."
   {:db/ident :org/resultingOrganization,
    :owl/inverseOf :org/resultedFrom,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1261,7 +1224,7 @@
       :rdf/value
       "Indicates an organization which was created or changed as a result of the event. Inverse of `org:resultedFrom`."}},
    :rdfs/domain :org/ChangeEvent,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "resulted in"}
                  {:rdf/language "fr",
@@ -1273,7 +1236,6 @@
    :rdfs/range :org/Organization})
 
 (def role
-  "Indicates the Role that the Agent plays in a Membership relationship with an Organization."
   {:db/ident :org/role,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1294,7 +1256,7 @@
       "エージェントが組織との構成員関係において担う役割を示します。ポストの保持者が担う役割を示すためにorg:Postで用いることもできます。"}},
    :rdfs/domain {:owl/unionOf [:org/Membership :org/Post],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "rôle"}
                  {:rdf/language "en",
@@ -1306,7 +1268,6 @@
    :rdfs/range :org/Role})
 
 (def roleProperty
-  "Ceci est une méta-propriété utilisée pour annoter une instance de `org:Role` ayant une sous-propriété `org:memberOf` qui peut être utilisée pour indiquer directement le rôle et pouvoir faire des requêtes plus facilement. La sémantique visée est un Engagement impliquant l'existence d'une relation de propriété directe à travers d'une règle d'inférence de la forme:  `{ [] org:member ?p; org:organization ?o; org:role [org:roleProperty ?r] } -> {?p ?r ?o}`."
   {:db/ident :org/roleProperty,
    :rdf/type #{:rdf/Property :owl/AnnotationProperty},
    :rdfs/comment
@@ -1326,7 +1287,7 @@
       :rdf/value
       "Meta-propiedad que se utiliza para anotar una instancia de `org:Role` con una sub-propiedad de `org:memberOf`, que puede ser utilizada para indicar directamente la actividad a fin de facilitar las consultas a los datos. The intended semantics is that a Membership relation involving the Role implies the existence of a direct property relationship through an inference rule of the form: { [] org:member ?a; org:organization ?o; org:role [org:roleProperty ?r] } -> {?a ?r ?o}"}},
    :rdfs/domain :org/Role,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "role (property)"}
                  {:rdf/language "es",
@@ -1338,7 +1299,6 @@
    :rdfs/range :rdf/Property})
 
 (def siteAddress
-  "Indicates an address for the site in a suitable encoding. Use of vCard (using the http://www.w3.org/TR/vcard-rdf/ vocabulary) is encouraged but the range is left open to allow other encodings to be used. The address may include email, telephone, and geo-location information and is not restricted to a physical address. "
   {:db/ident :org/siteAddress,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1358,7 +1318,7 @@
       :rdf/value
       "Indique une adresse pour le site dans un encodage approprié. L'usage du vocabulaire vCard ( http://www.w3.org/TR/vcard-rdf/) est encouragé, mais le range est ouvert pour permettre l'utilisation d'autres vocabulaires. L'adresse peut comporter le courriel, le téléphone, et l'information de géolocalisation; et n'est donc pas seulement limitée à une adresse physique. "}},
    :rdfs/domain :org/Site,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "es la dirección de la sede"}
                  {:rdf/language "fr",
@@ -1369,7 +1329,6 @@
                   :rdf/value    "indirizzo della sede"}}})
 
 (def siteOf
-  "あるサイトである存在感を持っている組織を示します。"
   {:db/ident :org/siteOf,
    :owl/inverseOf :org/hasSite,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1389,7 +1348,7 @@
       :rdf/value
       "Indicates an Organization which has some presence at the given site. This is the inverse of `org:hasSite`."}},
    :rdfs/domain :org/Site,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "site de"}
                  {:rdf/language "en",
@@ -1401,7 +1360,6 @@
    :rdfs/range :org/Organization})
 
 (def subOrganizationOf
-  "Rappresenta un contenimento gerarchico di una Organization o di una OrganizationalUnit. È l'inverso di `org:hasSubOrganization`. Ha nome come nome alternativo hasSubOrg."
   {:db/ident :org/subOrganizationOf,
    :owl/inverseOf :org/hasSubOrganization,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1421,7 +1379,7 @@
       :rdf/value
       "Distribución jerárquica de organizaciones o unidades. Indica que una organización contiene a otra organización. Es la relación inversa de `org:hasSubOrganization`"}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "es suborganización de"}
                  {:rdf/language "it",
@@ -1434,7 +1392,6 @@
    :rdfs/subPropertyOf :org/transitiveSubOrganizationOf})
 
 (def transitiveSubOrganizationOf
-  "La version transitive de la propriété subOrganizationOf, renvoie une représentation de toutes les organisations qui contiennent celle-ci. Notez que ceci est une super-propriété de la relation transitive donc elle pourrait contenir des assertions additionnelles mais cet usage n'est pas recommandé."
   {:db/ident :org/transitiveSubOrganizationOf,
    :rdf/type #{:owl/TransitiveProperty :owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -1454,7 +1411,7 @@
       :rdf/value
       "La versión transitiva de la propiedad “subOrganizationOf”, es decir, la representación de todas las organizaciones en las que esta está contenida. Téngase en cuenta que desde el punto de vista técnico esta es una propiedad que contiene a todas las propiedades transitivas, de forma que podría contener afirmaciones adicionales, aunque su uso no está aconsejado."}},
    :rdfs/domain :org/Organization,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "it",
                   :rdf/value    "sotto-Organization transitiva"}
                  {:rdf/language "fr",
@@ -1468,7 +1425,6 @@
    :rdfs/range :org/Organization})
 
 (def unitOf
-  "Indica un Organization di cui questa Unit fa parte, come ad esempio un dipartimento all'interno di una più vasta FormalOrganization. È l'inverso di `org:hasUnit`."
   {:db/ident :org/unitOf,
    :owl/inverseOf :org/hasUnit,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
@@ -1488,7 +1444,7 @@
       :rdf/value
       "Organización de la que es parte esta unidad, por ejemplo, un departamento incluido en una organización formal más amplia."}},
    :rdfs/domain :org/OrganizationalUnit,
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/org"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/org"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "es unidad de"}
                  {:rdf/language "it",

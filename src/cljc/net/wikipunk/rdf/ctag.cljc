@@ -24,10 +24,10 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://commontag.org/Specification"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Common Tag vocabulary"},
-   :rdfs/seeAlso {:rdfa/uri "http://commontag.org/mappings"}})
+   :rdfs/seeAlso {:xsd/anyURI "http://commontag.org/mappings"},
+   :xsd/anyURI "http://commontag.org/ns#"})
 
 (def AuthorTag
-  "A Tag asserted by the author of a content resource."
   {:db/ident        :ctag/AuthorTag,
    :rdf/type        :rdfs/Class,
    :rdfs/comment    {:rdf/language "en",
@@ -38,7 +38,6 @@
    :rdfs/subClassOf :ctag/Tag})
 
 (def AutoTag
-  "A Tag asserted by an automated tool on a content resource."
   {:db/ident :ctag/AutoTag,
    :rdf/type :rdfs/Class,
    :rdfs/comment {:rdf/language "en",
@@ -49,7 +48,6 @@
    :rdfs/subClassOf :ctag/Tag})
 
 (def ReaderTag
-  "A Tag asserted by the reader (consumer) of a content resource."
   {:db/ident :ctag/ReaderTag,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -61,7 +59,6 @@
    :rdfs/subClassOf :ctag/Tag})
 
 (def Tag
-  "A Common Tag associating a URI and a keyword to annotate a resource."
   {:db/ident :ctag/Tag,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -72,7 +69,6 @@
                 :rdf/value    "Tag"}})
 
 (def TaggedContent
-  "Content which has one or more Common Tag."
   {:db/ident     :ctag/TaggedContent,
    :rdf/type     :rdfs/Class,
    :rdfs/comment {:rdf/language "en",
@@ -81,7 +77,6 @@
                   :rdf/value    "Tagged Content"}})
 
 (def isAbout
-  "A resource (URI) representing the concepts described by the content."
   {:db/ident :ctag/isAbout,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -93,7 +88,6 @@
                 :rdf/value    "is about"}})
 
 (def label
-  "A local, human-readable name for a Tag."
   {:db/ident           :ctag/label,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -104,7 +98,6 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def means
-  "A a resource (URI) representing the conceptual meaning of a Tag."
   {:db/ident :ctag/means,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -116,7 +109,6 @@
                 :rdf/value    "means"}})
 
 (def tagged
-  "Links a resource to a Common Tag."
   {:db/ident     :ctag/tagged,
    :rdf/type     :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -127,7 +119,6 @@
    :rdfs/range   :ctag/Tag})
 
 (def taggingDate
-  "The date the Tag was assigned."
   {:db/ident           :ctag/taggingDate,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",

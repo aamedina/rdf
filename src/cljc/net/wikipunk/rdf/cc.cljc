@@ -11,7 +11,6 @@
    {:rdfa/uri "http://www.w3.org/Submission/2008/SUBM-ccREL-20080501/"}})
 
 (def Attribution
-  "credit be given to\n\t\t    copyright holder and/or author"
   {:db/ident     :cc/Attribution,
    :rdf/type     :cc/Requirement,
    :rdfs/comment {:rdf/language "en-US",
@@ -21,7 +20,6 @@
                   :rdf/value    "Attribution"}})
 
 (def CommercialUse
-  "exercising rights for\n\t\t    commercial purposes"
   {:db/ident     :cc/CommercialUse,
    :rdf/type     :cc/Prohibition,
    :rdfs/comment {:rdf/language "en-US",
@@ -31,7 +29,6 @@
                   :rdf/value    "Commercial Use"}})
 
 (def Copyleft
-  "derivative and\n\t\t    combined works must be licensed under specified\n\t\t    terms, similar to those on the original\n\t\t    work"
   {:db/ident :cc/Copyleft,
    :rdf/type :cc/Requirement,
    :rdfs/comment
@@ -42,7 +39,6 @@
                 :rdf/value    "Copyleft"}})
 
 (def DerivativeWorks
-  "distribution of\n\t\t    derivative works"
   {:db/ident     :cc/DerivativeWorks,
    :rdf/type     :cc/Permission,
    :rdfs/comment {:rdf/language "en-US",
@@ -51,7 +47,6 @@
                   :rdf/value    "Derivative Works"}})
 
 (def Distribution
-  "distribution, public\n\t\t    display, and publicly performance"
   {:db/ident :cc/Distribution,
    :rdf/type :cc/Permission,
    :rdfs/comment
@@ -62,7 +57,6 @@
                 :rdf/value    "Distribution"}})
 
 (def HighIncomeNationUse
-  "use in a\n\t\t    non-developing country"
   {:db/ident     :cc/HighIncomeNationUse,
    :rdf/type     :cc/Prohibition,
    :rdfs/comment {:rdf/language "en-US",
@@ -71,7 +65,6 @@
                   :rdf/value    "High Income Nation Use"}})
 
 (def Jurisdiction
-  "the legal jurisdiction\n\t\t    of a license"
   {:db/ident     :cc/Jurisdiction,
    :rdf/type     :rdfs/Class,
    :rdfs/comment {:rdf/language "en-US",
@@ -80,7 +73,6 @@
                   :rdf/value    "Jurisdiction"}})
 
 (def LesserCopyleft
-  "derivative works must\n\t\t    be licensed under specified terms, with at least\n\t\t    the same conditions as the original work;\n\t\t    combinations with the work may be licensed under\n\t\t    different terms"
   {:db/ident :cc/LesserCopyleft,
    :rdf/type :cc/Requirement,
    :rdfs/comment
@@ -91,7 +83,6 @@
                 :rdf/value    "Lesser Copyleft"}})
 
 (def License
-  "a set of\n\t\t    requests/permissions to users of a Work, e.g. a\n\t\t    copyright license, the public domain, information\n\t\t    for distributors"
   {:db/ident :cc/License,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -103,7 +94,6 @@
    :rdfs/subClassOf :dcterms/LicenseDocument})
 
 (def Notice
-  "copyright and license\n\t\t    notices be kept intact"
   {:db/ident     :cc/Notice,
    :rdf/type     :cc/Requirement,
    :rdfs/comment {:rdf/language "en-US",
@@ -113,7 +103,6 @@
                   :rdf/value    "Notice"}})
 
 (def Permission
-  "an action that may or\n\t\t    may not be allowed or desired"
   {:db/ident :cc/Permission,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -123,7 +112,6 @@
                 :rdf/value    "Permission"}})
 
 (def Prohibition
-  "something you may be\n\t\t    asked not to do"
   {:db/ident     :cc/Prohibition,
    :rdf/type     :rdfs/Class,
    :rdfs/comment {:rdf/language "en-US",
@@ -132,7 +120,6 @@
                   :rdf/value    "Prohibition"}})
 
 (def Reproduction
-  "making multiple\n\t\t    copies"
   {:db/ident     :cc/Reproduction,
    :rdf/type     :cc/Permission,
    :rdfs/comment {:rdf/language "en-US",
@@ -141,7 +128,6 @@
                   :rdf/value    "Reproduction"}})
 
 (def Requirement
-  "an action that may or\n\t\t    may not be requested of you"
   {:db/ident     :cc/Requirement,
    :rdf/type     :rdfs/Class,
    :rdfs/comment {:rdf/language "en-US",
@@ -151,7 +137,6 @@
                   :rdf/value    "Requirement"}})
 
 (def ShareAlike
-  "derivative works be\n\t\t    licensed under the same terms or compatible terms\n\t\t    as the original work"
   {:db/ident :cc/ShareAlike,
    :rdf/type :cc/Requirement,
    :rdfs/comment
@@ -162,7 +147,6 @@
                 :rdf/value    "Share Alike"}})
 
 (def Sharing
-  "permits commercial\n\t\t    derivatives, but only non-commercial\n\t\t    distribution"
   {:db/ident :cc/Sharing,
    :rdf/type :cc/Permission,
    :rdfs/comment
@@ -173,7 +157,6 @@
                 :rdf/value    "Sharing"}})
 
 (def SourceCode
-  "source code (the\n\t\t    preferred form for making modifications) must be\n\t\t    provided when exercising some rights granted by\n\t\t    the license."
   {:db/ident :cc/SourceCode,
    :rdf/type :cc/Requirement,
    :rdfs/comment
@@ -184,7 +167,6 @@
                 :rdf/value    "Source Code"}})
 
 (def Work
-  "a potentially\n\t\t    copyrightable work"
   {:db/ident     :cc/Work,
    :rdf/type     :rdfs/Class,
    :rdfs/comment {:rdf/language "en-US",
@@ -205,16 +187,15 @@
    :rdfs/range  :rdfs/Resource})
 
 (def deprecatedOn
-  "deprecated\n\t\t  on"
   {:db/ident    :cc/deprecatedOn,
    :rdf/type    :rdf/Property,
    :rdfs/domain :cc/License,
    :rdfs/label  {:rdf/language "en-US",
                  :rdf/value    "deprecated\n\t\t  on"},
-   :rdfs/range  {:rdfa/uri "http://www.w3.org/2001/XMLSchema-datatypes#date"}})
+   :rdfs/range  {:xsd/anyURI
+                 "http://www.w3.org/2001/XMLSchema-datatypes#date"}})
 
 (def jurisdiction
-  "jurisdiction"
   {:db/ident    :cc/jurisdiction,
    :rdf/type    :rdf/Property,
    :rdfs/domain :cc/License,
@@ -229,7 +210,6 @@
    :rdfs/range  :rdfs/Resource})
 
 (def license
-  "has\n\t\t  license"
   {:db/ident           :cc/license,
    :owl/sameAs         :xhv/license,
    :rdf/type           :rdf/Property,
@@ -247,7 +227,6 @@
    :rdfs/subPropertyOf :dcterms/relation})
 
 (def permits
-  "permits"
   {:db/ident    :cc/permits,
    :rdf/type    :rdf/Property,
    :rdfs/domain :cc/License,
@@ -256,7 +235,6 @@
    :rdfs/range  :cc/Permission})
 
 (def prohibits
-  "prohibits"
   {:db/ident    :cc/prohibits,
    :rdf/type    :rdf/Property,
    :rdfs/domain :cc/License,
@@ -265,7 +243,6 @@
    :rdfs/range  :cc/Prohibition})
 
 (def requires
-  "requires"
   {:db/ident    :cc/requires,
    :rdf/type    :rdf/Property,
    :rdfs/domain :cc/License,

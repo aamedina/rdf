@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.exif
-  {:dcat/downloadURL  "resources/exif.rdf",
+  {:dcat/downloadURL  "net/wikipunk/ext/exif.rdf",
    :rdf/ns-prefix-map {"dc11"    "http://purl.org/dc/elements/1.1/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "ex"      "http://example.org/",
@@ -13,7 +13,6 @@
    :rdfa/uri          "http://www.w3.org/2003/12/exif/ns#"})
 
 (def IFD
-  "An Image File Directory"
   {:db/ident     :exif/IFD,
    :rdf/type     :rdfs/Class,
    :rdfs/comment {:rdf/language "en",
@@ -22,7 +21,6 @@
                   :rdf/value    "IFD"}})
 
 (def _unknown
-  "An Exif tag whose meaning is not known"
   {:db/ident     :exif/_unknown,
    :rdf/type     :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -31,7 +29,6 @@
                   :rdf/value    "Unknown tag"}})
 
 (def apertureValue
-  "レンズ絞り値（APEX値）。この値のルート2のベキ乗を取ると、通常の絞り値となる。例えば'5'の場合だと√2^5=F5.6"
   {:db/ident :exif/apertureValue,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37378"},
@@ -47,7 +44,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def artist
-  "Person who created the image"
   {:db/ident           :exif/artist,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "315"},
@@ -59,7 +55,6 @@
    :rdfs/subPropertyOf #{:dc11/creator :exif/exifAttribute}})
 
 (def bitsPerSample
-  "The number of bits per image component. In this standard each component of the image is 8 bits, so the value for this tag is 8. See also SamplesPerPixel. In JPEG compressed data a JPEG marker is used instead of this tag."
   {:db/ident :exif/bitsPerSample,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "258"},
@@ -73,7 +68,6 @@
    :rdfs/subPropertyOf #{:exif/imageDataStruct :exif/resolution}})
 
 (def brightnessValue
-  "画像撮影時の撮影対象物の明るさ（APEX値）。EVにするにはISO感度の値を足す必要があり、Ev:Exposure, Bv:BrightnessValue, Sv:SensitivityValueとしてEv=Bv+Sv Sv=log^2(ISOSpeedRating/3.125)という計算式を使う。ISO感度100の場合Sv=5、ISO200の場合Sv=6、ISO125ではSv=5.32"
   {:db/ident :exif/brightnessValue,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37379"},
@@ -90,7 +84,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def cfaPattern
-  "CCDに付いているColor filter array(CFA)のパターン。例えば普通のRGBフィルターだと、CFAPatternのデータは 02 02 00 01 01 02"
   {:db/ident :exif/cfaPattern,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41730"},
@@ -107,7 +100,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def colorSpace
-  "使われる色空間。通常sRGB"
   {:db/ident :exif/colorSpace,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "40961"},
@@ -123,7 +115,6 @@
    :rdfs/subPropertyOf :exif/imageDataCharacter})
 
 (def componentsConfiguration
-  "Information specific to compressed data. The channels of each component are arranged in order from the 1st component to the 4th. For uncompressed data the data arrangement is given in the PhotometricInterpretation tag. However, since PhotometricInterpretation can only express the order of Y,Cb and Cr, this tag is provided for cases when compressed data uses components other than Y, Cb, and Cr and to enable support of other sequences."
   {:db/ident :exif/componentsConfiguration,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37121"},
@@ -140,7 +131,6 @@
    :rdfs/subPropertyOf :exif/imageConfig})
 
 (def compressedBitsPerPixel
-  "画像の圧縮率"
   {:db/ident :exif/compressedBitsPerPixel,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37122"},
@@ -156,7 +146,6 @@
    :rdfs/subPropertyOf :exif/imageConfig})
 
 (def compression
-  "The compression scheme used for the image data. When a primary image is JPEG compressed, this designation is not necessary and is omitted. When thumbnails use JPEG compression, this tag value is set to 6."
   {:db/ident :exif/compression,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "259"},
@@ -170,7 +159,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def contrast
-  "The direction of contrast processing applied by the camera when the image was shot."
   {:db/ident :exif/contrast,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41992"},
@@ -184,7 +172,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def copyright
-  "この画像の撮影者および編集者の著作権情報"
   {:db/ident :exif/copyright,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "33432"},
@@ -200,7 +187,6 @@
    :rdfs/subPropertyOf #{:exif/exifAttribute :dc11/rights}})
 
 (def customRendered
-  "The use of special processing on image data, such as rendering geared to output. When special processing is performed, the reader is expected to disable or minimize any further processing."
   {:db/ident :exif/customRendered,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41985"},
@@ -216,7 +202,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def datatype
-  "The Exif field data type, such as ascii, byte, short etc."
   {:db/ident :exif/datatype,
    :rdf/type :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -227,7 +212,6 @@
    :rdfs/subPropertyOf :dc11/type})
 
 (def date
-  "a date information. Usually saved as YYYY:MM:DD (HH:MM:SS) format in Exif data, but represented here as W3C-DTF format"
   {:db/ident :exif/date,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -239,7 +223,6 @@
    :rdfs/subPropertyOf :dc11/date})
 
 (def dateAndOrTime
-  "An attribute relating to Date and/or Time"
   {:db/ident           :exif/dateAndOrTime,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -249,7 +232,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def dateTime
-  "The date and time of image creation. In this standard it is the date and time the file was changed."
   {:db/ident :exif/dateTime,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "306"},
@@ -265,7 +247,6 @@
    :rdfs/subPropertyOf #{:exif/exifAttribute :exif/date}})
 
 (def dateTimeDigitized
-  "The date and time when the image was stored as digital data. If, for example, an image was captured by DSC and at the same time the file was recorded, then the DateTimeOriginal and DateTimeDigitized will have the same contents."
   {:db/ident :exif/dateTimeDigitized,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "36868"},
@@ -281,7 +262,6 @@
    :rdfs/subPropertyOf #{:exif/date :exif/dateAndOrTime}})
 
 (def dateTimeOriginal
-  "オリジナル画像が作成（撮影）された日時"
   {:db/ident :exif/dateTimeOriginal,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "36867"},
@@ -297,7 +277,6 @@
    :rdfs/subPropertyOf #{:exif/date :exif/dateAndOrTime}})
 
 (def deviceSettingDescription
-  "Information on the picture-taking conditions of a particular camera model. The tag is used only to indicate the picture-taking conditions in the reader."
   {:db/ident :exif/deviceSettingDescription,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41995"},
@@ -311,7 +290,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def digitalZoomRatio
-  "デジタルズームが使われた場合、その比率"
   {:db/ident :exif/digitalZoomRatio,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41988"},
@@ -327,7 +305,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def exifAttribute
-  "A property that connects an IFD to one of its entries. Super property which integrates all Exif tags."
   {:db/ident :exif/exifAttribute,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -339,7 +316,6 @@
                 :rdf/value    "Exif Attribute"}})
 
 (def exifVersion
-  "Exif形式のバージョン"
   {:db/ident           :exif/exifVersion,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "36864"},
@@ -353,7 +329,6 @@
    :rdfs/subPropertyOf :exif/versionInfo})
 
 (def exif_IFD_Pointer
-  "A pointer to the Exif IFD, which is a set of tags for recording Exif-specific attribute information."
   {:db/ident :exif/exif_IFD_Pointer,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "34665"},
@@ -369,7 +344,6 @@
    :rdfs/subPropertyOf :exif/ifdPointer})
 
 (def exifdata
-  "An Exif IFD data entry"
   {:db/ident     :exif/exifdata,
    :rdf/type     :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -378,7 +352,6 @@
                   :rdf/value    "Exif data"}})
 
 (def exposureBiasValue
-  "The exposure bias. The unit is the APEX value. Ordinarily it is given in the range of -99.99 to 99.99."
   {:db/ident :exif/exposureBiasValue,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37380"},
@@ -394,7 +367,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def exposureIndex
-  "The exposure index selected on the camera or input device at the time the image is captured."
   {:db/ident :exif/exposureIndex,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41493"},
@@ -410,7 +382,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def exposureMode
-  "the exposure mode set when the image was shot. In auto-bracketing mode, the camera shoots a series of frames of the same scene at different exposure settings."
   {:db/ident :exif/exposureMode,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41986"},
@@ -426,7 +397,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def exposureProgram
-  "The class of the program used by the camera to set exposure when the picture is taken."
   {:db/ident :exif/exposureProgram,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "34850"},
@@ -442,7 +412,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def exposureTime
-  "露光時間（シャッター速度の逆数）。単位は秒"
   {:db/ident           :exif/exposureTime,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "33434"},
@@ -456,7 +425,6 @@
    :rdfs/subPropertyOf #{:exif/pictTaking :exif/seconds}})
 
 (def fNumber
-  "F number"
   {:db/ident           :exif/fNumber,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "33437"},
@@ -470,7 +438,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def fileSource
-  "画像がどういうデバイスから得られたか。通常3=DSC"
   {:db/ident :exif/fileSource,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41728"},
@@ -486,7 +453,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def flash
-  "フラッシュ発光の状態"
   {:db/ident           :exif/flash,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "37385"},
@@ -501,7 +467,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def flashEnergy
-  "The strobe energy at the time the image is captured, as measured in Beam Candle Power Seconds (BCPS)."
   {:db/ident :exif/flashEnergy,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41483"},
@@ -517,7 +482,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def flashpixVersion
-  "The Flashpix format version supported by a FPXR file. If the FPXR function supports Flashpix format Ver. 1.0, this is indicated similarly to ExifVersion by recording \"0100\" as 4-byte ASCII."
   {:db/ident :exif/flashpixVersion,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "40960"},
@@ -531,7 +495,6 @@
    :rdfs/subPropertyOf :exif/versionInfo})
 
 (def focalLength
-  "レンズの焦点距離。単位はmm"
   {:db/ident :exif/focalLength,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37386"},
@@ -547,7 +510,6 @@
    :rdfs/subPropertyOf #{:exif/pictTaking :exif/mm}})
 
 (def focalLengthIn35mmFilm
-  "The equivalent focal length assuming a 35mm film camera, in mm. A value of 0 means the focal length is unknown. Note that this tag differs from the FocalLength tag."
   {:db/ident :exif/focalLengthIn35mmFilm,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41989"},
@@ -563,7 +525,6 @@
    :rdfs/subPropertyOf #{:exif/length :exif/pictTaking}})
 
 (def focalPlaneResolutionUnit
-  "The unit for measuring FocalPlaneXResolution and FocalPlaneYResolution. This value is the same as the ResolutionUnit."
   {:db/ident :exif/focalPlaneResolutionUnit,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41488"},
@@ -579,7 +540,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def focalPlaneXResolution
-  "撮影画像のCCD位置での水平解像度。この値とFocalPlaneYResolution、FocalLengthを使うと、レンズ焦点距離の35mmカメラ換算値が計算できる。例えば200万画素機を使いVGAモードの画像を撮ったような場合はこの値はVGAの解像度でリサンプルされた値になっており、CCDの画素ピッチそのままの値ではないので注意が必要"
   {:db/ident :exif/focalPlaneXResolution,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41486"},
@@ -596,7 +556,6 @@
    :rdfs/subPropertyOf #{:exif/pictTaking :exif/resolution}})
 
 (def focalPlaneYResolution
-  "撮影画像のCCD位置での垂直解像度"
   {:db/ident :exif/focalPlaneYResolution,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41487"},
@@ -612,7 +571,6 @@
    :rdfs/subPropertyOf #{:exif/pictTaking :exif/resolution}})
 
 (def gainControl
-  "The degree of overall image gain adjustment."
   {:db/ident           :exif/gainControl,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "41991"},
@@ -625,7 +583,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def geo
-  "Geometric data such as latitude, longitude and altitude. Usually saved as rational number."
   {:db/ident :exif/geo,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -636,7 +593,6 @@
                 :rdf/value    "Geometric data"}})
 
 (def gpsAltitude
-  "The altitude based on the reference in GPSAltitudeRef. Altitude is expressed as one RATIONAL value. The reference unit is meters."
   {:db/ident :exif/gpsAltitude,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "6"},
@@ -650,7 +606,6 @@
    :rdfs/subPropertyOf #{:exif/gpsInfo :exif/geo}})
 
 (def gpsAltitudeRef
-  "Indicates the altitude used as the reference altitude. If the reference is sea level and the altitude is above sea level, 0 is given. If the altitude is below sea level, a value of 1 is given and the altitude is indicated as an absolute value in the GPSAltitude tag. The reference unit is meters."
   {:db/ident :exif/gpsAltitudeRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "5"},
@@ -664,7 +619,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsAreaInformation
-  "A character string recording the name of the GPS area. The first byte indicates the character code used, and this is followed by the name of the GPS area."
   {:db/ident :exif/gpsAreaInformation,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "28"},
@@ -678,7 +632,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDOP
-  "The GPS DOP (data degree of precision). An HDOP value is written during two-dimensional measurement, and PDOP during three-dimensional measurement."
   {:db/ident :exif/gpsDOP,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "11"},
@@ -692,7 +645,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDateStamp
-  "date and time information relative to UTC (Coordinated Universal Time). The record format is \"YYYY:MM:DD\" while converted to W3C-DTF to use in RDF"
   {:db/ident :exif/gpsDateStamp,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "29"},
@@ -706,7 +658,6 @@
    :rdfs/subPropertyOf #{:exif/gpsInfo :exif/date}})
 
 (def gpsDestBearing
-  "The bearing to the destination point. The range of values is from 0.00 to 359.99."
   {:db/ident :exif/gpsDestBearing,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "24"},
@@ -720,7 +671,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDestBearingRef
-  "Indicates the reference used for giving the bearing to the destination point. 'T' denotes true direction and 'M' is magnetic direction."
   {:db/ident :exif/gpsDestBearingRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "23"},
@@ -734,7 +684,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDestDistance
-  "The distance to the destination point."
   {:db/ident           :exif/gpsDestDistance,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "26"},
@@ -746,7 +695,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDestDistanceRef
-  "Indicates the unit used to express the distance to the destination point. 'K', 'M' and 'N' represent kilometers, miles and knots."
   {:db/ident :exif/gpsDestDistanceRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "25"},
@@ -760,7 +708,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDestLatitude
-  "Latitude of destination, expressed as three values giving the degrees, minutes, and seconds, respectively."
   {:db/ident :exif/gpsDestLatitude,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "20"},
@@ -774,7 +721,6 @@
    :rdfs/subPropertyOf #{:exif/gpsInfo :exif/geo}})
 
 (def gpsDestLatitudeRef
-  "Reference for latitude of destination"
   {:db/ident           :exif/gpsDestLatitudeRef,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "19"},
@@ -786,7 +732,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDestLongitude
-  "Longitude of destination, expressed as three values giving the degrees, minutes, and seconds, respectively."
   {:db/ident :exif/gpsDestLongitude,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "22"},
@@ -800,7 +745,6 @@
    :rdfs/subPropertyOf #{:exif/gpsInfo :exif/geo}})
 
 (def gpsDestLongitudeRef
-  "Reference for longitude of destination"
   {:db/ident           :exif/gpsDestLongitudeRef,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "21"},
@@ -812,7 +756,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsDifferential
-  "Indicates whether differential correction is applied to the GPS receiver."
   {:db/ident :exif/gpsDifferential,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "30"},
@@ -826,7 +769,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsImgDirection
-  "The direction of the image when it was captured. The range of values is from 0.00 to 359.99."
   {:db/ident :exif/gpsImgDirection,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "17"},
@@ -840,7 +782,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsImgDirectionRef
-  "The reference for giving the direction of the image when it is captured. 'T' denotes true direction and 'M' is magnetic direction."
   {:db/ident :exif/gpsImgDirectionRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "16"},
@@ -854,7 +795,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsInfo
-  "An attribute relating to GPS information"
   {:db/ident           :exif/gpsInfo,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -864,7 +804,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def gpsInfo_IFD_Pointer
-  "GPS IFDへのポインタ"
   {:db/ident :exif/gpsInfo_IFD_Pointer,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "34853"},
@@ -880,7 +819,6 @@
    :rdfs/subPropertyOf :exif/ifdPointer})
 
 (def gpsLatitude
-  "The latitude, expressed as three values giving the degrees, minutes, and seconds, respectively."
   {:db/ident :exif/gpsLatitude,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "2"},
@@ -896,7 +834,6 @@
    :rdfs/subPropertyOf #{:exif/gpsInfo :exif/geo}})
 
 (def gpsLatitudeRef
-  "Indicates whether the latitude is north or south latitude. The ASCII value 'N' indicates north latitude, and 'S' is south latitude."
   {:db/ident :exif/gpsLatitudeRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "1"},
@@ -912,7 +849,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsLongitude
-  "経度"
   {:db/ident :exif/gpsLongitude,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "4"},
@@ -928,7 +864,6 @@
    :rdfs/subPropertyOf #{:exif/gpsInfo :exif/geo}})
 
 (def gpsLongitudeRef
-  "経度の東経もしくは西経"
   {:db/ident :exif/gpsLongitudeRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "3"},
@@ -944,7 +879,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsMapDatum
-  "The geodetic survey data used by the GPS receiver. If the survey data is restricted to Japan, the value of this tag is 'TOKYO' or 'WGS-84'. If a GPS Info tag is recorded, it is strongly recommended that this tag be recorded."
   {:db/ident :exif/gpsMapDatum,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "18"},
@@ -960,7 +894,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsMeasureMode
-  "The GPS measurement mode. '2' means two-dimensional measurement and '3' means three-dimensional measurement is in progress."
   {:db/ident :exif/gpsMeasureMode,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "10"},
@@ -974,7 +907,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsProcessingMethod
-  "A character string recording the name of the method used for location finding. The first byte indicates the character code used, and this is followed by the name of the method."
   {:db/ident :exif/gpsProcessingMethod,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "27"},
@@ -988,7 +920,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsSatellites
-  "The GPS satellites used for measurements. This tag can be used to describe the number of satellites, their ID number, angle of elevation, azimuth, SNR and other information in ASCII notation. The format is not specified. If the GPS receiver is incapable of taking measurements, value of the tag shall be set to NULL."
   {:db/ident :exif/gpsSatellites,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "8"},
@@ -1002,7 +933,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsSpeed
-  "The speed of GPS receiver movement."
   {:db/ident           :exif/gpsSpeed,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "13"},
@@ -1014,7 +944,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsSpeedRef
-  "The unit used to express the GPS receiver speed of movement. 'K' 'M' and 'N' represents kilometers per hour, miles per hour, and knots."
   {:db/ident :exif/gpsSpeedRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "12"},
@@ -1028,7 +957,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsStatus
-  "The status of the GPS receiver when the image is recorded. 'A' means measurement is in progress, and 'V' means the measurement is Interoperability."
   {:db/ident :exif/gpsStatus,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "9"},
@@ -1042,7 +970,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsTimeStamp
-  "The time as UTC (Coordinated Universal Time). TimeStamp is expressed as three RATIONAL values giving the hour, minute, and second."
   {:db/ident :exif/gpsTimeStamp,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "7"},
@@ -1056,7 +983,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsTrack
-  "The direction of GPS receiver movement. The range of values is from 0.00 to 359.99."
   {:db/ident :exif/gpsTrack,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "15"},
@@ -1070,7 +996,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsTrackRef
-  "The reference for giving the direction of GPS receiver movement. 'T' denotes true direction and 'M' is magnetic direction."
   {:db/ident :exif/gpsTrackRef,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "14"},
@@ -1084,7 +1009,6 @@
    :rdfs/subPropertyOf :exif/gpsInfo})
 
 (def gpsVersionID
-  "The version of GPSInfoIFD. The version is given as 2.2.0.0. This tag is mandatory when GPSInfo tag is present."
   {:db/ident :exif/gpsVersionID,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "0"},
@@ -1098,7 +1022,6 @@
    :rdfs/subPropertyOf #{:exif/versionInfo :exif/gpsInfo}})
 
 (def height
-  "Height of an object"
   {:db/ident           :exif/height,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1108,7 +1031,6 @@
    :rdfs/subPropertyOf :exif/length})
 
 (def ifdPointer
-  "A tag that refers a child IFD"
   {:db/ident           :exif/ifdPointer,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1118,7 +1040,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def imageConfig
-  "An attribute relating to Image Configuration"
   {:db/ident           :exif/imageConfig,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1129,7 +1050,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def imageDataCharacter
-  "An attribute relating to image data characteristics"
   {:db/ident           :exif/imageDataCharacter,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1140,7 +1060,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def imageDataStruct
-  "An attribute relating to image data structure"
   {:db/ident           :exif/imageDataStruct,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1151,7 +1070,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def imageDescription
-  "A character string giving the title of the image. It may be a comment such as \"1988 company picnic\" or the like. Two-byte character codes cannot be used. When a 2-byte code is necessary, the Exif Private tag UserComment is to be used."
   {:db/ident :exif/imageDescription,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "270"},
@@ -1167,7 +1085,6 @@
    :rdfs/subPropertyOf #{:dc11/title :exif/exifAttribute}})
 
 (def imageLength
-  "Image height. The number of rows of image data. In JPEG compressed data a JPEG marker is used."
   {:db/ident :exif/imageLength,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "257"},
@@ -1181,7 +1098,6 @@
    :rdfs/subPropertyOf #{:exif/imageDataStruct :exif/height}})
 
 (def imageUniqueID
-  "An identifier assigned uniquely to each image. It is recorded as an ASCII string equivalent to hexadecimal notation and 128-bit fixed length."
   {:db/ident :exif/imageUniqueID,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "42016"},
@@ -1195,7 +1111,6 @@
    :rdfs/subPropertyOf #{:exif/exifAttribute :dc11/identifier}})
 
 (def imageWidth
-  "Image width. The number of columns of image data, equal to the number of pixels per row. In JPEG compressed data a JPEG marker is used instead of this tag."
   {:db/ident :exif/imageWidth,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "256"},
@@ -1209,7 +1124,6 @@
    :rdfs/subPropertyOf #{:exif/imageDataStruct :exif/width}})
 
 (def interopInfo
-  "An attribute relating to Interoperability. Tags stored in\nInteroperability IFD may be defined dependently to each Interoperability rule."
   {:db/ident :exif/interopInfo,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1221,7 +1135,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def interoperabilityIndex
-  "メイン画像のInteroperability IFDで、データの内容がExifR98 v1.0準拠の場合は、'R98'の文字列。サムネィル画像のInteroperability IFDの場合は、'THM'の文字列"
   {:db/ident :exif/interoperabilityIndex,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "1"},
@@ -1238,7 +1151,6 @@
    :rdfs/subPropertyOf :exif/interopInfo})
 
 (def interoperabilityVersion
-  "Interoperability Version"
   {:db/ident           :exif/interoperabilityVersion,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "2"},
@@ -1252,7 +1164,6 @@
    :rdfs/subPropertyOf :exif/interopInfo})
 
 (def interoperability_IFD_Pointer
-  "Interoperability IFDへのポインタ"
   {:db/ident :exif/interoperability_IFD_Pointer,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "40965"},
@@ -1268,7 +1179,6 @@
    :rdfs/subPropertyOf :exif/ifdPointer})
 
 (def isoSpeedRatings
-  "CCD感度の銀塩フィルム換算値"
   {:db/ident :exif/isoSpeedRatings,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "34855"},
@@ -1284,7 +1194,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def jpegInterchangeFormat
-  "The offset to the start byte (SOI) of JPEG compressed thumbnail data. This is not used for primary image JPEG data."
   {:db/ident :exif/jpegInterchangeFormat,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "513"},
@@ -1300,7 +1209,6 @@
    :rdfs/subPropertyOf :exif/recOffset})
 
 (def jpegInterchangeFormatLength
-  "The number of bytes of JPEG compressed thumbnail data. This is not used for primary image JPEG data."
   {:db/ident :exif/jpegInterchangeFormatLength,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "514"},
@@ -1316,7 +1224,6 @@
    :rdfs/subPropertyOf :exif/recOffset})
 
 (def length
-  "Length of an object. Could be a subProperty of other general schema."
   {:db/ident :exif/length,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1327,7 +1234,6 @@
                 :rdf/value    "Length"}})
 
 (def lightSource
-  "光源。これはマニュアルでホワイトバランスを設定した場合のモード値となる"
   {:db/ident :exif/lightSource,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37384"},
@@ -1342,7 +1248,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def make
-  "カメラのメーカー名。DCFでは必須"
   {:db/ident           :exif/make,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "271"},
@@ -1356,7 +1261,6 @@
    :rdfs/subPropertyOf #{:exif/exifAttribute :rdfs/label}})
 
 (def makerNote
-  "カメラの内部情報等、メーカー依存データ"
   {:db/ident           :exif/makerNote,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "37500"},
@@ -1370,7 +1274,6 @@
    :rdfs/subPropertyOf :exif/userInfo})
 
 (def maxApertureValue
-  "レンズの開放F値。ApertureValue同様、ルート2のベキ乗を取ると通常の絞り値に換算できる"
   {:db/ident :exif/maxApertureValue,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37381"},
@@ -1386,7 +1289,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def meter
-  "A length with unit of meter"
   {:db/ident           :exif/meter,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1396,7 +1298,6 @@
    :rdfs/subPropertyOf :exif/length})
 
 (def meteringMode
-  "自動露出の測光モード"
   {:db/ident :exif/meteringMode,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37383"},
@@ -1412,7 +1313,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def mm
-  "A length with unit of mm"
   {:db/ident           :exif/mm,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1422,7 +1322,6 @@
    :rdfs/subPropertyOf :exif/length})
 
 (def model
-  "Model of image input equipment"
   {:db/ident           :exif/model,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "272"},
@@ -1436,7 +1335,6 @@
    :rdfs/subPropertyOf #{:exif/exifAttribute :rdfs/label}})
 
 (def oecf
-  "Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524. OECF is the relationship between the camera optical input and the image values."
   {:db/ident :exif/oecf,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "34856"},
@@ -1450,7 +1348,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def orientation
-  "The image orientation viewed in terms of rows and columns."
   {:db/ident :exif/orientation,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "274"},
@@ -1465,7 +1362,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def photometricInterpretation
-  "Pixel composition. In JPEG compressed data a JPEG marker is used instead of this tag."
   {:db/ident :exif/photometricInterpretation,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "262"},
@@ -1479,7 +1375,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def pictTaking
-  "An attribute relating to Picture-Taking Conditions"
   {:db/ident           :exif/pictTaking,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1490,7 +1385,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def pimBrightness
-  "Brightness info for print image matching"
   {:db/ident           :exif/pimBrightness,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "10"},
@@ -1502,7 +1396,6 @@
    :rdfs/subPropertyOf :exif/pimInfo})
 
 (def pimColorBalance
-  "ColorBalance info for print image matching"
   {:db/ident           :exif/pimColorBalance,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "11"},
@@ -1515,7 +1408,6 @@
    :rdfs/subPropertyOf :exif/pimInfo})
 
 (def pimContrast
-  "Contrast info for print image matching"
   {:db/ident           :exif/pimContrast,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "9"},
@@ -1527,7 +1419,6 @@
    :rdfs/subPropertyOf :exif/pimInfo})
 
 (def pimInfo
-  "An attribute relating to print image matching"
   {:db/ident           :exif/pimInfo,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1538,7 +1429,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def pimSaturation
-  "Saturation info for print image matching"
   {:db/ident           :exif/pimSaturation,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "12"},
@@ -1550,7 +1440,6 @@
    :rdfs/subPropertyOf :exif/pimInfo})
 
 (def pimSharpness
-  "Sharpness info for print image matching"
   {:db/ident           :exif/pimSharpness,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "13"},
@@ -1562,7 +1451,6 @@
    :rdfs/subPropertyOf :exif/pimInfo})
 
 (def pixelXDimension
-  "Information specific to compressed data. When a compressed file is recorded, the valid width of the meaningful image shall be recorded in this tag, whether or not there is padding data or a restart marker. This tag should not exist in an uncompressed file."
   {:db/ident :exif/pixelXDimension,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "40962"},
@@ -1576,7 +1464,6 @@
    :rdfs/subPropertyOf #{:exif/imageConfig :exif/width}})
 
 (def pixelYDimension
-  "Information specific to compressed data. When a compressed file is recorded, the valid height of the meaningful image shall be recorded in this tag, whether or not there is padding data or a restart marker. This tag should not exist in an uncompressed file. Since data padding is unnecessary in the vertical direction, the number of lines recorded in this valid image height tag will in fact be the same as that recorded in the SOF."
   {:db/ident :exif/pixelYDimension,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "40963"},
@@ -1590,7 +1477,6 @@
    :rdfs/subPropertyOf #{:exif/imageConfig :exif/height}})
 
 (def planarConfiguration
-  "Indicates whether pixel components are recorded in chunky or planar format. In JPEG compressed files a JPEG marker is used instead of this tag. If this field does not exist, the TIFF default of 1 (chunky) is assumed."
   {:db/ident :exif/planarConfiguration,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "284"},
@@ -1604,7 +1490,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def primaryChromaticities
-  "The chromaticity of the three primary colors of the image. Normally this tag is not necessary, since color space is specified in the color space information tag (ColorSpace)."
   {:db/ident :exif/primaryChromaticities,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "319"},
@@ -1621,7 +1506,6 @@
    :rdfs/subPropertyOf :exif/imageDataCharacter})
 
 (def printImageMatching_IFD_Pointer
-  "A pointer to the print image matching IFD"
   {:db/ident           :exif/printImageMatching_IFD_Pointer,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "50341"},
@@ -1633,7 +1517,6 @@
    :rdfs/subPropertyOf :exif/ifdPointer})
 
 (def recOffset
-  "An attribute relating to recording offset"
   {:db/ident           :exif/recOffset,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1643,7 +1526,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def referenceBlackWhite
-  "画像情報の黒点・白点値。YCbCr形式の場合、最初の２つの値がY(輝度)の黒点・白点、次がCb、最後がCrとなり、デフォルト値は'0,255,0,128,0,128'。RGB形式の場合はR、G、Bの順で黒点・白点値が並んでおり、デフォルト値は'0,255,0,255,0,255'。"
   {:db/ident :exif/referenceBlackWhite,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "532"},
@@ -1660,7 +1542,6 @@
    :rdfs/subPropertyOf :exif/imageDataCharacter})
 
 (def relatedFile
-  "Tag Relating to Related File Information"
   {:db/ident           :exif/relatedFile,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -1670,7 +1551,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def relatedImageFileFormat
-  "画像フォーマットを'Exif JPEG Ver. 2.1'などの文字列で示す。通常はサムネィル画像に使う"
   {:db/ident :exif/relatedImageFileFormat,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "4096"},
@@ -1685,7 +1565,6 @@
    :rdfs/subPropertyOf :exif/interopInfo})
 
 (def relatedImageLength
-  "画像高。通常はサムネイル画像のInteroperability IFDに使う"
   {:db/ident           :exif/relatedImageLength,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "4098"},
@@ -1699,7 +1578,6 @@
    :rdfs/subPropertyOf #{:exif/height :exif/interopInfo}})
 
 (def relatedImageWidth
-  "画像幅。通常はサムネイル画像のInteroperability IFDに使う"
   {:db/ident           :exif/relatedImageWidth,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "4097"},
@@ -1713,7 +1591,6 @@
    :rdfs/subPropertyOf #{:exif/interopInfo :exif/width}})
 
 (def relatedSoundFile
-  "Related audio file"
   {:db/ident           :exif/relatedSoundFile,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "40964"},
@@ -1727,7 +1604,6 @@
    :rdfs/subPropertyOf :exif/relatedFile})
 
 (def resolution
-  "a rational number representing a resolution. Could be a subProperty of other general schema."
   {:db/ident :exif/resolution,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1738,7 +1614,6 @@
                 :rdf/value    "Resolution"}})
 
 (def resolutionUnit
-  "XResolution/YResolutionの解像度の単位"
   {:db/ident :exif/resolutionUnit,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "296"},
@@ -1754,7 +1629,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def rowsPerStrip
-  "The number of rows per strip. This is the number of rows in the image of one strip when an image is divided into strips. With JPEG compressed data this designation is not needed and is omitted."
   {:db/ident :exif/rowsPerStrip,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "278"},
@@ -1768,7 +1642,6 @@
    :rdfs/subPropertyOf :exif/recOffset})
 
 (def samplesPerPixel
-  "The number of components per pixel. Since this standard applies to RGB and YCbCr images, the value set for this tag is 3. In JPEG compressed data a JPEG marker is used instead of this tag."
   {:db/ident :exif/samplesPerPixel,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "277"},
@@ -1782,7 +1655,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def saturation
-  "The direction of saturation processing applied by the camera when the image was shot."
   {:db/ident :exif/saturation,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41993"},
@@ -1796,7 +1668,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def sceneCaptureType
-  "The type of scene that was shot. It can also be used to record the mode in which the image was shot, such as Landscape, Portrait etc. Note that this differs from the scene type (SceneType) tag."
   {:db/ident :exif/sceneCaptureType,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41990"},
@@ -1810,7 +1681,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def sceneType
-  "The type of scene. If a DSC recorded the image, this tag value shall always be set to 1, indicating that the image was directly photographed."
   {:db/ident :exif/sceneType,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41729"},
@@ -1826,7 +1696,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def seconds
-  "a mesurement of time length with unit of second"
   {:db/ident     :exif/seconds,
    :rdf/type     :rdf/Property,
    :rdfs/comment {:rdf/language "en",
@@ -1835,7 +1704,6 @@
                   :rdf/value    "Seconds"}})
 
 (def sensingMethod
-  "The image sensor type on the camera or input device, such as One-chip color area sensor etc."
   {:db/ident :exif/sensingMethod,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41495"},
@@ -1852,7 +1720,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def sharpness
-  "The direction of sharpness processing applied by the camera when the image was shot."
   {:db/ident :exif/sharpness,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41994"},
@@ -1866,7 +1733,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def shutterSpeedValue
-  "Shutter speed. The unit is the APEX (Additive System of Photographic Exposure) setting"
   {:db/ident :exif/shutterSpeedValue,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37377"},
@@ -1883,7 +1749,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def software
-  "デジカメ（もしくは入力機器）の内蔵ソフトウェア/ファームウェアの名称とバージョン"
   {:db/ident :exif/software,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "305"},
@@ -1899,7 +1764,6 @@
    :rdfs/subPropertyOf #{:exif/exifAttribute :rdfs/label}})
 
 (def spatialFrequencyResponse
-  "This tag records the camera or input device spatial frequency table and SFR values in the direction of image width, image height, and diagonal direction, as specified in ISO 12233."
   {:db/ident :exif/spatialFrequencyResponse,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41484"},
@@ -1913,7 +1777,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def spectralSensitivity
-  "Indicates the spectral sensitivity of each channel of the camera used. The tag value is an ASCII string compatible with the standard developed by the ASTM Technical committee."
   {:db/ident :exif/spectralSensitivity,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "34852"},
@@ -1927,7 +1790,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def stripByteCounts
-  "The total number of bytes in each strip. With JPEG compressed data this designation is not needed and is omitted."
   {:db/ident :exif/stripByteCounts,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "279"},
@@ -1941,7 +1803,6 @@
    :rdfs/subPropertyOf :exif/recOffset})
 
 (def stripOffsets
-  "For each strip, the byte offset of that strip. With JPEG compressed data this designation is not needed and is omitted."
   {:db/ident :exif/stripOffsets,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "273"},
@@ -1955,7 +1816,6 @@
    :rdfs/subPropertyOf :exif/recOffset})
 
 (def subSecTime
-  "DateTime subseconds"
   {:db/ident           :exif/subSecTime,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "37520"},
@@ -1967,7 +1827,6 @@
    :rdfs/subPropertyOf #{:exif/subseconds :exif/dateAndOrTime}})
 
 (def subSecTimeDigitized
-  "DateTimeDigitized subseconds"
   {:db/ident           :exif/subSecTimeDigitized,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "37522"},
@@ -1979,7 +1838,6 @@
    :rdfs/subPropertyOf #{:exif/subseconds :exif/dateAndOrTime}})
 
 (def subSecTimeOriginal
-  "DateTimeOriginal subseconds"
   {:db/ident           :exif/subSecTimeOriginal,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "37521"},
@@ -1991,7 +1849,6 @@
    :rdfs/subPropertyOf #{:exif/subseconds :exif/dateAndOrTime}})
 
 (def subjectArea
-  "画面中の主たる被写体の位置。2値によるXY座標、3値による円、4値による長方形座標の3通りの示し方がある"
   {:db/ident :exif/subjectArea,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37396"},
@@ -2007,7 +1864,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def subjectDistance
-  "被写体までの距離。単位はm"
   {:db/ident :exif/subjectDistance,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37382"},
@@ -2023,7 +1879,6 @@
    :rdfs/subPropertyOf #{:exif/meter :exif/pictTaking}})
 
 (def subjectDistanceRange
-  "The distance to the subject, such as Macro, Close View or Distant View."
   {:db/ident :exif/subjectDistanceRange,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41996"},
@@ -2037,7 +1892,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def subjectLocation
-  "画面中の主要被写体のXY座標"
   {:db/ident :exif/subjectLocation,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "41492"},
@@ -2053,7 +1907,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def subseconds
-  "A tag used to record fractions of seconds for a date property"
   {:db/ident :exif/subseconds,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -2063,7 +1916,6 @@
                 :rdf/value    "Subseconds"}})
 
 (def tag_number
-  "The Exif tag number"
   {:db/ident           :exif/tag_number,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -2073,7 +1925,6 @@
    :rdfs/subPropertyOf :dc11/identifier})
 
 (def tagid
-  "The Exif tag number with context prefix, such as IFD type or maker name"
   {:db/ident :exif/tagid,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -2085,7 +1936,6 @@
    :rdfs/subPropertyOf :exif/tag_number})
 
 (def transferFunction
-  "A transfer function for the image, described in tabular style. Normally this tag is not necessary, since color space is specified in the color space information tag (ColorSpace)."
   {:db/ident :exif/transferFunction,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "301"},
@@ -2099,7 +1949,6 @@
    :rdfs/subPropertyOf :exif/imageDataCharacter})
 
 (def userComment
-  "ユーザーコメント。ImageDescriptionタグと違って、こちらはJIS2バイトコード、Unicode等での記述が許されており、最初の8バイトが文字コード"
   {:db/ident :exif/userComment,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "37510"},
@@ -2116,7 +1965,6 @@
    :rdfs/subPropertyOf :exif/userInfo})
 
 (def userInfo
-  "An attribute relating to User Information"
   {:db/ident           :exif/userInfo,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -2126,7 +1974,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def versionInfo
-  "An attribute relating to Version"
   {:db/ident           :exif/versionInfo,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -2136,7 +1983,6 @@
    :rdfs/subPropertyOf :exif/exifAttribute})
 
 (def whiteBalance
-  "The white balance mode set when the image was shot."
   {:db/ident           :exif/whiteBalance,
    :exif/tag_number    {:rdf/language "en",
                         :rdf/value    "41987"},
@@ -2151,7 +1997,6 @@
    :rdfs/subPropertyOf :exif/pictTaking})
 
 (def whitePoint
-  "The chromaticity of the white point of the image. Normally this tag is not necessary, since color space is specified in the color space information tag (ColorSpace)."
   {:db/ident :exif/whitePoint,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "318"},
@@ -2168,7 +2013,6 @@
    :rdfs/subPropertyOf :exif/imageDataCharacter})
 
 (def width
-  "Width of an object"
   {:db/ident           :exif/width,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
@@ -2178,7 +2022,6 @@
    :rdfs/subPropertyOf :exif/length})
 
 (def xResolution
-  "画像の表示・印刷時の水平解像度"
   {:db/ident :exif/xResolution,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "282"},
@@ -2194,7 +2037,6 @@
    :rdfs/subPropertyOf #{:exif/imageDataStruct :exif/resolution}})
 
 (def yCbCrCoefficients
-  "RGB形式からYCbCr形式に変換するための3つの係数。通常は0.299、0.587、0.114という値"
   {:db/ident :exif/yCbCrCoefficients,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "529"},
@@ -2210,7 +2052,6 @@
    :rdfs/subPropertyOf :exif/imageDataCharacter})
 
 (def yCbCrPositioning
-  "The position of chrominance components in relation to the luminance component. This field is designated only for JPEG compressed data or uncompressed YCbCr data."
   {:db/ident :exif/yCbCrPositioning,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "531"},
@@ -2227,7 +2068,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def yCbCrSubSampling
-  "The sampling ratio of chrominance components in relation to the luminance component. In JPEG compressed data a JPEG marker is used instead of this tag."
   {:db/ident :exif/yCbCrSubSampling,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "530"},
@@ -2241,7 +2081,6 @@
    :rdfs/subPropertyOf :exif/imageDataStruct})
 
 (def yResolution
-  "The number of pixels per ResolutionUnit in the ImageLength direction. The same value as XResolution is designated."
   {:db/ident :exif/yResolution,
    :exif/tag_number {:rdf/language "en",
                      :rdf/value    "283"},

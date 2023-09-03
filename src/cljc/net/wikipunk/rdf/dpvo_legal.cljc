@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.dpvo-legal
   "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."
-  {:dcat/downloadURL "resources/dpv-owl/dpv-legal/dpv-legal.ttl",
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-legal/dpv-legal.ttl",
    :dcterms/abstract
    {:rdf/language "en",
     :rdf/value
@@ -12,15 +12,15 @@
    {:rdf/language "en",
     :rdf/value
     "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."},
-   :dcterms/license {:rdfa/uri
+   :dcterms/license {:xsd/anyURI
                      "https://www.w3.org/Consortium/Legal/2015/doc-license"},
    :dcterms/modified #inst "2022-10-06T00:00:00.000-00:00",
-   :dcterms/source {:rdfa/uri "https://www.w3.org/community/dpvcg/"},
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
    :dcterms/title
    {:rdf/language "en",
     :rdf/value
     "DPV-LEGAL: Extension providing Jurisdictions, Laws, and Authorities for DPV"},
-   :owl/imports {:rdfa/uri "https://w3id.org/dpv/dpv-owl"},
+   :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "dpvo" "https://w3id.org/dpv/dpv-owl#",
@@ -37,12 +37,12 @@
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "dpvo-legal",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal",
+   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
    :vann/preferredNamespacePrefix "dpvo-legal",
-   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-legal#"})
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal"})
 
 (def AD
-  "AD"
   {:db/ident              :dpvo-legal/AD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -52,14 +52,14 @@
    :dpvo-legal/iso_numeric "20",
    :dpvo-legal/un_m49     "20",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Andorra"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AE
-  "AE"
   {:db/ident              :dpvo-legal/AE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -69,14 +69,14 @@
    :dpvo-legal/iso_numeric "784",
    :dpvo-legal/un_m49     "784",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "United Arab Emirates"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AF
-  "AF"
   {:db/ident              :dpvo-legal/AF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -86,14 +86,14 @@
    :dpvo-legal/iso_numeric "4",
    :dpvo-legal/un_m49     "4",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Afghanistan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AG
-  "AG"
   {:db/ident              :dpvo-legal/AG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -105,14 +105,14 @@
    :dpvo-legal/iso_numeric "28",
    :dpvo-legal/un_m49     "28",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Antigua and Barbuda"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AI
-  "AI"
   {:db/ident              :dpvo-legal/AI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -124,14 +124,14 @@
    :dpvo-legal/iso_numeric "660",
    :dpvo-legal/un_m49     "660",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Anguilla"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AL
-  "AL"
   {:db/ident              :dpvo-legal/AL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -141,14 +141,14 @@
    :dpvo-legal/iso_numeric "8",
    :dpvo-legal/un_m49     "8",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Albania"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AM
-  "AM"
   {:db/ident              :dpvo-legal/AM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -158,14 +158,14 @@
    :dpvo-legal/iso_numeric "51",
    :dpvo-legal/un_m49     "51",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Armenia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AO
-  "AO"
   {:db/ident              :dpvo-legal/AO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -176,14 +176,14 @@
    :dpvo-legal/iso_numeric "24",
    :dpvo-legal/un_m49     "24",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Angola"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AQ
-  "AQ"
   {:db/ident              :dpvo-legal/AQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -192,14 +192,14 @@
    :dpvo-legal/iso_numeric "10",
    :dpvo-legal/un_m49     "10",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Antarctica"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AR
-  "AR"
   {:db/ident              :dpvo-legal/AR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -211,14 +211,14 @@
    :dpvo-legal/iso_numeric "32",
    :dpvo-legal/un_m49     "32",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Argentina"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AS
-  "AS"
   {:db/ident              :dpvo-legal/AS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -228,14 +228,14 @@
    :dpvo-legal/iso_numeric "16",
    :dpvo-legal/un_m49     "16",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "American Samoa"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AT
-  "AT"
   {:db/ident               :dpvo-legal/AT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -250,7 +250,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-AT,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Austria"},
@@ -258,7 +258,6 @@
                             :rdf/value    "accepted"}})
 
 (def AU
-  "AU"
   {:db/ident              :dpvo-legal/AU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -269,14 +268,14 @@
    :dpvo-legal/iso_numeric "36",
    :dpvo-legal/un_m49     "36",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Australia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AW
-  "AW"
   {:db/ident              :dpvo-legal/AW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -288,14 +287,14 @@
    :dpvo-legal/iso_numeric "533",
    :dpvo-legal/un_m49     "533",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Aruba"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AX
-  "AX"
   {:db/ident              :dpvo-legal/AX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -305,14 +304,14 @@
    :dpvo-legal/iso_numeric "248",
    :dpvo-legal/un_m49     "248",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Åland Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def AZ
-  "AZ"
   {:db/ident              :dpvo-legal/AZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -322,14 +321,14 @@
    :dpvo-legal/iso_numeric "31",
    :dpvo-legal/un_m49     "31",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Azerbaijan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def Adequacy-EU-AD
-  "EU Adequacy Decision for Andorra"
   {:db/ident :dpvo-legal/Adequacy-EU-AD,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -338,17 +337,16 @@
                       {:time/inXSDDate #inst "2010-10-21T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/EU :dpvo-legal/AD},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32010D0625?"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Andorra"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-AR
-  "EU Adequacy Decision for Argentina"
   {:db/ident :dpvo-legal/Adequacy-EU-AR,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -357,17 +355,16 @@
                       {:time/inXSDDate #inst "2003-07-05T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/EU :dpvo-legal/AR},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32003D0490"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Argentina"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-CA
-  "EU Adequacy Decision for Canada (commercial organisations)"
   {:db/ident :dpvo-legal/Adequacy-EU-CA,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -376,10 +373,10 @@
                       {:time/inXSDDate #inst "2002-01-04T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/EU :dpvo-legal/CA},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32002D0002"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "EU Adequacy Decision for Canada (commercial organisations)"},
@@ -387,7 +384,6 @@
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-CH
-  "EU Adequacy Decision for Switzerland"
   {:db/ident :dpvo-legal/Adequacy-EU-CH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -396,17 +392,16 @@
                       {:time/inXSDDate #inst "2000-08-25T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/CH :dpvo-legal/EU},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32000D0518"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Switzerland"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-FO
-  "EU Adequacy Decision for Faroe Islands"
   {:db/ident :dpvo-legal/Adequacy-EU-FO,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -415,17 +410,16 @@
                       {:time/inXSDDate #inst "2010-03-09T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/FO :dpvo-legal/EU},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/en/ALL/?uri=CELEX%3A32010D0146"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Faroe Islands"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-GB
-  "EU Adequacy Decision for United Kingdom"
   {:db/ident :dpvo-legal/Adequacy-EU-GB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -434,17 +428,16 @@
                       {:time/inXSDDate #inst "2021-06-28T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/EU :dpvo-legal/GB},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://ec.europa.eu/info/files/decision-adequate-protection-personal-data-united-kingdom-general-data-protection-regulation_en"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for United Kingdom"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-GG
-  "EU Adequacy Decision for Guernsey"
   {:db/ident :dpvo-legal/Adequacy-EU-GG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -453,17 +446,16 @@
                       {:time/inXSDDate #inst "2003-11-21T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/EU :dpvo-legal/GG},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32003D0821"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Guernsey"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-IL
-  "EU Adequacy Decision for Israel"
   {:db/ident :dpvo-legal/Adequacy-EU-IL,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -472,17 +464,16 @@
                       {:time/inXSDDate #inst "2011-02-01T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/EU :dpvo-legal/IL},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32011D0061"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Israel"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-IM
-  "EU Adequacy Decision for Isle of Man"
   {:db/ident :dpvo-legal/Adequacy-EU-IM,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -491,17 +482,16 @@
                       {:time/inXSDDate #inst "2004-04-30T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/IM :dpvo-legal/EU},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32004D0411"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Isle of Man"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-JE
-  "EU Adequacy Decision for Jersey"
   {:db/ident :dpvo-legal/Adequacy-EU-JE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -510,17 +500,16 @@
                       {:time/inXSDDate #inst "2008-05-26T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/JE :dpvo-legal/EU},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32008D0393"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Jersey"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-JP
-  "EU Adequacy Decision for Japan"
   {:db/ident             :dpvo-legal/Adequacy-EU-JP,
    :dcterms/created      #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
@@ -529,17 +518,17 @@
                           {:time/inXSDDate #inst
                                             "2019-01-23T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/JP :dpvo-legal/EU},
-   :foaf/homepage        {:rdfa/uri
+   :foaf/homepage        {:xsd/anyURI
                           "http://data.europa.eu/eli/dec_impl/2019/419/oj"},
    :rdf/type             #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy     {:xsd/anyURI
+                          "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label           {:rdf/language "en",
                           :rdf/value    "EU Adequacy Decision for Japan"},
    :vs/term_status       {:rdf/language "en",
                           :rdf/value    "accepted"}})
 
 (def Adequacy-EU-NZ
-  "EU Adequacy Decision for New Zealand"
   {:db/ident :dpvo-legal/Adequacy-EU-NZ,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -548,17 +537,16 @@
                       {:time/inXSDDate #inst "2012-12-20T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/NZ :dpvo-legal/EU},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32013D0065"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for New Zealand"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Adequacy-EU-UY
-  "EU Adequacy Decision for Uruguay"
   {:db/ident :dpvo-legal/Adequacy-EU-UY,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -567,17 +555,16 @@
                       {:time/inXSDDate #inst "2012-08-22T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction #{:dpvo-legal/UY :dpvo-legal/EU},
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012D0484"},
    :rdf/type #{:dpvo-gdpr/A45-3 :owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EU Adequacy Decision for Uruguay"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def Africa
-  "Africa"
   {:db/ident         :dpvo-legal/Africa,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -603,14 +590,13 @@
                        :dpvo-legal/ZW :dpvo-legal/LY :dpvo-legal/NorthernAfrica
                        :dpvo-legal/MA :dpvo-legal/SO :dpvo-legal/MU},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Africa"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def Americas
-  "Americas"
   {:db/ident         :dpvo-legal/Americas,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -636,14 +622,13 @@
                        :dpvo-legal/MX :dpvo-legal/VG
                        :dpvo-legal/NorthernAmerica},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Americas"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def Asia
-  "Asia"
   {:db/ident         :dpvo-legal/Asia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -667,14 +652,13 @@
                        :dpvo-legal/WesternAsia :dpvo-legal/OM :dpvo-legal/LB
                        :dpvo-legal/VN :dpvo-legal/KH},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Asia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def AustraliaandNewZealand
-  "AustraliaandNewZealand"
   {:db/ident         :dpvo-legal/AustraliaandNewZealand,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -682,14 +666,13 @@
                        :dpvo-legal/CC :dpvo-legal/HM :dpvo-legal/CX},
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AustraliaandNewZealand"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def BA
-  "BA"
   {:db/ident              :dpvo-legal/BA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -699,14 +682,14 @@
    :dpvo-legal/iso_numeric "70",
    :dpvo-legal/un_m49     "70",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bosnia and Herzegovina"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BB
-  "BB"
   {:db/ident              :dpvo-legal/BB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -718,14 +701,14 @@
    :dpvo-legal/iso_numeric "52",
    :dpvo-legal/un_m49     "52",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Barbados"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BD
-  "BD"
   {:db/ident              :dpvo-legal/BD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -735,14 +718,14 @@
    :dpvo-legal/iso_numeric "50",
    :dpvo-legal/un_m49     "50",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bangladesh"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BE
-  "BE"
   {:db/ident               :dpvo-legal/BE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -757,7 +740,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-BE,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Belgium"},
@@ -765,7 +748,6 @@
                             :rdf/value    "accepted"}})
 
 (def BF
-  "BF"
   {:db/ident              :dpvo-legal/BF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -776,14 +758,14 @@
    :dpvo-legal/iso_numeric "854",
    :dpvo-legal/un_m49     "854",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Burkina Faso"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BG
-  "BG"
   {:db/ident               :dpvo-legal/BG,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -798,7 +780,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-BG,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Bulgaria"},
@@ -806,7 +788,6 @@
                             :rdf/value    "accepted"}})
 
 (def BH
-  "BH"
   {:db/ident              :dpvo-legal/BH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -816,14 +797,14 @@
    :dpvo-legal/iso_numeric "48",
    :dpvo-legal/un_m49     "48",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bahrain"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BI
-  "BI"
   {:db/ident              :dpvo-legal/BI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -834,14 +815,14 @@
    :dpvo-legal/iso_numeric "108",
    :dpvo-legal/un_m49     "108",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Burundi"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BJ
-  "BJ"
   {:db/ident              :dpvo-legal/BJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -852,14 +833,14 @@
    :dpvo-legal/iso_numeric "204",
    :dpvo-legal/un_m49     "204",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Benin"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BL
-  "BL"
   {:db/ident              :dpvo-legal/BL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -871,14 +852,14 @@
    :dpvo-legal/iso_numeric "652",
    :dpvo-legal/un_m49     "652",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Barthélemy"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BM
-  "BM"
   {:db/ident              :dpvo-legal/BM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -888,14 +869,14 @@
    :dpvo-legal/iso_numeric "60",
    :dpvo-legal/un_m49     "60",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bermuda"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BN
-  "BN"
   {:db/ident              :dpvo-legal/BN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -905,14 +886,14 @@
    :dpvo-legal/iso_numeric "96",
    :dpvo-legal/un_m49     "96",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Brunei Darussalam"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BO
-  "BO"
   {:db/ident              :dpvo-legal/BO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -924,14 +905,14 @@
    :dpvo-legal/iso_numeric "68",
    :dpvo-legal/un_m49     "68",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bolivia (Plurinational State of)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BQ
-  "BQ"
   {:db/ident              :dpvo-legal/BQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -943,14 +924,14 @@
    :dpvo-legal/iso_numeric "535",
    :dpvo-legal/un_m49     "535",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bonaire, Sint Eustatius and Saba"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BR
-  "BR"
   {:db/ident              :dpvo-legal/BR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -962,14 +943,14 @@
    :dpvo-legal/iso_numeric "76",
    :dpvo-legal/un_m49     "76",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Brazil"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BS
-  "BS"
   {:db/ident              :dpvo-legal/BS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -981,14 +962,14 @@
    :dpvo-legal/iso_numeric "44",
    :dpvo-legal/un_m49     "44",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bahamas"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BT
-  "BT"
   {:db/ident              :dpvo-legal/BT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -998,14 +979,14 @@
    :dpvo-legal/iso_numeric "64",
    :dpvo-legal/un_m49     "64",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bhutan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BV
-  "BV"
   {:db/ident              :dpvo-legal/BV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1017,14 +998,14 @@
    :dpvo-legal/iso_numeric "74",
    :dpvo-legal/un_m49     "74",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bouvet Island"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BW
-  "BW"
   {:db/ident              :dpvo-legal/BW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1035,14 +1016,14 @@
    :dpvo-legal/iso_numeric "72",
    :dpvo-legal/un_m49     "72",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Botswana"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BY
-  "BY"
   {:db/ident              :dpvo-legal/BY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1052,14 +1033,14 @@
    :dpvo-legal/iso_numeric "112",
    :dpvo-legal/un_m49     "112",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Belarus"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def BZ
-  "BZ"
   {:db/ident              :dpvo-legal/BZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1071,14 +1052,14 @@
    :dpvo-legal/iso_numeric "84",
    :dpvo-legal/un_m49     "84",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Belize"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CA
-  "CA"
   {:db/ident              :dpvo-legal/CA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1088,14 +1069,14 @@
    :dpvo-legal/iso_numeric "124",
    :dpvo-legal/un_m49     "124",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Canada"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CC
-  "CC"
   {:db/ident              :dpvo-legal/CC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1106,14 +1087,14 @@
    :dpvo-legal/iso_numeric "166",
    :dpvo-legal/un_m49     "166",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cocos (Keeling) Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CD
-  "CD"
   {:db/ident              :dpvo-legal/CD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1124,14 +1105,14 @@
    :dpvo-legal/iso_numeric "180",
    :dpvo-legal/un_m49     "180",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Democratic Republic of the Congo"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CF
-  "CF"
   {:db/ident              :dpvo-legal/CF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1142,14 +1123,14 @@
    :dpvo-legal/iso_numeric "140",
    :dpvo-legal/un_m49     "140",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Central African Republic"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CG
-  "CG"
   {:db/ident              :dpvo-legal/CG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1160,14 +1141,14 @@
    :dpvo-legal/iso_numeric "178",
    :dpvo-legal/un_m49     "178",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Congo"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CH
-  "CH"
   {:db/ident              :dpvo-legal/CH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1177,14 +1158,14 @@
    :dpvo-legal/iso_numeric "756",
    :dpvo-legal/un_m49     "756",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Switzerland"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CI
-  "CI"
   {:db/ident              :dpvo-legal/CI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1195,14 +1176,14 @@
    :dpvo-legal/iso_numeric "384",
    :dpvo-legal/un_m49     "384",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Côte d’Ivoire"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CK
-  "CK"
   {:db/ident              :dpvo-legal/CK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1212,14 +1193,14 @@
    :dpvo-legal/iso_numeric "184",
    :dpvo-legal/un_m49     "184",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cook Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CL
-  "CL"
   {:db/ident              :dpvo-legal/CL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1231,14 +1212,14 @@
    :dpvo-legal/iso_numeric "152",
    :dpvo-legal/un_m49     "152",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Chile"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CM
-  "CM"
   {:db/ident              :dpvo-legal/CM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1249,14 +1230,14 @@
    :dpvo-legal/iso_numeric "120",
    :dpvo-legal/un_m49     "120",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cameroon"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CN
-  "CN"
   {:db/ident              :dpvo-legal/CN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1266,14 +1247,14 @@
    :dpvo-legal/iso_numeric "156",
    :dpvo-legal/un_m49     "156",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "China"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CO
-  "CO"
   {:db/ident              :dpvo-legal/CO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1285,14 +1266,14 @@
    :dpvo-legal/iso_numeric "170",
    :dpvo-legal/un_m49     "170",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Colombia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CR
-  "CR"
   {:db/ident              :dpvo-legal/CR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1304,14 +1285,14 @@
    :dpvo-legal/iso_numeric "188",
    :dpvo-legal/un_m49     "188",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Costa Rica"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CU
-  "CU"
   {:db/ident              :dpvo-legal/CU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1323,14 +1304,14 @@
    :dpvo-legal/iso_numeric "192",
    :dpvo-legal/un_m49     "192",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cuba"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CV
-  "CV"
   {:db/ident              :dpvo-legal/CV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1341,14 +1322,14 @@
    :dpvo-legal/iso_numeric "132",
    :dpvo-legal/un_m49     "132",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cabo Verde"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CW
-  "CW"
   {:db/ident              :dpvo-legal/CW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1360,14 +1341,14 @@
    :dpvo-legal/iso_numeric "531",
    :dpvo-legal/un_m49     "531",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Curaçao"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CX
-  "CX"
   {:db/ident              :dpvo-legal/CX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1378,14 +1359,14 @@
    :dpvo-legal/iso_numeric "162",
    :dpvo-legal/un_m49     "162",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Christmas Island"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def CY
-  "CY"
   {:db/ident               :dpvo-legal/CY,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -1400,7 +1381,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-CY,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Cyprus"},
@@ -1408,7 +1389,6 @@
                             :rdf/value    "accepted"}})
 
 (def CZ
-  "CZ"
   {:db/ident               :dpvo-legal/CZ,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -1423,7 +1403,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-CZ,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Czechia"},
@@ -1431,7 +1411,6 @@
                             :rdf/value    "accepted"}})
 
 (def Caribbean
-  "Caribbean"
   {:db/ident         :dpvo-legal/Caribbean,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -1447,14 +1426,13 @@
                        :dpvo-legal/VG},
    :dcterms/isPartOf :dpvo-legal/LatinAmericaandtheCaribbean,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Caribbean"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def CentralAmerica
-  "CentralAmerica"
   {:db/ident         :dpvo-legal/CentralAmerica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -1463,14 +1441,13 @@
                        :dpvo-legal/CR :dpvo-legal/MX},
    :dcterms/isPartOf :dpvo-legal/LatinAmericaandtheCaribbean,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CentralAmerica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def CentralAsia
-  "CentralAsia"
   {:db/ident         :dpvo-legal/CentralAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -1478,28 +1455,26 @@
                        :dpvo-legal/KG :dpvo-legal/UZ},
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CentralAsia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def ChannelIslands
-  "ChannelIslands"
   {:db/ident         :dpvo-legal/ChannelIslands,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/hasPart  #{:dpvo-legal/JE :dpvo-legal/Sark :dpvo-legal/GG},
    :dcterms/isPartOf :dpvo-legal/NorthernEurope,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ChannelIslands"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def DE
-  "DE"
   {:db/ident               :dpvo-legal/DE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -1521,7 +1496,7 @@
    :dpvo/hasApplicableLaw  #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority      :dpvo-legal/DPA-DE,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Germany"},
@@ -1529,7 +1504,6 @@
                             :rdf/value    "accepted"}})
 
 (def DE-BB
-  "Brandenburg"
   {:db/ident              :dpvo-legal/DE-BB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1538,14 +1512,14 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-BB,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Brandenburg"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-BDSG
-  "Bundesdatenschutzgesetz (BDSG)"
   {:db/ident             :dpvo-legal/DE-BDSG,
    :dcterms/created      #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator      #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1569,10 +1543,11 @@
                            :dpvo-legal/DE :dpvo-legal/DE-HH :dpvo-legal/DE-MV
                            :dpvo-legal/DE-RP :dpvo-legal/DE-SL :dpvo-legal/DE-BE
                            :dpvo-legal/DE-ST :dpvo-legal/DE-NW},
-   :foaf/homepage        {:rdfa/uri
+   :foaf/homepage        {:xsd/anyURI
                           "https://www.gesetze-im-internet.de/bdsg_2018/"},
    :rdf/type             #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy     {:xsd/anyURI
+                          "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label           #{{:rdf/language "de",
                             :rdf/value    "Bundesdatenschutzgesetz (BDSG)"}
                            {:rdf/language "en",
@@ -1581,7 +1556,6 @@
                           :rdf/value    "accepted"}})
 
 (def DE-BE
-  "Berlin"
   {:db/ident              :dpvo-legal/DE-BE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1590,14 +1564,14 @@
                             :dpvo-legal/DE-BE-BlnDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-BE,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Berlin"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-BE-BbgDSG
-  "Brandenburgisches Datenschutzgesetz (BbgDSG)"
   {:db/ident :dpvo-legal/DE-BE-BbgDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1605,10 +1579,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-BB,
    :dpvo/hasJurisdiction :dpvo-legal/DE-BB,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.lda.brandenburg.de/sixcms/media.php/9/BbgDSG_2019.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Brandenburgisches Datenschutzgesetz (BbgDSG)"}
                  {:rdf/language "en",
@@ -1617,7 +1591,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-BE-BlnDSG
-  "Berlin Data Protection Act (BlnDSG)"
   {:db/ident :dpvo-legal/DE-BE-BlnDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1625,10 +1598,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-BE,
    :dpvo/hasJurisdiction :dpvo-legal/DE-BE,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/publikationen/informationsmaterialien/2018-BlnBDI_BlnDSG.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Berlin Data Protection Act (BlnDSG)"}
                  {:rdf/language "de",
@@ -1637,7 +1610,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-BW
-  "Baden-Württemberg"
   {:db/ident              :dpvo-legal/DE-BW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1645,24 +1617,24 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-BW-LDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Baden-Württemberg"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-BW-LDSG
-  "Landesdatenschutzgesetz (LDSG) (BW)"
   {:db/ident :dpvo-legal/DE-BW-LDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
                       {:xsd/string "Julian Flake"}},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BW,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.baden-wuerttemberg.datenschutz.de/wp-content/uploads/2018/06/LDSG-neu-GBl-2018173.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Landesdatenschutzgesetz (LDSG) (BW)"}
                  {:rdf/language "en",
@@ -1671,7 +1643,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-BY
-  "Bavaria"
   {:db/ident              :dpvo-legal/DE-BY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1681,14 +1652,14 @@
    :dpvo/hasAuthority     #{:dpvo-legal/DPA-DE-BY-public
                             :dpvo-legal/DPA-DE-BY-non-public},
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bavaria"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-BY-BayDSG
-  "Bavarian Data Protection Act (BayDSG)"
   {:db/ident :dpvo-legal/DE-BY-BayDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1697,10 +1668,10 @@
                         :dpvo-legal/DPA-DE-BY-non-public},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.datenschutz-bayern.de/datenschutzreform2018/BayDSG.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Bavarian Data Protection Act (BayDSG)"}
                  {:rdf/language "de",
@@ -1709,7 +1680,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-HB
-  "Bremen"
   {:db/ident              :dpvo-legal/DE-HB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1718,14 +1688,14 @@
                             :dpvo-legal/DE-HB-BremDSGVOAG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HB,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Bremen"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-HB-BremDSGVOAG
-  "Bremen Implementing Act for the EU General Data Protection Regulation (BremDSGVOAG)"
   {:db/ident :dpvo-legal/DE-HB-BremDSGVOAG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1733,10 +1703,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-HB,
    :dpvo/hasJurisdiction :dpvo-legal/DE-HB,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.transparenz.bremen.de/metainformationen/bremisches-ausfuehrungsgesetz-zur-eu-datenschutz-grundverordnung-bremdsgvoag-vom-8-mai-2018-116884?template=20_gp_ifg_meta_detail_d"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -1748,7 +1718,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-HE
-  "Hesse"
   {:db/ident              :dpvo-legal/DE-HE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1757,14 +1726,14 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HE,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Hesse"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-HE-HDISG
-  "Hessisches Datenschutz- und Informationsfreiheitsgesetz (HDSIG)"
   {:db/ident :dpvo-legal/DE-HE-HDISG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1772,10 +1741,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-HE,
    :dpvo/hasJurisdiction :dpvo-legal/DE-HE,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.rv.hessenrecht.hessen.de/bshe/document/jlr-DSIFGHErahmen"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "de",
       :rdf/value
@@ -1787,7 +1756,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-HH
-  "Hamburg"
   {:db/ident              :dpvo-legal/DE-HH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1796,24 +1764,24 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-HH,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Hamburg"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-HH-HmbDSG
-  "Hamburg Data Protection Act (HmbDSG)"
   {:db/ident :dpvo-legal/DE-HH-HmbDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
                       {:xsd/string "Julian Flake"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-HH,
    :dpvo/hasJurisdiction :dpvo-legal/DE-HH,
-   :foaf/homepage {:rdfa/uri
+   :foaf/homepage {:xsd/anyURI
                    "https://datenschutz-hamburg.de/assets/pdf/HmbDSG_neu.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Hamburg Data Protection Act (HmbDSG)"}
                  {:rdf/language "de",
@@ -1822,7 +1790,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-LSA-DSG
-  "Law on the protection of personal data of citizens (Saxony-Anhalt Data Protection Act - DSG LSA)"
   {:db/ident :dpvo-legal/DE-LSA-DSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1830,10 +1797,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-ST,
    :dpvo/hasJurisdiction :dpvo-legal/DE-ST,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.landtag.sachsen-anhalt.de/fileadmin/Downloads/Rechtsgrundlagen/2018_Datenschutzgesetz-DSG-LSA.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -1845,7 +1812,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-MV
-  "Mecklenburg-Western-Pomerania"
   {:db/ident              :dpvo-legal/DE-MV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1854,14 +1820,14 @@
                             :dpvo-legal/DE-MV-DSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-MV,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mecklenburg-Western-Pomerania"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-MV-DSG
-  "Act to adapt the State Data Protection Act and other data protection regulations in the area of ​​responsibility of the Ministry of the Interior and Europe Mecklenburg-West Pomerania to Regulation (EU) 2016/679 and to implement Directive (EU) 2016/680"
   {:db/ident :dpvo-legal/DE-MV-DSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1869,10 +1835,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-MV,
    :dpvo/hasJurisdiction :dpvo-legal/DE-MV,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.datenschutz-mv.de/static/DS/Dateien/Rechtsgrundlagen/Landesdatenschutzgesetz.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -1884,7 +1850,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-NI
-  "Lower-Saxony"
   {:db/ident              :dpvo-legal/DE-NI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1893,14 +1858,14 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-NI,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Lower-Saxony"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-NI-NDSG
-  "Lower Saxony Data Protection Act (NDSG)"
   {:db/ident :dpvo-legal/DE-NI-NDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1908,10 +1873,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-NI,
    :dpvo/hasJurisdiction :dpvo-legal/DE-NI,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://lfd.niedersachsen.de/download/132258/Niedersaechsisches_Datenschutzgesetz_NDSG_vom_16._Mai_2018_Nds._GVBl._S._66_.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Lower Saxony Data Protection Act (NDSG)"}
                  {:rdf/language "de",
@@ -1920,7 +1885,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-NW
-  "North-Rhine Westphalia"
   {:db/ident              :dpvo-legal/DE-NW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1929,14 +1893,14 @@
                             :dpvo-legal/DE-NW-DSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-NW,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "North-Rhine Westphalia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-NW-DSG
-  "Datenschutzgesetz Nordrhein-Westfalen (DSG NRW)"
   {:db/ident :dpvo-legal/DE-NW-DSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1944,10 +1908,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-NW,
    :dpvo/hasJurisdiction :dpvo-legal/DE-NW,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://recht.nrw.de/lmi/owa/br_text_anzeigen?v_id=3520071121100436275"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value "Datenschutzgesetz Nordrhein-Westfalen (DSG NRW)"}
                  {:rdf/language "en",
@@ -1957,7 +1921,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-RP
-  "Rhineland-Palatinate"
   {:db/ident              :dpvo-legal/DE-RP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -1965,14 +1928,14 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-RP-LDSG},
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Rhineland-Palatinate"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-RP-LDSG
-  "State Data Protection Act (LDSG)"
   {:db/ident :dpvo-legal/DE-RP-LDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -1980,9 +1943,9 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-RP,
    :dpvo/hasJurisdiction :dpvo-legal/DE-RP,
    :foaf/homepage
-   {:rdfa/uri "https://landesrecht.rlp.de/bsrp/document/jlr-DSGRP2018pP18"},
+   {:xsd/anyURI "https://landesrecht.rlp.de/bsrp/document/jlr-DSGRP2018pP18"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "State Data Protection Act (LDSG)"}
                  {:rdf/language "de",
@@ -1991,7 +1954,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-SH
-  "Schleswig-Holstein"
   {:db/ident              :dpvo-legal/DE-SH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2000,14 +1962,14 @@
                             :dpvo-legal/DE-SH-LDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SH,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Schleswig-Holstein"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-SH-LDSG
-  "Schleswig-Holstein law for the protection of personal data (state data protection law - LDSG)"
   {:db/ident :dpvo-legal/DE-SH-LDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2015,10 +1977,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-SH,
    :dpvo/hasJurisdiction :dpvo-legal/DE-SH,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.gesetze-rechtsprechung.sh.juris.de/jportal/?quelle=jlink&query=DSG+SH&psml=bsshoprod.psml&max=true&aiz=true"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2030,7 +1992,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-SL
-  "Saarland"
   {:db/ident              :dpvo-legal/DE-SL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2039,14 +2000,14 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SL,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saarland"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-SL-SDSG
-  "Saarländisches Datenschutzgesetz"
   {:db/ident :dpvo-legal/DE-SL-SDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2054,9 +2015,9 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-SL,
    :dpvo/hasJurisdiction :dpvo-legal/DE-SL,
    :foaf/homepage
-   {:rdfa/uri "https://recht.saarland.de/bssl/document/jlr-DSGSL2018rahmen"},
+   {:xsd/anyURI "https://recht.saarland.de/bssl/document/jlr-DSGSL2018rahmen"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Saarländisches Datenschutzgesetz"}
                  {:rdf/language "en",
@@ -2065,7 +2026,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-SN
-  "Saxony"
   {:db/ident              :dpvo-legal/DE-SN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2074,14 +2034,14 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-SN,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saxony"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-SN-SächsDSG
-  "Law for the Protection of Informational Self-Determination in the Free State of Saxony (Saxon Data Protection Act - SächsDSG)"
   {:db/ident :dpvo-legal/DE-SN-SächsDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2089,9 +2049,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-SN,
    :dpvo/hasJurisdiction :dpvo-legal/DE-SN,
    :foaf/homepage
-   {:rdfa/uri "https://www.recht.sachsen.de/vorschrift_gesamt/1672/28005.pdf"},
+   {:xsd/anyURI
+    "https://www.recht.sachsen.de/vorschrift_gesamt/1672/28005.pdf"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2103,7 +2064,6 @@
                     :rdf/value    "accepted"}})
 
 (def DE-ST
-  "Saxony-Anhalt"
   {:db/ident              :dpvo-legal/DE-ST,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2112,14 +2072,14 @@
                             :dpvo-legal/DE-LSA-DSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-ST,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saxony-Anhalt"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-TH
-  "Thuringia"
   {:db/ident              :dpvo-legal/DE-TH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2128,14 +2088,14 @@
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasAuthority     :dpvo-legal/DPA-DE-TH,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Thuringia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DE-TH-ThürDSG
-  "Thüringer Datenschutzgesetz (ThürDSG)"
   {:db/ident :dpvo-legal/DE-TH-ThürDSG,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2143,10 +2103,10 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-DE-TH,
    :dpvo/hasJurisdiction :dpvo-legal/DE-TH,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://landesrecht.thueringen.de/bsth/document/jlr-DSGTH2018rahmen"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Thüringer Datenschutzgesetz (ThürDSG)"}
                  {:rdf/language "en",
@@ -2155,7 +2115,6 @@
                     :rdf/value    "accepted"}})
 
 (def DJ
-  "DJ"
   {:db/ident              :dpvo-legal/DJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2166,14 +2125,14 @@
    :dpvo-legal/iso_numeric "262",
    :dpvo-legal/un_m49     "262",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Djibouti"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DK
-  "DK"
   {:db/ident               :dpvo-legal/DK,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -2188,7 +2147,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-DK,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Denmark"},
@@ -2196,7 +2155,6 @@
                             :rdf/value    "accepted"}})
 
 (def DM
-  "DM"
   {:db/ident              :dpvo-legal/DM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2208,14 +2166,14 @@
    :dpvo-legal/iso_numeric "212",
    :dpvo-legal/un_m49     "212",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Dominica"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DO
-  "DO"
   {:db/ident              :dpvo-legal/DO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -2227,52 +2185,54 @@
    :dpvo-legal/iso_numeric "214",
    :dpvo-legal/un_m49     "214",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Dominican Republic"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-AT
-  "Austrian Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-AT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/AT,
-   :foaf/homepage         {:rdfa/uri "https://dsb.gv.at"},
+   :foaf/homepage         {:xsd/anyURI "https://dsb.gv.at"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Austrian Data Protection Authority"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-BE
-  "Belgian Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-BE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/BE,
-   :foaf/homepage         {:rdfa/uri "https://www.dataprotectionauthority.be/"},
+   :foaf/homepage         {:xsd/anyURI
+                           "https://www.dataprotectionauthority.be/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Belgian Data Protection Authority"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-BG
-  "Commission for Personal Data Protection"
   {:db/ident              :dpvo-legal/DPA-BG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/BG,
-   :foaf/homepage         {:rdfa/uri "https://www.cpdp.bg/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.cpdp.bg/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Commission for Personal Data Protection"},
@@ -2280,15 +2240,15 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-CY
-  "Commissioner for Personal Data Protection"
   {:db/ident              :dpvo-legal/DPA-CY,
    :dcterms/created       #inst "2023-06-16T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/CY,
-   :foaf/homepage         {:rdfa/uri "http://www.dataprotection.gov.cy/"},
+   :foaf/homepage         {:xsd/anyURI "http://www.dataprotection.gov.cy/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Commissioner for Personal Data Protection"},
@@ -2296,30 +2256,29 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-CZ
-  "Office for Personal Data Protection"
   {:db/ident              :dpvo-legal/DPA-CZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/CZ,
-   :foaf/homepage         {:rdfa/uri "https://www.uoou.cz/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.uoou.cz/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Office for Personal Data Protection"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-DE
-  "The Federal Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE,
-   :foaf/homepage {:rdfa/uri "http://www.bfdi.bund.de/"},
+   :foaf/homepage {:xsd/anyURI "http://www.bfdi.bund.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    {:rdf/language "en",
     :rdf/value
@@ -2328,7 +2287,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-BB
-  "The state representative for data protection and the right to inspect files in Brandenburg"
   {:db/ident :dpvo-legal/DPA-DE-BB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2336,9 +2294,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-BE-BbgDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BB,
-   :foaf/homepage {:rdfa/uri "https://www.lda.brandenburg.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.lda.brandenburg.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2350,7 +2308,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-BE
-  "Berlin Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE-BE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2358,9 +2315,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BE-BlnDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BE,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz-berlin.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz-berlin.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2372,7 +2329,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-BY-non-public
-  "Bavarian State Office for Data Protection Supervision"
   {:db/ident :dpvo-legal/DPA-DE-BY-non-public,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2380,9 +2336,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BY-BayDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
-   :foaf/homepage {:rdfa/uri "https://www.lda.bayern.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.lda.bayern.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value
                   "Bavarian State Office for Data Protection Supervision"}
@@ -2392,7 +2348,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-BY-public
-  "The Bavarian State Commissioner for Data Protection"
   {:db/ident :dpvo-legal/DPA-DE-BY-public,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2400,9 +2355,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-BY-BayDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-BY,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz-bayern.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz-bayern.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value    "The Bavarian State Commissioner for Data Protection"}
@@ -2412,7 +2367,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-HB
-  "Die Landesbeauftragte für Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen"
   {:db/ident :dpvo-legal/DPA-DE-HB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2420,9 +2374,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-HB-BremDSGVOAG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-HB,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz.bremen.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz.bremen.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "de",
       :rdf/value
@@ -2434,7 +2388,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-HE
-  "The Hessian Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE-HE,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2442,9 +2395,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-HE-HDISG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-HE,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz.hessen.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz.hessen.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2456,7 +2409,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-HH
-  "Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit"
   {:db/ident :dpvo-legal/DPA-DE-HH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2464,9 +2416,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-HH-HmbDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-HH,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz-hamburg.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz-hamburg.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "de",
       :rdf/value
@@ -2478,7 +2430,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-MV
-  "Der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern"
   {:db/ident :dpvo-legal/DPA-DE-MV,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2486,9 +2437,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-MV-DSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-MV,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz-mv.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz-mv.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "de",
       :rdf/value
@@ -2500,7 +2451,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-NI
-  "Die Landesbeauftragte für den Datenschutz Niedersachsen"
   {:db/ident :dpvo-legal/DPA-DE-NI,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2508,9 +2458,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-NI-NDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-NI,
-   :foaf/homepage {:rdfa/uri "https://www.lfd.niedersachsen.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.lfd.niedersachsen.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "de",
       :rdf/value    "Die Landesbeauftragte für den Datenschutz Niedersachsen"}
@@ -2520,7 +2470,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-NW
-  "State Commissioner for Data Protection and Freedom of Information North Rhine-Westphalia"
   {:db/ident :dpvo-legal/DPA-DE-NW,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2528,9 +2477,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-NW-DSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-NW,
-   :foaf/homepage {:rdfa/uri "https://www.ldi.nrw.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.ldi.nrw.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2542,15 +2491,14 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-RP
-  "The state commissioner for data protection and freedom of information in Rhineland-Palatinate"
   {:db/ident :dpvo-legal/DPA-DE-RP,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-RP-LDSG},
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz.rlp.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz.rlp.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2562,7 +2510,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-SH
-  "Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein"
   {:db/ident :dpvo-legal/DPA-DE-SH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2570,9 +2517,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-SH-LDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-SH,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutzzentrum.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutzzentrum.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "de",
       :rdf/value
@@ -2584,7 +2531,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-SL
-  "Independent Data Protection Center Saarland - State Commissioner for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-DE-SL,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2592,9 +2538,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-SL-SDSG
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-SL,
-   :foaf/homepage {:rdfa/uri "https://www.datenschutz.saarland.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.datenschutz.saarland.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2606,7 +2552,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-SN
-  "The Saxon data protection officer"
   {:db/ident              :dpvo-legal/DPA-DE-SN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2614,9 +2559,10 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-SN-SächsDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction  :dpvo-legal/DE-SN,
-   :foaf/homepage         {:rdfa/uri "https://www.saechsdsb.de/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.saechsdsb.de/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            #{{:rdf/language "en",
                              :rdf/value    "The Saxon data protection officer"}
                             {:rdf/language "de",
@@ -2626,7 +2572,6 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-DE-ST
-  "State representative for data protection in Saxony-Anhalt"
   {:db/ident :dpvo-legal/DPA-DE-ST,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2634,9 +2579,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/EU-GDPR :dpvo-legal/DE-BDSG
                             :dpvo-legal/DE-LSA-DSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-ST,
-   :foaf/homepage {:rdfa/uri "https://datenschutz.sachsen-anhalt.de/"},
+   :foaf/homepage {:xsd/anyURI "https://datenschutz.sachsen-anhalt.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value    "State representative for data protection in Saxony-Anhalt"}
@@ -2646,7 +2591,6 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DE-TH
-  "Thuringia state commissioner for data protection and freedom of information"
   {:db/ident :dpvo-legal/DPA-DE-TH,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
@@ -2654,9 +2598,9 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/DE-TH-ThürDSG :dpvo-legal/EU-GDPR
                             :dpvo-legal/DE-BDSG},
    :dpvo/hasJurisdiction :dpvo-legal/DE-TH,
-   :foaf/homepage {:rdfa/uri "https://www.tlfdi.de/"},
+   :foaf/homepage {:xsd/anyURI "https://www.tlfdi.de/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    #{{:rdf/language "en",
       :rdf/value
@@ -2668,74 +2612,74 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-DK
-  "Danish Data Protection Agency"
   {:db/ident              :dpvo-legal/DPA-DK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/DK,
-   :foaf/homepage         {:rdfa/uri "http://www.datatilsynet.dk/"},
+   :foaf/homepage         {:xsd/anyURI "http://www.datatilsynet.dk/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Danish Data Protection Agency"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-EE
-  "Estonian Data Protection Inspectorate"
   {:db/ident              :dpvo-legal/DPA-EE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/EE,
-   :foaf/homepage         {:rdfa/uri "http://www.aki.ee/"},
+   :foaf/homepage         {:xsd/anyURI "http://www.aki.ee/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value "Estonian Data Protection Inspectorate"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-ES
-  "Spanish Data Protection Agency (AEPD)"
   {:db/ident              :dpvo-legal/DPA-ES,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/ES,
-   :foaf/homepage         {:rdfa/uri "https://www.aepd.es/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.aepd.es/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value "Spanish Data Protection Agency (AEPD)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-EU-EDPS
-  "European Data Protection Supervisor"
   {:db/ident              :dpvo-legal/DPA-EU-EDPS,
    :dcterms/created       #inst "2023-06-16T00:00:00.000-00:00",
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/EU,
-   :foaf/homepage         {:rdfa/uri "https://edps.europa.eu/"},
+   :foaf/homepage         {:xsd/anyURI "https://edps.europa.eu/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "European Data Protection Supervisor"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-FI
-  "Office of the Data Protection Ombudsman"
   {:db/ident              :dpvo-legal/DPA-FI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/FI,
-   :foaf/homepage         {:rdfa/uri "https://tietosuoja.fi/"},
+   :foaf/homepage         {:xsd/anyURI "https://tietosuoja.fi/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Office of the Data Protection Ombudsman"},
@@ -2743,15 +2687,14 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-FR
-  "National Commission on Informatics and Liberty (CNIL)"
   {:db/ident :dpvo-legal/DPA-FR,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/FR,
-   :foaf/homepage {:rdfa/uri "https://www.cnil.fr/"},
+   :foaf/homepage {:xsd/anyURI "https://www.cnil.fr/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "National Commission on Informatics and Liberty (CNIL)"},
@@ -2759,45 +2702,45 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-GB
-  "Information Commissioner's Office"
   {:db/ident              :dpvo-legal/DPA-GB,
    :dcterms/created       #inst "2022-07-20T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw #{:dpvo-legal/UK-GDPR :dpvo-legal/UK-DPA-2018},
    :dpvo/hasJurisdiction  :dpvo-legal/GB,
-   :foaf/homepage         {:rdfa/uri "https://ico.org.uk/"},
+   :foaf/homepage         {:xsd/anyURI "https://ico.org.uk/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Information Commissioner's Office"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-GR
-  "Hellenic Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-GR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/GR,
-   :foaf/homepage         {:rdfa/uri "http://dpa.gr"},
+   :foaf/homepage         {:xsd/anyURI "http://dpa.gr"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Hellenic Data Protection Authority"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-HR
-  "Croatian Personal Data Protection Agency"
   {:db/ident              :dpvo-legal/DPA-HR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/HR,
-   :foaf/homepage         {:rdfa/uri "http://www.azop.hr/"},
+   :foaf/homepage         {:xsd/anyURI "http://www.azop.hr/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Croatian Personal Data Protection Agency"},
@@ -2805,15 +2748,14 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-HU
-  "Hungarian National Authority for Data Protection and Freedom of Information"
   {:db/ident :dpvo-legal/DPA-HU,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/HU,
-   :foaf/homepage {:rdfa/uri "http://www.naih.hu/"},
+   :foaf/homepage {:xsd/anyURI "http://www.naih.hu/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    {:rdf/language "en",
     :rdf/value
@@ -2822,74 +2764,74 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-IE
-  "Data Protection Commission (DPC)"
   {:db/ident              :dpvo-legal/DPA-IE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/IE,
-   :foaf/homepage         {:rdfa/uri "http://www.dataprotection.ie"},
+   :foaf/homepage         {:xsd/anyURI "http://www.dataprotection.ie"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Data Protection Commission (DPC)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-IS
-  "Icelandic Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-IS,
    :dcterms/created       #inst "2023-06-16T00:00:00.000-00:00",
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/IS,
-   :foaf/homepage         {:rdfa/uri "https://www.dpa.is/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.dpa.is/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Icelandic Data Protection Authority"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-IT
-  "Data Protection Commission"
   {:db/ident              :dpvo-legal/DPA-IT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/IT,
-   :foaf/homepage         {:rdfa/uri "https://www.garanteprivacy.it/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.garanteprivacy.it/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Data Protection Commission"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-LT
-  "State Data Protection Inspectorate"
   {:db/ident              :dpvo-legal/DPA-LT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LT,
-   :foaf/homepage         {:rdfa/uri "https://ada.lt"},
+   :foaf/homepage         {:xsd/anyURI "https://ada.lt"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "State Data Protection Inspectorate"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-LU
-  "National Commission for Data Protection"
   {:db/ident              :dpvo-legal/DPA-LU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LU,
-   :foaf/homepage         {:rdfa/uri "https://cnpd.public.lu"},
+   :foaf/homepage         {:xsd/anyURI "https://cnpd.public.lu"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "National Commission for Data Protection"},
@@ -2897,30 +2839,29 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-LV
-  "Data State Inspectorate"
   {:db/ident              :dpvo-legal/DPA-LV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LV,
-   :foaf/homepage         {:rdfa/uri "http://www.dvi.gov.lv/"},
+   :foaf/homepage         {:xsd/anyURI "http://www.dvi.gov.lv/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Data State Inspectorate"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-MT
-  "Office of the Information and Data Protection Commissioner"
   {:db/ident :dpvo-legal/DPA-MT,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/MT,
-   :foaf/homepage {:rdfa/uri "https://idpc.org.mt"},
+   :foaf/homepage {:xsd/anyURI "https://idpc.org.mt"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "Office of the Information and Data Protection Commissioner"},
@@ -2928,45 +2869,45 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-NL
-  "Dutch Data Protection Authority"
   {:db/ident              :dpvo-legal/DPA-NL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/NL,
-   :foaf/homepage         {:rdfa/uri "https://autoriteitpersoonsgegevens.nl"},
+   :foaf/homepage         {:xsd/anyURI "https://autoriteitpersoonsgegevens.nl"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Dutch Data Protection Authority"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-PL
-  "Personal Data Protection Office"
   {:db/ident              :dpvo-legal/DPA-PL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/PL,
-   :foaf/homepage         {:rdfa/uri "https://uodo.gov.pl/"},
+   :foaf/homepage         {:xsd/anyURI "https://uodo.gov.pl/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Personal Data Protection Office"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-PT
-  "Comissão Nacional de Protecção de Dados"
   {:db/ident              :dpvo-legal/DPA-PT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/PT,
-   :foaf/homepage         {:rdfa/uri "https://www.cnpd.pt"},
+   :foaf/homepage         {:xsd/anyURI "https://www.cnpd.pt"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Comissão Nacional de Protecção de Dados"},
@@ -2974,15 +2915,14 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-RO
-  "National Supervisory Authority for Personal Data Processing"
   {:db/ident :dpvo-legal/DPA-RO,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/RO,
-   :foaf/homepage {:rdfa/uri "http://www.dataprotection.ro/"},
+   :foaf/homepage {:xsd/anyURI "http://www.dataprotection.ro/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "National Supervisory Authority for Personal Data Processing"},
@@ -2990,15 +2930,15 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-SE
-  "Swedish Authority for Privacy Protection"
   {:db/ident              :dpvo-legal/DPA-SE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/SE,
-   :foaf/homepage         {:rdfa/uri "https://www.imy.se/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.imy.se/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Swedish Authority for Privacy Protection"},
@@ -3006,15 +2946,14 @@
                            :rdf/value    "accepted"}})
 
 (def DPA-SI
-  "Information Commissioner of the Republic of Slovenia"
   {:db/ident :dpvo-legal/DPA-SI,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/SI,
-   :foaf/homepage {:rdfa/uri "https://www.ip-rs.si/"},
+   :foaf/homepage {:xsd/anyURI "https://www.ip-rs.si/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "Information Commissioner of the Republic of Slovenia"},
@@ -3022,15 +2961,14 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-SK
-  "Office for Personal Data Protection of the Slovak Republic"
   {:db/ident :dpvo-legal/DPA-SK,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction :dpvo-legal/SK,
-   :foaf/homepage {:rdfa/uri "http://www.dataprotection.gov.sk/"},
+   :foaf/homepage {:xsd/anyURI "http://www.dataprotection.gov.sk/"},
    :rdf/type #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "Office for Personal Data Protection of the Slovak Republic"},
@@ -3038,89 +2976,89 @@
                     :rdf/value    "accepted"}})
 
 (def DPA-US-CO
-  "Colorado Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-CO,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-CO-CPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-CO,
-   :foaf/homepage         {:rdfa/uri "https://coag.gov"},
+   :foaf/homepage         {:xsd/anyURI "https://coag.gov"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Colorado Attorney General"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-US-CT
-  "Connecticut Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-CT,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-CT-CTPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-CT,
-   :foaf/homepage         {:rdfa/uri "https://portal.ct.gov/AG"},
+   :foaf/homepage         {:xsd/anyURI "https://portal.ct.gov/AG"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Connecticut Attorney General"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-US-NV
-  "Nevada Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-NV,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-NV-NPICICA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-NV,
-   :foaf/homepage         {:rdfa/uri "https://ag.nv.gov/"},
+   :foaf/homepage         {:xsd/anyURI "https://ag.nv.gov/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Nevada Attorney General"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-US-UT
-  "Utah Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-UT,
    :dcterms/created       #inst "2022-11-22T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-UT-UCPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-UT,
-   :foaf/homepage         {:rdfa/uri "https://attorneygeneral.utah.gov/"},
+   :foaf/homepage         {:xsd/anyURI "https://attorneygeneral.utah.gov/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Utah Attorney General"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPA-US-VA
-  "Virginia Attorney General"
   {:db/ident              :dpvo-legal/DPA-US-VA,
    :dcterms/created       #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Jonathan Bowker"},
    :dpvo/hasApplicableLaw :dpvo-legal/US-VA-VCDPA,
    :dpvo/hasJurisdiction  :dpvo-legal/US-VA,
-   :foaf/homepage         {:rdfa/uri "https://www.oag.state.va.us"},
+   :foaf/homepage         {:xsd/anyURI "https://www.oag.state.va.us"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Virginia Attorney General"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DPV-LI
-  "Liechtenstein Data Protection Authority"
   {:db/ident              :dpvo-legal/DPV-LI,
    :dcterms/created       #inst "2023-06-16T00:00:00.000-00:00",
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/LI,
-   :foaf/homepage         {:rdfa/uri "https://www.datenschutzstelle.li/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.datenschutzstelle.li/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "Liechtenstein Data Protection Authority"},
@@ -3128,21 +3066,20 @@
                            :rdf/value    "accepted"}})
 
 (def DPV-NO
-  "Norwegian Data Protection Authority"
   {:db/ident              :dpvo-legal/DPV-NO,
    :dcterms/created       #inst "2023-06-16T00:00:00.000-00:00",
    :dpvo/hasApplicableLaw :dpvo-legal/EU-GDPR,
    :dpvo/hasJurisdiction  :dpvo-legal/NO,
-   :foaf/homepage         {:rdfa/uri "https://www.datatilsynet.no/"},
+   :foaf/homepage         {:xsd/anyURI "https://www.datatilsynet.no/"},
    :rdf/type              #{:owl/NamedIndividual :dpvo/DataProtectionAuthority},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Norwegian Data Protection Authority"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def DZ
-  "DZ"
   {:db/ident              :dpvo-legal/DZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3152,14 +3089,14 @@
    :dpvo-legal/iso_numeric "12",
    :dpvo-legal/un_m49     "12",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Algeria"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def EC
-  "EC"
   {:db/ident              :dpvo-legal/EC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3171,14 +3108,14 @@
    :dpvo-legal/iso_numeric "218",
    :dpvo-legal/un_m49     "218",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Ecuador"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def EE
-  "EE"
   {:db/ident               :dpvo-legal/EE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -3193,7 +3130,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-EE,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Estonia"},
@@ -3201,7 +3138,6 @@
                             :rdf/value    "accepted"}})
 
 (def EEA
-  "European Economic Area (EEA)"
   {:db/ident         :dpvo-legal/EEA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3225,14 +3161,13 @@
                        :dpvo-legal/CY :dpvo-legal/DK :dpvo-legal/IE
                        :dpvo-legal/ES :dpvo-legal/LV :dpvo-legal/RO},
    :rdf/type         #{:dpvo/SupraNationalUnion :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "European Economic Area (EEA)"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EEA30
-  "European Economic Area (EEA-30)"
   {:db/ident         :dpvo-legal/EEA30,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3260,14 +3195,13 @@
                        :dpvo-legal/CY :dpvo-legal/DK :dpvo-legal/IE
                        :dpvo-legal/ES :dpvo-legal/LV :dpvo-legal/RO},
    :rdf/type         #{:dpvo/SupraNationalUnion :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "European Economic Area (EEA-30)"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EEA31
-  "European Economic Area (EEA-31)"
   {:db/ident         :dpvo-legal/EEA31,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3299,14 +3233,13 @@
                        :dpvo-legal/IE :dpvo-legal/ES :dpvo-legal/LV
                        :dpvo-legal/RO},
    :rdf/type         #{:dpvo/SupraNationalUnion :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "European Economic Area (EEA-31)"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EG
-  "EG"
   {:db/ident              :dpvo-legal/EG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3316,14 +3249,14 @@
    :dpvo-legal/iso_numeric "818",
    :dpvo-legal/un_m49     "818",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Egypt"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def EH
-  "EH"
   {:db/ident              :dpvo-legal/EH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3333,14 +3266,14 @@
    :dpvo-legal/iso_numeric "732",
    :dpvo-legal/un_m49     "732",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Western Sahara"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ER
-  "ER"
   {:db/ident              :dpvo-legal/ER,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3351,14 +3284,14 @@
    :dpvo-legal/iso_numeric "232",
    :dpvo-legal/un_m49     "232",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Eritrea"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ES
-  "ES"
   {:db/ident               :dpvo-legal/ES,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -3373,7 +3306,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-ES,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Spain"},
@@ -3381,7 +3314,6 @@
                             :rdf/value    "accepted"}})
 
 (def ET
-  "ET"
   {:db/ident              :dpvo-legal/ET,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3392,14 +3324,14 @@
    :dpvo-legal/iso_numeric "231",
    :dpvo-legal/un_m49     "231",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Ethiopia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def EU
-  "European Union (EU)"
   {:db/ident          :dpvo-legal/EU,
    :dcterms/created   #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator   {:xsd/string "Harshvardhan J. Pandit"},
@@ -3424,14 +3356,13 @@
                         :dpvo-legal/CY :dpvo-legal/DK :dpvo-legal/IE
                         :dpvo-legal/ES :dpvo-legal/LV :dpvo-legal/RO},
    :rdf/type          #{:dpvo/SupraNationalUnion :owl/NamedIndividual},
-   :rdfs/isDefinedBy  {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy  {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label        {:rdf/language "en",
                        :rdf/value    "European Union (EU)"},
    :vs/term_status    {:rdf/language "en",
                        :rdf/value    "accepted"}})
 
 (def EU-GDPR
-  "General Data Protection Regulation (GDPR)"
   {:db/ident             :dpvo-legal/EU-GDPR,
    :dcterms/created      #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator      {:xsd/string "Harshvardhan J. Pandit"},
@@ -3478,10 +3409,11 @@
                            :dpvo-legal/DE-RP :dpvo-legal/DE-SL :dpvo-legal/DE-BE
                            :dpvo-legal/LV :dpvo-legal/DE-ST :dpvo-legal/RO
                            :dpvo-legal/DE-NW},
-   :foaf/homepage        {:rdfa/uri
+   :foaf/homepage        {:xsd/anyURI
                           "http://data.europa.eu/eli/reg/2016/679/oj"},
    :rdf/type             #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy     {:xsd/anyURI
+                          "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label           {:rdf/language "en",
                           :rdf/value
                           "General Data Protection Regulation (GDPR)"},
@@ -3489,7 +3421,6 @@
                           :rdf/value    "accepted"}})
 
 (def EU27
-  "European Union (EU-27)"
   {:db/ident         :dpvo-legal/EU27,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3517,14 +3448,13 @@
                        :dpvo-legal/CY :dpvo-legal/DK :dpvo-legal/IE
                        :dpvo-legal/ES :dpvo-legal/LV :dpvo-legal/RO},
    :rdf/type         #{:dpvo/SupraNationalUnion :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "European Union (EU-27)"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EU28
-  "European Union (EU-28)"
   {:db/ident         :dpvo-legal/EU28,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3556,14 +3486,13 @@
                        :dpvo-legal/IE :dpvo-legal/ES :dpvo-legal/LV
                        :dpvo-legal/RO},
    :rdf/type         #{:dpvo/SupraNationalUnion :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "European Union (EU-28)"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EasternAfrica
-  "EasternAfrica"
   {:db/ident         :dpvo-legal/EasternAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3577,14 +3506,13 @@
                        :dpvo-legal/MU},
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EasternAfrica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EasternAsia
-  "EasternAsia"
   {:db/ident         :dpvo-legal/EasternAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3593,14 +3521,13 @@
                        :dpvo-legal/MN},
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EasternAsia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def EasternEurope
-  "EasternEurope"
   {:db/ident         :dpvo-legal/EasternEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3610,14 +3537,13 @@
                        :dpvo-legal/MD},
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EasternEurope"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def Europe
-  "Europe"
   {:db/ident         :dpvo-legal/Europe,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -3641,14 +3567,13 @@
                        :dpvo-legal/RS :dpvo-legal/RO :dpvo-legal/RU
                        :dpvo-legal/MD :dpvo-legal/GI},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Europe"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def FI
-  "FI"
   {:db/ident               :dpvo-legal/FI,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -3663,7 +3588,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-FI,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Finland"},
@@ -3671,7 +3596,6 @@
                             :rdf/value    "accepted"}})
 
 (def FJ
-  "FJ"
   {:db/ident              :dpvo-legal/FJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3681,14 +3605,14 @@
    :dpvo-legal/iso_numeric "242",
    :dpvo-legal/un_m49     "242",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Fiji"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def FK
-  "FK"
   {:db/ident              :dpvo-legal/FK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3700,14 +3624,14 @@
    :dpvo-legal/iso_numeric "238",
    :dpvo-legal/un_m49     "238",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Falkland Islands (Malvinas)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def FM
-  "FM"
   {:db/ident              :dpvo-legal/FM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3717,14 +3641,14 @@
    :dpvo-legal/iso_numeric "583",
    :dpvo-legal/un_m49     "583",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Micronesia (Federated States of)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def FO
-  "FO"
   {:db/ident              :dpvo-legal/FO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3734,14 +3658,14 @@
    :dpvo-legal/iso_numeric "234",
    :dpvo-legal/un_m49     "234",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Faroe Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def FR
-  "FR"
   {:db/ident               :dpvo-legal/FR,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -3756,7 +3680,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-FR,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "France"},
@@ -3764,7 +3688,6 @@
                             :rdf/value    "accepted"}})
 
 (def GA
-  "GA"
   {:db/ident              :dpvo-legal/GA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3775,14 +3698,14 @@
    :dpvo-legal/iso_numeric "266",
    :dpvo-legal/un_m49     "266",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Gabon"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GB
-  "GB"
   {:db/ident :dpvo-legal/GB,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -3795,7 +3718,7 @@
    :dpvo/hasApplicableLaw #{:dpvo-legal/GB-DPA :dpvo-legal/GB-GDPR},
    :dpvo/hasAuthority :dpvo-legal/DPA-GB,
    :rdf/type #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "United Kingdom of Great Britain and Northern Ireland"},
@@ -3803,7 +3726,6 @@
                     :rdf/value    "accepted"}})
 
 (def GB-DPA
-  "Data Protection Act (DPA)"
   {:db/ident :dpvo-legal/GB-DPA,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -3812,17 +3734,16 @@
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2018-05-25T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction :dpvo-legal/GB,
-   :foaf/homepage {:rdfa/uri
+   :foaf/homepage {:xsd/anyURI
                    "https://www.legislation.gov.uk/ukpga/2018/12/contents"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Data Protection Act (DPA)"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "modified"}})
 
 (def GB-GDPR
-  "General Data Protection Regulation (GDPR)"
   {:db/ident :dpvo-legal/GB-GDPR,
    :dcterms/created #inst "2022-07-20T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -3831,17 +3752,16 @@
                       :time/hasBeginning
                       {:time/inXSDDate #inst "2019-02-28T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction :dpvo-legal/GB,
-   :foaf/homepage {:rdfa/uri
+   :foaf/homepage {:xsd/anyURI
                    "https://www.legislation.gov.uk/eur/2016/679/contents"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "General Data Protection Regulation (GDPR)"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "modified"}})
 
 (def GD
-  "GD"
   {:db/ident              :dpvo-legal/GD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3853,14 +3773,14 @@
    :dpvo-legal/iso_numeric "308",
    :dpvo-legal/un_m49     "308",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Grenada"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GE
-  "GE"
   {:db/ident              :dpvo-legal/GE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3870,14 +3790,14 @@
    :dpvo-legal/iso_numeric "268",
    :dpvo-legal/un_m49     "268",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Georgia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GF
-  "GF"
   {:db/ident              :dpvo-legal/GF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3889,14 +3809,14 @@
    :dpvo-legal/iso_numeric "254",
    :dpvo-legal/un_m49     "254",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "French Guiana"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GG
-  "GG"
   {:db/ident              :dpvo-legal/GG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3907,14 +3827,14 @@
    :dpvo-legal/iso_numeric "831",
    :dpvo-legal/un_m49     "831",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guernsey"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GH
-  "GH"
   {:db/ident              :dpvo-legal/GH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3925,14 +3845,14 @@
    :dpvo-legal/iso_numeric "288",
    :dpvo-legal/un_m49     "288",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Ghana"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GI
-  "GI"
   {:db/ident              :dpvo-legal/GI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3942,14 +3862,14 @@
    :dpvo-legal/iso_numeric "292",
    :dpvo-legal/un_m49     "292",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Gibraltar"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GL
-  "GL"
   {:db/ident              :dpvo-legal/GL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3959,14 +3879,14 @@
    :dpvo-legal/iso_numeric "304",
    :dpvo-legal/un_m49     "304",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Greenland"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GM
-  "GM"
   {:db/ident              :dpvo-legal/GM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3977,14 +3897,14 @@
    :dpvo-legal/iso_numeric "270",
    :dpvo-legal/un_m49     "270",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Gambia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GN
-  "GN"
   {:db/ident              :dpvo-legal/GN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -3995,14 +3915,14 @@
    :dpvo-legal/iso_numeric "324",
    :dpvo-legal/un_m49     "324",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guinea"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GP
-  "GP"
   {:db/ident              :dpvo-legal/GP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4014,14 +3934,14 @@
    :dpvo-legal/iso_numeric "312",
    :dpvo-legal/un_m49     "312",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guadeloupe"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GQ
-  "GQ"
   {:db/ident              :dpvo-legal/GQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4032,14 +3952,14 @@
    :dpvo-legal/iso_numeric "226",
    :dpvo-legal/un_m49     "226",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Equatorial Guinea"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GR
-  "GR"
   {:db/ident               :dpvo-legal/GR,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4054,7 +3974,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-GR,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Greece"},
@@ -4062,7 +3982,6 @@
                             :rdf/value    "accepted"}})
 
 (def GS
-  "GS"
   {:db/ident              :dpvo-legal/GS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4074,7 +3993,8 @@
    :dpvo-legal/iso_numeric "239",
    :dpvo-legal/un_m49     "239",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "South Georgia and the South Sandwich Islands"},
@@ -4082,7 +4002,6 @@
                            :rdf/value    "accepted"}})
 
 (def GT
-  "GT"
   {:db/ident              :dpvo-legal/GT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4094,14 +4013,14 @@
    :dpvo-legal/iso_numeric "320",
    :dpvo-legal/un_m49     "320",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guatemala"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GU
-  "GU"
   {:db/ident              :dpvo-legal/GU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4111,14 +4030,14 @@
    :dpvo-legal/iso_numeric "316",
    :dpvo-legal/un_m49     "316",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guam"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GW
-  "GW"
   {:db/ident              :dpvo-legal/GW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4129,14 +4048,14 @@
    :dpvo-legal/iso_numeric "624",
    :dpvo-legal/un_m49     "624",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guinea-Bissau"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def GY
-  "GY"
   {:db/ident              :dpvo-legal/GY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4148,14 +4067,14 @@
    :dpvo-legal/iso_numeric "328",
    :dpvo-legal/un_m49     "328",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Guyana"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def HK
-  "HK"
   {:db/ident              :dpvo-legal/HK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4165,7 +4084,8 @@
    :dpvo-legal/iso_numeric "344",
    :dpvo-legal/un_m49     "344",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "China, Hong Kong Special Administrative Region"},
@@ -4173,7 +4093,6 @@
                            :rdf/value    "accepted"}})
 
 (def HM
-  "HM"
   {:db/ident              :dpvo-legal/HM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4184,14 +4103,14 @@
    :dpvo-legal/iso_numeric "334",
    :dpvo-legal/un_m49     "334",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Heard Island and McDonald Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def HN
-  "HN"
   {:db/ident              :dpvo-legal/HN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4203,14 +4122,14 @@
    :dpvo-legal/iso_numeric "340",
    :dpvo-legal/un_m49     "340",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Honduras"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def HR
-  "HR"
   {:db/ident               :dpvo-legal/HR,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4225,7 +4144,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-HR,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Croatia"},
@@ -4233,7 +4152,6 @@
                             :rdf/value    "accepted"}})
 
 (def HT
-  "HT"
   {:db/ident              :dpvo-legal/HT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4245,14 +4163,14 @@
    :dpvo-legal/iso_numeric "332",
    :dpvo-legal/un_m49     "332",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Haiti"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def HU
-  "HU"
   {:db/ident               :dpvo-legal/HU,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4267,7 +4185,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-HU,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Hungary"},
@@ -4275,7 +4193,6 @@
                             :rdf/value    "accepted"}})
 
 (def ID
-  "ID"
   {:db/ident              :dpvo-legal/ID,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4285,14 +4202,14 @@
    :dpvo-legal/iso_numeric "360",
    :dpvo-legal/un_m49     "360",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Indonesia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IE
-  "IE"
   {:db/ident               :dpvo-legal/IE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4307,7 +4224,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-IE,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Ireland"},
@@ -4315,7 +4232,6 @@
                             :rdf/value    "accepted"}})
 
 (def IL
-  "IL"
   {:db/ident              :dpvo-legal/IL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4325,14 +4241,14 @@
    :dpvo-legal/iso_numeric "376",
    :dpvo-legal/un_m49     "376",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Israel"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IM
-  "IM"
   {:db/ident              :dpvo-legal/IM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4342,14 +4258,14 @@
    :dpvo-legal/iso_numeric "833",
    :dpvo-legal/un_m49     "833",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Isle of Man"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IN
-  "IN"
   {:db/ident              :dpvo-legal/IN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4359,14 +4275,14 @@
    :dpvo-legal/iso_numeric "356",
    :dpvo-legal/un_m49     "356",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "India"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IO
-  "IO"
   {:db/ident              :dpvo-legal/IO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4377,14 +4293,14 @@
    :dpvo-legal/iso_numeric "86",
    :dpvo-legal/un_m49     "86",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "British Indian Ocean Territory"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IQ
-  "IQ"
   {:db/ident              :dpvo-legal/IQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4394,14 +4310,14 @@
    :dpvo-legal/iso_numeric "368",
    :dpvo-legal/un_m49     "368",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Iraq"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IR
-  "IR"
   {:db/ident              :dpvo-legal/IR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4411,14 +4327,14 @@
    :dpvo-legal/iso_numeric "364",
    :dpvo-legal/un_m49     "364",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Iran (Islamic Republic of)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def IS
-  "IS"
   {:db/ident               :dpvo-legal/IS,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4429,7 +4345,7 @@
    :dpvo-legal/un_m49      "352",
    :dpvo/hasAuthority      :dpvo-legal/DPA-IS,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Iceland"},
@@ -4437,7 +4353,6 @@
                             :rdf/value    "accepted"}})
 
 (def IT
-  "IT"
   {:db/ident               :dpvo-legal/IT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4452,7 +4367,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-IT,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Italy"},
@@ -4460,7 +4375,6 @@
                             :rdf/value    "accepted"}})
 
 (def JE
-  "JE"
   {:db/ident              :dpvo-legal/JE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4471,14 +4385,14 @@
    :dpvo-legal/iso_numeric "832",
    :dpvo-legal/un_m49     "832",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Jersey"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def JM
-  "JM"
   {:db/ident              :dpvo-legal/JM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4490,14 +4404,14 @@
    :dpvo-legal/iso_numeric "388",
    :dpvo-legal/un_m49     "388",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Jamaica"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def JO
-  "JO"
   {:db/ident              :dpvo-legal/JO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4507,14 +4421,14 @@
    :dpvo-legal/iso_numeric "400",
    :dpvo-legal/un_m49     "400",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Jordan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def JP
-  "JP"
   {:db/ident              :dpvo-legal/JP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4524,14 +4438,14 @@
    :dpvo-legal/iso_numeric "392",
    :dpvo-legal/un_m49     "392",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Japan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KE
-  "KE"
   {:db/ident              :dpvo-legal/KE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4542,14 +4456,14 @@
    :dpvo-legal/iso_numeric "404",
    :dpvo-legal/un_m49     "404",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Kenya"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KG
-  "KG"
   {:db/ident              :dpvo-legal/KG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4559,14 +4473,14 @@
    :dpvo-legal/iso_numeric "417",
    :dpvo-legal/un_m49     "417",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Kyrgyzstan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KH
-  "KH"
   {:db/ident              :dpvo-legal/KH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4576,14 +4490,14 @@
    :dpvo-legal/iso_numeric "116",
    :dpvo-legal/un_m49     "116",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cambodia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KI
-  "KI"
   {:db/ident              :dpvo-legal/KI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4593,14 +4507,14 @@
    :dpvo-legal/iso_numeric "296",
    :dpvo-legal/un_m49     "296",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Kiribati"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KM
-  "KM"
   {:db/ident              :dpvo-legal/KM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4611,14 +4525,14 @@
    :dpvo-legal/iso_numeric "174",
    :dpvo-legal/un_m49     "174",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Comoros"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KN
-  "KN"
   {:db/ident              :dpvo-legal/KN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4630,14 +4544,14 @@
    :dpvo-legal/iso_numeric "659",
    :dpvo-legal/un_m49     "659",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Kitts and Nevis"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KP
-  "KP"
   {:db/ident              :dpvo-legal/KP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4647,14 +4561,14 @@
    :dpvo-legal/iso_numeric "408",
    :dpvo-legal/un_m49     "408",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value "Democratic People's Republic of Korea"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KR
-  "KR"
   {:db/ident              :dpvo-legal/KR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4664,14 +4578,14 @@
    :dpvo-legal/iso_numeric "410",
    :dpvo-legal/un_m49     "410",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Republic of Korea"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KW
-  "KW"
   {:db/ident              :dpvo-legal/KW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4681,14 +4595,14 @@
    :dpvo-legal/iso_numeric "414",
    :dpvo-legal/un_m49     "414",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Kuwait"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KY
-  "KY"
   {:db/ident              :dpvo-legal/KY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4700,14 +4614,14 @@
    :dpvo-legal/iso_numeric "136",
    :dpvo-legal/un_m49     "136",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Cayman Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def KZ
-  "KZ"
   {:db/ident              :dpvo-legal/KZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4717,14 +4631,14 @@
    :dpvo-legal/iso_numeric "398",
    :dpvo-legal/un_m49     "398",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Kazakhstan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LA
-  "LA"
   {:db/ident              :dpvo-legal/LA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4734,14 +4648,14 @@
    :dpvo-legal/iso_numeric "418",
    :dpvo-legal/un_m49     "418",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Lao People's Democratic Republic"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LB
-  "LB"
   {:db/ident              :dpvo-legal/LB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4751,14 +4665,14 @@
    :dpvo-legal/iso_numeric "422",
    :dpvo-legal/un_m49     "422",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Lebanon"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LC
-  "LC"
   {:db/ident              :dpvo-legal/LC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4770,14 +4684,14 @@
    :dpvo-legal/iso_numeric "662",
    :dpvo-legal/un_m49     "662",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Lucia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LI
-  "LI"
   {:db/ident               :dpvo-legal/LI,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4788,7 +4702,7 @@
    :dpvo-legal/un_m49      "438",
    :dpvo/hasAuthority      :dpvo-legal/DPV-LI,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Liechtenstein"},
@@ -4796,7 +4710,6 @@
                             :rdf/value    "accepted"}})
 
 (def LK
-  "LK"
   {:db/ident              :dpvo-legal/LK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4806,14 +4719,14 @@
    :dpvo-legal/iso_numeric "144",
    :dpvo-legal/un_m49     "144",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Sri Lanka"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LR
-  "LR"
   {:db/ident              :dpvo-legal/LR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4824,14 +4737,14 @@
    :dpvo-legal/iso_numeric "430",
    :dpvo-legal/un_m49     "430",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Liberia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LS
-  "LS"
   {:db/ident              :dpvo-legal/LS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4842,14 +4755,14 @@
    :dpvo-legal/iso_numeric "426",
    :dpvo-legal/un_m49     "426",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Lesotho"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LT
-  "LT"
   {:db/ident               :dpvo-legal/LT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4864,7 +4777,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-LT,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Lithuania"},
@@ -4872,7 +4785,6 @@
                             :rdf/value    "accepted"}})
 
 (def LU
-  "LU"
   {:db/ident               :dpvo-legal/LU,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4887,7 +4799,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-LU,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Luxembourg"},
@@ -4895,7 +4807,6 @@
                             :rdf/value    "accepted"}})
 
 (def LV
-  "LV"
   {:db/ident               :dpvo-legal/LV,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -4910,7 +4821,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-LV,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Latvia"},
@@ -4918,7 +4829,6 @@
                             :rdf/value    "accepted"}})
 
 (def LY
-  "LY"
   {:db/ident              :dpvo-legal/LY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4928,14 +4838,14 @@
    :dpvo-legal/iso_numeric "434",
    :dpvo-legal/un_m49     "434",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Libya"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def LatinAmericaandtheCaribbean
-  "LatinAmericaandtheCaribbean"
   {:db/ident         :dpvo-legal/LatinAmericaandtheCaribbean,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -4960,14 +4870,13 @@
                        :dpvo-legal/VG},
    :dcterms/isPartOf :dpvo-legal/Americas,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "LatinAmericaandtheCaribbean"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def MA
-  "MA"
   {:db/ident              :dpvo-legal/MA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4977,14 +4886,14 @@
    :dpvo-legal/iso_numeric "504",
    :dpvo-legal/un_m49     "504",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Morocco"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MC
-  "MC"
   {:db/ident              :dpvo-legal/MC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -4994,14 +4903,14 @@
    :dpvo-legal/iso_numeric "492",
    :dpvo-legal/un_m49     "492",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Monaco"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MD
-  "MD"
   {:db/ident              :dpvo-legal/MD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5011,14 +4920,14 @@
    :dpvo-legal/iso_numeric "498",
    :dpvo-legal/un_m49     "498",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Republic of Moldova"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ME
-  "ME"
   {:db/ident              :dpvo-legal/ME,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5028,14 +4937,14 @@
    :dpvo-legal/iso_numeric "499",
    :dpvo-legal/un_m49     "499",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Montenegro"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MF
-  "MF"
   {:db/ident              :dpvo-legal/MF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5047,14 +4956,14 @@
    :dpvo-legal/iso_numeric "663",
    :dpvo-legal/un_m49     "663",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Martin (French Part)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MG
-  "MG"
   {:db/ident              :dpvo-legal/MG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5065,14 +4974,14 @@
    :dpvo-legal/iso_numeric "450",
    :dpvo-legal/un_m49     "450",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Madagascar"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MH
-  "MH"
   {:db/ident              :dpvo-legal/MH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5082,14 +4991,14 @@
    :dpvo-legal/iso_numeric "584",
    :dpvo-legal/un_m49     "584",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Marshall Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MK
-  "MK"
   {:db/ident              :dpvo-legal/MK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5099,14 +5008,14 @@
    :dpvo-legal/iso_numeric "807",
    :dpvo-legal/un_m49     "807",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "North Macedonia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ML
-  "ML"
   {:db/ident              :dpvo-legal/ML,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5117,14 +5026,14 @@
    :dpvo-legal/iso_numeric "466",
    :dpvo-legal/un_m49     "466",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mali"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MM
-  "MM"
   {:db/ident              :dpvo-legal/MM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5134,14 +5043,14 @@
    :dpvo-legal/iso_numeric "104",
    :dpvo-legal/un_m49     "104",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Myanmar"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MN
-  "MN"
   {:db/ident              :dpvo-legal/MN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5151,14 +5060,14 @@
    :dpvo-legal/iso_numeric "496",
    :dpvo-legal/un_m49     "496",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mongolia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MO
-  "MO"
   {:db/ident              :dpvo-legal/MO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5168,7 +5077,8 @@
    :dpvo-legal/iso_numeric "446",
    :dpvo-legal/un_m49     "446",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value
                            "China, Macao Special Administrative Region"},
@@ -5176,7 +5086,6 @@
                            :rdf/value    "accepted"}})
 
 (def MP
-  "MP"
   {:db/ident              :dpvo-legal/MP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5186,14 +5095,14 @@
    :dpvo-legal/iso_numeric "580",
    :dpvo-legal/un_m49     "580",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Northern Mariana Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MQ
-  "MQ"
   {:db/ident              :dpvo-legal/MQ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5205,14 +5114,14 @@
    :dpvo-legal/iso_numeric "474",
    :dpvo-legal/un_m49     "474",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Martinique"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MR
-  "MR"
   {:db/ident              :dpvo-legal/MR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5223,14 +5132,14 @@
    :dpvo-legal/iso_numeric "478",
    :dpvo-legal/un_m49     "478",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mauritania"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MS
-  "MS"
   {:db/ident              :dpvo-legal/MS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5242,14 +5151,14 @@
    :dpvo-legal/iso_numeric "500",
    :dpvo-legal/un_m49     "500",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Montserrat"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MT
-  "MT"
   {:db/ident               :dpvo-legal/MT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -5264,7 +5173,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-MT,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Malta"},
@@ -5272,7 +5181,6 @@
                             :rdf/value    "accepted"}})
 
 (def MU
-  "MU"
   {:db/ident              :dpvo-legal/MU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5283,14 +5191,14 @@
    :dpvo-legal/iso_numeric "480",
    :dpvo-legal/un_m49     "480",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mauritius"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MV
-  "MV"
   {:db/ident              :dpvo-legal/MV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5300,14 +5208,14 @@
    :dpvo-legal/iso_numeric "462",
    :dpvo-legal/un_m49     "462",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Maldives"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MW
-  "MW"
   {:db/ident              :dpvo-legal/MW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5318,14 +5226,14 @@
    :dpvo-legal/iso_numeric "454",
    :dpvo-legal/un_m49     "454",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Malawi"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MX
-  "MX"
   {:db/ident              :dpvo-legal/MX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5337,14 +5245,14 @@
    :dpvo-legal/iso_numeric "484",
    :dpvo-legal/un_m49     "484",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mexico"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MY
-  "MY"
   {:db/ident              :dpvo-legal/MY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5354,14 +5262,14 @@
    :dpvo-legal/iso_numeric "458",
    :dpvo-legal/un_m49     "458",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Malaysia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def MZ
-  "MZ"
   {:db/ident              :dpvo-legal/MZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5372,14 +5280,14 @@
    :dpvo-legal/iso_numeric "508",
    :dpvo-legal/un_m49     "508",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mozambique"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def Melanesia
-  "Melanesia"
   {:db/ident         :dpvo-legal/Melanesia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5387,14 +5295,13 @@
                        :dpvo-legal/PG :dpvo-legal/VU},
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Melanesia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def Micronesia
-  "Micronesia"
   {:db/ident         :dpvo-legal/Micronesia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5403,14 +5310,13 @@
                        :dpvo-legal/NR :dpvo-legal/KI},
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Micronesia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def MiddleAfrica
-  "MiddleAfrica"
   {:db/ident         :dpvo-legal/MiddleAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5419,14 +5325,13 @@
                        :dpvo-legal/CD :dpvo-legal/GA :dpvo-legal/ST},
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MiddleAfrica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def NA
-  "NA"
   {:db/ident              :dpvo-legal/NA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5437,14 +5342,14 @@
    :dpvo-legal/iso_numeric "516",
    :dpvo-legal/un_m49     "516",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Namibia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NC
-  "NC"
   {:db/ident              :dpvo-legal/NC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5454,14 +5359,14 @@
    :dpvo-legal/iso_numeric "540",
    :dpvo-legal/un_m49     "540",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "New Caledonia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NE
-  "NE"
   {:db/ident              :dpvo-legal/NE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5472,14 +5377,14 @@
    :dpvo-legal/iso_numeric "562",
    :dpvo-legal/un_m49     "562",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Niger"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NF
-  "NF"
   {:db/ident              :dpvo-legal/NF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5490,14 +5395,14 @@
    :dpvo-legal/iso_numeric "574",
    :dpvo-legal/un_m49     "574",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Norfolk Island"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NG
-  "NG"
   {:db/ident              :dpvo-legal/NG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5508,14 +5413,14 @@
    :dpvo-legal/iso_numeric "566",
    :dpvo-legal/un_m49     "566",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Nigeria"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NI
-  "NI"
   {:db/ident              :dpvo-legal/NI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5527,14 +5432,14 @@
    :dpvo-legal/iso_numeric "558",
    :dpvo-legal/un_m49     "558",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Nicaragua"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NL
-  "NL"
   {:db/ident               :dpvo-legal/NL,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -5549,7 +5454,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-NL,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Netherlands"},
@@ -5557,7 +5462,6 @@
                             :rdf/value    "accepted"}})
 
 (def NO
-  "NO"
   {:db/ident               :dpvo-legal/NO,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -5568,7 +5472,7 @@
    :dpvo-legal/un_m49      "578",
    :dpvo/hasAuthority      :dpvo-legal/DPV-NO,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Norway"},
@@ -5576,7 +5480,6 @@
                             :rdf/value    "accepted"}})
 
 (def NP
-  "NP"
   {:db/ident              :dpvo-legal/NP,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5586,14 +5489,14 @@
    :dpvo-legal/iso_numeric "524",
    :dpvo-legal/un_m49     "524",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Nepal"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NR
-  "NR"
   {:db/ident              :dpvo-legal/NR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5603,14 +5506,14 @@
    :dpvo-legal/iso_numeric "520",
    :dpvo-legal/un_m49     "520",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Nauru"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NU
-  "NU"
   {:db/ident              :dpvo-legal/NU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5620,14 +5523,14 @@
    :dpvo-legal/iso_numeric "570",
    :dpvo-legal/un_m49     "570",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Niue"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NZ
-  "NZ"
   {:db/ident              :dpvo-legal/NZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5638,14 +5541,14 @@
    :dpvo-legal/iso_numeric "554",
    :dpvo-legal/un_m49     "554",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "New Zealand"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def NorthernAfrica
-  "NorthernAfrica"
   {:db/ident         :dpvo-legal/NorthernAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5654,14 +5557,13 @@
                        :dpvo-legal/MA},
    :dcterms/isPartOf :dpvo-legal/Africa,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NorthernAfrica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def NorthernAmerica
-  "NorthernAmerica"
   {:db/ident         :dpvo-legal/NorthernAmerica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5669,14 +5571,13 @@
                        :dpvo-legal/CA :dpvo-legal/PM},
    :dcterms/isPartOf :dpvo-legal/Americas,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NorthernAmerica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def NorthernEurope
-  "NorthernEurope"
   {:db/ident         :dpvo-legal/NorthernEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5688,14 +5589,13 @@
                        :dpvo-legal/NO :dpvo-legal/IE :dpvo-legal/LV},
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NorthernEurope"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def OM
-  "OM"
   {:db/ident              :dpvo-legal/OM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5705,14 +5605,14 @@
    :dpvo-legal/iso_numeric "512",
    :dpvo-legal/un_m49     "512",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Oman"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def Oceania
-  "Oceania"
   {:db/ident         :dpvo-legal/Oceania,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -5729,14 +5629,13 @@
                        :dpvo-legal/AS :dpvo-legal/KI :dpvo-legal/PN
                        :dpvo-legal/CK},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Oceania"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def PA
-  "PA"
   {:db/ident              :dpvo-legal/PA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5748,14 +5647,14 @@
    :dpvo-legal/iso_numeric "591",
    :dpvo-legal/un_m49     "591",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Panama"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PE
-  "PE"
   {:db/ident              :dpvo-legal/PE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5767,14 +5666,14 @@
    :dpvo-legal/iso_numeric "604",
    :dpvo-legal/un_m49     "604",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Peru"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PF
-  "PF"
   {:db/ident              :dpvo-legal/PF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5784,14 +5683,14 @@
    :dpvo-legal/iso_numeric "258",
    :dpvo-legal/un_m49     "258",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "French Polynesia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PG
-  "PG"
   {:db/ident              :dpvo-legal/PG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5801,14 +5700,14 @@
    :dpvo-legal/iso_numeric "598",
    :dpvo-legal/un_m49     "598",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Papua New Guinea"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PH
-  "PH"
   {:db/ident              :dpvo-legal/PH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5818,14 +5717,14 @@
    :dpvo-legal/iso_numeric "608",
    :dpvo-legal/un_m49     "608",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Philippines"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PK
-  "PK"
   {:db/ident              :dpvo-legal/PK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5835,14 +5734,14 @@
    :dpvo-legal/iso_numeric "586",
    :dpvo-legal/un_m49     "586",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Pakistan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PL
-  "PL"
   {:db/ident               :dpvo-legal/PL,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -5857,7 +5756,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-PL,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Poland"},
@@ -5865,7 +5764,6 @@
                             :rdf/value    "accepted"}})
 
 (def PM
-  "PM"
   {:db/ident              :dpvo-legal/PM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5875,14 +5773,14 @@
    :dpvo-legal/iso_numeric "666",
    :dpvo-legal/un_m49     "666",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Pierre and Miquelon"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PN
-  "PN"
   {:db/ident              :dpvo-legal/PN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5892,14 +5790,14 @@
    :dpvo-legal/iso_numeric "612",
    :dpvo-legal/un_m49     "612",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Pitcairn"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PR
-  "PR"
   {:db/ident              :dpvo-legal/PR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5911,14 +5809,14 @@
    :dpvo-legal/iso_numeric "630",
    :dpvo-legal/un_m49     "630",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Puerto Rico"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PS
-  "PS"
   {:db/ident              :dpvo-legal/PS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5928,14 +5826,14 @@
    :dpvo-legal/iso_numeric "275",
    :dpvo-legal/un_m49     "275",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "State of Palestine"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PT
-  "PT"
   {:db/ident               :dpvo-legal/PT,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -5950,7 +5848,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-PT,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Portugal"},
@@ -5958,7 +5856,6 @@
                             :rdf/value    "accepted"}})
 
 (def PW
-  "PW"
   {:db/ident              :dpvo-legal/PW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5968,14 +5865,14 @@
    :dpvo-legal/iso_numeric "585",
    :dpvo-legal/un_m49     "585",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Palau"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def PY
-  "PY"
   {:db/ident              :dpvo-legal/PY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -5987,14 +5884,14 @@
    :dpvo-legal/iso_numeric "600",
    :dpvo-legal/un_m49     "600",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Paraguay"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def Polynesia
-  "Polynesia"
   {:db/ident         :dpvo-legal/Polynesia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6004,14 +5901,13 @@
                        :dpvo-legal/CK},
    :dcterms/isPartOf :dpvo-legal/Oceania,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Polynesia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def QA
-  "QA"
   {:db/ident              :dpvo-legal/QA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6021,14 +5917,14 @@
    :dpvo-legal/iso_numeric "634",
    :dpvo-legal/un_m49     "634",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Qatar"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def RE
-  "RE"
   {:db/ident              :dpvo-legal/RE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6039,14 +5935,14 @@
    :dpvo-legal/iso_numeric "638",
    :dpvo-legal/un_m49     "638",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Réunion"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def RO
-  "RO"
   {:db/ident               :dpvo-legal/RO,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -6061,7 +5957,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-RO,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Romania"},
@@ -6069,7 +5965,6 @@
                             :rdf/value    "accepted"}})
 
 (def RS
-  "RS"
   {:db/ident              :dpvo-legal/RS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6079,14 +5974,14 @@
    :dpvo-legal/iso_numeric "688",
    :dpvo-legal/un_m49     "688",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Serbia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def RU
-  "RU"
   {:db/ident              :dpvo-legal/RU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6096,14 +5991,14 @@
    :dpvo-legal/iso_numeric "643",
    :dpvo-legal/un_m49     "643",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Russian Federation"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def RW
-  "RW"
   {:db/ident              :dpvo-legal/RW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6114,14 +6009,14 @@
    :dpvo-legal/iso_numeric "646",
    :dpvo-legal/un_m49     "646",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Rwanda"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SA
-  "SA"
   {:db/ident              :dpvo-legal/SA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6131,14 +6026,14 @@
    :dpvo-legal/iso_numeric "682",
    :dpvo-legal/un_m49     "682",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saudi Arabia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SB
-  "SB"
   {:db/ident              :dpvo-legal/SB,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6148,14 +6043,14 @@
    :dpvo-legal/iso_numeric "90",
    :dpvo-legal/un_m49     "90",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Solomon Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SC
-  "SC"
   {:db/ident              :dpvo-legal/SC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6166,14 +6061,14 @@
    :dpvo-legal/iso_numeric "690",
    :dpvo-legal/un_m49     "690",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Seychelles"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SD
-  "SD"
   {:db/ident              :dpvo-legal/SD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6183,14 +6078,14 @@
    :dpvo-legal/iso_numeric "729",
    :dpvo-legal/un_m49     "729",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Sudan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SE
-  "SE"
   {:db/ident               :dpvo-legal/SE,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -6205,7 +6100,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-SE,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Sweden"},
@@ -6213,7 +6108,6 @@
                             :rdf/value    "accepted"}})
 
 (def SG
-  "SG"
   {:db/ident              :dpvo-legal/SG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6223,14 +6117,14 @@
    :dpvo-legal/iso_numeric "702",
    :dpvo-legal/un_m49     "702",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Singapore"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SH
-  "SH"
   {:db/ident              :dpvo-legal/SH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6241,14 +6135,14 @@
    :dpvo-legal/iso_numeric "654",
    :dpvo-legal/un_m49     "654",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Helena"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SI
-  "SI"
   {:db/ident               :dpvo-legal/SI,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -6263,7 +6157,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-SI,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Slovenia"},
@@ -6271,7 +6165,6 @@
                             :rdf/value    "accepted"}})
 
 (def SJ
-  "SJ"
   {:db/ident              :dpvo-legal/SJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6281,14 +6174,14 @@
    :dpvo-legal/iso_numeric "744",
    :dpvo-legal/un_m49     "744",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Svalbard and Jan Mayen Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SK
-  "SK"
   {:db/ident               :dpvo-legal/SK,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -6303,7 +6196,7 @@
    :dpvo/hasApplicableLaw  :dpvo-legal/EU-GDPR,
    :dpvo/hasAuthority      :dpvo-legal/DPA-SK,
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "Slovakia"},
@@ -6311,7 +6204,6 @@
                             :rdf/value    "accepted"}})
 
 (def SL
-  "SL"
   {:db/ident              :dpvo-legal/SL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6322,14 +6214,14 @@
    :dpvo-legal/iso_numeric "694",
    :dpvo-legal/un_m49     "694",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Sierra Leone"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SM
-  "SM"
   {:db/ident              :dpvo-legal/SM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6339,14 +6231,14 @@
    :dpvo-legal/iso_numeric "674",
    :dpvo-legal/un_m49     "674",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "San Marino"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SN
-  "SN"
   {:db/ident              :dpvo-legal/SN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6357,14 +6249,14 @@
    :dpvo-legal/iso_numeric "686",
    :dpvo-legal/un_m49     "686",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Senegal"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SO
-  "SO"
   {:db/ident              :dpvo-legal/SO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6375,14 +6267,14 @@
    :dpvo-legal/iso_numeric "706",
    :dpvo-legal/un_m49     "706",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Somalia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SR
-  "SR"
   {:db/ident              :dpvo-legal/SR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6394,14 +6286,14 @@
    :dpvo-legal/iso_numeric "740",
    :dpvo-legal/un_m49     "740",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Suriname"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SS
-  "SS"
   {:db/ident              :dpvo-legal/SS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6412,14 +6304,14 @@
    :dpvo-legal/iso_numeric "728",
    :dpvo-legal/un_m49     "728",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "South Sudan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ST
-  "ST"
   {:db/ident              :dpvo-legal/ST,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6430,14 +6322,14 @@
    :dpvo-legal/iso_numeric "678",
    :dpvo-legal/un_m49     "678",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Sao Tome and Principe"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SV
-  "SV"
   {:db/ident              :dpvo-legal/SV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6449,14 +6341,14 @@
    :dpvo-legal/iso_numeric "222",
    :dpvo-legal/un_m49     "222",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "El Salvador"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SX
-  "SX"
   {:db/ident              :dpvo-legal/SX,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6468,14 +6360,14 @@
    :dpvo-legal/iso_numeric "534",
    :dpvo-legal/un_m49     "534",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Sint Maarten (Dutch part)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SY
-  "SY"
   {:db/ident              :dpvo-legal/SY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6485,14 +6377,14 @@
    :dpvo-legal/iso_numeric "760",
    :dpvo-legal/un_m49     "760",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Syrian Arab Republic"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def SZ
-  "SZ"
   {:db/ident              :dpvo-legal/SZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6503,28 +6395,27 @@
    :dpvo-legal/iso_numeric "748",
    :dpvo-legal/un_m49     "748",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Eswatini"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def Sark
-  "Sark"
   {:db/ident         :dpvo-legal/Sark,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf #{:dpvo-legal/ChannelIslands :dpvo-legal/Europe
                        :dpvo-legal/NorthernEurope},
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Sark"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def SouthAmerica
-  "SouthAmerica"
   {:db/ident         :dpvo-legal/SouthAmerica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6536,14 +6427,13 @@
                        :dpvo-legal/BO},
    :dcterms/isPartOf :dpvo-legal/LatinAmericaandtheCaribbean,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SouthAmerica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def SoutheasternAsia
-  "SoutheasternAsia"
   {:db/ident         :dpvo-legal/SoutheasternAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6553,14 +6443,13 @@
                        :dpvo-legal/VN :dpvo-legal/KH},
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SoutheasternAsia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def SouthernAfrica
-  "SouthernAfrica"
   {:db/ident         :dpvo-legal/SouthernAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6568,14 +6457,13 @@
                        :dpvo-legal/NA :dpvo-legal/SZ},
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SouthernAfrica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def SouthernAsia
-  "SouthernAsia"
   {:db/ident         :dpvo-legal/SouthernAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6584,14 +6472,13 @@
                        :dpvo-legal/AF :dpvo-legal/PK :dpvo-legal/MV},
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SouthernAsia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def SouthernEurope
-  "SouthernEurope"
   {:db/ident         :dpvo-legal/SouthernEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6603,14 +6490,13 @@
                        :dpvo-legal/GI},
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SouthernEurope"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def SubSaharanAfrica
-  "SubSaharanAfrica"
   {:db/ident         :dpvo-legal/SubSaharanAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -6635,14 +6521,13 @@
                        :dpvo-legal/ZW :dpvo-legal/SO :dpvo-legal/MU},
    :dcterms/isPartOf :dpvo-legal/Africa,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SubSaharanAfrica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def TC
-  "TC"
   {:db/ident              :dpvo-legal/TC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6654,14 +6539,14 @@
    :dpvo-legal/iso_numeric "796",
    :dpvo-legal/un_m49     "796",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Turks and Caicos Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TD
-  "TD"
   {:db/ident              :dpvo-legal/TD,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6672,14 +6557,14 @@
    :dpvo-legal/iso_numeric "148",
    :dpvo-legal/un_m49     "148",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Chad"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TF
-  "TF"
   {:db/ident              :dpvo-legal/TF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6690,14 +6575,14 @@
    :dpvo-legal/iso_numeric "260",
    :dpvo-legal/un_m49     "260",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "French Southern Territories"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TG
-  "TG"
   {:db/ident              :dpvo-legal/TG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6708,14 +6593,14 @@
    :dpvo-legal/iso_numeric "768",
    :dpvo-legal/un_m49     "768",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Togo"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TH
-  "TH"
   {:db/ident              :dpvo-legal/TH,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6725,14 +6610,14 @@
    :dpvo-legal/iso_numeric "764",
    :dpvo-legal/un_m49     "764",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Thailand"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TJ
-  "TJ"
   {:db/ident              :dpvo-legal/TJ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6742,14 +6627,14 @@
    :dpvo-legal/iso_numeric "762",
    :dpvo-legal/un_m49     "762",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Tajikistan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TK
-  "TK"
   {:db/ident              :dpvo-legal/TK,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6759,14 +6644,14 @@
    :dpvo-legal/iso_numeric "772",
    :dpvo-legal/un_m49     "772",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Tokelau"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TL
-  "TL"
   {:db/ident              :dpvo-legal/TL,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6776,14 +6661,14 @@
    :dpvo-legal/iso_numeric "626",
    :dpvo-legal/un_m49     "626",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Timor-Leste"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TM
-  "TM"
   {:db/ident              :dpvo-legal/TM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6793,14 +6678,14 @@
    :dpvo-legal/iso_numeric "795",
    :dpvo-legal/un_m49     "795",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Turkmenistan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TN
-  "TN"
   {:db/ident              :dpvo-legal/TN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6810,14 +6695,14 @@
    :dpvo-legal/iso_numeric "788",
    :dpvo-legal/un_m49     "788",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Tunisia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TO
-  "TO"
   {:db/ident              :dpvo-legal/TO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6827,14 +6712,14 @@
    :dpvo-legal/iso_numeric "776",
    :dpvo-legal/un_m49     "776",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Tonga"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TR
-  "TR"
   {:db/ident              :dpvo-legal/TR,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6844,14 +6729,14 @@
    :dpvo-legal/iso_numeric "792",
    :dpvo-legal/un_m49     "792",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Turkey"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TT
-  "TT"
   {:db/ident              :dpvo-legal/TT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6863,14 +6748,14 @@
    :dpvo-legal/iso_numeric "780",
    :dpvo-legal/un_m49     "780",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Trinidad and Tobago"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TV
-  "TV"
   {:db/ident              :dpvo-legal/TV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6880,26 +6765,25 @@
    :dpvo-legal/iso_numeric "798",
    :dpvo-legal/un_m49     "798",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Tuvalu"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def TW
-  "Taiwan (Province of China)"
   {:db/ident         :dpvo-legal/TW,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :rdf/type         #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Taiwan (Province of China)"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def TZ
-  "TZ"
   {:db/ident              :dpvo-legal/TZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6910,14 +6794,14 @@
    :dpvo-legal/iso_numeric "834",
    :dpvo-legal/un_m49     "834",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "United Republic of Tanzania"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def UA
-  "UA"
   {:db/ident              :dpvo-legal/UA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6927,14 +6811,14 @@
    :dpvo-legal/iso_numeric "804",
    :dpvo-legal/un_m49     "804",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Ukraine"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def UG
-  "UG"
   {:db/ident              :dpvo-legal/UG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6945,7 +6829,8 @@
    :dpvo-legal/iso_numeric "800",
    :dpvo-legal/un_m49     "800",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Uganda"},
    :vs/term_status        {:rdf/language "en",
@@ -6960,7 +6845,6 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-GB})
 
 (def UM
-  "UM"
   {:db/ident              :dpvo-legal/UM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -6970,14 +6854,14 @@
    :dpvo-legal/iso_numeric "581",
    :dpvo-legal/un_m49     "581",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value "United States Minor Outlying Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US
-  "US"
   {:db/ident               :dpvo-legal/US,
    :dcterms/created        #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator        {:xsd/string "Harshvardhan J. Pandit"},
@@ -7016,7 +6900,7 @@
    :dpvo-legal/iso_numeric "840",
    :dpvo-legal/un_m49      "840",
    :rdf/type               #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy       {:rdfa/uri
+   :rdfs/isDefinedBy       {:xsd/anyURI
                             "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label             {:rdf/language "en",
                             :rdf/value    "United States of America"},
@@ -7024,86 +6908,80 @@
                             :rdf/value    "accepted"}})
 
 (def US-AK
-  "Alaska"
   {:db/ident         :dpvo-legal/US-AK,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Alaska"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-AL
-  "Alabama"
   {:db/ident         :dpvo-legal/US-AL,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Alabama"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-AR
-  "Arkansas"
   {:db/ident         :dpvo-legal/US-AR,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Arkansas"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-AS
-  "American Samoa"
   {:db/ident         :dpvo-legal/US-AS,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "American Samoa"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-AZ
-  "Arizona"
   {:db/ident         :dpvo-legal/US-AZ,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Arizona"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-CA
-  "California"
   {:db/ident              :dpvo-legal/US-CA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf      :dpvo-legal/US,
    :dpvo/hasApplicableLaw #{:dpvo-legal/US-CA-CCPA :dpvo-legal/US-CA-CPRA},
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "California"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US-CA-CCPA
-  "California Consumer Privacy Act (CCPA)"
   {:db/ident :dpvo-legal/US-CA-CCPA,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -7112,17 +6990,16 @@
                       {:time/inXSDDate #inst "2020-01-01T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction :dpvo-legal/US-CA,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "California Consumer Privacy Act (CCPA)"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def US-CA-CPRA
-  "California Privacy Rights Act (CPRA)"
   {:db/ident :dpvo-legal/US-CA-CPRA,
    :dcterms/created #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
@@ -7131,17 +7008,16 @@
                       {:time/inXSDDate #inst "2023-01-01T00:00:00.000-00:00"}},
    :dpvo/hasJurisdiction :dpvo-legal/US-CA,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "California Privacy Rights Act (CPRA)"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def US-CO
-  "Colorado"
   {:db/ident              :dpvo-legal/US-CO,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7149,14 +7025,14 @@
    :dpvo/hasApplicableLaw :dpvo-legal/US-CO-CPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-CO,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Colorado"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US-CO-CPA
-  "Colorado Privacy Act (CPA)"
   {:db/ident             :dpvo-legal/US-CO-CPA,
    :dcterms/created      #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator      {:xsd/string "Jonathan Bowker"},
@@ -7166,16 +7042,17 @@
                                             "2024-01-07T00:00:00.000-00:00"}},
    :dpvo/hasAuthority    :dpvo-legal/DPA-US-CO,
    :dpvo/hasJurisdiction :dpvo-legal/US-CO,
-   :foaf/homepage        {:rdfa/uri "https://leg.colorado.gov/bills/sb21-190"},
+   :foaf/homepage        {:xsd/anyURI
+                          "https://leg.colorado.gov/bills/sb21-190"},
    :rdf/type             #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy     {:xsd/anyURI
+                          "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label           {:rdf/language "en",
                           :rdf/value    "Colorado Privacy Act (CPA)"},
    :vs/term_status       {:rdf/language "en",
                           :rdf/value    "accepted"}})
 
 (def US-CT
-  "Connecticut"
   {:db/ident              :dpvo-legal/US-CT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7183,14 +7060,14 @@
    :dpvo/hasApplicableLaw :dpvo-legal/US-CT-CTPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-CT,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Connecticut"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US-CT-CTPA
-  "Connecticut Data Privacy Act (CTPA)"
   {:db/ident :dpvo-legal/US-CT-CTPA,
    :dcterms/created #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Jonathan Bowker"},
@@ -7200,381 +7077,352 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-US-CT,
    :dpvo/hasJurisdiction :dpvo-legal/US-CT,
    :foaf/homepage
-   {:rdfa/uri
+   {:xsd/anyURI
     "https://www.cga.ct.gov/2022/ACT/PA/PDF/2022PA-00015-R00SB-00006-PA.PDF"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Connecticut Data Privacy Act (CTPA)"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def US-DC
-  "District of Columbia"
   {:db/ident         :dpvo-legal/US-DC,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "District of Columbia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-DE
-  "Delaware"
   {:db/ident         :dpvo-legal/US-DE,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Delaware"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-FL
-  "Florida"
   {:db/ident         :dpvo-legal/US-FL,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Florida"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-GA
-  "Georgia"
   {:db/ident         :dpvo-legal/US-GA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Georgia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-GU
-  "Guam"
   {:db/ident         :dpvo-legal/US-GU,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Guam"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-HI
-  "Hawaii"
   {:db/ident         :dpvo-legal/US-HI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Hawaii"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-IA
-  "Iowa"
   {:db/ident         :dpvo-legal/US-IA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Iowa"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-ID
-  "Idaho"
   {:db/ident         :dpvo-legal/US-ID,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Idaho"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-IL
-  "Illinois"
   {:db/ident         :dpvo-legal/US-IL,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Illinois"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-IN
-  "Indiana"
   {:db/ident         :dpvo-legal/US-IN,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Indiana"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-KS
-  "Kansas"
   {:db/ident         :dpvo-legal/US-KS,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Kansas"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-KY
-  "Kentucky"
   {:db/ident         :dpvo-legal/US-KY,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Kentucky"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-LA
-  "Louisiana"
   {:db/ident         :dpvo-legal/US-LA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Louisiana"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MA
-  "Massachusetts"
   {:db/ident         :dpvo-legal/US-MA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Massachusetts"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MD
-  "Maryland"
   {:db/ident         :dpvo-legal/US-MD,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Maryland"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-ME
-  "Maine"
   {:db/ident         :dpvo-legal/US-ME,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Maine"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MI
-  "Michigan"
   {:db/ident         :dpvo-legal/US-MI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Michigan"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MN
-  "Minnesota"
   {:db/ident         :dpvo-legal/US-MN,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Minnesota"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MO
-  "Missouri"
   {:db/ident         :dpvo-legal/US-MO,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Missouri"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MP
-  "Northern Mariana Islands"
   {:db/ident         :dpvo-legal/US-MP,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Northern Mariana Islands"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MS
-  "Mississippi"
   {:db/ident         :dpvo-legal/US-MS,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Mississippi"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-MT
-  "Montana"
   {:db/ident         :dpvo-legal/US-MT,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Montana"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-NC
-  "North Carolina"
   {:db/ident         :dpvo-legal/US-NC,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "North Carolina"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-ND
-  "North Dakota"
   {:db/ident         :dpvo-legal/US-ND,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "North Dakota"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-NE
-  "Nebraska"
   {:db/ident         :dpvo-legal/US-NE,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Nebraska"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-NH
-  "New Hampshire"
   {:db/ident         :dpvo-legal/US-NH,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "New Hampshire"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-NJ
-  "New Jersey"
   {:db/ident         :dpvo-legal/US-NJ,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "New Jersey"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-NM
-  "New Mexico"
   {:db/ident         :dpvo-legal/US-NM,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "New Mexico"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-NV
-  "Nevada"
   {:db/ident              :dpvo-legal/US-NV,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7582,14 +7430,14 @@
    :dpvo/hasApplicableLaw :dpvo-legal/US-NV-NPICICA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-NV,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Nevada"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US-NV-NPICICA
-  "Nevada Privacy of Information Collected on the Internet from Consumers Act (NPICICA)"
   {:db/ident :dpvo-legal/US-NV-NPICICA,
    :dcterms/created #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Jonathan Bowker"},
@@ -7598,9 +7446,9 @@
                       {:time/inXSDDate #inst "2021-01-10T00:00:00.000-00:00"}},
    :dpvo/hasAuthority :dpvo-legal/DPA-US-NV,
    :dpvo/hasJurisdiction :dpvo-legal/US-NV,
-   :foaf/homepage {:rdfa/uri "https://www.leg.state.nv.us/NRS/NRS-603A.html"},
+   :foaf/homepage {:xsd/anyURI "https://www.leg.state.nv.us/NRS/NRS-603A.html"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label
    {:rdf/language "en",
     :rdf/value
@@ -7609,163 +7457,150 @@
                     :rdf/value    "accepted"}})
 
 (def US-NY
-  "New York"
   {:db/ident         :dpvo-legal/US-NY,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "New York"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-OH
-  "Ohio"
   {:db/ident         :dpvo-legal/US-OH,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Ohio"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-OK
-  "Oklahoma"
   {:db/ident         :dpvo-legal/US-OK,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Oklahoma"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-OR
-  "Oregon"
   {:db/ident         :dpvo-legal/US-OR,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Oregon"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-PA
-  "Pennsylvania"
   {:db/ident         :dpvo-legal/US-PA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Pennsylvania"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-PR
-  "Puerto Rico"
   {:db/ident         :dpvo-legal/US-PR,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Puerto Rico"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-RI
-  "Rhode Island"
   {:db/ident         :dpvo-legal/US-RI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Rhode Island"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-SC
-  "South Carolina"
   {:db/ident         :dpvo-legal/US-SC,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "South Carolina"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-SD
-  "South Dakota"
   {:db/ident         :dpvo-legal/US-SD,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "South Dakota"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-TN
-  "Tennessee"
   {:db/ident         :dpvo-legal/US-TN,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Tennessee"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-TX
-  "Texas"
   {:db/ident         :dpvo-legal/US-TX,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Texas"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-UM
-  "United States Minor Outlying Islands"
   {:db/ident         :dpvo-legal/US-UM,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "United States Minor Outlying Islands"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-UT
-  "Utah"
   {:db/ident              :dpvo-legal/US-UT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7773,30 +7608,30 @@
    :dpvo/hasApplicableLaw :dpvo-legal/US-UT-UCPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-UT,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Utah"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US-UT-UCPA
-  "Utah Consumer Privacy Act (UCPA)"
   {:db/ident             :dpvo-legal/US-UT-UCPA,
    :dcterms/created      #inst "2022-11-22T00:00:00.000-00:00",
    :dcterms/creator      {:xsd/string "Jonathan Bowker"},
    :dpvo/hasAuthority    :dpvo-legal/DPA-US-UT,
    :dpvo/hasJurisdiction :dpvo-legal/US-UT,
-   :foaf/homepage        {:rdfa/uri
+   :foaf/homepage        {:xsd/anyURI
                           "https://le.utah.gov/~2022/bills/static/SB0227.html"},
    :rdf/type             #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy     {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy     {:xsd/anyURI
+                          "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label           {:rdf/language "en",
                           :rdf/value    "Utah Consumer Privacy Act (UCPA)"},
    :vs/term_status       {:rdf/language "en",
                           :rdf/value    "accepted"}})
 
 (def US-VA
-  "Virginia"
   {:db/ident              :dpvo-legal/US-VA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7804,14 +7639,14 @@
    :dpvo/hasApplicableLaw :dpvo-legal/US-VA-VCDPA,
    :dpvo/hasAuthority     :dpvo-legal/DPA-US-VA,
    :rdf/type              #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Virginia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def US-VA-VCDPA
-  "Virginia Consumer Data Protection Act (VCDPA)"
   {:db/ident :dpvo-legal/US-VA-VCDPA,
    :dcterms/created #inst "2022-11-23T00:00:00.000-00:00",
    :dcterms/creator {:xsd/string "Jonathan Bowker"},
@@ -7821,94 +7656,87 @@
    :dpvo/hasAuthority :dpvo-legal/DPA-US-VA,
    :dpvo/hasJurisdiction :dpvo-legal/US-VA,
    :foaf/homepage
-   {:rdfa/uri "https://lis.virginia.gov/cgi-bin/legp604.exe?212+sum+HB2307"},
+   {:xsd/anyURI "https://lis.virginia.gov/cgi-bin/legp604.exe?212+sum+HB2307"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Virginia Consumer Data Protection Act (VCDPA)"},
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
 (def US-VI
-  "U.S. Virgin Islands"
   {:db/ident         :dpvo-legal/US-VI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "U.S. Virgin Islands"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-VT
-  "Vermont"
   {:db/ident         :dpvo-legal/US-VT,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Vermont"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-WA
-  "Washington"
   {:db/ident         :dpvo-legal/US-WA,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Washington"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-WI
-  "Wisconsin"
   {:db/ident         :dpvo-legal/US-WI,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Wisconsin"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-WV
-  "West Virginia"
   {:db/ident         :dpvo-legal/US-WV,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "West Virginia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def US-WY
-  "Wyoming"
   {:db/ident         :dpvo-legal/US-WY,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/isPartOf :dpvo-legal/US,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Wyoming"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def UY
-  "UY"
   {:db/ident              :dpvo-legal/UY,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7920,14 +7748,14 @@
    :dpvo-legal/iso_numeric "858",
    :dpvo-legal/un_m49     "858",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Uruguay"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def UZ
-  "UZ"
   {:db/ident              :dpvo-legal/UZ,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7937,14 +7765,14 @@
    :dpvo-legal/iso_numeric "860",
    :dpvo-legal/un_m49     "860",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Uzbekistan"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VA
-  "VA"
   {:db/ident              :dpvo-legal/VA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7954,14 +7782,14 @@
    :dpvo-legal/iso_numeric "336",
    :dpvo-legal/un_m49     "336",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Holy See"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VC
-  "VC"
   {:db/ident              :dpvo-legal/VC,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7973,14 +7801,14 @@
    :dpvo-legal/iso_numeric "670",
    :dpvo-legal/un_m49     "670",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Saint Vincent and the Grenadines"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VE
-  "VE"
   {:db/ident              :dpvo-legal/VE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -7992,14 +7820,14 @@
    :dpvo-legal/iso_numeric "862",
    :dpvo-legal/un_m49     "862",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Venezuela (Bolivarian Republic of)"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VG
-  "VG"
   {:db/ident              :dpvo-legal/VG,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8011,14 +7839,14 @@
    :dpvo-legal/iso_numeric "92",
    :dpvo-legal/un_m49     "92",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "British Virgin Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VI
-  "VI"
   {:db/ident              :dpvo-legal/VI,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8030,14 +7858,14 @@
    :dpvo-legal/iso_numeric "850",
    :dpvo-legal/un_m49     "850",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "United States Virgin Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VN
-  "VN"
   {:db/ident              :dpvo-legal/VN,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8047,14 +7875,14 @@
    :dpvo-legal/iso_numeric "704",
    :dpvo-legal/un_m49     "704",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Viet Nam"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def VU
-  "VU"
   {:db/ident              :dpvo-legal/VU,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8064,14 +7892,14 @@
    :dpvo-legal/iso_numeric "548",
    :dpvo-legal/un_m49     "548",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Vanuatu"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def WF
-  "WF"
   {:db/ident              :dpvo-legal/WF,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8081,14 +7909,14 @@
    :dpvo-legal/iso_numeric "876",
    :dpvo-legal/un_m49     "876",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Wallis and Futuna Islands"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def WS
-  "WS"
   {:db/ident              :dpvo-legal/WS,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8098,14 +7926,14 @@
    :dpvo-legal/iso_numeric "882",
    :dpvo-legal/un_m49     "882",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Samoa"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def WesternAfrica
-  "WesternAfrica"
   {:db/ident         :dpvo-legal/WesternAfrica,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -8117,14 +7945,13 @@
                        :dpvo-legal/BJ :dpvo-legal/CV},
    :dcterms/isPartOf :dpvo-legal/SubSaharanAfrica,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WesternAfrica"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def WesternAsia
-  "WesternAsia"
   {:db/ident         :dpvo-legal/WesternAsia,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -8136,14 +7963,13 @@
                        :dpvo-legal/BH :dpvo-legal/OM :dpvo-legal/LB},
    :dcterms/isPartOf :dpvo-legal/Asia,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WesternAsia"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def WesternEurope
-  "WesternEurope"
   {:db/ident         :dpvo-legal/WesternEurope,
    :dcterms/created  #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
@@ -8152,14 +7978,13 @@
                        :dpvo-legal/DE :dpvo-legal/MC :dpvo-legal/BE},
    :dcterms/isPartOf :dpvo-legal/Europe,
    :rdf/type         #{:dpvo/Region :owl/NamedIndividual},
-   :rdfs/isDefinedBy {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WesternEurope"},
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "accepted"}})
 
 (def YE
-  "YE"
   {:db/ident              :dpvo-legal/YE,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8169,14 +7994,14 @@
    :dpvo-legal/iso_numeric "887",
    :dpvo-legal/un_m49     "887",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Yemen"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def YT
-  "YT"
   {:db/ident              :dpvo-legal/YT,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8187,14 +8012,14 @@
    :dpvo-legal/iso_numeric "175",
    :dpvo-legal/un_m49     "175",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Mayotte"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ZA
-  "ZA"
   {:db/ident              :dpvo-legal/ZA,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8205,14 +8030,14 @@
    :dpvo-legal/iso_numeric "710",
    :dpvo-legal/un_m49     "710",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "South Africa"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ZM
-  "ZM"
   {:db/ident              :dpvo-legal/ZM,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8223,14 +8048,14 @@
    :dpvo-legal/iso_numeric "894",
    :dpvo-legal/un_m49     "894",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Zambia"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def ZW
-  "ZW"
   {:db/ident              :dpvo-legal/ZW,
    :dcterms/created       #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator       {:xsd/string "Harshvardhan J. Pandit"},
@@ -8241,24 +8066,24 @@
    :dpvo-legal/iso_numeric "716",
    :dpvo-legal/un_m49     "716",
    :rdf/type              #{:owl/NamedIndividual :dpvo/Country},
-   :rdfs/isDefinedBy      {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy      {:xsd/anyURI
+                           "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label            {:rdf/language "en",
                            :rdf/value    "Zimbabwe"},
    :vs/term_status        {:rdf/language "en",
                            :rdf/value    "accepted"}})
 
 (def iso_alpha2
-  "The ISO-Alpha2 code for a given region"
   {:db/ident            :dpvo-legal/iso_alpha2,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The ISO-Alpha2 code for a given region"},
-   :dcterms/source      {:rdfa/uri
+   :dcterms/source      {:xsd/anyURI
                          "https://www.iso.org/iso-3166-country-codes.html"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain         :dpvo/Location,
-   :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy    {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "ISO-alpha2"},
    :rdfs/range          :xsd/string,
@@ -8267,17 +8092,16 @@
                          :rdf/value    "accepted"}})
 
 (def iso_alpha3
-  "The ISO-Alpha3 code for a given region"
   {:db/ident            :dpvo-legal/iso_alpha3,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The ISO-Alpha3 code for a given region"},
-   :dcterms/source      {:rdfa/uri
+   :dcterms/source      {:xsd/anyURI
                          "https://www.iso.org/iso-3166-country-codes.html"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain         :dpvo/Location,
-   :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy    {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "ISO-alpha3"},
    :rdfs/range          :xsd/string,
@@ -8286,17 +8110,16 @@
                          :rdf/value    "accepted"}})
 
 (def iso_numeric
-  "The ISO-Numeric code for a given region"
   {:db/ident            :dpvo-legal/iso_numeric,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "The ISO-Numeric code for a given region"},
-   :dcterms/source      {:rdfa/uri
+   :dcterms/source      {:xsd/anyURI
                          "https://www.iso.org/iso-3166-country-codes.html"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain         :dpvo/Location,
-   :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy    {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "ISO-numeric"},
    :rdfs/range          :xsd/string,
@@ -8305,17 +8128,16 @@
                          :rdf/value    "accepted"}})
 
 (def un_m49
-  "The UN-M49 code for a given region"
   {:db/ident            :dpvo-legal/un_m49,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-00:00",
    :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "The UN-M49 code for a given region"},
-   :dcterms/source      {:rdfa/uri
+   :dcterms/source      {:xsd/anyURI
                          "https://unstats.un.org/unsd/methodology/m49"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain         :dpvo/Location,
-   :rdfs/isDefinedBy    {:rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
+   :rdfs/isDefinedBy    {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "UN-M49"},
    :rdfs/range          :xsd/string,

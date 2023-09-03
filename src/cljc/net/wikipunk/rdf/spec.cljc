@@ -13,7 +13,6 @@
   (:refer-clojure :exclude [class comment repeat sequence]))
 
 (def Valarm
-  "Provide a grouping of component properties that define an alarm."
   {:db/ident :spec/Valarm,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -69,7 +68,6 @@
    :rdf/type :owl/Class})
 
 (def Vevent
-  "Provide a grouping of component properties that describe an event."
   {:db/ident :spec/Vevent,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -167,7 +165,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Vfreebusy
-  "Provide a grouping of component properties that describe either a request for free/busy time, describe a response to a request for free/busy time or describe a published set of busy time."
   {:db/ident :spec/Vfreebusy,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -211,7 +208,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Vjournal
-  "Provide a grouping of component properties that describe a journal entry."
   {:db/ident :spec/Vjournal,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -282,7 +278,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Vtimezone
-  "Provide a grouping of component properties that defines a time zone."
   {:db/ident :spec/Vtimezone,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -320,7 +315,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Vtodo
-  "Provide a grouping of calendar properties that describe a to-do."
   {:db/ident :spec/Vtodo,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -421,7 +415,6 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def X-
-  "\n\t    value type: TEXT"
   {:db/ident :spec/X-,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -432,7 +425,6 @@
    :spec/valueType "TEXT"})
 
 (def action
-  "\n\t    value type: TEXT"
   {:db/ident :spec/action,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -445,7 +437,6 @@
    :spec/valueType "TEXT"})
 
 (def attach
-  "\n\t    default value type: URI"
   {:db/ident :spec/attach,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -464,7 +455,6 @@
    :spec/valueType "URI"})
 
 (def attendee
-  "\n\t    value type: CAL-ADDRESS"
   {:db/ident :spec/attendee,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -482,7 +472,6 @@
    :spec/valueType "CAL-ADDRESS"})
 
 (def calscale
-  "\n\t    value type: TEXT"
   {:db/ident :spec/calscale,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -493,7 +482,6 @@
    :spec/valueType "TEXT"})
 
 (def categories
-  "\n\t    value type: TEXT"
   {:db/ident :spec/categories,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -511,7 +499,6 @@
    :spec/valueType "TEXT"})
 
 (def class
-  "\n\t    value type: TEXT"
   {:db/ident :spec/class,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -524,7 +511,6 @@
    :spec/valueType "TEXT"})
 
 (def comment
-  "\n\t    value type: TEXT"
   {:db/ident :spec/comment,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -539,7 +525,6 @@
    :spec/valueType "TEXT"})
 
 (def completed
-  "\n\t    value type: DATE-TIME"
   {:db/ident :spec/completed,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -551,7 +536,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def contact
-  "The property is used to represent contact information or alternately a reference to contact information associated with the calendar component."
   {:db/ident :spec/contact,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -565,7 +549,6 @@
    :spec/valueType "TEXT"})
 
 (def created
-  "This property specifies the date and time that the calendar information was created by the calendar user agent in the calendar store. Note: This is analogous to the creation date and time for a file in the file system."
   {:db/ident :spec/created,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -578,7 +561,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def description
-  "\n\t    value type: TEXT"
   {:db/ident :spec/description,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -599,7 +581,6 @@
    :spec/valueType "TEXT"})
 
 (def dtend
-  "\n\t    default value type: DATE-TIME"
   {:db/ident :spec/dtend,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -614,7 +595,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def dtstamp
-  "\n\t    value type: DATE-TIME"
   {:db/ident :spec/dtstamp,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -628,7 +608,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def dtstart
-  "\n\t    default value type: DATE-TIME"
   {:db/ident :spec/dtstart,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -651,7 +630,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def due
-  "\n\t    default value type: DATE-TIME"
   {:db/ident :spec/due,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -664,7 +642,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def duration
-  "The property specifies a positive duration of time."
   {:db/ident       :spec/duration,
    :rdf/type       :owl/ObjectProperty,
    :rdfs/comment   #{"The property specifies a positive duration of time."
@@ -683,7 +660,6 @@
    :spec/valueType "DURATION"})
 
 (def exdate
-  "\n\t    default value type: DATE-TIME"
   {:db/ident :spec/exdate,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -695,7 +671,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def exrule
-  "\n\t    value type: RECUR"
   {:db/ident :spec/exrule,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -708,7 +683,6 @@
    :spec/valueType "RECUR"})
 
 (def freebusy
-  "\n\t    value type: PERIOD"
   {:db/ident :spec/freebusy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -721,7 +695,6 @@
    :spec/valueType "PERIOD"})
 
 (def geo
-  "This property specifies information related to the global position for the activity specified by a calendar component."
   {:db/ident :spec/geo,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -731,7 +704,6 @@
    :rdfs/label "GEO"})
 
 (def lastModified
-  "\n\t    value type: DATE-TIME"
   {:db/ident :spec/lastModified,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -745,7 +717,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def location
-  "\n\t    value type: TEXT"
   {:db/ident :spec/location,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -758,7 +729,6 @@
    :spec/valueType "TEXT"})
 
 (def method
-  "This property defines the iCalendar object method associated with the calendar object."
   {:db/ident :spec/method,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -769,7 +739,6 @@
    :spec/valueType "TEXT"})
 
 (def organizer
-  "\n\t    value type: CAL-ADDRESS"
   {:db/ident :spec/organizer,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -784,7 +753,6 @@
    :spec/valueType "CAL-ADDRESS"})
 
 (def percentComplete
-  "\n\t    value type: INTEGER"
   {:db/ident :spec/percentComplete,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -796,7 +764,6 @@
    :spec/valueType "INTEGER"})
 
 (def priority
-  "\n\t    value type: INTEGER"
   {:db/ident :spec/priority,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -810,7 +777,6 @@
    :spec/valueType "INTEGER"})
 
 (def prodid
-  "\n\t    value type: TEXT"
   {:db/ident :spec/prodid,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -821,7 +787,6 @@
    :spec/valueType "TEXT"})
 
 (def rdate
-  "\n\t    default value type: DATE-TIME"
   {:db/ident :spec/rdate,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -837,7 +802,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def recurrenceId
-  "This property is used in conjunction with the \"UID\" and \"SEQUENCE\" property to identify a specific instance of a recurring \"VEVENT\", \"VTODO\" or \"VJOURNAL\" calendar component. The property value is the effective value of the \"DTSTART\" property of the recurrence instance."
   {:db/ident :spec/recurrenceId,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -852,7 +816,6 @@
    :spec/valueType "DATE-TIME"})
 
 (def relatedTo
-  "\n\t    value type: TEXT"
   {:db/ident :spec/relatedTo,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -865,7 +828,6 @@
    :spec/valueType "TEXT"})
 
 (def repeat
-  "\n\t    value type: INTEGER"
   {:db/ident :spec/repeat,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -877,7 +839,6 @@
    :spec/valueType "INTEGER"})
 
 (def requestStatus
-  "\n\t    value type: TEXT"
   {:db/ident :spec/requestStatus,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -891,7 +852,6 @@
    :spec/valueType "TEXT"})
 
 (def resources
-  "\n\t    value type: TEXT"
   {:db/ident :spec/resources,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -904,7 +864,6 @@
    :spec/valueType "TEXT"})
 
 (def rrule
-  "\n\t    value type: RECUR"
   {:db/ident :spec/rrule,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -923,7 +882,6 @@
    :spec/valueType "RECUR"})
 
 (def sequence
-  "This property defines the revision sequence number of the calendar component within a sequence of revisions."
   {:db/ident :spec/sequence,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -936,7 +894,6 @@
    :spec/valueType "integer"})
 
 (def status
-  "\n\t    value type: TEXT"
   {:db/ident :spec/status,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -954,7 +911,6 @@
    :spec/valueType "TEXT"})
 
 (def summary
-  "\n\t    value type: TEXT"
   {:db/ident :spec/summary,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -974,7 +930,6 @@
    :spec/valueType "TEXT"})
 
 (def transp
-  "\n\t    value type: TEXT"
   {:db/ident :spec/transp,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -986,7 +941,6 @@
    :spec/valueType "TEXT"})
 
 (def trigger
-  "\n\t    default value type: DURATION"
   {:db/ident       :spec/trigger,
    :rdf/type       :owl/ObjectProperty,
    :rdfs/comment   #{"\n\t    default value type: DURATION"
@@ -1006,7 +960,6 @@
    :spec/valueType "DURATION"})
 
 (def tzid
-  "\n\t    value type: TEXT"
   {:db/ident :spec/tzid,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1018,7 +971,6 @@
    :spec/valueType "TEXT"})
 
 (def tzname
-  "\n\t    value type: TEXT"
   {:db/ident :spec/tzname,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1030,7 +982,6 @@
    :spec/valueType "TEXT"})
 
 (def tzoffsetfrom
-  "\n\t    value type: UTC-OFFSET"
   {:db/ident :spec/tzoffsetfrom,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1043,7 +994,6 @@
    :spec/valueType "UTC-OFFSET"})
 
 (def tzoffsetto
-  "\n\t    value type: UTC-OFFSET"
   {:db/ident :spec/tzoffsetto,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1055,7 +1005,6 @@
    :spec/valueType "UTC-OFFSET"})
 
 (def tzurl
-  "The TZURL provides a means for a VTIMEZONE component to point to a network location that can be used to retrieve an up-to- date version of itself."
   {:db/ident :spec/tzurl,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1067,7 +1016,6 @@
    :spec/valueType "URI"})
 
 (def uid
-  "\n\t    value type: TEXT"
   {:db/ident :spec/uid,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1089,7 +1037,6 @@
    :spec/valueType "TEXT"})
 
 (def url
-  "This property defines a Uniform Resource Locator (URL) associated with the iCalendar object."
   {:db/ident :spec/url,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -1102,7 +1049,6 @@
    :spec/valueType "URI"})
 
 (def version
-  "\n\t    value type: TEXT"
   {:db/ident :spec/version,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment

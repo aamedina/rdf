@@ -244,3 +244,68 @@
                 :blanks []
                 :uris   []}
                (rdf/parse-turtle (slurp "/home/adrian/src/py/d3fend-ontology/build/d3fend-full.ttl")))))
+
+(comment
+  {:rdf/type      :rdf/Statement
+   :rdf/subject   {:rdfa/prefix "schema",
+                   :rdfa/term   "3DModel",
+                   :xsd/anyURI  "http://schema.org/3DModel"}
+   :rdf/predicate {:rdfa/prefix "rdfs",
+                   :rdfa/term   "comment"
+                   :xsd/anyURI  "http://www.w3.org/2000/01/rdf-schema#comment"}   
+   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}}
+
+  {:rdf/type      :rdf/Statement
+   :rdf/subject   {:xsd/anyURI "http://schema.org/3DModel"}
+   :rdf/predicate {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#comment"}
+   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}}
+
+  
+
+  {:rdf/type  :xsd/anyURI
+   :rdf/value "http://www.w3.org/2000/01/rdf-schema#comment"}
+
+  ^{:namespaces
+    {"rdf"     ""
+     "contact" ""}}
+  {:xsd/anyURI "http://www.w3.org/People/EM/contact#me"
+   :rdf/type   :schema/Person}
+
+  )
+
+(comment
+  {:rdf/type  :rdf/JSON
+   :rdf/value "[52,{\"1\":[],\"10\":null,\"d\":true}]"}
+
+  {:context
+   {"modified"
+    {:id   "http://purl.org/dc/terms/modified"
+     :type "http://www.w3.org/2001/XMLSchema#dateTime"}}
+   :graph
+   [{:id        "http://example.com/docs/1"
+     "modified" "2010-05-29T14:17:39+02:00"}]}
+
+  [{:id "http://example.com/docs/1"
+    "http://purl.org/dc/terms/modified"
+    [{:type  "http://www.w3.org/2001/XMLSchema#dateTime"
+      :value "2010-05-29T14:17:39+02:00"}]}]
+
+  ["http://example.com/docs/1"
+   "http://purl.org/dc/terms/modified"
+   "2010-05-29T14:17:39+02:00^^http://www.w3.org/2001/XMLSchema#dateTime"]
+
+  [{:xsd/anyURI "http://example.com/docs/1"}
+   {:xsd/anyURI "http://purl.org/dc/terms/modified"}
+   {:rdf/type  {:xsd/anyURI "http://www.w3.org/2001/XMLSchema#dateTime"}
+    :rdf/value "2010-05-29T14:17:39+02:00"}]
+
+  [{:id "http://example.org/people#joebob"
+    "http://xmlns.com/foaf/0.1/nick"
+    [{:rdf/value "joe"}
+     {:rdf/value "bob"}
+     {:rdf/value "jaybee"}]}]
+
+  {:rdf/type  :xsd/float,
+   :rdf/value "85000"}
+  ;; "sameAs"
+  {:xsd/float 85000.0})

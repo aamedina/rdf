@@ -91,7 +91,7 @@
   "used to add :db/id's to blank nodes"
   [form]
   (if (and (map? form)
-           (and (not (contains? form :rdfa/uri))
+           (and (not (contains? form :xsd/anyURI))
                 (not (contains? form :db/ident))
                 (not (contains? form :db/id))))
     (assoc form :db/id (str (random-uuid)))
@@ -161,7 +161,7 @@
                                            (case (rdf/infer-datomic-type k)
                                              :db.type/string (cond
                                                                (map? v)
-                                                               (or (:rdfa/uri v)
+                                                               (or (:xsd/anyURI v)
                                                                    (:xsd/string v)
                                                                    (:rdf/value v)
                                                                    (pr-str v))
@@ -230,8 +230,13 @@
 (defmethod rdf/infer-datomic-cardinality :rdfa/uri [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-unique :rdfa/uri [_] :db.unique/identity)
 
+(defmethod rdf/infer-datomic-type :jsonld/id [_] :db.type/string)
+(defmethod rdf/infer-datomic-cardinality :jsonld/id [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-unique :jsonld/id [_] :db.unique/identity)
+
 (defmethod rdf/infer-datomic-cardinality :rdf/first [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :rdf/rest [_] :db.cardinality/one)
+
 (defmethod rdf/infer-datomic-cardinality :rdf/value [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMinimum [_] :db.cardinality/one)

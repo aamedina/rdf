@@ -23,7 +23,7 @@
    :dc11/title "Description of a Project (DOAP) vocabulary",
    :dcat/downloadURL
    "https://raw.githubusercontent.com/ewilderj/doap/master/schema/doap.rdf",
-   :foaf/maker {:foaf/mbox {:rdfa/uri "mailto:edd@usefulinc.com"},
+   :foaf/maker {:foaf/mbox {:xsd/anyURI "mailto:edd@usefulinc.com"},
                 :foaf/name "Edd Wilder-James",
                 :rdf/type  :foaf/Person},
    :owl/imports :foaf/index.rdf,
@@ -36,11 +36,11 @@
                        "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "doap",
-   :rdfa/uri "http://usefulinc.com/ns/doap#"}
+   :rdfa/uri "http://usefulinc.com/ns/doap#",
+   :xsd/anyURI "http://usefulinc.com/ns/doap#"}
   (:refer-clojure :exclude [name]))
 
 (def ArchRepository
-  "Úložiště zdrojových kódů GNU Arch."
   {:db/ident         :doap/ArchRepository,
    :rdf/type         #{:rdfs/Class :owl/Class},
    :rdfs/comment     #{{:rdf/language "cs",
@@ -55,7 +55,7 @@
                         :rdf/value    "Dépôt GNU Arch du code source."}
                        {:rdf/language "de",
                         :rdf/value "GNU Arch Quellcode-Versionierungssystem."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "es",
                         :rdf/value    "Repositorio GNU Arch"}
                        {:rdf/language "de",
@@ -71,7 +71,6 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def BKRepository
-  "BitKeeper Quellcode-Versionierungssystem."
   {:db/ident         :doap/BKRepository,
    :rdf/type         #{:rdfs/Class :owl/Class},
    :rdfs/comment     #{{:rdf/language "de",
@@ -86,7 +85,7 @@
                         :rdf/value    "Repositório BitKeeper do código fonte."}
                        {:rdf/language "es",
                         :rdf/value "Repositorio BitKeeper del código fuente."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "de",
                         :rdf/value    "BitKeeper Repository"}
                        {:rdf/language "fr",
@@ -102,14 +101,13 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def BazaarBranch
-  "Bazaar source code branch."
   {:db/ident         :doap/BazaarBranch,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "en",
                         :rdf/value    "Bazaar source code branch."}
                        {:rdf/language "pt",
                         :rdf/value    "Código fonte da ramificação Bazaar."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "pt",
                         :rdf/value    "Ramificação Bazaar"}
                        {:rdf/language "en",
@@ -117,7 +115,6 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def CVSRepository
-  "Repositório CVS do código fonte."
   {:db/ident         :doap/CVSRepository,
    :rdf/type         #{:rdfs/Class :owl/Class},
    :rdfs/comment     #{{:rdf/language "pt",
@@ -132,7 +129,7 @@
                         :rdf/value    "CVS source code repository."}
                        {:rdf/language "de",
                         :rdf/value    "CVS Quellcode-Versionierungssystem."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "cs",
                         :rdf/value    "Úložiště CVS"}
                        {:rdf/language "es",
@@ -148,7 +145,6 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def DarcsRepository
-  "Repositorio darcs del código fuente."
   {:db/ident         :doap/DarcsRepository,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "es",
@@ -159,7 +155,7 @@
                         :rdf/value    "darcs source code repository."}
                        {:rdf/language "fr",
                         :rdf/value    "Dépôt darcs du code source."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "es",
                         :rdf/value    "Repositorio darcs"}
                        {:rdf/language "fr",
@@ -171,14 +167,13 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def GitBranch
-  "Git source code branch."
   {:db/ident         :doap/GitBranch,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "en",
                         :rdf/value    "Git source code branch."}
                        {:rdf/language "pt",
                         :rdf/value    "Código fonte da ramificação Git."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "Git Branch"}
                        {:rdf/language "pt",
@@ -186,7 +181,6 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def GitRepository
-  "Úložiště zdrojových kódů Git."
   {:db/ident         :doap/GitRepository,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "cs",
@@ -201,7 +195,7 @@
                         :rdf/value    "Repositório Git do código fonte."}
                        {:rdf/language "de",
                         :rdf/value    "Git Quellcode-Versionierungssystem."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "pt",
                         :rdf/value    "Repositório Git"}
                        {:rdf/language "fr",
@@ -217,14 +211,13 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def HgRepository
-  "Repositório Mercurial do código fonte."
   {:db/ident         :doap/HgRepository,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "pt",
                         :rdf/value    "Repositório Mercurial do código fonte."}
                        {:rdf/language "en",
                         :rdf/value    "Mercurial source code repository."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "pt",
                         :rdf/value    "Repositório Mercurial"}
                        {:rdf/language "en",
@@ -232,7 +225,6 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def Project
-  "Un proyecto."
   {:db/ident         :doap/Project,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "es",
@@ -247,7 +239,7 @@
                         :rdf/value    "Projekt."}
                        {:rdf/language "en",
                         :rdf/value    "A project."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "de",
                         :rdf/value    "Projekt"}
                        {:rdf/language "cs",
@@ -260,11 +252,10 @@
                         :rdf/value    "Proyecto"}
                        {:rdf/language "pt",
                         :rdf/value    "Projeto"}},
-   :rdfs/subClassOf  #{:foaf/Project
-                       {:rdfa/uri "http://xmlns.com/wordnet/1.6/Project"}}})
+   :rdfs/subClassOf  #{{:xsd/anyURI "http://xmlns.com/wordnet/1.6/Project"}
+                       :foaf/Project}})
 
 (def Repository
-  "Source code repository."
   {:db/ident         :doap/Repository,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "en",
@@ -279,7 +270,7 @@
                         :rdf/value    "Dépôt du code source."}
                        {:rdf/language "de",
                         :rdf/value    "Quellcode-Versionierungssystem."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "de",
                         :rdf/value    "Repository"}
                        {:rdf/language "fr",
@@ -294,7 +285,6 @@
                         :rdf/value    "Úložiště"}}})
 
 (def SVNRepository
-  "Dépôt Subversion du code source."
   {:db/ident         :doap/SVNRepository,
    :rdf/type         :rdfs/Class,
    :rdfs/comment     #{{:rdf/language "fr",
@@ -309,7 +299,7 @@
                         :rdf/value    "Repositório Subversion do código fonte."}
                        {:rdf/language "cs",
                         :rdf/value    "Úložiště zdrojových kódů Subversion."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "fr",
                         :rdf/value    "Dépôt Subversion"}
                        {:rdf/language "pt",
@@ -325,7 +315,6 @@
    :rdfs/subClassOf  :doap/Repository})
 
 (def Specification
-  "A especificação de aspetos, técnicas ou outros do sistema."
   {:db/ident :doap/Specification,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -334,7 +323,7 @@
      {:rdf/language "en",
       :rdf/value
       "A specification of a system's aspects, technical or otherwise."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "Especificação"}
                  {:rdf/language "en",
@@ -342,7 +331,6 @@
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Version
-  "Version information of a project release."
   {:db/ident :doap/Version,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -358,7 +346,7 @@
       :rdf/value    "Información sobre la versión de un release del proyecto."}
      {:rdf/language "de",
       :rdf/value    "Versionsinformation eines Projekt Releases."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Version"}
                  {:rdf/language "cs",
@@ -373,7 +361,6 @@
                   :rdf/value    "Version"}}})
 
 (def anon-root
-  "Úložiště pro anonymní přístup."
   {:db/ident         :doap/anon-root,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "cs",
@@ -389,7 +376,7 @@
                        {:rdf/language "fr",
                         :rdf/value    "Dépôt pour accès anonyme."}},
    :rdfs/domain      :doap/Repository,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "anonymous root"}
                        {:rdf/language "es",
@@ -405,7 +392,6 @@
    :rdfs/range       :rdfs/Literal})
 
 (def audience
-  "Descrição do utilizador base alvo"
   {:db/ident         :doap/audience,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "pt",
@@ -413,7 +399,7 @@
                        {:rdf/language "en",
                         :rdf/value    "Description of target user base"}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "pt",
                         :rdf/value    "audiência"}
                        {:rdf/language "en",
@@ -421,7 +407,6 @@
    :rdfs/range       :rdfs/Literal})
 
 (def blog
-  "URI of a blog related to a project"
   {:db/ident         :doap/blog,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "en",
@@ -430,7 +415,7 @@
                         :rdf/value
                         "URI de um blog relacionado com um projeto"}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "blog"}
                        {:rdf/language "pt",
@@ -438,7 +423,6 @@
    :rdfs/range       #{:rdfs/Resource :sioc.types/Weblog}})
 
 (def browse
-  "Interface web del repositorio."
   {:db/ident         :doap/browse,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "es",
@@ -454,7 +438,7 @@
                        {:rdf/language "en",
                         :rdf/value    "Web browser interface to repository."}},
    :rdfs/domain      :doap/Repository,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "pt",
                         :rdf/value    "navegar"}
                        {:rdf/language "en",
@@ -469,7 +453,6 @@
                         :rdf/value    "browse"}}})
 
 (def bug-database
-  "Suivi des bugs pour un projet."
   {:db/ident         :doap/bug-database,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "fr",
@@ -485,7 +468,7 @@
                        {:rdf/language "cs",
                         :rdf/value    "Správa chyb projektu."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "cs",
                         :rdf/value    "databáze chyb"}
                        {:rdf/language "es",
@@ -500,7 +483,6 @@
                         :rdf/value    "bug database"}}})
 
 (def category
-  "Eine Kategorie eines Projektes."
   {:db/ident         :doap/category,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "de",
@@ -516,7 +498,7 @@
                        {:rdf/language "es",
                         :rdf/value    "Una categoría de proyecto."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "cs",
                         :rdf/value    "kategorie"}
                        {:rdf/language "de",
@@ -531,7 +513,6 @@
                         :rdf/value    "category"}}})
 
 (def created
-  "Date when something was created, in YYYY-MM-DD form. e.g. 2004-04-05"
   {:db/ident :doap/created,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -553,7 +534,7 @@
      {:rdf/language "es",
       :rdf/value
       "Fecha en la que algo fue creado, en formato AAAA-MM-DD. e.g. 2004-04-05"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "criado"}
                  {:rdf/language "en",
@@ -569,7 +550,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def description
-  "Descripción en texto plano de un proyecto, de 2 a 4 enunciados de longitud."
   {:db/ident :doap/description,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -589,7 +569,7 @@
       "Beschreibung eines Projekts als einfacher Text mit der Länge von 2 bis 4 Sätzen."}
      {:rdf/language "fr",
       :rdf/value    "Texte descriptif d'un projet, long de 2 à 4 phrases."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "descrição"}
                  {:rdf/language "cs",
@@ -605,7 +585,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def developer
-  "Software-Entwickler für das Projekt."
   {:db/ident         :doap/developer,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "de",
@@ -622,7 +601,7 @@
                        {:rdf/language "cs",
                         :rdf/value    "Vývojář softwaru projektu."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "de",
                         :rdf/value    "Entwickler"}
                        {:rdf/language "fr",
@@ -638,20 +617,18 @@
    :rdfs/range       :foaf/Person})
 
 (def developer-forum
-  "A forum or community for developers of this project."
   {:db/ident         :doap/developer-forum,
    :rdf/type         :rdf/Property,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A forum or community for developers of this project."},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "developer forum"},
    :rdfs/range       :sioc/Container})
 
 (def documentation
-  "Documentation of the project."
   {:db/ident         :doap/documentation,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "en",
@@ -659,14 +636,13 @@
                        {:rdf/language "fr",
                         :rdf/value    "Aide pour l’utilisation de ce projet."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "documentation"}
                        {:rdf/language "fr",
                         :rdf/value    "aide"}}})
 
 (def documenter
-  "Proveedor de documentación para el proyecto."
   {:db/ident         :doap/documenter,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "es",
@@ -687,7 +663,7 @@
                         :rdf/value
                         "Contribuidor para a documentação do projeto."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "documenter"}
                        {:rdf/language "de",
@@ -703,7 +679,6 @@
    :rdfs/range       :foaf/Person})
 
 (def download-mirror
-  "Mirror of software download web page."
   {:db/ident :doap/download-mirror,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -721,7 +696,7 @@
      {:rdf/language "fr",
       :rdf/value    "Miroir de la page de téléchargement du programme."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "download mirror"}
                  {:rdf/language "pt",
@@ -736,7 +711,6 @@
                   :rdf/value    "zrcadlo stránky pro stažení"}}})
 
 (def download-page
-  "Página web da qual o projeto de software pode ser descarregado."
   {:db/ident :doap/download-page,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -756,7 +730,7 @@
       :rdf/value
       "Page web à partir de laquelle on peut télécharger le programme."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "cs",
                   :rdf/value    "stránka pro stažení"}
                  {:rdf/language "es",
@@ -771,7 +745,6 @@
                   :rdf/value    "Seite zum Herunterladen"}}})
 
 (def file-release
-  "URI para download associado com a publicação."
   {:db/ident         :doap/file-release,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "pt",
@@ -783,7 +756,7 @@
                        {:rdf/language "cs",
                         :rdf/value "URI adresa stažení asociované s revizí."}},
    :rdfs/domain      :doap/Version,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "file-release"}
                        {:rdf/language "pt",
@@ -792,7 +765,6 @@
                         :rdf/value    "soubor revize"}}})
 
 (def helper
-  "Colaborador del proyecto."
   {:db/ident         :doap/helper,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "es",
@@ -808,7 +780,7 @@
                        {:rdf/language "de",
                         :rdf/value    "Projekt-Mitarbeiter."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "helper"}
                        {:rdf/language "pt",
@@ -824,7 +796,6 @@
    :rdfs/range       :foaf/Person})
 
 (def homepage
-  "URL der Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt."
   {:db/ident :doap/homepage,
    :rdf/type #{:rdf/Property :owl/InverseFunctionalProperty},
    :rdfs/comment
@@ -847,7 +818,7 @@
       :rdf/value
       "URL adresa domovské stránky projektu asociované s právě jedním projektem."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "page web"}
                  {:rdf/language "cs",
@@ -863,7 +834,6 @@
    :rdfs/subPropertyOf :foaf/homepage})
 
 (def implements
-  "Uma especificação que um projeto implementa. Pode ser uma padrão, API ou um nível de conformidade definida legalmente."
   {:db/ident :doap/implements,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -874,7 +844,7 @@
       :rdf/value
       "A specification that a project implements. Could be a standard, API or legally defined level of conformance."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Implements specification"}
                  {:rdf/language "pt",
@@ -882,7 +852,6 @@
    :rdfs/range :doap/Specification})
 
 (def language
-  "BCP47 language code a project has been translated into"
   {:db/ident :doap/language,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -892,7 +861,7 @@
       :rdf/value
       "Código de idioma BCP47 do projeto para o qual foi traduzido"}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "language"}
                  {:rdf/language "pt",
@@ -900,7 +869,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def license
-  "The URI of an RDF description of the license the software is distributed under. E.g. a SPDX reference"
   {:db/ident :doap/license,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -922,7 +890,7 @@
      {:rdf/language "fr",
       :rdf/value
       "L'URI d'une description RDF de la licence sous laquelle le programme est distribué."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "licencia"}
                  {:rdf/language "pt",
@@ -937,7 +905,6 @@
                   :rdf/value    "licence"}}})
 
 (def location
-  "Localização de um repositório."
   {:db/ident         :doap/location,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "pt",
@@ -953,7 +920,7 @@
                        {:rdf/language "de",
                         :rdf/value    "Lokation eines Repositorys."}},
    :rdfs/domain      :doap/Repository,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "pt",
                         :rdf/value    "localização do respositório"}
                        {:rdf/language "cs",
@@ -968,7 +935,6 @@
                         :rdf/value    "emplacement du dépôt"}}})
 
 (def mailing-list
-  "Domovská stránka nebo e–mailová adresa e–mailové diskuse."
   {:db/ident :doap/mailing-list,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -986,7 +952,7 @@
       :rdf/value
       "Página web da lista de distribuição de e-mail ou dos endereços."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "lista de distribuição de e-mail"}
                  {:rdf/language "fr",
@@ -1002,7 +968,6 @@
    :rdfs/range :sioc.types/MailingList})
 
 (def maintainer
-  "Développeur principal d'un projet, un meneur du projet."
   {:db/ident :doap/maintainer,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1020,7 +985,7 @@
      {:rdf/language "pt",
       :rdf/value "Programador principal de um projeto, um líder de projeto."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Projektverantwortlicher"}
                  {:rdf/language "cs",
@@ -1036,7 +1001,6 @@
    :rdfs/range :foaf/Person})
 
 (def module
-  "Nom du module d'un dépôt Subversion, CVS, BitKeeper ou Arch."
   {:db/ident :doap/module,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1059,7 +1023,7 @@
    :rdfs/domain
    {:owl/unionOf [:doap/CVSRepository :doap/ArchRepository :doap/BKRepository],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Modul"}
                  {:rdf/language "en",
@@ -1074,7 +1038,6 @@
                   :rdf/value    "módulo"}}})
 
 (def name
-  "Jméno něčeho."
   {:db/ident           :doap/name,
    :rdf/type           :rdf/Property,
    :rdfs/comment       #{{:rdf/language "cs",
@@ -1089,7 +1052,7 @@
                           :rdf/value    "El nombre de algo."}
                          {:rdf/language "fr",
                           :rdf/value    "Le nom de quelque chose."}},
-   :rdfs/isDefinedBy   {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy   {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label         #{{:rdf/language "pt",
                           :rdf/value    "nome"}
                          {:rdf/language "es",
@@ -1106,7 +1069,6 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def old-homepage
-  "O URL antigo da página de um projeto,\n\t\tassociada com exactamente um projeto."
   {:db/ident :doap/old-homepage,
    :rdf/type #{:rdf/Property :owl/InverseFunctionalProperty},
    :rdfs/comment
@@ -1129,7 +1091,7 @@
       :rdf/value
       "URL adresa předešlé domovské stránky projektu asociované s právě jedním projektem."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "página web antiga"}
                  {:rdf/language "en",
@@ -1145,7 +1107,6 @@
    :rdfs/subPropertyOf :foaf/homepage})
 
 (def os
-  "Operating system that a project is limited to.  Omit this property if the project is not OS-specific."
   {:db/ident :doap/os,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1168,7 +1129,7 @@
       :rdf/value
       "Betriebssystem auf dem das Projekt eingesetzt werden kann. Diese Eigenschaft kann ausgelassen werden, wenn das Projekt nicht BS-spezifisch ist."}},
    :rdfs/domain #{:doap/Project :doap/Version},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "fr",
                   :rdf/value    "système d'exploitation"}
                  {:rdf/language "en",
@@ -1184,7 +1145,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def platform
-  "Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR"
   {:db/ident :doap/platform,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1195,7 +1155,7 @@
       :rdf/value
       "Indicador da plataforma do software (não específico a nenhum SO), ex.: Java, Firefox, ECMA CLR"}},
    :rdfs/domain #{:doap/Project :doap/Version},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "plataforma"}
                  {:rdf/language "en",
@@ -1203,7 +1163,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def programming-language
-  "Linguagem de programação que o projeto usa ou é para ser utilizada."
   {:db/ident :doap/programming-language,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1226,7 +1185,7 @@
       :rdf/value
       "Programming language a project is implemented in or intended for use with."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "lenguaje de programación"}
                  {:rdf/language "en",
@@ -1242,7 +1201,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def release
-  "A project release."
   {:db/ident         :doap/release,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "en",
@@ -1258,7 +1216,7 @@
                        {:rdf/language "es",
                         :rdf/value    "Un release (versión) de un proyecto."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "release"}
                        {:rdf/language "es",
@@ -1274,7 +1232,6 @@
    :rdfs/range       :doap/Version})
 
 (def repository
-  "Source code repository."
   {:db/ident         :doap/repository,
    :owl/inverseOf    :doap/repositoryOf,
    :rdf/type         :rdf/Property,
@@ -1291,7 +1248,7 @@
                        {:rdf/language "de",
                         :rdf/value    "Quellcode-Versionierungssystem."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "de",
                         :rdf/value    "Repository"}
                        {:rdf/language "cs",
@@ -1307,20 +1264,18 @@
    :rdfs/range       :doap/Repository})
 
 (def repositoryOf
-  "The project that uses a repository."
   {:db/ident         :doap/repositoryOf,
    :owl/inverseOf    :doap/repository,
    :rdf/type         :rdf/Property,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The project that uses a repository."},
    :rdfs/domain      :doap/Repository,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "repository of"},
    :rdfs/range       :doap/Project})
 
 (def revision
-  "Indentificador de la versión de un release de software."
   {:db/ident :doap/revision,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1337,7 +1292,7 @@
      {:rdf/language "pt",
       :rdf/value    "Identificador do lançamento da revisão do software."}},
    :rdfs/domain :doap/Version,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "de",
                   :rdf/value    "Version"}
                  {:rdf/language "cs",
@@ -1353,7 +1308,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def screenshots
-  "Page web avec des captures d'écran du projet."
   {:db/ident         :doap/screenshots,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "fr",
@@ -1374,7 +1328,7 @@
                         :rdf/value
                         "Web-Seite mit Screenshots eines Projektes."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "de",
                         :rdf/value    "Screenshots"}
                        {:rdf/language "fr",
@@ -1389,7 +1343,6 @@
                         :rdf/value    "capturas de ecrãs"}}})
 
 (def security-contact
-  "The Agent that should be contacted\n\tif security issues are found with the project."
   {:db/ident :doap/security-contact,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1397,25 +1350,23 @@
     :rdf/value
     "The Agent that should be contacted\n\tif security issues are found with the project."},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "security contact"},
    :rdfs/range :foaf/Agent})
 
 (def security-policy
-  "URL of the security policy of a project."
   {:db/ident           :doap/security-policy,
    :rdf/type           :rdf/Property,
    :rdfs/comment       {:rdf/language "en",
                         :rdf/value "URL of the security policy of a project."},
    :rdfs/domain        :doap/Project,
-   :rdfs/isDefinedBy   {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy   {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "security policy"},
    :rdfs/subPropertyOf :foaf/page})
 
 (def service-endpoint
-  "The URI of a web service endpoint where software as a service may be accessed"
   {:db/ident :doap/service-endpoint,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1423,13 +1374,12 @@
     :rdf/value
     "The URI of a web service endpoint where software as a service may be accessed"},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "service endpoint"},
    :rdfs/range :rdfs/Resource})
 
 (def shortdesc
-  "Descripción corta (8 o 9 palabras) en texto plano de un proyecto."
   {:db/ident :doap/shortdesc,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1448,7 +1398,7 @@
       :rdf/value    "Texte descriptif concis (8 ou 9 mots) d'un projet."}
      {:rdf/language "en",
       :rdf/value "Short (8 or 9 words) plain text description of a project."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "descrição curta"}
                  {:rdf/language "cs",
@@ -1464,20 +1414,18 @@
    :rdfs/range :rdfs/Literal})
 
 (def support-forum
-  "A forum or community that supports this project."
   {:db/ident         :doap/support-forum,
    :rdf/type         :rdf/Property,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A forum or community that supports this project."},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "supporting forum"},
    :rdfs/range       :sioc/Container})
 
 (def tester
-  "Tester nebo jiný spoluautor kontrolující kvalitu."
   {:db/ident :doap/tester,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1495,7 +1443,7 @@
      {:rdf/language "es",
       :rdf/value    "Un tester u otro proveedor de control de calidad."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "pt",
                   :rdf/value    "controlador"}
                  {:rdf/language "cs",
@@ -1511,7 +1459,6 @@
    :rdfs/range :foaf/Person})
 
 (def translator
-  "Mitarbeiter an den Übersetzungen des Projektes."
   {:db/ident         :doap/translator,
    :rdf/type         :rdf/Property,
    :rdfs/comment     #{{:rdf/language "de",
@@ -1530,7 +1477,7 @@
                         :rdf/value
                         "Contribuidor das traduções para o projeto."}},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       #{{:rdf/language "en",
                         :rdf/value    "translator"}
                        {:rdf/language "pt",
@@ -1546,20 +1493,18 @@
    :rdfs/range       :foaf/Person})
 
 (def vendor
-  "Vendor organization: commercial, free or otherwise"
   {:db/ident         :doap/vendor,
    :rdf/type         :rdf/Property,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "Vendor organization: commercial, free or otherwise"},
    :rdfs/domain      :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "vendor"},
    :rdfs/range       :foaf/Organization})
 
 (def wiki
-  "URL of Wiki for collaborative discussion of project."
   {:db/ident :doap/wiki,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1577,7 +1522,7 @@
      {:rdf/language "es",
       :rdf/value    "URL del Wiki para discusión colaborativa del proyecto."}},
    :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy {:rdfa/uri "http://usefulinc.com/ns/doap#"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://usefulinc.com/ns/doap#"},
    :rdfs/label #{{:rdf/language "cs",
                   :rdf/value    "wiki"}
                  {:rdf/language "en",

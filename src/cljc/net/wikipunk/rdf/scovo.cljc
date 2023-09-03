@@ -17,28 +17,24 @@
   (:refer-clojure :exclude [max min]))
 
 (def Dataset
-  "a statistical dataset"
   {:db/ident     :scovo/Dataset,
    :rdf/type     #{:rdfs/Class :owl/Class},
    :rdfs/comment "a statistical dataset",
    :rdfs/label   "Dataset"})
 
 (def Dimension
-  "a dimension of a statistical data item"
   {:db/ident     :scovo/Dimension,
    :rdf/type     #{:rdfs/Class :owl/Class},
    :rdfs/comment "a dimension of a statistical data item",
    :rdfs/label   "Dimension"})
 
 (def Item
-  "a statistical data item"
   {:db/ident     :scovo/Item,
    :rdf/type     #{:rdfs/Class :owl/Class},
    :rdfs/comment "a statistical data item",
    :rdfs/label   "Item"})
 
 (def dataset
-  "belongs to dataset"
   {:db/ident    :scovo/dataset,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Item,
@@ -46,7 +42,6 @@
    :rdfs/range  :scovo/Dataset})
 
 (def datasetOf
-  "is the dataset of"
   {:db/ident    :scovo/datasetOf,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Dataset,
@@ -54,7 +49,6 @@
    :rdfs/range  :scovo/Item})
 
 (def dimension
-  "has a dimension"
   {:db/ident    :scovo/dimension,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Item,
@@ -62,14 +56,12 @@
    :rdfs/range  :scovo/Dimension})
 
 (def max
-  "has a maximum range value"
   {:db/ident    :scovo/max,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Dimension,
    :rdfs/label  "has a maximum range value"})
 
 (def min
-  "has a minimum range value"
   {:db/ident    :scovo/min,
    :rdf/type    :rdf/Property,
    :rdfs/domain :scovo/Dimension,

@@ -73,7 +73,7 @@
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *output-to* "src/cljc/net/wikipunk/rdf/")
 
-(declare kw)
+(declare kw iri)
 
 (def ^:dynamic *gen*
   "Node generator used by Raphael when parsing Turtle."
@@ -93,9 +93,9 @@
              (update :bnode-cache assoc label node))
          node])))
   (add-base [this iri]
-    (update this :namespaces assoc :base (str iri)))
+    (update this :namespaces assoc :base (or (:xsd/anyURI iri) (str iri))))
   (add-prefix [this prefix iri]    
-    (update this :namespaces assoc prefix (str iri)))
+    (update this :namespaces assoc prefix (or (:xsd/anyURI iri) (str iri))))
   (iri-for [this prefix]
     (get namespaces prefix))
   (get-namespaces [this]
@@ -103,27 +103,27 @@
   (get-base [this]
     (:base namespaces))
   (new-qname [this prefix local]
-    (keyword prefix local))
+    (kw (iri (keyword prefix local))))
   (new-iri [this iri]
     (if-some [k (kw iri)]
       k
-      {:rdfa/uri iri}))
+      {:xsd/anyURI iri}))
   (new-literal [this s]
     (try
       (java.net.URL. s)
-      {:rdfa/uri s}
+      {:xsd/anyURI s}
       (catch java.net.MalformedURLException _
         (if (str/starts-with? s "pkg:")
           (try
             (PackageURL. s)
-            {:rdfa/uri s}
+            {:xsd/anyURI s}
             (catch com.github.packageurl.MalformedPackageURLException ex
               (throw (ex-info (.getMessage ex) {:xsd/string s}))))
           {:rdf/value s}))))
   (new-literal [this s t]
     (case t
       :xsd/anyURI
-      {:rdfa/uri s}
+      {:xsd/anyURI s}
       
       (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
       (clojure.instant/read-instant-date s)
@@ -206,7 +206,7 @@
             (slurp s)
             (or (some-> (io/resource s) (slurp))
                 s))]
-    (parsed-graph (raphael/parse s *gen*))))
+    (parsed-graph (raphael/parse s (round-trip-generator)))))
 
 ;; The :rdfa/uri is used to download the model is a :dcat/downloadURL
 ;;   is not provided. The :rdfa/prefix is used to bind @base URI of the
@@ -676,30 +676,6 @@
   there should be no uniqueness constraint."
   (fn [x] (if (map? x) (mop/type-of x) x)))
 
-(declare box)
-
-(defn unroll-tagged-literals
-  "unrolls tagged-literals forms"
-  [form]
-  (if (tagged-literal? form)
-    (let [{:keys [tag form]} form]
-      (case (infer-datomic-type (keyword tag))
-        :db.type/string  (if (map? form)
-                           (or (:rdfa/uri form) (pr-str form))
-                           (str form))
-        :db.type/long    (long form)
-        :db.type/double  (double form)
-        :db.type/instant (if (string? form)
-                           (clojure.instant/read-instant-date form)
-                           form)
-        :db.type/ref     (if-not (or (map? form) (keyword? form))
-                           (box form)
-                           form)
-        :db.type/bigint  (if (int? form) form (bigint form))
-        :db.type/bigdec  (bigdec form)
-        form))
-    form))
-
 (declare iri)
 
 (defrecord UniversalTranslator [counter bnode-cache namespaces ; raphael/NodeGenerator
@@ -940,7 +916,7 @@
 
 (defmethod rdf-literal :xsd/anyURI
   [^Node_Literal node]
-  {:rdfa/uri (.getLiteralValue node)})
+  {:xsd/anyURI (.getLiteralValue node)})
 
 (defmethod rdf-literal :xsd/string
   [^Node_Literal node]
@@ -969,7 +945,7 @@
   Node_URI
   (data [n]
     (let [uri (.getURI n)]
-      (or (kw uri) {:rdfa/uri uri})))
+      (or (kw uri) {:xsd/anyURI uri})))
 
   Node_Blank
   (data [n]
@@ -1054,7 +1030,7 @@
                                            (map? iri)
                                            iri
                                            (and (string? iri) (str/starts-with? iri "http"))
-                                           {:rdfa/uri iri}
+                                           {:xsd/anyURI iri}
                                            (string? iri)
                                            {:db/id iri}
                                            :else (throw (ex-info "Could not generate IRI for Node." {:subject iri})))
@@ -1108,6 +1084,28 @@
 (defprotocol Box
   (box [val] "boxes the value"))
 
+(defn unroll-tagged-literals
+  "unrolls tagged-literals forms"
+  [form]
+  (if (tagged-literal? form)
+    (let [{:keys [tag form]} form]
+      (case (infer-datomic-type (keyword tag))
+        :db.type/string  (if (map? form)
+                           (or (:xsd/anyURI form) (pr-str form))
+                           (str form))
+        :db.type/long    (long form)
+        :db.type/double  (double form)
+        :db.type/instant (if (string? form)
+                           (clojure.instant/read-instant-date form)
+                           form)
+        :db.type/ref     (if-not (or (map? form) (keyword? form))
+                           (box form)
+                           form)
+        :db.type/bigint  (if (int? form) form (bigint form))
+        :db.type/bigdec  (bigdec form)
+        form))
+    form))
+
 (extend-protocol Box
   Boolean
   (box [val]
@@ -1132,12 +1130,12 @@
   (box [s]
     (try
       (java.net.URL. s)
-      {:rdfa/uri s}
+      {:xsd/anyURI s}
       (catch java.net.MalformedURLException _
         (if (str/starts-with? s "pkg:")
           (try
             (PackageURL. s)
-            {:rdfa/uri s}
+            {:xsd/anyURI s}
             (catch com.github.packageurl.MalformedPackageURLException ex
               (throw (ex-info (.getMessage ex) {:xsd/string s}))))
           {:xsd/string s}))))
@@ -1295,8 +1293,8 @@
                                      (qualified-keyword? k)
                                      (assoc v :db/ident k)
                                      
-                                     (and (string? k) (not (contains? v :rdfa/uri)))
-                                     (assoc v :rdfa/uri k)
+                                     (and (string? k) (not (contains? v :xsd/anyURI)))
+                                     (assoc v :xsd/anyURI k)
 
                                      :else v)))
                             (pmap (fn [form]
@@ -1432,27 +1430,27 @@
   (let [model-meta (map meta model)
         forms      (unroll-forms model)
         md         (meta forms)
-        forms      (->> forms
-                        ;; todo: refactor this into a multimethod
-                        (pmap (fn [form]
-                                (if (and (pos? *recurse*)
-                                         (some #(or (isa? % :skos/Concept)
-                                                    (isa? % :skos/ConceptScheme))
-                                               (if (and (coll? (:rdf/type form)) (not (map? (:rdf/type form))))
-                                                 (:rdf/type form)
-                                                 #{(:rdf/type form)})))
-                                  (try
-                                    (when-some [x (parse (:db/ident form))]
-                                      (or (some-> (group-by :db/ident (unroll-forms x))
-                                                  (get (:db/ident form))
-                                                  (first)
-                                                  ((fn [a b] (merge b a)) form)
-                                                  (dissoc :private))
-                                          form))
-                                    (catch Throwable ex
-                                      (log/error (:db/ident form) (.getMessage ex))
-                                      form))
-                                  form))))
+        ;; forms      (->> forms
+        ;;                 ;; todo: refactor this into a multimethod
+        ;;                 (pmap (fn [form]
+        ;;                         (if (and (pos? *recurse*)
+        ;;                                  (some #(or (isa? % :skos/Concept)
+        ;;                                             (isa? % :skos/ConceptScheme))
+        ;;                                        (if (and (coll? (:rdf/type form)) (not (map? (:rdf/type form))))
+        ;;                                          (:rdf/type form)
+        ;;                                          #{(:rdf/type form)})))
+        ;;                           (try
+        ;;                             (when-some [x (parse (:db/ident form))]
+        ;;                               (or (some-> (group-by :db/ident (unroll-forms x))
+        ;;                                           (get (:db/ident form))
+        ;;                                           (first)
+        ;;                                           ((fn [a b] (merge b a)) form)
+        ;;                                           (dissoc :private))
+        ;;                                   form))
+        ;;                             (catch Throwable ex
+        ;;                               (log/error (:db/ident form) (.getMessage ex))
+        ;;                               form))
+        ;;                           form))))
         exclusions (->> forms
                         (filter (comp qualified-keyword? :db/ident))
                         (map (comp symbol name :db/ident))
@@ -1480,7 +1478,7 @@
                                             :else sym)
                                       sym       (if (:private v) (with-meta sym {:private true}) sym)
                                       v         (if (:private v) (dissoc v :private) v)
-                                      docstring (get-doc v)
+                                      docstring #_(get-doc v) nil
                                       v         (cond-> (assoc v :db/ident k)
                                                   (and (nil? (:rdf/type v))
                                                        (:rdfs/subClassOf v))
@@ -1687,8 +1685,11 @@
                                 (case k
                                   (:mop/classDirectSlots                                     
                                    :mop/classSlots)
-                                  (if (seq v)
-                                    (assoc m k (into #{} (map (some-fn :db/ident identity)) v))
+                                  (if (some? v)
+                                    (assoc m k (into #{} (map (some-fn :db/ident identity))
+                                                     (if (keyword? v)
+                                                       #{v}
+                                                       v)))
                                     m)
 
                                   (:mop/classDefaultInitargs
@@ -1716,8 +1717,8 @@
 
   clojure.lang.IPersistentMap
   (datafy [m]
-    (if-some [uri (:rdfa/uri m)]
-      (mop/find-class {:rdfa/uri uri})
+    (if-some [uri (:xsd/anyURI m)]
+      (mop/find-class {:xsd/anyURI uri})
       m)))
 
 (defmulti import-from
@@ -1989,12 +1990,3 @@
   [prefix-mapping]
   ((get-method graph clojure.lang.IPersistentMap) prefix-mapping))
 
-(comment
-  {:rdf/type      :rdf/Statement
-   :rdf/subject   {:rdfa/prefix "schema",
-                   :rdfa/term   "3DModel",
-                   :rdfa/uri    "http://schema.org/3DModel"}
-   :rdf/predicate {:rdfa/prefix "rdfs",
-                   :rdfa/term   "comment"
-                   :rdfa/uri    "http://www.w3.org/2000/01/rdf-schema#comment"}
-   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}})

@@ -15,7 +15,6 @@
    :rdfa/uri "http://purl.org/net/vocab/2004/03/label#"})
 
 (def inversePlural
-  "En relation mellem en term og dens inverses navn i flertalsform"
   {:db/ident :label/inversePlural,
    :label/plural #{{:rdf/language "da",
                     :rdf/value    "flertalsformer for inverse"}
@@ -33,7 +32,7 @@
      {:rdf/language "en",
       :rdf/value
       "A relation between a term and the label of its inverse in literal plural form"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/net/vocab/2004/03/label"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/net/vocab/2004/03/label"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "inverse plural"}
                  {:rdf/language "da",
@@ -41,7 +40,6 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def inverseSingular
-  "En relation mellem en term og dens inverses navn i entalsform"
   {:db/ident :label/inverseSingular,
    :label/plural #{{:rdf/language "en",
                     :rdf/value    "singular forms of inverses"}
@@ -59,7 +57,7 @@
      {:rdf/language "en",
       :rdf/value
       "A relation between a term and the label of its inverse in literal singular form"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/net/vocab/2004/03/label"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/net/vocab/2004/03/label"},
    :rdfs/label #{{:rdf/language "da",
                   :rdf/value    "inverst ental"}
                  {:rdf/language "en",
@@ -67,7 +65,6 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def plural
-  "A relation between a term and its label in literal plural form"
   {:db/ident :label/plural,
    :label/plural #{{:rdf/language "da",
                     :rdf/value    "flertalsformer"}
@@ -91,7 +88,7 @@
      {:rdf/language "es",
       :rdf/value
       "Una relación entre un término y su etiqueta en forma plural"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/net/vocab/2004/03/label"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/net/vocab/2004/03/label"},
    :rdfs/label #{{:rdf/language "da",
                   :rdf/value    "flertal"}
                  {:rdf/language "es",
@@ -101,7 +98,6 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def singular
-  "Una relación entre un término y su etiqueta en forma singular"
   {:db/ident :label/singular,
    :label/plural #{{:rdf/language "da",
                     :rdf/value    "entalsformer"}
@@ -125,7 +121,7 @@
      {:rdf/language "en",
       :rdf/value
       "A relation between a term and its label in literal singular form"}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/net/vocab/2004/03/label"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/net/vocab/2004/03/label"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "singular"}
                  {:rdf/language "da",

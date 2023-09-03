@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.cnt
   "Representing Content in RDF as defined by http://www.w3.org/TR/Content-in-RDF/"
-  {:dcat/downloadURL "resources/content.rdf",
-   :owl/imports {:rdfa/uri "http://purl.org/dc/terms/"},
+  {:dcat/downloadURL "net/wikipunk/ext/content.rdf",
+   :owl/imports {:xsd/anyURI "http://purl.org/dc/terms/"},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Working Draft 29 April 2011"},
    :rdf/ns-prefix-map {"cnt"     "http://www.w3.org/2011/content#",
@@ -12,19 +12,19 @@
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "cnt",
-   :rdfa/uri "http://www.w3.org/2011/content",
+   :rdfa/uri "http://www.w3.org/2011/content#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "Representing Content in RDF as defined by http://www.w3.org/TR/Content-in-RDF/"},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/Content-in-RDF/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/Content-in-RDF/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Representing Content in RDF"},
-   :rdfs/seeAlso {:rdfa/uri "http://www.w3.org/WAI/intro/earl"}}
+   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/WAI/intro/earl"},
+   :xsd/anyURI "http://www.w3.org/2011/content"}
   (:refer-clojure :exclude [bytes chars rest]))
 
 (def Content
-  "The content."
   {:db/ident     :cnt/Content,
    :rdf/type     #{:rdfs/Class :owl/Class},
    :rdfs/comment {:rdf/language "en",
@@ -33,7 +33,6 @@
                   :rdf/value    "Content"}})
 
 (def ContentAsBase64
-  "The base64 encoded content (can be used for binary content)."
   {:db/ident :cnt/ContentAsBase64,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -44,7 +43,6 @@
    :rdfs/subClassOf :cnt/Content})
 
 (def ContentAsText
-  "The text content (can be used for text content)."
   {:db/ident        :cnt/ContentAsText,
    :rdf/type        #{:rdfs/Class :owl/Class},
    :rdfs/comment    {:rdf/language "en",
@@ -55,7 +53,6 @@
    :rdfs/subClassOf :cnt/Content})
 
 (def ContentAsXML
-  "The XML content (can only be used for XML-wellformed content)."
   {:db/ident :cnt/ContentAsXML,
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment
@@ -67,7 +64,6 @@
    :rdfs/subClassOf :cnt/Content})
 
 (def DoctypeDecl
-  "The document type declaration."
   {:db/ident     :cnt/DoctypeDecl,
    :rdf/type     #{:rdfs/Class :owl/Class},
    :rdfs/comment {:rdf/language "en",
@@ -76,7 +72,6 @@
                   :rdf/value    "Document type declaration"}})
 
 (def bytes
-  "The Base64 encoded byte sequence of the content."
   {:db/ident     :cnt/bytes,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -88,7 +83,6 @@
    :rdfs/range   :xsd/base64Binary})
 
 (def characterEncoding
-  "The character encoding used to create a character sequence from a byte sequence or vice versa."
   {:db/ident :cnt/characterEncoding,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -101,7 +95,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def chars
-  "The character sequence of the text content."
   {:db/ident     :cnt/chars,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -112,7 +105,6 @@
    :rdfs/range   :rdfs/Literal})
 
 (def declaredEncoding
-  "The character encoding declared in the XML declaration."
   {:db/ident     :cnt/declaredEncoding,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -124,7 +116,6 @@
    :rdfs/range   :rdfs/Literal})
 
 (def doctypeName
-  "The document type name."
   {:db/ident     :cnt/doctypeName,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -135,7 +126,6 @@
    :rdfs/range   :rdfs/Literal})
 
 (def dtDecl
-  "The document type declaration."
   {:db/ident     :cnt/dtDecl,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -146,7 +136,6 @@
    :rdfs/range   :cnt/DoctypeDecl})
 
 (def internalSubset
-  "The internal document type definition subset within the document type declarations."
   {:db/ident :cnt/internalSubset,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -159,7 +148,6 @@
    :rdfs/range :rdfs/Literal})
 
 (def leadingMisc
-  "The XML content preceding the document type declaration."
   {:db/ident     :cnt/leadingMisc,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -171,7 +159,6 @@
    :rdfs/range   :rdf/XMLLiteral})
 
 (def publicId
-  "The document type declarations's public identifier."
   {:db/ident     :cnt/publicId,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -183,7 +170,6 @@
    :rdfs/range   :rdfs/Literal})
 
 (def rest
-  "The XML content following the document type declaration."
   {:db/ident     :cnt/rest,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -195,7 +181,6 @@
    :rdfs/range   :rdf/XMLLiteral})
 
 (def standalone
-  "The standalone declaration in the XML declaration."
   {:db/ident     :cnt/standalone,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
@@ -207,7 +192,6 @@
    :rdfs/range   :rdfs/Literal})
 
 (def systemId
-  "The document type declarations's system identifier (typed: xsd:anyURI)"
   {:db/ident :cnt/systemId,
    :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
@@ -220,7 +204,6 @@
    :rdfs/range :xsd/anyURI})
 
 (def version
-  "The XML version declared in the XML declaration."
   {:db/ident     :cnt/version,
    :rdf/type     #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/language "en",
