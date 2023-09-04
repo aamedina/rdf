@@ -4,7 +4,7 @@
    [clojure.edn :as edn]
    [clojure.repl]
    [clojure.tools.namespace.repl]
-   [ont-app.vocabulary.lstr]   
+   [net.wikipunk.rdf]
    [clojure.tools.reader]
    [clojure.java.io :as io]  
    [com.stuartsierra.component.repl :refer [reset set-init]]

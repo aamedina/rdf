@@ -89,7 +89,7 @@
 ;;    ;; optional and used to override the models
 ;;    specified prefixes which becomes invaluable when the source model
 ;;    has odd prefixes for standard vocabularies
-;;    :rdf/ns-prefix-map {...}}
+;;    :namespaces {...}}
 
 ;; Options:
 ;;  :emit -- set to false to prevent emitting the namespace
@@ -866,7 +866,7 @@
         ^Graph g      (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind ^org.apache.jena.reasoner.Reasoner reasoner g)
                         g)
-        ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
+        ns-prefix-map (or (:namespaces md) ; use explicitly provided ns-prefix-map 
                           (dissoc (cond-> (into {} (.getNsPrefixMap (.getPrefixMapping g)))
                                     (and (:rdfa/prefix md)
                                          (:rdfa/uri md))
@@ -882,7 +882,7 @@
                                               (:rdfa/prefix md))
                                          (assoc "" (:rdfa/prefix md))))]
     (reg/with ns-prefix-map
-              (into (with-meta [] (assoc (dissoc md :reasoner) :rdf/ns-prefix-map ns-prefix-map))
+              (into (with-meta [] (assoc (dissoc md :reasoner) :namespaces ns-prefix-map))
                     (->> (into [] g)
                          (group-by #(.getSubject ^Triple %))
                          (pmap (fn [[subject triples]]
@@ -1181,7 +1181,7 @@
                                        :skos/broader))
                         #_(mapcat (fn [x] (if (sequential? x) x [x])))
                         (distinct)
-                        (pmap (fn [ident]
+                        #_(pmap (fn [ident]
                                 (when (and (keyword? ident)
                                            (not (contains? index ident))
                                            (pos? *recurse*))
@@ -1193,7 +1193,7 @@
                                                 (map #(with-meta % {}))
                                                 (vals (dissoc md
                                                               :dcat/downloadURL
-                                                              :rdf/ns-prefix-map
+                                                              :namespaces
                                                               :rdfa/prefix))))))
                                     (catch Throwable ex
                                       (log/error ex ident (.getMessage ex))
@@ -1243,7 +1243,17 @@
       :else (type x))))
 
 (defmethod rdf-doc :default [_] nil)
-(defmethod rdf-doc clojure.lang.IPersistentMap [m] (:rdf/value m))
+(defmethod rdf-doc clojure.lang.IPersistentMap [m]
+  (cond
+    (= (:rdf/language m) *lang*)
+    (:rdf/value m)
+
+    (and (:rdf/language m)
+         (not= (:rdf/language m) *lang*))
+    nil
+
+    :else
+    (:rdf/value m)))
 (defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
 (defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x]
   (when (str/starts-with? (lstr/lang x) *lang*)
@@ -1475,7 +1485,7 @@
     (println (:db/ident metaobject))
     (when-some [doc (get-doc metaobject)]
       (println " " doc))
-    (when-some [supers (mop/class-precedence-list metaobject)]
+    (when-some [supers (next (mop/class-precedence-list metaobject))]
       (println "  isa?")
       (reduce (fn [cnt class]
                 (println (str (apply str (repeat cnt \space)) class))
@@ -1676,6 +1686,10 @@
             *recurse* (:recurse md 0)]
     (parse-with-meta *graph* md)))
 
+(comment
+  (org.apache.jena.riot.out.NodeFmtLib/decodeBNodeLabel "Bda53edfdf1f55184b2c9baffc3b38d9b")
+  (org.apache.jena.riot.out.NodeFmtLib/encodeBNodeLabel "da53edfdf1f55184b2c9baffc3b38d9b"))
+
 (defmethod graph clojure.lang.IPersistentMap
   [md]
   (let [{:rdfa/keys [uri prefix]
@@ -1684,10 +1698,11 @@
          :rdf/keys  [value]
          :keys      [format]} md
         ^org.apache.jena.riot.RDFParserBuilder parser
-        (if value
-          (doto (RDFParser/fromString value)
-            (.lang (get a/formats (or format :ttl))))
-          (RDFParser/source (str (or downloadURL uri))))]
+        (doto (if value
+                (doto (RDFParser/fromString value)
+                  (.lang (get a/formats (or format :ttl))))
+                (RDFParser/source (str (or downloadURL uri))))
+          (.labelToNode (org.apache.jena.riot.lang.LabelToNode/createUseLabelEncoded)))]
     (try
       (.toGraph parser)
       (catch org.apache.jena.riot.RiotException ex
@@ -1867,3 +1882,7 @@
 (defn read-anyURI
   [form]
   {:xsd/anyURI form})
+
+(defn read-blank
+  [form]
+  {:db/id form})
