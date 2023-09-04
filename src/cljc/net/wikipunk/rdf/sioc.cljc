@@ -1,18 +1,18 @@
 (ns net.wikipunk.rdf.sioc
   {:dcat/downloadURL "net/wikipunk/boot/sioc.rdf",
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "foaf" "http://xmlns.com/foaf/0.1/",
-                       "owl" "http://www.w3.org/2002/07/owl#",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "sioc" "http://rdfs.org/sioc/ns#",
-                       "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                       "wot" "http://xmlns.com/wot/0.1/"},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "sioc"    "http://rdfs.org/sioc/ns#",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "wot"     "http://xmlns.com/wot/0.1/"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "sioc",
    :rdfa/uri "http://rdfs.org/sioc/ns#",
    :rdfs/isDefinedBy
-   {:rdfa/uri "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"}}
+   {:xsd/anyURI "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"}}
   (:refer-clojure :exclude [name]))
 
 (def Community

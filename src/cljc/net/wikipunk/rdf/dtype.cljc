@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.dtype
   {:dcat/downloadURL
    "https://lov.linkeddata.es/dataset/lov/vocabs/dtype/versions/2014-06-28.n3",
-   :rdf/ns-prefix-map {"dc11"  "http://purl.org/dc/elements/1.1/",
-                       "dtype" "http://www.linkedmodel.org/schema/dtype#",
-                       "owl"   "http://www.w3.org/2002/07/owl#",
-                       "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                       "vaem"  "http://www.linkedmodel.org/schema/vaem#",
-                       "voag"  "http://voag.linkedmodel.org/voag#",
-                       "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+   :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
+                "dtype" "http://www.linkedmodel.org/schema/dtype#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "vaem"  "http://www.linkedmodel.org/schema/vaem#",
+                "voag"  "http://voag.linkedmodel.org/voag#",
+                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "dtype",
    :rdfa/uri "http://www.linkedmodel.org/schema/dtype#"}

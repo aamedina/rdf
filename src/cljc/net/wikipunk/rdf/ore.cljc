@@ -1,16 +1,16 @@
 (ns net.wikipunk.rdf.ore
-  {:rdf/ns-prefix-map {"dc11"     "http://purl.org/dc/elements/1.1/",
-                       "dcmitype" "http://purl.org/dc/dcmitype/",
-                       "dcterms"  "http://purl.org/dc/terms/",
-                       "ore"      "http://www.openarchives.org/ore/terms/",
-                       "owl"      "http://www.w3.org/2002/07/owl#",
-                       "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfg"     "http://www.w3.org/2004/03/trix/rdfg-1/",
-                       "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                       "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "ore",
-   :rdfa/uri          "http://www.openarchives.org/ore/terms/"})
+  {:namespaces  {"dc11"     "http://purl.org/dc/elements/1.1/",
+                 "dcmitype" "http://purl.org/dc/dcmitype/",
+                 "dcterms"  "http://purl.org/dc/terms/",
+                 "ore"      "http://www.openarchives.org/ore/terms/",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfg"     "http://www.w3.org/2004/03/trix/rdfg-1/",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type    :rdfa/PrefixMapping,
+   :rdfa/prefix "ore",
+   :rdfa/uri    "http://www.openarchives.org/ore/terms/"})
 
 (def AggregatedResource
   {:db/ident :ore/AggregatedResource,

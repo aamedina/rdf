@@ -1,17 +1,17 @@
 (ns net.wikipunk.rdf.cal
-  {:dcat/downloadURL  "https://www.w3.org/2002/12/cal/icaltzd.rdf",
-   :rdf/ns-prefix-map {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
-                       "dc11" "http://purl.org/dc/elements/1.1/",
-                       "owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
-                       "xhv"  "http://www.w3.org/1999/xhtml",
-                       "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "cal",
-   :rdfa/uri          "http://www.w3.org/2002/12/cal/icaltzd#",
-   :rdfs/isDefinedBy  {:rdfa/uri "http://www.w3.org/2002/12/cal/icaltzd#"}}
+  {:dcat/downloadURL "https://www.w3.org/2002/12/cal/icaltzd.rdf",
+   :namespaces       {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
+                      "dc11" "http://purl.org/dc/elements/1.1/",
+                      "owl"  "http://www.w3.org/2002/07/owl#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
+                      "xhv"  "http://www.w3.org/1999/xhtml",
+                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "cal",
+   :rdfa/uri         "http://www.w3.org/2002/12/cal/icaltzd#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/2002/12/cal/icaltzd#"}}
   (:refer-clojure :exclude [class comment count range repeat sequence]))
 
 (def DomainOf_rrule

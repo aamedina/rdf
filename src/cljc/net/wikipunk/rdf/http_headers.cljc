@@ -1,13 +1,13 @@
 (ns net.wikipunk.rdf.http-headers
-  {:dcat/downloadURL  "net/wikipunk/ext/http-headers.rdf",
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "http" "http://www.w3.org/2011/http#",
-                       "http-headers" "http://www.w3.org/2011/http-headers#",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "http-headers",
-   :rdfa/uri          "http://www.w3.org/2011/http-headers#"}
+  {:dcat/downloadURL "net/wikipunk/ext/http-headers.rdf",
+   :namespaces       {"dcterms" "http://purl.org/dc/terms/",
+                      "http" "http://www.w3.org/2011/http#",
+                      "http-headers" "http://www.w3.org/2011/http-headers#",
+                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "http-headers",
+   :rdfa/uri         "http://www.w3.org/2011/http-headers#"}
   (:refer-clojure :exclude [range]))
 
 (def a-im

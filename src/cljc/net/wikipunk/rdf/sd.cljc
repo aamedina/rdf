@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.sd
-  {:dcat/downloadURL  "https://www.w3.org/ns/sparql-service-description.ttl",
-   :rdf/ns-prefix-map {"owl" "http://www.w3.org/2002/07/owl#",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "sd" "http://www.w3.org/ns/sparql-service-description#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "sd",
-   :rdfa/uri          "http://www.w3.org/ns/sparql-service-description#",
-   :rdfs/isDefinedBy  {:rdfa/uri
-                       "http://www.w3.org/TR/sparql11-service-description/"}}
+  {:dcat/downloadURL "https://www.w3.org/ns/sparql-service-description.ttl",
+   :namespaces       {"owl" "http://www.w3.org/2002/07/owl#",
+                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "sd" "http://www.w3.org/ns/sparql-service-description#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "sd",
+   :rdfa/uri         "http://www.w3.org/ns/sparql-service-description#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/sparql11-service-description/"}}
   (:refer-clojure :exclude [name]))
 
 (def Aggregate

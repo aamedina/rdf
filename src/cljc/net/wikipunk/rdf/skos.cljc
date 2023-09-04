@@ -12,15 +12,15 @@
     "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "SKOS Vocabulary"},
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "skos"    "http://www.w3.org/2004/02/skos/core#"},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "skos",
    :rdfa/uri "http://www.w3.org/2004/02/skos/core#",
-   :rdfs/isDefinedBy {:rdfa/uri
+   :rdfs/isDefinedBy {:xsd/anyURI
                       "http://www.w3.org/TR/2009/REC-skos-reference-20090818/"},
    :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/TR/skos-reference/"},
    :xsd/anyURI "http://www.w3.org/2004/02/skos/core"})

@@ -1,21 +1,21 @@
 (ns net.wikipunk.rdf.rr
-  {:rdf/ns-prefix-map {"cc"    "http://creativecommons.org/ns#",
-                       "dc11"  "http://purl.org/dc/elements/1.1/",
-                       "foaf"  "http://xmlns.com/foaf/0.1/",
-                       "owl"   "http://www.w3.org/2002/07/owl#",
-                       "r2rml" "http://www.w3.org/ns/r2rml#",
-                       "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                       "rr"    "http://www.w3.org/ns/r2rml#",
-                       "vaem"  "http://www.linkedmodel.org/schema/vaem#",
-                       "vann"  "http://purl.org/vocab/vann/",
-                       "xml"   "http://www.w3.org/XML/1998/namespace",
-                       "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "rr",
-   :rdfa/uri          "http://www.w3.org/ns/r2rml#",
-   :rdfs/isDefinedBy  {:rdfa/uri
-                       "http://www.w3.org/TR/2012/REC-r2rml-20120927/"}}
+  {:namespaces       {"cc"    "http://creativecommons.org/ns#",
+                      "dc11"  "http://purl.org/dc/elements/1.1/",
+                      "foaf"  "http://xmlns.com/foaf/0.1/",
+                      "owl"   "http://www.w3.org/2002/07/owl#",
+                      "r2rml" "http://www.w3.org/ns/r2rml#",
+                      "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                      "rr"    "http://www.w3.org/ns/r2rml#",
+                      "vaem"  "http://www.linkedmodel.org/schema/vaem#",
+                      "vann"  "http://purl.org/vocab/vann/",
+                      "xml"   "http://www.w3.org/XML/1998/namespace",
+                      "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "rr",
+   :rdfa/uri         "http://www.w3.org/ns/r2rml#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/2012/REC-r2rml-20120927/"}}
   (:refer-clojure :exclude [class]))
 
 (def BaseTableOrView

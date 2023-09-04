@@ -1,16 +1,16 @@
 (ns net.wikipunk.rdf.exif
-  {:dcat/downloadURL  "net/wikipunk/ext/exif.rdf",
-   :rdf/ns-prefix-map {"dc11"    "http://purl.org/dc/elements/1.1/",
-                       "dcterms" "http://purl.org/dc/terms/",
-                       "ex"      "http://example.org/",
-                       "exif"    "http://www.w3.org/2003/12/exif/ns#",
-                       "foaf"    "http://xmlns.com/foaf/0.1/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "exif",
-   :rdfa/uri          "http://www.w3.org/2003/12/exif/ns#"})
+  {:dcat/downloadURL "net/wikipunk/ext/exif.rdf",
+   :namespaces       {"dc11"    "http://purl.org/dc/elements/1.1/",
+                      "dcterms" "http://purl.org/dc/terms/",
+                      "ex"      "http://example.org/",
+                      "exif"    "http://www.w3.org/2003/12/exif/ns#",
+                      "foaf"    "http://xmlns.com/foaf/0.1/",
+                      "owl"     "http://www.w3.org/2002/07/owl#",
+                      "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "exif",
+   :rdfa/uri         "http://www.w3.org/2003/12/exif/ns#"})
 
 (def IFD
   {:db/ident     :exif/IFD,

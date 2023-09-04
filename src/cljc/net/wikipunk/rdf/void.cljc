@@ -1,20 +1,20 @@
 (ns net.wikipunk.rdf.void
-  {:dcat/downloadURL  "net/wikipunk/boot/void.ttl",
-   :rdf/ns-prefix-map {"adms"    "http://www.w3.org/ns/adms#",
-                       "dc11"    "http://purl.org/dc/elements/1.1/",
-                       "dcterms" "http://purl.org/dc/terms/",
-                       "foaf"    "http://xmlns.com/foaf/0.1/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "schema"  "https://schema.org/",
-                       "vann"    "http://purl.org/vocab/vann/",
-                       "void"    "http://rdfs.org/ns/void#",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "void",
-   :rdfa/uri          "http://rdfs.org/ns/void#",
-   :rdfs/isDefinedBy  {:rdfa/uri "http://www.w3.org/TR/void/"}}
+  {:dcat/downloadURL "net/wikipunk/boot/void.ttl",
+   :namespaces       {"adms"    "http://www.w3.org/ns/adms#",
+                      "dc11"    "http://purl.org/dc/elements/1.1/",
+                      "dcterms" "http://purl.org/dc/terms/",
+                      "foaf"    "http://xmlns.com/foaf/0.1/",
+                      "owl"     "http://www.w3.org/2002/07/owl#",
+                      "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                      "schema"  "https://schema.org/",
+                      "vann"    "http://purl.org/vocab/vann/",
+                      "void"    "http://rdfs.org/ns/void#",
+                      "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "void",
+   :rdfa/uri         "http://rdfs.org/ns/void#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/void/"}}
   (:refer-clojure :exclude [class]))
 
 (def Dataset

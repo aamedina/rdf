@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.rdfg
-  {:rdf/ns-prefix-map {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfg" "http://www.w3.org/2004/03/trix/rdfg-1/",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "rdfg",
-   :rdfa/uri          "http://www.w3.org/2004/03/trix/rdfg-1/"})
+  {:namespaces  {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfg" "http://www.w3.org/2004/03/trix/rdfg-1/",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type    :rdfa/PrefixMapping,
+   :rdfa/prefix "rdfg",
+   :rdfa/uri    "http://www.w3.org/2004/03/trix/rdfg-1/"})
 
 (def Graph
   {:db/ident     :rdfg/Graph,

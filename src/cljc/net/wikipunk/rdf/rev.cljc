@@ -1,20 +1,20 @@
 (ns net.wikipunk.rdf.rev
   {:dcat/downloadURL
    "https://raw.githubusercontent.com/iand/vocabdotorg/main/www/src/review/review.rdf",
-   :rdf/ns-prefix-map {"cc"    "http://web.resource.org/cc/",
-                       "dc11"  "http://purl.org/dc/elements/1.1/",
-                       "foaf"  "http://xmlns.com/foaf/0.1/",
-                       "grddl" "http://www.w3.org/2003/g/data-view#",
-                       "owl"   "http://www.w3.org/2002/07/owl#",
-                       "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                       "rev"   "http://purl.org/stuff/rev#",
-                       "vann"  "http://purl.org/vocab/vann/",
-                       "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
+   :namespaces {"cc"    "http://web.resource.org/cc/",
+                "dc11"  "http://purl.org/dc/elements/1.1/",
+                "foaf"  "http://xmlns.com/foaf/0.1/",
+                "grddl" "http://www.w3.org/2003/g/data-view#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "rev"   "http://purl.org/stuff/rev#",
+                "vann"  "http://purl.org/vocab/vann/",
+                "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "rev",
    :rdfa/uri "http://purl.org/stuff/rev#",
-   :rdfs/isDefinedBy {:rdfa/uri "http://vocab.org/review/terms.html"}}
+   :rdfs/isDefinedBy {:xsd/anyURI "http://vocab.org/review/terms.html"}}
   (:refer-clojure :exclude [type]))
 
 (def Comment

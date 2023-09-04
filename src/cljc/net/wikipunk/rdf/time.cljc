@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.time
-  "Tiempo en OWL"
+  "OWL-Time"
   {:dcat/downloadURL
    "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time.ttl",
    :dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
@@ -17,19 +17,19 @@
    {:rdf/language "en",
     :rdf/value
     "Copyright © 2006-2021 W3C, OGC. W3C and OGC liability, trademark and document use rules apply."},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"    "http://www.w3.org/2004/02/skos/core#",
+                "time"    "http://www.w3.org/2006/time#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/priorVersion :time/|2006|,
    :owl/versionIRI :time/|2016|,
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "skos"    "http://www.w3.org/2004/02/skos/core#",
-                       "time"    "http://www.w3.org/2006/time#",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "time",
    :rdfa/uri "http://www.w3.org/2006/time#",
-   :rdfs/isDefinedBy {:rdfa/uri
+   :rdfs/isDefinedBy {:xsd/anyURI
                       "https://www.w3.org/TR/2017/REC-owl-time-20171019/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "Tiempo en OWL"}

@@ -310,3 +310,17 @@
    :rdf/value "85000"}
   ;; "sameAs"
   {:xsd/float 85000.0})
+
+(comment
+  (let [{:rdfa/keys [uri prefix]
+         :dcat/keys [downloadURL]} ext/d3f
+        nq                         (java.io.File/createTempFile prefix ".nq")]
+    (a/write (a/read (a/graph :simple) downloadURL) nq :nquads)
+    nq))
+
+(comment
+  [#xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA"
+   #xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"
+   "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"]
+  (edn/read-string {:readers {'xsd/anyURI (fn [iri] (rdf/kw iri))}}
+                   (pr-str (tagged-literal 'xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"))))

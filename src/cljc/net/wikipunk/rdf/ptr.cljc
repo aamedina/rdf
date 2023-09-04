@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.ptr
-  {:rdf/ns-prefix-map {"ptr"  "http://www.w3.org/2009/pointers#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "ptr",
-   :rdfa/uri          "http://www.w3.org/2009/pointers#"}
+  {:namespaces  {"ptr"  "http://www.w3.org/2009/pointers#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type    :rdfa/PrefixMapping,
+   :rdfa/prefix "ptr",
+   :rdfa/uri    "http://www.w3.org/2009/pointers#"}
   (:refer-clojure :exclude [namespace]))
 
 (def ByteOffsetCompoundPointer

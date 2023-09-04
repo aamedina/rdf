@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.swrl
   {:dcat/downloadURL
    "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf",
-   :rdf/ns-prefix-map {"owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "swrl" "http://www.w3.org/2003/11/swrl#"},
+   :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "swrl" "http://www.w3.org/2003/11/swrl#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "swrl",
    :rdfa/uri "http://www.w3.org/2003/11/swrl#"})

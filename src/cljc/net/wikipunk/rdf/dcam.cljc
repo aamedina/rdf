@@ -1,12 +1,12 @@
 (ns net.wikipunk.rdf.dcam
   {:dcat/downloadURL
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_abstract_model.ttl",
-   :rdf/ns-prefix-map {"dcam"    "http://purl.org/dc/dcam/",
-                       "dcterms" "http://purl.org/dc/terms/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "skos"    "http://www.w3.org/2004/02/skos/core#"},
+   :namespaces {"dcam"    "http://purl.org/dc/dcam/",
+                "dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "dcam",
    :rdfa/uri "http://purl.org/dc/dcam/"})

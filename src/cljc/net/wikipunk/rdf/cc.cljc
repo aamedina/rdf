@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.cc
   {:dcat/downloadURL "https://creativecommons.org/schema.rdf",
-   :rdf/ns-prefix-map {"cc"   "http://creativecommons.org/ns#",
-                       "owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :namespaces {"cc"   "http://creativecommons.org/ns#",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "cc",
    :rdfa/uri "http://creativecommons.org/ns#",
    :rdfs/isDefinedBy
-   {:rdfa/uri "http://www.w3.org/Submission/2008/SUBM-ccREL-20080501/"}})
+   {:xsd/anyURI "http://www.w3.org/Submission/2008/SUBM-ccREL-20080501/"}})
 
 (def Attribution
   {:db/ident     :cc/Attribution,

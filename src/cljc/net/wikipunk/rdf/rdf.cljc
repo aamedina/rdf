@@ -4,14 +4,14 @@
    :dc11/description
    "This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts.",
    :dc11/title "The RDF Concepts Vocabulary (RDF)",
-   :rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
-                       "owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "rdf",
    :rdfa/uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-   :rdfs/isDefinedBy {:rdfa/uri
+   :rdfs/isDefinedBy {:xsd/anyURI
                       "http://www.w3.org/TR/2004/REC-rdf-mt-20040210/"},
    :xsd/anyURI "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}
   (:refer-clojure :exclude [first rest type]))

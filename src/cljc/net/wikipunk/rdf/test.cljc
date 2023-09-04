@@ -1,11 +1,11 @@
 (ns net.wikipunk.rdf.test
-  {:rdf/ns-prefix-map {"owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "test" "http://www.w3.org/2006/03/test-description#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "test",
-   :rdfa/uri          "http://www.w3.org/2006/03/test-description#"})
+  {:namespaces  {"owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "test" "http://www.w3.org/2006/03/test-description#"},
+   :rdf/type    :rdfa/PrefixMapping,
+   :rdfa/prefix "test",
+   :rdfa/uri    "http://www.w3.org/2006/03/test-description#"})
 
 (def ReviewStatus
   {:db/ident     :test/ReviewStatus,

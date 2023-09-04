@@ -8,19 +8,19 @@
     "This is a vocabulary document and is used to achieve certain features of the JSON-LD language."},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "The JSON-LD Vocabulary"},
+   :namespaces {"jsonld" "http://www.w3.org/ns/json-ld#",
+                "owl"    "http://www.w3.org/2002/07/owl#",
+                "rdf"    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"   "http://www.w3.org/2000/01/rdf-schema#",
+                "schema" "http://schema.org/",
+                "xsd"    "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo
    {:xsd/anyURI
     "https://github.com/w3c/json-ld-wg/commit/01fbfacb60d6739a83ac9a043c71f3d8775d98b1"},
-   :rdf/ns-prefix-map {"jsonld" "http://www.w3.org/ns/json-ld#",
-                       "owl"    "http://www.w3.org/2002/07/owl#",
-                       "rdf"    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"   "http://www.w3.org/2000/01/rdf-schema#",
-                       "schema" "http://schema.org/",
-                       "xsd"    "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "jsonld",
    :rdfa/uri "http://www.w3.org/ns/json-ld#",
-   :rdfs/isDefinedBy {:rdfa/uri "https://www.w3.org/TR/json-ld/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/json-ld/"},
    :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/TR/json-ld11"},
    :xsd/anyURI "http://www.w3.org/ns/json-ld#"}
   (:refer-clojure :exclude [import reverse type]))

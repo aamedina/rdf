@@ -1,15 +1,15 @@
 (ns net.wikipunk.rdf.http
   "A namespace for describing HTTP messages (http://www.w3.org/Protocols/rfc2616/rfc2616.html)"
   {:dcat/downloadURL "net/wikipunk/ext/http.rdf",
+   :namespaces {"http" "http://www.w3.org/2011/http#",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports #{{:xsd/anyURI "http://www.w3.org/2011/content#"}
                   {:xsd/anyURI "http://purl.org/dc/terms/"}},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Working Draft 29 April 2011"},
-   :rdf/ns-prefix-map {"http" "http://www.w3.org/2011/http#",
-                       "owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "http",
    :rdfa/uri "http://www.w3.org/2011/http#",

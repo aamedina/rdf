@@ -1,27 +1,26 @@
 (ns net.wikipunk.rdf.adms
   "adms"
-  {:dcat/downloadURL  "http://uri.semic.eu/w3c/ns/adms.ttl",
-   :dcterms/issued    "2023-04-05",
-   :dcterms/license   {:xsd/anyURI
-                       "https://creativecommons.org/licenses/by/4.0/"},
-   :dcterms/mediator  {:foaf/homepage {:xsd/anyURI "https://semic.eu"},
-                       :foaf/name
-                       "Semantic Interoperability Community (SEMIC)"},
-   :foaf/maker        {:foaf/firstName "Pavlina",
-                       :foaf/lastName  "Fragkou",
-                       :rdf/type       :foaf/Person,
-                       {:xsd/anyURI "https://schema.org/affiliation"}
-                       {:foaf/name "SEMIC EU"}},
-   :rdf/ns-prefix-map {"adms" "http://www.w3.org/ns/adms#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
-   :rdf/type          :owl/Ontology,
-   :rdfa/prefix       "adms",
-   :rdfa/uri          "http://www.w3.org/ns/adms#",
-   :rdfs/label        #{{:rdf/language "nl",
-                         :rdf/value    "adms"}
-                        {:rdf/language "en",
-                         :rdf/value    "adms"}},
-   :xsd/anyURI        "http://www.w3.org/ns/adms",
+  {:dcat/downloadURL "http://uri.semic.eu/w3c/ns/adms.ttl",
+   :dcterms/issued   "2023-04-05",
+   :dcterms/license  {:xsd/anyURI
+                      "https://creativecommons.org/licenses/by/4.0/"},
+   :dcterms/mediator {:foaf/homepage {:xsd/anyURI "https://semic.eu"},
+                      :foaf/name "Semantic Interoperability Community (SEMIC)"},
+   :foaf/maker       {:foaf/firstName "Pavlina",
+                      :foaf/lastName  "Fragkou",
+                      :rdf/type       :foaf/Person,
+                      {:xsd/anyURI "https://schema.org/affiliation"}
+                      {:foaf/name "SEMIC EU"}},
+   :namespaces       {"adms" "http://www.w3.org/ns/adms#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "adms",
+   :rdfa/uri         "http://www.w3.org/ns/adms#",
+   :rdfs/label       #{{:rdf/language "nl",
+                        :rdf/value    "adms"}
+                       {:rdf/language "en",
+                        :rdf/value    "adms"}},
+   :xsd/anyURI       "http://www.w3.org/ns/adms",
    {:xsd/anyURI "http://www.w3.org/2001/02pd/rec54#editor"}
    #{{:foaf/firstName "Bert",
       :foaf/lastName  "Van Nuffelen",

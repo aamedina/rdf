@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.org
-  "Vocabolario per descrivere strutture organizzative, le quali possono essere specializzate in una vasta varietà di tipi di organizzazione"
+  "Vocabulary for describing organizational structures, specializable to a broad variety of types of organization."
   {:dcterms/contributor
    #{{:foaf/mbox "dguardiola@quinode.fr",
       :foaf/name "Dominique Guardiola"}
@@ -37,19 +37,19 @@
                      :rdf/value    "Ontología de organizaciones"}
                     {:rdf/language "fr",
                      :rdf/value    "Ontologie des organisations"}},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "gr"      "http://purl.org/goodrelations/v1#",
+                "org"     "http://www.w3.org/ns/org#",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "owlTime" "http://www.w3.org/2006/time#",
+                "prov"    "http://www.w3.org/ns/prov#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"    "http://www.w3.org/2004/02/skos/core#",
+                "vcard"   "http://www.w3.org/2006/vcard/ns#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "0.8",
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "foaf"    "http://xmlns.com/foaf/0.1/",
-                       "gr"      "http://purl.org/goodrelations/v1#",
-                       "org"     "http://www.w3.org/ns/org#",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "owlTime" "http://www.w3.org/2006/time#",
-                       "prov"    "http://www.w3.org/ns/prov#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "skos"    "http://www.w3.org/2004/02/skos/core#",
-                       "vcard"   "http://www.w3.org/2006/vcard/ns#",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "org",
    :rdfa/uri "http://www.w3.org/ns/org#",
@@ -63,7 +63,7 @@
      {:rdf/language "es",
       :rdf/value
       "Vocabulario para describir organizaciones, adaptable a una amplia variedad de ellas."}},
-   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/vocab-org/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-org/"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Core organization ontology"}
                  {:rdf/language "it",

@@ -21,8 +21,7 @@
     (mop/finalize-inheritance class))
   (let [initargs (merge (mop/class-default-initargs class) initargs)
         instance (mop/allocate-instance class initargs)]
-    (mop/initialize-instance instance initargs)
-    instance))
+    (mop/initialize-instance instance initargs)))
 
 (defmethod mop/initialize-instance :default
   [instance & {:as initargs}]
@@ -31,8 +30,7 @@
 (defmethod mop/reinitialize-instance :default
   [instance & {:as initargs}]
   (let [class (mop/class-of instance)]
-    (mop/shared-initialize instance nil initargs)
-    instance))
+    (mop/shared-initialize instance nil initargs)))
 
 (defmethod mop/update-instance-for-different-class [Object Object]
   [previous current & {:as initargs}]
@@ -54,28 +52,6 @@
   [instance added-slots discarded-slots property-list & {:as initargs}]
   (mop/shared-initialize instance added-slots initargs))
 
-(defn alter-instance
-  [instance f & args]
-  (cond
-    (instance? clojure.lang.Ref instance)
-    (dosync
-      (apply alter instance f args))
-    
-    (instance? clojure.lang.Atom instance)
-    (apply swap! instance f args)
-
-    (instance? clojure.lang.Agent instance)
-    (apply send instance f args)
-
-    (instance? clojure.lang.Namespace instance)
-    (apply alter-meta! instance f args)
-
-    (instance? clojure.lang.Var instance)
-    (apply alter-var-root instance f args)
-
-    :else (when-some [var (:var (meta instance))]
-            (apply alter-instance var f args))))
-
 (defmethod mop/shared-initialize :rdfs/Class
   [instance slot-names & {:as initargs}]
   (let [class      (mop/class-of instance)
@@ -87,39 +63,36 @@
                      (nil? slot-names)
                      nil
 
-                     :else (filter #((set slot-names) (:db/ident %)) all-slots))]
+                     :else (filter (set slot-names) all-slots))]
     (doseq [[initarg initform] initargs
             :when              initarg
-            :when              (not (some #(= % initarg) (map :db/ident init-slots)))]
+            :when              (not (some #(= % initarg) init-slots))]
       (mop/slot-missing class instance initarg))
-    (alter-instance instance
-                    (fn [obj]
-                      (reduce
-                        (fn [obj effective-slot]
-                          (if-some [v (get initargs (:db/ident effective-slot))]
-                            (assoc obj (:db/ident effective-slot) v)
-                            obj))
-                        initargs
-                        init-slots)))    
-    instance))
+    (reduce
+      (fn [obj effective-slot]
+        (if-some [v (get initargs effective-slot)]
+          (assoc obj effective-slot v)
+          obj))
+      instance
+      init-slots)))
 
 (defmethod mop/allocate-instance :rdfs/Class
   [class & {:as initargs}]
   (when-not (mop/class-finalized? class)
     (mop/finalize-inheritance class))
-  (ref {} :meta {:type (:db/ident class)}))
+  (assoc initargs :rdf/type (:db/ident class)))
 
 (defmethod mop/slot-value-using-class [:rdfs/Class :rdf/Property]
   [class object slot]
-  (get @object (:db/ident slot)))
+  (get object (:db/ident slot)))
 
 (defmethod mop/slot-bound-using-class? [:rdfs/Class :rdf/Property]
   [class object slot]
-  (contains? @object (:db/ident slot)))
+  (contains? object (:db/ident slot)))
 
 (defmethod mop/slot-makunbound-using-class [:rdfs/Class :rdf/Property]
   [class object slot]
-  (alter-instance object dissoc (:db/ident slot)))
+  (dissoc object (:db/ident slot)))
 
 (defmethod mop/slot-missing :default
   [class object slot-name & {:as info-map}]
@@ -143,7 +116,7 @@
 (defmethod mop/class-prototype :rdfs/Class
   [class]  
   (or (:mop/classPrototype (meta class))
-      (alter-instance (:var (meta (meta class))) assoc :mop/classPrototype (mop/allocate-instance class))))
+      (mop/allocate-instance class)))
 
 (defmethod mop/class-precedence-list :rdfs/Class
   [class]
@@ -374,13 +347,10 @@
 (defmethod mop/change-class [Object :rdfs/Class]
   [instance new-class & {:as initargs}]
   (let [old-class (mop/class-of instance)
-        copy      @instance
         guts      (mop/allocate-instance new-class)
-        old-slots (keys copy)
-        new-slots (keys @guts)]
-    (alter-instance instance merge-with (fn [a b] a) @guts)
-    (mop/update-instance-for-different-class copy instance initargs)
-    instance))
+        old-slots (keys instance)
+        new-slots (keys guts)]
+    (mop/update-instance-for-different-class instance (merge-with (fn [a b] a) instance guts) initargs)))
 
 (defmethod mop/change-class [Object clojure.lang.Keyword]
   [instance new-class & {:as initargs}]
@@ -388,11 +358,11 @@
 
 (defmethod mop/add-dependent :rdfs/Class
   [metaobject dependent]
-  (alter-instance metaobject update :mop/dependents (fnil conj #{}) dependent))
+  (update metaobject :mop/dependents (fnil conj #{}) dependent))
 
 (defmethod mop/remove-dependent :rdfs/Class
   [metaobject dependent]
-  (alter-instance metaobject update :mop/dependents (fnil disj #{}) dependent))
+  (update metaobject :mop/dependents (fnil disj #{}) dependent))
 
 (defmethod mop/map-dependents :rdfs/Class
   [metaobject f]

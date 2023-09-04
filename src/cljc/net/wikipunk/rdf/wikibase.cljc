@@ -2,12 +2,12 @@
   "The system ontology of Wikibase"
   {:cc/licence {:xsd/anyURI
                 "http://creativecommons.org/publicdomain/zero/1.0/"},
-   :rdf/ns-prefix-map {"cc"       "http://creativecommons.org/ns#",
-                       "owl"      "http://www.w3.org/2002/07/owl#",
-                       "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                       "wikibase" "http://wikiba.se/ontology#",
-                       "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+   :namespaces {"cc"       "http://creativecommons.org/ns#",
+                "owl"      "http://www.w3.org/2002/07/owl#",
+                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                "wikibase" "http://wikiba.se/ontology#",
+                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "wikibase",
    :rdfa/uri "http://wikiba.se/ontology#",

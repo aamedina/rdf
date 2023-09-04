@@ -37,15 +37,16 @@
     xsd:dateTimeStamp"
   {:dcat/downloadURL
    "https://gitlab.com/lv2/lv2/-/raw/master/schemas.lv2/xsd.ttl",
-   :rdf/ns-prefix-map {"owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :owl/Ontology,
-   :rdfa/prefix       "xsd",
-   :rdfa/uri          "http://www.w3.org/2001/XMLSchema#",
-   :rdfs/comment      "XML Schema Datatypes",
-   :rdfs/isDefinedBy  {:rdfa/uri "http://www.w3.org/TR/xmlschema-2/"}}
+   :namespaces       {"owl"  "http://www.w3.org/2002/07/owl#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "xsd"  "http://www.w3.org/2001/XMLSchema#"}
+   :base             "http://www.w3.org/2001/XMLSchema#"
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "xsd",
+   :rdfa/uri         "http://www.w3.org/2001/XMLSchema#",
+   :rdfs/comment     "XML Schema Datatypes",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/xmlschema-2/"}}
   (:refer-clojure :exclude [boolean byte double float int long short time]))
 
 (def anySimpleType

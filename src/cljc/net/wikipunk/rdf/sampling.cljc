@@ -1,18 +1,18 @@
 (ns net.wikipunk.rdf.sampling
-  {:owl/imports       #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
-                        {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
-   :rdf/ns-prefix-map {"owl"      "http://www.w3.org/2002/07/owl#",
-                       "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                       "sampling" "http://www.w3.org/ns/sosa/sampling/",
-                       "schema"   "http://schema.org/",
-                       "skos"     "http://www.w3.org/2004/02/skos/core#",
-                       "sosa"     "http://www.w3.org/ns/sosa/",
-                       "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :owl/Ontology,
-   :rdfa/prefix       "sampling",
-   :rdfa/uri          "http://www.w3.org/ns/sosa/sampling/",
-   :xsd/anyURI        "http://www.w3.org/ns/sosa/sampling/"})
+  {:namespaces  {"owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "sampling" "http://www.w3.org/ns/sosa/sampling/",
+                 "schema"   "http://schema.org/",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#",
+                 "sosa"     "http://www.w3.org/ns/sosa/",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+   :owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
+                  {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
+   :rdf/type    :owl/Ontology,
+   :rdfa/prefix "sampling",
+   :rdfa/uri    "http://www.w3.org/ns/sosa/sampling/",
+   :xsd/anyURI  "http://www.w3.org/ns/sosa/sampling/"})
 
 (def RelationshipNature
   {:db/ident :sampling/RelationshipNature,

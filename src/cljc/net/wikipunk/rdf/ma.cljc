@@ -1,21 +1,21 @@
 (ns net.wikipunk.rdf.ma
   "Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
   {:dc11/date #inst "2013-03-20T00:00:00.000-00:00",
+   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                "ma"   "http://www.w3.org/ns/ma-ont#",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "http://dublincore.org/2008/01/14/dcelements.rdf"},
    :owl/versionInfo "R36",
-   :rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
-                       "ma"   "http://www.w3.org/ns/ma-ont#",
-                       "owl"  "http://www.w3.org/2002/07/owl#",
-                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "ma",
    :rdfa/uri "http://www.w3.org/ns/ma-ont#",
    :rdfs/comment
    #{"Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
      "THE CONTENT OF THIS MA-ONT.RDF AND DERIVED MA-ONT.TTL FILES PREVAIL OVER THE SPECIFICATION."},
-   :rdfs/isDefinedBy {:rdfa/uri
+   :rdfs/isDefinedBy {:xsd/anyURI
                       "http://www.w3.org/TR/2012/REC-mediaont-10-20120209/"},
    :xsd/anyURI "http://www.w3.org/ns/ma-ont"})
 

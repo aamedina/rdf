@@ -1,17 +1,17 @@
 (ns net.wikipunk.rdf.grddl
-  {:rdf/ns-prefix-map {"admin" "http://webns.net/mvcb/",
-                       "dc11"  "http://purl.org/dc/elements/1.1/",
-                       "doap"  "http://usefulinc.com/ns/doap#",
-                       "foaf"  "http://xmlns.com/foaf/0.1/",
-                       "grddl" "http://www.rddl.org/purposes#",
-                       "owl"   "http://www.w3.org/2002/07/owl#",
-                       "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"  "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "grddl",
-   :rdfa/uri          "http://www.w3.org/2003/g/data-view#",
-   :rdfs/isDefinedBy  {:rdfa/uri
-                       "http://www.w3.org/TR/2007/REC-grddl-20070911/"}})
+  {:namespaces       {"admin" "http://webns.net/mvcb/",
+                      "dc11"  "http://purl.org/dc/elements/1.1/",
+                      "doap"  "http://usefulinc.com/ns/doap#",
+                      "foaf"  "http://xmlns.com/foaf/0.1/",
+                      "grddl" "http://www.rddl.org/purposes#",
+                      "owl"   "http://www.w3.org/2002/07/owl#",
+                      "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs"  "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "grddl",
+   :rdfa/uri         "http://www.w3.org/2003/g/data-view#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/2007/REC-grddl-20070911/"}})
 
 (def InformationResource
   {:db/ident :grddl/InformationResource,

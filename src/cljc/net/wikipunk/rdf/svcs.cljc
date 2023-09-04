@@ -1,13 +1,13 @@
 (ns net.wikipunk.rdf.svcs
-  {:rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "sioc"    "http://rdfs.org/sioc/ns#",
-                       "svcs"    "http://rdfs.org/sioc/services#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "svcs",
-   :rdfa/uri          "http://rdfs.org/sioc/services#"})
+  {:namespaces  {"dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "sioc"    "http://rdfs.org/sioc/ns#",
+                 "svcs"    "http://rdfs.org/sioc/services#"},
+   :rdf/type    :rdfa/PrefixMapping,
+   :rdfa/prefix "svcs",
+   :rdfa/uri    "http://rdfs.org/sioc/services#"})
 
 (def Service
   {:db/ident :svcs/Service,

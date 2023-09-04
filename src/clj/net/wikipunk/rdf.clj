@@ -1169,36 +1169,6 @@
                                     (->> form
                                          (walk/postwalk walk-rdf-list)
                                          (walk/prewalk box-values)))))
-        concepts   (->> forms
-                        (map (fn [form]
-                               (reduce (fn [form term]
-                                         (if (contains? form term)
-                                           (update form term #(cond (coll? %) % (nil? %) #{} :else #{%}))
-                                           form))
-                                       form +props+)))
-                        (keep (some-fn :madsrdf/hasMADSSchemeMember
-                                       :skos/member
-                                       :skos/broader))
-                        #_(mapcat (fn [x] (if (sequential? x) x [x])))
-                        (distinct)
-                        #_(pmap (fn [ident]
-                                (when (and (keyword? ident)
-                                           (not (contains? index ident))
-                                           (pos? *recurse*))
-                                  (try
-                                    (binding [*recurse* (dec *recurse*)]
-                                      (when-some [x (sniff ident)]
-                                        (let [md (meta x)]
-                                          (into [(with-meta x {})]
-                                                (map #(with-meta % {}))
-                                                (vals (dissoc md
-                                                              :dcat/downloadURL
-                                                              :namespaces
-                                                              :rdfa/prefix))))))
-                                    (catch Throwable ex
-                                      (log/error ex ident (.getMessage ex))
-                                      nil))))))
-        forms      (into (vec forms) cat concepts)
         public?    (fn [form]
                      (and (:db/ident form)
                           (let [ns-name (namespace (:db/ident form))]
@@ -1702,7 +1672,8 @@
                 (doto (RDFParser/fromString value)
                   (.lang (get a/formats (or format :ttl))))
                 (RDFParser/source (str (or downloadURL uri))))
-          (.labelToNode (org.apache.jena.riot.lang.LabelToNode/createUseLabelEncoded)))]
+          (.labelToNode (org.apache.jena.riot.lang.LabelToNode/createUseLabelEncoded))
+          (.canonicalValues true))]
     (try
       (.toGraph parser)
       (catch org.apache.jena.riot.RiotException ex

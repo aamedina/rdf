@@ -1,21 +1,21 @@
 (ns net.wikipunk.rdf.bio
-  {:dcat/downloadURL  "net/wikipunk/ext/bio.rdf",
-   :rdf/ns-prefix-map {"bio" "http://purl.org/vocab/bio/0.1/",
-                       "cc" "http://web.resource.org/cc/",
-                       "dc11" "http://purl.org/dc/terms/",
-                       "dcterms" "http://purl.org/dc/terms/",
-                       "foaf" "http://xmlns.com/foaf/0.1/",
-                       "label" "http://purl.org/net/vocab/2004/03/label#",
-                       "ov" "http://open.vocab.org/terms/",
-                       "owl" "http://www.w3.org/2002/07/owl#",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "skos" "http://www.w3.org/2004/02/skos/core#",
-                       "vann" "http://purl.org/vocab/vann/",
-                       "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "bio",
-   :rdfa/uri          "http://purl.org/vocab/bio/0.1/"}
+  {:dcat/downloadURL "net/wikipunk/ext/bio.rdf",
+   :namespaces       {"bio" "http://purl.org/vocab/bio/0.1/",
+                      "cc" "http://web.resource.org/cc/",
+                      "dc11" "http://purl.org/dc/terms/",
+                      "dcterms" "http://purl.org/dc/terms/",
+                      "foaf" "http://xmlns.com/foaf/0.1/",
+                      "label" "http://purl.org/net/vocab/2004/03/label#",
+                      "ov" "http://open.vocab.org/terms/",
+                      "owl" "http://www.w3.org/2002/07/owl#",
+                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "skos" "http://www.w3.org/2004/02/skos/core#",
+                      "vann" "http://purl.org/vocab/vann/",
+                      "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
+   :rdf/type         :rdfa/PrefixMapping,
+   :rdfa/prefix      "bio",
+   :rdfa/uri         "http://purl.org/vocab/bio/0.1/"}
   (:refer-clojure :exclude [agent]))
 
 (def Accession

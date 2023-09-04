@@ -1,11 +1,11 @@
 (ns net.wikipunk.rdf.annotation
-  {:rdf/ns-prefix-map {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
-                       "dc11" "http://purl.org/dc/elements/1.1/",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "annotation",
-   :rdfa/uri          "http://www.w3.org/2000/10/annotation-ns#"})
+  {:namespaces  {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
+                 "dc11"       "http://purl.org/dc/elements/1.1/",
+                 "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"       "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type    :rdfa/PrefixMapping,
+   :rdfa/prefix "annotation",
+   :rdfa/uri    "http://www.w3.org/2000/10/annotation-ns#"})
 
 (def Annotation
   {:db/ident         :annotation/Annotation,
