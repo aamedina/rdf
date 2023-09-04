@@ -39,8 +39,7 @@
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.mop]
-   [net.wikipunk.asami]
-   [tiara.data :refer [ordered-map ordered-set EMPTY_MAP]])
+   [net.wikipunk.asami])
   (:import
    (com.github.packageurl PackageURL)
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -73,140 +72,9 @@
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *output-to* "src/cljc/net/wikipunk/rdf/")
 
-(declare kw iri)
-
 (def ^:dynamic *gen*
   "Node generator used by Raphael when parsing Turtle."
   nil)
-
-;; Source: https://github.com/quoll/michelangelo/blob/main/src/michelangelo/core.clj
-(defrecord RoundTripGenerator [counter bnode-cache namespaces]
-  raphael/NodeGenerator
-  (new-node [this]
-    [(update this :counter inc) (ttl/->BlankNode counter)])
-  (new-node [this label]    
-    (if-let [node (get bnode-cache label)]
-      [this node]
-      (let [node (ttl/->BlankNode counter)]
-        [(-> this
-             (update :counter inc)
-             (update :bnode-cache assoc label node))
-         node])))
-  (add-base [this iri]
-    (update this :namespaces assoc :base (or (:xsd/anyURI iri) (str iri))))
-  (add-prefix [this prefix iri]    
-    (update this :namespaces assoc prefix (or (:xsd/anyURI iri) (str iri))))
-  (iri-for [this prefix]
-    (get namespaces prefix))
-  (get-namespaces [this]
-    (dissoc namespaces :base))
-  (get-base [this]
-    (:base namespaces))
-  (new-qname [this prefix local]
-    (kw (iri (keyword prefix local))))
-  (new-iri [this iri]
-    (if-some [k (kw iri)]
-      k
-      {:xsd/anyURI iri}))
-  (new-literal [this s]
-    (try
-      (java.net.URL. s)
-      {:xsd/anyURI s}
-      (catch java.net.MalformedURLException _
-        (if (str/starts-with? s "pkg:")
-          (try
-            (PackageURL. s)
-            {:xsd/anyURI s}
-            (catch com.github.packageurl.MalformedPackageURLException ex
-              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
-          {:rdf/value s}))))
-  (new-literal [this s t]
-    (case t
-      :xsd/anyURI
-      {:xsd/anyURI s}
-      
-      (:xsd/dateTime :xsd/date :xsd/dateTimeStamp)
-      (clojure.instant/read-instant-date s)
-      
-      (:xsd/integer :xsd/nonNegativeInteger :xsd/nonPositiveInteger :xsd/positiveInteger :xsd/negativeInteger)
-      (bigint s)
-      
-      :xsd/decimal
-      (bigdec s)
-      
-      (:xsd/long :xsd/int :xsd/short :xsd/byte)
-      (Long/parseLong s)
-      
-      :xsd/float
-      (Float/parseFloat s)
-      
-      :xsd/double
-      (Double/parseDouble s)
-      
-      (:xsd/string :xsd/normalizedString :xsd/token :xsd/language)
-      {:rdf/value s}
-      
-      :xsd/boolean
-      (Boolean/parseBoolean s)
-      
-      ;; else
-      {:rdf/value s :rdf/type t}))
-  (new-lang-string [this s lang]
-    {:rdf/value s :rdf/language lang})
-  (rdf-type [this] :rdf/type)
-  (rdf-first [this] :rdf/first)
-  (rdf-rest [this] :rdf/rest)
-  (rdf-nil [this] :rdf/nil))
-
-(defmethod ttl/serialize ont_app.vocabulary.lstr.LangStr
-  [^ont_app.vocabulary.lstr.LangStr lstr]
-  (str \" (ttl/escape (str lstr)) "\"@" (lstr/lang lstr)))
-
-(defmethod ttl/serialize clojure.lang.TaggedLiteral
-  [{:keys [tag form]}]
-  (str \" (ttl/escape (str form)) "\"^^" (ttl/serialize (keyword tag))))
-
-(defn round-trip-generator
-  "Creates a new RoundTripGenerator"
-  []
-  (->RoundTripGenerator 0 {} EMPTY_MAP))
-
-(defn index-add
-  "Merges a single triple into a nested map"
-  [idx [a b c]]
-  (if-let [idxb (get idx a)]
-    (if-let [idxc (get idxb b)]
-      (if (set? idxc)
-        (if (get idxc c)
-          idx
-          (assoc idx a (assoc idxb b (conj idxc c))))
-        (assoc idx a (assoc idxb b (ordered-set idxc c))))
-      (assoc idx a (assoc idxb b c)))
-    (assoc idx a (ordered-map b c))))
-
-(defn add-all
-  "Inserts all triples in a sequence into a nested map"
-  [idx st]
-  (reduce index-add idx st))
-
-(defn simple-graph
-  "Creates a nested-map version of a graph from a sequence of triples"
-  [triples]
-  (add-all (ordered-map) triples))
-
-(defn parsed-graph
-  "Converts a graph parsed by Raphael into a nested map, with metadata for the prefixes and base."
-  [{:keys [base namespaces triples] :as parsed}]
-  (with-meta (simple-graph triples) {:namespaces namespaces :base base}))
-
-(defn parse-turtle
-  "Parses TTL input and creates a graph"
-  [s]
-  (let [s (if (str/starts-with? s "http")
-            (slurp s)
-            (or (some-> (io/resource s) (slurp))
-                s))]
-    (parsed-graph (raphael/parse s (round-trip-generator)))))
 
 ;; The :rdfa/uri is used to download the model is a :dcat/downloadURL
 ;;   is not provided. The :rdfa/prefix is used to bind @base URI of the
@@ -693,7 +561,7 @@
       (let [all                           (all-ns-metaobjects env)
             {:keys [registry ns-aliases]} (make-boot-context)
             hierarchies                   (make-hierarchies all)
-            gen                           (atom (round-trip-generator))]
+            gen                           (atom nil)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))        
@@ -1990,3 +1858,12 @@
   [prefix-mapping]
   ((get-method graph clojure.lang.IPersistentMap) prefix-mapping))
 
+(defn read-langString
+  [form]
+  (if-some [[_ value language] (re-find #"(?s)^(.*)@([-a-zA-Z]+)" form)]
+    {:rdf/value value :rdf/language language}
+    (throw (ex-info "Invalid language tagged literal" {:form form}))))
+
+(defn read-anyURI
+  [form]
+  {:xsd/anyURI form})

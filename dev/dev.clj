@@ -44,6 +44,7 @@
    [net.wikipunk.datomic :as datomic]
    [net.wikipunk.datomic.boot :as db]
    [net.wikipunk.datomic.rl :as rl]
+   [net.wikipunk.turtle :as turtle]
    [asami.core :as asami]
    [quoll.raphael.core :as raphael]
    [donatello.ttl :as ttl]
