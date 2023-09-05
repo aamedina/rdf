@@ -753,3 +753,36 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.w3.org/2009/pointers#"
    :rdfa/prefix "ptr"})
+
+(def mf
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#"
+   :rdfa/prefix "mf"})
+
+(def sec
+  ^{:namespaces
+    {"sec"     "https://w3id.org/security#",
+     "cred"    "https://w3.org/2018/credentials#",
+     "owl"     "http://www.w3.org/2002/07/owl#",
+     "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+     "xsd"     "http://www.w3.org/2001/XMLSchema#",
+     "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+     "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+     "dcterms" "http://purl.org/dc/terms/"}
+    :dcat/downloadURL "https://w3c.github.io/vc-data-integrity/vocab/security/vocabulary.ttl"}
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "https://w3id.org/security#"
+   :rdfa/prefix "sec"})
+
+(def cred
+  ^{:namespaces
+    {"cred"    "https://w3.org/2018/credentials#",
+     "owl"     "http://www.w3.org/2002/07/owl#",
+     "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+     "xsd"     "http://www.w3.org/2001/XMLSchema#",
+     "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+     "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+     "dcterms" "http://purl.org/dc/terms/"}}
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "https://w3.org/2018/credentials#",
+   :rdfa/prefix "cred"})

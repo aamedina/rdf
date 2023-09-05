@@ -33,6 +33,7 @@
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [com.walmartlabs.schematic :as sc]
    [ont-app.vocabulary.lstr :as lstr]
+   [ont-app.sparql-endpoint.core :as sparql]
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
@@ -323,4 +324,8 @@
    #xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"
    "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"]
   (edn/read-string {:readers {'xsd/anyURI (fn [iri] (rdf/kw iri))}}
-                   (pr-str (tagged-literal 'xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"))))
+                   (pr-str (tagged-literal 'xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label")))
+  (mop/make-instance :rdf/Statement
+                     :rdf/subject #xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA"
+                     :rdf/predicate #xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"
+                     :rdf/object "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"))

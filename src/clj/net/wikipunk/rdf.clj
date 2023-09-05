@@ -1852,8 +1852,48 @@
 
 (defn read-anyURI
   [form]
-  {:xsd/anyURI form})
+  (with-meta {:xsd/anyURI form} {:type :xsd/anyURI}))
 
 (defn read-blank
   [form]
   {:db/id form})
+
+(defn read-json
+  [form]
+  {:rdf/type  :rdf/JSON
+   :rdf/value form})
+
+(defn read-html
+  [form]
+  {:rdf/type  :rdf/HTML
+   :rdf/value form})
+
+(defn read-xml
+  [form]
+  {:rdf/type  :rdf/XMLLiteral
+   :rdf/value form})
+
+(defn convert
+  "Uses Apache Jena to convert from in-format to out-format."
+  [source in-format out-format]
+  (let [{in-suffix :formats/preferred_suffix}  (datafy in-format)
+        {out-suffix :formats/preferred_suffix} (datafy out-format)
+        out-file                               (java.io.File/createTempFile (name out-format) out-suffix)]
+    (a/write (a/read (a/graph :simple) source)
+             out-file
+             (case out-format
+               :formats/TriG               :trig
+               :formats/N-Quads            :nquads
+               :formats/SPARQL_Results_CSV :csv
+               :formats/N3                 :n3
+               :formats/SPARQL_Results_TSV :tsv
+               :formats/JSON-LD            :jsonld11
+               :formats/RDF_JSON           :rdfjson
+               :formats/Turtle             :turtle
+               :formats/N-Triples          :ntriples
+               (throw (ex-info "unsupported format" {:format out-format}))))
+    out-file))
+
+(defmethod print-method java.net.URI
+  [x ^java.io.Writer writer]
+  (print-method (tagged-literal 'xsd/anyURI (str x)) writer))
