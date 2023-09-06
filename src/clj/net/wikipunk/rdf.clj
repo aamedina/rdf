@@ -833,9 +833,7 @@
 
 (defn iri
   "returns IRI for ident using aristotle's registry"
-  [ident]
-  (assert @(get *ns-aliases* (namespace ident))
-          (str ident ": the namespace has not been booted by a JSON-LD context"))
+  [ident]  
   (reg/iri (keyword (namespace ident)
                     (let [n (-> (name ident)
                                 (str/replace #"^\|" "")
@@ -1853,6 +1851,10 @@
 (defn read-anyURI
   [form]
   (with-meta {:xsd/anyURI form} {:type :xsd/anyURI}))
+
+(defmethod print-method :xsd/anyURI
+  [x writer]
+  (print-method (tagged-literal 'xsd/anyURI (:xsd/anyURI x)) writer))
 
 (defn read-blank
   [form]
