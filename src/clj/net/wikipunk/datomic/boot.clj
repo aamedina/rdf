@@ -6,6 +6,7 @@
    [arachne.aristotle.graph :as g]
    [clojure.datafy :refer [datafy]]
    [clojure.tools.logging :as log]
+   [clojure.set :as set]
    [clojure.string :as str]
    [clojure.walk :as walk]
    [datomic.client.api :as d]
@@ -463,7 +464,16 @@
                      (assoc :db/cardinality (rdf/infer-datomic-cardinality (:db/ident e)))
                      (rdf/infer-datomic-unique (:db/ident e))
                      (assoc :db/unique (rdf/infer-datomic-unique (:db/ident e)))))))
-         (descendants (:rdf/Property rdf/*metaobjects*) :rdf/Property))))
+         (reduce set/union
+                 (set (asami/q '[:find [?ident ...]
+                                 :where
+                                 [?e :db/ident ?ident]
+                                 [?e :db/cardinality _]
+                                 [?e :db/valueType _]]
+                               env))
+                 (into [(descendants (:rdf/Property rdf/*metaobjects*) :rdf/Property)]
+                       (map #(descendants (:rdf/Property rdf/*metaobjects*) %))
+                       (descendants (:rdfs/Class rdf/*metaobjects*) :rdf/Property))))))
 
 (defn bootstrap-idents
   ([]

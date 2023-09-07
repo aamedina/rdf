@@ -32,8 +32,6 @@
   {:mvn/version "0.4.1"}
   ont-app/vocabulary
   {:mvn/version "0.4.2"}
-  ont-app/sparql-endpoint
-  {:mvn/version "0.2.1"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.9.0"
    :extension   "pom"}

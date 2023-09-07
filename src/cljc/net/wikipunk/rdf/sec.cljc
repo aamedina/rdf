@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.sec
-  ^{:base "https://w3id.org/security#",
+  ^{:base       "https://w3id.org/security#",
     :namespaces {"cred"    "https://w3.org/2018/credentials#",
                  "dcterms" "http://purl.org/dc/terms/",
                  "owl"     "http://www.w3.org/2002/07/owl#",
@@ -8,9 +8,8 @@
                  "sec"     "https://w3id.org/security#",
                  "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                  "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "sec",
-    :source
-    "https://w3c.github.io/vc-data-integrity/vocab/security/vocabulary.ttl"}
+    :prefix     "sec",
+    :source     "net/wikipunk/ext/sec.ttl"}
   {:dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",
@@ -389,7 +388,7 @@
 
 (def allowedAction
   {:db/ident :sec/allowedAction,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3c-ccg.github.io/zcap-spec/#delegated-capability"}
      {:xsd/anyURI "https://w3id.org/security#"}},
@@ -398,7 +397,7 @@
 
 (def assertionMethod
   {:db/ident :sec/assertionMethod,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
       "https://www.w3.org/TR/vc-data-integrity/#dfn-assertionmethod"}
@@ -409,7 +408,7 @@
 
 (def authentication
   {:db/ident :sec/authentication,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3id.org/security#"}
      {:xsd/anyURI
@@ -432,7 +431,7 @@
 
 (def capabilityAction
   {:db/ident :sec/capabilityAction,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3id.org/security#"}
      {:xsd/anyURI
@@ -442,7 +441,7 @@
 
 (def capabilityChain
   {:db/ident         :sec/capabilityChain,
-   :rdf/type         :rdfs/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/isDefinedBy #{{:xsd/anyURI "https://w3id.org/security#"}
                        {:xsd/anyURI
                         "https://w3c-ccg.github.io/zcap-spec/#delegation"}},
@@ -451,7 +450,7 @@
 
 (def capabilityDelegation
   {:db/ident :sec/capabilityDelegation,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
       "https://www.w3.org/TR/vc-data-integrity/#dfn-capabilitydelegation"}
@@ -462,7 +461,7 @@
 
 (def capabilityInvocation
   {:db/ident :sec/capabilityInvocation,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
       "https://www.w3.org/TR/vc-data-integrity/#dfn-capabilityinvocation"}
@@ -473,7 +472,7 @@
 
 (def caveat
   {:db/ident         :sec/caveat,
-   :rdf/type         :rdfs/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/isDefinedBy #{{:xsd/anyURI
                         "https://w3c-ccg.github.io/zcap-spec/#caveats"}
                        {:xsd/anyURI "https://w3id.org/security#"}},
@@ -482,7 +481,7 @@
 
 (def challenge
   {:db/ident :sec/challenge,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/Proof,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#defn-challenge"}
@@ -493,7 +492,7 @@
 
 (def controller
   {:db/ident :sec/controller,
-   :rdf/type #{:rdfs/Property :owl/ObjectProperty},
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain :sec/VerificationMethod,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3id.org/security#"}
@@ -503,7 +502,7 @@
 
 (def created
   {:db/ident         :sec/created,
-   :rdf/type         #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type         #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain      :sec/Proof,
    :rdfs/isDefinedBy #{{:xsd/anyURI
                         "https://www.w3.org/TR/vc-data-integrity/#dfn-created"}
@@ -514,7 +513,7 @@
 
 (def cryptosuite
   {:db/ident :sec/cryptosuite,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/DataIntegrityProof,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-cryptosuite"}
@@ -535,7 +534,7 @@
 
 (def delegator
   {:db/ident         :sec/delegator,
-   :rdf/type         :rdfs/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/isDefinedBy #{{:xsd/anyURI "https://w3id.org/security#"}
                        {:xsd/anyURI
                         "https://w3c-ccg.github.io/zcap-spec/#delegation"}},
@@ -544,7 +543,7 @@
 
 (def domain
   {:db/ident         :sec/domain,
-   :rdf/type         #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type         #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain      :sec/Proof,
    :rdfs/isDefinedBy #{{:xsd/anyURI
                         "https://www.w3.org/TR/vc-data-integrity/#defn-domain"}
@@ -569,7 +568,7 @@
 
 (def expires
   {:db/ident :sec/expires,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain {:owl/unionOf [:sec/Proof :sec/VerificationMethod]},
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#defn-proof-expires"}
@@ -580,7 +579,7 @@
 
 (def invocationTarget
   {:db/ident :sec/invocationTarget,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3id.org/security#"}
      {:xsd/anyURI "https://w3c-ccg.github.io/zcap-spec/#root-capability"}},
@@ -589,7 +588,7 @@
 
 (def invoker
   {:db/ident         :sec/invoker,
-   :rdf/type         :rdfs/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/isDefinedBy #{{:xsd/anyURI "https://w3id.org/security#"}
                        {:xsd/anyURI
                         "https://w3c-ccg.github.io/zcap-spec/#invocation"}},
@@ -609,7 +608,7 @@
 
 (def keyAgreement
   {:db/ident :sec/keyAgreement,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-keyagreement"}
      {:xsd/anyURI "https://w3id.org/security#"}},
@@ -629,7 +628,7 @@
 
 (def nonce
   {:db/ident         :sec/nonce,
-   :rdf/type         #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type         #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain      :sec/Proof,
    :rdfs/isDefinedBy #{{:xsd/anyURI "https://w3id.org/security#"}
                        {:xsd/anyURI
@@ -640,7 +639,7 @@
 
 (def previousProof
   {:db/ident :sec/previousProof,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain :sec/Proof,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-previousproof"}
@@ -651,7 +650,7 @@
 
 (def proof
   {:db/ident         :sec/proof,
-   :rdf/type         :rdfs/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/isDefinedBy #{{:xsd/anyURI
                         "https://www.w3.org/TR/vc-data-integrity/#proof-sets"}
                        {:xsd/anyURI "https://w3id.org/security#"}},
@@ -661,7 +660,7 @@
 
 (def proofPurpose
   {:db/ident :sec/proofPurpose,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/Proof,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-proofpurpose"}
@@ -672,7 +671,7 @@
 
 (def proofValue
   {:db/ident :sec/proofValue,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/Proof,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-proofvalue"}
@@ -706,7 +705,7 @@
 
 (def publicKeyJwk
   {:db/ident :sec/publicKeyJwk,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/JsonWebKey,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-publickeyjwk"}
@@ -720,7 +719,7 @@
 
 (def publicKeyMultibase
   {:db/ident :sec/publicKeyMultibase,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/Multikey,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
@@ -749,7 +748,7 @@
 
 (def revoked
   {:db/ident         :sec/revoked,
-   :rdf/type         #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type         #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain      :sec/VerificationMethod,
    :rdfs/isDefinedBy #{{:xsd/anyURI
                         "https://www.w3.org/TR/vc-data-integrity/#dfn-revoked"}
@@ -760,7 +759,7 @@
 
 (def secretKeyJwk
   {:db/ident :sec/secretKeyJwk,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/JsonWebKey,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#dfn-secretkeyjwk"}
@@ -774,7 +773,7 @@
 
 (def secretKeyMultibase
   {:db/ident :sec/secretKeyMultibase,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain :sec/Multikey,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
@@ -792,7 +791,7 @@
 
 (def verificationMethod
   {:db/ident :sec/verificationMethod,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
       "https://www.w3.org/TR/vc-data-integrity/#dfn-verificationmethod"}

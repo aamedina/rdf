@@ -763,7 +763,7 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "https://w3id.org/security#"
    :rdfa/prefix "sec"
-   :dcat/downloadURL "https://w3c.github.io/vc-data-integrity/vocab/security/vocabulary.ttl"
+   :dcat/downloadURL "net/wikipunk/ext/sec.ttl"
    :namespaces
    {"sec"     "https://w3id.org/security#",
     "cred"    "https://w3.org/2018/credentials#",
@@ -778,6 +778,7 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "https://w3.org/2018/credentials#",
    :rdfa/prefix "cred"
+   :dcat/downloadURL "net/wikipunk/ext/cred.ttl"
    :namespaces
    {"cred"    "https://w3.org/2018/credentials#",
     "owl"     "http://www.w3.org/2002/07/owl#",

@@ -738,7 +738,6 @@
 
 (defmethod rdf-literal :rdf/langString
   [^Node_Literal node]
-  #_(lstr/->LangStr (.getLiteralValue node) (.getLiteralLanguage node))
   {:rdf/language (.getLiteralLanguage node)
    :rdf/value    (.getLiteralValue node)})
 

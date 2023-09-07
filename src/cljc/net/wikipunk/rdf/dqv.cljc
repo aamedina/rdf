@@ -15,7 +15,7 @@
                  "voaf"    "http://purl.org/vocommons/voaf#",
                  "xsd"     "http://www.w3.org/2001/XMLSchema#"},
     :prefix     "dqv",
-    :source     "https://www.w3.org/ns/dqv.ttl"}
+    :source     "net/wikipunk/boot/dqv.ttl"}
   {:dcterms/contributor
    #{{:foaf/name "Amrapali Zaveri"} {:foaf/name "Nandana Mihindukulasooriya"}
      {:foaf/name "Christophe Guéret"} {:foaf/name "Deirdre Lee"}
@@ -77,7 +77,7 @@
 (def QualityAnnotation
   {:db/ident :dqv/QualityAnnotation,
    :owl/equivalentClass {:owl/hasValue   :dqv/qualityAssessment,
-                         :owl/onProperty :oa/motivation,
+                         :owl/onProperty :oa/Motivation,
                          :rdf/type       :owl/Restriction},
    :rdf/type #{:rdfs/Class :owl/Class},
    :rdfs/comment

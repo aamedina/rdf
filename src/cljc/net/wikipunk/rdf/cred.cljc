@@ -8,7 +8,7 @@
                  "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                  "xsd"     "http://www.w3.org/2001/XMLSchema#"},
     :prefix     "cred",
-    :source     "https://w3.org/2018/credentials#"}
+    :source     "net/wikipunk/ext/cred.ttl"}
   {:dcterms/date #inst "2023-09-05T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",
@@ -147,7 +147,7 @@
 
 (def confidenceMethod
   {:db/ident         :cred/confidenceMethod,
-   :rdf/type         :rdfs/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/isDefinedBy #{{:xsd/anyURI "https://w3.org/2018/credentials#"}
                        {:xsd/anyURI
                         "https://w3c-ccg.github.io/confidence-method-spec/"}},
@@ -157,7 +157,7 @@
 
 (def credentialSchema
   {:db/ident :cred/credentialSchema,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain :cred/VerifiableCredential,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
@@ -169,7 +169,7 @@
 
 (def credentialStatus
   {:db/ident :cred/credentialStatus,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain :cred/VerifiableCredential,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3.org/2018/credentials#"}
@@ -181,7 +181,7 @@
 
 (def credentialSubject
   {:db/ident :cred/credentialSubject,
-   :rdf/type #{:rdfs/Property :owl/ObjectProperty},
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment {:rdf/type :rdf/HTML,
                   :rdf/value
                   "<div>An entity about which claims are made.</div>"},
@@ -195,7 +195,7 @@
 
 (def evidence
   {:db/ident :cred/evidence,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain :cred/VerifiableCredential,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3.org/2018/credentials#"}
@@ -222,7 +222,7 @@
 
 (def holder
   {:db/ident :cred/holder,
-   :rdf/type #{:rdfs/Property :owl/ObjectProperty},
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/domain :cred/VerifiablePresentation,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3.org/2018/credentials#"}
@@ -248,7 +248,7 @@
 
 (def issuer
   {:db/ident :cred/issuer,
-   :rdf/type #{:rdfs/Property :owl/ObjectProperty},
+   :rdf/type #{:owl/ObjectProperty :rdf/Property},
    :rdfs/comment
    {:rdf/type :rdf/HTML,
     :rdf/value
@@ -262,7 +262,7 @@
 
 (def refreshService
   {:db/ident :cred/refreshService,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain :cred/VerifiableCredential,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3.org/2018/credentials#"}
@@ -274,7 +274,7 @@
 
 (def renderMethod
   {:db/ident :cred/renderMethod,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain :cred/VerifiableCredential,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3.org/2018/credentials#"}
@@ -286,7 +286,7 @@
 
 (def termsOfUse
   {:db/ident :cred/termsOfUse,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/domain {:owl/unionOf [:cred/VerifiableCredential
                                :cred/VerifiablePresentation]},
    :rdfs/isDefinedBy
@@ -298,7 +298,7 @@
 
 (def validFrom
   {:db/ident :cred/validFrom,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain {:owl/unionOf [:cred/VerifiableCredential
                                :cred/VerifiablePresentation]},
    :rdfs/isDefinedBy
@@ -310,7 +310,7 @@
 
 (def validUntil
   {:db/ident :cred/validUntil,
-   :rdf/type #{:rdfs/Property :owl/DatatypeProperty},
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
    :rdfs/domain {:owl/unionOf [:cred/VerifiableCredential
                                :cred/VerifiablePresentation]},
    :rdfs/isDefinedBy
@@ -322,7 +322,7 @@
 
 (def verifiableCredential
   {:db/ident :cred/verifiableCredential,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/comment
    {:rdf/type :rdf/HTML,
     :rdf/value
