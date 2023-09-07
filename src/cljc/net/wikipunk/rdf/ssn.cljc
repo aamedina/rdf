@@ -1,5 +1,19 @@
 (ns net.wikipunk.rdf.ssn
-  "This ontology describes sensors, actuators and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports."
+  ^{:base       "http://www.w3.org/ns/ssn/",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "sosa"    "http://www.w3.org/ns/sosa/",
+                 "ssn"     "http://www.w3.org/ns/ssn/",
+                 "time"    "http://www.w3.org/2006/time#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "voaf"    "http://purl.org/vocommons/voaf#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "ssn",
+    :source     "http://www.w3.org/ns/ssn/"}
   {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
    :dcterms/creator
    {:foaf/name {:rdf/language "en",
@@ -16,32 +30,16 @@
    :dcterms/rights "Copyright 2017 W3C/OGC.",
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Semantic Sensor Network Ontology"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "sosa"    "http://www.w3.org/ns/sosa/",
-                "ssn"     "http://www.w3.org/ns/ssn/",
-                "time"    "http://www.w3.org/2006/time#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "voaf"    "http://purl.org/vocommons/voaf#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "http://www.w3.org/ns/sosa/"},
    :owl/versionInfo
    {:rdf/language "en",
     :rdf/value
     "New modular version of the SSN ontology. \n\nThis ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. \n\nIn particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology. "},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
-   :rdfa/prefix "ssn",
-   :rdfa/uri "http://www.w3.org/ns/ssn/",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"},
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
    :rdfs/seeAlso
    {:xsd/anyURI
     "https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology"},
@@ -425,3 +423,37 @@
    {:rdf/language "en",
     :rdf/value
     "Relation between an Observation and the Stimulus that originated it."}})
+
+(def urn:uuid:25a15805-ef63-583a-9226-4349a6b39db2112361
+  {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
+   :dcterms/creator
+   {:foaf/name {:rdf/language "en",
+                :rdf/value    "W3C/OGC Spatial Data on the Web Working Group"},
+    :rdf/type  :foaf/Agent},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "This ontology describes sensors, actuators and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports."},
+   :dcterms/license
+   #{{:xsd/anyURI "http://www.opengeospatial.org/ogc/Software"}
+     {:xsd/anyURI
+      "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"}},
+   :dcterms/rights "Copyright 2017 W3C/OGC.",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Semantic Sensor Network Ontology"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/ns/sosa/"},
+   :owl/versionInfo
+   {:rdf/language "en",
+    :rdf/value
+    "New modular version of the SSN ontology. \n\nThis ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. \n\nIn particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology. "},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"},
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology"},
+   :vann/preferredNamespacePrefix "ssn",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/ssn/",
+   :xsd/anyURI "http://www.w3.org/ns/ssn/"})

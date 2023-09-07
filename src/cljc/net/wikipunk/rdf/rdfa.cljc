@@ -1,5 +1,14 @@
 (ns net.wikipunk.rdf.rdfa
-  "This document describes the RDFa Vocabulary for Term and Prefix Assignment. The Vocabulary is used to modify RDFa 1.1 processing behavior."
+  ^{:base       "http://www.w3.org/ns/rdfa#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfa"    "http://www.w3.org/ns/rdfa#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "rdfa",
+    :source     "http://www.w3.org/ns/rdfa#"}
   {:dcterms/creator {:xsd/anyURI "http://www.ivan-herman.net/foaf#me"},
    :dcterms/date "2013-01-18",
    :dcterms/description
@@ -7,17 +16,8 @@
    :dcterms/publisher {:xsd/anyURI "http://www.w3.org/data#W3C"},
    :dcterms/title
    "RDFa Vocabulary for Term and Prefix Assignment, and for Processor Graph Reporting",
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfa"    "http://www.w3.org/ns/rdfa#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "$Date: 2013-03-11 07:54:23 $",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "rdfa",
-   :rdfa/uri "http://www.w3.org/ns/rdfa#",
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://www.w3.org/TR/rdfa-core/#s_initialcontexts"},
    :xsd/anyURI "http://www.w3.org/ns/rdfa#"})
@@ -147,3 +147,26 @@
    :dcterms/description
    "defines an absolute URI to be used as a default vocabulary; the value is can be any string; for documentation purposes it is advised to use the string 'true' or 'True'.",
    :rdf/type #{:owl/DatatypeProperty :rdf/Property}})
+
+(def urn:uuid:97f67f5b-c96e-5a90-a695-928826cf9824112350
+  {:dcterms/creator {:xsd/anyURI "http://www.ivan-herman.net/foaf#me"},
+   :dcterms/date "2013-01-18",
+   :dcterms/description
+   "This document describes the RDFa Vocabulary for Term and Prefix Assignment. The Vocabulary is used to modify RDFa 1.1 processing behavior.",
+   :dcterms/publisher {:xsd/anyURI "http://www.w3.org/data#W3C"},
+   :dcterms/title
+   "RDFa Vocabulary for Term and Prefix Assignment, and for Processor Graph Reporting",
+   :owl/versionInfo "$Date: 2013-03-11 07:54:23 $",
+   :rdf/type :owl/Ontology,
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/rdfa-core/#s_initialcontexts"},
+   :xsd/anyURI "http://www.w3.org/ns/rdfa#"})
+
+(def urn:uuid:5fb8adee-1455-54c1-95d6-adb6a1f04945112351
+  {:foaf/mbox              {:xsd/anyURI "mailto:ivan@w3.org"},
+   :foaf/name              "Ivan Herman",
+   :foaf/title             "Semantic Web Activity Lead",
+   :foaf/workplaceHomepage {:xsd/anyURI "http://www.w3.org"},
+   :rdf/type               :foaf/Person,
+   :rdfs/seeAlso           {:xsd/anyURI "http://www.ivan-herman.net/foaf"},
+   :xsd/anyURI             "http://www.ivan-herman.net/foaf#me"})

@@ -1,7 +1,22 @@
 (ns net.wikipunk.rdf.dqv
-  "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."
-  {:dcat/downloadURL "https://www.w3.org/ns/dqv.ttl",
-   :dcterms/contributor
+  ^{:base       "http://www.w3.org/ns/dqv#",
+    :namespaces {"daq"     "http://purl.org/eis/vocab/daq#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "dqv"     "http://www.w3.org/ns/dqv#",
+                 "duv"     "http://www.w3.org/ns/duv#",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "oa"      "http://www.w3.org/ns/oa#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "qb"      "http://purl.org/linked-data/cube#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "voaf"    "http://purl.org/vocommons/voaf#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dqv",
+    :source     "https://www.w3.org/ns/dqv.ttl"}
+  {:dcterms/contributor
    #{{:foaf/name "Amrapali Zaveri"} {:foaf/name "Nandana Mihindukulasooriya"}
      {:foaf/name "Christophe Guéret"} {:foaf/name "Deirdre Lee"}
      {:foaf/name "Makx Dekkers"} {:foaf/name "Jeremy Debattista"}},
@@ -19,24 +34,7 @@
                    :rdf/value    "Data Quality Vocabulary"},
    :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
    :foaf/homepage {:xsd/anyURI "http://www.w3.org/TR/vocab-dqv/"},
-   :namespaces {"daq"     "http://purl.org/eis/vocab/daq#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "dqv"     "http://www.w3.org/ns/dqv#",
-                "duv"     "http://www.w3.org/ns/duv#",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "oa"      "http://www.w3.org/ns/oa#",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "qb"      "http://purl.org/linked-data/cube#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "voaf"    "http://purl.org/vocommons/voaf#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :voaf/Vocabulary,
-   :rdfa/prefix "dqv",
-   :rdfa/uri "http://www.w3.org/ns/dqv#",
-   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/vocab-dqv/"},
    :vann/preferredNamespacePrefix "dqv",
    :vann/preferredNamespaceUri "http://www.w3.org/ns/dqv#",
    :xsd/anyURI "http://www.w3.org/ns/dqv"})
@@ -302,3 +300,27 @@
    :rdfs/domain  :dqv/QualityMeasurement,
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "value"}})
+
+(def urn:uuid:ee8b01cf-2b45-5d08-bb02-30936143bb91112391
+  {:dcterms/contributor
+   #{{:foaf/name "Amrapali Zaveri"} {:foaf/name "Nandana Mihindukulasooriya"}
+     {:foaf/name "Christophe Guéret"} {:foaf/name "Deirdre Lee"}
+     {:foaf/name "Makx Dekkers"} {:foaf/name "Jeremy Debattista"}},
+   :dcterms/created #inst "2015-12-17T00:00:00.000-00:00",
+   :dcterms/creator #{{:foaf/name "Antoine Isaac"}
+                      {:foaf/name "Riccardo Albertoni"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."},
+   :dcterms/modified #{#inst "2016-08-26T00:00:00.000-00:00"
+                       #inst "2016-12-15T00:00:00.000-00:00"},
+   :dcterms/publisher {:xsd/anyURI "http://www.w3.org/data#W3C"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Data Quality Vocabulary"},
+   :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
+   :foaf/homepage {:xsd/anyURI "http://www.w3.org/TR/vocab-dqv/"},
+   :rdf/type :voaf/Vocabulary,
+   :vann/preferredNamespacePrefix "dqv",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/dqv#",
+   :xsd/anyURI "http://www.w3.org/ns/dqv"})

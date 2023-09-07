@@ -1,20 +1,71 @@
 (ns net.wikipunk.rdf.void
-  {:dcat/downloadURL "net/wikipunk/boot/void.ttl",
-   :namespaces       {"adms"    "http://www.w3.org/ns/adms#",
-                      "dc11"    "http://purl.org/dc/elements/1.1/",
-                      "dcterms" "http://purl.org/dc/terms/",
-                      "foaf"    "http://xmlns.com/foaf/0.1/",
-                      "owl"     "http://www.w3.org/2002/07/owl#",
-                      "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                      "schema"  "https://schema.org/",
-                      "vann"    "http://purl.org/vocab/vann/",
-                      "void"    "http://rdfs.org/ns/void#",
-                      "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "void",
-   :rdfa/uri         "http://rdfs.org/ns/void#",
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/void/"}}
+  ^{:base       "http://rdfs.org/ns/void#",
+    :namespaces {"adms"    "http://www.w3.org/ns/adms#",
+                 "dc11"    "http://purl.org/dc/elements/1.1/",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"  "https://schema.org/",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "void"    "http://rdfs.org/ns/void#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "void",
+    :source     "net/wikipunk/boot/void.ttl"}
+  {:dcterms/created #inst "2010-01-26T00:00:00.000-00:00",
+   :dcterms/creator
+   #{{:rdf/type           :schema/Person,
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI "http://www.deri.ie/"},
+                           :foaf/name
+                           "Digital Enterprise Research Institute, NUI Galway",
+                           :rdf/type :schema/Organization},
+      :schema/email       {:xsd/anyURI "mailto:richard.cyganiak@deri.org"},
+      :schema/name        "Richard Cyganiak",
+      :schema/url         {:xsd/anyURI "http://richard.cyganiak.de/"}}
+     {:rdf/type           :schema/Person,
+      :schema/affiliation {:rdf/type    :schema/Organization,
+                           :schema/name "Talis",
+                           :schema/url  {:xsd/anyURI "http://www.talis.com/"}},
+      :schema/email       {:xsd/anyURI "mailto:Keith.Alexander@talis.com"},
+      :schema/name        "Keith Alexander",
+      :schema/url         {:xsd/anyURI "http://kwijibo.talis.com/"}}
+     {:rdf/type           :schema/Person,
+      :schema/affiliation {:rdf/type    :schema/Organization,
+                           :schema/name "LiDRC",
+                           :schema/url  {:xsd/anyURI
+                                         "http://linkeddata.deri.ie/"}},
+      :schema/email       {:xsd/anyURI "mailto:michael.hausenblas@deri.org"},
+      :schema/name        "Michael Hausenblas",
+      :schema/url         {:xsd/anyURI "http://sw-app.org/about.html"}}
+     {:rdf/type           :schema/Person,
+      :schema/affiliation {:rdf/type :schema/Organization,
+                           :schema/name
+                           "Department of Zoology, University of Oxford",
+                           :schema/url {:xsd/anyURI
+                                        "http://www.zoo.ox.ac.uk/"}},
+      :schema/email       {:xsd/anyURI "mailto:jun.zhao@zoo.ox.ac.uk"},
+      :schema/name        "Jun Zhao",
+      :schema/url         {:xsd/anyURI "http://users.ox.ac.uk/~zool0770/"}}},
+   :dcterms/description
+   "The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></em>.",
+   :dcterms/modified #inst "2011-03-06T00:00:00.000-00:00",
+   :dcterms/partOf {:xsd/anyURI "http://vocab.deri.ie"},
+   :dcterms/publisher
+   {:rdfs/seeAlso #{{:xsd/anyURI "http://www.deri.ie/"}
+                    {:xsd/anyURI "http://www.insight-centre.org"}},
+    :schema/identifier
+    {:xsd/anyURI
+     "http://vocab.deri.ie/void#Digital%20Enterprise%20Research%20Institute%2C%20NUI%20Galway"},
+    :schema/name "Digital Enterprise Research Institute, NUI Galway"},
+   :dcterms/status {:xsd/anyURI "http://purl.org/adms/status/UnderDevelopment"},
+   :dcterms/title "Vocabulary of Interlinked Datasets (VoID)",
+   :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
+   :foaf/homepage {:xsd/anyURI "http://vocab.deri.ie/void.html"},
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "void",
+   :vann/preferredNamespaceUri "http://rdfs.org/ns/void#",
+   :xsd/anyURI "http://vocab.deri.ie/void"}
   (:refer-clojure :exclude [class]))
 
 (def Dataset
@@ -272,3 +323,70 @@
    :rdfs/comment "A vocabulary that is used in the dataset.",
    :rdfs/domain  :void/Dataset,
    :rdfs/label   "vocabulary"})
+
+(def urn:uuid:e253dd21-441a-53a0-88df-3efcf173791d112386
+  {:adms/accessURL "http://vocab.deri.ie/void.rdf",
+   :adms/status    {:xsd/anyURI "http://purl.org/adms/status/Completed"},
+   :rdf/type       :adms/SemanticDistribution,
+   :xsd/anyURI     "http://vocab.deri.ie/void#rdf"})
+
+(def urn:uuid:ea1be9b3-f5f6-56e2-be1f-60dfac5085c5112387
+  {:dcterms/created #inst "2010-01-26T00:00:00.000-00:00",
+   :dcterms/creator
+   #{{:rdf/type           :schema/Person,
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI "http://www.deri.ie/"},
+                           :foaf/name
+                           "Digital Enterprise Research Institute, NUI Galway",
+                           :rdf/type :schema/Organization},
+      :schema/email       {:xsd/anyURI "mailto:richard.cyganiak@deri.org"},
+      :schema/name        "Richard Cyganiak",
+      :schema/url         {:xsd/anyURI "http://richard.cyganiak.de/"}}
+     {:rdf/type           :schema/Person,
+      :schema/affiliation {:rdf/type    :schema/Organization,
+                           :schema/name "Talis",
+                           :schema/url  {:xsd/anyURI "http://www.talis.com/"}},
+      :schema/email       {:xsd/anyURI "mailto:Keith.Alexander@talis.com"},
+      :schema/name        "Keith Alexander",
+      :schema/url         {:xsd/anyURI "http://kwijibo.talis.com/"}}
+     {:rdf/type           :schema/Person,
+      :schema/affiliation {:rdf/type    :schema/Organization,
+                           :schema/name "LiDRC",
+                           :schema/url  {:xsd/anyURI
+                                         "http://linkeddata.deri.ie/"}},
+      :schema/email       {:xsd/anyURI "mailto:michael.hausenblas@deri.org"},
+      :schema/name        "Michael Hausenblas",
+      :schema/url         {:xsd/anyURI "http://sw-app.org/about.html"}}
+     {:rdf/type           :schema/Person,
+      :schema/affiliation {:rdf/type :schema/Organization,
+                           :schema/name
+                           "Department of Zoology, University of Oxford",
+                           :schema/url {:xsd/anyURI
+                                        "http://www.zoo.ox.ac.uk/"}},
+      :schema/email       {:xsd/anyURI "mailto:jun.zhao@zoo.ox.ac.uk"},
+      :schema/name        "Jun Zhao",
+      :schema/url         {:xsd/anyURI "http://users.ox.ac.uk/~zool0770/"}}},
+   :dcterms/description
+   "The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></em>.",
+   :dcterms/modified #inst "2011-03-06T00:00:00.000-00:00",
+   :dcterms/partOf {:xsd/anyURI "http://vocab.deri.ie"},
+   :dcterms/publisher
+   {:rdfs/seeAlso #{{:xsd/anyURI "http://www.deri.ie/"}
+                    {:xsd/anyURI "http://www.insight-centre.org"}},
+    :schema/identifier
+    {:xsd/anyURI
+     "http://vocab.deri.ie/void#Digital%20Enterprise%20Research%20Institute%2C%20NUI%20Galway"},
+    :schema/name "Digital Enterprise Research Institute, NUI Galway"},
+   :dcterms/status {:xsd/anyURI "http://purl.org/adms/status/UnderDevelopment"},
+   :dcterms/title "Vocabulary of Interlinked Datasets (VoID)",
+   :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
+   :foaf/homepage {:xsd/anyURI "http://vocab.deri.ie/void.html"},
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "void",
+   :vann/preferredNamespaceUri "http://rdfs.org/ns/void#",
+   :xsd/anyURI "http://vocab.deri.ie/void"})
+
+(def urn:uuid:bde01748-7c2a-5667-b5c4-5c97bfb32b55112388
+  {:adms/accessURL "http://vocab.deri.ie/void.ttl",
+   :adms/status    {:xsd/anyURI "http://purl.org/adms/status/Completed"},
+   :rdf/type       :adms/SemanticDistribution,
+   :xsd/anyURI     "http://vocab.deri.ie/void#ttl"})

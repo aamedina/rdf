@@ -1,23 +1,20 @@
 (ns net.wikipunk.rdf.as
-  "Extended Activity Streams 2.0 Vocabulary"
-  {:dcat/downloadURL "net/wikipunk/boot/activitystreams2.ttl",
-   :namespaces       {"as"   "http://www.w3.org/ns/activitystreams#",
-                      "owl"  "http://www.w3.org/2002/07/owl#",
-                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                      "xml"  "http://www.w3.org/XML/1998/namespace",
-                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :owl/imports      {:xsd/anyURI "http://www.w3.org/ns/prov#"},
-   :rdf/type         :owl/Ontology,
-   :rdfa/prefix      "as",
-   :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "Extended Activity Streams 2.0 Vocabulary"},
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "https://www.w3.org/TR/activitystreams-vocabulary/"},
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Activity Streams 2.0"},
-   :xsd/anyURI       "http://www.w3.org/ns/activitystreams#"}
+  ^{:base       "https://www.w3.org/ns/activitystreams#",
+    :namespaces {"as"   "http://www.w3.org/ns/activitystreams#",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xml"  "http://www.w3.org/XML/1998/namespace",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "as",
+    :source     "net/wikipunk/boot/activitystreams2.ttl"}
+  {:owl/imports  {:xsd/anyURI "http://www.w3.org/ns/prov#"},
+   :rdf/type     :owl/Ontology,
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Extended Activity Streams 2.0 Vocabulary"},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "Activity Streams 2.0"},
+   :xsd/anyURI   "http://www.w3.org/ns/activitystreams#"}
   (:refer-clojure :exclude [first last name next]))
 
 (def Accept
@@ -1297,3 +1294,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "width"},
    :rdfs/range :xsd/nonNegativeInteger})
+
+(def urn:uuid:5340bce5-232c-59ac-a5a4-d7b5472de34f112328
+  {:owl/imports  {:xsd/anyURI "http://www.w3.org/ns/prov#"},
+   :rdf/type     :owl/Ontology,
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Extended Activity Streams 2.0 Vocabulary"},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "Activity Streams 2.0"},
+   :xsd/anyURI   "http://www.w3.org/ns/activitystreams#"})

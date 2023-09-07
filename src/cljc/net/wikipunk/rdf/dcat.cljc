@@ -1,5 +1,19 @@
 (ns net.wikipunk.rdf.dcat
-  "DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema."
+  ^{:base       "http://www.w3.org/ns/dcat#",
+    :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
+                 "dcmitype" "http://purl.org/dc/dcmitype/",
+                 "dcterms"  "http://purl.org/dc/terms/",
+                 "foaf"     "http://xmlns.com/foaf/0.1/",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "prov"     "http://www.w3.org/ns/prov#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"   "http://schema.org/",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#",
+                 "vcard"    "http://www.w3.org/2006/vcard/ns#",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dcat",
+    :source     "http://www.w3.org/ns/dcat#"}
   {:dcterms/contributor
    #{{:foaf/homepage {:xsd/anyURI "https://jakub.klímek.com/"},
       :foaf/name     "Jakub Klímek",
@@ -66,18 +80,6 @@
      #inst "2021-09-14T00:00:00.000-00:00"},
    :foaf/maker {:foaf/homepage {:xsd/anyURI "http://www.w3.org/2011/gld/"},
                 :foaf/name     "Government Linked Data WG"},
-   :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
-                "dcmitype" "http://purl.org/dc/dcmitype/",
-                "dcterms"  "http://purl.org/dc/terms/",
-                "foaf"     "http://xmlns.com/foaf/0.1/",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "prov"     "http://www.w3.org/ns/prov#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "schema"   "http://schema.org/",
-                "skos"     "http://www.w3.org/2004/02/skos/core#",
-                "vcard"    "http://www.w3.org/2006/vcard/ns#",
-                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/prov-o#"}
                   {:xsd/anyURI "http://purl.org/dc/terms/"}
                   {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
@@ -98,8 +100,6 @@
       :rdf/value
       "Toto je aktualizovaná kopie slovníku DCAT verze 2.0, převzatá z https://www.w3.org/ns/dcat.ttl"}},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dcat",
-   :rdfa/uri "http://www.w3.org/ns/dcat#",
    :rdfs/comment
    #{{:rdf/language "en",
       :rdf/value
@@ -128,7 +128,6 @@
      {:rdf/language "da",
       :rdf/value
       "DCAT er et RDF-vokabular som har til formål at understøtte interoperabilitet mellem datakataloger udgivet på nettet. Ved at anvende DCAT til at beskrive datasæt i datakataloger, kan udgivere øge findbarhed og gøre det gøre det lettere for applikationer at anvende metadata fra forskellige kataloger. Derudover understøttes decentraliseret udstilling af kataloger og fødererede datasætsøgninger på tværs af websider. Aggregerede DCAT-metadata kan fungere som fortegnelsesfiler der kan understøtte digital bevaring. DCAT er defineret på http://www.w3.org/TR/vocab-dcat/. Enhver forskel mellem det normative dokument og dette schema er en fejl i dette schema."}},
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "ja",
                   :rdf/value    "データ・カタログ語彙（DCAT）"}
                  {:rdf/language "fr",
@@ -3152,3 +3151,142 @@
      {:rdf/language "es",
       :rdf/value
       "Se recomienda que la taxonomía se organice como un skos:ConceptScheme, skos:Collection, owl:Ontology o similar, los cuáles permiten que cada miembro se denote con una IRI y se publique como datos enlazados."}}})
+
+(def urn:uuid:06d668c4-ff6a-5243-806b-206d73c1719c112364
+  {:dcterms/contributor
+   #{{:foaf/homepage {:xsd/anyURI "https://jakub.klímek.com/"},
+      :foaf/name     "Jakub Klímek",
+      :rdfs/seeAlso  {:xsd/anyURI "https://jakub.klímek.com/#me"}}
+     {:foaf/homepage {:xsd/anyURI "http://makxdekkers.com/"},
+      :foaf/name     "Makx Dekkers",
+      :rdfs/seeAlso  {:xsd/anyURI "http://makxdekkers.com/makxdekkers.rdf#me"}}
+     {:foaf/name "Richard Cyganiak"} {:foaf/name "Boris Villazón-Terrazas"}
+     {:foaf/name "David Browning",
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI
+                                           "http://www.refinitiv.com"},
+                           :foaf/name     "Refinitiv"}}
+     {:foaf/name "Marios Meimaris"}
+     {:foaf/name "Simon J D Cox",
+      :foaf/workInfoHomepage {:xsd/anyURI "http://people.csiro.au/Simon-Cox"},
+      :rdf/type :foaf/Person,
+      :rdfs/seeAlso {:xsd/anyURI "https://orcid.org/0000-0002-3884-3420"},
+      :schema/affiliation
+      {:foaf/homepage {:xsd/anyURI "https://csiro.au"},
+       :foaf/name
+       "Commonwealth Scientific and Industrial Research Organisation"}}
+     {:foaf/name "Rufus Pollock",
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI "http://okfn.org"},
+                           :foaf/name     "Open Knowledge Foundation"}}
+     {:foaf/homepage      {:xsd/anyURI "https://agbeltran.github.io"},
+      :foaf/name          "Alejandra Gonzalez-Beltran",
+      :rdfs/seeAlso       {:xsd/anyURI "https://orcid.org/0000-0003-3499-8262"},
+      :schema/affiliation {:foaf/homepage {:xsd/anyURI "http://stfc.ac.uk"},
+                           :foaf/name
+                           "Science and Technology Facilities Council, UK"}}
+     {:foaf/name "Vassilios Peristeras",
+      :schema/affiliation {:foaf/homepage
+                           {:xsd/anyURI "http://ec.europa.eu/dgs/informatics/"},
+                           :foaf/name "European Commission, DG DIGIT"}}
+     {:foaf/homepage {:xsd/anyURI "http://www.andrea-perego.name/foaf/#me"},
+      :foaf/name     "Andrea Perego",
+      :rdfs/seeAlso  {:xsd/anyURI "https://orcid.org/0000-0001-9300-2694"}}
+     {:foaf/homepage      {:xsd/anyURI "http://www.w3.org/People/all#phila"},
+      :foaf/name          "Phil Archer",
+      :rdfs/seeAlso       {:xsd/anyURI "http://philarcher.org/foaf.rdf#me"},
+      :schema/affiliation {:xsd/anyURI "http://www.w3.org/data#W3C"}}
+     {:foaf/homepage {:xsd/anyURI "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
+      :foaf/name     "Shuji Kamitsuna"}
+     {:foaf/homepage
+      #{{:xsd/anyURI "https://w3id.org/people/ralbertoni/"}
+        {:xsd/anyURI
+         "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"}},
+      :foaf/name "Riccardo Albertoni",
+      :rdfs/seeAlso {:xsd/anyURI "https://orcid.org/0000-0001-5648-2713"}}
+     {:foaf/name "Martin Alvarez-Espinar"}
+     {:foaf/name    "Ghislain Auguste Atemezing",
+      :rdfs/seeAlso {:xsd/anyURI
+                     "http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf"}}},
+   :dcterms/creator #{{:foaf/name "John Erickson"}
+                      {:foaf/name    "Fadi Maali",
+                       :rdfs/seeAlso {:xsd/anyURI
+                                      "http://fadmaa.me/foaf.ttl"}}},
+   :dcterms/license {:xsd/anyURI
+                     "https://creativecommons.org/licenses/by/4.0/"},
+   :dcterms/modified
+   #{#inst "2017-12-19T00:00:00.000-00:00" #inst "2013-09-20T00:00:00.000-00:00"
+     #inst "2013-11-28T00:00:00.000-00:00" #inst "2012-04-24T00:00:00.000-00:00"
+     #inst "2020-11-30T00:00:00.000-00:00" "2019"
+     #inst "2021-09-14T00:00:00.000-00:00"},
+   :foaf/maker {:foaf/homepage {:xsd/anyURI "http://www.w3.org/2011/gld/"},
+                :foaf/name     "Government Linked Data WG"},
+   :owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/prov-o#"}
+                  {:xsd/anyURI "http://purl.org/dc/terms/"}
+                  {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
+   :owl/versionInfo
+   #{{:rdf/language "es",
+      :rdf/value
+      "Esta es una copia del vocabulario DCAT v2.0 disponible en https://www.w3.org/ns/dcat.ttl"}
+     {:rdf/language "en",
+      :rdf/value
+      "This is an updated copy of v2.0 of the DCAT vocabulary, taken from https://www.w3.org/ns/dcat.ttl"}
+     {:rdf/language "da",
+      :rdf/value
+      "Dette er en opdateret kopi af DCAT v. 2.0 som er tilgænglig på https://www.w3.org/ns/dcat.ttl"}
+     {:rdf/language "en",
+      :rdf/value
+      "Questa è una copia aggiornata del vocabolario DCAT v2.0 disponibile in https://www.w3.org/ns/dcat.ttl"}
+     {:rdf/language "cs",
+      :rdf/value
+      "Toto je aktualizovaná kopie slovníku DCAT verze 2.0, převzatá z https://www.w3.org/ns/dcat.ttl"}},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   #{{:rdf/language "en",
+      :rdf/value
+      "DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema."}
+     {:rdf/language "fr",
+      :rdf/value
+      "DCAT est un vocabulaire développé pour faciliter l'interopérabilité entre les jeux de données publiées sur le Web. En utilisant DCAT pour décrire les jeux de données dans les catalogues de données, les fournisseurs de données augmentent leur découverte et permettent que les applications facilement les métadonnées de plusieurs catalogues. Il permet en plus la publication décentralisée des catalogues et facilitent la recherche fédérée des données entre plusieurs sites. Les métadonnées DCAT aggrégées peuvent servir comme un manifeste pour faciliter la préservation digitale des ressources. DCAT est définie à l'adresse http://www.w3.org/TR/vocab-dcat/. Une quelconque version de ce document normatif et ce vocabulaire est une erreur dans ce vocabulaire."}
+     {:rdf/language "it",
+      :rdf/value
+      "DCAT è un vocabolario RDF progettato per facilitare l'interoperabilità tra i cataloghi di dati pubblicati nel Web. Utilizzando DCAT per descrivere i dataset nei cataloghi di dati, i fornitori migliorano la capacità di individuazione dei dati e abilitano le  applicazioni al consumo di dati provenienti da cataloghi differenti. DCAT permette di decentralizzare la pubblicazione di cataloghi e facilita la ricerca federata dei dataset. L'aggregazione dei metadati federati può fungere da file manifesto per facilitare la conservazione digitale. DCAT è definito all'indirizzo http://www.w3.org/TR/vocab-dcat/. Qualsiasi scostamento tra tale definizione normativa e questo schema è da considerarsi un errore di questo schema."}
+     {:rdf/language "ar",
+      :rdf/value
+      "هي أنطولوجية تسهل تبادل البيانات بين مختلف الفهارس على الوب. استخدام هذه الأنطولوجية يساعد على اكتشاف قوائم  البيانات المنشورة على الوب و يمكن التطبيقات المختلفة من الاستفادة أتوماتيكيا من البيانات المتاحة من مختلف الفهارس."}
+     {:rdf/language "es",
+      :rdf/value
+      "DCAT es un vocabulario RDF diseñado para facilitar la interoperabilidad entre catálogos de datos publicados en la Web. Utilizando DCAT para describir datos disponibles en catálogos se aumenta la posibilidad de que sean descubiertos y se permite que las aplicaciones consuman fácilmente los metadatos de varios catálogos."}
+     {:rdf/language "cs",
+      :rdf/value
+      "DCAT je RDF slovník navržený pro zprostředkování interoperability mezi datovými katalogy publikovanými na Webu. Poskytovatelé dat používáním slovníku DCAT pro popis datových sad v datových katalozích zvyšují jejich dohledatelnost a umožňují aplikacím konzumovat metadata z více katalogů. Dále je umožňena decentralizovaná publikace katalogů a federované dotazování na datové sady napříč katalogy. Agregovaná DCAT metadata mohou také sloužit jako průvodka umožňující digitální uchování informace. DCAT je definován na http://www.w3.org/TR/vocab-dcat/. Jakýkoliv nesoulad mezi odkazovaným dokumentem a tímto schématem je chybou v tomto schématu."}
+     {:rdf/language "el",
+      :rdf/value
+      "Το DCAT είναι ένα RDF λεξιλόγιο που σχεδιάσθηκε για να κάνει εφικτή τη διαλειτουργικότητα μεταξύ καταλόγων δεδομένων στον Παγκόσμιο Ιστό. Χρησιμοποιώντας το DCAT για την περιγραφή συνόλων δεδομένων, οι εκδότες αυτών αυξάνουν την ανακαλυψιμότητα και επιτρέπουν στις εφαρμογές την εύκολη κατανάλωση μεταδεδομένων από πολλαπλούς καταλόγους. Επιπλέον, δίνει τη δυνατότητα για αποκεντρωμένη έκδοση και διάθεση καταλόγων και επιτρέπει δυνατότητες ενοποιημένης αναζήτησης μεταξύ διαφορετικών πηγών. Συγκεντρωτικά μεταδεδομένα που έχουν περιγραφεί με το DCAT μπορούν να χρησιμοποιηθούν σαν ένα δηλωτικό αρχείο (manifest file) ώστε να διευκολύνουν την ψηφιακή συντήρηση."}
+     {:rdf/language "ja",
+      :rdf/value
+      "DCATは、ウェブ上で公開されたデータ・カタログ間の相互運用性の促進を目的とするRDFの語彙です。このドキュメントでは、その利用のために、スキーマを定義し、例を提供します。データ・カタログ内のデータセットを記述するためにDCATを用いると、公開者が、発見可能性を増加させ、アプリケーションが複数のカタログのメタデータを容易に利用できるようになります。さらに、カタログの分散公開を可能にし、複数のサイトにまたがるデータセットの統合検索を促進します。集約されたDCATメタデータは、ディジタル保存を促進するためのマニフェスト・ファイルとして使用できます。"}
+     {:rdf/language "da",
+      :rdf/value
+      "DCAT er et RDF-vokabular som har til formål at understøtte interoperabilitet mellem datakataloger udgivet på nettet. Ved at anvende DCAT til at beskrive datasæt i datakataloger, kan udgivere øge findbarhed og gøre det gøre det lettere for applikationer at anvende metadata fra forskellige kataloger. Derudover understøttes decentraliseret udstilling af kataloger og fødererede datasætsøgninger på tværs af websider. Aggregerede DCAT-metadata kan fungere som fortegnelsesfiler der kan understøtte digital bevaring. DCAT er defineret på http://www.w3.org/TR/vocab-dcat/. Enhver forskel mellem det normative dokument og dette schema er en fejl i dette schema."}},
+   :rdfs/label #{{:rdf/language "ja",
+                  :rdf/value    "データ・カタログ語彙（DCAT）"}
+                 {:rdf/language "fr",
+                  :rdf/value    "Le vocabulaire des jeux de données"}
+                 {:rdf/language "da",
+                  :rdf/value    "Datakatalogvokabular"}
+                 {:rdf/language "es",
+                  :rdf/value    "El vocabulario de catálogo de datos"}
+                 {:rdf/language "it",
+                  :rdf/value    "Il vocabolario del catalogo dei dati"}
+                 {:rdf/language "cs",
+                  :rdf/value    "Slovník pro datové katalogy"}
+                 {:rdf/language "en",
+                  :rdf/value    "The data catalog vocabulary"}
+                 {:rdf/language "ar",
+                  :rdf/value    "أنطولوجية فهارس قوائم البيانات"}
+                 {:rdf/language "el",
+                  :rdf/value    "Το λεξιλόγιο των καταλόγων δεδομένων"}},
+   :skos/editorialNote
+   {:rdf/language "en",
+    :rdf/value
+    "English language definitions updated in this revision in line with ED. Multilingual text unevenly updated."},
+   :xsd/anyURI "http://www.w3.org/ns/dcat"})

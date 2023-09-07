@@ -1,15 +1,27 @@
 (ns net.wikipunk.rdf.prov
-  {:dcat/downloadURL "http://www.w3.org/ns/prov-o",
-   :namespaces       {"owl"  "http://www.w3.org/2002/07/owl#",
-                      "prov" "http://www.w3.org/ns/prov#",
-                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type         :owl/Ontology,
-   :rdfa/prefix      "prov",
-   :rdfa/uri         "http://www.w3.org/ns/prov#",
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/prov-o/"},
-   :xsd/anyURI       "http://www.w3.org/ns/prov#"}
+  ^{:base       "http://www.w3.org/ns/prov#",
+    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
+                 "prov" "http://www.w3.org/ns/prov#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "prov",
+    :source     "http://www.w3.org/ns/prov-o"}
+  {:owl/versionIRI {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130430"},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "Recommendation version 2013-04-30"},
+   :prov/specializationOf {:xsd/anyURI "http://www.w3.org/ns/prov-o"},
+   :prov/wasRevisionOf {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130312"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page). \n\nIf you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All feedback is welcome."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "W3C PROVenance Interchange Ontology (PROV-O)"},
+   :rdfs/seeAlso #{{:xsd/anyURI "http://www.w3.org/ns/prov"}
+                   {:xsd/anyURI "http://www.w3.org/TR/prov-o/"}},
+   :xsd/anyURI "http://www.w3.org/ns/prov-o#"}
   (:refer-clojure :exclude [agent]))
 
 (def Activity
@@ -1705,3 +1717,24 @@
    :rdfs/label "wasStartedBy",
    :rdfs/range :prov/Entity,
    :rdfs/subPropertyOf :prov/wasInfluencedBy})
+
+(def urn:uuid:00f8088d-c19d-5871-b701-530a0860d85e112393
+  {:owl/versionIRI {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130430"},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "Recommendation version 2013-04-30"},
+   :prov/specializationOf {:xsd/anyURI "http://www.w3.org/ns/prov-o"},
+   :prov/wasRevisionOf {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130312"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page). \n\nIf you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All feedback is welcome."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "W3C PROVenance Interchange Ontology (PROV-O)"},
+   :rdfs/seeAlso #{{:xsd/anyURI "http://www.w3.org/ns/prov"}
+                   {:xsd/anyURI "http://www.w3.org/TR/prov-o/"}},
+   :xsd/anyURI "http://www.w3.org/ns/prov-o#"})
+
+(def urn:uuid:fbf03e30-08b0-51f3-8856-cb14570e3a1d112394
+  {:rdf/type   :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/ns/prov#"})

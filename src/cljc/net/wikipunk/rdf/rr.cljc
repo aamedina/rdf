@@ -1,21 +1,35 @@
 (ns net.wikipunk.rdf.rr
-  {:namespaces       {"cc"    "http://creativecommons.org/ns#",
-                      "dc11"  "http://purl.org/dc/elements/1.1/",
-                      "foaf"  "http://xmlns.com/foaf/0.1/",
-                      "owl"   "http://www.w3.org/2002/07/owl#",
-                      "r2rml" "http://www.w3.org/ns/r2rml#",
-                      "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                      "rr"    "http://www.w3.org/ns/r2rml#",
-                      "vaem"  "http://www.linkedmodel.org/schema/vaem#",
-                      "vann"  "http://purl.org/vocab/vann/",
-                      "xml"   "http://www.w3.org/XML/1998/namespace",
-                      "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "rr",
-   :rdfa/uri         "http://www.w3.org/ns/r2rml#",
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.w3.org/TR/2012/REC-r2rml-20120927/"}}
+  ^{:base       "http://www.w3.org/ns/r2rml#",
+    :namespaces {"cc"    "http://creativecommons.org/ns#",
+                 "dc11"  "http://purl.org/dc/elements/1.1/",
+                 "foaf"  "http://xmlns.com/foaf/0.1/",
+                 "owl"   "http://www.w3.org/2002/07/owl#",
+                 "r2rml" "http://www.w3.org/ns/r2rml#",
+                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                 "rr"    "http://www.w3.org/ns/r2rml#",
+                 "vaem"  "http://www.linkedmodel.org/schema/vaem#",
+                 "vann"  "http://purl.org/vocab/vann/",
+                 "xml"   "http://www.w3.org/XML/1998/namespace",
+                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "rr",
+    :source     "http://www.w3.org/ns/r2rml#"}
+  {:cc/license       {:xsd/anyURI
+                      "http://creativecommons.org/licenses/by/3.0/"},
+   :dc11/contributor #{{:xsd/anyURI "http://www.w3.org/People/Ivan/"}
+                       {:xsd/anyURI "http://boris.villazon.terrazas.name"}},
+   :dc11/creator     {:xsd/anyURI "http://richard.cyganiak.de/foaf.rdf#cygri"},
+   :dc11/description {:rdf/language "en",
+                      :rdf/value    "RDB to RDF Mapping Language - Vocabulary"},
+   :dc11/issued      #inst "2012-01-24T00:00:00.000-00:00",
+   :dc11/modified    #inst "2012-07-16T00:00:00.000-00:00",
+   :dc11/publisher   {:xsd/anyURI "http://www.w3.org/"},
+   :dc11/title       {:rdf/language "en",
+                      :rdf/value    "R2RML vocabulary"},
+   :rdf/type         #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "rr",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/r2rml#",
+   :xsd/anyURI       "http://www.w3.org/ns/r2rml#"}
   (:refer-clojure :exclude [class]))
 
 (def BaseTableOrView
@@ -436,3 +450,43 @@
    :rdfs/domain :rr/TermMap,
    :rdfs/range {:owl/unionOf [:rr/BlankNode :rr/IRI :rr/Literal],
                 :rdf/type    :owl/Class}})
+
+(def urn:uuid:9f4224d7-fe19-569f-a4d6-b010ff87f140112353
+  {:cc/license       {:xsd/anyURI
+                      "http://creativecommons.org/licenses/by/3.0/"},
+   :dc11/contributor #{{:xsd/anyURI "http://www.w3.org/People/Ivan/"}
+                       {:xsd/anyURI "http://boris.villazon.terrazas.name"}},
+   :dc11/creator     {:xsd/anyURI "http://richard.cyganiak.de/foaf.rdf#cygri"},
+   :dc11/description {:rdf/language "en",
+                      :rdf/value    "RDB to RDF Mapping Language - Vocabulary"},
+   :dc11/issued      #inst "2012-01-24T00:00:00.000-00:00",
+   :dc11/modified    #inst "2012-07-16T00:00:00.000-00:00",
+   :dc11/publisher   {:xsd/anyURI "http://www.w3.org/"},
+   :dc11/title       {:rdf/language "en",
+                      :rdf/value    "R2RML vocabulary"},
+   :rdf/type         #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "rr",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/r2rml#",
+   :xsd/anyURI       "http://www.w3.org/ns/r2rml#"})
+
+(def urn:uuid:630fdb58-a074-594b-8dce-5065de571bb6112354
+  {:rdf/type     :foaf/Organization,
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "The World Wide Web Consortium (W3C)"},
+   :vaem/acronym "W3C",
+   :xsd/anyURI   "http://www.w3.org/"})
+
+(def urn:uuid:49f3671e-14ef-5e83-832d-2b50f6338c9b112355
+  {:foaf/name  "Boris Villazon-Terrazas",
+   :rdf/type   :foaf/Person,
+   :xsd/anyURI "http://boris.villazon.terrazas.name"})
+
+(def urn:uuid:d5253eba-acd4-5220-b62f-f4cf8470abec112356
+  {:foaf/name  "Ivan Herman",
+   :rdf/type   :foaf/Person,
+   :xsd/anyURI "http://www.w3.org/People/Ivan/"})
+
+(def urn:uuid:09fc25bc-0c96-58bb-a2a7-f1c490bee7a0112357
+  {:foaf/name  "Richard Cyganiak",
+   :rdf/type   :foaf/Person,
+   :xsd/anyURI "http://richard.cyganiak.de/foaf.rdf#cygri"})

@@ -1,5 +1,24 @@
 (ns net.wikipunk.rdf.duv
-  "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."
+  ^{:base       "http://www.w3.org/ns/duv#",
+    :namespaces {"biro"    "http://purl.org/spar/biro/",
+                 "dcat"    "http://www.w3.org/ns/dcat#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "disco"   "http://rdf-vocabulary.ddialliance.org/discovery#",
+                 "dqv"     "http://www.w3.org/ns/dqv#",
+                 "duv"     "http://www.w3.org/ns/duv#",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "frbr"    "http://purl.org/vocab/frbr/core#",
+                 "oa"      "http://www.w3.org/ns/oa#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "pav"     "http://purl.org/pav/",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "voaf"    "http://purl.org/vocommons/voaf#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "duv",
+    :source     "http://www.w3.org/ns/duv#"}
   {:dcterms/created #inst "2015-12-17T00:00:00.000-00:00",
    :dcterms/creator #{{:foaf/name "Sumit Purohit"}
                       {:foaf/name "Eric G. Stephan"}
@@ -13,26 +32,7 @@
    :dcterms/publisher {:xsd/anyURI "http://www.w3.org/data#W3C"},
    :dcterms/title "Dataset Usage Vocabulary",
    :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
-   :namespaces {"biro"    "http://purl.org/spar/biro/",
-                "dcat"    "http://www.w3.org/ns/dcat#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "disco"   "http://rdf-vocabulary.ddialliance.org/discovery#",
-                "dqv"     "http://www.w3.org/ns/dqv#",
-                "duv"     "http://www.w3.org/ns/duv#",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "frbr"    "http://purl.org/vocab/frbr/core#",
-                "oa"      "http://www.w3.org/ns/oa#",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "pav"     "http://purl.org/pav/",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "voaf"    "http://purl.org/vocommons/voaf#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :voaf/Vocabulary,
-   :rdfa/prefix "duv",
-   :rdfa/uri "http://www.w3.org/ns/duv#",
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-duv/"},
    :vann/preferredNamespacePrefix "duv",
    :vann/preferredNamespaceUri "http://www.w3.org/ns/duv#",
@@ -144,3 +144,23 @@
                   :rdf/value    "Dataset associated with Usage. "},
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "refers to dataset"}})
+
+(def urn:uuid:c576200b-4716-5746-9352-715ec00bd77b112392
+  {:dcterms/created #inst "2015-12-17T00:00:00.000-00:00",
+   :dcterms/creator #{{:foaf/name "Sumit Purohit"}
+                      {:foaf/name "Eric G. Stephan"}
+                      {:foaf/name "Bernadette Farias Lóscio"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."},
+   :dcterms/modified #{#inst "2016-08-30T00:00:00.000-00:00"
+                       #inst "2017-01-23T00:00:00.000-00:00"},
+   :dcterms/publisher {:xsd/anyURI "http://www.w3.org/data#W3C"},
+   :dcterms/title "Dataset Usage Vocabulary",
+   :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
+   :rdf/type :voaf/Vocabulary,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-duv/"},
+   :vann/preferredNamespacePrefix "duv",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/duv#",
+   :xsd/anyURI "http://www.w3.org/ns/duv"})

@@ -1,5 +1,12 @@
 (ns net.wikipunk.rdf.skos
-  "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."
+  ^{:base       "http://www.w3.org/2004/02/skos/core#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#"},
+    :prefix     "skos",
+    :source     "http://www.w3.org/2004/02/skos/core#"}
   {:dcterms/contributor
    #{"Nikki Rogers"
      "Participants in W3C's Semantic Web Deployment Working Group."
@@ -12,16 +19,7 @@
     "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "SKOS Vocabulary"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "skos",
-   :rdfa/uri "http://www.w3.org/2004/02/skos/core#",
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.w3.org/TR/2009/REC-skos-reference-20090818/"},
    :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/TR/skos-reference/"},
    :xsd/anyURI "http://www.w3.org/2004/02/skos/core"})
 
@@ -501,3 +499,20 @@
    {:rdf/language "en",
     :rdf/value
     "Relates a concept to the concept scheme that it is a top level concept of."}})
+
+(def urn:uuid:cb425e27-7b60-536b-ae4e-a1198080a455112360
+  {:dcterms/contributor
+   #{"Nikki Rogers"
+     "Participants in W3C's Semantic Web Deployment Working Group."
+     "Dave Beckett"},
+   :dcterms/creator #{{:xsd/string "Sean Bechhofer"}
+                      {:xsd/string "Alistair Miles"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SKOS Vocabulary"},
+   :rdf/type :owl/Ontology,
+   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/TR/skos-reference/"},
+   :xsd/anyURI "http://www.w3.org/2004/02/skos/core"})

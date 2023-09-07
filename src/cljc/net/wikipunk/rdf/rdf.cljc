@@ -1,18 +1,16 @@
 (ns net.wikipunk.rdf.rdf
-  "This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts."
+  ^{:base       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix     "rdf",
+    :source     "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}
   {:dc11/date "2019-12-16",
    :dc11/description
    "This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts.",
    :dc11/title "The RDF Concepts Vocabulary (RDF)",
-   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                "owl"  "http://www.w3.org/2002/07/owl#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "rdf",
-   :rdfa/uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.w3.org/TR/2004/REC-rdf-mt-20040210/"},
    :xsd/anyURI "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}
   (:refer-clojure :exclude [first rest type]))
 
@@ -238,3 +236,11 @@
                       "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
    :rdfs/label       "value",
    :rdfs/range       :rdfs/Resource})
+
+(def urn:uuid:1f51ee89-dd69-5793-8a11-89959f0bc850112363
+  {:dc11/date "2019-12-16",
+   :dc11/description
+   "This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts.",
+   :dc11/title "The RDF Concepts Vocabulary (RDF)",
+   :rdf/type :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/1999/02/22-rdf-syntax-ns#"})

@@ -1,8 +1,16 @@
 (ns net.wikipunk.rdf.time
-  "OWL-Time"
-  {:dcat/downloadURL
-   "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time.ttl",
-   :dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
+  ^{:base "http://www.w3.org/2006/time#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "time"    "http://www.w3.org/2006/time#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "time",
+    :source
+    "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time.ttl"}
+  {:dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
                           {:xsd/anyURI
                            "https://orcid.org/0000-0001-8269-8171"}},
    :dcterms/created #inst "2006-09-27T00:00:00.000-00:00",
@@ -17,20 +25,9 @@
    {:rdf/language "en",
     :rdf/value
     "Copyright © 2006-2021 W3C, OGC. W3C and OGC liability, trademark and document use rules apply."},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "time"    "http://www.w3.org/2006/time#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/priorVersion :time/|2006|,
    :owl/versionIRI :time/|2016|,
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "time",
-   :rdfa/uri "http://www.w3.org/2006/time#",
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "https://www.w3.org/TR/2017/REC-owl-time-20171019/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "Tiempo en OWL"}
                  {:rdf/language "en",
@@ -2759,3 +2756,44 @@
                  {:rdf/language "es",
                   :rdf/value    "duración en años"}},
    :rdfs/range :xsd/decimal})
+
+(def urn:uuid:9c761405-2905-53d4-9bce-110331188b63112352
+  {:dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
+                          {:xsd/anyURI
+                           "https://orcid.org/0000-0001-8269-8171"}},
+   :dcterms/created #inst "2006-09-27T00:00:00.000-00:00",
+   :dcterms/creator #{{:xsd/anyURI "https://en.wikipedia.org/wiki/Jerry_Hobbs"}
+                      {:xsd/anyURI "http://orcid.org/0000-0002-3884-3420"}
+                      {:xsd/anyURI "mailto:panfeng66@gmail.com"}},
+   :dcterms/isVersionOf {:xsd/anyURI "http://www.w3.org/TR/owl-time"},
+   :dcterms/license {:xsd/anyURI
+                     "https://creativecommons.org/licenses/by/4.0/"},
+   :dcterms/modified #inst "2021-01-27T00:00:00.000-00:00",
+   :dcterms/rights
+   {:rdf/language "en",
+    :rdf/value
+    "Copyright © 2006-2021 W3C, OGC. W3C and OGC liability, trademark and document use rules apply."},
+   :owl/priorVersion :time/|2006|,
+   :owl/versionIRI :time/|2016|,
+   :rdf/type :owl/Ontology,
+   :rdfs/label #{{:rdf/language "es",
+                  :rdf/value    "Tiempo en OWL"}
+                 {:rdf/language "en",
+                  :rdf/value    "OWL-Time"}},
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "http://www.semantic-web-journal.net/content/time-ontology-extended-non-gregorian-calendar-applications"}
+     {:xsd/anyURI "http://dx.doi.org/10.3233/SW-150187"}
+     {:xsd/anyURI "http://www.w3.org/TR/owl-time"}},
+   :skos/changeNote
+   #{"2017-02 - intervalIn, intervalDisjoint, monthOfYear added; TemporalUnit subclass of TemporalDuration"
+     "2016-12-20 - restore time:Year and time:January which were present in the 2006 version of the ontology, but now marked \"deprecated\". "
+     "2016-12-20 - adjust range of time:timeZone to time:TimeZone, moved up from the tzont ontology.  "
+     "2017-04-06 - hasTime, hasXSDDuration added; Number removed; all duration elements changed to xsd:decimal"
+     "2021-01-27 - clarified definition and label for time:after and time:before"
+     "2016-06-15 - initial update of OWL-Time - modified to support arbitrary temporal reference systems. "},
+   :skos/historyNote
+   {:rdf/language "en",
+    :rdf/value
+    "Update of OWL-Time ontology, extended to support general temporal reference systems. \n\nOntology engineering by Simon J D Cox"},
+   :xsd/anyURI "http://www.w3.org/2006/time"})

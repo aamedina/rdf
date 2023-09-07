@@ -1,15 +1,14 @@
 (ns net.wikipunk.rdf.xhv
-  {:dcat/downloadURL
-   "https://lov.linkeddata.es/dataset/lov/vocabs/xhv/versions/2010-01-27.n3",
-   :namespaces {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfa" "http://www.w3.org/ns/rdfa#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "xhv"  "http://www.w3.org/1999/xhtml/vocab#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "xhv",
-   :rdfa/uri "http://www.w3.org/1999/xhtml/vocab#",
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/rdfa-core/"}}
+  ^{:base "http://www.w3.org/1999/xhtml/vocab#",
+    :namespaces {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfa" "http://www.w3.org/ns/rdfa#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xhv"  "http://www.w3.org/1999/xhtml/vocab#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "xhv",
+    :source
+    "https://lov.linkeddata.es/dataset/lov/vocabs/xhv/versions/2010-01-27.n3"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [first last list meta next]))
 
 (def alert
@@ -610,3 +609,7 @@
    :rdfs/comment
    "up refers to a resource \"above\" in a\n      hierarchically structured set. ",
    :rdfs/member :xhv/relrev-properties})
+
+(def urn:uuid:3a375c28-3c82-570b-b1be-3de1ce3d5347112362
+  {:xhv/stylesheet {:xsd/anyURI "http://www.w3.org/StyleSheets/TR/base.css"},
+   :xsd/anyURI     "http://www.w3.org/1999/xhtml/vocab"})

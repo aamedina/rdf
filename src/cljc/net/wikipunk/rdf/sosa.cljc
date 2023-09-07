@@ -1,5 +1,19 @@
 (ns net.wikipunk.rdf.sosa
-  "This ontology is based on the SSN Ontology by the W3C Semantic Sensor Networks Incubator Group (SSN-XG), together with considerations from the W3C/OGC Spatial Data on the Web Working Group."
+  ^{:base       "http://www.w3.org/ns/sosa/",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"  "http://schema.org/",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "sosa"    "http://www.w3.org/ns/sosa/",
+                 "time"    "http://www.w3.org/2006/time#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "voaf"    "http://purl.org/vocommons/voaf#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "sosa",
+    :source     "http://www.w3.org/ns/sosa/"}
   {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
    :dcterms/creator
    {:foaf/name {:rdf/language "en",
@@ -17,23 +31,7 @@
    :dcterms/title {:rdf/language "en",
                    :rdf/value
                    "Sensor, Observation, Sample, and Actuator (SOSA) Ontology"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "schema"  "http://schema.org/",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "sosa"    "http://www.w3.org/ns/sosa/",
-                "time"    "http://www.w3.org/2006/time#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "voaf"    "http://purl.org/vocommons/voaf#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
-   :rdfa/prefix "sosa",
-   :rdfa/uri "http://www.w3.org/ns/sosa/",
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
    :vann/preferredNamespacePrefix "sosa",
    :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/",
    :xsd/anyURI "http://www.w3.org/ns/sosa/"})
@@ -743,3 +741,26 @@
    {:rdf/language "en",
     :rdf/value
     "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."}})
+
+(def urn:uuid:d3e99e26-2b10-505a-bdfe-63b2751531db112359
+  {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
+   :dcterms/creator
+   {:foaf/name {:rdf/language "en",
+                :rdf/value    "W3C/OGC Spatial Data on the Web Working Group"},
+    :rdf/type  :foaf/Agent},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "This ontology is based on the SSN Ontology by the W3C Semantic Sensor Networks Incubator Group (SSN-XG), together with considerations from the W3C/OGC Spatial Data on the Web Working Group."},
+   :dcterms/license
+   #{{:xsd/anyURI "http://www.opengeospatial.org/ogc/Software"}
+     {:xsd/anyURI
+      "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"}},
+   :dcterms/rights "Copyright 2017 W3C/OGC.",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value
+                   "Sensor, Observation, Sample, and Actuator (SOSA) Ontology"},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "sosa",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/",
+   :xsd/anyURI "http://www.w3.org/ns/sosa/"})

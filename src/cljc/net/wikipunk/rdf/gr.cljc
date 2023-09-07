@@ -1,5 +1,15 @@
 (ns net.wikipunk.rdf.gr
-  "The GoodRelations ontology provides the vocabulary for annotating e-commerce offerings (1) to sell, lease, repair, dispose, or maintain commodity products and (2) to provide commodity services.\n\nGoodRelations allows describing the relationship between (1) Web resources, (2) offerings made by those Web resources, (3) legal entities, (4) prices, (5) terms and conditions, and the aforementioned ontologies for products and services (6).\n \nFor more information, see http://purl.org/goodrelations/\n\nNote: The base URI of GoodRelations is http://purl.org/goodrelations/v1. Please make sure you are only using element identifiers in this namespace, e.g. http://purl.org/goodrelations/v1#BusinessEntity. There may be copies of the ontology file on the Web which can be retrieved from other locations, BUT THOSE LOCATIONS MUST NOT BE USED AS THE BASIS OF IDENTIFIERS.\n\nIf you use GoodRelations for scientific purposes, please cite our paper:\n\nHepp, Martin: GoodRelations: An Ontology for Describing Products and Services Offers on the Web, Proceedings of the 16th International Conference on Knowledge Engineering and Knowledge Management (EKAW2008), September 29 - October 3, 2008, Acitrezza, Italy, Springer LNCS, Vol. 5268, pp. 332-347.\n\nPDF at http://www.heppnetz.de/publications/"
+  ^{:base "http://purl.org/goodrelations/v1#",
+    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "gr"      "http://purl.org/goodrelations/v1#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix "gr",
+    :source
+    "https://lov.linkeddata.es/dataset/lov/vocabs/gr/versions/2011-10-01.n3"}
   {:dc11/contributor
    {:rdf/language "en",
     :rdf/value
@@ -18,28 +28,15 @@
    {:rdf/language "en",
     :rdf/value
     "The GoodRelations Vocabulary for Semantic Web-based E-Commerce"},
-   :dcat/downloadURL
-   "https://lov.linkeddata.es/dataset/lov/vocabs/gr/versions/2011-10-01.n3",
    :dcterms/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
    :foaf/homepage {:xsd/anyURI "http://purl.org/goodrelations/"},
-   :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
-                "dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "gr"      "http://purl.org/goodrelations/v1#",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "V 1.0, Release 2011-10-01"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "gr",
-   :rdfa/uri "http://purl.org/goodrelations/v1#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "The GoodRelations ontology provides the vocabulary for annotating e-commerce offerings (1) to sell, lease, repair, dispose, or maintain commodity products and (2) to provide commodity services.\n\nGoodRelations allows describing the relationship between (1) Web resources, (2) offerings made by those Web resources, (3) legal entities, (4) prices, (5) terms and conditions, and the aforementioned ontologies for products and services (6).\n \nFor more information, see http://purl.org/goodrelations/\n\nNote: The base URI of GoodRelations is http://purl.org/goodrelations/v1. Please make sure you are only using element identifiers in this namespace, e.g. http://purl.org/goodrelations/v1#BusinessEntity. There may be copies of the ontology file on the Web which can be retrieved from other locations, BUT THOSE LOCATIONS MUST NOT BE USED AS THE BASIS OF IDENTIFIERS.\n\nIf you use GoodRelations for scientific purposes, please cite our paper:\n\nHepp, Martin: GoodRelations: An Ontology for Describing Products and Services Offers on the Web, Proceedings of the 16th International Conference on Knowledge Engineering and Knowledge Management (EKAW2008), September 29 - October 3, 2008, Acitrezza, Italy, Springer LNCS, Vol. 5268, pp. 332-347.\n\nPDF at http://www.heppnetz.de/publications/"},
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.heppnetz.de/ontologies/goodrelations/v1"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GoodRelations Ontology"},
    :xsd/anyURI "http://purl.org/goodrelations/v1"}
@@ -2483,3 +2480,35 @@
                 :rdf/value    "width (0..1)"},
    :rdfs/range :gr/QuantitativeValue,
    :rdfs/subPropertyOf :gr/quantitativeProductOrServiceProperty})
+
+(def urn:uuid:24b0317a-392b-5b61-b4b7-59088e64ed57112390
+  {:dc11/contributor
+   {:rdf/language "en",
+    :rdf/value
+    "Work on the GoodRelations ontology and related research and development has been partly supported by the Austrian BMVIT/FFG under the FIT-IT Semantic Systems project myOntology (grant no. 812515/9284), by a Young Researcher's Grant (Nachwuchsfoerderung 2005-2006) from the Leopold-Franzens-Universitaet Innsbruck, by the European Commission under the project SUPER (FP6-026850), and by the German Federal Ministry of Research (BMBF) by a grant under the KMU Innovativ program as part of the Intelligent Match project (FKZ 01IS10022B). The"},
+   :dc11/creator {:rdf/language "en",
+                  :rdf/value    "Martin Hepp"},
+   :dc11/rights
+   {:rdf/language "en",
+    :rdf/value
+    "The GoodRelations ontology is available under the Creative Commons Attribution 3.0 Unported license; see http://creativecommons.org/licenses/by/3.0/. In a nutshell, you are free to copy, distribute and transmit the work; to remix/adapt the work (e.g. to import the ontology and create specializations of its elements), as long as you attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). Proper Attribution: Simply include the statement \"This work is based on the GoodRelations ontology, developed by Martin Hepp\" and link back to http://purl.org/goodrelations/"},
+   :dc11/subject
+   {:rdf/language "en",
+    :rdf/value
+    "E-Commerce, E-Business, GoodRelations, Microdata, Ontology, Semantic SEO, RDFa, Linked Data, RDF, Semantic Web, Recommender Systems"},
+   :dc11/title
+   {:rdf/language "en",
+    :rdf/value
+    "The GoodRelations Vocabulary for Semantic Web-based E-Commerce"},
+   :dcterms/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :foaf/homepage {:xsd/anyURI "http://purl.org/goodrelations/"},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "V 1.0, Release 2011-10-01"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "The GoodRelations ontology provides the vocabulary for annotating e-commerce offerings (1) to sell, lease, repair, dispose, or maintain commodity products and (2) to provide commodity services.\n\nGoodRelations allows describing the relationship between (1) Web resources, (2) offerings made by those Web resources, (3) legal entities, (4) prices, (5) terms and conditions, and the aforementioned ontologies for products and services (6).\n \nFor more information, see http://purl.org/goodrelations/\n\nNote: The base URI of GoodRelations is http://purl.org/goodrelations/v1. Please make sure you are only using element identifiers in this namespace, e.g. http://purl.org/goodrelations/v1#BusinessEntity. There may be copies of the ontology file on the Web which can be retrieved from other locations, BUT THOSE LOCATIONS MUST NOT BE USED AS THE BASIS OF IDENTIFIERS.\n\nIf you use GoodRelations for scientific purposes, please cite our paper:\n\nHepp, Martin: GoodRelations: An Ontology for Describing Products and Services Offers on the Web, Proceedings of the 16th International Conference on Knowledge Engineering and Knowledge Management (EKAW2008), September 29 - October 3, 2008, Acitrezza, Italy, Springer LNCS, Vol. 5268, pp. 332-347.\n\nPDF at http://www.heppnetz.de/publications/"},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "GoodRelations Ontology"},
+   :xsd/anyURI "http://purl.org/goodrelations/v1"})

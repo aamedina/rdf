@@ -1,18 +1,16 @@
 (ns net.wikipunk.rdf.sioc
-  {:dcat/downloadURL "net/wikipunk/boot/sioc.rdf",
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "sioc"    "http://rdfs.org/sioc/ns#",
-                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "wot"     "http://xmlns.com/wot/0.1/"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "sioc",
-   :rdfa/uri "http://rdfs.org/sioc/ns#",
-   :rdfs/isDefinedBy
-   {:xsd/anyURI "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"}}
+  ^{:base       "http://rdfs.org/sioc/ns#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "sioc"    "http://rdfs.org/sioc/ns#",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "wot"     "http://xmlns.com/wot/0.1/"},
+    :prefix     "sioc",
+    :source     "net/wikipunk/boot/sioc.rdf"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [name]))
 
 (def Community
@@ -1253,3 +1251,19 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "usergroup of"},
    :rdfs/range       :sioc/Space})
+
+(def urn:uuid:94d36d8b-3249-595c-9536-b6bde0fd5ab4112326
+  {:rdfs/label "SIOC Core Ontology Specification",
+   :xsd/anyURI "http://rdfs.org/sioc/spec"})
+
+(def urn:uuid:c0f29cb5-b2ef-5181-aaff-f23938aadc96112327
+  {:dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "SIOC (Semantically-Interlinked Online Communities) is an ontology for describing the information in online communities. \nThis information can be used to export information from online communities and to link them together. The scope of the application areas that SIOC can be used for includes (and is not limited to) weblogs, message boards, mailing lists and chat channels."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SIOC Core Ontology Namespace"},
+   :owl/versionInfo "Revision: 1.36",
+   :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfs/seeAlso {:xsd/anyURI "http://rdfs.org/sioc/spec"},
+   :xsd/anyURI "http://rdfs.org/sioc/ns#"})

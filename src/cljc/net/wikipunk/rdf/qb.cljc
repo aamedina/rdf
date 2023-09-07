@@ -1,5 +1,17 @@
 (ns net.wikipunk.rdf.qb
-  "This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI)."
+  ^{:base       "http://purl.org/linked-data/cube#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "qb"      "http://purl.org/linked-data/cube#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "scovo"   "http://purl.org/NET/scovo#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "void"    "http://rdfs.org/ns/void#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "qb",
+    :source     "http://purl.org/linked-data/cube#"}
   {:dcterms/contributor
    #{{:foaf/mbox "arofan.gregory@earthlink.net"}
      {:foaf/mbox "ian@epimorphics.com"} {:foaf/mbox "richard@cyganiak.de"}
@@ -12,23 +24,10 @@
                        #inst "2013-03-02T00:00:00.000-00:00"},
    :dcterms/title
    "Vocabulary for multi-dimensional (e.g. statistical) data publishing",
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "qb"      "http://purl.org/linked-data/cube#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "scovo"   "http://purl.org/NET/scovo#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "void"    "http://rdfs.org/ns/void#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "0.2",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "qb",
-   :rdfa/uri "http://purl.org/linked-data/cube#",
    :rdfs/comment
    "This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI).",
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-data-cube/"},
    :rdfs/label "The data cube vocabulary",
    :xsd/anyURI "http://purl.org/linked-data/cube"})
 
@@ -475,3 +474,23 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "structure"},
    :rdfs/range :qb/DataStructureDefinition})
+
+(def urn:uuid:0f3126f4-af90-5a9f-a4f2-29c7384c0206112397
+  {:dcterms/contributor
+   #{{:foaf/mbox "arofan.gregory@earthlink.net"}
+     {:foaf/mbox "ian@epimorphics.com"} {:foaf/mbox "richard@cyganiak.de"}
+     {:foaf/mbox "jeni@jenitennison.com"} {:foaf/mbox "dave@epimorphics.com"}},
+   :dcterms/created #inst "2010-07-12T00:00:00.000-00:00",
+   :dcterms/license {:xsd/anyURI
+                     "http://www.opendatacommons.org/licenses/pddl/1.0/"},
+   :dcterms/modified #{#inst "2013-07-26T00:00:00.000-00:00"
+                       #inst "2010-11-27T00:00:00.000-00:00"
+                       #inst "2013-03-02T00:00:00.000-00:00"},
+   :dcterms/title
+   "Vocabulary for multi-dimensional (e.g. statistical) data publishing",
+   :owl/versionInfo "0.2",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   "This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI).",
+   :rdfs/label "The data cube vocabulary",
+   :xsd/anyURI "http://purl.org/linked-data/cube"})

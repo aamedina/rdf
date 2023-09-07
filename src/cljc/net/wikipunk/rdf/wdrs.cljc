@@ -1,23 +1,21 @@
 (ns net.wikipunk.rdf.wdrs
-  "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents."
+  ^{:base       "http://www.w3.org/2007/05/powder-s#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "voaf"    "http://purl.org/vocommons/voaf#",
+                 "wdrs"    "http://www.w3.org/2007/05/powder-s#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "wdrs",
+    :source     "http://www.w3.org/2007/05/powder-s#"}
   {:dcterms/issued "2009-09-01",
    :dcterms/modified #{"2017-06-02" "2010-11-08"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "voaf"    "http://purl.org/vocommons/voaf#",
-                "wdrs"    "http://www.w3.org/2007/05/powder-s#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "2 June 2017",
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
-   :rdfa/prefix "wdrs",
-   :rdfa/uri "http://www.w3.org/2007/05/powder-s#",
    :rdfs/comment
    "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents.",
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.w3.org/TR/2009/REC-powder-formal-20090901/"},
    :rdfs/label "POWDER-S Vocabulary",
    :vann/preferredNamespacePrefix "wdrs",
    :vann/preferredNamespaceUri "http://www.w3.org/2007/05/powder-s#",
@@ -281,3 +279,15 @@
                       "http://www.w3.org/TR/powder-dr/#certification"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valid until"}})
+
+(def urn:uuid:1129553a-92f7-51a1-a9d5-0889bfc98a06112385
+  {:dcterms/issued "2009-09-01",
+   :dcterms/modified #{"2017-06-02" "2010-11-08"},
+   :owl/versionInfo "2 June 2017",
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :rdfs/comment
+   "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents.",
+   :rdfs/label "POWDER-S Vocabulary",
+   :vann/preferredNamespacePrefix "wdrs",
+   :vann/preferredNamespaceUri "http://www.w3.org/2007/05/powder-s#",
+   :xsd/anyURI "http://www.w3.org/2007/05/powder-s"})

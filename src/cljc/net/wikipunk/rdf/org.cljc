@@ -1,5 +1,19 @@
 (ns net.wikipunk.rdf.org
-  "Vocabulary for describing organizational structures, specializable to a broad variety of types of organization."
+  ^{:base       "http://www.w3.org/ns/org#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "gr"      "http://purl.org/goodrelations/v1#",
+                 "org"     "http://www.w3.org/ns/org#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "owlTime" "http://www.w3.org/2006/time#",
+                 "prov"    "http://www.w3.org/ns/prov#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "vcard"   "http://www.w3.org/2006/vcard/ns#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "org",
+    :source     "http://www.w3.org/ns/org#"}
   {:dcterms/contributor
    #{{:foaf/mbox "dguardiola@quinode.fr",
       :foaf/name "Dominique Guardiola"}
@@ -37,22 +51,8 @@
                      :rdf/value    "Ontología de organizaciones"}
                     {:rdf/language "fr",
                      :rdf/value    "Ontologie des organisations"}},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "gr"      "http://purl.org/goodrelations/v1#",
-                "org"     "http://www.w3.org/ns/org#",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "owlTime" "http://www.w3.org/2006/time#",
-                "prov"    "http://www.w3.org/ns/prov#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "vcard"   "http://www.w3.org/2006/vcard/ns#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "0.8",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "org",
-   :rdfa/uri "http://www.w3.org/ns/org#",
    :rdfs/comment
    #{{:rdf/language "it",
       :rdf/value
@@ -63,7 +63,6 @@
      {:rdf/language "es",
       :rdf/value
       "Vocabulario para describir organizaciones, adaptable a una amplia variedad de ellas."}},
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-org/"},
    :rdfs/label #{{:rdf/language "en",
                   :rdf/value    "Core organization ontology"}
                  {:rdf/language "it",
@@ -1455,3 +1454,64 @@
                   :rdf/value    "unité de"}},
    :rdfs/range :org/FormalOrganization,
    :rdfs/subPropertyOf :org/subOrganizationOf})
+
+(def urn:uuid:1ad4e5bb-349d-56ba-b9ac-3fab39676ff6112395
+  {:dcterms/contributor
+   #{{:foaf/mbox "dguardiola@quinode.fr",
+      :foaf/name "Dominique Guardiola"}
+     {:foaf/mbox "mpoveda@fi.upm.es",
+      :foaf/name "María Poveda Villalón"}
+     {:foaf/mbox "giorgia.lodi@agid.gov.it",
+      :foaf/name "Giorgia Lodi"}
+     {:foaf/mbox "antonio.maccioni@agid.gov.it",
+      :foaf/name "Antonio Maccioni"}
+     {:foaf/mbox "ogiraldo@fi.upm.es",
+      :foaf/name "Olga Ximena Giraldo"}
+     {:foaf/mbox "dave@epimorphics.com",
+      :foaf/name "Dave Reynolds"}
+     {:foaf/mbox "emontiel@fi.upm.es",
+      :foaf/name "Elena Montiel Ponsoda"}
+     {:foaf/mbox "lupe@fi.upm.es",
+      :foaf/name "Guadalupe Aguado de Cea"}
+     {:foaf/homepage {:xsd/anyURI "http://www.asahi-net.or.jp/~ax2s-kmtn/"},
+      :foaf/name     "Shuji Kamitsuna"}},
+   :dcterms/created #inst "2010-05-28T00:00:00.000-00:00",
+   :dcterms/license {:xsd/anyURI
+                     "http://www.opendatacommons.org/licenses/pddl/1.0/"},
+   :dcterms/modified
+   #{#inst "2013-12-16T00:00:00.000-00:00" #inst "2014-02-05T00:00:00.000-00:00"
+     #inst "2014-01-25T00:00:00.000-00:00" #inst "2014-01-02T00:00:00.000-00:00"
+     #inst "2014-04-12T00:00:00.000-00:00" #inst "2010-06-09T00:00:00.000-00:00"
+     #inst "2010-10-08T00:00:00.000-00:00" #inst "2012-10-06T00:00:00.000-00:00"
+     #inst "2012-09-30T00:00:00.000-00:00"
+     #inst "2013-02-15T00:00:00.000-00:00"},
+   :dcterms/title #{{:rdf/language "en",
+                     :rdf/value    "Core organization ontology"}
+                    {:rdf/language "it",
+                     :rdf/value    "Ontologia delle organizzazioni"}
+                    {:rdf/language "es",
+                     :rdf/value    "Ontología de organizaciones"}
+                    {:rdf/language "fr",
+                     :rdf/value    "Ontologie des organisations"}},
+   :owl/versionInfo "0.8",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   #{{:rdf/language "it",
+      :rdf/value
+      "Vocabolario per descrivere strutture organizzative, le quali possono essere specializzate in una vasta varietà di tipi di organizzazione"}
+     {:rdf/language "en",
+      :rdf/value
+      "Vocabulary for describing organizational structures, specializable to a broad variety of types of organization."}
+     {:rdf/language "es",
+      :rdf/value
+      "Vocabulario para describir organizaciones, adaptable a una amplia variedad de ellas."}},
+   :rdfs/label #{{:rdf/language "en",
+                  :rdf/value    "Core organization ontology"}
+                 {:rdf/language "it",
+                  :rdf/value    "Ontologia delle organizzazioni"}
+                 {:rdf/language "es",
+                  :rdf/value    "Ontología de organizaciones"}
+                 {:rdf/language "fr",
+                  :rdf/value    "Ontologie des organisations"}},
+   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/TR/vocab-org/"},
+   :xsd/anyURI "http://www.w3.org/ns/org#"})

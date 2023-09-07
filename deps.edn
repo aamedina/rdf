@@ -2,7 +2,7 @@
  {camel-snake-kebab/camel-snake-kebab
   {:mvn/version "0.4.3"}
   clj-http/clj-http
-  {:mvn/version "3.12.3"}
+  {:mvn/version "3.12.3"}    
   cheshire/cheshire
   {:mvn/version "5.11.0"}  
   com.apicatalog/titanium-json-ld
@@ -17,6 +17,8 @@
   {:mvn/version "1.24.0"}
   com.taoensso/nippy
   {:mvn/version "3.2.0"}
+  danlentz/clj-uuid
+  {:mvn/version "0.1.9"}
   instaparse/instaparse
   {:mvn/version "1.4.12"}
   io.github.arachne-framework/aristotle
@@ -30,6 +32,8 @@
   {:mvn/version "0.4.1"}
   ont-app/vocabulary
   {:mvn/version "0.4.2"}
+  ont-app/sparql-endpoint
+  {:mvn/version "0.2.1"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.9.0"
    :extension   "pom"}

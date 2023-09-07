@@ -1,29 +1,27 @@
 (ns net.wikipunk.rdf.d3f
-  "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature."
+  ^{:base       "http://d3fend.mitre.org/ontologies/d3fend.owl#",
+    :namespaces {"d3f"     "http://d3fend.mitre.org/ontologies/d3fend.owl#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "d3f",
+    :source     "net/wikipunk/ext/d3fend-full.ttl"}
   {:d3f/release-date #inst "2023-07-07T00:00:00.000-00:00",
-   :dcat/downloadURL "net/wikipunk/ext/d3fend-full.ttl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
-   :namespaces {"d3f"     "http://d3fend.mitre.org/ontologies/d3fend.owl#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
    {:xsd/anyURI
     "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
    :owl/versionInfo "0.13.0-BETA-1",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "d3f",
-   :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
-   :slash true,
    :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"}
   (:refer-clojure :exclude [comment name next]))
 
@@ -35796,3 +35794,19 @@
    :rdfs/label "writes",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/01000931-v"},
    :rdfs/subPropertyOf :d3f/accesses})
+
+(def urn:uuid:014778de-3bab-586d-b0dd-54227e50e87282345
+  {:d3f/release-date #inst "2023-07-07T00:00:00.000-00:00",
+   :dcterms/description
+   "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
+   :dcterms/license "MIT",
+   :dcterms/title
+   "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
+   :owl/versionIRI
+   {:xsd/anyURI
+    "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
+   :owl/versionInfo "0.13.0-BETA-1",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
+   :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"})

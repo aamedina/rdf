@@ -1,7 +1,5 @@
 (ns net.wikipunk.rdf.sec
-  "vocabulary used to ensure the authenticity and integrity of Verifiable Credentials and similar types of constrained digital documents using cryptography, especially through the use of digital signatures and related mathematical proofs\n"
-  ^{:dcat/downloadURL
-    "https://w3c.github.io/vc-data-integrity/vocab/security/vocabulary.ttl",
+  ^{:base "https://w3id.org/security#",
     :namespaces {"cred"    "https://w3.org/2018/credentials#",
                  "dcterms" "http://purl.org/dc/terms/",
                  "owl"     "http://www.w3.org/2002/07/owl#",
@@ -9,18 +7,18 @@
                  "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                  "sec"     "https://w3id.org/security#",
                  "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"}
-    :prefix     {:rdfa/prefix "sec",
-                 :rdfa/uri    "https://w3id.org/security#",
-                 :rdf/type    :rdfa/PrefixMapping}}
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "sec",
+    :source
+    "https://w3c.github.io/vc-data-integrity/vocab/security/vocabulary.ttl"}
   {:dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
     "vocabulary used to ensure the authenticity and integrity of Verifiable Credentials and similar types of constrained digital documents using cryptography, especially through the use of digital signatures and related mathematical proofs\n"},
    :dcterms/title {:rdf/language "en",
-                   :rdf/value    "Security Vocabulary"},,
-   :rdf/type :owl/Ontology,   
+                   :rdf/value    "Security Vocabulary"},
+   :rdf/type :owl/Ontology,
    :rdfs/seeAlso {:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/"},
    :xsd/anyURI "https://w3id.org/security#"})
 
@@ -250,8 +248,9 @@
    :owl/deprecated true,
    :rdf/type #{:owl/DeprecatedClass :rdfs/Class},
    :rdfs/comment
-   #rdf/HTML
-    "<div>A linked data proof suite verification method type used with <a href=\"#JsonWebSignature2020\">`JsonWebSignature2020`</a></div>",
+   {:rdf/type :rdf/HTML,
+    :rdf/value
+    "<div>A linked data proof suite verification method type used with <a href=\"#JsonWebSignature2020\">`JsonWebSignature2020`</a></div>"},
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://w3c-ccg.github.io/security-vocab/#JsonWebKey2020"}
      {:xsd/anyURI "https://w3id.org/security#"}},
@@ -274,8 +273,9 @@
    :owl/deprecated true,
    :rdf/type #{:owl/DeprecatedClass :rdfs/Class},
    :rdfs/comment
-   #rdf/HTML
-    "<div>This class represents a cryptographic key that may be used for encryption, decryption, or digitally signing data. This class serves as a supertype for specific key types.</div>",
+   {:rdf/type :rdf/HTML,
+    :rdf/value
+    "<div>This class represents a cryptographic key that may be used for encryption, decryption, or digitally signing data. This class serves as a supertype for specific key types.</div>"},
    :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/security#"},
    :rdfs/label "Cryptographic key",
    :vs/term_status "deprecated"})
@@ -345,8 +345,9 @@
   {:db/ident :sec/Proof,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #rdf/HTML
-    "<div>This class represents a digital proof on serialized data.</div>",
+   {:rdf/type :rdf/HTML,
+    :rdf/value
+    "<div>This class represents a digital proof on serialized data.</div>"},
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
       "https://www.w3.org/TR/vc-data-integrity/#dfn-data-integrity-proof"}
@@ -358,8 +359,9 @@
   {:db/ident :sec/ProofGraph,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #rdf/HTML
-    "<div>Instances of this class are <a href=\"https://www.w3.org/TR/rdf12-concepts/#section-rdf-graph\">RDF Graphs</a> [[RDF12-CONCEPTS]], where each of these graphs must include exactly one <a href=\"#Proof\">Proof</a> instance.</div>",
+   {:rdf/type :rdf/HTML,
+    :rdf/value
+    "<div>Instances of this class are <a href=\"https://www.w3.org/TR/rdf12-concepts/#section-rdf-graph\">RDF Graphs</a> [[RDF12-CONCEPTS]], where each of these graphs must include exactly one <a href=\"#Proof\">Proof</a> instance.</div>"},
    :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/security#"},
    :rdfs/label "An RDF Graph for a digital proof",
    :vs/term_status "stable"})
@@ -800,3 +802,15 @@
    :rdfs/seeAlso {:xsd/anyURI
                   "https://www.w3.org/TR/did-core/#verification-methods"},
    :vs/term_status "stable"})
+
+(def urn:uuid:a2b9860c-cd32-559a-880b-ce2e60f5e54196031
+  {:dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "vocabulary used to ensure the authenticity and integrity of Verifiable Credentials and similar types of constrained digital documents using cryptography, especially through the use of digital signatures and related mathematical proofs\n"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Security Vocabulary"},
+   :rdf/type :owl/Ontology,
+   :rdfs/seeAlso {:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/"},
+   :xsd/anyURI "https://w3id.org/security#"})

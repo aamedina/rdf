@@ -1,7 +1,19 @@
 (ns net.wikipunk.rdf.odrl
-  "The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model."
-  {:dcat/downloadURL "https://www.w3.org/ns/odrl/2/ODRL22.jsonld",
-   :dcterms/contributor
+  ^{:base       "http://www.w3.org/ns/odrl/2/",
+    :namespaces {"cc"      "http://creativecommons.org/ns#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "odrl"    "http://www.w3.org/ns/odrl/2/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"  "http://schema.org/",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "vcard"   "http://www.w3.org/2006/vcard/ns#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "odrl",
+    :source     "https://www.w3.org/ns/odrl/2/ODRL22.jsonld"}
+  {:dcterms/contributor
    "W3C Permissions & Obligations Expression Working Group",
    :dcterms/creator
    #{{:xsd/string "Víctor Rodríguez-Doncel"} {:xsd/string "Stuart Myles"}
@@ -13,24 +25,10 @@
    :dcterms/license
    {:xsd/anyURI
     "https://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231#Copyright/"},
-   :namespaces {"cc"      "http://creativecommons.org/ns#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "odrl"    "http://www.w3.org/ns/odrl/2/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "schema"  "http://schema.org/",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "vcard"   "http://www.w3.org/2006/vcard/ns#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "2.2",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "odrl",
-   :rdfa/uri "http://www.w3.org/ns/odrl/2/",
    :rdfs/comment {:rdf/language "en",
                   :rdf/value "This is the RDF ontology for ODRL Version 2.2."},
-   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/odrl-vocab/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ODRL Version 2.2"},
    :xsd/anyURI "http://www.w3.org/ns/odrl/2/"}
@@ -3377,3 +3375,24 @@
    {:rdf/language "en",
     :rdf/value
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances."}})
+
+(def urn:uuid:16659e2c-afa4-5e38-81bd-29adb4ac426a112375
+  {:dcterms/contributor
+   "W3C Permissions & Obligations Expression Working Group",
+   :dcterms/creator
+   #{{:xsd/string "Víctor Rodríguez-Doncel"} {:xsd/string "Stuart Myles"}
+     {:xsd/string "Michael Steidl"} {:xsd/string "Renato Iannella"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model."},
+   :dcterms/license
+   {:xsd/anyURI
+    "https://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231#Copyright/"},
+   :owl/versionInfo "2.2",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value "This is the RDF ontology for ODRL Version 2.2."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "ODRL Version 2.2"},
+   :xsd/anyURI "http://www.w3.org/ns/odrl/2/"})

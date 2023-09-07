@@ -1,20 +1,18 @@
 (ns net.wikipunk.rdf.schema
-  {:dcat/downloadURL
-   "https://schema.org/version/latest/schemaorg-current-http.ttl",
-   :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
-                "dcmitype" "http://purl.org/dc/dcmitype/",
-                "dcterms"  "http://purl.org/dc/terms/",
-                "foaf"     "http://xmlns.com/foaf/0.1/",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "schema"   "http://schema.org/",
-                "skos"     "http://www.w3.org/2004/02/skos/core#",
-                "void"     "http://rdfs.org/ns/void#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "schema",
-   :rdfa/uri "http://schema.org/",
-   :rdfs/isDefinedBy {:xsd/anyURI "http://schema.org/docs/full.html"}}
+  ^{:base       "http://schema.org/",
+    :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
+                 "dcmitype" "http://purl.org/dc/dcmitype/",
+                 "dcterms"  "http://purl.org/dc/terms/",
+                 "foaf"     "http://xmlns.com/foaf/0.1/",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"   "http://schema.org/",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#",
+                 "void"     "http://rdfs.org/ns/void#"},
+    :prefix     "schema",
+    :source     "https://schema.org/version/latest/schemaorg-current-http.ttl"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [agent comment map name parents]))
 
 (def AMRadioChannel

@@ -1,22 +1,20 @@
 (ns net.wikipunk.rdf.ma
-  "Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
+  ^{:base       "http://www.w3.org/ns/ma-ont#",
+    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                 "ma"   "http://www.w3.org/ns/ma-ont#",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "ma",
+    :source     "http://www.w3.org/ns/ma-ont#"}
   {:dc11/date #inst "2013-03-20T00:00:00.000-00:00",
-   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                "ma"   "http://www.w3.org/ns/ma-ont#",
-                "owl"  "http://www.w3.org/2002/07/owl#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "http://dublincore.org/2008/01/14/dcelements.rdf"},
    :owl/versionInfo "R36",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "ma",
-   :rdfa/uri "http://www.w3.org/ns/ma-ont#",
    :rdfs/comment
    #{"Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
      "THE CONTENT OF THIS MA-ONT.RDF AND DERIVED MA-ONT.TTL FILES PREVAIL OVER THE SPECIFICATION."},
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.w3.org/TR/2012/REC-mediaont-10-20120209/"},
    :xsd/anyURI "http://www.w3.org/ns/ma-ont"})
 
 (def Agent
@@ -697,3 +695,13 @@
    "Corresponds to 'fragment.name' in the Ontology for Media Resources, for Track fragments.",
    :rdfs/domain :ma/Track,
    :rdfs/subPropertyOf :ma/fragmentName})
+
+(def urn:uuid:6ed5c232-e4a6-5fb0-86f5-e829dd45c363112349
+  {:dc11/date #inst "2013-03-20T00:00:00.000-00:00",
+   :owl/imports {:xsd/anyURI "http://dublincore.org/2008/01/14/dcelements.rdf"},
+   :owl/versionInfo "R36",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   #{"Created by Tobias Buerger, Jean Pierre Evain and Pierre-Antoine Champin with the RDFS Taskforce within the W3C Media Annotation Working Group."
+     "THE CONTENT OF THIS MA-ONT.RDF AND DERIVED MA-ONT.TTL FILES PREVAIL OVER THE SPECIFICATION."},
+   :xsd/anyURI "http://www.w3.org/ns/ma-ont"})

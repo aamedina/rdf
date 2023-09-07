@@ -1,20 +1,19 @@
 (ns net.wikipunk.rdf.rev
-  {:dcat/downloadURL
-   "https://raw.githubusercontent.com/iand/vocabdotorg/main/www/src/review/review.rdf",
-   :namespaces {"cc"    "http://web.resource.org/cc/",
-                "dc11"  "http://purl.org/dc/elements/1.1/",
-                "foaf"  "http://xmlns.com/foaf/0.1/",
-                "grddl" "http://www.w3.org/2003/g/data-view#",
-                "owl"   "http://www.w3.org/2002/07/owl#",
-                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                "rev"   "http://purl.org/stuff/rev#",
-                "vann"  "http://purl.org/vocab/vann/",
-                "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "rev",
-   :rdfa/uri "http://purl.org/stuff/rev#",
-   :rdfs/isDefinedBy {:xsd/anyURI "http://vocab.org/review/terms.html"}}
+  ^{:base "http://purl.org/stuff/rev#",
+    :namespaces {"cc"    "http://web.resource.org/cc/",
+                 "dc11"  "http://purl.org/dc/elements/1.1/",
+                 "foaf"  "http://xmlns.com/foaf/0.1/",
+                 "grddl" "http://www.w3.org/2003/g/data-view#",
+                 "owl"   "http://www.w3.org/2002/07/owl#",
+                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                 "rev"   "http://purl.org/stuff/rev#",
+                 "vann"  "http://purl.org/vocab/vann/",
+                 "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
+    :prefix "rev",
+    :source
+    "https://raw.githubusercontent.com/iand/vocabdotorg/main/www/src/review/review.rdf"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [type]))
 
 (def Comment
@@ -196,3 +195,29 @@
    :rdfs/label       "type",
    :vs/moreinfo      "core term",
    :vs/term_status   "deprecated"})
+
+(def urn:uuid:a86b5e88-bed2-5150-a8c5-9f72c1e0185b112381
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/1.0/"},
+   :dc11/type  :dcmitype/Text,
+   :rdf/type   :cc/Work,
+   :xsd/anyURI "http://purl.org/stuff/rev"})
+
+(def urn:uuid:9defd8b2-38dc-5571-bb27-757d3c3d4d31112382
+  {:cc/permits  #{:cc/Reproduction :cc/Distribution :cc/DerivativeWorks},
+   :cc/requires #{:cc/Notice :cc/Attribution},
+   :rdf/type    :cc/License,
+   :xsd/anyURI  "http://creativecommons.org/licenses/by/1.0/"})
+
+(def urn:uuid:a85a3685-7a6c-59dc-9cf8-f6adce1719be112383
+  {:dc11/date "2007-11-08",
+   :dc11/description
+   "Vocabulary for expressing reviews and ratings using the Resource Description Framework. It is compatible with hReview and conforms to OWL Lite",
+   :grddl/profileTransformation
+   {:xsd/anyURI
+    "http://danja.talis.com/xmlns/rev_2007-11-09/hreview2rdfxml.xsl"},
+   :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfs/label "RDF Review Vocabulary",
+   :vann/preferredNamespacePrefix "rev",
+   :vann/preferredNamespaceUri "http://purl.org/stuff/rev#",
+   :vs/userdocs {:xsd/anyURI "http://vocab.org/review/html"},
+   :xsd/anyURI "http://purl.org/stuff/rev#"})

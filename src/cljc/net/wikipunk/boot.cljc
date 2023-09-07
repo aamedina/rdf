@@ -1,12 +1,11 @@
 (ns net.wikipunk.boot
   "RDFa Core Initial Context"
-  {:rdf/type         :jsonld/Context
-   :dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"
-   :namespaces
-   {"rdfa" "http://www.w3.org/ns/rdfa#",
-    "xsd"  "http://www.w3.org/2001/XMLSchema#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}}
+  ^{:dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"
+    :namespaces       {"rdfa" "http://www.w3.org/ns/rdfa#",
+                       "xsd"  "http://www.w3.org/2001/XMLSchema#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}}
+  {:rdf/type :jsonld/Context}
   (:refer-clojure :exclude [time keys]))
 
 (def as
