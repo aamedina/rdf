@@ -558,9 +558,11 @@ dpvo-legal:SubSaharanAfrica a owl:NamedIndividual,
     rdfs:isDefinedBy dpvo-legal: ;
     sw:term_status "accepted"@en .
 
-dpvo-legal:UK-DPA-2018 dpvo:hasAuthority dpvo-legal:DPA-GB .
+dpvo-legal:UK-DPA-2018 a dpvo:Law ;
+  dpvo:hasAuthority dpvo-legal:DPA-GB .
 
-dpvo-legal:UK-GDPR dpvo:hasAuthority dpvo-legal:DPA-GB .
+dpvo-legal:UK-GDPR a dpvo:Law ;
+  dpvo:hasAuthority dpvo-legal:DPA-GB .
 
 dpvo-legal:US-AK a owl:NamedIndividual,
         dpvo:Region ;

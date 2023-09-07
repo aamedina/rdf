@@ -45,7 +45,9 @@
                       :mop/classSlots
                       :mop/classDirectSubclasses)
                      (assoc m k (if (keyword? v) #{v} v))
-                     (assoc m k v)))
+                     (assoc m k (if (and (set? v) (== (count v) 1))
+                                  (first v)
+                                  v))))
                  nil
                  (if (qualified-keyword? id)
                    (assoc e :db/ident id)

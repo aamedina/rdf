@@ -17,6 +17,7 @@
    [clojure.data.int-map :as int-map]
    [clojure.data.xml :as xml]
    [clojure.edn :as edn]
+   [clj-http.client :as http]
    [clojure.java.io :as io]
    [clojure.java.javadoc :refer [javadoc]]
    [clojure.java.shell :as sh :refer [sh]]
@@ -32,8 +33,7 @@
    [com.stuartsierra.component :as com]
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [com.walmartlabs.schematic :as sc]
-   [ont-app.vocabulary.lstr :as lstr]
-   [ont-app.sparql-endpoint.core :as sparql]
+   [ont-app.vocabulary.lstr :as lstr]   
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
@@ -54,7 +54,7 @@
 
 (set-init
   (fn [_]
-    (set! *print-namespace-maps* false)
+    (set! *print-namespace-maps* nil)
     (if-let [r (io/resource "system.edn")]
       (-> (slurp r)
           (edn/read-string)
@@ -229,83 +229,14 @@
                                  (into []))}))
 
 (comment
-  (def d3f
-    (reduce-kv (fn [nodes k v]
-                 (cond
-                   (qualified-keyword? k)
-                   (update nodes :idents conj (assoc v :db/ident k))
-
-                   (:rdfa/uri k)
-                   (update nodes :uris conj (assoc v :rdfa/uri (:rdfa/uri k)))
-
-                   (:id k)
-                   (update nodes :blanks conj (assoc v :db/id (:id k)))
-
-                   :else nodes))
-               {:idents []
-                :blanks []
-                :uris   []}
-               (rdf/parse-turtle (slurp "/home/adrian/src/py/d3fend-ontology/build/d3fend-full.ttl")))))
-
-(comment
-  {:rdf/type      :rdf/Statement
-   :rdf/subject   {:rdfa/prefix "schema",
-                   :rdfa/term   "3DModel",
-                   :xsd/anyURI  "http://schema.org/3DModel"}
-   :rdf/predicate {:rdfa/prefix "rdfs",
-                   :rdfa/term   "comment"
-                   :xsd/anyURI  "http://www.w3.org/2000/01/rdf-schema#comment"}   
-   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}}
-
   {:rdf/type      :rdf/Statement
    :rdf/subject   {:xsd/anyURI "http://schema.org/3DModel"}
    :rdf/predicate {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#comment"}
-   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}}
-
-  
-
-  {:rdf/type  :xsd/anyURI
-   :rdf/value "http://www.w3.org/2000/01/rdf-schema#comment"}
-
-  ^{:namespaces
-    {"rdf"     ""
-     "contact" ""}}
-  {:xsd/anyURI "http://www.w3.org/People/EM/contact#me"
-   :rdf/type   :schema/Person}
-
-  )
+   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}})
 
 (comment
   {:rdf/type  :rdf/JSON
    :rdf/value "[52,{\"1\":[],\"10\":null,\"d\":true}]"}
-
-  {:context
-   {"modified"
-    {:id   "http://purl.org/dc/terms/modified"
-     :type "http://www.w3.org/2001/XMLSchema#dateTime"}}
-   :graph
-   [{:id        "http://example.com/docs/1"
-     "modified" "2010-05-29T14:17:39+02:00"}]}
-
-  [{:id "http://example.com/docs/1"
-    "http://purl.org/dc/terms/modified"
-    [{:type  "http://www.w3.org/2001/XMLSchema#dateTime"
-      :value "2010-05-29T14:17:39+02:00"}]}]
-
-  ["http://example.com/docs/1"
-   "http://purl.org/dc/terms/modified"
-   "2010-05-29T14:17:39+02:00^^http://www.w3.org/2001/XMLSchema#dateTime"]
-
-  [{:xsd/anyURI "http://example.com/docs/1"}
-   {:xsd/anyURI "http://purl.org/dc/terms/modified"}
-   {:rdf/type  {:xsd/anyURI "http://www.w3.org/2001/XMLSchema#dateTime"}
-    :rdf/value "2010-05-29T14:17:39+02:00"}]
-
-  [{:id "http://example.org/people#joebob"
-    "http://xmlns.com/foaf/0.1/nick"
-    [{:rdf/value "joe"}
-     {:rdf/value "bob"}
-     {:rdf/value "jaybee"}]}]
 
   {:rdf/type  :xsd/float,
    :rdf/value "85000"}
@@ -329,3 +260,17 @@
                      :rdf/subject #xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA"
                      :rdf/predicate #xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"
                      :rdf/object "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"))
+
+(comment
+  (with-open [r (org.apache.jena.sparql.exec.http.QueryExecutionHTTP/service "https://dbpedia.org/sparql"
+                                                                              "select distinct ?e where {?e a yago:WikicatAmericanFilmDirectors} LIMIT 100")]
+    (.toString (.execSelect r)))
+
+  (http/get "https://dbpedia.org/sparql"
+            {:query-params {"query" "select distinct ?e where {?e a <http://dbpedia.org/class/yago/WikicatAmericanpFilmDirectors>} LIMIT 100"}
+             :accept       "application/sparql-results+json"
+             :as           :json}))
+
+(comment
+  (org.apache.jena.riot.out.NodeFmtLib/decodeBNodeLabel "Bda53edfdf1f55184b2c9baffc3b38d9b")
+  (org.apache.jena.riot.out.NodeFmtLib/encodeBNodeLabel "da53edfdf1f55184b2c9baffc3b38d9b"))

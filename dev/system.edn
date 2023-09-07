@@ -1,5 +1,5 @@
 {:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
-          :uri          "asami:local://.vocab"}
+          :uri          "asami:mem://.vocab"}
  :client {:sc/create-fn datomic.client.api/client
           :server-type  :datomic-local
           :system       "dev"}

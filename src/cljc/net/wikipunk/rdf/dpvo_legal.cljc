@@ -6836,12 +6836,14 @@
                            :rdf/value    "accepted"}})
 
 (def UK-DPA-2018
-  {:db/ident :dpvo-legal/UK-DPA-2018,
-   :dpvo/hasAuthority :dpvo-legal/DPA-GB})
+  {:db/ident          :dpvo-legal/UK-DPA-2018,
+   :dpvo/hasAuthority :dpvo-legal/DPA-GB,
+   :rdf/type          :dpvo/Law})
 
 (def UK-GDPR
-  {:db/ident :dpvo-legal/UK-GDPR,
-   :dpvo/hasAuthority :dpvo-legal/DPA-GB})
+  {:db/ident          :dpvo-legal/UK-GDPR,
+   :dpvo/hasAuthority :dpvo-legal/DPA-GB,
+   :rdf/type          :dpvo/Law})
 
 (def UM
   {:db/ident              :dpvo-legal/UM,

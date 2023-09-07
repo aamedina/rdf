@@ -1,41 +1,35 @@
 # rdf
 RDF models as Clojure(script) namespaces
 
-## Universal Translator
-A component should be configured for your system based on the following
-example:
+### Schematic
 
 ``` clojure
-{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :init-ns      net.wikipunk.mop.init
-          :ns-prefix    "net.wikipunk.rdf."
-          :boot         []
-          :config       {:xtdb.lucene/lucene-store
-                         {:db-dir ".vocab/lucene"}}}}
+{:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
+          :uri          "asami:mem://.vocab"}
+ :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          ;; add components that require RDF vocabulary and optionally
+	      ;; provide asami or datomic as an environment
+	      :sc/refs {:env :asami}
+	      ;; the string to prefix the namespace generated for your rdf models
+          :ns-prefix    "net.wikipunk.rdf." 
+          ;; the project relative path to output the namespaces
+	      :output-to    "src/cljc/net/wikipunk/rdf/"
+          ;; used to declare what namespaces should be in the boot JSON-LD context
+          ;; see below for more information
+          :context      []}}
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)
 configuration map which is assembled and started using
 [component](https://github.com/stuartsierra/component).
 
-### :init-ns
-the ns-name of a Clojure namespace to load to implement methods of the
-[metaobject protocol](http://www.lispworks.com/documentation/lw80/MOP/mop/index.html).
+### :context
+Provide a list of namespaces (tagged with :rdf/type :jsonld/Context in
+their metadata) where its vars are `:rdfa/PrefixMapping` instances which can be emitted (via
+`net.wikipunk.rdf/emit`). 
 
-### :ns-prefix 
-the prefix string to use when locating metaobjects in your system
-(optional, defaults to above)
-
-### :target
-the output directory where the Universal Translator should place
-emitted Clojure namespaces from RDF models 
-(optional, defaults to above)
-
-### :boot
-Provide a list of namespaces (instances of :jsonld/Context) where vars
-are `:rdfa/PrefixMapping` instances which can be emitted (via
-`net.wikipunk.rdf/emit`). For example in the `net.wikipunk.boot`
-namespace which corresponds to the RDFa 1.1 initial context;
+For an example see the `net.wikipunk.boot` namespace which corresponds
+to the RDFa 1.1 initial context;
 
 ``` clojure
 (def as
@@ -54,14 +48,19 @@ namespace which corresponds to the RDFa 1.1 initial context;
 `:rdfa/prefix` contains the prefix string used which expands to the
 uri 
 
-`:dcat/downloadURL` is used to declare the location of the RDF/OWL
+`:dcat/downloadURL` is used to declare the location of the RDF
 document to download when emitting a Clojure namespace and override
 the value of `:rdfa/uri`.
 
-### :config
-[XTDB](https://github.com/xtdb/xtdb) node configuration to store the
-loaded vocabulary in-memory or locally. (optional, required to create
-an environment to bootstrap a Datomic Cloud or dev-local database)
+`:emit` should be set to false if you do not want to emit this prefix
+mapping as a Clojure namespace
+
+`:private` should be set to true if you want to emit vars that are
+declared in another RDF model, this should probably not be used unless
+you know what you're doing and want to override other definitions
+
+`:namespaces` should be provided if you want to manually override the
+prefix mappings declared in the RDF model
 
 ### Boot namespace
 The convention is to place a file containing the JSON-LD context for
@@ -74,7 +73,7 @@ src/cljc/net/wikipunk/boot.cljc.
 
 #### Requirements
 * [Clojure CLI](https://clojure.org/guides/install_clojure)
-* [Datomic dev-local](https://docs.datomic.com/cloud/dev-local.html)
+* [Datomic local](https://docs.datomic.com/cloud/datomic-local.html)
 
 ``` shell
 clojure -A:dev
@@ -127,7 +126,6 @@ associated with them when the system is started.
 ;;    :schema/Thing
 ;;     :owl/Class
 ;;      :rdfs/Class
-;;       :rdfs/Resource
 ```
 
 Most methods in the metaobject protocol dispatch on the :rdf/type of
@@ -150,20 +148,13 @@ are resolved. It can be one of three values:
 1. nil -- When nil, metaobjects are resolved in Clojure namespaces by
    looking up the namespace as a prefix in a registry and then looking
    up the name in that namespace.
-2. XTDB node -- When an XTDB node is bound to the environment
-   metaobjects are resolved by looking the idents up using
-   xtdb.api/entity.
-3. Datomic -- When a net.wikipunk.datomic.Connection is bound to the
+2. Asami -- When an Asami (`net.wikipunk.asami.Connection`) is bound
+   to the environment metaobjects are resolved by looking the idents
+   up using `asami.core/entity`.
+3. Datomic -- When a `net.wikipunk.datomic.Connection` is bound to the
    environment metaobjects are resolved by looking up the idents using
-   datomic.client.api/pull.
+   `datomic.client.api/pull`.
 
-## wikipunk.net extensions
-* [net.wikipunk/openai](https://github.com/aamedina/openai)
-* [net.wikipunk/qdrant](https://github.com/aamedina/qdrant)
-* [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
-* [net.wikipunk/fibo](https://github.com/aamedina/fibo)
-* [net.wikipunk/ssvc](https://github.com/aamedina/ssvc)
-* [net.wikipunk/lv2](https://github.com/aamedina/lv2)
 
 ### credits
 https://github.com/arachne-framework/aristotle

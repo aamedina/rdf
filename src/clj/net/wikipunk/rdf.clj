@@ -494,27 +494,6 @@
 
 (declare finalize)
 
-;; :init-ns
-;; the ns-name of a Clojure namespace to load to implement methods of the
-;; metaobject protocol found in `net.wikipunk.mop`
-
-;; :ns-prefix 
-;; the prefix string to use when locating metaobjects in your system
-;; (optional, defaults to above)
-
-;; :output-to
-;; the output directory where the Universal Translator should place
-;; emitted Clojure namespaces from RDF models 
-;; (optional, defaults to above)
-
-;; :boot
-;; A list of symbols resolving to vars or namespaces with
-;; :rdfa/prefix and :rdfa/uri mappings
-
-;; (These vars should exist in in a 'boot' namespace with metadata of
-;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
-;; should be looked up.)
-
 (defn unroll-langString
   "unrolls ont_app.vocabulary.lstr.LangStr into a string when datafying"
   [form]
@@ -542,6 +521,23 @@
 
 (declare iri)
 
+;; :ns-prefix 
+;; the prefix string to use when locating metaobjects in your system
+;; (optional, defaults to above)
+
+;; :output-to
+;; the output directory where the Universal Translator should place
+;; emitted Clojure namespaces from RDF models 
+;; (optional, defaults to above)
+
+;; :context
+;; A list of symbols resolving to vars or namespaces with
+;; :rdfa/prefix and :rdfa/uri mappings
+
+;; (These vars should exist in in a 'boot' namespace with metadata of
+;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
+;; should be looked up.)
+
 (defrecord UniversalTranslator [ns-prefix ; used to name the Clojure namespace when emitting 
                                 output-to ; used to configure the default path where namespaces are emitted
                                 context ; used to declare what namespaces should be in the boot context
@@ -562,6 +558,7 @@
         (alter-var-root #'*metaobjects* (constantly hierarchies))
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         (alter-var-root #'mop/*env* (constantly env))
+        (finalize)
         this)))
   (stop [this]
     (alter-var-root #'mop/*env* (constantly nil))

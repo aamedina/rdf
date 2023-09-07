@@ -104,8 +104,8 @@
   
   clojure.lang.Namespace
   (select-attributes [ns]
-    (when (isa? (:rdf/type (meta ns)) :owl/Ontology)
-      (seq (keep select-attributes (vals (ns-publics ns))))))
+    (when (isa? (mop/type-of (meta ns)) :owl/Ontology)
+      (pmap select-attributes (vals (ns-publics ns)))))
 
   clojure.lang.Var
   (select-attributes [v]
@@ -160,18 +160,22 @@
                                           v)
                                       v' (try
                                            (case (rdf/infer-datomic-type k)
-                                             :db.type/string (cond
-                                                               (map? v)
-                                                               (or (:xsd/anyURI v)
-                                                                   (:xsd/string v)
-                                                                   (:rdf/value v)
-                                                                   (pr-str v))
-                                                               
-                                                               (coll? v)
-                                                               v
-                                                               
-                                                               :else
-                                                               (str v))
+                                             :db.type/string (letfn [(f [v]
+                                                                       (cond
+                                                                         (map? v)
+                                                                         (or (:xsd/anyURI v)
+                                                                             (:xsd/string v)
+                                                                             (:rdf/value v)
+                                                                             (pr-str v))
+                                                                         
+                                                                         (coll? v)
+                                                                         v
+                                                                         
+                                                                         :else
+                                                                         (str v)))]
+                                                               (if (set? v)
+                                                                 (into #{} (map f) v)
+                                                                 (f v)))
                                              :db.type/long    (if (coll? v)
                                                                 (into #{} (map long) v)
                                                                 (long v))
@@ -181,7 +185,14 @@
                                                                 v)
                                              :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
                                                                         k :rdf/List)
-                                                                (g/rdf-list v)
+                                                                (g/rdf-list (cond
+                                                                              (set? v)
+                                                                              (first v)
+                                                                              
+                                                                              (sequential? v)
+                                                                              v
+
+                                                                              :else [v]))
                                                                 (into (if (and (coll? v) (not (map? v)))
                                                                         (empty v)
                                                                         #{})
@@ -197,7 +208,7 @@
                                              :db.type/bigdec (bigdec v)
                                              v)
                                            (catch Throwable ex
-                                             (throw (ex-info (.getMessage ex) m))))
+                                             (throw (ex-info (.getMessage ex) m ex))))
                                       v' (if (identical? (rdf/infer-datomic-cardinality k)
                                                          :db.cardinality/one)
                                            ;; need to account for vectors when the schema is one
@@ -356,11 +367,11 @@
 (defmethod rdf/infer-datomic-type :dc11/creator [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dcterms/creator [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dc11/date [_] :db.type/instant)
-(defmethod rdf/infer-datomic-type :dc11/description [_] :db.type/string)
-(defmethod rdf/infer-datomic-type :dc11/title [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :dc11/description [_] :db.type/ref)
+(defmethod rdf/infer-datomic-type :dc11/title [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dcterms/created [_] :db.type/instant)
 
-(defmethod rdf/infer-datomic-type :vs/term_status [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :vs/term_status [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :vs/moreinfo [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :time/month [_] :db.type/instant)
@@ -413,11 +424,15 @@
 (defmethod rdf/infer-datomic-type :keys/mode [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :vann/example [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :vann/usageNote [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :vann/usageNote [_] :db.type/ref)
 
 (defmethod rdf/infer-datomic-type :exif/tag_number [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :skos/historyNote [_] :db.type/ref)
+
+(defmethod rdf/infer-datomic-cardinality :owl/unionOf [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :owl/intersectionOf [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :mop/classPrecedenceList [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-type :default
   [x]
