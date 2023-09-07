@@ -1,169 +1,177 @@
 (ns net.wikipunk.rdf.rml
-  "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"
-  {:cc/license {:rdfa/uri "http://creativecommons.org/licenses/by/3.0/"},
-   :dcterms/creator [{:foaf/name "Anastasia Dimou"}
-                     {:foaf/name "Miel Vander Sande"}],
+  ^{:base       "http://semweb.mmlab.be/ns/rml#",
+    :namespaces {"cc"      "http://creativecommons.org/ns#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "ql"      "http://semweb.mmlab.be/ns/ql#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "rml"     "http://semweb.mmlab.be/ns/rml#",
+                 "rmlt"    "http://semweb.mmlab.be/ns/rml-target#",
+                 "rr"      "http://www.w3.org/ns/r2rml#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "xml"     "http://www.w3.org/XML/1998/namespace",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "rml",
+    :source     "net/wikipunk/ext/rml.ttl"}
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcterms/creator #{{:foaf/name "Miel Vander Sande"}
+                      {:foaf/name "Anastasia Dimou"}},
    :dcterms/description
-   #rdf/langString
-    "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description@en",
-   :dcterms/issued #xsd/date #inst "2013-07-01T00:00:00.000-04:00",
-   :dcterms/modified #xsd/date #inst "2014-09-10T00:00:00.000-04:00",
-   :dcterms/title #rdf/langString "RML: Generic Mapping Language for RDF@en",
-   :owl/imports {:rdfa/uri "http://www.w3.org/ns/r2rml#"},
-   :rdf/ns-prefix-map {"cc"      "http://creativecommons.org/ns#",
-                       "dcterms" "http://purl.org/dc/terms/",
-                       "foaf"    "http://xmlns.com/foaf/0.1/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "ql"      "http://semweb.mmlab.be/ns/ql#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "rml"     "http://semweb.mmlab.be/ns/rml#",
-                       "rmlt"    "http://semweb.mmlab.be/ns/rml-target#",
-                       "rr"      "http://www.w3.org/ns/r2rml#",
-                       "vann"    "http://purl.org/vocab/vann/",
-                       "xml"     "http://www.w3.org/XML/1998/namespace",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type [:voaf/Vocabulary :owl/Ontology],
-   :rdfa/prefix "rml",
-   :rdfa/uri "http://semweb.mmlab.be/ns/rml",
+   {:rdf/language "en",
+    :rdf/value
+    "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"},
+   :dcterms/issued #inst "2013-07-01T00:00:00.000-00:00",
+   :dcterms/modified #inst "2014-09-10T00:00:00.000-00:00",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "RML: Generic Mapping Language for RDF"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/ns/r2rml#"},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
    :vann/preferredNamespacePrefix "rml",
-   :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#"})
+   :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#",
+   :xsd/anyURI "http://semweb.mmlab.be/ns/rml"})
 
 (def BaseSource
-  "Base Source"
   {:db/ident        :rml/BaseSource,
    :rdf/type        :owl/Class,
-   :rdfs/comment    [#rdf/langString "Represents a base source.@en"
-                     "Base Source"],
+   :rdfs/comment    #{"Base Source"
+                      {:rdf/language "en",
+                       :rdf/value    "Represents a base source."}},
    :rdfs/label      "Base Source",
-   :rdfs/subClassOf [:rml/LogicalSource
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty :rml/source,
-                      :rdf/type       :owl/Restriction}
-                     :owl/Thing
-                     {:owl/onProperty :rml/referenceFormulation,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty :rml/iterator,
-                      :rdf/type       :owl/Restriction}]})
+   :rdfs/subClassOf :rml/LogicalSource})
 
 (def LogicalSource
-  "Represents a logical source."
   {:db/ident        :rml/LogicalSource,
    :rdf/type        :owl/Class,
-   :rdfs/comment    #rdf/langString "Represents a logical source.@en",
+   :rdfs/comment    {:rdf/language "en",
+                     :rdf/value    "Represents a logical source."},
    :rdfs/label      "Logical Source",
-   :rdfs/subClassOf [{:owl/minQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty :rml/source,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/maxQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty :rml/iterator,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onProperty :rml/referenceFormulation,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type       :owl/Restriction}
-                     :owl/Thing]})
+   :rdfs/subClassOf #{{:owl/maxQualifiedCardinality 1,
+                       :owl/onProperty :rml/iterator,
+                       :rdf/type       :owl/Restriction}
+                      {:owl/minQualifiedCardinality 1,
+                       :owl/onProperty :rml/source,
+                       :rdf/type       :owl/Restriction} :owl/Thing
+                      {:owl/onProperty :rml/referenceFormulation,
+                       :owl/qualifiedCardinality 1,
+                       :rdf/type       :owl/Restriction}}})
 
 (def ReferenceFormulation
-  "Represents a Reference Formulation."
   {:db/ident     :rml/ReferenceFormulation,
    :rdf/type     :owl/Class,
-   :rdfs/comment #rdf/langString "Represents a Reference Formulation.@en",
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Represents a Reference Formulation."},
    :rdfs/label   "Reference Formulation"})
 
 (def TriplesMap
-  "Represents a triples map."
   {:db/ident        :rml/TriplesMap,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    #rdf/langString "Represents a triples map.@en",
-   :rdfs/subClassOf [{:owl/onClass    :rr/SubjectMap,
-                      :owl/onProperty :rr/subjectMap,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality #xsd/nonNegativeInteger 1,
-                      :owl/onClass    :rml/LogicalSource,
-                      :owl/onProperty :rml/logicalSource,
-                      :rdf/type       :owl/Restriction}
-                     :owl/Thing]})
+   :rdfs/comment    {:rdf/language "en",
+                     :rdf/value    "Represents a triples map."},
+   :rdfs/subClassOf #{:owl/Thing
+                      {:owl/minQualifiedCardinality 1,
+                       :owl/onClass    :rml/LogicalSource,
+                       :owl/onProperty :rml/logicalSource,
+                       :rdf/type       :owl/Restriction}
+                      {:owl/onClass    :rr/SubjectMap,
+                       :owl/onProperty :rr/subjectMap,
+                       :owl/qualifiedCardinality 1,
+                       :rdf/type       :owl/Restriction}}})
 
 (def iterator
-  "an expression qualified according to the reference formulation specified for pointing to an extract of the source data. "
   {:db/ident :rml/iterator,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #rdf/langString
-    "an expression qualified according to the reference formulation specified for pointing to an extract of the source data. @en",
+   {:rdf/language "en",
+    :rdf/value
+    "an expression qualified according to the reference formulation specified for pointing to an extract of the source data. "},
    :rdfs/domain :rml/LogicalSource,
    :rdfs/label "iterator",
    :rdfs/range :xsd/string})
 
 (def logicalSource
-  "Represents the logical source to be mapped. This can be a pointer to any dataset."
   {:db/ident :rml/logicalSource,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #rdf/langString
-    "Represents the logical source to be mapped. This can be a pointer to any dataset.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "Represents the logical source to be mapped. This can be a pointer to any dataset."},
    :rdfs/domain :rr/TriplesMap,
    :rdfs/label "logical source",
    :rdfs/range :rml/LogicalSource})
 
 (def logicalTarget
-  "Represents the logical target to where triples are exported to. This can be a pointer to any dataset."
   {:db/ident :rml/logicalTarget,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #rdf/langString
-    "Represents the logical target to where triples are exported to. This can be a pointer to any dataset.@en",
+   {:rdf/language "en",
+    :rdf/value
+    "Represents the logical target to where triples are exported to. This can be a pointer to any dataset."},
    :rdfs/domain :rr/TriplesMap,
-   :rdfs/label "logical target",
-   :rdfs/range [:void/Dataset :dcat/Dataset]})
+   :rdfs/label "logical target"})
 
 (def query
-  "A valid query."
   {:db/ident     :rml/query,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #rdf/langString "A valid query.@en",
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "A valid query."},
    :rdfs/domain  :rml/LogicalSource})
 
 (def reference
-  "A valid expression that selects values from the source data. The reference should confront to the syntax rules/grammar of the specified Reference Formulation. "
   {:db/ident :rml/reference,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   #rdf/langString
-    "A valid expression that selects values from the source data. The reference should confront to the syntax rules/grammar of the specified Reference Formulation. @en",
+   {:rdf/language "en",
+    :rdf/value
+    "A valid expression that selects values from the source data. The reference should confront to the syntax rules/grammar of the specified Reference Formulation. "},
    :rdfs/domain :rr/TermMap,
    :rdfs/label "reference",
    :rdfs/range :xsd/string})
 
 (def referenceFormulation
-  "The reference formulation used to refer to extracts of the source data. "
   {:db/ident :rml/referenceFormulation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   #rdf/langString
-    "The reference formulation used to refer to extracts of the source data. @en",
+   {:rdf/language "en",
+    :rdf/value
+    "The reference formulation used to refer to extracts of the source data. "},
    :rdfs/domain :rml/LogicalSource,
    :rdfs/label "reference formulation",
    :rdfs/range :rml/ReferenceFormulation})
 
 (def source
-  "qualified name of the source data."
   {:db/ident     :rml/source,
    :rdf/type     :rdf/Property,
-   :rdfs/comment #rdf/langString "qualified name of the source data.@en",
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "qualified name of the source data."},
    :rdfs/domain  :rml/LogicalSource,
    :rdfs/label   "source"})
 
 (def version
-  "It defines the version of the reference Formulation used. "
-  {:db/ident :rml/version,
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/comment
-   #rdf/langString
-    "It defines the version of the reference Formulation used. @en",
-   :rdfs/domain :rml/LogicalSource,
-   :rdfs/label "version",
-   :rdfs/range :xsd/string})
+  {:db/ident     :rml/version,
+   :rdf/type     :owl/DatatypeProperty,
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value
+                  "It defines the version of the reference Formulation used. "},
+   :rdfs/domain  :rml/LogicalSource,
+   :rdfs/label   "version",
+   :rdfs/range   :xsd/string})
+
+(def urn:uuid:69c226d9-23c6-5fbe-ac40-b9cbb1f15877
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcterms/creator #{{:foaf/name "Miel Vander Sande"}
+                      {:foaf/name "Anastasia Dimou"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"},
+   :dcterms/issued #inst "2013-07-01T00:00:00.000-00:00",
+   :dcterms/modified #inst "2014-09-10T00:00:00.000-00:00",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "RML: Generic Mapping Language for RDF"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/ns/r2rml#"},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "rml",
+   :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#",
+   :xsd/anyURI "http://semweb.mmlab.be/ns/rml"})

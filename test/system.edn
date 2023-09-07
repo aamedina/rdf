@@ -1,13 +1,15 @@
-{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :sc/refs      [:db]
-          :boot         [net.wikipunk.boot
-                         net.wikipunk.ext]
-          :config       {:xtdb.lucene/lucene-store
-                         {:db-dir ".vocab/test/lucene"}}}
+{:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
+          :uri          "asami:mem://.vocab"}
  :client {:sc/create-fn datomic.client.api/client
           :storage-dir  :mem
           :server-type  :datomic-local
           :system       "dev"}
  :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
           :sc/refs      [:client]
-          :db-name      "rdf-test"}}
+          :db-name      "rdf"}
+ :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          :sc/refs      {:env :asami}
+          :ns-prefix    "net.wikipunk.rdf."
+          :output-to    "src/cljc/net/wikipunk/rdf/"
+          :context      [net.wikipunk.boot
+                         net.wikipunk.ext]}}

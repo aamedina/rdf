@@ -4,9 +4,9 @@
    [clojure.edn :as edn]
    [clojure.repl]
    [clojure.tools.namespace.repl]
-   [ont-app.vocabulary.lstr]   
+   [net.wikipunk.rdf]
    [clojure.tools.reader]
-   [clojure.java.io :as io]
+   [clojure.java.io :as io]  
    [com.stuartsierra.component.repl :refer [reset set-init]]
    [com.walmartlabs.schematic :as sc]))
 
@@ -21,7 +21,18 @@
 (alter-var-root #'clojure.tools.reader/*data-readers* (constantly *data-readers*))
 (alter-var-root #'clojure.tools.reader/*default-data-reader-fn* (constantly tagged-literal))
 
-(clojure.tools.namespace.repl/set-refresh-dirs "src" "test")
+(if (try
+        (require 'eastwood.copieddeps.dep10.clojure.tools.reader)
+        true
+        (catch Throwable ex
+          false))
+  (do
+    (alter-var-root (requiring-resolve 'eastwood.copieddeps.dep10.clojure.tools.reader/*data-readers*)
+                    (constantly *data-readers*))
+    (alter-var-root (requiring-resolve 'eastwood.copieddeps.dep10.clojure.tools.reader/*default-data-reader-fn*)
+                    (constantly tagged-literal))
+    (clojure.tools.namespace.repl/set-refresh-dirs "src/clj" "test"))
+  (clojure.tools.namespace.repl/set-refresh-dirs "src" "test"))
 
 (Thread/setDefaultUncaughtExceptionHandler
   (reify Thread$UncaughtExceptionHandler

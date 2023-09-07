@@ -2,9 +2,11 @@
   "Initialized to some WIP functions used to install RDF facts into a
   Datomic dev-local database based on the state of the system."
   (:require
+   [asami.core :as asami]
    [arachne.aristotle.graph :as g]
    [clojure.datafy :refer [datafy]]
    [clojure.tools.logging :as log]
+   [clojure.set :as set]
    [clojure.string :as str]
    [clojure.walk :as walk]
    [datomic.client.api :as d]
@@ -78,8 +80,7 @@
    [net.wikipunk.rdf.void]
    [net.wikipunk.rdf.wdrs]
    [net.wikipunk.rdf.xhv]
-   [net.wikipunk.rdf.xsd]
-   [xtdb.api :as xt]))
+   [net.wikipunk.rdf.xsd]))
 
 (defprotocol Seed
   "Helper protocol to bootstrap attributes from loaded metaobjects."
@@ -87,14 +88,24 @@
 
 (def ^:dynamic *schema* nil)
 
+(defn unroll-blank
+  "used to add :db/id's to blank nodes"
+  [form]
+  (if (and (map? form)
+           (and (not (contains? form :xsd/anyURI))
+                (not (contains? form :db/ident))
+                (not (contains? form :db/id))))
+    (assoc form :db/id (str (random-uuid)))
+    form))
+
 (extend-protocol Seed
   clojure.lang.Sequential
   (select-attributes [xs] xs)
   
   clojure.lang.Namespace
   (select-attributes [ns]
-    (when (isa? (:rdf/type (meta ns)) :owl/Ontology)
-      (seq (keep select-attributes (vals (ns-publics ns))))))
+    (when (isa? (mop/type-of (meta ns)) :owl/Ontology)
+      (pmap select-attributes (vals (ns-publics ns)))))
 
   clojure.lang.Var
   (select-attributes [v]
@@ -136,8 +147,8 @@
                             m
                             (dissoc m k)))
                         m m)
-             (walk/prewalk rdf/unroll-langString)
-             (walk/prewalk rdf/box-values)
+             #_(walk/prewalk rdf/unroll-langString)
+             #_(walk/prewalk rdf/box-values)
              (walk/postwalk (fn [form]
                               (cond
                                 (and (map-entry? form)
@@ -149,17 +160,24 @@
                                           v)
                                       v' (try
                                            (case (rdf/infer-datomic-type k)
-                                             :db.type/string (cond
-                                                               (map? v)
-                                                               (or (:rdfa/uri v) (pr-str v))
-                                                               
-                                                               (coll? v)
-                                                               v
-                                                               
-                                                               :else
-                                                               (str v))
-                                             :db.type/long    (if (vector? v)
-                                                                (mapv long v)
+                                             :db.type/string (letfn [(f [v]
+                                                                       (cond
+                                                                         (map? v)
+                                                                         (or (:xsd/anyURI v)
+                                                                             (:xsd/string v)
+                                                                             (:rdf/value v)
+                                                                             (pr-str v))
+                                                                         
+                                                                         (coll? v)
+                                                                         v
+                                                                         
+                                                                         :else
+                                                                         (str v)))]
+                                                               (if (set? v)
+                                                                 (into #{} (map f) v)
+                                                                 (f v)))
+                                             :db.type/long    (if (coll? v)
+                                                                (into #{} (map long) v)
                                                                 (long v))
                                              :db.type/double  (double v)
                                              :db.type/instant (if (string? v)
@@ -167,20 +185,30 @@
                                                                 v)
                                              :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
                                                                         k :rdf/List)
-                                                                (g/rdf-list v)
-                                                                (mapv (fn [v]
-                                                                        (if (not (or (map? v) (keyword? v)))
-                                                                          (rdf/box v)
-                                                                          v))
+                                                                (g/rdf-list (cond
+                                                                              (set? v)
+                                                                              (first v)
+                                                                              
+                                                                              (sequential? v)
+                                                                              v
+
+                                                                              :else [v]))
+                                                                (into (if (and (coll? v) (not (map? v)))
+                                                                        (empty v)
+                                                                        #{})
+                                                                      (map (fn [v]
+                                                                             (if (not (or (map? v) (keyword? v)))
+                                                                               (rdf/box v)
+                                                                               v)))
                                                                       (if (and (coll? v) (not (map? v)))
                                                                         v
-                                                                        [v])))
+                                                                        #{v})))
                                              
                                              :db.type/bigint (bigint v)
                                              :db.type/bigdec (bigdec v)
                                              v)
                                            (catch Throwable ex
-                                             (throw (ex-info (.getMessage ex) m))))
+                                             (throw (ex-info (.getMessage ex) m ex))))
                                       v' (if (identical? (rdf/infer-datomic-cardinality k)
                                                          :db.cardinality/one)
                                            ;; need to account for vectors when the schema is one
@@ -193,8 +221,8 @@
                                            v')]
                                   [k v'])
                                 :else form)))
-             (walk/prewalk rdf/unroll-blank)
-             (walk/prewalk rdf/box-values)
+             (walk/prewalk unroll-blank)
+             #_(walk/prewalk rdf/box-values)
              (walk/prewalk (fn [form]
                              (if (and (string? form)
                                       (>= (count form) 4096))
@@ -213,9 +241,18 @@
 (defmethod rdf/infer-datomic-cardinality :rdfa/uri [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-unique :rdfa/uri [_] :db.unique/identity)
 
+(defmethod rdf/infer-datomic-type :jsonld/id [_] :db.type/string)
+(defmethod rdf/infer-datomic-cardinality :jsonld/id [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-unique :jsonld/id [_] :db.unique/identity)
+
 (defmethod rdf/infer-datomic-cardinality :rdf/first [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :rdf/rest [_] :db.cardinality/one)
+
+(defmethod rdf/infer-datomic-type :rdf/value [_] :db.type/string)
 (defmethod rdf/infer-datomic-cardinality :rdf/value [_] :db.cardinality/one)
+
+(defmethod rdf/infer-datomic-type :rdf/language [_] :db.type/string)
+(defmethod rdf/infer-datomic-cardinality :rdf/language [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMinimum [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMaximum [_] :db.cardinality/one)
@@ -264,7 +301,7 @@
     (when unionOf
       (some rdf/infer-datomic-type unionOf))))
 
-(defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
+#_(defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
 
 (prefer-method rdf/infer-datomic-type :rdfs/Literal :rdfs/Datatype)
 (defmethod rdf/infer-datomic-type :rdfs/seeAlso [_] :db.type/ref)
@@ -273,7 +310,7 @@
 (defmethod rdf/infer-datomic-type :rdfa/term [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :rdfa/prefix [_] :db.type/string)
 
-(defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
+#_(defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :owl/real [_] :db.type/bigdec)
 (defmethod rdf/infer-datomic-type :owl/deprecated [_] :db.type/boolean)
 (defmethod rdf/infer-datomic-type :owl/versionInfo [_] :db.type/string)
@@ -330,11 +367,11 @@
 (defmethod rdf/infer-datomic-type :dc11/creator [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dcterms/creator [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dc11/date [_] :db.type/instant)
-(defmethod rdf/infer-datomic-type :dc11/description [_] :db.type/string)
-(defmethod rdf/infer-datomic-type :dc11/title [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :dc11/description [_] :db.type/ref)
+(defmethod rdf/infer-datomic-type :dc11/title [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :dcterms/created [_] :db.type/instant)
 
-(defmethod rdf/infer-datomic-type :vs/term_status [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :vs/term_status [_] :db.type/ref)
 (defmethod rdf/infer-datomic-type :vs/moreinfo [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :time/month [_] :db.type/instant)
@@ -387,11 +424,15 @@
 (defmethod rdf/infer-datomic-type :keys/mode [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :vann/example [_] :db.type/ref)
-(defmethod rdf/infer-datomic-type :vann/usageNote [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :vann/usageNote [_] :db.type/ref)
 
 (defmethod rdf/infer-datomic-type :exif/tag_number [_] :db.type/string)
 
 (defmethod rdf/infer-datomic-type :skos/historyNote [_] :db.type/ref)
+
+(defmethod rdf/infer-datomic-cardinality :owl/unionOf [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :owl/intersectionOf [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :mop/classPrecedenceList [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-type :default
   [x]
@@ -407,6 +448,7 @@
     :else (throw (ex-info (str (pr-str x) " was not found. Cannot infer datomic type for unknown RDF properties. Has the RDF namespace containing the property been loaded by the Universal Translator component during system start? Try calling datafy on it in a REPL and once you can datafy the ident and return the metaobject, try again.") {:x x}))))
 
 (defn bootstrap-attributes
+  "Given a set of namespace names require them and "
   ([]
    (bootstrap-attributes mop/*env* (map identity)))
   ([env]
@@ -414,7 +456,7 @@
   ([env xf]
    (into []
          (comp
-           (map first)
+           (map #(assoc (asami/entity env %) :db/ident %))
            xf           
            (keep (fn [{:rdfs/keys [range domain subPropertyOf]
                        :db/keys   [ident]
@@ -437,41 +479,38 @@
                      (assoc :db/cardinality (rdf/infer-datomic-cardinality (:db/ident e)))
                      (rdf/infer-datomic-unique (:db/ident e))
                      (assoc :db/unique (rdf/infer-datomic-unique (:db/ident e)))))))
-         (xt/q (xt/db env)
-               '{:find    [(pull ?e [*])]
-                 :in      [$ ?h]
-                 :where   [[?e :rdf/type ?t]                          
-                           (or [(isa? ?h ?t :rdf/Property)]
-                               (and [?e :db/cardinality _]
-                                    [?e :db/valueType _]))]
-                 :timeout 180000}
-               @#'clojure.core/global-hierarchy))))
+         (reduce set/union
+                 (set (asami/q '[:find [?ident ...]
+                                 :where
+                                 [?e :db/ident ?ident]
+                                 [?e :db/cardinality _]
+                                 [?e :db/valueType _]]
+                               env))
+                 (into [(descendants (:rdf/Property rdf/*metaobjects*) :rdf/Property)]
+                       (map #(descendants (:rdf/Property rdf/*metaobjects*) %))
+                       (descendants (:rdfs/Class rdf/*metaobjects*) :rdf/Property))))))
 
 (defn bootstrap-idents
   ([]
    (bootstrap-idents mop/*env*))
   ([env]   
    (into []
-         (comp
-           cat
-           (map #(hash-map :db/ident %)))
-         (xt/q (xt/db env)
-               '{:find    [?id]
-                 :where   [[?e :db/ident ?id]]
-                 :timeout 180000}))))
+         (map #(hash-map :db/ident %))
+         (asami/q '[:find [?ident ...]
+                    :where
+                    [?e :db/ident ?ident]]
+                  env))))
 
 (defn bootstrap-individuals
   ([]
    (bootstrap-individuals mop/*env*))
   ([env]
-   (->> (xt/q (xt/db env)
-              '{:find    [?e]
-                :in      [$]
-                :where   [[?e :rdf/type ?t]]
-                :timeout 180000})
-        (map first)
-        (map datafy)
-        (map select-attributes))))
+   (->> (asami/q '[:find [?ident ...]
+                   :where
+                   [?e :db/ident ?ident]]
+                 env)
+        (pmap #(asami/entity env %))
+        (pmap select-attributes))))
 
 (defn test-bootstrap
   "Tests importing XTDB documents into Datomic."

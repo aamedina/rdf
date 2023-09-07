@@ -2,7 +2,7 @@
  {camel-snake-kebab/camel-snake-kebab
   {:mvn/version "0.4.3"}
   clj-http/clj-http
-  {:mvn/version "3.12.3"}
+  {:mvn/version "3.12.3"}    
   cheshire/cheshire
   {:mvn/version "5.11.0"}  
   com.apicatalog/titanium-json-ld
@@ -15,17 +15,19 @@
   {:mvn/version "1.1.0"}
   com.xtdb/xtdb-core
   {:mvn/version "1.24.0"}
-  com.xtdb/xtdb-http-server
-  {:mvn/version "1.24.0"}
-  com.xtdb/xtdb-lucene
-  {:mvn/version "1.24.0"}
   com.taoensso/nippy
   {:mvn/version "3.2.0"}
+  danlentz/clj-uuid
+  {:mvn/version "0.1.9"}
   instaparse/instaparse
   {:mvn/version "1.4.12"}
   io.github.arachne-framework/aristotle
   {:sha     "15f0cb61d6a7ad2b579266b3fa78397004ae7e25"
    :git/url "https://github.com/arachne-framework/aristotle.git"}
+  io.github.quoll/donatello
+  {:git/tag "v1.2.11" :git/sha "db6315f"}
+  io.github.quoll/michelangelo
+  {:git/tag "v0.1.6" :git/sha "9db4d39"}
   luposlip/json-schema
   {:mvn/version "0.4.1"}
   ont-app/vocabulary
@@ -35,6 +37,10 @@
    :extension   "pom"}
   org.clojars.quoll/asami
   {:mvn/version "2.3.3"}
+  org.clojars.quoll/raphael
+  {:mvn/version "0.2.0"}
+  methodical/methodical
+  {:mvn/version "0.15.1"}
   org.clojure/clojure
   {:mvn/version "1.12.0-alpha4"}
   org.clojure/core.async
@@ -59,8 +65,6 @@
   {:mvn/version "1.4.4"}
   org.glassfish/jakarta.json
   {:mvn/version "2.0.1"}
-  org.lwjgl/lwjgl$natives-windows
-  {:mvn/version "3.3.2"}
   org.topbraid/shacl
   {:mvn/version "1.4.2"}
   zprint/zprint
@@ -101,6 +105,11 @@
                  "-XX:+HeapDumpOnOutOfMemoryError"
                  "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"]
    :exec-fn     cognitect.test-runner.api/test}
+  :eastwood
+  {:extra-deps
+   {jonase/eastwood
+    {:mvn/version "1.4.0"}}
+   :main-opts ["-m" "eastwood.lint"]}
   :build
   {:deps
    {io.github.clojure/tools.build

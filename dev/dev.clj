@@ -17,6 +17,7 @@
    [clojure.data.int-map :as int-map]
    [clojure.data.xml :as xml]
    [clojure.edn :as edn]
+   [clj-http.client :as http]
    [clojure.java.io :as io]
    [clojure.java.javadoc :refer [javadoc]]
    [clojure.java.shell :as sh :refer [sh]]
@@ -32,7 +33,7 @@
    [com.stuartsierra.component :as com]
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [com.walmartlabs.schematic :as sc]
-   [ont-app.vocabulary.lstr :as lstr]
+   [ont-app.vocabulary.lstr :as lstr]   
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
@@ -44,18 +45,16 @@
    [net.wikipunk.datomic :as datomic]
    [net.wikipunk.datomic.boot :as db]
    [net.wikipunk.datomic.rl :as rl]
-   [net.wikipunk.rdf.dpvo]
-   [net.wikipunk.rdf.dpvo-tech]
-   [net.wikipunk.rdf.dpvo-legal]
-   [net.wikipunk.rdf.dpvo-risk]
-   [net.wikipunk.rdf.dpvo-gdpr]
-   [net.wikipunk.rdf.dpvo-pd]
-   [net.wikipunk.rdf.dpvo-rights-eu]
-   [asami.core :as asami]))
+   [net.wikipunk.turtle :as turtle]
+   [asami.core :as asami]
+   [quoll.raphael.core :as raphael]
+   [donatello.ttl :as ttl]
+   [michelangelo.core :as ma]
+   [tiara.data :refer [ordered-map ordered-set]]))
 
 (set-init
   (fn [_]
-    (set! *print-namespace-maps* false)
+    (set! *print-namespace-maps* nil)
     (if-let [r (io/resource "system.edn")]
       (-> (slurp r)
           (edn/read-string)
@@ -212,27 +211,66 @@
 (comment
   (materialize boot-db))
 
-(defn asami-ns-graph
-  []
-  (rdf/all-ns-metaobjects))
-
-(def db-uri "asami:local://rdf")
+(comment
+  (asami/transact (:conn (:asami system))
+                  {:tx-data (->> (rdf/all-ns-metaobjects)
+                                 (walk/prewalk rdf/unroll-tagged-literals)
+                                 (walk/prewalk rdf/unroll-langString)
+                                 (walk/prewalk (fn [form]
+                                                 (if (map-entry? form)
+                                                   (let [[k v] form]
+                                                     [k (cond
+                                                          (isa? (:rdfs/range rdf/*metaobjects*) k :rdf/List)
+                                                          (vector v)
+                                                          (sequential? v)
+                                                          (set v)
+                                                          :else v)])
+                                                   form)))
+                                 (into []))}))
 
 (comment
-  (asami/create-database db-uri)
-  (def conn (asami/connect db-uri))
-  (asami/transact conn {:tx-data (->> (rdf/all-ns-metaobjects)
-                                      (walk/prewalk rdf/unroll-tagged-literals)
-                                      (walk/prewalk rdf/unroll-langString)
-                                      (walk/prewalk (fn [form]
-                                                      (if (map-entry? form)
-                                                        (let [[k v] form]
-                                                          [k (cond
-                                                               (isa? (:rdfs/range rdf/*metaobjects*) k :rdf/List)
-                                                               (vector v)
-                                                               (sequential? v)
-                                                               (set v)
-                                                               :else v)])
-                                                        form)))
-                                      (into []))})
-  (def asami-db (asami/db conn)))
+  {:rdf/type      :rdf/Statement
+   :rdf/subject   {:xsd/anyURI "http://schema.org/3DModel"}
+   :rdf/predicate {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#comment"}
+   :rdf/object    {:rdf/value "A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the\ncase of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]]."}})
+
+(comment
+  {:rdf/type  :rdf/JSON
+   :rdf/value "[52,{\"1\":[],\"10\":null,\"d\":true}]"}
+
+  {:rdf/type  :xsd/float,
+   :rdf/value "85000"}
+  ;; "sameAs"
+  {:xsd/float 85000.0})
+
+(comment
+  (let [{:rdfa/keys [uri prefix]
+         :dcat/keys [downloadURL]} ext/d3f
+        nq                         (java.io.File/createTempFile prefix ".nq")]
+    (a/write (a/read (a/graph :simple) downloadURL) nq :nquads)
+    nq))
+
+(comment
+  [#xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA"
+   #xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"
+   "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"]
+  (edn/read-string {:readers {'xsd/anyURI (fn [iri] (rdf/kw iri))}}
+                   (pr-str (tagged-literal 'xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label")))
+  (mop/make-instance :rdf/Statement
+                     :rdf/subject #xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA"
+                     :rdf/predicate #xsd/anyURI "http://www.w3.org/2000/01/rdf-schema#label"
+                     :rdf/object "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"))
+
+(comment
+  (with-open [r (org.apache.jena.sparql.exec.http.QueryExecutionHTTP/service "https://dbpedia.org/sparql"
+                                                                              "select distinct ?e where {?e a yago:WikicatAmericanFilmDirectors} LIMIT 100")]
+    (.toString (.execSelect r)))
+
+  (http/get "https://dbpedia.org/sparql"
+            {:query-params {"query" "select distinct ?e where {?e a <http://dbpedia.org/class/yago/WikicatAmericanpFilmDirectors>} LIMIT 100"}
+             :accept       "application/sparql-results+json"
+             :as           :json}))
+
+(comment
+  (org.apache.jena.riot.out.NodeFmtLib/decodeBNodeLabel "Bda53edfdf1f55184b2c9baffc3b38d9b")
+  (org.apache.jena.riot.out.NodeFmtLib/encodeBNodeLabel "da53edfdf1f55184b2c9baffc3b38d9b"))

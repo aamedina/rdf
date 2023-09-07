@@ -1,76 +1,84 @@
 (ns net.wikipunk.rdf.sampling
-  {:owl/imports       [{:rdfa/uri "http://www.w3.org/ns/sosa/"}
-                       {:rdfa/uri "http://www.w3.org/2004/02/skos/core"}],
-   :rdf/ns-prefix-map {"owl"      "http://www.w3.org/2002/07/owl#",
-                       "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                       "sampling" "http://www.w3.org/ns/sosa/sampling/",
-                       "schema"   "http://schema.org/",
-                       "skos"     "http://www.w3.org/2004/02/skos/core#",
-                       "sosa"     "http://www.w3.org/ns/sosa/",
-                       "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :owl/Ontology,
-   :rdfa/prefix       "sampling",
-   :rdfa/uri          "http://www.w3.org/ns/sosa/sampling/"})
+  ^{:base       "http://www.w3.org/ns/sosa/sampling/",
+    :namespaces {"owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "sampling" "http://www.w3.org/ns/sosa/sampling/",
+                 "schema"   "http://schema.org/",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#",
+                 "sosa"     "http://www.w3.org/ns/sosa/",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "sampling",
+    :source     "http://www.w3.org/ns/sosa/sampling/"}
+  {:owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
+                  {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
+   :rdf/type    :owl/Ontology,
+   :xsd/anyURI  "http://www.w3.org/ns/sosa/sampling/"})
 
 (def RelationshipNature
-  "Nature of relationship (between samples)"
   {:db/ident :sampling/RelationshipNature,
-   :rdf/type [:rdfs/Class :owl/Class],
-   :rdfs/label #rdf/langString "Nature of relationship (between samples)@en",
-   :rdfs/subClassOf [:rdfs/Resource :skos/Concept],
+   :rdf/type #{:rdfs/Class :owl/Class},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Nature of relationship (between samples)"},
+   :rdfs/subClassOf :skos/Concept,
    :skos/definition
-   #rdf/langString
-    "Members of this class indicate the nature of a relationship between two samples@en",
-   :skos/example ["Adjacent flight-line"
-                  "Probe spot on polished specimen"
-                  "Pixel within image or scene"
-                  "Sub-sample with grain size smaller than specified seive mesh"
-                  "Males"
-                  "Females"
-                  "Station along a traverse"
-                  "Specimen taken from borehole"
-                  "Split of core sample"
-                  "Juveniles"]})
+   {:rdf/language "en",
+    :rdf/value
+    "Members of this class indicate the nature of a relationship between two samples"},
+   :skos/example
+   #{"Males" "Females" "Split of core sample" "Probe spot on polished specimen"
+     "Specimen taken from borehole" "Pixel within image or scene"
+     "Adjacent flight-line" "Juveniles"
+     "Sub-sample with grain size smaller than specified seive mesh"
+     "Station along a traverse"}})
 
 (def SampleRelationship
-  "Sample relationship"
   {:db/ident :sampling/SampleRelationship,
-   :rdf/type [:owl/Class :rdfs/Class],
-   :rdfs/label #rdf/langString "Sample relationship@en",
-   :rdfs/subClassOf :rdfs/Resource,
+   :rdf/type #{:rdfs/Class :owl/Class},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Sample relationship"},
    :skos/definition
-   #rdf/langString
-    "Members of this class represent a relationship between a sample and another@en"})
+   {:rdf/language "en",
+    :rdf/value
+    "Members of this class represent a relationship between a sample and another"}})
 
 (def hasSampleRelationship
-  "has sample relationship"
   {:db/ident :sampling/hasSampleRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label #rdf/langString "has sample relationship@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "has sample relationship"},
    :schema/domainIncludes :sosa/Sample,
    :schema/rangeIncludes :sampling/SampleRelationship,
    :skos/definition
-   #rdf/langString
-    "Links a sample to a sample relationship (which links to a related sample)@en"})
+   {:rdf/language "en",
+    :rdf/value
+    "Links a sample to a sample relationship (which links to a related sample)"}})
 
 (def natureOfRelationship
-  "nature of (sample) relationship"
   {:db/ident :sampling/natureOfRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label #rdf/langString "nature of (sample) relationship@en",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "nature of (sample) relationship"},
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sampling/RelationshipNature,
    :skos/definition
-   #rdf/langString
-    "Links a SampleRelationship to an indication of the nature of the relationship@en"})
+   {:rdf/language "en",
+    :rdf/value
+    "Links a SampleRelationship to an indication of the nature of the relationship"}})
 
 (def relatedSample
-  "related sample"
   {:db/ident        :sampling/relatedSample,
    :rdf/type        :owl/ObjectProperty,
-   :rdfs/label      #rdf/langString "related sample@en",
+   :rdfs/label      {:rdf/language "en",
+                     :rdf/value    "related sample"},
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sosa/Sample,
-   :skos/definition #rdf/langString
-                     "Links a sample relationship to the related sample@en"})
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "Links a sample relationship to the related sample"}})
+
+(def urn:uuid:0451dba1-30d8-52e7-9b89-fa75f2c0dadb
+  {:owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
+                  {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
+   :rdf/type    :owl/Ontology,
+   :xsd/anyURI  "http://www.w3.org/ns/sosa/sampling/"})

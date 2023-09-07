@@ -1,2024 +1,2423 @@
 (ns net.wikipunk.rdf.http-headers
-  {:dcat/downloadURL  "resources/http-headers.rdf",
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
-                       "http" "http://www.w3.org/2011/http#",
-                       "http-headers" "http://www.w3.org/2011/http-headers#",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "http-headers",
-   :rdfa/uri          "http://www.w3.org/2011/http-headers#"}
+  ^{:base       "http://www.w3.org/2011/http-headers#",
+    :namespaces {"dcterms"      "http://purl.org/dc/terms/",
+                 "http"         "http://www.w3.org/2011/http#",
+                 "http-headers" "http://www.w3.org/2011/http-headers#",
+                 "rdf"          "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"         "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix     "http-headers",
+    :source     "net/wikipunk/ext/http-headers.rdf"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [range]))
 
 (def a-im
-  "The A-IM header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/a-im,
    :dcterms/description
-   #rdf/langString
-    "The A-IM header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "A-IM@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The A-IM header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "A-IM"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3229.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3229.txt"}}})
 
 (def accept
-  "The Accept header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept,
    :dcterms/description
-   #rdf/langString
-    "The Accept header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def accept-additions
-  "The Accept-Additions header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-additions,
    :dcterms/description
-   #rdf/langString
-    "The Accept-Additions header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept-Additions@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept-Additions header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept-Additions"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2324.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2324.txt"}}})
 
 (def accept-charset
-  "The Accept-Charset header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-charset,
    :dcterms/description
-   #rdf/langString
-    "The Accept-Charset header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept-Charset@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept-Charset header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept-Charset"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def accept-encoding
-  "The Accept-Encoding header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-encoding,
    :dcterms/description
-   #rdf/langString
-    "The Accept-Encoding header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept-Encoding@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept-Encoding header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept-Encoding"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def accept-features
-  "The Accept-Features header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-features,
    :dcterms/description
-   #rdf/langString
-    "The Accept-Features header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept-Features@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept-Features header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept-Features"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2295.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2295.txt"}}})
 
 (def accept-language
-  "The Accept-Language header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-language,
    :dcterms/description
-   #rdf/langString
-    "The Accept-Language header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept-Language@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept-Language header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept-Language"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def accept-ranges
-  "The Accept-Ranges header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/accept-ranges,
    :dcterms/description
-   #rdf/langString
-    "The Accept-Ranges header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Accept-Ranges@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Accept-Ranges header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Accept-Ranges"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def access-control
-  "The Access-Control header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-allow-credentials
-  "The Access-Control-Allow-Credentials header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-credentials,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Allow-Credentials header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Allow-Credentials@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Allow-Credentials header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Allow-Credentials"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-allow-headers
-  "The Access-Control-Allow-Headers header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-headers,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Allow-Headers header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Allow-Headers@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Allow-Headers header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Allow-Headers"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-allow-methods
-  "The Access-Control-Allow-Methods header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-methods,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Allow-Methods header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Allow-Methods@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Allow-Methods header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Allow-Methods"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-allow-origin
-  "The Access-Control-Allow-Origin header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-allow-origin,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Allow-Origin header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Allow-Origin@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Allow-Origin header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Allow-Origin"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-max-age
-  "The Access-Control-Max-Age header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-max-age,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Max-Age header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Max-Age@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Max-Age header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Max-Age"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-request-headers
-  "The Access-Control-Request-Headers header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-request-headers,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Request-Headers header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Request-Headers@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Request-Headers header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Request-Headers"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def access-control-request-method
-  "The Access-Control-Request-Method header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/access-control-request-method,
    :dcterms/description
-   #rdf/langString
-    "The Access-Control-Request-Method header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Access-Control-Request-Method@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Access-Control-Request-Method header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Access-Control-Request-Method"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def age
-  "The Age header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/age,
    :dcterms/description
-   #rdf/langString
-    "The Age header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Age@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Age header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Age"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def allow
-  "The Allow header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/allow,
    :dcterms/description
-   #rdf/langString
-    "The Allow header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Allow@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Allow header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Allow"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def alternates
-  "The alternates header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/alternates,
    :dcterms/description
-   #rdf/langString
-    "The alternates header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Alternates@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The alternates header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Alternates"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2295.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2295.txt"}}})
 
 (def apply-to-redirect-ref
-  "The Apply-To-Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/apply-to-redirect-ref,
    :dcterms/description
-   #rdf/langString
-    "The Apply-To-Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Apply-To-Redirect-Ref@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Apply-To-Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Apply-To-Redirect-Ref"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc4437.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc4437.txt"}}})
 
 (def authentication-info
-  "The Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/authentication-info,
    :dcterms/description
-   #rdf/langString
-    "The Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Authentication-Info@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Authentication-Info"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2617.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2617.txt"}}})
 
 (def authorization
-  "The Authorization header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/authorization,
    :dcterms/description
-   #rdf/langString
-    "The Authorization header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Authorization@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Authorization header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Authorization"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def c-ext
-  "The C-Ext header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-ext,
    :dcterms/description
-   #rdf/langString
-    "The C-Ext header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "C-Ext@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The C-Ext header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "C-Ext"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2774.txt"}}})
 
 (def c-man
-  "The C-Man header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-man,
    :dcterms/description
-   #rdf/langString
-    "The C-Man header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "C-Man@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The C-Man header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "C-Man"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2774.txt"}}})
 
 (def c-opt
-  "The C-Opt header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-opt,
    :dcterms/description
-   #rdf/langString
-    "The C-Opt header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "C-Opt@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The C-Opt header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "C-Opt"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2774.txt"}}})
 
 (def c-pep
-  "The C-PEP header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-pep,
    :dcterms/description
-   #rdf/langString
-    "The C-PEP header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "C-PEP@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The C-PEP header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "C-PEP"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/WD-http-pep"}]})
+   #{{:xsd/anyURI "http://www.w3.org/TR/WD-http-pep"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def c-pep-info
-  "The C-PEP-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/c-pep-info,
    :dcterms/description
-   #rdf/langString
-    "The C-PEP-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "C-PEP-Info@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The C-PEP-Info header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "C-PEP-Info"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/WD-http-pep"}]})
+   #{{:xsd/anyURI "http://www.w3.org/TR/WD-http-pep"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def cache-control
-  "The Cache-Control header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/cache-control,
    :dcterms/description
-   #rdf/langString
-    "The Cache-Control header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Cache-Control@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Cache-Control header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Cache-Control"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def compliance
-  "The Compliance header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/compliance,
    :dcterms/description
-   #rdf/langString
-    "The Compliance header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Compliance@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Compliance header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Compliance"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def connection
-  "The Connection header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/connection,
    :dcterms/description
-   #rdf/langString
-    "The Connection header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Connection@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Connection header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Connection"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-base
-  "The Content-Base header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-base,
    :dcterms/description
-   #rdf/langString
-    "The Content-Base header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Base@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Base header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Base"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def content-disposition
-  "The Content-Disposition header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-disposition,
    :dcterms/description
-   #rdf/langString
-    "The Content-Disposition header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Disposition@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Disposition header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Disposition"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-encoding
-  "The Content-Encoding header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-encoding,
    :dcterms/description
-   #rdf/langString
-    "The Content-Encoding header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Encoding@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Encoding header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Encoding"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-id
-  "The Content-ID header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-id,
    :dcterms/description
-   #rdf/langString
-    "The Content-ID header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-ID@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-ID header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-ID"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-drp-19970825"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-drp-19970825"}}})
 
 (def content-language
-  "The Content-Language header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-language,
    :dcterms/description
-   #rdf/langString
-    "The Content-Language header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Language@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Language header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Language"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-length
-  "The Content-Length header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-length,
    :dcterms/description
-   #rdf/langString
-    "The Content-Length header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Length@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Length header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Length"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-location
-  "The Content-Location header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-location,
    :dcterms/description
-   #rdf/langString
-    "The Content-Location header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Location@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Location header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Location"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-md5
-  "The Content-MD5 header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-md5,
    :dcterms/description
-   #rdf/langString
-    "The Content-MD5 header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-MD5@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-MD5 header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-MD5"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-range
-  "The Content-Range header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-range,
    :dcterms/description
-   #rdf/langString
-    "The Content-Range header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Range@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Range header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Range"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-script-type
-  "The Content-Script-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-script-type,
    :dcterms/description
-   #rdf/langString
-    "The Content-Script-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Script-Type@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Script-Type header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Script-Type"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/1999/REC-html401-19991224/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/1999/REC-html401-19991224/"}}})
 
 (def content-style-type
-  "The Content-Style-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-style-type,
    :dcterms/description
-   #rdf/langString
-    "The Content-Style-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Style-Type@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Style-Type header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Style-Type"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/1999/REC-html401-19991224/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/1999/REC-html401-19991224/"}}})
 
 (def content-transfer-encoding
-  "The Content-Transfer-Encoding header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/content-transfer-encoding,
    :dcterms/description
-   #rdf/langString
-    "The Content-Transfer-Encoding header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Content-Transfer-Encoding@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Transfer-Encoding header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Transfer-Encoding"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}]})
+   #{{:xsd/anyURI "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def content-type
-  "The Content-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-type,
    :dcterms/description
-   #rdf/langString
-    "The Content-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Type@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Type header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Type"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def content-version
-  "The Content-Version header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/content-version,
    :dcterms/description
-   #rdf/langString
-    "The Content-Version header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Content-Version@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Content-Version header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Content-Version"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def cookie
-  "The Cookie header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/cookie,
    :dcterms/description
-   #rdf/langString
-    "The Cookie header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Cookie@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Cookie header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Cookie"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2965.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2965.txt"}}})
 
 (def cookie2
-  "The Cookie2 header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/cookie2,
    :dcterms/description
-   #rdf/langString
-    "The Cookie2 header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Cookie2@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Cookie2 header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Cookie2"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2965.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2965.txt"}}})
 
 (def cost
-  "The Cost header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/cost,
    :dcterms/description
-   #rdf/langString
-    "The Cost header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Cost@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Cost header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Cost"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}]})
+   #{{:xsd/anyURI "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def dasl
-  "The DASL header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/dasl,
    :dcterms/description
-   #rdf/langString
-    "The DASL header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "DASL@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The DASL header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "DASL"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc5323.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc5323.txt"}}})
 
 (def date
-  "The Date header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/date,
    :dcterms/description
-   #rdf/langString
-    "The Date header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Date@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Date header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Date"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def dav
-  "The DAV header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/dav,
    :dcterms/description
-   #rdf/langString
-    "The DAV header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "DAV@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The DAV header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "DAV"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def default-style
-  "The Default-Style header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/default-style,
    :dcterms/description
-   #rdf/langString
-    "The Default-Style header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Default-Style@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Default-Style header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Default-Style"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/1999/REC-html401-19991224/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/1999/REC-html401-19991224/"}}})
 
 (def delta-base
-  "The Delta-Base header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/delta-base,
    :dcterms/description
-   #rdf/langString
-    "The Delta-Base header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Delta-Base@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Delta-Base header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Delta-Base"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3229.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3229.txt"}}})
 
 (def depth
-  "The Depth header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/depth,
    :dcterms/description
-   #rdf/langString
-    "The Depth header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Depth@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Depth header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Depth"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def derived-from
-  "The Derived-From header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/derived-from,
    :dcterms/description
-   #rdf/langString
-    "The Derived-From header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Derived-From@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Derived-From header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Derived-From"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def destination
-  "The Destination header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/destination,
    :dcterms/description
-   #rdf/langString
-    "The Destination header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Destination@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Destination header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Destination"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def differential-id
-  "The Differential-ID header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/differential-id,
    :dcterms/description
-   #rdf/langString
-    "The Differential-ID header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Differential-ID@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Differential-ID header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Differential-ID"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-drp-19970825"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-drp-19970825"}}})
 
 (def digest
-  "The Digest header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/digest,
    :dcterms/description
-   #rdf/langString
-    "The Digest header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Digest@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Digest header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Digest"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3230.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3230.txt"}}})
 
 (def etag
-  "The ETag header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/etag,
    :dcterms/description
-   #rdf/langString
-    "The ETag header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "ETag@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The ETag header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "ETag"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def expect
-  "The Expect header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/expect,
    :dcterms/description
-   #rdf/langString
-    "The Expect header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Expect@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Expect header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Expect"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def expires
-  "The Expires header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/expires,
    :dcterms/description
-   #rdf/langString
-    "The Expires header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Expires@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Expires header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Expires"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def ext
-  "The Ext header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/ext,
    :dcterms/description
-   #rdf/langString
-    "The Ext header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Ext@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Ext header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Ext"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2774.txt"}}})
 
 (def from
-  "The From header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/from,
    :dcterms/description
-   #rdf/langString
-    "The From header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "From@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The From header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "From"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def getprofile
-  "The GetProfile header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/getprofile,
    :dcterms/description
-   #rdf/langString
-    "The GetProfile header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "GetProfile@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The GetProfile header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "GetProfile"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-OPS-OverHTTP"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-OPS-OverHTTP"}}})
 
 (def host
-  "The Host header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/host,
    :dcterms/description
-   #rdf/langString
-    "The Host header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Host@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Host header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Host"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def if
-  "The If header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if,
    :dcterms/description
-   #rdf/langString
-    "The If header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "If@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The If header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "If"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def if-match
-  "The If-Match header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-match,
    :dcterms/description
-   #rdf/langString
-    "The If-Match header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "If-Match@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The If-Match header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "If-Match"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def if-modified-since
-  "The If-Modified-Since header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-modified-since,
    :dcterms/description
-   #rdf/langString
-    "The If-Modified-Since header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "If-Modified-Since@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The If-Modified-Since header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "If-Modified-Since"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def if-none-match
-  "The If-None-Match header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-none-match,
    :dcterms/description
-   #rdf/langString
-    "The If-None-Match header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "If-None-Match@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The If-None-Match header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "If-None-Match"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def if-range
-  "The If-Range header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-range,
    :dcterms/description
-   #rdf/langString
-    "The If-Range header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "If-Range@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The If-Range header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "If-Range"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def if-unmodified-since
-  "The If-Unmodified-Since header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/if-unmodified-since,
    :dcterms/description
-   #rdf/langString
-    "The If-Unmodified-Since header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "If-Unmodified-Since@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The If-Unmodified-Since header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "If-Unmodified-Since"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def im
-  "The IM header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/im,
    :dcterms/description
-   #rdf/langString
-    "The IM header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "IM@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The IM header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "IM"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3229.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3229.txt"}}})
 
 (def keep-alive
-  "The Keep-Alive header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/keep-alive,
    :dcterms/description
-   #rdf/langString
-    "The Keep-Alive header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Keep-Alive@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Keep-Alive header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Keep-Alive"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def label
-  "The Label header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/label,
    :dcterms/description
-   #rdf/langString
-    "The Label header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Label@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Label header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Label"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3253.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3253.txt"}}})
 
 (def last-modified
-  "The Last-Modified header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/last-modified,
    :dcterms/description
-   #rdf/langString
-    "The Last-Modified header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Last-Modified@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Last-Modified header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Last-Modified"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def link
-  "The Link header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/link,
    :dcterms/description
-   #rdf/langString
-    "The Link header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Link@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Link header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Link"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def location
-  "The Location header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/location,
    :dcterms/description
-   #rdf/langString
-    "The Location header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Location@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Location header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Location"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def lock-token
-  "The Lock-Token header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/lock-token,
    :dcterms/description
-   #rdf/langString
-    "The Lock-Token header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Lock-Token@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Lock-Token header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Lock-Token"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def man
-  "The Man header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/man,
    :dcterms/description
-   #rdf/langString
-    "The Man header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Man@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Man header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Man"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2774.txt"}}})
 
 (def max-forwards
-  "The Max-Forwards header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/max-forwards,
    :dcterms/description
-   #rdf/langString
-    "The Max-Forwards header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Max-Forwards@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Max-Forwards header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Max-Forwards"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def message-id
-  "The Message-ID header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/message-id,
    :dcterms/description
-   #rdf/langString
-    "The Message-ID header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Message-ID@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Message-ID header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Message-ID"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}]})
+   #{{:xsd/anyURI "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def meter
-  "The Meter header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/meter,
    :dcterms/description
-   #rdf/langString
-    "The Meter header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Meter@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Meter header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Meter"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2227.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2227.txt"}}})
 
 (def method-check
-  "The Method-Check header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/method-check,
    :dcterms/description
-   #rdf/langString
-    "The Method-Check header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Method-Check@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Method-Check header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Method-Check"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def method-check-expires
-  "The Method-Check-Expires header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/method-check-expires,
    :dcterms/description
-   #rdf/langString
-    "The Method-Check-Expires header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Method-Check-Expires@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Method-Check-Expires header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Method-Check-Expires"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def mime-version
-  "The MIME-Version header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/mime-version,
    :dcterms/description
-   #rdf/langString
-    "The MIME-Version header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "MIME-Version@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The MIME-Version header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "MIME-Version"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def negotiate
-  "The Negotiate header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/negotiate,
    :dcterms/description
-   #rdf/langString
-    "The Negotiate header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Negotiate@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Negotiate header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Negotiate"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2295.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2295.txt"}}})
 
 (def non-compliance
-  "The Non-Compliance header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/non-compliance,
    :dcterms/description
-   #rdf/langString
-    "The Non-Compliance header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Non-Compliance@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Non-Compliance header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Non-Compliance"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}]})
+   #{{:xsd/anyURI "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def opt
-  "The Opt header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/opt,
    :dcterms/description
-   #rdf/langString
-    "The Opt header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Opt@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Opt header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Opt"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2774.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2774.txt"}}})
 
 (def optional
-  "The Optional header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/optional,
    :dcterms/description
-   #rdf/langString
-    "The Optional header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Optional@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Optional header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Optional"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"}}})
 
 (def ordering-type
-  "The Ordering-Type header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/ordering-type,
    :dcterms/description
-   #rdf/langString
-    "The Ordering-Type header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Ordering-Type@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Ordering-Type header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Ordering-Type"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3648.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3648.txt"}}})
 
 (def origin
-  "The Origin header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/origin,
    :dcterms/description
-   #rdf/langString
-    "The Origin header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Origin@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Origin header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Origin"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def overwrite
-  "The overwrite header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/overwrite,
    :dcterms/description
-   #rdf/langString
-    "The overwrite header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Overwrite@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The overwrite header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Overwrite"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def p3p
-  "The P3P header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/p3p,
    :dcterms/description
-   #rdf/langString
-    "The P3P header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "P3P@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The P3P header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "P3P"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/2002/REC-P3P-20020416/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/2002/REC-P3P-20020416/"}}})
 
 (def pep
-  "The PEP header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pep,
    :dcterms/description
-   #rdf/langString
-    "The PEP header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "PEP@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The PEP header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "PEP"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/WD-http-pep"}]})
+   #{{:xsd/anyURI "http://www.w3.org/TR/WD-http-pep"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def pep-info
-  "The Pep-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pep-info,
    :dcterms/description
-   #rdf/langString
-    "The Pep-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Pep-Info@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Pep-Info header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Pep-Info"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/WD-http-pep"}]})
+   #{{:xsd/anyURI "http://www.w3.org/TR/WD-http-pep"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def pics-label
-  "The PICS-Label header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pics-label,
    :dcterms/description
-   #rdf/langString
-    "The PICS-Label header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "PICS-Label@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The PICS-Label header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "PICS-Label"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/REC-PICS-labels-961031"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/REC-PICS-labels-961031"}}})
 
 (def position
-  "The Position header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/position,
    :dcterms/description
-   #rdf/langString
-    "The Position header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Position@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Position header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Position"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3648.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3648.txt"}}})
 
 (def pragma
-  "The Pragma header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/pragma,
    :dcterms/description
-   #rdf/langString
-    "The Pragma header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Pragma@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Pragma header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Pragma"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def profileobject
-  "The ProfileObject header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/profileobject,
    :dcterms/description
-   #rdf/langString
-    "The ProfileObject header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "ProfileObject@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The ProfileObject header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "ProfileObject"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-OPS-OverHTTP"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-OPS-OverHTTP"}}})
 
 (def protocol
-  "The Protocol header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol,
    :dcterms/description
-   #rdf/langString
-    "The Protocol header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Protocol@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Protocol header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Protocol"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/REC-PICS-labels-961031"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/REC-PICS-labels-961031"}}})
 
 (def protocol-info
-  "The Protocol-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol-info,
    :dcterms/description
-   #rdf/langString
-    "The Protocol-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Protocol-Info@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Protocol-Info header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Protocol-Info"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-jepi-970519"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-jepi-970519"}}})
 
 (def protocol-query
-  "The Protocol-Query header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol-query,
    :dcterms/description
-   #rdf/langString
-    "The Protocol-Query header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Protocol-Query@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Protocol-Query header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Protocol-Query"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-jepi-970519"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-jepi-970519"}}})
 
 (def protocol-request
-  "The Protocol-Request header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/protocol-request,
    :dcterms/description
-   #rdf/langString
-    "The Protocol-Request header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Protocol-Request@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Protocol-Request header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Protocol-Request"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/REC-PICS-labels-961031"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/REC-PICS-labels-961031"}}})
 
 (def proxy-authenticate
-  "The Proxy-Authenticate header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-authenticate,
    :dcterms/description
-   #rdf/langString
-    "The Proxy-Authenticate header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Proxy-Authenticate@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Proxy-Authenticate header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Proxy-Authenticate"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def proxy-authentication-info
-  "The Proxy-Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-authentication-info,
    :dcterms/description
-   #rdf/langString
-    "The Proxy-Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Proxy-Authentication-Info@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Proxy-Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Proxy-Authentication-Info"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2617.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2617.txt"}}})
 
 (def proxy-authorization
-  "The Proxy-Authorization header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-authorization,
    :dcterms/description
-   #rdf/langString
-    "The Proxy-Authorization header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Proxy-Authorization@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Proxy-Authorization header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Proxy-Authorization"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def proxy-features
-  "The Proxy-Features header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-features,
    :dcterms/description
-   #rdf/langString
-    "The Proxy-Features header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Proxy-Features@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Proxy-Features header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Proxy-Features"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/WD-proxy-960221"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/WD-proxy-960221"}}})
 
 (def proxy-instruction
-  "The Proxy-Instruction header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/proxy-instruction,
    :dcterms/description
-   #rdf/langString
-    "The Proxy-Instruction header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Proxy-Instruction@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Proxy-Instruction header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Proxy-Instruction"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/WD-proxy-960221"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/WD-proxy-960221"}}})
 
 (def public
-  "The Public header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/public,
    :dcterms/description
-   #rdf/langString
-    "The Public header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Public@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Public header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Public"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def range
-  "The Range header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/range,
    :dcterms/description
-   #rdf/langString
-    "The Range header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Range@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Range header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Range"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def redirect-ref
-  "The Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/redirect-ref,
    :dcterms/description
-   #rdf/langString
-    "The Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Redirect-Ref@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Redirect-Ref"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc4437.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc4437.txt"}}})
 
 (def referer
-  "The Referer header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/referer,
    :dcterms/description
-   #rdf/langString
-    "The Referer header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Referer@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Referer header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Referer"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def referer-root
-  "The Referer-Root header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/referer-root,
    :dcterms/description
-   #rdf/langString
-    "The Referer-Root header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Referer-Root@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Referer-Root header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Referer-Root"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2006/appformats/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/2006/appformats/"}}})
 
 (def resolution-hint
-  "The Resolution-Hint header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/resolution-hint,
    :dcterms/description
-   #rdf/langString
-    "The Resolution-Hint header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Resolution-Hint@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Resolution-Hint header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Resolution-Hint"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"}}})
 
 (def resolver-location
-  "The Resolver-Location header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/resolver-location,
    :dcterms/description
-   #rdf/langString
-    "The Resolver-Location header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Resolver-Location@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Resolver-Location header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Resolver-Location"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"}}})
 
 (def retry-after
-  "The Retry-After header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/retry-after,
    :dcterms/description
-   #rdf/langString
-    "The Retry-After header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Retry-After@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Retry-After header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Retry-After"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def safe
-  "The Safe header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/safe,
    :dcterms/description
-   #rdf/langString
-    "The Safe header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Safe@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Safe header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Safe"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2310.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2310.txt"}}})
 
 (def security-scheme
-  "The Security-Scheme header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/security-scheme,
    :dcterms/description
-   #rdf/langString
-    "The Security-Scheme header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Security-Scheme@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Security-Scheme header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Security-Scheme"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2660.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2660.txt"}}})
 
 (def server
-  "The Server header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/server,
    :dcterms/description
-   #rdf/langString
-    "The Server header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Server@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Server header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Server"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def set-cookie
-  "The Set-Cookie header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/set-cookie,
    :dcterms/description
-   #rdf/langString
-    "The Set-Cookie header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Set-Cookie@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Set-Cookie header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Set-Cookie"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2109.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2109.txt"}}})
 
 (def set-cookie2
-  "The Set-Cookie2 header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/set-cookie2,
    :dcterms/description
-   #rdf/langString
-    "The Set-Cookie2 header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Set-Cookie2@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Set-Cookie2 header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Set-Cookie2"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2965.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2965.txt"}}})
 
 (def setprofile
-  "The SetProfile header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/setprofile,
    :dcterms/description
-   #rdf/langString
-    "The SetProfile header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "SetProfile@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The SetProfile header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SetProfile"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/NOTE-OPS-OverHTTP"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/NOTE-OPS-OverHTTP"}}})
 
 (def slug
-  "The SLUG header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/slug,
    :dcterms/description
-   #rdf/langString
-    "The SLUG header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "SLUG@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The SLUG header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SLUG"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://tools.ietf.org/html/draft-ietf-atompub-protocol-17"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI
+      "http://tools.ietf.org/html/draft-ietf-atompub-protocol-17"}}})
 
 (def soapaction
-  "The SoapAction header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/soapaction,
    :dcterms/description
-   #rdf/langString
-    "The SoapAction header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "SoapAction@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The SoapAction header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SoapAction"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/2000/NOTE-SOAP-20000508/"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/2000/NOTE-SOAP-20000508/"}}})
 
 (def status-uri
-  "The Status-URI header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/status-uri,
    :dcterms/description
-   #rdf/langString
-    "The Status-URI header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Status-URI@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Status-URI header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Status-URI"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def subok
-  "The SubOK header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/subok,
    :dcterms/description
-   #rdf/langString
-    "The SubOK header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "SubOK@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The SubOK header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SubOK"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"}}})
 
 (def subst
-  "The Subst header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/subst,
    :dcterms/description
-   #rdf/langString
-    "The Subst header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Subst@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Subst header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Subst"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"}}})
 
 (def surrogate-capability
-  "The Surrogate-Capability header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/surrogate-capability,
    :dcterms/description
-   #rdf/langString
-    "The Surrogate-Capability header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Surrogate-Capability@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Surrogate-Capability header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Surrogate-Capability"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"}}})
 
 (def surrogate-control
-  "The Surrogate-Control header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/surrogate-control,
    :dcterms/description
-   #rdf/langString
-    "The Surrogate-Control header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Surrogate-Control@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Surrogate-Control header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Surrogate-Control"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"}}})
 
 (def tcn
-  "The TCN header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/tcn,
    :dcterms/description
-   #rdf/langString
-    "The TCN header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "TCN@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The TCN header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "TCN"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2295.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2295.txt"}}})
 
 (def te
-  "The TE header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/te,
    :dcterms/description
-   #rdf/langString
-    "The TE header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "TE@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The TE header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "TE"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def timeout
-  "The Timeout header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/timeout,
    :dcterms/description
-   #rdf/langString
-    "The Timeout header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Timeout@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Timeout header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Timeout"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2518.txt"}]})
+   #{{:xsd/anyURI "http://www.ietf.org/rfc/rfc2518.txt"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}}})
 
 (def title
-  "The Title header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/title,
    :dcterms/description
-   #rdf/langString
-    "The Title header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Title@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Title header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Title"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}]})
+   #{{:xsd/anyURI "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def trailer
-  "The Trailer header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/trailer,
    :dcterms/description
-   #rdf/langString
-    "The Trailer header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Trailer@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Trailer header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Trailer"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def transfer-encoding
-  "The Transfer-Encoding header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/transfer-encoding,
    :dcterms/description
-   #rdf/langString
-    "The Transfer-Encoding header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Transfer-Encoding@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Transfer-Encoding header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Transfer-Encoding"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def ua-color
-  "The UA-Color header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-color,
    :dcterms/description
-   #rdf/langString
-    "The UA-Color header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "UA-Color@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The UA-Color header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "UA-Color"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}}})
 
 (def ua-media
-  "The UA-Media header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-media,
    :dcterms/description
-   #rdf/langString
-    "The UA-Media header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "UA-Media@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The UA-Media header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "UA-Media"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}}})
 
 (def ua-pixels
-  "The UA-Pixels header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-pixels,
    :dcterms/description
-   #rdf/langString
-    "The UA-Pixels header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "UA-Pixels@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The UA-Pixels header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "UA-Pixels"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}}})
 
 (def ua-resolution
-  "The UA-Resolution header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-resolution,
    :dcterms/description
-   #rdf/langString
-    "The UA-Resolution header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "UA-Resolution@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The UA-Resolution header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "UA-Resolution"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}}})
 
 (def ua-windowpixels
-  "The  header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/ua-windowpixels,
    :dcterms/description
-   #rdf/langString
-    "The  header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The  header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    ""},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri
-     "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}
+     {:xsd/anyURI
+      "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"}}})
 
 (def upgrade
-  "The Upgrade header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/upgrade,
    :dcterms/description
-   #rdf/langString
-    "The Upgrade header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Upgrade@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Upgrade header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Upgrade"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def uri
-  "The URI header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/uri,
    :dcterms/description
-   #rdf/langString
-    "The URI header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "URI@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The URI header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "URI"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2068.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2068.txt"}}})
 
 (def user-agent
-  "The User-Agent header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/user-agent,
    :dcterms/description
-   #rdf/langString
-    "The User-Agent header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "User-Agent@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The User-Agent header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "User-Agent"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def variant-vary
-  "The Variant-Vary header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/variant-vary,
    :dcterms/description
-   #rdf/langString
-    "The Variant-Vary header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Variant-Vary@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Variant-Vary header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Variant-Vary"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2295.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2295.txt"}}})
 
 (def vary
-  "The Vary header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/vary,
    :dcterms/description
-   #rdf/langString
-    "The Vary header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Vary@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Vary header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Vary"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def version
-  "The Version header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/version,
    :dcterms/description
-   #rdf/langString
-    "The Version header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "Version@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Version header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Version"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}]})
+   #{{:xsd/anyURI "http://www.w3.org/Protocols/HTTP/Object_Headers.html"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def via
-  "The Via header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/via,
    :dcterms/description
-   #rdf/langString
-    "The Via header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Via@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Via header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Via"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def want-digest
-  "The Want-Digest header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/want-digest,
    :dcterms/description
-   #rdf/langString
-    "The Want-Digest header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Want-Digest@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Want-Digest header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Want-Digest"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc3230.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc3230.txt"}}})
 
 (def warning
-  "The Warning header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/warning,
    :dcterms/description
-   #rdf/langString
-    "The Warning header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "Warning@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The Warning header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Warning"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def www-authenticate
-  "The WWW-Authenticate header, as defined in the Permanent HTTP Header Field Registrations."
   {:db/ident :http-headers/www-authenticate,
    :dcterms/description
-   #rdf/langString
-    "The WWW-Authenticate header, as defined in the Permanent HTTP Header Field Registrations.@en",
-   :dcterms/title #rdf/langString "WWW-Authenticate@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The WWW-Authenticate header, as defined in the Permanent HTTP Header Field Registrations."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "WWW-Authenticate"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/perm-headers.html"}
-    {:rdfa/uri "http://www.ietf.org/rfc/rfc2616.txt"}]})
+   #{{:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/perm-headers.html"}
+     {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}}})
 
 (def x-device-accept
-  "The X-Device-Accept header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept,
    :dcterms/description
-   #rdf/langString
-    "The X-Device-Accept header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "X-Device-Accept@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The X-Device-Accept header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "X-Device-Accept"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2005/MWI/BPWG/"}]})
+   #{{:xsd/anyURI "http://www.w3.org/2005/MWI/BPWG/"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def x-device-accept-charset
-  "The X-Device-Accept-Charset header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept-charset,
    :dcterms/description
-   #rdf/langString
-    "The X-Device-Accept-Charset header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "X-Device-Accept-Charset@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The X-Device-Accept-Charset header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "X-Device-Accept-Charset"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2005/MWI/BPWG/"}]})
+   #{{:xsd/anyURI "http://www.w3.org/2005/MWI/BPWG/"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def x-device-accept-encoding
-  "The X-Device-Accept-Encoding header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept-encoding,
    :dcterms/description
-   #rdf/langString
-    "The X-Device-Accept-Encoding header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "X-Device-Accept-Encoding@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The X-Device-Accept-Encoding header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "X-Device-Accept-Encoding"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2005/MWI/BPWG/"}]})
+   #{{:xsd/anyURI "http://www.w3.org/2005/MWI/BPWG/"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def x-device-accept-language
-  "The X-Device-Accept-Language header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-accept-language,
    :dcterms/description
-   #rdf/langString
-    "The X-Device-Accept-Language header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "X-Device-Accept-Language@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The X-Device-Accept-Language header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "X-Device-Accept-Language"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2005/MWI/BPWG/"}]})
+   #{{:xsd/anyURI "http://www.w3.org/2005/MWI/BPWG/"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
 
 (def x-device-user-agent
-  "The X-Device-User-Agent header, as defined in the Provisional HTTP Header Field Submissions."
   {:db/ident :http-headers/x-device-user-agent,
    :dcterms/description
-   #rdf/langString
-    "The X-Device-User-Agent header, as defined in the Provisional HTTP Header Field Submissions.@en",
-   :dcterms/title #rdf/langString "X-Device-User-Agent@en",
+   {:rdf/language "en",
+    :rdf/value
+    "The X-Device-User-Agent header, as defined in the Provisional HTTP Header Field Submissions."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "X-Device-User-Agent"},
    :rdf/type :http/HeaderName,
    :rdfs/isDefinedBy
-   [{:rdfa/uri
-     "http://www.iana.org/assignments/message-headers/prov-headers.html"}
-    {:rdfa/uri "http://www.w3.org/2005/MWI/BPWG/"}]})
+   #{{:xsd/anyURI "http://www.w3.org/2005/MWI/BPWG/"}
+     {:xsd/anyURI
+      "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
+
+(def urn:uuid:e307d4d8-b018-5e3c-977f-704bfac39b36
+  {:dcterms/identifier "http://www.w3.org/TR/2002/REC-P3P-20020416/",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "The Platform for Privacy Preferences 1.0 (P3P1.0) Specification"},
+   :xsd/anyURI "http://www.w3.org/TR/2002/REC-P3P-20020416/"})
+
+(def urn:uuid:c65f8f01-04bc-564d-a27c-b889851ac7f1
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2227.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "Simple Hit-Metering and Usage-Limiting for HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2227.txt"})
+
+(def urn:uuid:3235fdc7-818a-5ad5-81ef-3e11974112c8
+  {:dcterms/identifier
+   "http://tools.ietf.org/html/draft-ietf-atompub-protocol-17",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "The Atom Publishing Protocol"},
+   :xsd/anyURI "http://tools.ietf.org/html/draft-ietf-atompub-protocol-17"})
+
+(def urn:uuid:49e02493-2b3d-56d6-80ae-434c68351d7e
+  {:dcterms/identifier "http://www.w3.org/TR/2000/NOTE-SOAP-20000508/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Simple Object Access Protocol (SOAP) 1.1"},
+   :xsd/anyURI         "http://www.w3.org/TR/2000/NOTE-SOAP-20000508/"})
+
+(def urn:uuid:d7da764b-0074-52af-b328-26ccecbcf007
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3253.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "Versioning Extensions to WebDAV (Web Distributed Authoring and Versioning)"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc3253.txt"})
+
+(def urn:uuid:7634cdca-b604-5456-94a7-3f468a53be14
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3648.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "Web Distributed Authoring and Versioning (WebDAV) Redirect Reference Resources"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc4437.txt"})
+
+(def urn:uuid:a2c7860c-975a-5a52-be8e-3728df3bfdad
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3229.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Delta encoding in HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc3229.txt"})
+
+(def urn:uuid:7601aeab-91a2-5b79-806f-b2f198042393
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2616.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Hypertext Transfer Protocol -- HTTP/1.1"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2616.txt"})
+
+(def urn:uuid:8059c754-d124-5846-aaad-d6e830ed6fb2
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2617.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value "HTTP Authentication: Basic and Digest Access Authentication"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc2617.txt"})
+
+(def urn:uuid:b2cee6e4-1cfc-5c5d-9b1a-21718d610d37
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc5323.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value
+                   "Web Distributed Authoring and Versioning (WebDAV) SEARCH"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc5323.txt"})
+
+(def urn:uuid:22e6f9c1-65de-51f1-9be9-8fe6d2271798
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2774.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "An HTTP Extension Framework"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2774.txt"})
+
+(def urn:uuid:5c2d7eaf-035a-5444-a728-f7175ec0405d
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2518.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "HTTP Extensions for Distributed Authoring -- WEBDAV"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2518.txt"})
+
+(def urn:uuid:bcc10544-3e99-5602-b0dd-e4697d574ec9
+  {:dcterms/identifier
+   "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "User-Agent Display Attributes Headers"},
+   :xsd/anyURI
+   "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"})
+
+(def urn:uuid:0e610fc0-6e23-5409-8eb8-3e5505721f12
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2310.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "The Safe Response Header Field"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2310.txt"})
+
+(def urn:uuid:3da20e68-b99b-5d3c-a828-9b9cd69fbb3b
+  {:dcterms/identifier
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "WIRE - W3 Identifier Resolution Extensions"},
+   :xsd/anyURI
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"})
+
+(def urn:uuid:f5c9c58c-dc8b-586d-8c88-a05a490b8bd6
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3648.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "Web Distributed Authoring and Versioning (WebDAV) Ordered Collections Protocol"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc3648.txt"})
+
+(def urn:uuid:f3c0b7e8-ddac-59d7-8b95-4c7bcc9ac227
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2109.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "HTTP State Management Mechanism"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2109.txt"})
+
+(def urn:uuid:bf734810-18ff-51b2-82ba-fc2d1bc0fa65
+  {:dcterms/identifier "http://www.w3.org/Protocols/HTTP/Object_Headers.html",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Object Header lines in HTTP"},
+   :xsd/anyURI         "http://www.w3.org/Protocols/HTTP/Object_Headers.html"})
+
+(def urn:uuid:21786d33-3f4a-53ee-a16e-4bf5d9cc91d3
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2324.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0)"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2324.txt"})
+
+(def urn:uuid:3fd2a84b-c2d2-5900-bd54-4a3bb9f474b0
+  {:dcterms/identifier "http://www.w3.org/TR/NOTE-drp-19970825",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "The HTTP Distribution and Replication Protocol"},
+   :xsd/anyURI         "http://www.w3.org/TR/NOTE-drp-19970825"})
+
+(def urn:uuid:c9c94c37-a399-54a6-b7a9-f385e231de83
+  {:dcterms/identifier "http://www.w3.org/2006/appformats/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "Web Application Formats (WAF) Working Group"},
+   :xsd/anyURI         "http://www.w3.org/2006/appformats/"})
+
+(def urn:uuid:317bb722-0779-5a04-83ee-24c2b78c3455
+  {:dcterms/identifier "http://www.w3.org/TR/WD-proxy-960221",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Notification for Proxy Caches"},
+   :xsd/anyURI         "http://www.w3.org/TR/WD-proxy-960221"})
+
+(def urn:uuid:f3baa85b-e538-59ae-baca-eb7615be9dae
+  {:dcterms/identifier
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Duplicate Suppression in HTTP"},
+   :xsd/anyURI
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"})
+
+(def urn:uuid:1d8db4d9-0e29-5ebe-b232-efd4fdc77826
+  {:dcterms/identifier "http://www.w3.org/TR/REC-PICS-labels-961031",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "PICS 1.1 Label Distribution -- Label Syntax and Communication Protocols"},
+   :xsd/anyURI "http://www.w3.org/TR/REC-PICS-labels-961031"})
+
+(def urn:uuid:141f4e0a-a7cb-548f-8b03-45f7a027c765
+  {:dcterms/identifier "http://www.w3.org/TR/WD-http-pep",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "PEP Specification: an Extension Mechanism for HTTP"},
+   :xsd/anyURI         "http://www.w3.org/TR/WD-http-pep"})
+
+(def urn:uuid:f2dd9671-75ce-5f91-941b-0bc04ccf0ed1
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2068.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Hypertext Transfer Protocol -- HTTP/1.1"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2068.txt"})
+
+(def urn:uuid:f3ea0ca8-45d5-52c4-b161-5b6ba8080e77
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2660.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "The Secure HyperText Transfer Protocol"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2660.txt"})
+
+(def urn:uuid:56954da0-7cff-5a92-a11d-137522f0c4e7
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2965.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "HTTP State Management Mechanism"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2965.txt"})
+
+(def urn:uuid:b989a818-7680-5813-91e4-39ea8e594d16
+  {:dcterms/identifier "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Edge Architecture Specification"},
+   :xsd/anyURI         "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"})
+
+(def urn:uuid:0bed71a1-4bb7-5fb6-b24e-39980fca4294
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2295.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Transparent Content Negotiation in HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2295.txt"})
+
+(def urn:uuid:1038432f-502b-5258-8462-f7f47418b0a4
+  {:dcterms/identifier "http://www.w3.org/TR/NOTE-jepi-970519",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "White Paper: Joint Electronic Payment Initiative"},
+   :xsd/anyURI         "http://www.w3.org/TR/NOTE-jepi-970519"})
+
+(def urn:uuid:7c2255bf-0ac5-52d1-88a3-709e198d9a73
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3230.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Instance Digests in HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc3230.txt"})
+
+(def urn:uuid:8861c653-2550-5830-9ab3-5d96dcdb36ed
+  {:dcterms/identifier "http://www.w3.org/2005/MWI/BPWG/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Mobile Web Best Practices Working Group"},
+   :xsd/anyURI         "http://www.w3.org/2005/MWI/BPWG/"})
+
+(def urn:uuid:3fbfa3d0-474b-5aa1-87d7-e85f6bb4168e
+  {:dcterms/identifier "http://www.w3.org/TR/NOTE-OPS-OverHTTP",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Implementation of OPS Over HTTP"},
+   :xsd/anyURI         "http://www.w3.org/TR/NOTE-OPS-OverHTTP"})
+
+(def urn:uuid:44a0004a-c300-58af-a147-b6a194b4526f
+  {:dcterms/identifier "http://www.w3.org/TR/1999/REC-html401-19991224/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "HTML 4.01 Specification"},
+   :xsd/anyURI         "http://www.w3.org/TR/1999/REC-html401-19991224/"})
+
+(def urn:uuid:2a8cb392-9288-5559-b1d5-7039a930a929
+  {:dcterms/identifier
+   "http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Specification of HTTP/1.1 OPTIONS messages"},
+   :xsd/anyURI
+   "http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt"})

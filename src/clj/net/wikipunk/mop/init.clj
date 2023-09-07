@@ -1,7 +1,6 @@
 (ns net.wikipunk.mop.init
   "The Metaobject Initialization Protocol"
   (:require
-   [xtdb.api :as xt]
    [clojure.datafy :refer [datafy]]
    [clojure.set :as set]
    [clojure.string :as str]
@@ -9,22 +8,12 @@
    [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf :as rdf]
    [net.wikipunk.boot]
-   [net.wikipunk.ext]
-   [taoensso.nippy :as nippy]))
+   [net.wikipunk.ext]))
 
 (defmethod mop/find-class-using-env :default
   [ident env]
   (when (qualified-keyword? ident)
     (mop/find-class-using-env ident nil)))
-
-(defmethod mop/find-class-using-env [clojure.lang.Keyword xtdb.node.XtdbNode]
-  [ident env]
-  (or (xt/entity (xt/db env) ident)
-      (mop/find-class-using-env ident nil)))
-
-(defmethod mop/find-class-using-env [Object xtdb.node.XtdbNode]
-  [ident env]
-  nil)
 
 (defmethod mop/make-instance :rdfs/Class
   [class & {:as initargs}]
@@ -32,8 +21,7 @@
     (mop/finalize-inheritance class))
   (let [initargs (merge (mop/class-default-initargs class) initargs)
         instance (mop/allocate-instance class initargs)]
-    (mop/initialize-instance instance initargs)
-    instance))
+    (mop/initialize-instance instance initargs)))
 
 (defmethod mop/initialize-instance :default
   [instance & {:as initargs}]
@@ -42,8 +30,7 @@
 (defmethod mop/reinitialize-instance :default
   [instance & {:as initargs}]
   (let [class (mop/class-of instance)]
-    (mop/shared-initialize instance nil initargs)
-    instance))
+    (mop/shared-initialize instance nil initargs)))
 
 (defmethod mop/update-instance-for-different-class [Object Object]
   [previous current & {:as initargs}]
@@ -56,7 +43,7 @@
                                                  (identical? (mop/slot-definition-allocation slot) :instance))
                                           (conj added-slots n)
                                           added-slots)))
-                                    []
+                                    #{}
                                     current-slots)]
     
     (mop/shared-initialize current added-slots initargs)))
@@ -64,28 +51,6 @@
 (defmethod mop/update-instance-for-redefined-class Object
   [instance added-slots discarded-slots property-list & {:as initargs}]
   (mop/shared-initialize instance added-slots initargs))
-
-(defn alter-instance
-  [instance f & args]
-  (cond
-    (instance? clojure.lang.Ref instance)
-    (dosync
-      (apply alter instance f args))
-    
-    (instance? clojure.lang.Atom instance)
-    (apply swap! instance f args)
-
-    (instance? clojure.lang.Agent instance)
-    (apply send instance f args)
-
-    (instance? clojure.lang.Namespace instance)
-    (apply alter-meta! instance f args)
-
-    (instance? clojure.lang.Var instance)
-    (apply alter-var-root instance f args)
-
-    :else (when-some [var (:var (meta instance))]
-            (apply alter-instance var f args))))
 
 (defmethod mop/shared-initialize :rdfs/Class
   [instance slot-names & {:as initargs}]
@@ -98,39 +63,36 @@
                      (nil? slot-names)
                      nil
 
-                     :else (filter #((set slot-names) (:db/ident %)) all-slots))]
+                     :else (filter (set slot-names) all-slots))]
     (doseq [[initarg initform] initargs
             :when              initarg
-            :when              (not (some #(= % initarg) (map :db/ident init-slots)))]
+            :when              (not (some #(= % initarg) init-slots))]
       (mop/slot-missing class instance initarg))
-    (alter-instance instance
-                    (fn [obj]
-                      (reduce
-                        (fn [obj effective-slot]
-                          (if-some [v (get initargs (:db/ident effective-slot))]
-                            (assoc obj (:db/ident effective-slot) v)
-                            obj))
-                        initargs
-                        init-slots)))    
-    instance))
+    (reduce
+      (fn [obj effective-slot]
+        (if-some [v (get initargs effective-slot)]
+          (assoc obj effective-slot v)
+          obj))
+      instance
+      init-slots)))
 
 (defmethod mop/allocate-instance :rdfs/Class
   [class & {:as initargs}]
   (when-not (mop/class-finalized? class)
     (mop/finalize-inheritance class))
-  (ref {} :meta {:type (:db/ident class)}))
+  (assoc initargs :rdf/type (:db/ident class)))
 
 (defmethod mop/slot-value-using-class [:rdfs/Class :rdf/Property]
   [class object slot]
-  (get @object (:db/ident slot)))
+  (get object (:db/ident slot)))
 
 (defmethod mop/slot-bound-using-class? [:rdfs/Class :rdf/Property]
   [class object slot]
-  (contains? @object (:db/ident slot)))
+  (contains? object (:db/ident slot)))
 
 (defmethod mop/slot-makunbound-using-class [:rdfs/Class :rdf/Property]
   [class object slot]
-  (alter-instance object dissoc (:db/ident slot)))
+  (dissoc object (:db/ident slot)))
 
 (defmethod mop/slot-missing :default
   [class object slot-name & {:as info-map}]
@@ -154,7 +116,7 @@
 (defmethod mop/class-prototype :rdfs/Class
   [class]  
   (or (:mop/classPrototype (meta class))
-      (alter-instance (:var (meta (meta class))) assoc :mop/classPrototype (mop/allocate-instance class))))
+      (mop/allocate-instance class)))
 
 (defmethod mop/class-precedence-list :rdfs/Class
   [class]
@@ -204,9 +166,9 @@
       (not-empty (set/union (descendants (:rdfs/domain rdf/*metaobjects*) ident)
                             (reduce set/union (map mop/class-direct-slots intersectionOf))
                             (reduce set/union (map mop/class-direct-slots unionOf))
-                            (when (coll? subClassOf)
+                            (when (and (coll? subClassOf) (not (map? subClassOf)))
                               (reduce set/union (map mop/class-direct-slots (remove keyword? subClassOf))))
-                            (when (coll? type)
+                            (when (and (coll? type) (not (map? type)))
                               (reduce set/union (map mop/class-direct-slots (remove keyword? type))))))))
 
 (defmethod mop/class-default-initargs :rdfs/Class
@@ -263,7 +225,7 @@
                                                                        :metaclass))
                               mop/*env*))
 
-(defmethod mop/finalize-inheritance :rdfs/Class
+#_(defmethod mop/finalize-inheritance :rdfs/Class
   [class]
   (let [class (assoc class
                      :mop/classDirectSlots
@@ -287,12 +249,19 @@
                      (mop/class-direct-subclasses class))]
     (mop/intern-class-using-env class mop/*env*)))
 
-(defmethod mop/intern-class-using-env [:rdfs/Class xtdb.node.XtdbNode]
+(defmethod mop/finalize-inheritance :rdfs/Class
+  [class]
+  (let [cds (mop/class-direct-slots class)
+        cpl (mop/class-precedence-list class)]    
+    (mop/intern-class-using-env
+      (cond-> class
+        (seq cds) (assoc :mop/classDirectSlots cds)
+        (seq cpl) (assoc :mop/classPrecedenceList cpl))
+      mop/*env*)))
+
+(defmethod mop/intern-class-using-env [:rdfs/Class nil]
   [class env]
-  (try
-    (xt/submit-tx env [[::xt/put (rdf/freezable class)]])
-    (catch Throwable ex
-      (throw (ex-info (.getMessage ex) {:class class} ex)))))
+  class)
 
 (defmethod mop/compute-default-initargs :rdfs/Class
   [{:mop/keys [classPrecedenceList
@@ -306,16 +275,6 @@
 
 ;; 1. Compute the direct slots for each class in its class-precedence-list.
 ;; 2. Combine all of the slots into a single set.
-
-#_(defmethod mop/compute-slots :owl/NamedIndividual
-    [{:db/keys   [ident]
-      :rdf/keys  [type]
-      :rdfs/keys [subClassOf]
-      :owl/keys  [deprecated equivalentClass]
-      :as        class}]
-    (mop/class-direct-slots ident))
-
-#_(remove-method mop/compute-slots :owl/NamedIndividual)
 
 (defmethod mop/compute-slots :rdfs/Class
   [{:mop/keys  [classPrecedenceList
@@ -341,34 +300,7 @@
          (take-while (complement #{:owl/Class :rdfs/Class :sh/Shape :sh/NodeShape}))
          (map mop/class-direct-slots) ;; get the direct slots of each class
          (reduce set/union) ;; combine them into a single set
-         ))
-  
-  
-  #_(->> (filter keyword? (concat (take-while (complement (cond
-                                                            (isa? ident :owl/NamedIndividual)
-                                                            #{:owl/NamedIndividual :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
-
-                                                            (isa? ident :owl/Class)
-                                                            #{:owl/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
-
-                                                            (identical? ident :rdfs/Class)
-                                                            #{:rdfs/Resource}
-
-                                                            (identical? ident :rdfs/Resource)
-                                                            #{}
-
-                                                            :else
-                                                            #{:rdfs/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}))
-                                              (or classPrecedenceList
-                                                  (mop/compute-class-precedence-list class)))
-                                  (remove #{:rdfs/Resource} subClassOf)
-                                  equivalentClass))
-         (mapcat mop/class-direct-slots)
-         (remove (fn [{:db/keys [ident] :rdf/keys [type]}] (some #(isa? % :owl/AnnotationProperty) type)))
-         (filter (fn [{:rdfs/keys [domain] :as slot}]
-                   (some #(isa? ident %) domain)))
-         (group-by :db/ident)
-         (mapv #(mop/compute-effective-slot-definition class (key %) (val %)))))
+         )))
 
 (defmethod mop/slot-definition-initfunction :rdfs/Class
   [slot]
@@ -415,13 +347,10 @@
 (defmethod mop/change-class [Object :rdfs/Class]
   [instance new-class & {:as initargs}]
   (let [old-class (mop/class-of instance)
-        copy      @instance
         guts      (mop/allocate-instance new-class)
-        old-slots (keys copy)
-        new-slots (keys @guts)]
-    (alter-instance instance merge-with (fn [a b] a) @guts)
-    (mop/update-instance-for-different-class copy instance initargs)
-    instance))
+        old-slots (keys instance)
+        new-slots (keys guts)]
+    (mop/update-instance-for-different-class instance (merge-with (fn [a b] a) instance guts) initargs)))
 
 (defmethod mop/change-class [Object clojure.lang.Keyword]
   [instance new-class & {:as initargs}]
@@ -429,11 +358,11 @@
 
 (defmethod mop/add-dependent :rdfs/Class
   [metaobject dependent]
-  (alter-instance metaobject update :mop/dependents (fnil conj #{}) dependent))
+  (update metaobject :mop/dependents (fnil conj #{}) dependent))
 
 (defmethod mop/remove-dependent :rdfs/Class
   [metaobject dependent]
-  (alter-instance metaobject update :mop/dependents (fnil disj #{}) dependent))
+  (update metaobject :mop/dependents (fnil disj #{}) dependent))
 
 (defmethod mop/map-dependents :rdfs/Class
   [metaobject f]
@@ -731,3 +660,6 @@
   [class superclass]
   (some-> (mop/find-class class)
           (mop/validate-superclass superclass)))
+
+
+
