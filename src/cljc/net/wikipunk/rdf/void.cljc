@@ -275,7 +275,7 @@
 (def urn:uuid:e253dd21-441a-53a0-88df-3efcf173791d
   {:adms/accessURL "http://vocab.deri.ie/void.rdf",
    :adms/status    {:xsd/anyURI "http://purl.org/adms/status/Completed"},
-   :rdf/type       :adms/SemanticDistribution,
+   :rdf/type       :adms/AssetDistribution,
    :xsd/anyURI     "http://vocab.deri.ie/void#rdf"})
 
 (def urn:uuid:ea1be9b3-f5f6-56e2-be1f-60dfac5085c5
@@ -336,5 +336,5 @@
 (def urn:uuid:bde01748-7c2a-5667-b5c4-5c97bfb32b55
   {:adms/accessURL "http://vocab.deri.ie/void.ttl",
    :adms/status    {:xsd/anyURI "http://purl.org/adms/status/Completed"},
-   :rdf/type       :adms/SemanticDistribution,
+   :rdf/type       :adms/AssetDistribution,
    :xsd/anyURI     "http://vocab.deri.ie/void#ttl"})

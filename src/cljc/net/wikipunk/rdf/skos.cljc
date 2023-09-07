@@ -11,8 +11,8 @@
    #{"Nikki Rogers"
      "Participants in W3C's Semantic Web Deployment Working Group."
      "Dave Beckett"},
-   :dcterms/creator #{{:xsd/string "Sean Bechhofer"}
-                      {:xsd/string "Alistair Miles"}},
+   :dcterms/creator #{{:rdf/value "Sean Bechhofer"}
+                      {:rdf/value "Alistair Miles"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -505,8 +505,8 @@
    #{"Nikki Rogers"
      "Participants in W3C's Semantic Web Deployment Working Group."
      "Dave Beckett"},
-   :dcterms/creator #{{:xsd/string "Sean Bechhofer"}
-                      {:xsd/string "Alistair Miles"}},
+   :dcterms/creator #{{:rdf/value "Sean Bechhofer"}
+                      {:rdf/value "Alistair Miles"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

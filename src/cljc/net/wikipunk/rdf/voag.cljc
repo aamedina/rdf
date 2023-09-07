@@ -154,7 +154,7 @@
 
 (def Annually
   {:db/ident    :voag/Annually,
-   :dtype/value {:xsd/string "annual"},
+   :dtype/value {:rdf/value "annual"},
    :rdf/type    :voag/ChangeFrequency,
    :rdfs/label  "Annually"})
 
@@ -180,7 +180,7 @@
 
 (def ApprovedIssue
   {:db/ident    :voag/ApprovedIssue,
-   :dtype/value {:xsd/string "approved"},
+   :dtype/value {:rdf/value "approved"},
    :rdf/type    :voag/IssueStatus,
    :rdfs/label  "Approved Issue"})
 
@@ -264,19 +264,19 @@
 
 (def BiMonthly
   {:db/ident    :voag/BiMonthly,
-   :dtype/value {:xsd/string "bi-monthly"},
+   :dtype/value {:rdf/value "bi-monthly"},
    :rdf/type    :voag/ChangeFrequency,
    :rdfs/label  "Bi monthly"})
 
 (def BiQuarterly
   {:db/ident    :voag/BiQuarterly,
-   :dtype/value {:xsd/string "bi-quarterly"},
+   :dtype/value {:rdf/value "bi-quarterly"},
    :rdf/type    :voag/ChangeFrequency,
    :rdfs/label  "Bi quarterly"})
 
 (def BiWeekly
   {:db/ident    :voag/BiWeekly,
-   :dtype/value {:xsd/string "bi-weekly"},
+   :dtype/value {:rdf/value "bi-weekly"},
    :rdf/type    :voag/ChangeFrequency,
    :rdfs/label  "Bi-Weekly"})
 
@@ -501,7 +501,7 @@
   {:db/ident    :voag/CL_None,
    :dtype/code  0,
    :dtype/order 1,
-   :dtype/value {:xsd/string "none"},
+   :dtype/value {:rdf/value "none"},
    :rdf/type    :voag/ConfidentialityLevel,
    :rdfs/label  "None"})
 
@@ -509,7 +509,7 @@
   {:db/ident :voag/CL_Restricted,
    :dtype/code 1,
    :dtype/order 2,
-   :dtype/value {:xsd/string "restricted"},
+   :dtype/value {:rdf/value "restricted"},
    :rdf/type :voag/ConfidentialityLevel,
    :rdfs/label "Restricted",
    :vaem/description
@@ -521,7 +521,7 @@
   {:db/ident :voag/CL_Secret,
    :dtype/code 5,
    :dtype/order 6,
-   :dtype/value {:xsd/string "secret"},
+   :dtype/value {:rdf/value "secret"},
    :rdf/type :voag/ConfidentialityLevel,
    :rdfs/label "Secret",
    :vaem/description
@@ -533,7 +533,7 @@
   {:db/ident :voag/CL_SensitiveButUnclassified,
    :dtype/code 3,
    :dtype/order 4,
-   :dtype/value {:xsd/string "sbu"},
+   :dtype/value {:rdf/value "sbu"},
    :rdf/type :voag/ConfidentialityLevel,
    :rdfs/label "Sensitive but Unclassified",
    :vaem/description
@@ -545,7 +545,7 @@
   {:db/ident :voag/CL_TopSecret,
    :dtype/code 6,
    :dtype/order 7,
-   :dtype/value {:xsd/string "topsecret"},
+   :dtype/value {:rdf/value "topsecret"},
    :rdf/type :voag/ConfidentialityLevel,
    :rdfs/label "Top secret",
    :vaem/description
@@ -557,7 +557,7 @@
   {:db/ident :voag/CL_Unclassified,
    :dtype/code 2,
    :dtype/order 3,
-   :dtype/value {:xsd/string "unclassified"},
+   :dtype/value {:rdf/value "unclassified"},
    :rdf/type :voag/ConfidentialityLevel,
    :rdfs/label "Unclassified",
    :vaem/description
@@ -654,7 +654,7 @@
 
 (def ClosedIssue
   {:db/ident    :voag/ClosedIssue,
-   :dtype/value {:xsd/string "closed"},
+   :dtype/value {:rdf/value "closed"},
    :rdf/type    :voag/IssueStatus,
    :rdfs/label  "Closed"})
 
@@ -753,7 +753,7 @@
 
 (def DeferredIssue
   {:db/ident    :voag/DeferredIssue,
-   :dtype/value {:xsd/string "deferred"},
+   :dtype/value {:rdf/value "deferred"},
    :rdf/type    :voag/IssueStatus,
    :rdfs/label  "Deferred"})
 
@@ -1053,19 +1053,19 @@
 
 (def GR_Authorizer
   {:db/ident    :voag/GR_Authorizer,
-   :dtype/value {:xsd/string "authorizer"},
+   :dtype/value {:rdf/value "authorizer"},
    :rdf/type    :voag/GovernanceRole,
    :rdfs/label  "Authorizer"})
 
 (def GR_Steward
   {:db/ident    :voag/GR_Steward,
-   :dtype/value {:xsd/string "steward"},
+   :dtype/value {:rdf/value "steward"},
    :rdf/type    :voag/GovernanceRole,
    :rdfs/label  "Steward"})
 
 (def GR_Submitter
   {:db/ident    :voag/GR_Submitter,
-   :dtype/value {:xsd/string "submitter"},
+   :dtype/value {:rdf/value "submitter"},
    :rdf/type    :voag/GovernanceRole,
    :rdfs/label  "Submitter"})
 
@@ -1811,7 +1811,7 @@
 
 (def NonIssue
   {:db/ident    :voag/NonIssue,
-   :dtype/value {:xsd/string "non-issue"},
+   :dtype/value {:rdf/value "non-issue"},
    :rdf/type    :voag/IssueStatus,
    :rdfs/label  "Non-issue"})
 
@@ -1889,7 +1889,7 @@
 
 (def OpenIssue
   {:db/ident         :voag/OpenIssue,
-   :dtype/value      {:xsd/string "open"},
+   :dtype/value      {:rdf/value "open"},
    :rdf/type         :voag/IssueStatus,
    :rdfs/label       "Open",
    :vaem/description "An issue with undetermined disposition,",
@@ -1937,7 +1937,7 @@
 
 (def PS_Draft
   {:db/ident    :voag/PS_Draft,
-   :dtype/value {:xsd/string "draft"},
+   :dtype/value {:rdf/value "draft"},
    :rdf/type    :voag/PublicationStatus,
    :rdfs/label  "Draft Status"})
 
@@ -1948,55 +1948,55 @@
 
 (def PS_Interim
   {:db/ident    :voag/PS_Interim,
-   :dtype/value {:xsd/string "interim"},
+   :dtype/value {:rdf/value "interim"},
    :rdf/type    :voag/PublicationStatus,
    :rdfs/label  "Interim Status"})
 
 (def PS_Obsolete
   {:db/ident    :voag/PS_Obsolete,
-   :dtype/value {:xsd/string "obsolete"},
+   :dtype/value {:rdf/value "obsolete"},
    :rdf/type    :voag/PublicationStatus,
    :rdfs/label  "Obsolete"})
 
 (def PS_Review
   {:db/ident    :voag/PS_Review,
-   :dtype/value {:xsd/string "review"},
+   :dtype/value {:rdf/value "review"},
    :rdf/type    :voag/PublicationStatus,
    :rdfs/label  "Review"})
 
 (def PS_Unknown
   {:db/ident    :voag/PS_Unknown,
-   :dtype/value {:xsd/string "unknown"},
+   :dtype/value {:rdf/value "unknown"},
    :rdf/type    :voag/PublicationStatus,
    :rdfs/label  "Unknown Status"})
 
 (def PV_HighPriority
   {:db/ident    :voag/PV_HighPriority,
-   :dtype/value {:xsd/string "high"},
+   :dtype/value {:rdf/value "high"},
    :rdf/type    :voag/PriorityValue,
    :rdfs/label  "High priority"})
 
 (def PV_LowPriority
   {:db/ident    :voag/PV_LowPriority,
-   :dtype/value {:xsd/string "low"},
+   :dtype/value {:rdf/value "low"},
    :rdf/type    :voag/PriorityValue,
    :rdfs/label  "Low priority"})
 
 (def PV_MediumPriority
   {:db/ident    :voag/PV_MediumPriority,
-   :dtype/value {:xsd/string "medium"},
+   :dtype/value {:rdf/value "medium"},
    :rdf/type    :voag/PriorityValue,
    :rdfs/label  "Medium priority"})
 
 (def PV_NotApplicable
   {:db/ident    :voag/PV_NotApplicable,
-   :dtype/value {:xsd/string "na"},
+   :dtype/value {:rdf/value "na"},
    :rdf/type    :voag/PriorityValue,
    :rdfs/label  "Not Applicable"})
 
 (def PV_ToBeDetermined
   {:db/ident    :voag/PV_ToBeDetermined,
-   :dtype/value {:xsd/string "tbd"},
+   :dtype/value {:rdf/value "tbd"},
    :rdf/type    :voag/PriorityValue,
    :rdfs/label  "TBD"})
 
@@ -2247,7 +2247,7 @@
 
 (def ResolvedIssue
   {:db/ident    :voag/ResolvedIssue,
-   :dtype/value {:xsd/string "resolved"},
+   :dtype/value {:rdf/value "resolved"},
    :rdf/type    :voag/IssueStatus,
    :rdfs/label  "Resolved"})
 

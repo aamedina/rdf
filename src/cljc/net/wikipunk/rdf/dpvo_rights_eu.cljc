@@ -18,7 +18,7 @@
     "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"},
    :dcterms/contributor "Harshvardhan J. Pandit",
    :dcterms/created #inst "2022-08-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -39,7 +39,7 @@
 (def A1-HumanDignity
   {:db/ident         :dpvo-rights-eu/A1-HumanDignity,
    :dcterms/created  #inst "2022-06-24T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T1-Dignity :owl/NamedIndividual
@@ -53,7 +53,7 @@
 (def A10-FreedomOfThoughtConscienceReligion
   {:db/ident         :dpvo-rights-eu/A10-FreedomOfThoughtConscienceReligion,
    :dcterms/created  #inst "2022-07-04T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -67,7 +67,7 @@
 (def A11-FreedomOfExpressionInformation
   {:db/ident         :dpvo-rights-eu/A11-FreedomOfExpressionInformation,
    :dcterms/created  #inst "2022-07-05T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -81,7 +81,7 @@
 (def A12-FreedomOfAssemblyAssociation
   {:db/ident         :dpvo-rights-eu/A12-FreedomOfAssemblyAssociation,
    :dcterms/created  #inst "2022-07-06T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -95,7 +95,7 @@
 (def A13-FreedomOfArtsSciences
   {:db/ident         :dpvo-rights-eu/A13-FreedomOfArtsSciences,
    :dcterms/created  #inst "2022-07-07T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -109,7 +109,7 @@
 (def A14-RightToEducation
   {:db/ident         :dpvo-rights-eu/A14-RightToEducation,
    :dcterms/created  #inst "2022-07-08T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -123,7 +123,7 @@
 (def A15-FreedomToChooseOccupationEngageWork
   {:db/ident         :dpvo-rights-eu/A15-FreedomToChooseOccupationEngageWork,
    :dcterms/created  #inst "2022-07-09T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -138,7 +138,7 @@
 (def A16-FreedomToConductBusiness
   {:db/ident         :dpvo-rights-eu/A16-FreedomToConductBusiness,
    :dcterms/created  #inst "2022-07-10T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -152,7 +152,7 @@
 (def A17-RightToProperty
   {:db/ident         :dpvo-rights-eu/A17-RightToProperty,
    :dcterms/created  #inst "2022-07-11T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -166,7 +166,7 @@
 (def A18-RightToAsylum
   {:db/ident         :dpvo-rights-eu/A18-RightToAsylum,
    :dcterms/created  #inst "2022-07-12T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -180,7 +180,7 @@
 (def A19-ProtectionRemovalExpulsionExtradition
   {:db/ident         :dpvo-rights-eu/A19-ProtectionRemovalExpulsionExtradition,
    :dcterms/created  #inst "2022-07-13T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -195,7 +195,7 @@
 (def A2-RightToLife
   {:db/ident         :dpvo-rights-eu/A2-RightToLife,
    :dcterms/created  #inst "2022-06-25T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T1-Dignity :owl/NamedIndividual
@@ -209,7 +209,7 @@
 (def A20-EqualityBeforeLaw
   {:db/ident         :dpvo-rights-eu/A20-EqualityBeforeLaw,
    :dcterms/created  #inst "2022-07-15T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -223,7 +223,7 @@
 (def A21-NonDiscrimination
   {:db/ident         :dpvo-rights-eu/A21-NonDiscrimination,
    :dcterms/created  #inst "2022-07-16T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -237,7 +237,7 @@
 (def A22-CulturalReligiousLinguisticDiversity
   {:db/ident         :dpvo-rights-eu/A22-CulturalReligiousLinguisticDiversity,
    :dcterms/created  #inst "2022-07-17T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -251,7 +251,7 @@
 (def A23-EqualityBetweenWomenMen
   {:db/ident         :dpvo-rights-eu/A23-EqualityBetweenWomenMen,
    :dcterms/created  #inst "2022-07-18T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -265,7 +265,7 @@
 (def A24-RightsOfChild
   {:db/ident         :dpvo-rights-eu/A24-RightsOfChild,
    :dcterms/created  #inst "2022-07-19T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -279,7 +279,7 @@
 (def A25-RightsOfElderly
   {:db/ident         :dpvo-rights-eu/A25-RightsOfElderly,
    :dcterms/created  #inst "2022-07-20T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -293,7 +293,7 @@
 (def A26-IntegrationOfPersonsWithDisabilities
   {:db/ident         :dpvo-rights-eu/A26-IntegrationOfPersonsWithDisabilities,
    :dcterms/created  #inst "2022-07-21T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T3-Equality :owl/NamedIndividual
@@ -308,7 +308,7 @@
 (def A27-WorkersRightToInformationConsultation
   {:db/ident         :dpvo-rights-eu/A27-WorkersRightToInformationConsultation,
    :dcterms/created  #inst "2022-07-23T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -323,7 +323,7 @@
 (def A28-RightOfCollectiveBargainingAction
   {:db/ident         :dpvo-rights-eu/A28-RightOfCollectiveBargainingAction,
    :dcterms/created  #inst "2022-07-24T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -337,7 +337,7 @@
 (def A29-RightOfAccessToPlacementServices
   {:db/ident         :dpvo-rights-eu/A29-RightOfAccessToPlacementServices,
    :dcterms/created  #inst "2022-07-25T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -351,7 +351,7 @@
 (def A3-RightToIntegrityOfPerson
   {:db/ident         :dpvo-rights-eu/A3-RightToIntegrityOfPerson,
    :dcterms/created  #inst "2022-06-26T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T1-Dignity :owl/NamedIndividual
@@ -365,7 +365,7 @@
 (def A30-ProtectionUnjustifiedDismissal
   {:db/ident         :dpvo-rights-eu/A30-ProtectionUnjustifiedDismissal,
    :dcterms/created  #inst "2022-07-26T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -379,7 +379,7 @@
 (def A31-FairJustWorkingConditions
   {:db/ident         :dpvo-rights-eu/A31-FairJustWorkingConditions,
    :dcterms/created  #inst "2022-07-27T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -394,7 +394,7 @@
   {:db/ident
    :dpvo-rights-eu/A32-ProhibitionOfChildLabourProtectionofYoungAtWork,
    :dcterms/created #inst "2022-07-28T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -409,7 +409,7 @@
 (def A33-FamilyProfessionalLife
   {:db/ident         :dpvo-rights-eu/A33-FamilyProfessionalLife,
    :dcterms/created  #inst "2022-07-29T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -423,7 +423,7 @@
 (def A34-SocialSecuritySocialAssistance
   {:db/ident         :dpvo-rights-eu/A34-SocialSecuritySocialAssistance,
    :dcterms/created  #inst "2022-07-30T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -437,7 +437,7 @@
 (def A35-Healthcare
   {:db/ident         :dpvo-rights-eu/A35-Healthcare,
    :dcterms/created  #inst "2022-07-31T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -451,7 +451,7 @@
 (def A36-AccessToServicesOfGeneralEconomicInterest
   {:db/ident :dpvo-rights-eu/A36-AccessToServicesOfGeneralEconomicInterest,
    :dcterms/created #inst "2022-08-01T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -466,7 +466,7 @@
 (def A37-EnvironmentalProtection
   {:db/ident         :dpvo-rights-eu/A37-EnvironmentalProtection,
    :dcterms/created  #inst "2022-08-02T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -480,7 +480,7 @@
 (def A38-ConsumerProtection
   {:db/ident         :dpvo-rights-eu/A38-ConsumerProtection,
    :dcterms/created  #inst "2022-08-03T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T4-Solidarity :owl/NamedIndividual
@@ -494,7 +494,7 @@
 (def A39-RightToVoteStandAsCanditateEUParliament
   {:db/ident :dpvo-rights-eu/A39-RightToVoteStandAsCanditateEUParliament,
    :dcterms/created #inst "2022-08-05T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -509,7 +509,7 @@
 (def A4-ProhibitionOfTortureDegradationPunishment
   {:db/ident :dpvo-rights-eu/A4-ProhibitionOfTortureDegradationPunishment,
    :dcterms/created #inst "2022-06-27T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T1-Dignity :owl/NamedIndividual
@@ -523,7 +523,7 @@
 (def A40-RightToVoteStandAsCandidateMunicipalElections
   {:db/ident :dpvo-rights-eu/A40-RightToVoteStandAsCandidateMunicipalElections,
    :dcterms/created #inst "2022-08-06T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -538,7 +538,7 @@
 (def A41-RightToGoodAdministration
   {:db/ident         :dpvo-rights-eu/A41-RightToGoodAdministration,
    :dcterms/created  #inst "2022-08-07T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -552,7 +552,7 @@
 (def A42-RightToAccessToDocuments
   {:db/ident         :dpvo-rights-eu/A42-RightToAccessToDocuments,
    :dcterms/created  #inst "2022-08-08T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -566,7 +566,7 @@
 (def A43-EuropeanOmbudsman
   {:db/ident         :dpvo-rights-eu/A43-EuropeanOmbudsman,
    :dcterms/created  #inst "2022-08-09T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -580,7 +580,7 @@
 (def A44-RightToPetition
   {:db/ident         :dpvo-rights-eu/A44-RightToPetition,
    :dcterms/created  #inst "2022-08-10T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -594,7 +594,7 @@
 (def A45-FreedomOfMovementAndResidence
   {:db/ident         :dpvo-rights-eu/A45-FreedomOfMovementAndResidence,
    :dcterms/created  #inst "2022-08-11T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -608,7 +608,7 @@
 (def A46-DiplomaticConsularProtection
   {:db/ident         :dpvo-rights-eu/A46-DiplomaticConsularProtection,
    :dcterms/created  #inst "2022-08-12T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T5-CitizensRights :owl/NamedIndividual
@@ -622,7 +622,7 @@
 (def A47-RightToEffectiveRemedyFairTrial
   {:db/ident         :dpvo-rights-eu/A47-RightToEffectiveRemedyFairTrial,
    :dcterms/created  #inst "2022-08-14T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T6-Justice :owl/NamedIndividual
@@ -636,7 +636,7 @@
 (def A48-PresumptionOfInnocenceRightOfDefence
   {:db/ident         :dpvo-rights-eu/A48-PresumptionOfInnocenceRightOfDefence,
    :dcterms/created  #inst "2022-08-15T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T6-Justice :owl/NamedIndividual
@@ -652,7 +652,7 @@
   {:db/ident
    :dpvo-rights-eu/A49-PrinciplesOfLegalityProportionalityCriminalOffencesPenalties,
    :dcterms/created #inst "2022-08-16T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T6-Justice :owl/NamedIndividual
@@ -668,7 +668,7 @@
 (def A5-ProhibitionOfSlaveryForcedLabour
   {:db/ident         :dpvo-rights-eu/A5-ProhibitionOfSlaveryForcedLabour,
    :dcterms/created  #inst "2022-06-28T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T1-Dignity :owl/NamedIndividual
@@ -683,7 +683,7 @@
   {:db/ident
    :dpvo-rights-eu/A50-RightNotBeTriedPunishedTwiceForSameCriminalOffence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source {:xsd/anyURI
                     "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type #{:dpvo-rights-eu/T6-Justice :owl/NamedIndividual
@@ -699,7 +699,7 @@
 (def A51-FieldOfApplication
   {:db/ident         :dpvo-rights-eu/A51-FieldOfApplication,
    :dcterms/created  #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T7-InterpretationAndApplication
@@ -714,7 +714,7 @@
 (def A52-ScopeInterpretationOfRightsPrinciples
   {:db/ident         :dpvo-rights-eu/A52-ScopeInterpretationOfRightsPrinciples,
    :dcterms/created  #inst "2022-08-20T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T7-InterpretationAndApplication
@@ -730,7 +730,7 @@
 (def A53-LevelOfProtection
   {:db/ident         :dpvo-rights-eu/A53-LevelOfProtection,
    :dcterms/created  #inst "2022-08-21T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T7-InterpretationAndApplication
@@ -745,7 +745,7 @@
 (def A54-ProhibitionOfAbuseOfRights
   {:db/ident         :dpvo-rights-eu/A54-ProhibitionOfAbuseOfRights,
    :dcterms/created  #inst "2022-08-22T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T7-InterpretationAndApplication
@@ -760,7 +760,7 @@
 (def A6-RightToLiberySecurity
   {:db/ident         :dpvo-rights-eu/A6-RightToLiberySecurity,
    :dcterms/created  #inst "2022-06-30T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -774,7 +774,7 @@
 (def A7-RespectPrivateFamilyLife
   {:db/ident         :dpvo-rights-eu/A7-RespectPrivateFamilyLife,
    :dcterms/created  #inst "2022-07-01T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -788,7 +788,7 @@
 (def A8-ProtectionOfPersonalData
   {:db/ident         :dpvo-rights-eu/A8-ProtectionOfPersonalData,
    :dcterms/created  #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -802,7 +802,7 @@
 (def A9-RightToMarryFoundFamily
   {:db/ident         :dpvo-rights-eu/A9-RightToMarryFoundFamily,
    :dcterms/created  #inst "2022-07-03T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         #{:dpvo-rights-eu/T2-Freedoms :owl/NamedIndividual
@@ -816,7 +816,7 @@
 (def EUFundamentalRights
   {:db/ident         :dpvo-rights-eu/EUFundamentalRights,
    :dcterms/created  #inst "2022-06-22T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -830,7 +830,7 @@
 (def T1-Dignity
   {:db/ident         :dpvo-rights-eu/T1-Dignity,
    :dcterms/created  #inst "2022-06-23T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -844,7 +844,7 @@
 (def T2-Freedoms
   {:db/ident         :dpvo-rights-eu/T2-Freedoms,
    :dcterms/created  #inst "2022-06-29T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -858,7 +858,7 @@
 (def T3-Equality
   {:db/ident         :dpvo-rights-eu/T3-Equality,
    :dcterms/created  #inst "2022-07-14T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -872,7 +872,7 @@
 (def T4-Solidarity
   {:db/ident         :dpvo-rights-eu/T4-Solidarity,
    :dcterms/created  #inst "2022-07-22T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -886,7 +886,7 @@
 (def T5-CitizensRights
   {:db/ident         :dpvo-rights-eu/T5-CitizensRights,
    :dcterms/created  #inst "2022-08-04T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -900,7 +900,7 @@
 (def T6-Justice
   {:db/ident         :dpvo-rights-eu/T6-Justice,
    :dcterms/created  #inst "2022-08-13T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -914,7 +914,7 @@
 (def T7-InterpretationAndApplication
   {:db/ident         :dpvo-rights-eu/T7-InterpretationAndApplication,
    :dcterms/created  #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator  {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator  {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/source   {:xsd/anyURI
                       "http://data.europa.eu/eli/treaty/char_2012/oj"},
    :rdf/type         :owl/Class,
@@ -928,7 +928,7 @@
 (def hasDeveloper
   {:db/ident            :dpvo-rights-eu/hasDeveloper,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology developer"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -945,7 +945,7 @@
 (def hasProvider
   {:db/ident            :dpvo-rights-eu/hasProvider,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology provider"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -962,7 +962,7 @@
 (def hasSubject
   {:db/ident            :dpvo-rights-eu/hasSubject,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology subject"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -979,7 +979,7 @@
 (def hasUser
   {:db/ident            :dpvo-rights-eu/hasUser,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology user"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -1000,7 +1000,7 @@
     "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"},
    :dcterms/contributor "Harshvardhan J. Pandit",
    :dcterms/created #inst "2022-08-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

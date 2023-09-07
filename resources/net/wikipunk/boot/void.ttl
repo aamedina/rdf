@@ -72,11 +72,11 @@
         ]
     ] .
 
-<http://vocab.deri.ie/void#ttl> a adms:SemanticDistribution;
+<http://vocab.deri.ie/void#ttl> a adms:AssetDistribution;
     adms:accessURL "http://vocab.deri.ie/void.ttl";
     adms:status <http://purl.org/adms/status/Completed> .
 
-<http://vocab.deri.ie/void#rdf> a adms:SemanticDistribution;
+<http://vocab.deri.ie/void#rdf> a adms:AssetDistribution;
     adms:accessURL "http://vocab.deri.ie/void.rdf";
     adms:status <http://purl.org/adms/status/Completed> .
 

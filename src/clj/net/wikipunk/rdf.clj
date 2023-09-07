@@ -39,8 +39,7 @@
    [net.wikipunk.rdf.rdfa]
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
-   [net.wikipunk.rdf.mop]
-   [net.wikipunk.asami])
+   [net.wikipunk.rdf.mop])
   (:import
    (com.github.packageurl PackageURL)
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -310,12 +309,8 @@
                                    {} @v)
                         +props+)))))
   ([env]
-   (all-ns-metaobjects)))
-
-(defmulti find-classes
-  "Given an environment return all instances of :rdfs/Class."
-  {:arglists '([env])}
-  mop/type-of)
+   (->> (asami/q '[:find [?ident ...] :where [?e :db/ident ?ident]] env)
+        (pmap (fn [ident] (asami/entity env ident))))))
 
 (defn make-class-hierarchy
   "The make-class-hierarchy function creates a hierarchy of classes
@@ -547,19 +542,17 @@
 
 (declare iri)
 
-(defrecord UniversalTranslator [counter bnode-cache namespaces ; raphael/NodeGenerator
-                                ns-prefix ; used to name the Clojure namespace when emitting 
+(defrecord UniversalTranslator [ns-prefix ; used to name the Clojure namespace when emitting 
                                 output-to ; used to configure the default path where namespaces are emitted
                                 context ; used to declare what namespaces should be in the boot context
                                 env ; the environment is where metaobjects are resolved
-                                gen ; Raphael node generator
                                 ]
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *output-to* (or output-to *output-to*)]
       (require 'net.wikipunk.mop.init)
-      (let [all                           (all-ns-metaobjects env)
+      (let [all                           (all-ns-metaobjects)
             {:keys [registry ns-aliases]} (make-boot-context)
             hierarchies                   (make-hierarchies all)
             gen                           (atom nil)]
@@ -569,44 +562,10 @@
         (alter-var-root #'*metaobjects* (constantly hierarchies))
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         (alter-var-root #'mop/*env* (constantly env))
-        (assoc this :gen gen))))
+        this)))
   (stop [this]
     (alter-var-root #'mop/*env* (constantly nil))
-    this)
-
-  raphael/NodeGenerator
-  (new-node [this]
-    (swap! @gen raphael/new-node))
-  (new-node [this label]
-    (swap! @gen raphael/new-node label))
-  (add-base [this iri]
-    (swap! gen update :namespaces assoc :base (str iri)))
-  (add-prefix [this prefix iri]    
-    (swap! gen update :namespaces assoc prefix (str iri)))
-  (iri-for [_ prefix]
-    (raphael/iri-for @gen prefix))
-  (get-namespaces [_]
-    (raphael/get-namespaces @gen))
-  (get-base [_]
-    (raphael/get-base @gen))
-  (new-qname [_ prefix local]
-    (raphael/new-qname @gen prefix local))
-  (new-iri [_ iri]
-    (raphael/new-iri @gen iri))
-  (new-literal [_ s]
-    (raphael/new-literal @gen s))
-  (new-literal [_ s t]
-    (raphael/new-literal @gen s t))
-  (new-lang-string [_ s lang]
-    (raphael/new-lang-string @gen s lang))
-  (rdf-type [_]
-    (raphael/rdf-type @gen))
-  (rdf-first [_]
-    (raphael/rdf-first @gen))
-  (rdf-rest [_]
-    (raphael/rdf-rest @gen))
-  (rdf-nil [this]
-    (raphael/rdf-nil @gen)))
+    this))
 
 (defmethod emit UniversalTranslator
   [{:keys [ns-prefix output-to context]} arg-map]
@@ -1005,8 +964,8 @@
             (PackageURL. s)
             {:xsd/anyURI s}
             (catch com.github.packageurl.MalformedPackageURLException ex
-              (throw (ex-info (.getMessage ex) {:xsd/string s}))))
-          {:xsd/string s}))))
+              (throw (ex-info (.getMessage ex) {:rdf/value s}))))
+          {:rdf/value s}))))
 
   clojure.lang.Sequential
   (box [xs]

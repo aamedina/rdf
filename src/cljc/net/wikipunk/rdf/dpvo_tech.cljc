@@ -18,7 +18,7 @@
    :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
                           "Paul Ryan"},
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -41,7 +41,7 @@
 (def Algorithmic
   {:db/ident            :dpvo-tech/Algorithmic,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology provided as an algorithm or method"},
@@ -56,7 +56,7 @@
 (def Application
   {:db/ident            :dpvo-tech/Application,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "A computing or digital program"},
    :rdf/type            :owl/Class,
@@ -70,7 +70,7 @@
 (def Bluetooth
   {:db/ident            :dpvo-tech/Bluetooth,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology utilising bluetooth communication"},
@@ -85,7 +85,7 @@
 (def CellularNetwork
   {:db/ident :dpvo-tech/CellularNetwork,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Technology utilising cellular networking communication"},
@@ -100,7 +100,7 @@
 (def CommunicationMechanism
   {:db/ident :dpvo-tech/CommunicationMechanism,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Communication mechanism used or provided by Technologoy"},
@@ -114,7 +114,7 @@
 (def Component
   {:db/ident            :dpvo-tech/Component,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology provided as a component"},
    :rdf/type            #{:dpvo-tech/TechnologyProvisionMethod
@@ -128,7 +128,7 @@
 (def Cookie
   {:db/ident            :dpvo-tech/Cookie,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "A HTTP or web or internet cookie"},
    :rdf/type            :owl/Class,
@@ -142,7 +142,7 @@
 (def CovertSurveillanceTechnology
   {:db/ident :dpvo-tech/CovertSurveillanceTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -162,7 +162,7 @@
 (def DataCopyingTechnology
   {:db/ident            :dpvo-tech/DataCopyingTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology related to copying data"},
    :rdf/type            :owl/Class,
@@ -176,7 +176,7 @@
 (def DataDisclosureTechnology
   {:db/ident            :dpvo-tech/DataDisclosureTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology related to disclosing data"},
    :rdf/type            :owl/Class,
@@ -190,7 +190,7 @@
 (def DataManagementTechnology
   {:db/ident            :dpvo-tech/DataManagementTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Technology related to management of data"},
    :rdf/type            :owl/Class,
@@ -205,7 +205,7 @@
 (def DataObtainingTechnology
   {:db/ident            :dpvo-tech/DataObtainingTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology related to obtain data"},
    :rdf/type            :owl/Class,
@@ -219,7 +219,7 @@
 (def DataOrganisingTechnology
   {:db/ident            :dpvo-tech/DataOrganisingTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology realted to organising data"},
    :rdf/type            :owl/Class,
@@ -233,7 +233,7 @@
 (def DataRemovalTechnology
   {:db/ident            :dpvo-tech/DataRemovalTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology related to removing data"},
    :rdf/type            :owl/Class,
@@ -247,7 +247,7 @@
 (def DataSecurityTechnology
   {:db/ident            :dpvo-tech/DataSecurityTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Technology related to security of data"},
    :rdf/type            :owl/Class,
@@ -262,7 +262,7 @@
 (def DataStorageTechnology
   {:db/ident            :dpvo-tech/DataStorageTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology related to storing data"},
    :rdf/type            :owl/Class,
@@ -276,7 +276,7 @@
 (def DataTechnology
   {:db/ident            :dpvo-tech/DataTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology that uses or interacts with data"},
@@ -291,7 +291,7 @@
 (def DataTransferTechnology
   {:db/ident            :dpvo-tech/DataTransferTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Technology related to transfering data"},
    :rdf/type            :owl/Class,
@@ -305,7 +305,7 @@
 (def DataTransformationTechnology
   {:db/ident            :dpvo-tech/DataTransformationTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Technology related to transforming data"},
    :rdf/type            :owl/Class,
@@ -319,7 +319,7 @@
 (def DataUsageTechnology
   {:db/ident            :dpvo-tech/DataUsageTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology related to using data"},
    :rdf/type            :owl/Class,
@@ -333,7 +333,7 @@
 (def Database
   {:db/ident :dpvo-tech/Database,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -349,9 +349,9 @@
 (def DetectionSecurityTechnology
   {:db/ident :dpvo-tech/DetectionSecurityTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Georg P Krog"}
-                      {:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}
+                      {:rdf/value "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -367,7 +367,7 @@
 (def FileSystem
   {:db/ident :dpvo-tech/FileSystem,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -383,7 +383,7 @@
 (def FixedUse
   {:db/ident            :dpvo-tech/FixedUse,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology that can be used a fixed numner of times"},
@@ -398,7 +398,7 @@
 (def GPS
   {:db/ident            :dpvo-tech/GPS,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Technology utilising GPS communication"},
    :rdf/type            :owl/Class,
@@ -412,7 +412,7 @@
 (def Goods
   {:db/ident            :dpvo-tech/Goods,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology provided or used as goods"},
    :rdf/type            #{:dpvo-tech/TechnologyProvisionMethod
@@ -426,7 +426,7 @@
 (def IdentityManagementTechnology
   {:db/ident :dpvo-tech/IdentityManagementTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -443,7 +443,7 @@
 (def IdentityTechnology
   {:db/ident            :dpvo-tech/IdentityTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology related to identity or identifiers"},
@@ -458,7 +458,7 @@
 (def IdentityWallet
   {:db/ident :dpvo-tech/IdentityWallet,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -475,7 +475,7 @@
 (def Internet
   {:db/ident            :dpvo-tech/Internet,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology utilising internet communication"},
@@ -490,7 +490,7 @@
 (def LocalNetwork
   {:db/ident            :dpvo-tech/LocalNetwork,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology utilising local networking communication"},
@@ -505,7 +505,7 @@
 (def ManagementTechnology
   {:db/ident            :dpvo-tech/ManagementTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology that enables or provides management"},
@@ -520,9 +520,9 @@
 (def MitigationSecurityTechnology
   {:db/ident :dpvo-tech/MitigationSecurityTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Georg P Krog"}
-                      {:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}
+                      {:rdf/value "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -538,9 +538,9 @@
 (def MonitoringSecurityTechnology
   {:db/ident :dpvo-tech/MonitoringSecurityTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Georg P Krog"}
-                      {:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}
+                      {:rdf/value "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -556,7 +556,7 @@
 (def Networking
   {:db/ident            :dpvo-tech/Networking,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology utilising networking communication"},
@@ -571,7 +571,7 @@
 (def OperationDevice
   {:db/ident :dpvo-tech/OperationDevice,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -587,7 +587,7 @@
 (def OperationEnvironment
   {:db/ident :dpvo-tech/OperationEnvironment,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -603,7 +603,7 @@
 (def OperationManagement
   {:db/ident            :dpvo-tech/OperationManagement,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology that manages operations"},
    :rdf/type            :owl/Class,
@@ -617,7 +617,7 @@
 (def OperationalTechnology
   {:db/ident :dpvo-tech/OperationalTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -633,7 +633,7 @@
 (def OvertSurveillanceTechnology
   {:db/ident :dpvo-tech/OvertSurveillanceTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -651,9 +651,9 @@
 (def PET
   {:db/ident :dpvo-tech/PET,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Georg P Krog"}
-                      {:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}
+                      {:rdf/value "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -669,7 +669,7 @@
 (def PersonalInformationManagementSystem
   {:db/ident :dpvo-tech/PersonalInformationManagementSystem,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -685,9 +685,9 @@
 (def PreventionSecurityTechnology
   {:db/ident :dpvo-tech/PreventionSecurityTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Georg P Krog"}
-                      {:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Paul Ryan"} {:xsd/string "Julian Flake"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}
+                      {:rdf/value "Julian Flake"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -703,7 +703,7 @@
 (def Product
   {:db/ident            :dpvo-tech/Product,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Technology that is provided as a product"},
    :rdf/type            #{:dpvo-tech/TechnologyProvisionMethod
@@ -717,10 +717,9 @@
 (def SecurityManagementTechnology
   {:db/ident            :dpvo-tech/SecurityManagementTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}
-                          {:xsd/string "Paul Ryan"}
-                          {:xsd/string "Julian Flake"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}
+                          {:rdf/value "Julian Flake"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology related to management of security"},
@@ -736,7 +735,7 @@
 (def SecurityTechnology
   {:db/ident            :dpvo-tech/SecurityTechnology,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology that enables or provides security"},
@@ -751,7 +750,7 @@
 (def Service
   {:db/ident            :dpvo-tech/Service,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Technology provided or used as service(s)"},
@@ -769,7 +768,7 @@
 (def SmartphoneApplication
   {:db/ident :dpvo-tech/SmartphoneApplication,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A computing or digital program on a smartphone device"},
@@ -784,7 +783,7 @@
 (def Subscription
   {:db/ident :dpvo-tech/Subscription,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -799,7 +798,7 @@
 (def SurveillanceTechnology
   {:db/ident :dpvo-tech/SurveillanceTechnology,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Technology related to surveillance of individuals or people"},
@@ -814,7 +813,7 @@
 (def SystemClass
   {:db/ident            :dpvo-tech/System,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Technology provided as a system"},
    :rdf/type            #{:dpvo-tech/TechnologyProvisionMethod
@@ -828,7 +827,7 @@
 (def TechnologyActor
   {:db/ident :dpvo-tech/TechnologyActor,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -844,7 +843,7 @@
 (def TechnologyDeveloper
   {:db/ident            :dpvo-tech/TechnologyDeveloper,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Actor that develops Technology"},
    :rdf/type            :owl/Class,
@@ -858,7 +857,7 @@
 (def TechnologyProvider
   {:db/ident            :dpvo-tech/TechnologyProvider,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Actor that provides Technology"},
    :rdf/type            :owl/Class,
@@ -872,7 +871,7 @@
 (def TechnologyProvisionMethod
   {:db/ident :dpvo-tech/TechnologyProvisionMethod,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Method associated with provision or use of technology"},
@@ -886,7 +885,7 @@
 (def TechnologyReadinessLevel
   {:db/ident :dpvo-tech/TechnologyReadinessLevel,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Indication of maturity of Technology (ISO 16290:2013)"},
@@ -901,7 +900,7 @@
 (def TechnologySubject
   {:db/ident            :dpvo-tech/TechnologySubject,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Actor that is subject of use of Technology"},
@@ -916,7 +915,7 @@
 (def TechnologyUsageLocation
   {:db/ident            :dpvo-tech/TechnologyUsageLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Location for where technology is provided or used"},
@@ -931,7 +930,7 @@
 (def TechnologyUser
   {:db/ident            :dpvo-tech/TechnologyUser,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Actor that uses Technologoy"},
    :rdf/type            :owl/Class,
@@ -945,7 +944,7 @@
 (def WiFi
   {:db/ident :dpvo-tech/WiFi,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Technology utilising wifi wireless networking communication"},
@@ -960,7 +959,7 @@
 (def hasCommunicationMechanism
   {:db/ident :dpvo-tech/hasCommunicationMechanism,
    :dcterms/created #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -977,7 +976,7 @@
 (def hasDeveloper
   {:db/ident            :dpvo-tech/hasDeveloper,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology developer"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -994,7 +993,7 @@
 (def hasProvider
   {:db/ident            :dpvo-tech/hasProvider,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology provider"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -1011,7 +1010,7 @@
 (def hasProvisionMethod
   {:db/ident :dpvo-tech/hasProvisionMethod,
    :dcterms/created #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Specifies the provision or usage method of technology"},
@@ -1027,7 +1026,7 @@
 (def hasSubject
   {:db/ident            :dpvo-tech/hasSubject,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology subject"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -1044,7 +1043,7 @@
 (def hasTRL
   {:db/ident            :dpvo-tech/hasTRL,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology maturity level"},
    :rdf/type            #{:owl/ObjectProperty :rdf/Property},
@@ -1059,7 +1058,7 @@
 (def hasTechnologyActor
   {:db/ident            :dpvo-tech/hasTechnologyActor,
    :dcterms/created     #inst "2022-10-21T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Indicates an actor associated with technology"},
@@ -1075,7 +1074,7 @@
 (def hasUser
   {:db/ident            :dpvo-tech/hasUser,
    :dcterms/created     #inst "2022-07-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Indicates technology user"},
    :dcterms/modified    #inst "2022-10-21T00:00:00.000-00:00",
@@ -1097,7 +1096,7 @@
    :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
                           "Paul Ryan"},
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

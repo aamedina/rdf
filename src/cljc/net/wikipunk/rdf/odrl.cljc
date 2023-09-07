@@ -16,8 +16,8 @@
   {:dcterms/contributor
    "W3C Permissions & Obligations Expression Working Group",
    :dcterms/creator
-   #{{:xsd/string "Víctor Rodríguez-Doncel"} {:xsd/string "Stuart Myles"}
-     {:xsd/string "Michael Steidl"} {:xsd/string "Renato Iannella"}},
+   #{{:rdf/value "Renato Iannella"} {:rdf/value "Michael Steidl"}
+     {:rdf/value "Víctor Rodríguez-Doncel"} {:rdf/value "Stuart Myles"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3380,8 +3380,8 @@
   {:dcterms/contributor
    "W3C Permissions & Obligations Expression Working Group",
    :dcterms/creator
-   #{{:xsd/string "Víctor Rodríguez-Doncel"} {:xsd/string "Stuart Myles"}
-     {:xsd/string "Michael Steidl"} {:xsd/string "Renato Iannella"}},
+   #{{:rdf/value "Renato Iannella"} {:rdf/value "Michael Steidl"}
+     {:rdf/value "Víctor Rodríguez-Doncel"} {:rdf/value "Stuart Myles"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

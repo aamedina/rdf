@@ -16,7 +16,7 @@
    :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit"
                           "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
    :dcterms/created #inst "2022-08-14T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -37,7 +37,7 @@
 (def ACSC-ISM
   {:db/ident :dpvo-risk/ACSC-ISM,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -55,7 +55,7 @@
 (def ALARA
   {:db/ident :dpvo-risk/ALARA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -73,7 +73,7 @@
 (def ALARP
   {:db/ident :dpvo-risk/ALARP,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -91,7 +91,7 @@
 (def ANSI-ISA-62443-3‑2-2020
   {:db/ident :dpvo-risk/ANSI-ISA-62443-3‑2-2020,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -109,7 +109,7 @@
 (def AbusiveContentUtilisation
   {:db/ident :dpvo-risk/AbusiveContentUtilisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -126,7 +126,7 @@
 (def AttackonPrivateLife
   {:db/ident            :dpvo-risk/AttackonPrivateLife,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -141,7 +141,7 @@
 (def AuthorisationFailure
   {:db/ident :dpvo-risk/AuthorisationFailure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -158,7 +158,7 @@
 (def AvoidSource
   {:db/ident            :dpvo-risk/AvoidSource,
    :dcterms/created     #inst "2022-08-21T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Risk Control that avoids the risk source"},
    :rdf/type            :owl/Class,
@@ -172,7 +172,7 @@
 (def BSI-200-2
   {:db/ident :dpvo-risk/BSI-200-2,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -190,7 +190,7 @@
 (def BayesianAnalysis
   {:db/ident :dpvo-risk/BayesianAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -207,7 +207,7 @@
 (def BayesianNetworks
   {:db/ident :dpvo-risk/BayesianNetworks,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -224,7 +224,7 @@
 (def Blackmail
   {:db/ident            :dpvo-risk/Blackmail,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -239,7 +239,7 @@
 (def BowTie
   {:db/ident :dpvo-risk/BowTie,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -257,7 +257,7 @@
 (def Brainstorming
   {:db/ident :dpvo-risk/Brainstorming,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Technique used in workshops to encourage imaginative thinking"},
@@ -273,7 +273,7 @@
 (def BruteForceAuthorisations
   {:db/ident :dpvo-risk/BruteForceAuthorisations,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -290,7 +290,7 @@
 (def BusinessImpact
   {:db/ident :dpvo-risk/BusinessImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -307,7 +307,7 @@
 (def BusinessImpactAnalysis
   {:db/ident :dpvo-risk/BusinessImpactAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -325,7 +325,7 @@
 (def BusinessPerformanceImpairment
   {:db/ident            :dpvo-risk/BusinessPerformanceImpairment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -340,7 +340,7 @@
 (def Businessdisruption
   {:db/ident            :dpvo-risk/Businessdisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -355,7 +355,7 @@
 (def CCRACII
   {:db/ident :dpvo-risk/CCRACII,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -373,7 +373,7 @@
 (def CORAS
   {:db/ident :dpvo-risk/CORAS,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -391,7 +391,7 @@
 (def CRAMM
   {:db/ident :dpvo-risk/CRAMM,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -409,7 +409,7 @@
 (def CVaR
   {:db/ident :dpvo-risk/CVaR,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -426,7 +426,7 @@
 (def CausalMapping
   {:db/ident :dpvo-risk/CausalMapping,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -443,7 +443,7 @@
 (def CauseConsequenceAnalysis
   {:db/ident :dpvo-risk/CauseConsequenceAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -460,7 +460,7 @@
 (def ChangeConsequence
   {:db/ident            :dpvo-risk/ChangeConsequence,
    :dcterms/created     #inst "2022-08-25T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Risk Control that changes Consequence"},
    :rdf/type            :owl/Class,
@@ -474,7 +474,7 @@
 (def ChangeImpact
   {:db/ident            :dpvo-risk/ChangeImpact,
    :dcterms/created     #inst "2022-08-26T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Risk Control that changes Impact"},
    :rdf/type            :owl/Class,
@@ -488,7 +488,7 @@
 (def Checklists
   {:db/ident :dpvo-risk/Checklists,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -505,7 +505,7 @@
 (def ChildViolence
   {:db/ident :dpvo-risk/ChildViolence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -522,7 +522,7 @@
 (def Cindynic
   {:db/ident :dpvo-risk/Cindynic,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -539,7 +539,7 @@
 (def CitizensImpact
   {:db/ident :dpvo-risk/CitizensImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -556,7 +556,7 @@
 (def Classifications
   {:db/ident :dpvo-risk/Classifications,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -573,7 +573,7 @@
 (def Coercion
   {:db/ident :dpvo-risk/Coercion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -590,7 +590,7 @@
 (def ComplianceImpact
   {:db/ident :dpvo-risk/ComplianceImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -607,7 +607,7 @@
 (def CompromiseAccount
   {:db/ident :dpvo-risk/CompromiseAccount,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -624,7 +624,7 @@
 (def CompromiseAccountCredentials
   {:db/ident :dpvo-risk/CompromiseAccountCredentials,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -641,7 +641,7 @@
 (def CompromiseAccountSecurity
   {:db/ident :dpvo-risk/CompromiseAccountSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -658,7 +658,7 @@
 (def ConfidentialityBreach
   {:db/ident            :dpvo-risk/ConfidentialityBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -673,8 +673,8 @@
 (def ConsequenceForDataSubject
   {:db/ident            :dpvo-risk/ConsequenceForDataSubject,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -688,8 +688,8 @@
 (def ConsequenceOnDataSecurity
   {:db/ident            :dpvo-risk/ConsequenceOnDataSecurity,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -703,7 +703,7 @@
 (def ControlConsequence
   {:db/ident :dpvo-risk/ControlConsequence,
    :dcterms/created #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -719,7 +719,7 @@
 (def ControlMonitors
   {:db/ident :dpvo-risk/ControlMonitors,
    :dcterms/created #inst "2022-08-30T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Risk Mitigation Measure that uses controls to monitor events"},
@@ -738,7 +738,7 @@
 (def ControlRiskSource
   {:db/ident :dpvo-risk/ControlRiskSource,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Risk Mitigation Measure that controls the Risk Source"},
@@ -753,7 +753,7 @@
 (def CopyrightViolation
   {:db/ident :dpvo-risk/CopyrightViolation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -770,7 +770,7 @@
 (def CorruptionData
   {:db/ident            :dpvo-risk/CorruptionData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -785,7 +785,7 @@
 (def CostAcquisition
   {:db/ident            :dpvo-risk/CostAcquisition,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -800,7 +800,7 @@
 (def CostBackup
   {:db/ident            :dpvo-risk/CostBackup,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -815,7 +815,7 @@
 (def CostBenefitAnalysis
   {:db/ident :dpvo-risk/CostBenefitAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -832,7 +832,7 @@
 (def CostConfiguration
   {:db/ident            :dpvo-risk/CostConfiguration,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -847,7 +847,7 @@
 (def CostInstallation
   {:db/ident            :dpvo-risk/CostInstallation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -862,7 +862,7 @@
 (def CostJudicialPenalties
   {:db/ident            :dpvo-risk/CostJudicialPenalties,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -877,7 +877,7 @@
 (def CostJudicialProceedings
   {:db/ident            :dpvo-risk/CostJudicialProceedings,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -892,7 +892,7 @@
 (def CostOperationInterruption
   {:db/ident            :dpvo-risk/CostOperationInterruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -907,7 +907,7 @@
 (def CostSuspendedOperations
   {:db/ident            :dpvo-risk/CostSuspendedOperations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -922,7 +922,7 @@
 (def CrossImpactAnalysis
   {:db/ident :dpvo-risk/CrossImpactAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -939,7 +939,7 @@
 (def Cryptojacking
   {:db/ident :dpvo-risk/Cryptojacking,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -958,7 +958,7 @@
 (def CyberSpying
   {:db/ident            :dpvo-risk/CyberSpying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -973,7 +973,7 @@
 (def CyberStalking
   {:db/ident            :dpvo-risk/CyberStalking,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -988,7 +988,7 @@
 (def DPIA
   {:db/ident :dpvo-risk/DPIA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1005,7 +1005,7 @@
 (def DamageByThirdParty
   {:db/ident :dpvo-risk/DamageByThirdParty,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -1022,7 +1022,7 @@
 (def DangertoCustomers
   {:db/ident            :dpvo-risk/DangertoCustomers,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1037,7 +1037,7 @@
 (def DangertoPersonnel
   {:db/ident            :dpvo-risk/DangertoPersonnel,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1052,7 +1052,7 @@
 (def DataBreach
   {:db/ident            :dpvo-risk/DataBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1067,7 +1067,7 @@
 (def DecisionTreeAnalysis
   {:db/ident :dpvo-risk/DecisionTreeAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1084,7 +1084,7 @@
 (def DelphiTechnique
   {:db/ident :dpvo-risk/DelphiTechnique,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1101,7 +1101,7 @@
 (def DenialServiceAttack
   {:db/ident            :dpvo-risk/DenialServiceAttack,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1116,7 +1116,7 @@
 (def DetrimentToRecovery
   {:db/ident :dpvo-risk/DetrimentToRecovery,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -1133,7 +1133,7 @@
 (def Discrimination
   {:db/ident            :dpvo-risk/Discrimination,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Georg P Krog"},
+   :dcterms/creator     {:rdf/value "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -1147,7 +1147,7 @@
 (def DistributedDenialServiceAttack
   {:db/ident            :dpvo-risk/DistributedDenialServiceAttack,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1163,7 +1163,7 @@
 (def EBIOS
   {:db/ident :dpvo-risk/EBIOS,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1181,7 +1181,7 @@
 (def ERM-IF
   {:db/ident :dpvo-risk/ERM-IF,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1199,7 +1199,7 @@
 (def ETSI-TS-102-165-1
   {:db/ident :dpvo-risk/ETSI-TS-102-165-1,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1217,7 +1217,7 @@
 (def EU-ITSRM
   {:db/ident :dpvo-risk/EU-ITSRM,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1235,7 +1235,7 @@
 (def Eavesdropping
   {:db/ident            :dpvo-risk/Eavesdropping,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1250,7 +1250,7 @@
 (def EconomicDisadvantage
   {:db/ident            :dpvo-risk/EconomicDisadvantage,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Georg P Krog"},
+   :dcterms/creator     {:rdf/value "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -1264,7 +1264,7 @@
 (def EnvironmentalSafetyEndangerment
   {:db/ident            :dpvo-risk/EnvironmentalSafetyEndangerment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1279,7 +1279,7 @@
 (def EquipmentFailure
   {:db/ident            :dpvo-risk/EquipmentFailure,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1294,7 +1294,7 @@
 (def EquipmentMalfunction
   {:db/ident            :dpvo-risk/EquipmentMalfunction,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1309,7 +1309,7 @@
 (def ErrornousSystemUse
   {:db/ident            :dpvo-risk/ErrornousSystemUse,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1324,7 +1324,7 @@
 (def EventTreeAnalysis
   {:db/ident :dpvo-risk/EventTreeAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1342,7 +1342,7 @@
 (def Extorsion
   {:db/ident :dpvo-risk/Extorsion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -1359,7 +1359,7 @@
 (def ExtremelyHighLikelihood
   {:db/ident :dpvo-risk/ExtremelyHighLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Level where Likelihood is Extremely High"},
    :rdf/type #{:dpvo/Likelihood :owl/NamedIndividual
@@ -1378,7 +1378,7 @@
 (def ExtremelyHighRisk
   {:db/ident :dpvo-risk/ExtremelyHighRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is Extremely High"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :owl/NamedIndividual},
@@ -1396,7 +1396,7 @@
 (def ExtremelyHighSeverity
   {:db/ident :dpvo-risk/ExtremelyHighSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Level where Severity is Extremely High"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -1415,7 +1415,7 @@
 (def ExtremelyLowLikelihood
   {:db/ident :dpvo-risk/ExtremelyLowLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Level where Likelihood is Extremely Low"},
    :rdf/type #{:dpvo/Likelihood :owl/NamedIndividual
@@ -1434,7 +1434,7 @@
 (def ExtremelyLowRisk
   {:db/ident :dpvo-risk/ExtremelyLowRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is Extremely Low"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :owl/NamedIndividual},
@@ -1452,7 +1452,7 @@
 (def ExtremelyLowSeverity
   {:db/ident :dpvo-risk/ExtremelyLowSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Severity is Extremely Low"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -1471,7 +1471,7 @@
 (def FAIR
   {:db/ident :dpvo-risk/FAIR,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1489,7 +1489,7 @@
 (def FAIR-Privacy
   {:db/ident :dpvo-risk/FAIR-Privacy,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1507,7 +1507,7 @@
 (def FMEA
   {:db/ident :dpvo-risk/FMEA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1525,7 +1525,7 @@
 (def FMECA
   {:db/ident :dpvo-risk/FMECA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1544,7 +1544,7 @@
 (def FNDiagrams
   {:db/ident :dpvo-risk/FNDiagrams,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1561,7 +1561,7 @@
 (def FaultTreeAnalysis
   {:db/ident :dpvo-risk/FaultTreeAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1579,7 +1579,7 @@
 (def FinancialEquipmentCosts
   {:db/ident            :dpvo-risk/FinancialEquipmentCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1594,7 +1594,7 @@
 (def FinancialInvestigationCosts
   {:db/ident            :dpvo-risk/FinancialInvestigationCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1609,7 +1609,7 @@
 (def FinancialLoss
   {:db/ident            :dpvo-risk/FinancialLoss,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1624,7 +1624,7 @@
 (def FinancialPersonnelCosts
   {:db/ident            :dpvo-risk/FinancialPersonnelCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1639,7 +1639,7 @@
 (def FinancialRepairCosts
   {:db/ident            :dpvo-risk/FinancialRepairCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1654,7 +1654,7 @@
 (def Fishbone
   {:db/ident :dpvo-risk/Fishbone,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1671,7 +1671,7 @@
 (def Fraud
   {:db/ident            :dpvo-risk/Fraud,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1686,7 +1686,7 @@
 (def GCSOS
   {:db/ident :dpvo-risk/GCSOS,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1704,7 +1704,7 @@
 (def GameTheory
   {:db/ident :dpvo-risk/GameTheory,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1721,7 +1721,7 @@
 (def GovernmentCrisis
   {:db/ident            :dpvo-risk/GovernmentCrisis,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -1736,7 +1736,7 @@
 (def HACCP
   {:db/ident :dpvo-risk/HACCP,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1754,7 +1754,7 @@
 (def HAZOP
   {:db/ident :dpvo-risk/HAZOP,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1771,7 +1771,7 @@
 (def HITRUST-CSF
   {:db/ident :dpvo-risk/HITRUST-CSF,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1789,7 +1789,7 @@
 (def HaltSource
   {:db/ident :dpvo-risk/HaltSource,
    :dcterms/created #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1805,7 +1805,7 @@
 (def HarmfulSpeech
   {:db/ident :dpvo-risk/HarmfulSpeech,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -1822,7 +1822,7 @@
 (def HealthLifeImpact
   {:db/ident :dpvo-risk/HealthLifeImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -1839,7 +1839,7 @@
 (def HighLikelihood
   {:db/ident :dpvo-risk/HighLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Likelihood is High"},
    :rdf/type #{:dpvo/Likelihood :dpvo-risk/|3LikelihoodLevels|
@@ -1859,7 +1859,7 @@
 (def HighRisk
   {:db/ident :dpvo-risk/HighRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is High"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :dpvo-risk/|3RiskLevels|
@@ -1878,7 +1878,7 @@
 (def HighSeverity
   {:db/ident :dpvo-risk/HighSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Severity is High"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -1898,7 +1898,7 @@
 (def HumanErrors
   {:db/ident :dpvo-risk/HumanErrors,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -1915,7 +1915,7 @@
 (def HumanReliabilityAnalysis
   {:db/ident :dpvo-risk/HumanReliabilityAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1933,7 +1933,7 @@
 (def IMO-MSC-FAL1-CIRC3
   {:db/ident :dpvo-risk/IMO-MSC-FAL1-CIRC3,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1951,7 +1951,7 @@
 (def IRAM2
   {:db/ident :dpvo-risk/IRAM2,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1969,7 +1969,7 @@
 (def IS-BM
   {:db/ident :dpvo-risk/IS-BM,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1987,7 +1987,7 @@
 (def ISACA-RISK-IT
   {:db/ident :dpvo-risk/ISACA-RISK-IT,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2005,7 +2005,7 @@
 (def ISAMM
   {:db/ident :dpvo-risk/ISAMM,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2023,7 +2023,7 @@
 (def ISO-IEC-27005-2018
   {:db/ident :dpvo-risk/ISO-IEC-27005-2018,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2041,7 +2041,7 @@
 (def ISRAM
   {:db/ident :dpvo-risk/ISRAM,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2059,7 +2059,7 @@
 (def IT-Grundschutz
   {:db/ident :dpvo-risk/IT-Grundschutz,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2077,7 +2077,7 @@
 (def IdentityDispute
   {:db/ident            :dpvo-risk/IdentityDispute,
    :dcterms/created     #inst "2022-08-24T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -2091,7 +2091,7 @@
 (def IdentityFraud
   {:db/ident :dpvo-risk/IdentityFraud,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -2108,7 +2108,7 @@
 (def IdentityTheft
   {:db/ident :dpvo-risk/IdentityTheft,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -2125,7 +2125,7 @@
 (def IllegalProcessingData
   {:db/ident            :dpvo-risk/IllegalProcessingData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2140,8 +2140,8 @@
 (def ImpactOnDataSubject
   {:db/ident            :dpvo-risk/ImpactOnDataSubject,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -2155,7 +2155,7 @@
 (def ImpacttoRights
   {:db/ident            :dpvo-risk/ImpacttoRights,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2170,7 +2170,7 @@
 (def IncreaseInternalCost
   {:db/ident            :dpvo-risk/IncreaseInternalCost,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2185,7 +2185,7 @@
 (def IndustrialCrisis
   {:db/ident            :dpvo-risk/IndustrialCrisis,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2200,7 +2200,7 @@
 (def InfluenceDiagrams
   {:db/ident :dpvo-risk/InfluenceDiagrams,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2217,7 +2217,7 @@
 (def Injury
   {:db/ident            :dpvo-risk/Injury,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2232,7 +2232,7 @@
 (def InterceptionCommunications
   {:db/ident            :dpvo-risk/InterceptionCommunications,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2247,7 +2247,7 @@
 (def InternalOperationDisruption
   {:db/ident            :dpvo-risk/InternalOperationDisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2262,7 +2262,7 @@
 (def Interviews
   {:db/ident :dpvo-risk/Interviews,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2279,7 +2279,7 @@
 (def KnownVulnerabilityExploited
   {:db/ident :dpvo-risk/KnownVulnerabilityExploited,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -2296,7 +2296,7 @@
 (def LOPA
   {:db/ident :dpvo-risk/LOPA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2314,7 +2314,7 @@
 (def LawEnforcementAdverseEffects
   {:db/ident            :dpvo-risk/LawEnforcementAdverseEffects,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2329,8 +2329,8 @@
 (def LimitationOfRights
   {:db/ident            :dpvo-risk/LimitationOfRights,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -2344,7 +2344,7 @@
 (def LossAssets
   {:db/ident            :dpvo-risk/LossAssets,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2359,7 +2359,7 @@
 (def LossCompetitiveAdvantage
   {:db/ident            :dpvo-risk/LossCompetitiveAdvantage,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2374,8 +2374,8 @@
 (def LossControlOverData
   {:db/ident            :dpvo-risk/LossControlOverData,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -2389,7 +2389,7 @@
 (def LossCredibility
   {:db/ident            :dpvo-risk/LossCredibility,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2404,7 +2404,7 @@
 (def LossCustomerConfidence
   {:db/ident            :dpvo-risk/LossCustomerConfidence,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2419,7 +2419,7 @@
 (def LossCustomers
   {:db/ident            :dpvo-risk/LossCustomers,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2434,7 +2434,7 @@
 (def LossData
   {:db/ident :dpvo-risk/LossData,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -2451,7 +2451,7 @@
 (def LossFunds
   {:db/ident            :dpvo-risk/LossFunds,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2466,7 +2466,7 @@
 (def LossGoods
   {:db/ident            :dpvo-risk/LossGoods,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2481,7 +2481,7 @@
 (def LossGoodwill
   {:db/ident            :dpvo-risk/LossGoodwill,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2496,7 +2496,7 @@
 (def LossNegotiatingCapacity
   {:db/ident            :dpvo-risk/LossNegotiatingCapacity,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2511,7 +2511,7 @@
 (def LossOpportunity
   {:db/ident            :dpvo-risk/LossOpportunity,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2526,7 +2526,7 @@
 (def LossProprietaryInformation
   {:db/ident            :dpvo-risk/LossProprietaryInformation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2541,7 +2541,7 @@
 (def LossReputation
   {:db/ident            :dpvo-risk/LossReputation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2556,7 +2556,7 @@
 (def LossResources
   {:db/ident :dpvo-risk/LossResources,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -2573,7 +2573,7 @@
 (def LossSuppliers
   {:db/ident            :dpvo-risk/LossSuppliers,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2588,7 +2588,7 @@
 (def LossTechnologicalAdvantage
   {:db/ident            :dpvo-risk/LossTechnologicalAdvantage,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2603,7 +2603,7 @@
 (def LossTrust
   {:db/ident            :dpvo-risk/LossTrust,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2618,7 +2618,7 @@
 (def LowLikelihood
   {:db/ident :dpvo-risk/LowLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Likelihood is Low"},
    :rdf/type #{:dpvo/Likelihood :dpvo-risk/|3LikelihoodLevels|
@@ -2638,7 +2638,7 @@
 (def LowRisk
   {:db/ident :dpvo-risk/LowRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is Low"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :dpvo-risk/|3RiskLevels|
@@ -2657,7 +2657,7 @@
 (def LowSeverity
   {:db/ident :dpvo-risk/LowSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Severity is Low"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -2677,7 +2677,7 @@
 (def MAGERIT
   {:db/ident :dpvo-risk/MAGERIT,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2695,7 +2695,7 @@
 (def MCA
   {:db/ident :dpvo-risk/MCA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2712,7 +2712,7 @@
 (def MEHARI
   {:db/ident :dpvo-risk/MEHARI,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2730,7 +2730,7 @@
 (def MONARC
   {:db/ident :dpvo-risk/MONARC,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2748,7 +2748,7 @@
 (def MaliciousCodeAttack
   {:db/ident :dpvo-risk/MaliciousCodeAttack,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2767,7 +2767,7 @@
 (def MalwareAttack
   {:db/ident :dpvo-risk/MalwareAttack,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2786,7 +2786,7 @@
 (def MarkovAnalysis
   {:db/ident :dpvo-risk/MarkovAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2803,7 +2803,7 @@
 (def MisinformationDisinformation
   {:db/ident :dpvo-risk/MisinformationDisinformation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2822,7 +2822,7 @@
 (def MisuseBreachedInformation
   {:db/ident            :dpvo-risk/MisuseBreachedInformation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -2837,7 +2837,7 @@
 (def ModerateLikelihood
   {:db/ident :dpvo-risk/ModerateLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Likelihood is Moderate"},
    :rdf/type #{:dpvo/Likelihood :dpvo-risk/|3LikelihoodLevels|
@@ -2857,7 +2857,7 @@
 (def ModerateRisk
   {:db/ident :dpvo-risk/ModerateRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is Moderate"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :dpvo-risk/|3RiskLevels|
@@ -2876,7 +2876,7 @@
 (def ModerateSeverity
   {:db/ident :dpvo-risk/ModerateSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Severity is Moderate"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -2896,7 +2896,7 @@
 (def MonitorConsequence
   {:db/ident            :dpvo-risk/MonitorConsequence,
    :dcterms/created     #inst "2022-09-03T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Risk Control that monitors a Risk Consequence"},
@@ -2911,7 +2911,7 @@
 (def MonitorImpact
   {:db/ident            :dpvo-risk/MonitorImpact,
    :dcterms/created     #inst "2022-09-04T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Risk Control that monitors a Risk Impact"},
    :rdf/type            :owl/Class,
@@ -2925,7 +2925,7 @@
 (def MonitorRisk
   {:db/ident            :dpvo-risk/MonitorRisk,
    :dcterms/created     #inst "2022-08-31T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Risk Control that monitors a Risk"},
    :rdf/type            :owl/Class,
@@ -2939,7 +2939,7 @@
 (def MonitorRiskControl
   {:db/ident            :dpvo-risk/MonitorRiskControl,
    :dcterms/created     #inst "2022-09-05T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Risk Control that monitors another Risk Control"},
@@ -2954,7 +2954,7 @@
 (def MonitorRiskSource
   {:db/ident            :dpvo-risk/MonitorRiskSource,
    :dcterms/created     #inst "2022-09-01T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Risk Control that monitors a Risk Source"},
    :rdf/type            :owl/Class,
@@ -2968,7 +2968,7 @@
 (def MonitorVulnerabilities
   {:db/ident            :dpvo-risk/MonitorVulnerabilities,
    :dcterms/created     #inst "2022-09-02T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Risk Control that monitors a Risk Vulnerability"},
@@ -2983,7 +2983,7 @@
 (def MonteCarloSimulation
   {:db/ident :dpvo-risk/MonteCarloSimulation,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3000,7 +3000,7 @@
 (def NIST-SP-800-30
   {:db/ident :dpvo-risk/NIST-SP-800-30,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3018,7 +3018,7 @@
 (def NIST-SP-800-37
   {:db/ident :dpvo-risk/NIST-SP-800-37,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3036,7 +3036,7 @@
 (def NIST-SP-800-39
   {:db/ident :dpvo-risk/NIST-SP-800-39,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3054,7 +3054,7 @@
 (def NIST-SP-800-82
   {:db/ident :dpvo-risk/NIST-SP-800-82,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3072,7 +3072,7 @@
 (def NominalGroupTechnique
   {:db/ident :dpvo-risk/NominalGroupTechnique,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3089,7 +3089,7 @@
 (def O-RA
   {:db/ident :dpvo-risk/O-RA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3107,7 +3107,7 @@
 (def OCTAVE
   {:db/ident :dpvo-risk/OCTAVE,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3125,7 +3125,7 @@
 (def OCTAVE-ALLEGRO
   {:db/ident :dpvo-risk/OCTAVE-ALLEGRO,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3143,7 +3143,7 @@
 (def OCTAVE-FORTE
   {:db/ident :dpvo-risk/OCTAVE-FORTE,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3161,7 +3161,7 @@
 (def OCTAVE-S
   {:db/ident :dpvo-risk/OCTAVE-S,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3179,7 +3179,7 @@
 (def OrganisationDisruption
   {:db/ident            :dpvo-risk/OrganisationDisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -3194,7 +3194,7 @@
 (def PIA
   {:db/ident :dpvo-risk/PIA,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3211,7 +3211,7 @@
 (def ParetoCharts
   {:db/ident :dpvo-risk/ParetoCharts,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3228,7 +3228,7 @@
 (def PersonalSafetyEndangerment
   {:db/ident            :dpvo-risk/PersonalSafetyEndangerment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -3243,7 +3243,7 @@
 (def PersonnelAbsence
   {:db/ident :dpvo-risk/PersonnelAbsence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -3260,7 +3260,7 @@
 (def PhishingScam
   {:db/ident :dpvo-risk/PhishingScam,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3279,7 +3279,7 @@
 (def PhysicalAssault
   {:db/ident            :dpvo-risk/PhysicalAssault,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -3294,7 +3294,7 @@
 (def PhysicalSpying
   {:db/ident            :dpvo-risk/PhysicalSpying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -3309,7 +3309,7 @@
 (def PhysicalStalking
   {:db/ident            :dpvo-risk/PhysicalStalking,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -3324,8 +3324,8 @@
 (def PreventExercisingOfRights
   {:db/ident            :dpvo-risk/PreventExercisingOfRights,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -3339,7 +3339,7 @@
 (def PrivacyImpact
   {:db/ident :dpvo-risk/PrivacyImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -3356,7 +3356,7 @@
 (def PsychologicalHarm
   {:db/ident :dpvo-risk/PsychologicalHarm,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -3373,7 +3373,7 @@
 (def PublicOrderBreach
   {:db/ident            :dpvo-risk/PublicOrderBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -3388,7 +3388,7 @@
 (def QualitativeRiskAssessmentTechnique
   {:db/ident :dpvo-risk/QualitativeRiskAssessmentTechnique,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A risk assessment technique that uses qualitative methods"},
@@ -3404,7 +3404,7 @@
 (def QuantitativeRiskAssessmentTechnique
   {:db/ident :dpvo-risk/QuantitativeRiskAssessmentTechnique,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "A risk assessment technique that uses quantitative methods"},
@@ -3420,7 +3420,7 @@
 (def RM3x3S1L1
   {:db/ident :dpvo-risk/RM3x3S1L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3439,7 +3439,7 @@
 (def RM3x3S1L2
   {:db/ident :dpvo-risk/RM3x3S1L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3458,7 +3458,7 @@
 (def RM3x3S1L3
   {:db/ident :dpvo-risk/RM3x3S1L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3477,7 +3477,7 @@
 (def RM3x3S2L1
   {:db/ident :dpvo-risk/RM3x3S2L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3496,7 +3496,7 @@
 (def RM3x3S2L2
   {:db/ident :dpvo-risk/RM3x3S2L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3515,7 +3515,7 @@
 (def RM3x3S2L3
   {:db/ident :dpvo-risk/RM3x3S2L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3534,7 +3534,7 @@
 (def RM3x3S3L1
   {:db/ident :dpvo-risk/RM3x3S3L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3553,7 +3553,7 @@
 (def RM3x3S3L2
   {:db/ident :dpvo-risk/RM3x3S3L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3572,7 +3572,7 @@
 (def RM3x3S3L3
   {:db/ident :dpvo-risk/RM3x3S3L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3591,7 +3591,7 @@
 (def RM5x5S1L1
   {:db/ident :dpvo-risk/RM5x5S1L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3610,7 +3610,7 @@
 (def RM5x5S1L2
   {:db/ident :dpvo-risk/RM5x5S1L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3629,7 +3629,7 @@
 (def RM5x5S1L3
   {:db/ident :dpvo-risk/RM5x5S1L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3648,7 +3648,7 @@
 (def RM5x5S1L4
   {:db/ident :dpvo-risk/RM5x5S1L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3667,7 +3667,7 @@
 (def RM5x5S1L5
   {:db/ident :dpvo-risk/RM5x5S1L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3686,7 +3686,7 @@
 (def RM5x5S2L1
   {:db/ident :dpvo-risk/RM5x5S2L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3705,7 +3705,7 @@
 (def RM5x5S2L2
   {:db/ident :dpvo-risk/RM5x5S2L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3724,7 +3724,7 @@
 (def RM5x5S2L3
   {:db/ident :dpvo-risk/RM5x5S2L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3743,7 +3743,7 @@
 (def RM5x5S2L4
   {:db/ident :dpvo-risk/RM5x5S2L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3762,7 +3762,7 @@
 (def RM5x5S2L5
   {:db/ident :dpvo-risk/RM5x5S2L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3781,7 +3781,7 @@
 (def RM5x5S3L1
   {:db/ident :dpvo-risk/RM5x5S3L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3800,7 +3800,7 @@
 (def RM5x5S3L2
   {:db/ident :dpvo-risk/RM5x5S3L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3819,7 +3819,7 @@
 (def RM5x5S3L3
   {:db/ident :dpvo-risk/RM5x5S3L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3838,7 +3838,7 @@
 (def RM5x5S3L4
   {:db/ident :dpvo-risk/RM5x5S3L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3857,7 +3857,7 @@
 (def RM5x5S3L5
   {:db/ident :dpvo-risk/RM5x5S3L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3876,7 +3876,7 @@
 (def RM5x5S4L1
   {:db/ident :dpvo-risk/RM5x5S4L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3895,7 +3895,7 @@
 (def RM5x5S4L2
   {:db/ident :dpvo-risk/RM5x5S4L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3914,7 +3914,7 @@
 (def RM5x5S4L3
   {:db/ident :dpvo-risk/RM5x5S4L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3933,7 +3933,7 @@
 (def RM5x5S4L4
   {:db/ident :dpvo-risk/RM5x5S4L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3952,7 +3952,7 @@
 (def RM5x5S4L5
   {:db/ident :dpvo-risk/RM5x5S4L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3971,7 +3971,7 @@
 (def RM5x5S5L1
   {:db/ident :dpvo-risk/RM5x5S5L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3990,7 +3990,7 @@
 (def RM5x5S5L2
   {:db/ident :dpvo-risk/RM5x5S5L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4009,7 +4009,7 @@
 (def RM5x5S5L3
   {:db/ident :dpvo-risk/RM5x5S5L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4028,7 +4028,7 @@
 (def RM5x5S5L4
   {:db/ident :dpvo-risk/RM5x5S5L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4047,7 +4047,7 @@
 (def RM5x5S5L5
   {:db/ident :dpvo-risk/RM5x5S5L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4066,7 +4066,7 @@
 (def RM7x7S1L1
   {:db/ident :dpvo-risk/RM7x7S1L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4085,7 +4085,7 @@
 (def RM7x7S1L2
   {:db/ident :dpvo-risk/RM7x7S1L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4104,7 +4104,7 @@
 (def RM7x7S1L3
   {:db/ident :dpvo-risk/RM7x7S1L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4123,7 +4123,7 @@
 (def RM7x7S1L4
   {:db/ident :dpvo-risk/RM7x7S1L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4142,7 +4142,7 @@
 (def RM7x7S1L5
   {:db/ident :dpvo-risk/RM7x7S1L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4161,7 +4161,7 @@
 (def RM7x7S1L6
   {:db/ident :dpvo-risk/RM7x7S1L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4180,7 +4180,7 @@
 (def RM7x7S1L7
   {:db/ident :dpvo-risk/RM7x7S1L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4199,7 +4199,7 @@
 (def RM7x7S2L1
   {:db/ident :dpvo-risk/RM7x7S2L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4218,7 +4218,7 @@
 (def RM7x7S2L2
   {:db/ident :dpvo-risk/RM7x7S2L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4237,7 +4237,7 @@
 (def RM7x7S2L3
   {:db/ident :dpvo-risk/RM7x7S2L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4256,7 +4256,7 @@
 (def RM7x7S2L4
   {:db/ident :dpvo-risk/RM7x7S2L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4275,7 +4275,7 @@
 (def RM7x7S2L5
   {:db/ident :dpvo-risk/RM7x7S2L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4294,7 +4294,7 @@
 (def RM7x7S2L6
   {:db/ident :dpvo-risk/RM7x7S2L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4313,7 +4313,7 @@
 (def RM7x7S2L7
   {:db/ident :dpvo-risk/RM7x7S2L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4332,7 +4332,7 @@
 (def RM7x7S3L1
   {:db/ident :dpvo-risk/RM7x7S3L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4351,7 +4351,7 @@
 (def RM7x7S3L2
   {:db/ident :dpvo-risk/RM7x7S3L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4370,7 +4370,7 @@
 (def RM7x7S3L3
   {:db/ident :dpvo-risk/RM7x7S3L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4389,7 +4389,7 @@
 (def RM7x7S3L4
   {:db/ident :dpvo-risk/RM7x7S3L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4408,7 +4408,7 @@
 (def RM7x7S3L5
   {:db/ident :dpvo-risk/RM7x7S3L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4427,7 +4427,7 @@
 (def RM7x7S3L6
   {:db/ident :dpvo-risk/RM7x7S3L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4446,7 +4446,7 @@
 (def RM7x7S3L7
   {:db/ident :dpvo-risk/RM7x7S3L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4465,7 +4465,7 @@
 (def RM7x7S4L1
   {:db/ident :dpvo-risk/RM7x7S4L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4484,7 +4484,7 @@
 (def RM7x7S4L2
   {:db/ident :dpvo-risk/RM7x7S4L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4503,7 +4503,7 @@
 (def RM7x7S4L3
   {:db/ident :dpvo-risk/RM7x7S4L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4522,7 +4522,7 @@
 (def RM7x7S4L4
   {:db/ident :dpvo-risk/RM7x7S4L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4541,7 +4541,7 @@
 (def RM7x7S4L5
   {:db/ident :dpvo-risk/RM7x7S4L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4560,7 +4560,7 @@
 (def RM7x7S4L6
   {:db/ident :dpvo-risk/RM7x7S4L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4579,7 +4579,7 @@
 (def RM7x7S4L7
   {:db/ident :dpvo-risk/RM7x7S4L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4598,7 +4598,7 @@
 (def RM7x7S5L1
   {:db/ident :dpvo-risk/RM7x7S5L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4617,7 +4617,7 @@
 (def RM7x7S5L2
   {:db/ident :dpvo-risk/RM7x7S5L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4636,7 +4636,7 @@
 (def RM7x7S5L3
   {:db/ident :dpvo-risk/RM7x7S5L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4655,7 +4655,7 @@
 (def RM7x7S5L4
   {:db/ident :dpvo-risk/RM7x7S5L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4674,7 +4674,7 @@
 (def RM7x7S5L5
   {:db/ident :dpvo-risk/RM7x7S5L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4693,7 +4693,7 @@
 (def RM7x7S5L6
   {:db/ident :dpvo-risk/RM7x7S5L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4712,7 +4712,7 @@
 (def RM7x7S5L7
   {:db/ident :dpvo-risk/RM7x7S5L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4731,7 +4731,7 @@
 (def RM7x7S6L1
   {:db/ident :dpvo-risk/RM7x7S6L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4750,7 +4750,7 @@
 (def RM7x7S6L2
   {:db/ident :dpvo-risk/RM7x7S6L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4769,7 +4769,7 @@
 (def RM7x7S6L3
   {:db/ident :dpvo-risk/RM7x7S6L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4788,7 +4788,7 @@
 (def RM7x7S6L4
   {:db/ident :dpvo-risk/RM7x7S6L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4807,7 +4807,7 @@
 (def RM7x7S6L5
   {:db/ident :dpvo-risk/RM7x7S6L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4826,7 +4826,7 @@
 (def RM7x7S6L6
   {:db/ident :dpvo-risk/RM7x7S6L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4845,7 +4845,7 @@
 (def RM7x7S6L7
   {:db/ident :dpvo-risk/RM7x7S6L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4864,7 +4864,7 @@
 (def RM7x7S7L1
   {:db/ident :dpvo-risk/RM7x7S7L1,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4883,7 +4883,7 @@
 (def RM7x7S7L2
   {:db/ident :dpvo-risk/RM7x7S7L2,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4902,7 +4902,7 @@
 (def RM7x7S7L3
   {:db/ident :dpvo-risk/RM7x7S7L3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4921,7 +4921,7 @@
 (def RM7x7S7L4
   {:db/ident :dpvo-risk/RM7x7S7L4,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4940,7 +4940,7 @@
 (def RM7x7S7L5
   {:db/ident :dpvo-risk/RM7x7S7L5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4959,7 +4959,7 @@
 (def RM7x7S7L6
   {:db/ident :dpvo-risk/RM7x7S7L6,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4978,7 +4978,7 @@
 (def RM7x7S7L7
   {:db/ident :dpvo-risk/RM7x7S7L7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -4997,7 +4997,7 @@
 (def RansomwareAttack
   {:db/ident :dpvo-risk/RansomwareAttack,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5017,7 +5017,7 @@
 (def ReduceLikelihood
   {:db/ident :dpvo-risk/ReduceLikelihood,
    :dcterms/created #inst "2022-08-22T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Risk Control that reduces the likelihood of an event"},
@@ -5032,7 +5032,7 @@
 (def ReduceSeverity
   {:db/ident            :dpvo-risk/ReduceSeverity,
    :dcterms/created     #inst "2022-08-23T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Risk Control that reduces the severity of an event"},
@@ -5047,7 +5047,7 @@
 (def ReliabilityCentredMaintenance
   {:db/ident :dpvo-risk/ReliabilityCentredMaintenance,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5065,7 +5065,7 @@
 (def RemoteSpying
   {:db/ident            :dpvo-risk/RemoteSpying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5080,7 +5080,7 @@
 (def RemoveConsequence
   {:db/ident :dpvo-risk/RemoveConsequence,
    :dcterms/created #inst "2022-08-27T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5096,7 +5096,7 @@
 (def RemoveImpact
   {:db/ident :dpvo-risk/RemoveImpact,
    :dcterms/created #inst "2022-08-28T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5112,7 +5112,7 @@
 (def RemoveSource
   {:db/ident            :dpvo-risk/RemoveSource,
    :dcterms/created     #inst "2022-08-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Risk Control that removes the risk source"},
@@ -5127,7 +5127,7 @@
 (def ReplacementCosts
   {:db/ident            :dpvo-risk/ReplacementCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5142,7 +5142,7 @@
 (def ReputationTrustImpact
   {:db/ident :dpvo-risk/ReputationTrustImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5159,7 +5159,7 @@
 (def RetrievalDeletedData
   {:db/ident            :dpvo-risk/RetrievalDeletedData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5174,7 +5174,7 @@
 (def RetrievalDiscardedEquipment
   {:db/ident            :dpvo-risk/RetrievalDiscardedEquipment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5189,7 +5189,7 @@
 (def RiskAssessmentTechnique
   {:db/ident :dpvo-risk/RiskAssessmentTechnique,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5206,7 +5206,7 @@
 (def RiskIndices
   {:db/ident :dpvo-risk/RiskIndices,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5223,7 +5223,7 @@
 (def RiskManagementMethodology
   {:db/ident :dpvo-risk/RiskManagementMethodology,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5242,7 +5242,7 @@
 (def RiskMatrix
   {:db/ident :dpvo-risk/RiskMatrix,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5260,7 +5260,7 @@
 (def RiskMatrix3x3
   {:db/ident :dpvo-risk/RiskMatrix3x3,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5276,7 +5276,7 @@
 (def RiskMatrix5x5
   {:db/ident :dpvo-risk/RiskMatrix5x5,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5292,7 +5292,7 @@
 (def RiskMatrix7x7
   {:db/ident :dpvo-risk/RiskMatrix7x7,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5308,7 +5308,7 @@
 (def RiskRegisters
   {:db/ident :dpvo-risk/RiskRegisters,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5325,7 +5325,7 @@
 (def SCurves
   {:db/ident :dpvo-risk/SCurves,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5342,7 +5342,7 @@
 (def SFAIRP
   {:db/ident :dpvo-risk/SFAIRP,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5360,7 +5360,7 @@
 (def SWIFT
   {:db/ident :dpvo-risk/SWIFT,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5377,7 +5377,7 @@
 (def Sabotage
   {:db/ident :dpvo-risk/Sabotage,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5394,7 +5394,7 @@
 (def Scam
   {:db/ident            :dpvo-risk/Scam,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5409,7 +5409,7 @@
 (def ScenarioAnalysis
   {:db/ident :dpvo-risk/ScenarioAnalysis,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5426,7 +5426,7 @@
 (def SecurityBreach
   {:db/ident            :dpvo-risk/SecurityBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5441,7 +5441,7 @@
 (def ServiceInterruption
   {:db/ident            :dpvo-risk/ServiceInterruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5456,7 +5456,7 @@
 (def SexualViolence
   {:db/ident :dpvo-risk/SexualViolence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5473,7 +5473,7 @@
 (def ShareRisk
   {:db/ident :dpvo-risk/ShareRisk,
    :dcterms/created #inst "2022-08-29T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5489,7 +5489,7 @@
 (def SocialDisadvantage
   {:db/ident            :dpvo-risk/SocialDisadvantage,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Georg P Krog"},
+   :dcterms/creator     {:rdf/value "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -5503,7 +5503,7 @@
 (def Spam
   {:db/ident :dpvo-risk/Spam,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5520,7 +5520,7 @@
 (def Spoofing
   {:db/ident            :dpvo-risk/Spoofing,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5535,7 +5535,7 @@
 (def Spying
   {:db/ident            :dpvo-risk/Spying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5550,7 +5550,7 @@
 (def Stalking
   {:db/ident            :dpvo-risk/Stalking,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5565,7 +5565,7 @@
 (def Surveys
   {:db/ident :dpvo-risk/Surveys,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Paper- or computer-based questionnaires to elicit views."},
@@ -5581,7 +5581,7 @@
 (def SystemFailure
   {:db/ident :dpvo-risk/SystemFailure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5598,7 +5598,7 @@
 (def SystemIntrusion
   {:db/ident :dpvo-risk/SystemIntrusion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5615,7 +5615,7 @@
 (def SystemMalfunction
   {:db/ident            :dpvo-risk/SystemMalfunction,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5630,7 +5630,7 @@
 (def Taxonomies
   {:db/ident :dpvo-risk/Taxonomies,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5647,7 +5647,7 @@
 (def Terrorism
   {:db/ident            :dpvo-risk/Terrorism,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5662,7 +5662,7 @@
 (def Theft
   {:db/ident            :dpvo-risk/Theft,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5677,7 +5677,7 @@
 (def TheftEquipment
   {:db/ident            :dpvo-risk/TheftEquipment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5692,7 +5692,7 @@
 (def TheftMedia
   {:db/ident            :dpvo-risk/TheftMedia,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5707,7 +5707,7 @@
 (def ThirdPartyOperationDisruption
   {:db/ident            :dpvo-risk/ThirdPartyOperationDisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5722,7 +5722,7 @@
 (def Toxicological
   {:db/ident :dpvo-risk/Toxicological,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -5739,7 +5739,7 @@
 (def UnauthorisedAccesstoPremises
   {:db/ident            :dpvo-risk/UnauthorisedAccesstoPremises,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5754,7 +5754,7 @@
 (def UnauthorisedCodeAccess
   {:db/ident :dpvo-risk/UnauthorisedCodeAccess,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5771,7 +5771,7 @@
 (def UnauthorisedCodeDisclosure
   {:db/ident :dpvo-risk/UnauthorisedCodeDisclosure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5788,7 +5788,7 @@
 (def UnauthorisedCodeModification
   {:db/ident :dpvo-risk/UnauthorisedCodeModification,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5805,7 +5805,7 @@
 (def UnauthorisedDataAccess
   {:db/ident :dpvo-risk/UnauthorisedDataAccess,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5822,7 +5822,7 @@
 (def UnauthorisedDataDisclosure
   {:db/ident            :dpvo-risk/UnauthorisedDataDisclosure,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5837,7 +5837,7 @@
 (def UnauthorisedDataModification
   {:db/ident :dpvo-risk/UnauthorisedDataModification,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5854,7 +5854,7 @@
 (def UnauthorisedImpersonation
   {:db/ident            :dpvo-risk/UnauthorisedImpersonation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5869,7 +5869,7 @@
 (def UnauthorisedInformationDisclosure
   {:db/ident :dpvo-risk/UnauthorisedInformationDisclosure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5886,7 +5886,7 @@
 (def UnauthorisedReIdentification
   {:db/ident            :dpvo-risk/UnauthorisedReIdentification,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Georg P Krog"},
+   :dcterms/creator     {:rdf/value "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -5900,7 +5900,7 @@
 (def UnauthorisedResourceUse
   {:db/ident            :dpvo-risk/UnauthorisedResourceUse,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5915,7 +5915,7 @@
 (def UnauthorisedSystemAccess
   {:db/ident            :dpvo-risk/UnauthorisedSystemAccess,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5930,7 +5930,7 @@
 (def UnauthorisedSystemModification
   {:db/ident :dpvo-risk/UnauthorisedSystemModification,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5947,7 +5947,7 @@
 (def UnknownVulnerabilityExploited
   {:db/ident :dpvo-risk/UnknownVulnerabilityExploited,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5964,7 +5964,7 @@
 (def UnwantedCodeDeletion
   {:db/ident :dpvo-risk/UnwantedCodeDeletion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -5981,7 +5981,7 @@
 (def UnwantedDataDeletion
   {:db/ident            :dpvo-risk/UnwantedDataDeletion,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -5996,7 +5996,7 @@
 (def UnwantedDisclosureData
   {:db/ident            :dpvo-risk/UnwantedDisclosureData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6011,7 +6011,7 @@
 (def VaR
   {:db/ident :dpvo-risk/VaR,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6028,7 +6028,7 @@
 (def Vandalism
   {:db/ident :dpvo-risk/Vandalism,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -6045,7 +6045,7 @@
 (def VeryHighLikelihood
   {:db/ident :dpvo-risk/VeryHighLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Likelihood is Very High"},
    :rdf/type #{:dpvo/Likelihood :dpvo-risk/|5LikelihoodLevels|
@@ -6064,7 +6064,7 @@
 (def VeryHighRisk
   {:db/ident :dpvo-risk/VeryHighRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is Very High"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :owl/NamedIndividual
@@ -6083,7 +6083,7 @@
 (def VeryHighSeverity
   {:db/ident :dpvo-risk/VeryHighSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Severity is Very High"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -6102,7 +6102,7 @@
 (def VeryLowLikelihood
   {:db/ident :dpvo-risk/VeryLowLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Likelihood is Very Low"},
    :rdf/type #{:dpvo/Likelihood :dpvo-risk/|5LikelihoodLevels|
@@ -6121,7 +6121,7 @@
 (def VeryLowRisk
   {:db/ident :dpvo-risk/VeryLowRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Risk is Very Low"},
    :rdf/type #{:dpvo-risk/|7RiskLevels| :dpvo/RiskLevel :owl/NamedIndividual
@@ -6140,7 +6140,7 @@
 (def VeryLowSeverity
   {:db/ident :dpvo-risk/VeryLowSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Level where Severity is Very Low"},
    :rdf/type #{:dpvo/Severity :dpvo-risk/|7SeverityLevels|
@@ -6159,7 +6159,7 @@
 (def ViolationCodeConduct
   {:db/ident            :dpvo-risk/ViolationCodeConduct,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6174,7 +6174,7 @@
 (def ViolationContractualObligations
   {:db/ident            :dpvo-risk/ViolationContractualObligations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6189,7 +6189,7 @@
 (def ViolationEthicalCode
   {:db/ident            :dpvo-risk/ViolationEthicalCode,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6204,8 +6204,8 @@
 (def ViolationOfRights
   {:db/ident            :dpvo-risk/ViolationOfRights,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     #{{:xsd/string "Georg P Krog"}
-                          {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator     #{{:rdf/value "Harshvardhan J. Pandit"}
+                          {:rdf/value "Georg P Krog"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :rdf/type            :owl/Class,
@@ -6219,7 +6219,7 @@
 (def ViolationRegulatoryObligations
   {:db/ident            :dpvo-risk/ViolationRegulatoryObligations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6234,7 +6234,7 @@
 (def ViolationStatutoryObligations
   {:db/ident            :dpvo-risk/ViolationStatutoryObligations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6249,7 +6249,7 @@
 (def VulnerabilityCreated
   {:db/ident            :dpvo-risk/VulnerabilityCreated,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source      {:xsd/anyURI "https://www.iso.org/standard/75281.html"},
@@ -6264,7 +6264,7 @@
 (def VulnerabilityExploited
   {:db/ident :dpvo-risk/VulnerabilityExploited,
    :dcterms/created #inst "2022-08-17T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    ""},
    :dcterms/source
@@ -6281,7 +6281,7 @@
 (def |3LikelihoodLevels|
   {:db/ident            :dpvo-risk/|3LikelihoodLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Scale with 3 Likelihood Levels from High to Low"},
@@ -6296,7 +6296,7 @@
 (def |3RiskLevels|
   {:db/ident            :dpvo-risk/|3RiskLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Scale with 3 Risk Levels from High to Low"},
@@ -6311,7 +6311,7 @@
 (def |3SeverityLevels|
   {:db/ident            :dpvo-risk/|3SeverityLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Scale with 3 Severity Levels from High to Low"},
@@ -6326,7 +6326,7 @@
 (def |5LikelihoodLevels|
   {:db/ident :dpvo-risk/|5LikelihoodLevels|,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Scale with 5 Likelihood Levels from Very High to Very Low"},
@@ -6341,7 +6341,7 @@
 (def |5RiskLevels|
   {:db/ident            :dpvo-risk/|5RiskLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Scale with 5 Risk Levels from Very High to Very Low"},
@@ -6356,7 +6356,7 @@
 (def |5SeverityLevels|
   {:db/ident :dpvo-risk/|5SeverityLevels|,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Scale with 5 Severity Levels from Very High to Very Low"},
@@ -6371,7 +6371,7 @@
 (def |7LikelihoodLevels|
   {:db/ident :dpvo-risk/|7LikelihoodLevels|,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6387,7 +6387,7 @@
 (def |7RiskLevels|
   {:db/ident :dpvo-risk/|7RiskLevels|,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Scale with 7 Risk Levels from Extremely High to Extremely Low"},
@@ -6402,7 +6402,7 @@
 (def |7SeverityLevels|
   {:db/ident :dpvo-risk/|7SeverityLevels|,
    :dcterms/created #inst "2022-08-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -6421,7 +6421,7 @@
    :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit"
                           "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
    :dcterms/created #inst "2022-08-14T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

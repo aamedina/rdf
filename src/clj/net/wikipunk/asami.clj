@@ -3,13 +3,17 @@
    [com.stuartsierra.component :as com]
    [asami.core :as asami]
    [asami.storage]
-   [net.wikipunk.mop :as mop]))
+   [net.wikipunk.mop :as mop]
+   [net.wikipunk.rdf :as rdf]))
 
 (defrecord Connection [uri conn]
   com/Lifecycle
   (start [this]
-    (asami/create-database uri)
-    (assoc this :conn (asami/connect uri)))
+    (let [new-db? (asami/create-database uri)
+          conn    (asami/connect uri)]
+      (when new-db? 
+        (asami/transact conn (rdf/all-ns-metaobjects)))
+      (assoc this :conn conn)))
   (stop [this]
     (assoc this :conn nil))
 

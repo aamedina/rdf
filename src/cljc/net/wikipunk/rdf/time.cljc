@@ -429,10 +429,10 @@
    :rdfs/subClassOf #{{:owl/hasValue   :time/unitMonth,
                        :owl/onProperty :time/unitType,
                        :rdf/type       :owl/Restriction}
-                      {:owl/hasValue   {:xsd/string "--01"},
+                      :time/DateTimeDescription
+                      {:owl/hasValue   {:rdf/value "--01"},
                        :owl/onProperty :time/month,
-                       :rdf/type       :owl/Restriction}
-                      :time/DateTimeDescription},
+                       :rdf/type       :owl/Restriction}},
    :skos/historyNote
    "This class was present in the 2006 version of OWL-Time. It was presented as an example of how DateTimeDescription could be specialized, but does not belong in the revised ontology. "})
 

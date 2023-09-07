@@ -10,8 +10,8 @@
     :source     "http://www.w3.org/2008/05/skos-xl#"}
   {:dcterms/contributor
    "Participants in W3C's Semantic Web Deployment Working Group.",
-   :dcterms/creator #{{:xsd/string "Sean Bechhofer"}
-                      {:xsd/string "Alistair Miles"}},
+   :dcterms/creator #{{:rdf/value "Sean Bechhofer"}
+                      {:rdf/value "Alistair Miles"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -126,8 +126,8 @@
 (def urn:uuid:77ab9dbf-1cfb-5a76-baee-affb8ba856d3
   {:dcterms/contributor
    "Participants in W3C's Semantic Web Deployment Working Group.",
-   :dcterms/creator #{{:xsd/string "Sean Bechhofer"}
-                      {:xsd/string "Alistair Miles"}},
+   :dcterms/creator #{{:rdf/value "Sean Bechhofer"}
+                      {:rdf/value "Alistair Miles"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

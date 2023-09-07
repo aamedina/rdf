@@ -1228,12 +1228,12 @@
    :rdfs/domain :as/Place,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "units"},
-   :rdfs/range {:owl/unionOf [{:owl/oneOf [{:xsd/string "inches"}
-                                           {:xsd/string "feet"}
-                                           {:xsd/string "miles"}
-                                           {:xsd/string "cm"}
-                                           {:xsd/string "m"}
-                                           {:xsd/string "km"}],
+   :rdfs/range {:owl/unionOf [{:owl/oneOf [{:rdf/value "inches"}
+                                           {:rdf/value "feet"}
+                                           {:rdf/value "miles"}
+                                           {:rdf/value "cm"}
+                                           {:rdf/value "m"}
+                                           {:rdf/value "km"}],
                                :rdf/type  :rdfs/Datatype}
                               :xsd/anyURI],
                 :rdf/type    :rdfs/Datatype}})

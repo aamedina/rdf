@@ -43,11 +43,11 @@
 
 (def determiner_str
   {:db/ident :ogc/determiner_str,
-   :owl/oneOf [{:xsd/string ""}
-               {:xsd/string "the"}
-               {:xsd/string "a"}
-               {:xsd/string "an"}
-               {:xsd/string "auto"}],
+   :owl/oneOf [{:rdf/value ""}
+               {:rdf/value "the"}
+               {:rdf/value "a"}
+               {:rdf/value "an"}
+               {:rdf/value "auto"}],
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
    {:rdf/language "en-US",

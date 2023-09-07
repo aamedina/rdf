@@ -21,8 +21,8 @@
      "Bert Bos" "Julian Flake" "Paul Ryan" "Bud Bruegger" "Piero Bonatti"
      "Elmar Kiesling" "Javier D. Fernández" "Mark Lizar"},
    :dcterms/created #inst "2022-04-02T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Axel Polleres"}
-                      {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Axel Polleres"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -43,8 +43,8 @@
 (def Accent
   {:db/ident :dpvo-pd/Accent,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about linguistic and speech accents."},
@@ -62,8 +62,8 @@
 (def AccountIdentifier
   {:db/ident :dpvo-pd/AccountIdentifier,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about financial account identifier."},
@@ -81,8 +81,8 @@
 (def Acquantaince
   {:db/ident :dpvo-pd/Acquantaince,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about acquaintainces in a social network."},
@@ -100,8 +100,8 @@
 (def Age
   {:db/ident :dpvo-pd/Age,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about age"},
    :dcterms/source
@@ -118,7 +118,7 @@
 (def AgeExact
   {:db/ident :dpvo-pd/AgeExact,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -134,7 +134,7 @@
 (def AgeRange
   {:db/ident :dpvo-pd/AgeRange,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -150,8 +150,8 @@
 (def ApartmentOwned
   {:db/ident :dpvo-pd/ApartmentOwned,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about apartment(s) owned and its history"},
@@ -169,8 +169,8 @@
 (def Association
   {:db/ident :dpvo-pd/Association,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -189,8 +189,8 @@
 (def Attitude
   {:db/ident :dpvo-pd/Attitude,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about attitude."},
    :dcterms/source
@@ -207,8 +207,8 @@
 (def Authenticating
   {:db/ident :dpvo-pd/Authenticating,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -227,7 +227,7 @@
 (def AuthenticationHistory
   {:db/ident :dpvo-pd/AuthenticationHistory,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Georg P Krog"},
+   :dcterms/creator {:rdf/value "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -244,8 +244,8 @@
 (def BankAccount
   {:db/ident :dpvo-pd/BankAccount,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about bank accounts."},
    :dcterms/source
@@ -262,8 +262,8 @@
 (def Behavioral
   {:db/ident :dpvo-pd/Behavioral,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about Behavior or activity"},
    :dcterms/source
@@ -282,8 +282,8 @@
 (def Biometric
   {:db/ident :dpvo-pd/Biometric,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about biometrics and biometric characteristics."},
@@ -301,7 +301,7 @@
 (def BirthDate
   {:db/ident            :dpvo-pd/BirthDate,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about birth date"},
    :rdf/type            :owl/Class,
@@ -315,7 +315,7 @@
 (def BirthPlace
   {:db/ident            :dpvo-pd/BirthPlace,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about birth place"},
    :rdf/type            :owl/Class,
@@ -329,8 +329,8 @@
 (def BloodType
   {:db/ident :dpvo-pd/BloodType,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about blood type."},
    :dcterms/source
@@ -347,8 +347,8 @@
 (def BrowserFingerprint
   {:db/ident :dpvo-pd/BrowserFingerprint,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -367,7 +367,7 @@
 (def BrowserHistory
   {:db/ident :dpvo-pd/BrowserHistory,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about and including web browsing history"},
@@ -382,8 +382,8 @@
 (def BrowsingBehavior
   {:db/ident :dpvo-pd/BrowsingBehavior,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about browsing Behavior."},
    :dcterms/source
@@ -402,7 +402,7 @@
 (def BrowsingReferral
   {:db/ident :dpvo-pd/BrowsingReferral,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Georg P Krog"},
+   :dcterms/creator {:rdf/value "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -419,8 +419,8 @@
 (def CallLog
   {:db/ident :dpvo-pd/CallLog,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about the calls that an individual has made."},
@@ -438,8 +438,8 @@
 (def CarOwned
   {:db/ident :dpvo-pd/CarOwned,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about cars ownership and ownership history."},
@@ -457,8 +457,8 @@
 (def CharacterClass
   {:db/ident :dpvo-pd/Character,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about character in the public sphere"},
@@ -476,8 +476,8 @@
 (def Communication
   {:db/ident :dpvo-pd/Communication,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information communicated from or to an individual"},
@@ -495,8 +495,8 @@
 (def CommunicationsMetadata
   {:db/ident :dpvo-pd/CommunicationsMetadata,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about communication metadata in the public sphere"},
@@ -516,8 +516,8 @@
 (def Connection
   {:db/ident :dpvo-pd/Connection,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -536,8 +536,8 @@
 (def Contact
   {:db/ident :dpvo-pd/Contact,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -558,8 +558,8 @@
 (def Country
   {:db/ident :dpvo-pd/Country,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about country e.g. residence, travel."},
@@ -577,8 +577,8 @@
 (def Credit
   {:db/ident :dpvo-pd/Credit,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about reputation with regards to money"},
@@ -596,8 +596,8 @@
 (def CreditCapacity
   {:db/ident :dpvo-pd/CreditCapacity,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about credit capacity."},
    :dcterms/source
@@ -614,8 +614,8 @@
 (def CreditCardNumber
   {:db/ident :dpvo-pd/CreditCardNumber,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about credit card number"},
    :dcterms/source
@@ -632,8 +632,8 @@
 (def CreditRecord
   {:db/ident :dpvo-pd/CreditRecord,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about credit record."},
    :dcterms/source
@@ -650,8 +650,8 @@
 (def CreditScore
   {:db/ident :dpvo-pd/CreditScore,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about credit score."},
    :dcterms/source
@@ -668,8 +668,8 @@
 (def CreditStanding
   {:db/ident :dpvo-pd/CreditStanding,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about credit standing."},
    :dcterms/source
@@ -686,8 +686,8 @@
 (def CreditWorthiness
   {:db/ident :dpvo-pd/CreditWorthiness,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about credit worthiness."},
    :dcterms/source
@@ -704,8 +704,8 @@
 (def Criminal
   {:db/ident :dpvo-pd/Criminal,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -726,8 +726,8 @@
 (def CriminalCharge
   {:db/ident :dpvo-pd/CriminalCharge,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about criminal charges."},
    :dcterms/source
@@ -744,8 +744,8 @@
 (def CriminalConviction
   {:db/ident :dpvo-pd/CriminalConviction,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about criminal convictions."},
    :dcterms/source
@@ -762,7 +762,7 @@
 (def CriminalOffense
   {:db/ident            :dpvo-pd/CriminalOffense,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Georg P Krog"},
+   :dcterms/creator     {:rdf/value "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about criminal offenses"},
    :rdf/type            :owl/Class,
@@ -776,8 +776,8 @@
 (def CriminalPardon
   {:db/ident :dpvo-pd/CriminalPardon,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about criminal pardons."},
    :dcterms/source
@@ -794,7 +794,7 @@
 (def CurrentEmployment
   {:db/ident            :dpvo-pd/CurrentEmployment,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about current employment"},
    :rdf/type            :owl/Class,
@@ -808,8 +808,8 @@
 (def DNACode
   {:db/ident :dpvo-pd/DNACode,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about DNA."},
    :dcterms/source
@@ -826,8 +826,8 @@
 (def Demeanor
   {:db/ident :dpvo-pd/Demeanor,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about demeanor."},
    :dcterms/source
@@ -844,8 +844,8 @@
 (def Demographic
   {:db/ident :dpvo-pd/Demographic,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about demography and demographic characteristics"},
@@ -863,9 +863,9 @@
 (def DeviceApplications
   {:db/ident :dpvo-pd/DeviceApplications,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator
-   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
-     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
+   :dcterms/creator #{{:rdf/value "Beatriz Esteves"}
+                      {:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -882,8 +882,8 @@
 (def DeviceBased
   {:db/ident :dpvo-pd/DeviceBased,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about devices"},
    :dcterms/source
@@ -902,9 +902,9 @@
 (def DeviceOperatingSystem
   {:db/ident :dpvo-pd/DeviceOperatingSystem,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator
-   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
-     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
+   :dcterms/creator #{{:rdf/value "Beatriz Esteves"}
+                      {:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -921,9 +921,9 @@
 (def DeviceSoftware
   {:db/ident :dpvo-pd/DeviceSoftware,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator
-   #{{:xsd/string "Georg P Krog"} {:xsd/string "Harshvardhan J. Pandit"}
-     {:xsd/string "Paul Ryan"} {:xsd/string "Beatriz Esteves"}},
+   :dcterms/creator #{{:rdf/value "Beatriz Esteves"}
+                      {:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Georg P Krog"} {:rdf/value "Paul Ryan"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about software on or related to a device."},
@@ -939,8 +939,8 @@
 (def Dialect
   {:db/ident :dpvo-pd/Dialect,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about linguistic dialects."},
    :dcterms/source
@@ -957,7 +957,7 @@
 (def DigitalFingerprint
   {:db/ident :dpvo-pd/DigitalFingerprint,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -973,8 +973,8 @@
 (def Disability
   {:db/ident :dpvo-pd/Disability,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about disabilities."},
    :dcterms/source
@@ -991,8 +991,8 @@
 (def DisciplinaryAction
   {:db/ident :dpvo-pd/DisciplinaryAction,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about disciplinary actions and its history"},
@@ -1010,8 +1010,8 @@
 (def Dislike
   {:db/ident :dpvo-pd/Dislike,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1030,8 +1030,8 @@
 (def Divorce
   {:db/ident :dpvo-pd/Divorce,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about divorce(s)."},
    :dcterms/source
@@ -1048,8 +1048,8 @@
 (def DrugTestResult
   {:db/ident :dpvo-pd/DrugTestResult,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about drug test results."},
    :dcterms/source
@@ -1066,7 +1066,7 @@
 (def Education
   {:db/ident            :dpvo-pd/Education,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about education"},
    :rdf/type            :owl/Class,
@@ -1080,7 +1080,7 @@
 (def EducationExperience
   {:db/ident :dpvo-pd/EducationExperience,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1096,7 +1096,7 @@
 (def EducationQualification
   {:db/ident            :dpvo-pd/EducationQualification,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about educational qualifications"},
@@ -1111,8 +1111,8 @@
 (def EmailAddress
   {:db/ident :dpvo-pd/EmailAddress,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about Email address."},
    :dcterms/source
@@ -1129,7 +1129,7 @@
 (def EmailAddressPersonal
   {:db/ident :dpvo-pd/EmailAddressPersonal,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about Email address used in Personal capacity"},
@@ -1144,7 +1144,7 @@
 (def EmailAddressWork
   {:db/ident :dpvo-pd/EmailAddressWork,
    :dcterms/created #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1160,8 +1160,8 @@
 (def EmailContent
   {:db/ident :dpvo-pd/EmailContent,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about the contents of Emails sent or received"},
@@ -1179,8 +1179,8 @@
 (def EmploymentHistory
   {:db/ident :dpvo-pd/EmploymentHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about employment history"},
    :dcterms/source
@@ -1197,8 +1197,8 @@
 (def EthnicOrigin
   {:db/ident :dpvo-pd/EthnicOrigin,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about ethnic origin"},
    :dcterms/source
@@ -1215,8 +1215,8 @@
 (def Ethnicity
   {:db/ident :dpvo-pd/Ethnicity,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about ethnic origins and lineage"},
@@ -1234,8 +1234,8 @@
 (def External
   {:db/ident :dpvo-pd/External,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1254,7 +1254,7 @@
 (def FacialPrint
   {:db/ident            :dpvo-pd/FacialPrint,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about facial print or pattern"},
@@ -1269,8 +1269,8 @@
 (def Family
   {:db/ident :dpvo-pd/Family,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about family and relationships"},
@@ -1288,8 +1288,8 @@
 (def FamilyHealthHistory
   {:db/ident :dpvo-pd/FamilyHealthHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about family health history."},
    :dcterms/source
@@ -1306,8 +1306,8 @@
 (def FamilyStructure
   {:db/ident :dpvo-pd/FamilyStructure,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about family and familial structure."},
@@ -1325,8 +1325,8 @@
 (def Favorite
   {:db/ident :dpvo-pd/Favorite,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about favorites"},
    :dcterms/source
@@ -1343,8 +1343,8 @@
 (def FavoriteColor
   {:db/ident :dpvo-pd/FavoriteColor,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about favorite color."},
    :dcterms/source
@@ -1361,8 +1361,8 @@
 (def FavoriteFood
   {:db/ident :dpvo-pd/FavoriteFood,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about favorite food."},
    :dcterms/source
@@ -1379,8 +1379,8 @@
 (def FavoriteMusic
   {:db/ident :dpvo-pd/FavoriteMusic,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about favorite music."},
    :dcterms/source
@@ -1397,8 +1397,8 @@
 (def Fetish
   {:db/ident :dpvo-pd/Fetish,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about an individual's sexual fetishes"},
@@ -1416,8 +1416,8 @@
 (def Financial
   {:db/ident :dpvo-pd/Financial,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1438,8 +1438,8 @@
 (def FinancialAccount
   {:db/ident :dpvo-pd/FinancialAccount,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about financial accounts."},
    :dcterms/source
@@ -1456,8 +1456,8 @@
 (def FinancialAccountNumber
   {:db/ident :dpvo-pd/FinancialAccountNumber,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about financial account number"},
@@ -1475,7 +1475,7 @@
 (def FinancialStatus
   {:db/ident            :dpvo-pd/FinancialStatus,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about financial status or standing"},
@@ -1490,8 +1490,8 @@
 (def Fingerprint
   {:db/ident :dpvo-pd/Fingerprint,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about fingerprint used for biometric purposes."},
@@ -1509,8 +1509,8 @@
 (def Friend
   {:db/ident :dpvo-pd/Friend,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1529,8 +1529,8 @@
 (def GPSCoordinate
   {:db/ident :dpvo-pd/GPSCoordinate,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1549,8 +1549,8 @@
 (def Gender
   {:db/ident :dpvo-pd/Gender,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about gender"},
    :dcterms/source
@@ -1567,8 +1567,8 @@
 (def GeneralReputation
   {:db/ident :dpvo-pd/GeneralReputation,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about reputation in the public sphere"},
@@ -1586,7 +1586,7 @@
 (def Genetic
   {:db/ident :dpvo-pd/Genetic,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1602,8 +1602,8 @@
 (def Geographic
   {:db/ident :dpvo-pd/Geographic,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1622,8 +1622,8 @@
 (def GroupMembership
   {:db/ident :dpvo-pd/GroupMembership,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1642,8 +1642,8 @@
 (def HairColor
   {:db/ident :dpvo-pd/HairColor,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about hair color"},
    :dcterms/source
@@ -1660,8 +1660,8 @@
 (def Health
   {:db/ident :dpvo-pd/Health,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about health."},
    :dcterms/source
@@ -1680,8 +1680,8 @@
 (def HealthHistory
   {:db/ident :dpvo-pd/HealthHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about health history."},
    :dcterms/source
@@ -1698,8 +1698,8 @@
 (def HealthRecord
   {:db/ident :dpvo-pd/HealthRecord,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about health record."},
    :dcterms/source
@@ -1716,8 +1716,8 @@
 (def Height
   {:db/ident :dpvo-pd/Height,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about physical height"},
    :dcterms/source
@@ -1734,8 +1734,8 @@
 (def Historical
   {:db/ident :dpvo-pd/Historical,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1754,8 +1754,8 @@
 (def HouseOwned
   {:db/ident :dpvo-pd/HouseOwned,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about house(s) owned and ownership history."},
@@ -1773,7 +1773,7 @@
 (def Household
   {:db/ident            :dpvo-pd/Household,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about personal or household activities"},
@@ -1788,8 +1788,8 @@
 (def IPAddress
   {:db/ident :dpvo-pd/IPAddress,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1808,7 +1808,7 @@
 (def Identifier
   {:db/ident :dpvo-pd/Identifier,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1824,8 +1824,8 @@
 (def Identifying
   {:db/ident :dpvo-pd/Identifying,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1844,8 +1844,8 @@
 (def Income
   {:db/ident :dpvo-pd/Income,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1864,8 +1864,8 @@
 (def IncomeBracket
   {:db/ident :dpvo-pd/IncomeBracket,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about income bracket."},
    :dcterms/source
@@ -1882,8 +1882,8 @@
 (def IndividualHealthHistory
   {:db/ident :dpvo-pd/IndividualHealthHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about information health history."},
@@ -1901,7 +1901,7 @@
 (def Insurance
   {:db/ident            :dpvo-pd/Insurance,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about Insurance"},
    :rdf/type            :owl/Class,
@@ -1915,8 +1915,8 @@
 (def Intention
   {:db/ident :dpvo-pd/Intention,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about intentions"},
    :dcterms/source
@@ -1933,8 +1933,8 @@
 (def Interaction
   {:db/ident :dpvo-pd/Interaction,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about interactions in the public sphere"},
@@ -1952,8 +1952,8 @@
 (def Interest
   {:db/ident :dpvo-pd/Interest,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about interests"},
    :dcterms/source
@@ -1970,8 +1970,8 @@
 (def Internal
   {:db/ident :dpvo-pd/Internal,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -1990,8 +1990,8 @@
 (def Job
   {:db/ident :dpvo-pd/Job,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about professional jobs"},
    :dcterms/source
@@ -2008,8 +2008,8 @@
 (def KnowledgeBelief
   {:db/ident :dpvo-pd/KnowledgeBelief,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about knowledge and beliefs"},
    :dcterms/source
@@ -2026,8 +2026,8 @@
 (def Language
   {:db/ident :dpvo-pd/Language,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about language and lingual history."},
@@ -2046,8 +2046,8 @@
 (def LifeHistory
   {:db/ident :dpvo-pd/LifeHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2066,8 +2066,8 @@
 (def Like
   {:db/ident :dpvo-pd/Like,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about likes or preferences regarding attractions."},
@@ -2085,8 +2085,8 @@
 (def LinkClicked
   {:db/ident :dpvo-pd/LinkClicked,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about the links that an individual has clicked."},
@@ -2106,8 +2106,8 @@
 (def LoanRecord
   {:db/ident :dpvo-pd/LoanRecord,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2126,8 +2126,8 @@
 (def Location
   {:db/ident :dpvo-pd/Location,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about location"},
    :dcterms/source
@@ -2146,8 +2146,8 @@
 (def MACAddress
   {:db/ident :dpvo-pd/MACAddress,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2166,8 +2166,8 @@
 (def MaritalStatus
   {:db/ident :dpvo-pd/MaritalStatus,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about marital status and history"},
@@ -2185,8 +2185,8 @@
 (def Marriage
   {:db/ident :dpvo-pd/Marriage,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about marriage(s)."},
    :dcterms/source
@@ -2203,8 +2203,8 @@
 (def MedicalHealth
   {:db/ident :dpvo-pd/MedicalHealth,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about health, medical conditions or health care"},
@@ -2222,8 +2222,8 @@
 (def MentalHealth
   {:db/ident :dpvo-pd/MentalHealth,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about mental health."},
    :dcterms/source
@@ -2240,8 +2240,8 @@
 (def Name
   {:db/ident :dpvo-pd/Name,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2275,8 +2275,8 @@
 (def OfficialID
   {:db/ident :dpvo-pd/OfficialID,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2297,8 +2297,8 @@
 (def Offspring
   {:db/ident :dpvo-pd/Offspring,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about offspring(s)."},
    :dcterms/source
@@ -2315,8 +2315,8 @@
 (def Opinion
   {:db/ident :dpvo-pd/Opinion,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about opinions"},
    :dcterms/source
@@ -2333,8 +2333,8 @@
 (def Ownership
   {:db/ident :dpvo-pd/Ownership,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2353,8 +2353,8 @@
 (def PINCode
   {:db/ident :dpvo-pd/PINCode,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2373,8 +2373,8 @@
 (def Parent
   {:db/ident :dpvo-pd/Parent,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about parent(s)."},
    :dcterms/source
@@ -2391,7 +2391,7 @@
 (def Passport
   {:db/ident            :dpvo-pd/Passport,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about passport"},
    :rdf/type            :owl/Class,
@@ -2405,8 +2405,8 @@
 (def Password
   {:db/ident :dpvo-pd/Password,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2425,7 +2425,7 @@
 (def PastEmployment
   {:db/ident            :dpvo-pd/PastEmployment,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about past employment"},
    :rdf/type            :owl/Class,
@@ -2439,7 +2439,7 @@
 (def PaymentCard
   {:db/ident :dpvo-pd/PaymentCard,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2456,7 +2456,7 @@
 (def PaymentCardExpiry
   {:db/ident :dpvo-pd/PaymentCardExpiry,
    :dcterms/created #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Georg P Krog"},
+   :dcterms/creator {:rdf/value "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about payment card expiry such as a date."},
@@ -2472,7 +2472,7 @@
 (def PaymentCardNumber
   {:db/ident            :dpvo-pd/PaymentCardNumber,
    :dcterms/created     #inst "2020-11-04T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Georg P Krog"},
+   :dcterms/creator     {:rdf/value "Georg P Krog"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about payment card number."},
    :dcterms/source      {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
@@ -2487,7 +2487,7 @@
 (def PerformanceAtWork
   {:db/ident :dpvo-pd/PerformanceAtWork,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2503,7 +2503,7 @@
 (def PersonalDocuments
   {:db/ident :dpvo-pd/PersonalDocuments,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2519,8 +2519,8 @@
 (def PersonalPossession
   {:db/ident :dpvo-pd/PersonalPossession,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about personal possessions."},
    :dcterms/source
@@ -2537,8 +2537,8 @@
 (def Personality
   {:db/ident :dpvo-pd/Personality,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2557,8 +2557,8 @@
 (def PhilosophicalBelief
   {:db/ident :dpvo-pd/PhilosophicalBelief,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about philosophical beliefs."},
    :dcterms/source
@@ -2576,8 +2576,8 @@
 (def PhysicalAddress
   {:db/ident :dpvo-pd/PhysicalAddress,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about physical address."},
    :dcterms/source
@@ -2594,8 +2594,8 @@
 (def PhysicalCharacteristic
   {:db/ident :dpvo-pd/PhysicalCharacteristic,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about physical characteristics"},
@@ -2615,8 +2615,8 @@
 (def PhysicalHealth
   {:db/ident :dpvo-pd/PhysicalHealth,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about physical health."},
    :dcterms/source
@@ -2633,8 +2633,8 @@
 (def PhysicalTrait
   {:db/ident :dpvo-pd/PhysicalTrait,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2653,8 +2653,8 @@
 (def Picture
   {:db/ident :dpvo-pd/Picture,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2673,8 +2673,8 @@
 (def Piercing
   {:db/ident :dpvo-pd/Piercing,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about piercings"},
    :dcterms/source
@@ -2691,8 +2691,8 @@
 (def PoliticalAffiliation
   {:db/ident :dpvo-pd/PoliticalAffiliation,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about political affiliation and history"},
@@ -2712,7 +2712,7 @@
 (def PoliticalOpinion
   {:db/ident :dpvo-pd/PoliticalOpinion,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2728,8 +2728,8 @@
 (def Preference
   {:db/ident :dpvo-pd/Preference,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about preferences or interests"},
@@ -2749,8 +2749,8 @@
 (def Prescription
   {:db/ident :dpvo-pd/Prescription,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about medical and pharmaceutical prescriptions"},
@@ -2768,8 +2768,8 @@
 (def PrivacyPreference
   {:db/ident :dpvo-pd/PrivacyPreference,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about privacy preferences"},
    :dcterms/source
@@ -2786,8 +2786,8 @@
 (def Proclivitie
   {:db/ident :dpvo-pd/Proclivitie,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about proclivities in a sexual context"},
@@ -2805,8 +2805,8 @@
 (def Professional
   {:db/ident :dpvo-pd/Professional,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about educational or professional career"},
@@ -2824,8 +2824,8 @@
 (def ProfessionalCertification
   {:db/ident :dpvo-pd/ProfessionalCertification,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about professional certifications"},
@@ -2843,8 +2843,8 @@
 (def ProfessionalEvaluation
   {:db/ident :dpvo-pd/ProfessionalEvaluation,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about professional evaluations"},
@@ -2862,8 +2862,8 @@
 (def ProfessionalInterview
   {:db/ident :dpvo-pd/ProfessionalInterview,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about professional interviews"},
@@ -2881,7 +2881,7 @@
 (def Profile
   {:db/ident :dpvo-pd/Profile,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2897,8 +2897,8 @@
 (def PublicLife
   {:db/ident :dpvo-pd/PublicLife,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about public life"},
    :dcterms/source
@@ -2915,7 +2915,7 @@
 (def PubliclyAvailableSocialMedia
   {:db/ident :dpvo-pd/PubliclyAvailableSocialMedia,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about social media that is publicly available"},
@@ -2930,8 +2930,8 @@
 (def Purchase
   {:db/ident :dpvo-pd/Purchase,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2952,8 +2952,8 @@
 (def PurchasesAndSpendingHabit
   {:db/ident :dpvo-pd/PurchasesAndSpendingHabit,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -2972,8 +2972,8 @@
 (def Race
   {:db/ident :dpvo-pd/Race,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about race or racial history."},
@@ -2991,8 +2991,8 @@
 (def Reference
   {:db/ident :dpvo-pd/Reference,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about references in the professional context"},
@@ -3010,8 +3010,8 @@
 (def Relationship
   {:db/ident :dpvo-pd/Relationship,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about relationships and relationship history."},
@@ -3029,7 +3029,7 @@
 (def Reliability
   {:db/ident            :dpvo-pd/Reliability,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about reliability (e.g. of a person)"},
@@ -3044,8 +3044,8 @@
 (def Religion
   {:db/ident :dpvo-pd/Religion,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3064,8 +3064,8 @@
 (def ReligiousBelief
   {:db/ident :dpvo-pd/ReligiousBelief,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about religion and religious beliefs."},
@@ -3084,8 +3084,8 @@
 (def Retina
   {:db/ident :dpvo-pd/Retina,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about retina and the retinal patterns."},
@@ -3103,8 +3103,8 @@
 (def RoomNumber
   {:db/ident :dpvo-pd/RoomNumber,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3123,8 +3123,8 @@
 (def Salary
   {:db/ident :dpvo-pd/Salary,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about salary"},
    :dcterms/source
@@ -3141,8 +3141,8 @@
 (def Sale
   {:db/ident :dpvo-pd/Sale,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about sales e.g. selling of goods or services"},
@@ -3160,8 +3160,8 @@
 (def School
   {:db/ident :dpvo-pd/School,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3180,8 +3180,8 @@
 (def SecretText
   {:db/ident :dpvo-pd/SecretText,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3200,8 +3200,8 @@
 (def ServiceConsumptionBehavior
   {:db/ident :dpvo-pd/ServiceConsumptionBehavior,
    :dcterms/created #inst "2019-11-26T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Rudy Jacob"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Rudy Jacob"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3218,8 +3218,8 @@
 (def Sexual
   {:db/ident :dpvo-pd/Sexual,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about sexuality and sexual history"},
@@ -3237,8 +3237,8 @@
 (def SexualHistory
   {:db/ident :dpvo-pd/SexualHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about sexual history"},
    :dcterms/source
@@ -3255,8 +3255,8 @@
 (def SexualPreference
   {:db/ident :dpvo-pd/SexualPreference,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about sexual preferences"},
    :dcterms/source
@@ -3273,8 +3273,8 @@
 (def Sibling
   {:db/ident :dpvo-pd/Sibling,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about sibling(s)."},
    :dcterms/source
@@ -3291,8 +3291,8 @@
 (def SkinTone
   {:db/ident :dpvo-pd/SkinTone,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about skin tone"},
    :dcterms/source
@@ -3309,8 +3309,8 @@
 (def Social
   {:db/ident :dpvo-pd/Social,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3329,7 +3329,7 @@
 (def SocialMedia
   {:db/ident            :dpvo-pd/SocialMedia,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about social media"},
    :rdf/type            :owl/Class,
@@ -3343,8 +3343,8 @@
 (def SocialMediaCommunication
   {:db/ident :dpvo-pd/SocialMediaCommunication,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3365,8 +3365,8 @@
 (def SocialNetwork
   {:db/ident :dpvo-pd/SocialNetwork,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3385,8 +3385,8 @@
 (def SocialStatus
   {:db/ident :dpvo-pd/SocialStatus,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about social status"},
    :dcterms/source
@@ -3403,8 +3403,8 @@
 (def TVViewingBehavior
   {:db/ident :dpvo-pd/TVViewingBehavior,
    :dcterms/created #inst "2019-11-26T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Harshvardhan J. Pandit"}
-                      {:xsd/string "Rudy Jacob"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Rudy Jacob"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3421,8 +3421,8 @@
 (def Tattoo
   {:db/ident :dpvo-pd/Tattoo,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about tattoos"},
    :dcterms/source
@@ -3439,8 +3439,8 @@
 (def Tax
   {:db/ident :dpvo-pd/Tax,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about financial tax e.g. tax records or tax due"},
@@ -3458,8 +3458,8 @@
 (def TelephoneNumber
   {:db/ident :dpvo-pd/TelephoneNumber,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about telephone number."},
    :dcterms/source
@@ -3476,8 +3476,8 @@
 (def Thought
   {:db/ident :dpvo-pd/Thought,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about thoughts"},
    :dcterms/source
@@ -3494,8 +3494,8 @@
 (def Tracking
   {:db/ident :dpvo-pd/Tracking,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3514,7 +3514,7 @@
 (def TradeUnionMembership
   {:db/ident :dpvo-pd/TradeUnionMembership,
    :dcterms/created #inst "2022-05-18T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about trade union memberships and related topics"},
@@ -3530,8 +3530,8 @@
 (def Transaction
   {:db/ident :dpvo-pd/Transaction,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about financial transactions e.g. bank transfers"},
@@ -3549,8 +3549,8 @@
 (def Transactional
   {:db/ident :dpvo-pd/Transactional,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about a purchasing, spending or income"},
@@ -3568,7 +3568,7 @@
 (def TravelHistory
   {:db/ident            :dpvo-pd/TravelHistory,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about travel history"},
    :rdf/type            :owl/Class,
@@ -3582,8 +3582,8 @@
 (def UID
   {:db/ident :dpvo-pd/UID,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about unique identifiers."},
    :dcterms/source
@@ -3602,7 +3602,7 @@
 (def UserAgent
   {:db/ident :dpvo-pd/UserAgent,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Georg P Krog"},
+   :dcterms/creator {:rdf/value "Georg P Krog"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3618,8 +3618,8 @@
 (def Username
   {:db/ident :dpvo-pd/Username,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about usernames."},
    :dcterms/source
@@ -3636,7 +3636,7 @@
 (def VehicalLicenseNumber
   {:db/ident            :dpvo-pd/VehicalLicenseNumber,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about vehicle license number"},
    :rdf/type            :owl/Class,
@@ -3650,7 +3650,7 @@
 (def VehicalLicenseRegistration
   {:db/ident            :dpvo-pd/VehicalLicenseRegistration,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "Information about vehicle license registration"},
@@ -3665,7 +3665,7 @@
 (def Vehicle
   {:db/ident            :dpvo-pd/Vehicle,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about vehicles"},
    :rdf/type            :owl/Class,
@@ -3679,7 +3679,7 @@
 (def VehicleLicense
   {:db/ident            :dpvo-pd/VehicleLicense,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about vehicle license"},
    :rdf/type            :owl/Class,
@@ -3693,7 +3693,7 @@
 (def VehicleUsage
   {:db/ident :dpvo-pd/VehicleUsage,
    :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value "Information about usage of vehicles, e.g. driving statistics"},
@@ -3708,8 +3708,8 @@
 (def VoiceCommunicationRecording
   {:db/ident :dpvo-pd/VoiceCommunicationRecording,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -3728,8 +3728,8 @@
 (def VoiceMail
   {:db/ident :dpvo-pd/VoiceMail,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value "Information about voice mail messages."},
    :dcterms/source
@@ -3746,8 +3746,8 @@
 (def Weight
   {:db/ident :dpvo-pd/Weight,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about physical weight"},
    :dcterms/source
@@ -3764,7 +3764,7 @@
 (def WorkEnvironment
   {:db/ident            :dpvo-pd/WorkEnvironment,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-00:00",
-   :dcterms/creator     {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/creator     {:rdf/value "Harshvardhan J. Pandit"},
    :dcterms/description {:rdf/language "en",
                          :rdf/value    "Information about work environments"},
    :rdf/type            :owl/Class,
@@ -3778,8 +3778,8 @@
 (def WorkHistory
   {:db/ident :dpvo-pd/WorkHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Fajar Ekaputra"}
-                      {:xsd/string "Elmar Kiesling; Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Fajar Ekaputra"}
+                      {:rdf/value "Elmar Kiesling; Harshvardhan J. Pandit"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "Information about work history in a professional context"},
@@ -3806,8 +3806,8 @@
      "Bert Bos" "Julian Flake" "Paul Ryan" "Bud Bruegger" "Piero Bonatti"
      "Elmar Kiesling" "Javier D. Fernández" "Mark Lizar"},
    :dcterms/created #inst "2022-04-02T00:00:00.000-00:00",
-   :dcterms/creator #{{:xsd/string "Axel Polleres"}
-                      {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/creator #{{:rdf/value "Harshvardhan J. Pandit"}
+                      {:rdf/value "Axel Polleres"}},
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

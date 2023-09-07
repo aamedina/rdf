@@ -2,6 +2,7 @@
   "Initialized to some WIP functions used to install RDF facts into a
   Datomic dev-local database based on the state of the system."
   (:require
+   [asami.core :as asami]
    [arachne.aristotle.graph :as g]
    [clojure.datafy :refer [datafy]]
    [clojure.tools.logging :as log]
@@ -78,8 +79,7 @@
    [net.wikipunk.rdf.void]
    [net.wikipunk.rdf.wdrs]
    [net.wikipunk.rdf.xhv]
-   [net.wikipunk.rdf.xsd]
-   [xtdb.api :as xt]))
+   [net.wikipunk.rdf.xsd]))
 
 (defprotocol Seed
   "Helper protocol to bootstrap attributes from loaded metaobjects."
@@ -185,7 +185,6 @@
                                                                         (empty v)
                                                                         #{})
                                                                       (map (fn [v]
-                                                                             (println v)
                                                                              (if (not (or (map? v) (keyword? v)))
                                                                                (rdf/box v)
                                                                                v)))
@@ -237,7 +236,11 @@
 (defmethod rdf/infer-datomic-cardinality :rdf/first [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :rdf/rest [_] :db.cardinality/one)
 
+(defmethod rdf/infer-datomic-type :rdf/value [_] :db.type/string)
 (defmethod rdf/infer-datomic-cardinality :rdf/value [_] :db.cardinality/one)
+
+(defmethod rdf/infer-datomic-type :rdf/language [_] :db.type/string)
+(defmethod rdf/infer-datomic-cardinality :rdf/language [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMinimum [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMaximum [_] :db.cardinality/one)
@@ -429,6 +432,7 @@
     :else (throw (ex-info (str (pr-str x) " was not found. Cannot infer datomic type for unknown RDF properties. Has the RDF namespace containing the property been loaded by the Universal Translator component during system start? Try calling datafy on it in a REPL and once you can datafy the ident and return the metaobject, try again.") {:x x}))))
 
 (defn bootstrap-attributes
+  "Given a set of namespace names require them and "
   ([]
    (bootstrap-attributes mop/*env* (map identity)))
   ([env]
@@ -436,7 +440,7 @@
   ([env xf]
    (into []
          (comp
-           (map first)
+           (map #(assoc (asami/entity env %) :db/ident %))
            xf           
            (keep (fn [{:rdfs/keys [range domain subPropertyOf]
                        :db/keys   [ident]
@@ -459,41 +463,29 @@
                      (assoc :db/cardinality (rdf/infer-datomic-cardinality (:db/ident e)))
                      (rdf/infer-datomic-unique (:db/ident e))
                      (assoc :db/unique (rdf/infer-datomic-unique (:db/ident e)))))))
-         (xt/q (xt/db env)
-               '{:find    [(pull ?e [*])]
-                 :in      [$ ?h]
-                 :where   [[?e :rdf/type ?t]                          
-                           (or [(isa? ?h ?t :rdf/Property)]
-                               (and [?e :db/cardinality _]
-                                    [?e :db/valueType _]))]
-                 :timeout 180000}
-               @#'clojure.core/global-hierarchy))))
+         (descendants (:rdf/Property rdf/*metaobjects*) :rdf/Property))))
 
 (defn bootstrap-idents
   ([]
    (bootstrap-idents mop/*env*))
   ([env]   
    (into []
-         (comp
-           cat
-           (map #(hash-map :db/ident %)))
-         (xt/q (xt/db env)
-               '{:find    [?id]
-                 :where   [[?e :db/ident ?id]]
-                 :timeout 180000}))))
+         (map #(hash-map :db/ident %))
+         (asami/q '[:find [?ident ...]
+                    :where
+                    [?e :db/ident ?ident]]
+                  env))))
 
 (defn bootstrap-individuals
   ([]
    (bootstrap-individuals mop/*env*))
   ([env]
-   (->> (xt/q (xt/db env)
-              '{:find    [?e]
-                :in      [$]
-                :where   [[?e :rdf/type ?t]]
-                :timeout 180000})
-        (map first)
-        (map datafy)
-        (map select-attributes))))
+   (->> (asami/q '[:find [?ident ...]
+                   :where
+                   [?e :db/ident ?ident]]
+                 env)
+        (pmap #(asami/entity env %))
+        (pmap select-attributes))))
 
 (defn test-bootstrap
   "Tests importing XTDB documents into Datomic."

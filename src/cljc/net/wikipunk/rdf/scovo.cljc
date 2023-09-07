@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.scovo
-  ^{:base "http://purl.org/NET/scovo#",
+  ^{:base       "http://purl.org/NET/scovo#",
     :namespaces {"adms"    "http://www.w3.org/ns/adms#",
                  "dc11"    "http://purl.org/dc/elements/1.1/",
                  "dcterms" "http://purl.org/dc/terms/",
@@ -10,9 +10,8 @@
                  "scovo"   "http://purl.org/NET/scovo#",
                  "vann"    "http://purl.org/vocab/vann/",
                  "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "scovo",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/scovo/versions/2012-08-09.n3"}
+    :prefix     "scovo",
+    :source     "net/wikipunk/ext/scovo_2012-08-09.n3"}
   {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [max min]))
 
@@ -84,7 +83,7 @@
   {:adms/accessURL     "http://vocab.deri.ie/scovo.ttl",
    :adms/status        {:xsd/anyURI "http://purl.org/adms/status/Completed"},
    :dcterms/FileFormat {:xsd/anyURI "http://vocab.deri.ie/scovo"},
-   :rdf/type           :adms/SemanticDistribution,
+   :rdf/type           :adms/AssetDistribution,
    :xsd/anyURI         "http://vocab.deri.ie/scovo#ttl"})
 
 (def urn:uuid:2f3f0d5c-8ade-5c5b-aaef-77fbf9a3f682
@@ -105,7 +104,7 @@
    :dcterms/title "The Statistical Core Vocabulary (SCOVO)",
    :dcterms/type {:xsd/anyURI "http://purl.org/adms/assettype/Ontology"},
    :foaf/homepage {:xsd/anyURI "http://vocab.deri.ie/scovo.html"},
-   :rdf/type #{:adms/SemanticAsset :owl/Ontology},
+   :rdf/type #{:owl/Ontology :adms/Asset},
    :vann/preferredNamespacePrefix "scovo",
    :vann/preferredNamespaceUri "http://purl.org/NET/scovo#",
    :xsd/anyURI "http://vocab.deri.ie/scovo"})
@@ -120,7 +119,7 @@
   {:adms/accessURL     "http://vocab.deri.ie/scovo.rdf",
    :adms/status        {:xsd/anyURI "http://purl.org/adms/status/Completed"},
    :dcterms/FileFormat {:xsd/anyURI "http://vocab.deri.ie/scovo"},
-   :rdf/type           :adms/SemanticDistribution,
+   :rdf/type           :adms/AssetDistribution,
    :xsd/anyURI         "http://vocab.deri.ie/scovo#rdf"})
 
 (def urn:uuid:85bcbdf1-1eeb-5f7d-a165-6239f09a4a5f

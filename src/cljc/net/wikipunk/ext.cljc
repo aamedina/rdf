@@ -336,7 +336,7 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def scovo
-  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/scovo/versions/2012-08-09.n3"
+  {:dcat/downloadURL "net/wikipunk/ext/scovo_2012-08-09.n3"
    :rdfa/uri         "http://purl.org/NET/scovo#"
    :rdfa/prefix      "scovo",
    :rdf/type         :rdfa/PrefixMapping})
