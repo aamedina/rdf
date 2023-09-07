@@ -8,12 +8,12 @@ RDF models as Clojure(script) namespaces
           :uri          "asami:mem://.vocab"}
  :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
           ;; add components that require RDF vocabulary and optionally
-	      ;; provide asami or datomic as an environment
-	      :sc/refs {:env :asami}
-	      ;; the string to prefix the namespace generated for your rdf models
+          ;; provide asami or datomic as an environment
+          :sc/refs {:env :asami}
+          ;; the string to prefix the namespace generated for your rdf models
           :ns-prefix    "net.wikipunk.rdf." 
           ;; the project relative path to output the namespaces
-	      :output-to    "src/cljc/net/wikipunk/rdf/"
+          :output-to    "src/cljc/net/wikipunk/rdf/"
           ;; used to declare what namespaces should be in the boot JSON-LD context
           ;; see below for more information
           :context      []}}
@@ -25,8 +25,8 @@ configuration map which is assembled and started using
 
 ### :context
 Provide a list of namespaces (tagged with :rdf/type :jsonld/Context in
-their metadata) where its vars are `:rdfa/PrefixMapping` instances which can be emitted (via
-`net.wikipunk.rdf/emit`). 
+their metadata) where its vars are `:rdfa/PrefixMapping` instances
+which can be emitted (via `net.wikipunk.rdf/emit`). 
 
 For an example see the `net.wikipunk.boot` namespace which corresponds
 to the RDFa 1.1 initial context;
@@ -34,11 +34,10 @@ to the RDFa 1.1 initial context;
 ``` clojure
 (def as
   "Activity Vocabulary"
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl"
+  {:dcat/downloadURL "net/wikipunk/boot/activitystreams2.ttl"
    :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
    :rdfa/prefix      "as",
-   :rdfs/isDefinedBy {:rdfa/uri
-                      "https://www.w3.org/TR/activitystreams-vocabulary/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/activitystreams-vocabulary/"},
    :rdf/type         :rdfa/PrefixMapping})
 ```
 
@@ -105,12 +104,25 @@ associated with them when the system is started.
 ```
 
 ``` clojure
-{:db/ident :schema/Movie,
- :rdf/type :owl/Class,
- :rdfs/comment {:rdf/language "en", :rdf/value "A movie."},
- :rdfs/isDefinedBy "http://schema.org/Movie",
- :rdfs/label {:rdf/language "en", :rdf/value "Movie"},
- :rdfs/subClassOf :schema/CreativeWork}
+{:rdf/type :rdfs/Class,
+ :rdfs/subClassOf :schema/CreativeWork,
+ :mop/classPrecedenceList
+ [:schema/Movie :schema/CreativeWork :schema/Thing :rdfs/Class],
+ :rdfs/label "Movie",
+ :rdfs/comment "A movie.",
+ :mop/classDirectSlots
+ #{:schema/director
+   :schema/trailer
+   :schema/productionCompany
+   :schema/musicBy
+   :schema/subtitleLanguage
+   :schema/duration
+   :schema/titleEIDR
+   :schema/actors
+   :schema/countryOfOrigin
+   :schema/directors
+   :schema/actor},
+ :db/ident :schema/Movie}
 ```
 
 ``` clojure
@@ -124,7 +136,6 @@ associated with them when the system is started.
 ;;   isa?
 ;;   :schema/CreativeWork
 ;;    :schema/Thing
-;;     :owl/Class
 ;;      :rdfs/Class
 ```
 
@@ -148,7 +159,7 @@ are resolved. It can be one of three values:
 1. nil -- When nil, metaobjects are resolved in Clojure namespaces by
    looking up the namespace as a prefix in a registry and then looking
    up the name in that namespace.
-2. Asami -- When an Asami (`net.wikipunk.asami.Connection`) is bound
+2. Asami -- When a Asami (`net.wikipunk.asami.Connection`) is bound
    to the environment metaobjects are resolved by looking the idents
    up using `asami.core/entity`.
 3. Datomic -- When a `net.wikipunk.datomic.Connection` is bound to the
