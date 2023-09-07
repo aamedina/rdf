@@ -126,7 +126,7 @@
                         :rdf/value    "tagging date"},
    :rdfs/subPropertyOf :dcterms/created})
 
-(def urn:uuid:4a6eadca-8f0b-5b3f-bbe5-a5d5eba2f29a112379
+(def urn:uuid:4a6eadca-8f0b-5b3f-bbe5-a5d5eba2f29a
   {:dc11/contributor #{"Vuk Milicic" "Andraz Tori" "Peter Mika"
                        "Alexandre Passant" "Scott Montgomerie" "Alex Iskold"
                        "Jamie Taylor"},
@@ -143,6 +143,6 @@
    :rdfs/seeAlso {:xsd/anyURI "http://commontag.org/mappings"},
    :xsd/anyURI "http://commontag.org/ns#"})
 
-(def urn:uuid:5ca5bd0e-b78c-59c3-beee-cba5e756edaf112380
+(def urn:uuid:5ca5bd0e-b78c-59c3-beee-cba5e756edaf
   {:rdfs/label "CommonTag mappings with other vocabularies",
    :xsd/anyURI "http://commontag.org/mappings"})

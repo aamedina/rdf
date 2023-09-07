@@ -3376,7 +3376,7 @@
     :rdf/value
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances."}})
 
-(def urn:uuid:16659e2c-afa4-5e38-81bd-29adb4ac426a112375
+(def urn:uuid:16659e2c-afa4-5e38-81bd-29adb4ac426a
   {:dcterms/contributor
    "W3C Permissions & Obligations Expression Working Group",
    :dcterms/creator

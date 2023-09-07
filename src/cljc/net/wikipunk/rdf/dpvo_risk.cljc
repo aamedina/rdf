@@ -1,7 +1,17 @@
 (ns net.wikipunk.rdf.dpvo-risk
-  "Risk Extension for DPV-OWL"
-  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/risk/risk.ttl",
-   :dcterms/abstract {:rdf/language "en",
+  ^{:base       "https://w3id.org/dpv/dpv-owl/risk#",
+    :namespaces {"dcterms"   "http://purl.org/dc/terms/",
+                 "dpvo"      "https://w3id.org/dpv/dpv-owl#",
+                 "dpvo-risk" "https://w3id.org/dpv/dpv-owl/risk#",
+                 "owl"       "http://www.w3.org/2002/07/owl#",
+                 "rdf"       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"      "http://www.w3.org/2000/01/rdf-schema#",
+                 "vann"      "http://purl.org/vocab/vann/",
+                 "vs"        "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"       "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dpvo-risk",
+    :source     "net/wikipunk/ext/dpv-owl/risk/risk.ttl"}
+  {:dcterms/abstract {:rdf/language "en",
                       :rdf/value    "Risk Extension for DPV-OWL"},
    :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit"
                           "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
@@ -17,20 +27,9 @@
    :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Risk Extension for DPV-OWL"},
-   :namespaces {"dcterms"   "http://purl.org/dc/terms/",
-                "dpvo"      "https://w3id.org/dpv/dpv-owl#",
-                "dpvo-risk" "https://w3id.org/dpv/dpv-owl/risk#",
-                "owl"       "http://www.w3.org/2002/07/owl#",
-                "rdf"       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"      "http://www.w3.org/2000/01/rdf-schema#",
-                "vann"      "http://purl.org/vocab/vann/",
-                "vs"        "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd"       "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dpvo-risk",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl/risk#",
    :vann/preferredNamespacePrefix "dpvs-risk",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/risk#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/risk"})
@@ -6415,3 +6414,27 @@
    :rdfs/subClassOf :dpvo/Severity,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
+
+(def urn:uuid:d8c99962-10f9-5b8f-a167-f19b91cf7a6e
+  {:dcterms/abstract {:rdf/language "en",
+                      :rdf/value    "Risk Extension for DPV-OWL"},
+   :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit"
+                          "Beatriz Esteves" "Julian Flake" "Paul Ryan"},
+   :dcterms/created #inst "2022-08-14T00:00:00.000-00:00",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "The Risk extension to Data Privacy Vocabulary provides terms (classes and properties) related to risk management, assessment, and consequences."},
+   :dcterms/license {:xsd/anyURI
+                     "https://www.w3.org/Consortium/Legal/2015/doc-license"},
+   :dcterms/modified #inst "2022-10-06T00:00:00.000-00:00",
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Risk Extension for DPV-OWL"},
+   :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
+   :owl/versionInfo "0.8.2",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "dpvs-risk",
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/risk#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl/risk"})

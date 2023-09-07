@@ -798,7 +798,7 @@
    :rdfs/subPropertyOf :foaf/nick,
    :vs/term_status     "testing"})
 
-(def urn:uuid:da0b7a03-14af-51bd-bbbf-4b180617f5c3112384
+(def urn:uuid:da0b7a03-14af-51bd-bbbf-4b180617f5c3
   {:dc11/description
    "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.",
    :dc11/title "Friend of a Friend (FOAF) vocabulary",

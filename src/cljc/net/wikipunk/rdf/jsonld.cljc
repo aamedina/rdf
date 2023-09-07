@@ -487,7 +487,7 @@
    :schema/domainIncludes :jsonld/Context,
    :schema/rangeIncludes :xsd/anyURI})
 
-(def urn:uuid:552d3295-97bc-5680-94a5-5dd7be38cdb5112389
+(def urn:uuid:552d3295-97bc-5680-94a5-5dd7be38cdb5
   {:dcterms/date #inst "2023-07-13T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",

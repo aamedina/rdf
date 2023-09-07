@@ -1,22 +1,32 @@
 (ns net.wikipunk.rdf.sim
-  {:dcat/downloadURL
-   "https://lov.linkeddata.es/dataset/lov/vocabs/sim/versions/2010-03-10.n3",
-   :namespaces {"dc11"    "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "log"     "http://www.w3.org/2000/10/swap/log#",
-                "mo"      "http://purl.org/ontology/mo/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "owl2xml" "http://www.w3.org/2006/12/owl2-xml#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "sim"     "http://purl.org/ontology/similarity/",
-                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "wordnet" "http://xmlns.com/wordnet/1.6/",
-                "xml"     "http://www.w3.org/XML/1998/namespace",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "sim",
-   :rdfa/uri "http://purl.org/ontology/similarity/"}
+  ^{:base "http://purl.org/ontology/similarity/",
+    :namespaces {"dc11"    "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "log"     "http://www.w3.org/2000/10/swap/log#",
+                 "mo"      "http://purl.org/ontology/mo/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "owl2xml" "http://www.w3.org/2006/12/owl2-xml#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "sim"     "http://purl.org/ontology/similarity/",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "wordnet" "http://xmlns.com/wordnet/1.6/",
+                 "xml"     "http://www.w3.org/XML/1998/namespace",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "sim",
+    :source
+    "https://lov.linkeddata.es/dataset/lov/vocabs/sim/versions/2010-03-10.n3"}
+  {:dc11/creator #{{:xsd/anyURI "http://moustaki.org/foaf.rdf#moustaki"}
+                   {:xsd/anyURI "http://kurtisrandom.com/foaf.rdf#kurtjx"}},
+   :dc11/title "The Similarity Ontology",
+   :owl/versionInfo "Revision: 0.2.02",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This is an ontology to express associations between entities whether artists, tracks, albums, compositional styles, sections of tracks, playing techniques or anything.  It is designed with the hope of being easily extensible, extremely expressive, and still computationally reasonable."},
+   :vs/term_status "testing",
+   :xsd/anyURI "http://purl.org/ontology/similarity/"}
   (:refer-clojure :exclude [range]))
 
 (def Association
@@ -250,3 +260,24 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/ontology/similarity/"},
    :rdfs/label "workflow",
    :vs/term_status "testing"})
+
+(def urn:uuid:5680642c-cc74-52bd-944e-36361ef159be
+  {:rdf/type   :foaf/Person,
+   :xsd/anyURI "http://moustaki.org/foaf.rdf#moustaki"})
+
+(def urn:uuid:993e7f99-5f74-5b58-9f6d-e941c28f08b5
+  {:rdf/type   :foaf/Person,
+   :xsd/anyURI "http://kurtisrandom.com/foaf.rdf#kurtjx"})
+
+(def urn:uuid:9ee6b342-e7a1-5bd7-9ba9-cd8bd4ff26a6
+  {:dc11/creator #{{:xsd/anyURI "http://moustaki.org/foaf.rdf#moustaki"}
+                   {:xsd/anyURI "http://kurtisrandom.com/foaf.rdf#kurtjx"}},
+   :dc11/title "The Similarity Ontology",
+   :owl/versionInfo "Revision: 0.2.02",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This is an ontology to express associations between entities whether artists, tracks, albums, compositional styles, sections of tracks, playing techniques or anything.  It is designed with the hope of being easily extensible, extremely expressive, and still computationally reasonable."},
+   :vs/term_status "testing",
+   :xsd/anyURI "http://purl.org/ontology/similarity/"})

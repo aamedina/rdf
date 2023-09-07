@@ -1,16 +1,16 @@
 (ns net.wikipunk.rdf.sp
-  "An RDF schema to syntactically represent SPARQL queries and update commands as RDF triples."
-  {:namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "sp"   "http://spinrdf.org/sp#",
-                "spin" "http://spinrdf.org/spin#",
-                "spl"  "http://spinrdf.org/spl#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :owl/versionInfo "1.5.1",
+  ^{:base       "http://spinrdf.org/sp#",
+    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "sp"   "http://spinrdf.org/sp#",
+                 "spin" "http://spinrdf.org/spin#",
+                 "spl"  "http://spinrdf.org/spl#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "sp",
+    :source     "http://spinrdf.org/sp#"}
+  {:owl/versionInfo "1.5.1",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "sp",
-   :rdfa/uri "http://spinrdf.org/sp#",
    :rdfs/comment
    "An RDF schema to syntactically represent SPARQL queries and update commands as RDF triples.",
    :rdfs/label "SPIN SPARQL Syntax",
@@ -939,3 +939,11 @@
    :rdfs/label         "with",
    :rdfs/range         :rdfs/Resource,
    :rdfs/subPropertyOf :sp/systemProperty})
+
+(def urn:uuid:dc5b6d4d-3bf0-5457-8db2-5e552747c03f
+  {:owl/versionInfo "1.5.1",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   "An RDF schema to syntactically represent SPARQL queries and update commands as RDF triples.",
+   :rdfs/label "SPIN SPARQL Syntax",
+   :xsd/anyURI "http://spinrdf.org/sp"})

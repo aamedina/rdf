@@ -1,16 +1,21 @@
 (ns net.wikipunk.rdf.dcmitype
-  {:dcat/downloadURL
-   "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_type.ttl",
-   :namespaces {"dcam"     "http://purl.org/dc/dcam/",
-                "dcmitype" "http://purl.org/dc/dcmitype/",
-                "dcterms"  "http://purl.org/dc/terms/",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"     "http://www.w3.org/2004/02/skos/core#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "dcmitype",
-   :rdfa/uri "http://purl.org/dc/dcmitype/"})
+  ^{:base "http://purl.org/dc/dcmitype/",
+    :namespaces {"dcam"     "http://purl.org/dc/dcam/",
+                 "dcmitype" "http://purl.org/dc/dcmitype/",
+                 "dcterms"  "http://purl.org/dc/terms/",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#"},
+    :prefix "dcmitype",
+    :source
+    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_type.ttl"}
+  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
+   :dcterms/title     {:rdf/language "en",
+                       :rdf/value    "DCMI Type Vocabulary"},
+   :rdf/type          :owl/Ontology,
+   :xsd/anyURI        "http://purl.org/dc/dcmitype/"})
 
 (def Collection
   {:db/ident :dcmitype/Collection,
@@ -199,3 +204,10 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://purl.org/dc/dcmitype/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Text"}})
+
+(def urn:uuid:e4cb61c2-e857-53c1-a798-3d0ebf84d6b6
+  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
+   :dcterms/title     {:rdf/language "en",
+                       :rdf/value    "DCMI Type Vocabulary"},
+   :xsd/anyURI        "http://purl.org/dc/dcmitype/"})

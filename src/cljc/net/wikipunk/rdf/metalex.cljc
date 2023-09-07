@@ -1,24 +1,15 @@
 (ns net.wikipunk.rdf.metalex
-  "Most OWL axioms in this schema belong in the OWL Lite syntactic fragment. Some disjointness axioms are used. These constraints should be validated, but can sometimes be removed in carefully controlled production environments. The use of certain datatype properties may also trigger classification as OWL full by validation software. The datatype properties are only used to establish a correspondence between the meaningful components of the relative URIs conforming to the Metalex naming convention used in Metalex documents and OWL classes. They can be removed with impunity if the need arises."
-  {:dcat/downloadURL "http://www.metalex.eu/metalex-cen.owl",
-   :namespaces {"metalex"  "http://www.metalex.eu/metalex/2008-05-02#",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "owl11"    "http://www.w3.org/2006/12/owl11#",
-                "owl11xml" "http://www.w3.org/2006/12/owl11-xml#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :owl/Ontology,
-   :rdfa/prefix "metalex",
-   :rdfa/uri "http://www.metalex.eu/metalex-cen.owl#",
-   :rdfs/comment
-   #{{:rdf/language "en",
-      :rdf/value
-      "Most OWL axioms in this schema belong in the OWL Lite syntactic fragment. Some disjointness axioms are used. These constraints should be validated, but can sometimes be removed in carefully controlled production environments. The use of certain datatype properties may also trigger classification as OWL full by validation software. The datatype properties are only used to establish a correspondence between the meaningful components of the relative URIs conforming to the Metalex naming convention used in Metalex documents and OWL classes. They can be removed with impunity if the need arises."}
-     {:rdf/language "en",
-      :rdf/value
-      "The CEN agreement on an open XML interchange format for legal and legislative resources (Metalex) is applicable to sources of law and references to sources of law. It consists of a written specification, an XML schema, and an OWL schema defining classes and properties for use in metadata describing sources of law. This document represents the OWL schema."}},
-   :xsd/anyURI "http://www.metalex.eu/metalex/2008-05-02"}
+  ^{:base       "http://www.metalex.eu/metalex-cen.owl#",
+    :namespaces {"metalex"  "http://www.metalex.eu/metalex/2008-05-02#",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "owl11"    "http://www.w3.org/2006/12/owl11#",
+                 "owl11xml" "http://www.w3.org/2006/12/owl11-xml#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "metalex",
+    :source     "http://www.metalex.eu/metalex-cen.owl"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [agent]))
 
 (def Action
@@ -970,3 +961,14 @@
                   :rdf/value    "Range is an XML schema date."},
    :rdfs/domain  :metalex/Date,
    :rdfs/range   :xsd/date})
+
+(def urn:uuid:6bb3a44a-9480-5cde-81c6-13cf692c0599
+  {:rdf/type :owl/Ontology,
+   :rdfs/comment
+   #{{:rdf/language "en",
+      :rdf/value
+      "Most OWL axioms in this schema belong in the OWL Lite syntactic fragment. Some disjointness axioms are used. These constraints should be validated, but can sometimes be removed in carefully controlled production environments. The use of certain datatype properties may also trigger classification as OWL full by validation software. The datatype properties are only used to establish a correspondence between the meaningful components of the relative URIs conforming to the Metalex naming convention used in Metalex documents and OWL classes. They can be removed with impunity if the need arises."}
+     {:rdf/language "en",
+      :rdf/value
+      "The CEN agreement on an open XML interchange format for legal and legislative resources (Metalex) is applicable to sources of law and references to sources of law. It consists of a written specification, an XML schema, and an OWL schema defining classes and properties for use in metadata describing sources of law. This document represents the OWL schema."}},
+   :xsd/anyURI "http://www.metalex.eu/metalex/2008-05-02"})

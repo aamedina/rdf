@@ -475,7 +475,7 @@
                 :rdf/value    "structure"},
    :rdfs/range :qb/DataStructureDefinition})
 
-(def urn:uuid:0f3126f4-af90-5a9f-a4f2-29c7384c0206112397
+(def urn:uuid:0f3126f4-af90-5a9f-a4f2-29c7384c0206
   {:dcterms/contributor
    #{{:foaf/mbox "arofan.gregory@earthlink.net"}
      {:foaf/mbox "ian@epimorphics.com"} {:foaf/mbox "richard@cyganiak.de"}

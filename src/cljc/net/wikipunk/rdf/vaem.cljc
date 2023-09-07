@@ -1,16 +1,15 @@
 (ns net.wikipunk.rdf.vaem
-  "VAEM stands for \"Vocabulary for Attaching Essential Metadata\". The purpose of VAEM is to provide, by import, a foundation for commonly needed resources when building an ontology. An effort has been made to restrict these resources to a minimal level.   What VAEM regards as 'essential metadata' is data about dates and times, confidentiality, and other characterisitic qualifiers of the ontology, but also references to where a ontology is documented and where to find ontology Governance, Attribution and Provenance. VAEM also defines classes for representing enumerations and enumerated values."
-  {:dcat/downloadURL "net/wikipunk/ext/vaem_2014-08-11.n3",
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "vaem"    "http://www.linkedmodel.org/schema/vaem#",
-                "voag"    "http://voag.linkedmodel.org/voag/",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :owl/Ontology,
-   :rdfa/prefix "vaem",
-   :rdfa/uri "http://www.linkedmodel.org/schema/vaem#",
+  ^{:base       "http://www.linkedmodel.org/schema/vaem#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "vaem"    "http://www.linkedmodel.org/schema/vaem#",
+                 "voag"    "http://voag.linkedmodel.org/voag/",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "vaem",
+    :source     "net/wikipunk/ext/vaem_2014-08-11.n3"}
+  {:rdf/type :owl/Ontology,
    :rdfs/comment
    "VAEM stands for \"Vocabulary for Attaching Essential Metadata\". The purpose of VAEM is to provide, by import, a foundation for commonly needed resources when building an ontology. An effort has been made to restrict these resources to a minimal level.   What VAEM regards as 'essential metadata' is data about dates and times, confidentiality, and other characterisitic qualifiers of the ontology, but also references to where a ontology is documented and where to find ontology Governance, Attribution and Provenance. VAEM also defines classes for representing enumerations and enumerated values.",
    :xsd/anyURI "http://www.linkedmodel.org/schema/vaem#"}
@@ -974,3 +973,13 @@
                        {:xsd/anyURI
                         "http://www.linkedmodel.org/2.0/schema/vaem"}},
    :rdfs/label "with attribution to"})
+
+(def urn:uuid:e5547431-92a0-5cba-8395-a6c5cde9da77
+  {:rdf/type :owl/Ontology,
+   :rdfs/comment
+   "VAEM stands for \"Vocabulary for Attaching Essential Metadata\". The purpose of VAEM is to provide, by import, a foundation for commonly needed resources when building an ontology. An effort has been made to restrict these resources to a minimal level.   What VAEM regards as 'essential metadata' is data about dates and times, confidentiality, and other characterisitic qualifiers of the ontology, but also references to where a ontology is documented and where to find ontology Governance, Attribution and Provenance. VAEM also defines classes for representing enumerations and enumerated values.",
+   :xsd/anyURI "http://www.linkedmodel.org/schema/vaem#"})
+
+(def urn:uuid:625e733a-0645-5147-b43d-8d7170aef265
+  {:vaem/hasGraphMetadata :vaem/GMD_VAEM,
+   :xsd/anyURI "http://www.linkedmodel.org/2.0/schema/vaem"})

@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.gen
-  {:dcat/downloadURL "net/wikipunk/ext/gen.rdf",
-   :namespaces       {"dc11" "http://purl.org/dc/elements/1.1/",
-                      "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
-                      "gen"  "http://www.w3.org/2000/01/rdf-schema#",
-                      "owl"  "http://www.w3.org/2002/07/owl#",
-                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "gen",
-   :rdfa/uri         "http://www.w3.org/2006/gen/ont#"})
+  ^{:base       "http://www.w3.org/2006/gen/ont#",
+    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                 "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
+                 "gen"  "http://www.w3.org/2000/01/rdf-schema#",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix     "gen",
+    :source     "net/wikipunk/ext/gen.rdf"}
+  {:rdf/type :owl/Ontology})
 
 (def ContentTypeGenericResource
   {:db/ident :gen/ContentTypeGenericResource,
@@ -146,3 +146,14 @@
    :rdfs/label         "version",
    :rdfs/range         :gen/TimeSpecificResource,
    :rdfs/subPropertyOf :gen/sameWorkAs})
+
+(def urn:uuid:9132cae4-f2b7-5cf8-9787-20c7bac7dbfa
+  {:dc11/title
+   "An Ontology for Relating Generic and Specific Information Resources",
+   :doc/creator {:xsd/anyURI "http://www.w3.org/People/Berners-Lee/card#i"},
+   :doc/ipr {:xsd/anyURI "http://www.w3.org/2000/10/swap/LICENSE.n3"},
+   :doc/version "$Id: ont.rdf,v 1.7 2009/04/20 10:12:30 timbl Exp $",
+   :rdfs/comment
+   "\n    This ontology implements concepts discussed in the Generic URIs 'DesignIsues' note.\n    It is also the topic of the W3C TAG issue and a related TAG finding.\n    This ontology does not model the fact that representations of a resource can be\n    customised as a function of things like user agent, target media,\n    the geographical position of the user,\n    the preferences of the user, etc.  These could be and can be added.\n    The FixedResource class is defined to be specific to ANY variation,\n    as is the fixedResource property.\n    ",
+   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/DesignIssues/Generic"},
+   :xsd/anyURI "file:///home/adrian/src/wikipunk/rdf/net/wikipunk/ext/gen.rdf"})

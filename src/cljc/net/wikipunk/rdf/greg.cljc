@@ -1,21 +1,20 @@
 (ns net.wikipunk.rdf.greg
-  "The set of months-of-the-year from the Gregorian calendar."
-  {:dcat/downloadURL
-   "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time-gregorian.ttl",
-   :dcterms/created #inst "2017-01-20T00:00:00.000-00:00",
+  ^{:base "http://www.w3.org/ns/time/gregorian/",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "greg"    "http://www.w3.org/ns/time/gregorian/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "time"    "http://www.w3.org/2006/time#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "greg",
+    :source
+    "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time-gregorian.ttl"}
+  {:dcterms/created #inst "2017-01-20T00:00:00.000-00:00",
    :dcterms/creator {:xsd/anyURI "http://orcid.org/0000-0002-3884-3420"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "greg"    "http://www.w3.org/ns/time/gregorian/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "time"    "http://www.w3.org/2006/time#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "http://www.w3.org/2006/time"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "greg",
-   :rdfa/uri "http://www.w3.org/ns/time/gregorian/",
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The set of months-of-the-year from the Gregorian calendar."},
@@ -400,3 +399,15 @@
                      {:rdf/language "de",
                       :rdf/value    "September"}},
    :time/month     #inst "2000-09-15T00:00:00.000-04:00"})
+
+(def urn:uuid:30c5f01e-b54d-538b-a8c2-b1786da41a89
+  {:dcterms/created #inst "2017-01-20T00:00:00.000-00:00",
+   :dcterms/creator {:xsd/anyURI "http://orcid.org/0000-0002-3884-3420"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/2006/time"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value
+                  "The set of months-of-the-year from the Gregorian calendar."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "The gregorian months"},
+   :xsd/anyURI "http://www.w3.org/ns/time/gregorian"})

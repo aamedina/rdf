@@ -500,7 +500,7 @@
     :rdf/value
     "Relates a concept to the concept scheme that it is a top level concept of."}})
 
-(def urn:uuid:cb425e27-7b60-536b-ae4e-a1198080a455112360
+(def urn:uuid:cb425e27-7b60-536b-ae4e-a1198080a455
   {:dcterms/contributor
    #{"Nikki Rogers"
      "Participants in W3C's Semantic Web Deployment Working Group."

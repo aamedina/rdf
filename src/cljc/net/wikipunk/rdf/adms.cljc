@@ -1,7 +1,10 @@
 (ns net.wikipunk.rdf.adms
-  "adms"
-  {:dcat/downloadURL "http://uri.semic.eu/w3c/ns/adms.ttl",
-   :dcterms/issued   "2023-04-05",
+  ^{:base       "http://www.w3.org/ns/adms#",
+    :namespaces {"adms" "http://www.w3.org/ns/adms#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
+    :prefix     "adms",
+    :source     "http://uri.semic.eu/w3c/ns/adms.ttl"}
+  {:dcterms/issued   "2023-04-05",
    :dcterms/license  {:xsd/anyURI
                       "https://creativecommons.org/licenses/by/4.0/"},
    :dcterms/mediator {:foaf/homepage {:xsd/anyURI "https://semic.eu"},
@@ -11,11 +14,7 @@
                       :rdf/type       :foaf/Person,
                       {:xsd/anyURI "https://schema.org/affiliation"}
                       {:foaf/name "SEMIC EU"}},
-   :namespaces       {"adms" "http://www.w3.org/ns/adms#",
-                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
    :rdf/type         :owl/Ontology,
-   :rdfa/prefix      "adms",
-   :rdfa/uri         "http://www.w3.org/ns/adms#",
    :rdfs/label       #{{:rdf/language "nl",
                         :rdf/value    "adms"}
                        {:rdf/language "en",
@@ -260,3 +259,37 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "version notes"},
    :rdfs/range :rdfs/Literal})
+
+(def urn:uuid:ebad1d1b-1ee0-52c6-b4f4-21476546b0f4
+  {:dcterms/issued   "2023-04-05",
+   :dcterms/license  {:xsd/anyURI
+                      "https://creativecommons.org/licenses/by/4.0/"},
+   :dcterms/mediator {:foaf/homepage {:xsd/anyURI "https://semic.eu"},
+                      :foaf/name "Semantic Interoperability Community (SEMIC)"},
+   :foaf/maker       {:foaf/firstName "Pavlina",
+                      :foaf/lastName  "Fragkou",
+                      :rdf/type       :foaf/Person,
+                      {:xsd/anyURI "https://schema.org/affiliation"}
+                      {:foaf/name "SEMIC EU"}},
+   :rdf/type         :owl/Ontology,
+   :rdfs/label       #{{:rdf/language "nl",
+                        :rdf/value    "adms"}
+                       {:rdf/language "en",
+                        :rdf/value    "adms"}},
+   :xsd/anyURI       "http://www.w3.org/ns/adms",
+   {:xsd/anyURI "http://www.w3.org/2001/02pd/rec54#editor"}
+   #{{:foaf/firstName "Bert",
+      :foaf/lastName  "Van Nuffelen",
+      :foaf/mbox      {:xsd/anyURI "mailto:bert.van.nuffelen@tenforce.com"},
+      :rdf/type       :foaf/Person,
+      {:xsd/anyURI "https://schema.org/affiliation"} {:foaf/name "TenForce"}}
+     {:foaf/firstName "Natasa",
+      :foaf/lastName  "Sofou",
+      :rdf/type       :foaf/Person}
+     {:foaf/firstName "Makx",
+      :foaf/lastName  "Dekkers",
+      :rdf/type       :foaf/Person}
+     {:foaf/firstName "Pavlina",
+      :foaf/lastName  "Fragkou",
+      :rdf/type       :foaf/Person,
+      {:xsd/anyURI "https://schema.org/affiliation"} {:foaf/name "SEMIC EU"}}}})

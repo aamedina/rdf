@@ -1,5 +1,18 @@
 (ns net.wikipunk.rdf.wo
-  "A vocabulary for describing weightings and their referenced scales."
+  ^{:base       "http://purl.org/ontology/wo/core#",
+    :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
+                 "event" "http://purl.org/NET/c4dm/event.owl#",
+                 "owl"   "http://www.w3.org/2002/07/owl#",
+                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                 "rev"   "http://purl.org/stuff/rev#",
+                 "scovo" "http://purl.org/NET/scovo#",
+                 "vann"  "http://purl.org/vocab/vann/",
+                 "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "wo"    "http://purl.org/ontology/wo/core#",
+                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "wo",
+    :source     "http://purl.org/ontology/wo/weightingontology.owl"}
   {:dc11/creator {:xsd/anyURI "http://foaf.me/zazi#me"},
    :dc11/date #inst "2010-09-14T10:40:52.000-00:00",
    :dc11/description
@@ -8,18 +21,6 @@
     "A vocabulary for describing weightings and their referenced scales."},
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Weighting Ontology"},
-   :dcat/downloadURL "http://purl.org/ontology/wo/weightingontology.owl",
-   :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
-                "event" "http://purl.org/NET/c4dm/event.owl#",
-                "owl"   "http://www.w3.org/2002/07/owl#",
-                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                "rev"   "http://purl.org/stuff/rev#",
-                "scovo" "http://purl.org/NET/scovo#",
-                "vann"  "http://purl.org/vocab/vann/",
-                "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "wo"    "http://purl.org/ontology/wo/core#",
-                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports #{{:xsd/anyURI "http://purl.org/stuff/rev"}
                   {:xsd/anyURI "http://www.w3.org/2003/06/sw-vocab-status/ns"}
                   {:xsd/anyURI "http://purl.org/vocab/vann/"}
@@ -28,8 +29,6 @@
                   {:xsd/anyURI "http://purl.org/NET/scovo"}},
    :owl/versionInfo 0.1M,
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "wo",
-   :rdfa/uri "http://purl.org/ontology/wo/core#",
    :vann/preferredNamespacePrefix "wo",
    :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#",
    :xsd/anyURI "http://purl.org/ontology/wo/core#"})
@@ -153,3 +152,24 @@
    :rdfs/range       :xsd/decimal,
    :vs/term_status   {:rdf/language "en",
                       :rdf/value    "testing"}})
+
+(def urn:uuid:033ebac6-9306-584f-8540-ec1aa027db87
+  {:dc11/creator {:xsd/anyURI "http://foaf.me/zazi#me"},
+   :dc11/date #inst "2010-09-14T10:40:52.000-00:00",
+   :dc11/description
+   {:rdf/language "en",
+    :rdf/value
+    "A vocabulary for describing weightings and their referenced scales."},
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "Weighting Ontology"},
+   :owl/imports #{{:xsd/anyURI "http://purl.org/stuff/rev"}
+                  {:xsd/anyURI "http://www.w3.org/2003/06/sw-vocab-status/ns"}
+                  {:xsd/anyURI "http://purl.org/vocab/vann/"}
+                  {:xsd/anyURI "http://purl.org/dc/elements/1.1/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}
+                  {:xsd/anyURI "http://purl.org/NET/scovo"}},
+   :owl/versionInfo 0.1M,
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "wo",
+   :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#",
+   :xsd/anyURI "http://purl.org/ontology/wo/core#"})

@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.mo
-  {:namespaces  {"ao"      "http://purl.org/ontology/ao/core#",
+  ^{:base       "http://purl.org/ontology/mo/",
+    :namespaces {"ao"      "http://purl.org/ontology/ao/core#",
                  "bio"     "http://purl.org/vocab/bio/0.1/",
                  "cc"      "http://web.resource.org/cc/",
                  "dc11"    "http://purl.org/dc/elements/1.1/",
@@ -18,9 +19,35 @@
                  "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                  "wot"     "http://xmlns.com/wot/0.1/",
                  "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type    :rdfa/PrefixMapping,
-   :rdfa/prefix "mo",
-   :rdfa/uri    "http://purl.org/ontology/mo/"}
+    :prefix     "mo",
+    :source     "http://purl.org/ontology/mo/"}
+  {:dc11/created "2006/12/21 12:00:00",
+   :dc11/date "2013/07/22 16:54:19",
+   :dc11/description
+   "\n        The Music Ontology Specification provides main concepts and \n        properties fo describing music (i.e. artists, albums and tracks) \n        on the Semantic Web. \n    ",
+   :dc11/title "The Music Ontology",
+   :foaf/maker #{{:foaf/name "George Fazekas"}
+                 {:foaf/homepage {:xsd/anyURI "http://simon-reinhardt.de/"},
+                  :foaf/name     "Simon Reinhardt"}
+                 {:xsd/anyURI "http://www.talkdigger.com/foaf/fgiasson"}
+                 {:xsd/anyURI "http://foaf.me/zazi#me"}
+                 {:xsd/anyURI "http://raimond.me.uk/foaf.rdf#moustaki"}
+                 {:foaf/homepage {:xsd/anyURI "http://apassant.net/"},
+                  :foaf/name     "Alexandre Passant"}
+                 {:xsd/anyURI "http://kurtisrandom.com/foaf.rdf#kurtjx"}},
+   :owl/imports #{{:xsd/anyURI "http://purl.org/vocab/frbr/core"}
+                  {:xsd/anyURI "http://purl.org/ontology/ao/core"}
+                  {:xsd/anyURI "http://www.w3.org/2006/time"}
+                  {:xsd/anyURI "http://purl.org/vocab/bio/0.1/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/keys.owl"}
+                  {:xsd/anyURI "http://xmlns.com/foaf/0.1/"}
+                  {:xsd/anyURI "http://purl.org/dc/terms/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}},
+   :owl/versionInfo "Revision: 2.1.5",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "mo",
+   :vann/preferredNamespaceUri "http://purl.org/ontology/mo/",
+   :xsd/anyURI "http://purl.org/ontology/mo/"}
   (:refer-clojure :exclude [key time]))
 
 (def Activity
@@ -2766,3 +2793,52 @@
    :rdfs/range :foaf/Document,
    :rdfs/subPropertyOf :foaf/isPrimaryTopicOf,
    :vs/term_status "stable"})
+
+(def urn:uuid:80b9d71e-1ad9-5c11-90e6-3f804358aa21
+  {:foaf/homepage {:xsd/anyURI "http://smiy.wordpress.com/"},
+   :foaf/name     "Thomas Gängler",
+   :xsd/anyURI    "http://foaf.me/zazi#me"})
+
+(def urn:uuid:03314f0a-35a2-561c-b543-0de595c72f12
+  {:foaf/homepage {:xsd/anyURI "http://raimond.me.uk/"},
+   :foaf/name     "Yves Raimond",
+   :xsd/anyURI    "http://raimond.me.uk/foaf.rdf#moustaki"})
+
+(def urn:uuid:43d3e7f2-e5e7-5f93-837f-db564962e588
+  {:dc11/created "2006/12/21 12:00:00",
+   :dc11/date "2013/07/22 16:54:19",
+   :dc11/description
+   "\n        The Music Ontology Specification provides main concepts and \n        properties fo describing music (i.e. artists, albums and tracks) \n        on the Semantic Web. \n    ",
+   :dc11/title "The Music Ontology",
+   :foaf/maker #{{:foaf/name "George Fazekas"}
+                 {:foaf/homepage {:xsd/anyURI "http://simon-reinhardt.de/"},
+                  :foaf/name     "Simon Reinhardt"}
+                 {:xsd/anyURI "http://www.talkdigger.com/foaf/fgiasson"}
+                 {:xsd/anyURI "http://foaf.me/zazi#me"}
+                 {:xsd/anyURI "http://raimond.me.uk/foaf.rdf#moustaki"}
+                 {:foaf/homepage {:xsd/anyURI "http://apassant.net/"},
+                  :foaf/name     "Alexandre Passant"}
+                 {:xsd/anyURI "http://kurtisrandom.com/foaf.rdf#kurtjx"}},
+   :owl/imports #{{:xsd/anyURI "http://purl.org/vocab/frbr/core"}
+                  {:xsd/anyURI "http://purl.org/ontology/ao/core"}
+                  {:xsd/anyURI "http://www.w3.org/2006/time"}
+                  {:xsd/anyURI "http://purl.org/vocab/bio/0.1/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/keys.owl"}
+                  {:xsd/anyURI "http://xmlns.com/foaf/0.1/"}
+                  {:xsd/anyURI "http://purl.org/dc/terms/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}},
+   :owl/versionInfo "Revision: 2.1.5",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "mo",
+   :vann/preferredNamespaceUri "http://purl.org/ontology/mo/",
+   :xsd/anyURI "http://purl.org/ontology/mo/"})
+
+(def urn:uuid:74699461-a03a-5655-a0d3-f193fb07b804
+  {:foaf/homepage {:xsd/anyURI "http://fgiasson.com/"},
+   :foaf/name     "Frédérick Giasson",
+   :xsd/anyURI    "http://www.talkdigger.com/foaf/fgiasson"})
+
+(def urn:uuid:993e7f99-5f74-5b58-9f6d-e941c28f08b5
+  {:foaf/homepage {:xsd/anyURI "http://kurtisrandom.com/"},
+   :foaf/name     "Kurt Jacobson",
+   :xsd/anyURI    "http://kurtisrandom.com/foaf.rdf#kurtjx"})

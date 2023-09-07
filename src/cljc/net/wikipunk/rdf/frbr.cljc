@@ -1,5 +1,18 @@
 (ns net.wikipunk.rdf.frbr
-  "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    "
+  ^{:base       "http://purl.org/vocab/frbr/core#",
+    :namespaces {"cc"       "http://web.resource.org/cc/",
+                 "dc11"     "http://purl.org/dc/elements/1.1/",
+                 "dcmitype" "http://purl.org/dc/dcmitype/",
+                 "dcterms"  "http://purl.org/dc/terms/",
+                 "frbr"     "http://purl.org/vocab/frbr/core#",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#",
+                 "vann"     "http://purl.org/vocab/vann/",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "frbr",
+    :source     "net/wikipunk/ext/frbr-core-20050810.rdf"}
   {:dc11/contributor "Bruce D'Arcus",
    :dc11/creator #{"Ian Davis <http://purl.org/NET/iand>" "Richard Newman"},
    :dc11/date #inst "2005-08-10T00:00:00.000-00:00",
@@ -7,27 +20,13 @@
    :dc11/rights "Copyright © 2005 Richard Newman and Ian Davis",
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Expression of Core FRBR Concepts in RDF"},
-   :dcat/downloadURL "net/wikipunk/ext/frbr-core-20050810.rdf",
    :dcterms/hasFormat
    #{{:xsd/anyURI "http://purl.org/vocab/frbr/frbr-core-20050810.html"}
      {:xsd/anyURI "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"}},
    :dcterms/issued #inst "2005-07-15T00:00:00.000-00:00",
    :dcterms/replaces {:xsd/anyURI
                       "http://purl.org/vocab/frbr/frbr-core-20050809"},
-   :namespaces {"cc"       "http://web.resource.org/cc/",
-                "dc11"     "http://purl.org/dc/elements/1.1/",
-                "dcmitype" "http://purl.org/dc/dcmitype/",
-                "dcterms"  "http://purl.org/dc/terms/",
-                "frbr"     "http://purl.org/vocab/frbr/core#",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"     "http://www.w3.org/2004/02/skos/core#",
-                "vann"     "http://purl.org/vocab/vann/",
-                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "frbr",
-   :rdfa/uri "http://purl.org/vocab/frbr/core#",
    :rdfs/comment
    #{{:rdf/language "en",
       :rdf/value
@@ -922,3 +921,65 @@
    :rdfs/subPropertyOf :frbr/relatedEndeavour,
    :skos/definition    {:rdf/language "en",
                         :rdf/value    "An expression that is translated."}})
+
+(def urn:uuid:8cc0169c-2ce8-585f-af19-da2bb7c0357f
+  {:dc11/format {:rdf/type   :dcterms/IMT,
+                 :rdf/value  "text/html",
+                 :rdfs/label {:rdf/language "en",
+                              :rdf/value    "HTML"}},
+   :rdf/type    :dcmitype/Text,
+   :xsd/anyURI  "http://purl.org/vocab/frbr/frbr-core-20050810.html"})
+
+(def urn:uuid:eabb691f-42d1-5cda-b62c-4092d94039d8
+  {:rdf/type   :owl/Class,
+   :xsd/anyURI "http://www.isi.edu/~pan/damltime/time-entry.owl#Event"})
+
+(def urn:uuid:9d77adb5-ba0c-5c28-bbf6-00cd5e7002e1
+  {:dc11/format {:rdf/type   :dcterms/IMT,
+                 :rdf/value  "application/rdf+xml",
+                 :rdfs/label {:rdf/language "en",
+                              :rdf/value    "RDF"}},
+   :rdf/type    :dcmitype/Text,
+   :xsd/anyURI  "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"})
+
+(def urn:uuid:0a6ed844-88aa-5866-a9a7-22359ce400db
+  {:rdf/type   :owl/Class,
+   :xsd/anyURI "http://xmlns.com/wordnet/1.6/Work~2"})
+
+(def urn:uuid:524d6b1e-cb1b-532e-b6f3-6bd182b9ef02
+  {:dc11/contributor "Bruce D'Arcus",
+   :dc11/creator #{"Ian Davis <http://purl.org/NET/iand>" "Richard Newman"},
+   :dc11/date #inst "2005-08-10T00:00:00.000-00:00",
+   :dc11/identifier "http://purl.org/vocab/frbr/frbr-core-20050810",
+   :dc11/rights "Copyright © 2005 Richard Newman and Ian Davis",
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "Expression of Core FRBR Concepts in RDF"},
+   :dcterms/hasFormat
+   #{{:xsd/anyURI "http://purl.org/vocab/frbr/frbr-core-20050810.html"}
+     {:xsd/anyURI "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"}},
+   :dcterms/issued #inst "2005-07-15T00:00:00.000-00:00",
+   :dcterms/replaces {:xsd/anyURI
+                      "http://purl.org/vocab/frbr/frbr-core-20050809"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   #{{:rdf/language "en",
+      :rdf/value
+      "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    "}
+     {:rdf/language "en",
+      :rdf/value
+      "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    "}},
+   :vann/preferredNamespacePrefix "frbr",
+   :vann/preferredNamespaceUri "http://purl.org/vocab/frbr/core#",
+   :xsd/anyURI "http://purl.org/vocab/frbr/core#"})
+
+(def urn:uuid:9b8a1df2-2ed4-5ed3-bd32-99ea47a5e5cd
+  {:cc/permits  #{:cc/Reproduction :cc/Distribution :cc/DerivativeWorks},
+   :cc/requires #{:cc/Notice :cc/Attribution},
+   :rdf/type    :cc/License,
+   :xsd/anyURI  "http://creativecommons.org/licenses/by/2.0/uk/"})
+
+(def urn:uuid:678ee0c9-9db3-5f78-aaaf-dce969652b9d
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/2.0/uk/"},
+   :rdf/type :cc/Work,
+   :xsd/anyURI
+   "file:///home/adrian/src/wikipunk/rdf/net/wikipunk/ext/frbr-core-20050810.rdf"})

@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.ore
-  {:namespaces  {"dc11"     "http://purl.org/dc/elements/1.1/",
+  ^{:base       "http://www.openarchives.org/ore/terms/",
+    :namespaces {"dc11"     "http://purl.org/dc/elements/1.1/",
                  "dcmitype" "http://purl.org/dc/dcmitype/",
                  "dcterms"  "http://purl.org/dc/terms/",
                  "ore"      "http://www.openarchives.org/ore/terms/",
@@ -8,9 +9,17 @@
                  "rdfg"     "http://www.w3.org/2004/03/trix/rdfg-1/",
                  "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
                  "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type    :rdfa/PrefixMapping,
-   :rdfa/prefix "ore",
-   :rdfa/uri    "http://www.openarchives.org/ore/terms/"})
+    :prefix     "ore",
+    :source     "http://www.openarchives.org/ore/terms/"}
+  {:dcterms/license   {:xsd/anyURI
+                       "http://creativecommons.org/licenses/by-sa/3.0/"},
+   :dcterms/publisher {:rdfs/label "The Open Archives Initiative ORE Project"},
+   :dcterms/title     "The OAI ORE terms vocabulary",
+   :rdf/type          :owl/Ontology,
+   :rdfs/comment      "The set of terms provided by the OAI ORE initiative",
+   :rdfs/label        "The OAI ORE terms vocabulary",
+   :rdfs/seeAlso      {:xsd/anyURI "http://www.openarchives.org/ore/toc"},
+   :xsd/anyURI        "http://www.openarchives.org/ore/terms/"})
 
 (def AggregatedResource
   {:db/ident :ore/AggregatedResource,
@@ -130,3 +139,13 @@
    :rdfs/domain :ore/Aggregation,
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.openarchives.org/ore/terms/"},
    :rdfs/label "Similar To"})
+
+(def urn:uuid:b8410922-5704-53d1-b39c-1b01f4231745
+  {:dcterms/license   {:xsd/anyURI
+                       "http://creativecommons.org/licenses/by-sa/3.0/"},
+   :dcterms/publisher {:rdfs/label "The Open Archives Initiative ORE Project"},
+   :dcterms/title     "The OAI ORE terms vocabulary",
+   :rdfs/comment      "The set of terms provided by the OAI ORE initiative",
+   :rdfs/label        "The OAI ORE terms vocabulary",
+   :rdfs/seeAlso      {:xsd/anyURI "http://www.openarchives.org/ore/toc"},
+   :xsd/anyURI        "http://www.openarchives.org/ore/terms/"})

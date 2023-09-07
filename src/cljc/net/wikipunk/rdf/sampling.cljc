@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.sampling
-  {:namespaces  {"owl"      "http://www.w3.org/2002/07/owl#",
+  ^{:base       "http://www.w3.org/ns/sosa/sampling/",
+    :namespaces {"owl"      "http://www.w3.org/2002/07/owl#",
                  "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                  "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
                  "sampling" "http://www.w3.org/ns/sosa/sampling/",
@@ -7,11 +8,11 @@
                  "skos"     "http://www.w3.org/2004/02/skos/core#",
                  "sosa"     "http://www.w3.org/ns/sosa/",
                  "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
+    :prefix     "sampling",
+    :source     "http://www.w3.org/ns/sosa/sampling/"}
+  {:owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
                   {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
    :rdf/type    :owl/Ontology,
-   :rdfa/prefix "sampling",
-   :rdfa/uri    "http://www.w3.org/ns/sosa/sampling/",
    :xsd/anyURI  "http://www.w3.org/ns/sosa/sampling/"})
 
 (def RelationshipNature
@@ -75,3 +76,9 @@
    :skos/definition {:rdf/language "en",
                      :rdf/value
                      "Links a sample relationship to the related sample"}})
+
+(def urn:uuid:0451dba1-30d8-52e7-9b89-fa75f2c0dadb
+  {:owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/sosa/"}
+                  {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
+   :rdf/type    :owl/Ontology,
+   :xsd/anyURI  "http://www.w3.org/ns/sosa/sampling/"})

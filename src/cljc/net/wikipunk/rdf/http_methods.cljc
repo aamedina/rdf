@@ -1,13 +1,13 @@
 (ns net.wikipunk.rdf.http-methods
-  {:dcat/downloadURL "net/wikipunk/ext/http-methods.rdf",
-   :namespaces       {"dcterms" "http://purl.org/dc/terms/",
-                      "http" "http://www.w3.org/2011/http#",
-                      "http-methods" "http://www.w3.org/2011/http-methods#",
-                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "http-methods",
-   :rdfa/uri         "http://www.w3.org/2011/http-methods#"})
+  ^{:base       "http://www.w3.org/2011/http-methods#",
+    :namespaces {"dcterms"      "http://purl.org/dc/terms/",
+                 "http"         "http://www.w3.org/2011/http#",
+                 "http-methods" "http://www.w3.org/2011/http-methods#",
+                 "rdf"          "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"         "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix     "http-methods",
+    :source     "net/wikipunk/ext/http-methods.rdf"}
+  {:rdf/type :owl/Ontology})
 
 (def CONNECT
   {:db/ident :http-methods/CONNECT,
@@ -107,3 +107,15 @@
                    :rdf/value    "TRACE"},
    :rdf/type :http/Method,
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.ietf.org/rfc/rfc2616.txt"}})
+
+(def urn:uuid:7601aeab-91a2-5b79-806f-b2f198042393
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2616.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Hypertext Transfer Protocol -- HTTP/1.1"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2616.txt"})
+
+(def urn:uuid:4033235a-5b4c-5705-a4e1-b3006beaf7a3
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc5789.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "PATCH Method for HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc5789.txt"})

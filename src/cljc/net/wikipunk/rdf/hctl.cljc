@@ -1,18 +1,18 @@
 (ns net.wikipunk.rdf.hctl
-  "Ontology designed to provide an RDF representation of Hypermedia Controls, in particular links and forms."
+  ^{:base       "https://www.w3.org/2019/wot/hypermedia#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "hctl"    "https://www.w3.org/2019/wot/hypermedia#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"  "http://schema.org/",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "xml"     "http://www.w3.org/XML/1998/namespace",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "hctl",
+    :source     "https://www.w3.org/2019/wot/hypermedia#"}
   {:dcterms/creator {:xsd/anyURI "https://vcharpenay.link/#me"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "hctl"    "https://www.w3.org/2019/wot/hypermedia#",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "schema"  "http://schema.org/",
-                "vann"    "http://purl.org/vocab/vann/",
-                "xml"     "http://www.w3.org/XML/1998/namespace",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "hctl",
-   :rdfa/uri "https://www.w3.org/2019/wot/hypermedia#",
    :rdfs/comment
    "Ontology designed to provide an RDF representation of Hypermedia Controls, in particular links and forms.",
    :rdfs/label "Hypermedia Controls Ontology",
@@ -188,3 +188,13 @@
    :rdfs/label "returns",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :hctl/ExpectedResponse})
+
+(def urn:uuid:1954b77d-eab9-5728-86d3-8e6267c9b021
+  {:dcterms/creator {:xsd/anyURI "https://vcharpenay.link/#me"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   "Ontology designed to provide an RDF representation of Hypermedia Controls, in particular links and forms.",
+   :rdfs/label "Hypermedia Controls Ontology",
+   :vann/preferredNamespacePrefix "hctl",
+   :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/hypermedia#",
+   :xsd/anyURI "https://www.w3.org/2019/wot/hypermedia#"})

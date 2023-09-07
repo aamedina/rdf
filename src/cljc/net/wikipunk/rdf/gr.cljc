@@ -2481,7 +2481,7 @@
    :rdfs/range :gr/QuantitativeValue,
    :rdfs/subPropertyOf :gr/quantitativeProductOrServiceProperty})
 
-(def urn:uuid:24b0317a-392b-5b61-b4b7-59088e64ed57112390
+(def urn:uuid:24b0317a-392b-5b61-b4b7-59088e64ed57
   {:dc11/contributor
    {:rdf/language "en",
     :rdf/value

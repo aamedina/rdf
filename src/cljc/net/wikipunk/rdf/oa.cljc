@@ -628,7 +628,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/oa#"},
    :rdfs/label "via"})
 
-(def urn:uuid:041bf740-c1eb-5bb5-b2ce-fdec4121ca7b112346
+(def urn:uuid:041bf740-c1eb-5bb5-b2ce-fdec4121ca7b
   {:dc11/title "Web Annotation Ontology",
    :dcterms/creator #{{:foaf/name "Benjamin Young",
                        :rdf/type  :foaf/Person}

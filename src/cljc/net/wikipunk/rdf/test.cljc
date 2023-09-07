@@ -1,11 +1,15 @@
 (ns net.wikipunk.rdf.test
-  {:namespaces  {"owl"  "http://www.w3.org/2002/07/owl#",
+  ^{:base       "http://www.w3.org/2006/03/test-description#",
+    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
                  "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                  "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                  "test" "http://www.w3.org/2006/03/test-description#"},
-   :rdf/type    :rdfa/PrefixMapping,
-   :rdfa/prefix "test",
-   :rdfa/uri    "http://www.w3.org/2006/03/test-description#"})
+    :prefix     "test",
+    :source     "http://www.w3.org/2006/03/test-description#"}
+  {:rdf/type     :owl/Ontology,
+   :rdfs/seeAlso {:xsd/anyURI
+                  "http://www.w3.org/TR/2005/NOTE-test-metadata-20050914/"},
+   :xsd/anyURI   "http://www.w3.org/2006/03/test-description"})
 
 (def ReviewStatus
   {:db/ident     :test/ReviewStatus,
@@ -198,3 +202,8 @@
    "the item has been proposed, but hasn't been reviewed (e.g. for completeness) yet",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "unreviewed"}})
+
+(def urn:uuid:de647c08-3ad4-59b7-bbdb-4d3ca8d0be79
+  {:rdfs/seeAlso {:xsd/anyURI
+                  "http://www.w3.org/TR/2005/NOTE-test-metadata-20050914/"},
+   :xsd/anyURI   "http://www.w3.org/2006/03/test-description"})

@@ -3152,7 +3152,7 @@
       :rdf/value
       "Se recomienda que la taxonomía se organice como un skos:ConceptScheme, skos:Collection, owl:Ontology o similar, los cuáles permiten que cada miembro se denote con una IRI y se publique como datos enlazados."}}})
 
-(def urn:uuid:06d668c4-ff6a-5243-806b-206d73c1719c112364
+(def urn:uuid:06d668c4-ff6a-5243-806b-206d73c1719c
   {:dcterms/contributor
    #{{:foaf/homepage {:xsd/anyURI "https://jakub.klímek.com/"},
       :foaf/name     "Jakub Klímek",

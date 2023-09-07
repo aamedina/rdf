@@ -1,5 +1,17 @@
 (ns net.wikipunk.rdf.daq
-  "The Dataset Quality Vocabulary (daQ) is a lightweight, extensible core vocabulary for attaching the result of quality benchmarking of a linked open dataset (usually an expensive process) to that dataset.  daQ is designed to be extended by custom quality metrics.  Use cases include filtering and ranking datasets by quality."
+  ^{:base "http://purl.org/eis/vocab/daq#",
+    :namespaces {"daq"  "http://purl.org/eis/vocab/daq#",
+                 "dc11" "http://purl.org/dc/terms/",
+                 "foaf" "http://xmlns.com/foaf/0.1/",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "prov" "http://www.w3.org/ns/prov#",
+                 "qb"   "http://purl.org/linked-data/cube#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "daq",
+    :source
+    "https://lov.linkeddata.es/dataset/lov/vocabs/daq/versions/2015-04-01.n3"}
   {:dc11/creator
    #{{:foaf/homepage {:xsd/anyURI "http://langec.wordpress.com/about/"},
       :foaf/name     "Christoph Lange",
@@ -8,20 +20,7 @@
       :foaf/mbox     {:xsd/anyURI "mailto:debattis@cs.uni-bonn.de"},
       :foaf/name     "Jeremy Debattista"}},
    :dc11/modified #inst "2015-04-01T00:00:00.000-00:00",
-   :dcat/downloadURL
-   "https://lov.linkeddata.es/dataset/lov/vocabs/daq/versions/2015-04-01.n3",
-   :namespaces {"daq"  "http://purl.org/eis/vocab/daq#",
-                "dc11" "http://purl.org/dc/terms/",
-                "foaf" "http://xmlns.com/foaf/0.1/",
-                "owl"  "http://www.w3.org/2002/07/owl#",
-                "prov" "http://www.w3.org/ns/prov#",
-                "qb"   "http://purl.org/linked-data/cube#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
-   :rdfa/prefix "daq",
-   :rdfa/uri "http://purl.org/eis/vocab/daq#",
    :rdfs/comment
    "The Dataset Quality Vocabulary (daQ) is a lightweight, extensible core vocabulary for attaching the result of quality benchmarking of a linked open dataset (usually an expensive process) to that dataset.  daQ is designed to be extended by custom quality metrics.  Use cases include filtering and ranking datasets by quality.",
    :rdfs/label "Dataset Quality Vocabulary (daQ)",
@@ -178,3 +177,24 @@
    "Each metric will have a value computed. In order to deal with the different return type of the metric computation, this property links a metric with a value object (e.g. boolean, double, Literal).",
    :rdfs/domain :qb/Observation,
    :rdfs/label "value"})
+
+(def urn:uuid:2ad90ba2-2628-5e8d-a55d-ac32e73f0956
+  {:dc11/creator
+   #{{:foaf/homepage {:xsd/anyURI "http://langec.wordpress.com/about/"},
+      :foaf/name     "Christoph Lange",
+      :rdfs/seeAlso  {:xsd/anyURI "http://purl.org/net/clange"}}
+     {:foaf/homepage {:xsd/anyURI "http://www.jeremydebattista.info"},
+      :foaf/mbox     {:xsd/anyURI "mailto:debattis@cs.uni-bonn.de"},
+      :foaf/name     "Jeremy Debattista"}},
+   :dc11/modified #inst "2015-04-01T00:00:00.000-00:00",
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :rdfs/comment
+   "The Dataset Quality Vocabulary (daQ) is a lightweight, extensible core vocabulary for attaching the result of quality benchmarking of a linked open dataset (usually an expensive process) to that dataset.  daQ is designed to be extended by custom quality metrics.  Use cases include filtering and ranking datasets by quality.",
+   :rdfs/label "Dataset Quality Vocabulary (daQ)",
+   :xsd/anyURI "http://purl.org/eis/vocab/daq#"})
+
+(def urn:uuid:a806ffe3-2b49-5c34-9970-d403bd567f21
+  {:owl/cardinality 1,
+   :rdfs/domain :qb/Observation,
+   :rdfs/range :xsd/dateTime,
+   :xsd/anyURI "http://purl.org/linked-data/sdmx/2009/dimension#timePeriod"})

@@ -1,7 +1,17 @@
 (ns net.wikipunk.rdf.dpvo-tech
-  "DPVO-TECH is an extension to the Data Privacy Vocabulary (OWL) that provides additional terms related to Technologies."
-  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-tech/dpv-tech.ttl",
-   :dcterms/abstract
+  ^{:base       "https://w3id.org/dpv/dpv-owl/dpv-tech#",
+    :namespaces {"dcterms"   "http://purl.org/dc/terms/",
+                 "dpvo"      "https://w3id.org/dpv/dpv-owl#",
+                 "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
+                 "owl"       "http://www.w3.org/2002/07/owl#",
+                 "rdf"       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"      "http://www.w3.org/2000/01/rdf-schema#",
+                 "vann"      "http://purl.org/vocab/vann/",
+                 "vs"        "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"       "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dpvo-tech",
+    :source     "net/wikipunk/ext/dpv-owl/dpv-tech/dpv-tech.ttl"}
+  {:dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "DPVO-TECH is an extension to the Data Privacy Vocabulary (OWL) that provides additional terms related to Technologies."},
@@ -21,20 +31,9 @@
    {:rdf/language "en",
     :rdf/value
     "DPVO-TECH: Extension providing Technology concepts for DPV (OWL)"},
-   :namespaces {"dcterms"   "http://purl.org/dc/terms/",
-                "dpvo"      "https://w3id.org/dpv/dpv-owl#",
-                "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
-                "owl"       "http://www.w3.org/2002/07/owl#",
-                "rdf"       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"      "http://www.w3.org/2000/01/rdf-schema#",
-                "vann"      "http://purl.org/vocab/vann/",
-                "vs"        "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd"       "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dpvo-tech",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#",
    :vann/preferredNamespacePrefix "dpvo-tech",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-tech#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-tech"})
@@ -1089,3 +1088,31 @@
    :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "changed"}})
+
+(def urn:uuid:89192716-f43b-57dd-b870-9c326ba21cd1
+  {:dcterms/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "DPVO-TECH is an extension to the Data Privacy Vocabulary (OWL) that provides additional terms related to Technologies."},
+   :dcterms/contributor #{"Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"
+                          "Paul Ryan"},
+   :dcterms/created #inst "2022-06-15T00:00:00.000-00:00",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "DPVO-TECH is an extension to the Data Privacy Vocabulary (OWL) that provides additional terms related to Technologies."},
+   :dcterms/license {:xsd/anyURI
+                     "https://www.w3.org/Consortium/Legal/2015/doc-license"},
+   :dcterms/modified #inst "2022-10-06T00:00:00.000-00:00",
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "DPVO-TECH: Extension providing Technology concepts for DPV (OWL)"},
+   :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
+   :owl/versionInfo "0.8.2",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "dpvo-tech",
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-tech#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-tech"})

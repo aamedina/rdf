@@ -1,20 +1,19 @@
 (ns net.wikipunk.rdf.spdx
-  "This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C's RDF Technology.\n\nSPDX® is an open standard for communicating software bill of material information, including components, licenses, copyrights, and security references. SPDX reduces redundant work by providing a common format for companies and communities to share important data, thereby streamlining and improving compliance.\n.\nKnown issues:\n- rdfs:comment and rdfs:seeAlso are used within the SPDX classes and causes a redefinition of these standard terms"
-  {:dcat/downloadURL
-   "https://raw.githubusercontent.com/spdx/spdx-spec/v2.3/ontology/spdx-ontology.owl.xml",
-   :namespaces {"doap" "http://usefulinc.com/ns/doap#",
-                "owl"  "http://www.w3.org/2002/07/owl#",
-                "ptr"  "http://www.w3.org/2009/pointers#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "spdx" "http://spdx.org/rdf/terms#",
-                "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :owl/versionIRI {:xsd/anyURI "http://spdx.org/rdf/terms/2.3"},
+  ^{:base "http://spdx.org/rdf/terms#",
+    :namespaces {"doap" "http://usefulinc.com/ns/doap#",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "ptr"  "http://www.w3.org/2009/pointers#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "spdx" "http://spdx.org/rdf/terms#",
+                 "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "spdx",
+    :source
+    "https://raw.githubusercontent.com/spdx/spdx-spec/v2.3/ontology/spdx-ontology.owl.xml"}
+  {:owl/versionIRI {:xsd/anyURI "http://spdx.org/rdf/terms/2.3"},
    :owl/versionInfo 2.3M,
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "spdx",
-   :rdfa/uri "http://spdx.org/rdf/terms#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -2857,3 +2856,18 @@
    :rdfs/range :xsd/string,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "stable"}})
+
+(def urn:uuid:ccfcb9e3-fa7a-588b-8a59-bbd1323f2496
+  {:owl/versionIRI {:xsd/anyURI "http://spdx.org/rdf/terms/2.3"},
+   :owl/versionInfo 2.3M,
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C's RDF Technology.\n\nSPDX® is an open standard for communicating software bill of material information, including components, licenses, copyrights, and security references. SPDX reduces redundant work by providing a common format for companies and communities to share important data, thereby streamlining and improving compliance.\n.\nKnown issues:\n- rdfs:comment and rdfs:seeAlso are used within the SPDX classes and causes a redefinition of these standard terms"},
+   :rdfs/label "SPDX 2.3",
+   :xsd/anyURI "http://spdx.org/rdf/terms"})
+
+(def urn:uuid:406653bb-5b1a-5331-bfdb-372919f495e5
+  {:rdf/type   :owl/NamedIndividual,
+   :xsd/anyURI "http://spdx.org/licenses/CC0-1.0"})

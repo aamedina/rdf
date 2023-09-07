@@ -1630,7 +1630,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "value"}})
 
-(def urn:uuid:3f4389c5-9b9d-5498-923b-44d1c58dc375112376
+(def urn:uuid:3f4389c5-9b9d-5498-923b-44d1c58dc375
   {:owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Final"},
    :rdf/type        :owl/Ontology,

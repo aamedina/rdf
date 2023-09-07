@@ -451,7 +451,7 @@
    :rdfs/range {:owl/unionOf [:rr/BlankNode :rr/IRI :rr/Literal],
                 :rdf/type    :owl/Class}})
 
-(def urn:uuid:9f4224d7-fe19-569f-a4d6-b010ff87f140112353
+(def urn:uuid:9f4224d7-fe19-569f-a4d6-b010ff87f140
   {:cc/license       {:xsd/anyURI
                       "http://creativecommons.org/licenses/by/3.0/"},
    :dc11/contributor #{{:xsd/anyURI "http://www.w3.org/People/Ivan/"}
@@ -469,24 +469,24 @@
    :vann/preferredNamespaceUri "http://www.w3.org/ns/r2rml#",
    :xsd/anyURI       "http://www.w3.org/ns/r2rml#"})
 
-(def urn:uuid:630fdb58-a074-594b-8dce-5065de571bb6112354
+(def urn:uuid:630fdb58-a074-594b-8dce-5065de571bb6
   {:rdf/type     :foaf/Organization,
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "The World Wide Web Consortium (W3C)"},
    :vaem/acronym "W3C",
    :xsd/anyURI   "http://www.w3.org/"})
 
-(def urn:uuid:49f3671e-14ef-5e83-832d-2b50f6338c9b112355
+(def urn:uuid:49f3671e-14ef-5e83-832d-2b50f6338c9b
   {:foaf/name  "Boris Villazon-Terrazas",
    :rdf/type   :foaf/Person,
    :xsd/anyURI "http://boris.villazon.terrazas.name"})
 
-(def urn:uuid:d5253eba-acd4-5220-b62f-f4cf8470abec112356
+(def urn:uuid:d5253eba-acd4-5220-b62f-f4cf8470abec
   {:foaf/name  "Ivan Herman",
    :rdf/type   :foaf/Person,
    :xsd/anyURI "http://www.w3.org/People/Ivan/"})
 
-(def urn:uuid:09fc25bc-0c96-58bb-a2a7-f1c490bee7a0112357
+(def urn:uuid:09fc25bc-0c96-58bb-a2a7-f1c490bee7a0
   {:foaf/name  "Richard Cyganiak",
    :rdf/type   :foaf/Person,
    :xsd/anyURI "http://richard.cyganiak.de/foaf.rdf#cygri"})

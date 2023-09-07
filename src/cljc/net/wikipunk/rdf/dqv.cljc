@@ -301,7 +301,7 @@
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "value"}})
 
-(def urn:uuid:ee8b01cf-2b45-5d08-bb02-30936143bb91112391
+(def urn:uuid:ee8b01cf-2b45-5d08-bb02-30936143bb91
   {:dcterms/contributor
    #{{:foaf/name "Amrapali Zaveri"} {:foaf/name "Nandana Mihindukulasooriya"}
      {:foaf/name "Christophe Guéret"} {:foaf/name "Deirdre Lee"}

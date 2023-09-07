@@ -1,13 +1,13 @@
 (ns net.wikipunk.rdf.sh
-  "This vocabulary defines terms used in SHACL, the W3C Shapes Constraint Language."
-  {:namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "sh"   "http://www.w3.org/ns/shacl#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :owl/Ontology,
-   :rdfa/prefix "sh",
-   :rdfa/uri "http://www.w3.org/ns/shacl#",
+  ^{:base       "http://www.w3.org/ns/shacl#",
+    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "sh"   "http://www.w3.org/ns/shacl#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "sh",
+    :source     "http://www.w3.org/ns/shacl#"}
+  {:rdf/type :owl/Ontology,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -2430,3 +2430,16 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "zero or one path"},
    :rdfs/range :rdfs/Resource})
+
+(def urn:uuid:3cdef3e7-0762-55bf-a9b2-24eb23af6dd5
+  {:rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This vocabulary defines terms used in SHACL, the W3C Shapes Constraint Language."},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value "W3C Shapes Constraint Language (SHACL) Vocabulary"},
+   :sh/declare {:sh/namespace "http://www.w3.org/ns/shacl#",
+                :sh/prefix    "sh"},
+   :sh/suggestedShapesGraph {:xsd/anyURI "http://www.w3.org/ns/shacl-shacl#"},
+   :xsd/anyURI "http://www.w3.org/ns/shacl#"})

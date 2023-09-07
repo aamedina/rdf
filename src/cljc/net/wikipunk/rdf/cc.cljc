@@ -255,70 +255,70 @@
    :rdfs/range         :rdfs/Resource,
    :rdfs/subPropertyOf :dcterms/relation})
 
-(def urn:uuid:f440d123-0e89-52f4-b5dd-44c2fbc42450112329
+(def urn:uuid:f440d123-0e89-52f4-b5dd-44c2fbc42450
   {:owl/equivalentProperty :cc/permits,
    :xsd/anyURI "http://web.resource.org/cc/permits"})
 
-(def urn:uuid:da8307f2-fda1-5c88-b194-4afafbf616dd112330
+(def urn:uuid:da8307f2-fda1-5c88-b194-4afafbf616dd
   {:owl/equivalentClass :cc/Reproduction,
    :xsd/anyURI "http://web.resource.org/cc/Reproduction"})
 
-(def urn:uuid:00c752e3-c40f-51fa-8e97-8559002073ef112331
+(def urn:uuid:00c752e3-c40f-51fa-8e97-8559002073ef
   {:owl/equivalentClass :cc/Requirement,
    :xsd/anyURI "http://web.resource.org/cc/Requirement"})
 
-(def urn:uuid:967cabf5-5b22-518a-a57e-81ef4e4991b5112332
+(def urn:uuid:967cabf5-5b22-518a-a57e-81ef4e4991b5
   {:owl/equivalentClass :cc/SourceCode,
    :xsd/anyURI "http://web.resource.org/cc/SourceCode"})
 
-(def urn:uuid:b7ffbe4b-f0ce-57f3-a5ee-277cb122a8d3112333
+(def urn:uuid:b7ffbe4b-f0ce-57f3-a5ee-277cb122a8d3
   {:owl/equivalentProperty :cc/prohibits,
    :xsd/anyURI "http://web.resource.org/cc/prohibits"})
 
-(def urn:uuid:ad6f584f-2168-57ef-9bc5-a223516fa09c112334
+(def urn:uuid:ad6f584f-2168-57ef-9bc5-a223516fa09c
   {:owl/equivalentClass :cc/Work,
    :xsd/anyURI "http://web.resource.org/cc/Work"})
 
-(def urn:uuid:7123a465-47a8-5b40-b310-7ca6386d81af112335
+(def urn:uuid:7123a465-47a8-5b40-b310-7ca6386d81af
   {:owl/equivalentProperty :cc/requires,
    :xsd/anyURI "http://web.resource.org/cc/requires"})
 
-(def urn:uuid:c23d8c8c-2d32-5784-b1f5-bc3d349f970b112336
+(def urn:uuid:c23d8c8c-2d32-5784-b1f5-bc3d349f970b
   {:owl/equivalentClass :cc/Attribution,
    :xsd/anyURI "http://web.resource.org/cc/Attribution"})
 
-(def urn:uuid:65099f7f-7a24-5a9a-a0bb-bf3939d7968a112337
+(def urn:uuid:65099f7f-7a24-5a9a-a0bb-bf3939d7968a
   {:owl/equivalentClass :cc/Permission,
    :xsd/anyURI "http://web.resource.org/cc/Permission"})
 
-(def urn:uuid:42dc02fd-267e-555e-ad1a-7522cb5793c9112338
+(def urn:uuid:42dc02fd-267e-555e-ad1a-7522cb5793c9
   {:owl/equivalentClass :cc/ShareAlike,
    :xsd/anyURI "http://web.resource.org/cc/ShareAlike"})
 
-(def urn:uuid:869ae3d6-e8c7-56d1-bdc1-9ffb04964e8f112339
+(def urn:uuid:869ae3d6-e8c7-56d1-bdc1-9ffb04964e8f
   {:owl/equivalentClass :cc/Prohibition,
    :xsd/anyURI "http://web.resource.org/cc/Prohibition"})
 
-(def urn:uuid:10cdcd7e-2948-5f92-8d89-7e420076324f112340
+(def urn:uuid:10cdcd7e-2948-5f92-8d89-7e420076324f
   {:owl/equivalentClass :cc/License,
    :xsd/anyURI "http://web.resource.org/cc/License"})
 
-(def urn:uuid:4de3d9c7-eb67-5dd7-b840-e0db9afcfe6b112341
+(def urn:uuid:4de3d9c7-eb67-5dd7-b840-e0db9afcfe6b
   {:owl/equivalentClass :cc/Notice,
    :xsd/anyURI "http://web.resource.org/cc/Notice"})
 
-(def urn:uuid:a87b1422-e4b0-5fe1-92ff-a221a971d398112342
+(def urn:uuid:a87b1422-e4b0-5fe1-92ff-a221a971d398
   {:owl/equivalentProperty :cc/license,
    :xsd/anyURI "http://web.resource.org/cc/license"})
 
-(def urn:uuid:50bab3e1-270c-50a6-beed-c6cc2cbe0781112343
+(def urn:uuid:50bab3e1-270c-50a6-beed-c6cc2cbe0781
   {:owl/equivalentClass :cc/CommercialUse,
    :xsd/anyURI "http://web.resource.org/cc/CommercialUse"})
 
-(def urn:uuid:c52ca849-b9b6-5b4b-aea9-26b45283880a112344
+(def urn:uuid:c52ca849-b9b6-5b4b-aea9-26b45283880a
   {:owl/equivalentClass :cc/DerivativeWorks,
    :xsd/anyURI "http://web.resource.org/cc/DerivativeWorks"})
 
-(def urn:uuid:cdca4452-ea1c-578d-886a-adfa5eb96e2d112345
+(def urn:uuid:cdca4452-ea1c-578d-886a-adfa5eb96e2d
   {:owl/equivalentClass :cc/Distribution,
    :xsd/anyURI "http://web.resource.org/cc/Distribution"})

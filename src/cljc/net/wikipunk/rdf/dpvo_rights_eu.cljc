@@ -1,7 +1,18 @@
 (ns net.wikipunk.rdf.dpvo-rights-eu
-  "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"
-  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/rights/eu/rights-eu.ttl",
-   :dcterms/abstract
+  ^{:base       "https://w3id.org/dpv/dpv-owl/rights/eu#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "dpvo" "https://w3id.org/dpv/dpv-owl#",
+                 "dpvo-rights-eu" "https://w3id.org/dpv/dpv-owl/rights/eu#",
+                 "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
+                 "owl" "http://www.w3.org/2002/07/owl#",
+                 "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "vann" "http://purl.org/vocab/vann/",
+                 "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd" "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dpvo-rights-eu",
+    :source     "net/wikipunk/ext/dpv-owl/rights/eu/rights-eu.ttl"}
+  {:dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"},
@@ -18,21 +29,9 @@
    :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "EU Fundamental Rights"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "dpvo" "https://w3id.org/dpv/dpv-owl#",
-                "dpvo-rights-eu" "https://w3id.org/dpv/dpv-owl/rights/eu#",
-                "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
-                "owl" "http://www.w3.org/2002/07/owl#",
-                "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "vann" "http://purl.org/vocab/vann/",
-                "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dpvo-rights-eu",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#",
    :vann/preferredNamespacePrefix "dpvo-rights-eu",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/rights/eu#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/rights/eu"})
@@ -993,3 +992,28 @@
    :rdfs/subPropertyOf  :dpvo-tech/hasTechnologyActor,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "changed"}})
+
+(def urn:uuid:bd7c11e0-21eb-5751-b04b-5a54fa68719c
+  {:dcterms/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"},
+   :dcterms/contributor "Harshvardhan J. Pandit",
+   :dcterms/created #inst "2022-08-15T00:00:00.000-00:00",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"},
+   :dcterms/license {:xsd/anyURI
+                     "https://www.w3.org/Consortium/Legal/2015/doc-license"},
+   :dcterms/modified #inst "2022-10-06T00:00:00.000-00:00",
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "EU Fundamental Rights"},
+   :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
+   :owl/versionInfo "0.8.2",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "dpvo-rights-eu",
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/rights/eu#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl/rights/eu"})

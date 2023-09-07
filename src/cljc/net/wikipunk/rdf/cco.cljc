@@ -1,5 +1,21 @@
 (ns net.wikipunk.rdf.cco
-  "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins"
+  ^{:base       "http://purl.org/ontology/cco/core#",
+    :namespaces {"ao"    "http://purl.org/ontology/ao/core#",
+                 "cco"   "http://purl.org/ontology/cco/core#",
+                 "dc11"  "http://purl.org/dc/elements/1.1/",
+                 "event" "http://purl.org/NET/c4dm/event.owl#",
+                 "foaf"  "http://xmlns.com/foaf/0.1/",
+                 "owl"   "http://www.w3.org/2002/07/owl#",
+                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                 "scovo" "http://purl.org/NET/scovo#",
+                 "time"  "http://www.w3.org/2006/time#",
+                 "vann"  "http://purl.org/vocab/vann/",
+                 "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "wo"    "http://purl.org/ontology/wo/core#",
+                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "cco",
+    :source     "http://purl.org/ontology/cco/cognitivecharacteristics.owl"}
   {:dc11/creator
    #{{:xsd/anyURI
       "http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf#me"}
@@ -16,22 +32,6 @@
     "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins"},
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Cognitive Characteristics Ontology"},
-   :dcat/downloadURL
-   "http://purl.org/ontology/cco/cognitivecharacteristics.owl",
-   :namespaces {"ao"    "http://purl.org/ontology/ao/core#",
-                "cco"   "http://purl.org/ontology/cco/core#",
-                "dc11"  "http://purl.org/dc/elements/1.1/",
-                "event" "http://purl.org/NET/c4dm/event.owl#",
-                "foaf"  "http://xmlns.com/foaf/0.1/",
-                "owl"   "http://www.w3.org/2002/07/owl#",
-                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                "scovo" "http://purl.org/NET/scovo#",
-                "time"  "http://www.w3.org/2006/time#",
-                "vann"  "http://purl.org/vocab/vann/",
-                "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "wo"    "http://purl.org/ontology/wo/core#",
-                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports #{{:xsd/anyURI "http://purl.org/ontology/ao/core"}
                   {:xsd/anyURI "http://www.w3.org/2006/time"}
                   {:xsd/anyURI "http://purl.org/ontology/wo/core"}
@@ -44,8 +44,6 @@
                   {:xsd/anyURI "http://purl.org/NET/scovo"}},
    :owl/versionInfo 0.2M,
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "cco",
-   :rdfa/uri "http://purl.org/ontology/cco/core#",
    :vann/preferredNamespacePrefix "cco",
    :vann/preferredNamespaceUri "http://purl.org/ontology/cco/core#",
    :xsd/anyURI "http://purl.org/ontology/cco/core#"}
@@ -413,3 +411,36 @@
    :rdfs/subPropertyOf :cco/attention_duration,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "testing"}})
+
+(def urn:uuid:c8d5ca06-fddc-53d7-bb56-99343237c643
+  {:dc11/creator
+   #{{:xsd/anyURI
+      "http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf#me"}
+     "Danica Damljanovic"
+     {:xsd/anyURI "http://www.johnbreslin.com/foaf/foaf.rdf#me"}
+     {:xsd/anyURI "http://foaf.me/zazi#me"} "Zhisheng Huang" "Yan Wang"
+     "Yi Zeng" {:xsd/anyURI "http://danbri.org/foaf.rdf#danbri"}
+     {:xsd/anyURI "http://sw.deri.org/~sheila/foaf.rdf#me"}
+     {:xsd/anyURI "http://tobyinkster.co.uk/#i"}},
+   :dc11/date #inst "2010-09-26T11:16:52.000-00:00",
+   :dc11/description
+   {:rdf/language "en",
+    :rdf/value
+    "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins"},
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "Cognitive Characteristics Ontology"},
+   :owl/imports #{{:xsd/anyURI "http://purl.org/ontology/ao/core"}
+                  {:xsd/anyURI "http://www.w3.org/2006/time"}
+                  {:xsd/anyURI "http://purl.org/ontology/wo/core"}
+                  {:xsd/anyURI "http://www.w3.org/2003/06/sw-vocab-status/ns"}
+                  {:xsd/anyURI "http://purl.org/vocab/vann/"}
+                  {:xsd/anyURI "http://purl.org/dc/elements/1.1/"}
+                  {:xsd/anyURI "http://xmlns.com/foaf/0.1/"}
+                  {:xsd/anyURI "http://purl.org/dc/terms/"}
+                  {:xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}
+                  {:xsd/anyURI "http://purl.org/NET/scovo"}},
+   :owl/versionInfo 0.2M,
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "cco",
+   :vann/preferredNamespaceUri "http://purl.org/ontology/cco/core#",
+   :xsd/anyURI "http://purl.org/ontology/cco/core#"})

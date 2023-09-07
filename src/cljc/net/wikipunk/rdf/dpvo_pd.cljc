@@ -1,7 +1,16 @@
 (ns net.wikipunk.rdf.dpvo-pd
-  "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories."
-  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-pd/dpv-pd.ttl",
-   :dcterms/abstract
+  ^{:base       "https://w3id.org/dpv/dpv-owl/dpv-pd#",
+    :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                 "dpvo"    "https://w3id.org/dpv/dpv-owl#",
+                 "dpvo-pd" "https://w3id.org/dpv/dpv-owl/dpv-pd#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dpvo-pd",
+    :source     "net/wikipunk/ext/dpv-owl/dpv-pd/dpv-pd.ttl"}
+  {:dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories."},
@@ -24,19 +33,9 @@
    :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "DPV-PD: Personal Data Extension for DPV"},
-   :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                "dpvo"    "https://w3id.org/dpv/dpv-owl#",
-                "dpvo-pd" "https://w3id.org/dpv/dpv-owl/dpv-pd#",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "1",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dpvo-pd",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :vann/preferredNamespacePrefix "dpvo-pd",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-pd"})
@@ -3794,3 +3793,34 @@
    :rdfs/subClassOf :dpvo-pd/Professional,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
+
+(def urn:uuid:c8cbf3d6-42f3-5f10-bd97-1e42ae95ab63
+  {:dcterms/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories."},
+   :dcterms/contributor
+   #{"Fajar J. Ekaputra" "Rigo Wenning" "David Hickey" "Georg P Krog"
+     "Ramisa Gachpaz Hamed" "Axel Polleres" "Simon Steyskal"
+     "Harshvardhan J. Pandit" "Beatriz Esteves" "Eva Schlehahn" "Rob Brennan"
+     "Bert Bos" "Julian Flake" "Paul Ryan" "Bud Bruegger" "Piero Bonatti"
+     "Elmar Kiesling" "Javier D. Fernández" "Mark Lizar"},
+   :dcterms/created #inst "2022-04-02T00:00:00.000-00:00",
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Personal Data categories."},
+   :dcterms/license {:xsd/anyURI
+                     "https://www.w3.org/Consortium/Legal/2015/doc-license"},
+   :dcterms/modified #inst "2022-12-05T00:00:00.000-00:00",
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "DPV-PD: Personal Data Extension for DPV"},
+   :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
+   :owl/versionInfo "1",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "dpvo-pd",
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-pd#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-pd"})

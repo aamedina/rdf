@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf.acl
-  {:namespaces  {"acl"     "http://www.w3.org/ns/auth/acl#",
+  ^{:base       "http://www.w3.org/ns/auth/acl#",
+    :namespaces {"acl"     "http://www.w3.org/ns/auth/acl#",
                  "dcterms" "http://purl.org/dc/terms/",
                  "foaf"    "http://xmlns.com/foaf/0.1/",
                  "gen"     "http://www.w3.org/2006/gen/ont#",
@@ -7,9 +8,13 @@
                  "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                  "vcard"   "http://www.w3.org/2006/vcard/ns#",
                  "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type    :rdfa/PrefixMapping,
-   :rdfa/prefix "acl",
-   :rdfa/uri    "http://www.w3.org/ns/auth/acl#"}
+    :prefix     "acl",
+    :source     "http://www.w3.org/ns/auth/acl#"}
+  {:dcterms/title "Basic Access Control ontology",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   "Defines the class Authorization and its essential properties,\n    and also some classes of access such as read and write. ",
+   :xsd/anyURI "http://www.w3.org/ns/auth/acl"}
   (:refer-clojure :exclude [agent]))
 
 (def Access
@@ -185,3 +190,17 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "owner"},
    :rdfs/range :foaf/Agent})
+
+(def urn:uuid:f0e3e6ec-2dde-5741-bd9b-6fd4889d4abe
+  {:dcterms/title "Basic Access Control ontology",
+   :rdfs/comment
+   "Defines the class Authorization and its essential properties,\n    and also some classes of access such as read and write. ",
+   :xsd/anyURI "http://www.w3.org/ns/auth/acl"})
+
+(def urn:uuid:1e5fbb36-39af-586c-b39d-20c6cd5ac428
+  {:foaf/topic {:xsd/anyURI "http://www.w3.org/ns/auth/acl"},
+   :xsd/anyURI "https://solidproject.org/TR/wac"})
+
+(def urn:uuid:85e7fd5f-6c0a-51cc-838d-e6a6082122e8
+  {:foaf/topic {:xsd/anyURI "http://www.w3.org/ns/auth/acl"},
+   :xsd/anyURI "https://www.w3.org/wiki/WebAccessControl"})

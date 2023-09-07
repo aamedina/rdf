@@ -8,7 +8,9 @@
     :prefix "xhv",
     :source
     "https://lov.linkeddata.es/dataset/lov/vocabs/xhv/versions/2010-01-27.n3"}
-  {:rdf/type :owl/Ontology}
+  {:rdf/type       :owl/Ontology,
+   :xhv/stylesheet {:xsd/anyURI "http://www.w3.org/StyleSheets/TR/base.css"},
+   :xsd/anyURI     "http://www.w3.org/1999/xhtml/vocab"}
   (:refer-clojure :exclude [first last list meta next]))
 
 (def alert
@@ -610,6 +612,6 @@
    "up refers to a resource \"above\" in a\n      hierarchically structured set. ",
    :rdfs/member :xhv/relrev-properties})
 
-(def urn:uuid:3a375c28-3c82-570b-b1be-3de1ce3d5347112362
+(def urn:uuid:3a375c28-3c82-570b-b1be-3de1ce3d5347
   {:xhv/stylesheet {:xsd/anyURI "http://www.w3.org/StyleSheets/TR/base.css"},
    :xsd/anyURI     "http://www.w3.org/1999/xhtml/vocab"})

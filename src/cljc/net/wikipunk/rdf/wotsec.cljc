@@ -1,29 +1,28 @@
 (ns net.wikipunk.rdf.wotsec
-  "Security mechanisms for the Web of Things"
+  ^{:base       "https://www.w3.org/2019/wot/security#",
+    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "prov"    "http://www.w3.org/ns/prov#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"  "http://schema.org/",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "wotsec"  "https://www.w3.org/2019/wot/security#",
+                 "xml"     "http://www.w3.org/XML/1998/namespace",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "wotsec",
+    :source     "net/wikipunk/ext/security.ttl"}
   {:dc11/title          {:rdf/language "en",
                          :rdf/value
                          "Security mechanisms for the Web of Things"},
-   :dcat/downloadURL    "net/wikipunk/ext/security.ttl",
    :dcterms/contributor {:xsd/anyURI "https://vcharpenay.link/#me"},
    :dcterms/creator     {:xsd/anyURI "mailto:michael.mccool@intel.com"},
    :dcterms/license     {:xsd/anyURI "http://purl.org/NET/rdflicense/cc-by4.0"},
-   :namespaces          {"dc11" "http://purl.org/dc/elements/1.1/",
-                         "dcterms" "http://purl.org/dc/terms/",
-                         "foaf" "http://xmlns.com/foaf/0.1/",
-                         "owl" "http://www.w3.org/2002/07/owl#",
-                         "prov" "http://www.w3.org/ns/prov#",
-                         "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                         "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                         "schema" "http://schema.org/",
-                         "vann" "http://purl.org/vocab/vann/",
-                         "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                         "wotsec" "https://www.w3.org/2019/wot/security#",
-                         "xml" "http://www.w3.org/XML/1998/namespace",
-                         "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo     "0.0.1",
    :rdf/type            :owl/Ontology,
-   :rdfa/prefix         "wotsec",
-   :rdfa/uri            "https://www.w3.org/2019/wot/security#",
    :vann/preferredNamespacePrefix "wotsec",
    :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/security#",
    :xsd/anyURI          "https://www.w3.org/2019/wot/security#"}
@@ -279,3 +278,16 @@
                   :rdf/value    "URI of the token server."},
    :rdfs/label   "token",
    :schema/domainIncludes :wotsec/OAuth2SecurityScheme})
+
+(def urn:uuid:c1f5969f-5e48-5a7e-9890-3b734fb61950
+  {:dc11/title          {:rdf/language "en",
+                         :rdf/value
+                         "Security mechanisms for the Web of Things"},
+   :dcterms/contributor {:xsd/anyURI "https://vcharpenay.link/#me"},
+   :dcterms/creator     {:xsd/anyURI "mailto:michael.mccool@intel.com"},
+   :dcterms/license     {:xsd/anyURI "http://purl.org/NET/rdflicense/cc-by4.0"},
+   :owl/versionInfo     "0.0.1",
+   :rdf/type            :owl/Ontology,
+   :vann/preferredNamespacePrefix "wotsec",
+   :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/security#",
+   :xsd/anyURI          "https://www.w3.org/2019/wot/security#"})

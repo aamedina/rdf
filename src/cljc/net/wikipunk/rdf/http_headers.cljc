@@ -1,13 +1,13 @@
 (ns net.wikipunk.rdf.http-headers
-  {:dcat/downloadURL "net/wikipunk/ext/http-headers.rdf",
-   :namespaces       {"dcterms" "http://purl.org/dc/terms/",
-                      "http" "http://www.w3.org/2011/http#",
-                      "http-headers" "http://www.w3.org/2011/http-headers#",
-                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "http-headers",
-   :rdfa/uri         "http://www.w3.org/2011/http-headers#"}
+  ^{:base       "http://www.w3.org/2011/http-headers#",
+    :namespaces {"dcterms"      "http://purl.org/dc/terms/",
+                 "http"         "http://www.w3.org/2011/http#",
+                 "http-headers" "http://www.w3.org/2011/http-headers#",
+                 "rdf"          "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"         "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix     "http-headers",
+    :source     "net/wikipunk/ext/http-headers.rdf"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [range]))
 
 (def a-im
@@ -2177,3 +2177,247 @@
    #{{:xsd/anyURI "http://www.w3.org/2005/MWI/BPWG/"}
      {:xsd/anyURI
       "http://www.iana.org/assignments/message-headers/prov-headers.html"}}})
+
+(def urn:uuid:e307d4d8-b018-5e3c-977f-704bfac39b36
+  {:dcterms/identifier "http://www.w3.org/TR/2002/REC-P3P-20020416/",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "The Platform for Privacy Preferences 1.0 (P3P1.0) Specification"},
+   :xsd/anyURI "http://www.w3.org/TR/2002/REC-P3P-20020416/"})
+
+(def urn:uuid:c65f8f01-04bc-564d-a27c-b889851ac7f1
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2227.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "Simple Hit-Metering and Usage-Limiting for HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2227.txt"})
+
+(def urn:uuid:3235fdc7-818a-5ad5-81ef-3e11974112c8
+  {:dcterms/identifier
+   "http://tools.ietf.org/html/draft-ietf-atompub-protocol-17",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "The Atom Publishing Protocol"},
+   :xsd/anyURI "http://tools.ietf.org/html/draft-ietf-atompub-protocol-17"})
+
+(def urn:uuid:49e02493-2b3d-56d6-80ae-434c68351d7e
+  {:dcterms/identifier "http://www.w3.org/TR/2000/NOTE-SOAP-20000508/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Simple Object Access Protocol (SOAP) 1.1"},
+   :xsd/anyURI         "http://www.w3.org/TR/2000/NOTE-SOAP-20000508/"})
+
+(def urn:uuid:d7da764b-0074-52af-b328-26ccecbcf007
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3253.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "Versioning Extensions to WebDAV (Web Distributed Authoring and Versioning)"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc3253.txt"})
+
+(def urn:uuid:7634cdca-b604-5456-94a7-3f468a53be14
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3648.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "Web Distributed Authoring and Versioning (WebDAV) Redirect Reference Resources"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc4437.txt"})
+
+(def urn:uuid:a2c7860c-975a-5a52-be8e-3728df3bfdad
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3229.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Delta encoding in HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc3229.txt"})
+
+(def urn:uuid:7601aeab-91a2-5b79-806f-b2f198042393
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2616.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Hypertext Transfer Protocol -- HTTP/1.1"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2616.txt"})
+
+(def urn:uuid:8059c754-d124-5846-aaad-d6e830ed6fb2
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2617.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value "HTTP Authentication: Basic and Digest Access Authentication"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc2617.txt"})
+
+(def urn:uuid:b2cee6e4-1cfc-5c5d-9b1a-21718d610d37
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc5323.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value
+                   "Web Distributed Authoring and Versioning (WebDAV) SEARCH"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc5323.txt"})
+
+(def urn:uuid:22e6f9c1-65de-51f1-9be9-8fe6d2271798
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2774.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "An HTTP Extension Framework"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2774.txt"})
+
+(def urn:uuid:5c2d7eaf-035a-5444-a728-f7175ec0405d
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2518.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "HTTP Extensions for Distributed Authoring -- WEBDAV"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2518.txt"})
+
+(def urn:uuid:bcc10544-3e99-5602-b0dd-e4697d574ec9
+  {:dcterms/identifier
+   "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "User-Agent Display Attributes Headers"},
+   :xsd/anyURI
+   "http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"})
+
+(def urn:uuid:0e610fc0-6e23-5409-8eb8-3e5505721f12
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2310.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "The Safe Response Header Field"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2310.txt"})
+
+(def urn:uuid:3da20e68-b99b-5d3c-a828-9b9cd69fbb3b
+  {:dcterms/identifier
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "WIRE - W3 Identifier Resolution Extensions"},
+   :xsd/anyURI
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"})
+
+(def urn:uuid:f5c9c58c-dc8b-586d-8c88-a05a490b8bd6
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3648.txt",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "Web Distributed Authoring and Versioning (WebDAV) Ordered Collections Protocol"},
+   :xsd/anyURI "http://www.ietf.org/rfc/rfc3648.txt"})
+
+(def urn:uuid:f3c0b7e8-ddac-59d7-8b95-4c7bcc9ac227
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2109.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "HTTP State Management Mechanism"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2109.txt"})
+
+(def urn:uuid:bf734810-18ff-51b2-82ba-fc2d1bc0fa65
+  {:dcterms/identifier "http://www.w3.org/Protocols/HTTP/Object_Headers.html",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Object Header lines in HTTP"},
+   :xsd/anyURI         "http://www.w3.org/Protocols/HTTP/Object_Headers.html"})
+
+(def urn:uuid:21786d33-3f4a-53ee-a16e-4bf5d9cc91d3
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2324.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0)"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2324.txt"})
+
+(def urn:uuid:3fd2a84b-c2d2-5900-bd54-4a3bb9f474b0
+  {:dcterms/identifier "http://www.w3.org/TR/NOTE-drp-19970825",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "The HTTP Distribution and Replication Protocol"},
+   :xsd/anyURI         "http://www.w3.org/TR/NOTE-drp-19970825"})
+
+(def urn:uuid:c9c94c37-a399-54a6-b7a9-f385e231de83
+  {:dcterms/identifier "http://www.w3.org/2006/appformats/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "Web Application Formats (WAF) Working Group"},
+   :xsd/anyURI         "http://www.w3.org/2006/appformats/"})
+
+(def urn:uuid:317bb722-0779-5a04-83ee-24c2b78c3455
+  {:dcterms/identifier "http://www.w3.org/TR/WD-proxy-960221",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Notification for Proxy Caches"},
+   :xsd/anyURI         "http://www.w3.org/TR/WD-proxy-960221"})
+
+(def urn:uuid:f3baa85b-e538-59ae-baca-eb7615be9dae
+  {:dcterms/identifier
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Duplicate Suppression in HTTP"},
+   :xsd/anyURI
+   "http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"})
+
+(def urn:uuid:1d8db4d9-0e29-5ebe-b232-efd4fdc77826
+  {:dcterms/identifier "http://www.w3.org/TR/REC-PICS-labels-961031",
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "PICS 1.1 Label Distribution -- Label Syntax and Communication Protocols"},
+   :xsd/anyURI "http://www.w3.org/TR/REC-PICS-labels-961031"})
+
+(def urn:uuid:141f4e0a-a7cb-548f-8b03-45f7a027c765
+  {:dcterms/identifier "http://www.w3.org/TR/WD-http-pep",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "PEP Specification: an Extension Mechanism for HTTP"},
+   :xsd/anyURI         "http://www.w3.org/TR/WD-http-pep"})
+
+(def urn:uuid:f2dd9671-75ce-5f91-941b-0bc04ccf0ed1
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2068.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Hypertext Transfer Protocol -- HTTP/1.1"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2068.txt"})
+
+(def urn:uuid:f3ea0ca8-45d5-52c4-b161-5b6ba8080e77
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2660.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "The Secure HyperText Transfer Protocol"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2660.txt"})
+
+(def urn:uuid:56954da0-7cff-5a92-a11d-137522f0c4e7
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2965.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "HTTP State Management Mechanism"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2965.txt"})
+
+(def urn:uuid:b989a818-7680-5813-91e4-39ea8e594d16
+  {:dcterms/identifier "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Edge Architecture Specification"},
+   :xsd/anyURI         "http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"})
+
+(def urn:uuid:0bed71a1-4bb7-5fb6-b24e-39980fca4294
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc2295.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Transparent Content Negotiation in HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc2295.txt"})
+
+(def urn:uuid:1038432f-502b-5258-8462-f7f47418b0a4
+  {:dcterms/identifier "http://www.w3.org/TR/NOTE-jepi-970519",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value
+                        "White Paper: Joint Electronic Payment Initiative"},
+   :xsd/anyURI         "http://www.w3.org/TR/NOTE-jepi-970519"})
+
+(def urn:uuid:7c2255bf-0ac5-52d1-88a3-709e198d9a73
+  {:dcterms/identifier "http://www.ietf.org/rfc/rfc3230.txt",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Instance Digests in HTTP"},
+   :xsd/anyURI         "http://www.ietf.org/rfc/rfc3230.txt"})
+
+(def urn:uuid:8861c653-2550-5830-9ab3-5d96dcdb36ed
+  {:dcterms/identifier "http://www.w3.org/2005/MWI/BPWG/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value "Mobile Web Best Practices Working Group"},
+   :xsd/anyURI         "http://www.w3.org/2005/MWI/BPWG/"})
+
+(def urn:uuid:3fbfa3d0-474b-5aa1-87d7-e85f6bb4168e
+  {:dcterms/identifier "http://www.w3.org/TR/NOTE-OPS-OverHTTP",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "Implementation of OPS Over HTTP"},
+   :xsd/anyURI         "http://www.w3.org/TR/NOTE-OPS-OverHTTP"})
+
+(def urn:uuid:44a0004a-c300-58af-a147-b6a194b4526f
+  {:dcterms/identifier "http://www.w3.org/TR/1999/REC-html401-19991224/",
+   :dcterms/title      {:rdf/language "en",
+                        :rdf/value    "HTML 4.01 Specification"},
+   :xsd/anyURI         "http://www.w3.org/TR/1999/REC-html401-19991224/"})
+
+(def urn:uuid:2a8cb392-9288-5559-b1d5-7039a930a929
+  {:dcterms/identifier
+   "http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Specification of HTTP/1.1 OPTIONS messages"},
+   :xsd/anyURI
+   "http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt"})

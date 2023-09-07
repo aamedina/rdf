@@ -1,18 +1,17 @@
 (ns net.wikipunk.rdf.http
-  "A namespace for describing HTTP messages (http://www.w3.org/Protocols/rfc2616/rfc2616.html)"
-  {:dcat/downloadURL "net/wikipunk/ext/http.rdf",
-   :namespaces {"http" "http://www.w3.org/2011/http#",
-                "owl"  "http://www.w3.org/2002/07/owl#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :owl/imports #{{:xsd/anyURI "http://www.w3.org/2011/content#"}
+  ^{:base       "http://www.w3.org/2011/http#",
+    :namespaces {"http" "http://www.w3.org/2011/http#",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "http",
+    :source     "net/wikipunk/ext/http.rdf"}
+  {:owl/imports #{{:xsd/anyURI "http://www.w3.org/2011/content#"}
                   {:xsd/anyURI "http://purl.org/dc/terms/"}},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Working Draft 29 April 2011"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "http",
-   :rdfa/uri "http://www.w3.org/2011/http#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -414,3 +413,20 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Status code"},
    :rdfs/range       :rdfs/Literal})
+
+(def urn:uuid:3f715cee-9406-576d-b5a7-b6bc5ea061d7
+  {:owl/imports #{{:xsd/anyURI "http://www.w3.org/2011/content#"}
+                  {:xsd/anyURI "http://purl.org/dc/terms/"}},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "Working Draft 29 April 2011"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "A namespace for describing HTTP messages (http://www.w3.org/Protocols/rfc2616/rfc2616.html)"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/HTTP-in-RDF/"},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "HTTP in RDF"},
+   :rdfs/seeAlso #{{:xsd/anyURI "http://www.w3.org/TR/Content-in-RDF/"}
+                   {:xsd/anyURI "http://www.w3.org/WAI/intro/earl"}},
+   :xsd/anyURI "http://www.w3.org/2011/http"})

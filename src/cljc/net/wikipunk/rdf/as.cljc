@@ -8,13 +8,7 @@
                  "xsd"  "http://www.w3.org/2001/XMLSchema#"},
     :prefix     "as",
     :source     "net/wikipunk/boot/activitystreams2.ttl"}
-  {:owl/imports  {:xsd/anyURI "http://www.w3.org/ns/prov#"},
-   :rdf/type     :owl/Ontology,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Extended Activity Streams 2.0 Vocabulary"},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "Activity Streams 2.0"},
-   :xsd/anyURI   "http://www.w3.org/ns/activitystreams#"}
+  {:rdf/type :owl/Ontology}
   (:refer-clojure :exclude [first last name next]))
 
 (def Accept
@@ -1295,7 +1289,7 @@
                 :rdf/value    "width"},
    :rdfs/range :xsd/nonNegativeInteger})
 
-(def urn:uuid:5340bce5-232c-59ac-a5a4-d7b5472de34f112328
+(def urn:uuid:5340bce5-232c-59ac-a5a4-d7b5472de34f
   {:owl/imports  {:xsd/anyURI "http://www.w3.org/ns/prov#"},
    :rdf/type     :owl/Ontology,
    :rdfs/comment {:rdf/language "en",

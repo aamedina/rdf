@@ -9,7 +9,13 @@
                  "skos"    "http://www.w3.org/2004/02/skos/core#"},
     :prefix     "dc11",
     :source     "net/wikipunk/boot/dublin_core_elements.ttl"}
-  {:rdf/type :owl/Ontology}
+  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
+   :dcterms/title     {:rdf/language "en",
+                       :rdf/value
+                       "Dublin Core Metadata Element Set, Version 1.1"},
+   :rdf/type          :owl/Ontology,
+   :xsd/anyURI        "http://purl.org/dc/elements/1.1/"}
   (:refer-clojure :exclude [format type]))
 
 (def contributor
@@ -293,7 +299,7 @@
     :rdf/value
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."}})
 
-(def urn:uuid:b5a698a7-6a28-5028-8323-6796e4395a50112323
+(def urn:uuid:b5a698a7-6a28-5028-8323-6796e4395a50
   {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
    :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
    :dcterms/title     {:rdf/language "en",

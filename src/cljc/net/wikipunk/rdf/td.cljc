@@ -1,5 +1,20 @@
 (ns net.wikipunk.rdf.td
-  "This ontology aims to model the Web of Things domain according to the W3C Interest Group (http://w3c.github.io/wot/)"
+  ^{:base       "https://www.w3.org/2019/wot/td#",
+    :namespaces {"dcterms"    "http://purl.org/dc/terms/",
+                 "foaf"       "http://xmlns.com/foaf/0.1/",
+                 "hctl"       "https://www.w3.org/2019/wot/hypermedia#",
+                 "jsonschema" "https://www.w3.org/2019/wot/json-schema#",
+                 "owl"        "http://www.w3.org/2002/07/owl#",
+                 "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+                 "schema"     "http://schema.org/",
+                 "td"         "https://www.w3.org/2019/wot/td#",
+                 "vann"       "http://purl.org/vocab/vann/",
+                 "wotsec"     "https://www.w3.org/2019/wot/security#",
+                 "xml"        "http://www.w3.org/XML/1998/namespace",
+                 "xsd"        "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "td",
+    :source     "https://www.w3.org/2019/wot/td#"}
   {:dcterms/author {:xsd/anyURI "https://vcharpenay.link/#me"},
    :dcterms/contributor #{{:xsd/anyURI "http://purl.org/net/mpoveda"}
                           {:xsd/anyURI "http://maxime-lefrancois.info/me#"}},
@@ -9,23 +24,8 @@
                        :schema/url  {:xsd/anyURI "https://www.w3.org/WoT/WG/"}},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Thing Description Ontology"},
-   :namespaces {"dcterms"    "http://purl.org/dc/terms/",
-                "foaf"       "http://xmlns.com/foaf/0.1/",
-                "hctl"       "https://www.w3.org/2019/wot/hypermedia#",
-                "jsonschema" "https://www.w3.org/2019/wot/json-schema#",
-                "owl"        "http://www.w3.org/2002/07/owl#",
-                "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
-                "schema"     "http://schema.org/",
-                "td"         "https://www.w3.org/2019/wot/td#",
-                "vann"       "http://purl.org/vocab/vann/",
-                "wotsec"     "https://www.w3.org/2019/wot/security#",
-                "xml"        "http://www.w3.org/XML/1998/namespace",
-                "xsd"        "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "0.9.0",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "td",
-   :rdfa/uri "https://www.w3.org/2019/wot/td#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -600,3 +600,23 @@
                       "Operation type of forms used to write a property value"},
    :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/2019/wot/td"},
    :rdfs/label       "writeProperty"})
+
+(def urn:uuid:490b8cd2-c2a9-5fd8-9908-3da88f76060d
+  {:dcterms/author {:xsd/anyURI "https://vcharpenay.link/#me"},
+   :dcterms/contributor #{{:xsd/anyURI "http://purl.org/net/mpoveda"}
+                          {:xsd/anyURI "http://maxime-lefrancois.info/me#"}},
+   :dcterms/license {:xsd/anyURI "http://purl.org/NET/rdflicense/cc-by4.0"},
+   :dcterms/publisher {:rdf/type    :schema/Organization,
+                       :schema/name "W3C Web of Things Working Group",
+                       :schema/url  {:xsd/anyURI "https://www.w3.org/WoT/WG/"}},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Thing Description Ontology"},
+   :owl/versionInfo "0.9.0",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "This ontology aims to model the Web of Things domain according to the W3C Interest Group (http://w3c.github.io/wot/)"},
+   :vann/preferredNamespacePrefix "td",
+   :vann/preferredNamespaceUri "https://www.w3.org/2019/wot/td#",
+   :xsd/anyURI "https://www.w3.org/2019/wot/td"})

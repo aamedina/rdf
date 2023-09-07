@@ -1,16 +1,37 @@
 (ns net.wikipunk.rdf.exif
-  {:dcat/downloadURL "net/wikipunk/ext/exif.rdf",
-   :namespaces       {"dc11"    "http://purl.org/dc/elements/1.1/",
-                      "dcterms" "http://purl.org/dc/terms/",
-                      "ex"      "http://example.org/",
-                      "exif"    "http://www.w3.org/2003/12/exif/ns#",
-                      "foaf"    "http://xmlns.com/foaf/0.1/",
-                      "owl"     "http://www.w3.org/2002/07/owl#",
-                      "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "exif",
-   :rdfa/uri         "http://www.w3.org/2003/12/exif/ns#"})
+  ^{:base       "http://www.w3.org/2003/12/exif/ns#",
+    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "ex"      "http://example.org/",
+                 "exif"    "http://www.w3.org/2003/12/exif/ns#",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
+    :prefix     "exif",
+    :source     "net/wikipunk/ext/exif.rdf"}
+  {:dc11/description
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Vocabulaire pour décrire les données Exif d'une photographie. Toutes les balises Exif 2.2 sont définies comme des propriétés RDF, ainsi que plusieurs termes pour donner de l'aide."}
+     {:rdf/language "ja",
+      :rdf/value
+      "Exifフォーマットの写真からデータを取りだしてRDFで表現するため、Exif 2.2の全てのタグをRDFプロパティとして定義し、さらにそれを記述するのに必要な語彙を追加したボキャブラリ"}
+     {:rdf/language "en",
+      :rdf/value
+      "Vocabulary to describe an Exif format picture data. All Exif 2.2 tags are defined as RDF properties, as well as several terms to help this schema."}},
+   :dc11/source {:xsd/anyURI "http://tsc.jeita.or.jp/avs/data/cp3451.pdf"},
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "Exif data description vocabulary"},
+   :dcterms/created {:rdf/language "en",
+                     :rdf/value    "2003-07-18"},
+   :dcterms/modified {:rdf/language "en",
+                      :rdf/value    "2003-08-19"},
+   :foaf/maker {:xsd/anyURI "urn:pin:MK705"},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "Experimental version."},
+   :rdf/type :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/2003/12/exif/ns"})
 
 (def IFD
   {:db/ident     :exif/IFD,
@@ -2094,3 +2115,41 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "YResolution"},
    :rdfs/subPropertyOf #{:exif/imageDataStruct :exif/resolution}})
+
+(def urn:uuid:4332ef38-0343-5937-a825-ee072539acad
+  {:foaf/name    {:rdf/language "ja",
+                  :rdf/value    "神崎正英"},
+   :rdf/type     :foaf/Person,
+   :rdfs/seeAlso {:xsd/anyURI "http://www.kanzaki.com/info/webwho.rdf"},
+   :xsd/anyURI   "urn:pin:MK705"})
+
+(def urn:uuid:08c88d5c-69bc-52d9-a5a4-d852f91655e1
+  {:dc11/format {:rdf/language "en",
+                 :rdf/value    "PDF"},
+   :dc11/title  {:rdf/language "en",
+                 :rdf/value    "JEITA CP-3451/EXIF 2.2 Specification"},
+   :xsd/anyURI  "http://tsc.jeita.or.jp/avs/data/cp3451.pdf"})
+
+(def urn:uuid:ee5fea12-20d3-5804-89a6-985cd1470a87
+  {:dc11/description
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Vocabulaire pour décrire les données Exif d'une photographie. Toutes les balises Exif 2.2 sont définies comme des propriétés RDF, ainsi que plusieurs termes pour donner de l'aide."}
+     {:rdf/language "ja",
+      :rdf/value
+      "Exifフォーマットの写真からデータを取りだしてRDFで表現するため、Exif 2.2の全てのタグをRDFプロパティとして定義し、さらにそれを記述するのに必要な語彙を追加したボキャブラリ"}
+     {:rdf/language "en",
+      :rdf/value
+      "Vocabulary to describe an Exif format picture data. All Exif 2.2 tags are defined as RDF properties, as well as several terms to help this schema."}},
+   :dc11/source {:xsd/anyURI "http://tsc.jeita.or.jp/avs/data/cp3451.pdf"},
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "Exif data description vocabulary"},
+   :dcterms/created {:rdf/language "en",
+                     :rdf/value    "2003-07-18"},
+   :dcterms/modified {:rdf/language "en",
+                      :rdf/value    "2003-08-19"},
+   :foaf/maker {:xsd/anyURI "urn:pin:MK705"},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "Experimental version."},
+   :rdf/type :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/2003/12/exif/ns"})

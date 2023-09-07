@@ -1,7 +1,20 @@
 (ns net.wikipunk.rdf.dpvo
-  "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."
-  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv.ttl",
-   :dcterms/abstract
+  ^{:base       "https://w3id.org/dpv/dpv-owl#",
+    :namespaces {"dcat"    "http://www.w3.org/ns/dcat#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "dpv"     "https://w3id.org/dpv#",
+                 "dpvo"    "https://w3id.org/dpv/dpv-owl#",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dpvo",
+    :source     "net/wikipunk/ext/dpv-owl/dpv.ttl"}
+  {:dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."},
@@ -24,22 +37,8 @@
    :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Data Privacy Vocabulary"},
-   :namespaces {"dcat"    "http://www.w3.org/ns/dcat#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "dpv"     "https://w3id.org/dpv#",
-                "dpvo"    "https://w3id.org/dpv/dpv-owl#",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"    "http://www.w3.org/2004/02/skos/core#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "1",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dpvo",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl#",
    :vann/preferredNamespacePrefix "dpvo",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl"})
@@ -11264,3 +11263,33 @@
    :rdfs/range          :dpvo/Risk,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
+
+(def urn:uuid:e3e84193-c4fd-55f1-8b85-a1870908ac13
+  {:dcterms/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."},
+   :dcterms/contributor
+   #{"Fajar J. Ekaputra" "Rigo Wenning" "Georg P Krog" "Ramisa Gachpaz Hamed"
+     "Axel Polleres" "Simon Steyskal" "Harshvardhan J. Pandit" "Beatriz Esteves"
+     "Eva Schlehahn" "Rob Brennan" "Bert Bos" "Julian Flake" "Paul Ryan"
+     "Bud Bruegger" "Piero Bonatti" "Elmar Kiesling" "Javier D. Fernández"
+     "Mark Lizar"},
+   :dcterms/created #inst "2019-06-18T00:00:00.000-00:00",
+   :dcterms/creator #{{:xsd/string "Axel Polleres"}
+                      {:xsd/string "Harshvardhan J. Pandit"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."},
+   :dcterms/license {:xsd/anyURI
+                     "https://www.w3.org/Consortium/Legal/2015/doc-license"},
+   :dcterms/modified #inst "2022-12-05T00:00:00.000-00:00",
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Data Privacy Vocabulary"},
+   :owl/versionInfo "1",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "dpvo",
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl"})

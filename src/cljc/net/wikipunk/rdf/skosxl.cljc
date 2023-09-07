@@ -123,7 +123,7 @@
     :rdf/value
     "The property skosxl:prefLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:prefLabel."}})
 
-(def urn:uuid:77ab9dbf-1cfb-5a76-baee-affb8ba856d3112396
+(def urn:uuid:77ab9dbf-1cfb-5a76-baee-affb8ba856d3
   {:dcterms/contributor
    "Participants in W3C's Semantic Web Deployment Working Group.",
    :dcterms/creator #{{:xsd/string "Sean Bechhofer"}

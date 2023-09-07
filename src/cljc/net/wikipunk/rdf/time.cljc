@@ -2757,7 +2757,7 @@
                   :rdf/value    "duración en años"}},
    :rdfs/range :xsd/decimal})
 
-(def urn:uuid:9c761405-2905-53d4-9bce-110331188b63112352
+(def urn:uuid:9c761405-2905-53d4-9bce-110331188b63
   {:dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
                           {:xsd/anyURI
                            "https://orcid.org/0000-0001-8269-8171"}},

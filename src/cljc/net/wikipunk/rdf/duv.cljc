@@ -145,7 +145,7 @@
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "refers to dataset"}})
 
-(def urn:uuid:c576200b-4716-5746-9352-715ec00bd77b112392
+(def urn:uuid:c576200b-4716-5746-9352-715ec00bd77b
   {:dcterms/created #inst "2015-12-17T00:00:00.000-00:00",
    :dcterms/creator #{{:foaf/name "Sumit Purohit"}
                       {:foaf/name "Eric G. Stephan"}

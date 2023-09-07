@@ -148,7 +148,7 @@
    "defines an absolute URI to be used as a default vocabulary; the value is can be any string; for documentation purposes it is advised to use the string 'true' or 'True'.",
    :rdf/type #{:owl/DatatypeProperty :rdf/Property}})
 
-(def urn:uuid:97f67f5b-c96e-5a90-a695-928826cf9824112350
+(def urn:uuid:97f67f5b-c96e-5a90-a695-928826cf9824
   {:dcterms/creator {:xsd/anyURI "http://www.ivan-herman.net/foaf#me"},
    :dcterms/date "2013-01-18",
    :dcterms/description
@@ -162,7 +162,7 @@
                       "http://www.w3.org/TR/rdfa-core/#s_initialcontexts"},
    :xsd/anyURI "http://www.w3.org/ns/rdfa#"})
 
-(def urn:uuid:5fb8adee-1455-54c1-95d6-adb6a1f04945112351
+(def urn:uuid:5fb8adee-1455-54c1-95d6-adb6a1f04945
   {:foaf/mbox              {:xsd/anyURI "mailto:ivan@w3.org"},
    :foaf/name              "Ivan Herman",
    :foaf/title             "Semantic Web Activity Lead",

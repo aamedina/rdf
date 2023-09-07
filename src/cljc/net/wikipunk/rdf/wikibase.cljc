@@ -1,16 +1,16 @@
 (ns net.wikipunk.rdf.wikibase
-  "The system ontology of Wikibase"
+  ^{:base       "http://wikiba.se/ontology#",
+    :namespaces {"cc"       "http://creativecommons.org/ns#",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "wikibase" "http://wikiba.se/ontology#",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "wikibase",
+    :source     "http://wikiba.se/ontology#"}
   {:cc/licence {:xsd/anyURI
                 "http://creativecommons.org/publicdomain/zero/1.0/"},
-   :namespaces {"cc"       "http://creativecommons.org/ns#",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "wikibase" "http://wikiba.se/ontology#",
-                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "wikibase",
-   :rdfa/uri "http://wikiba.se/ontology#",
    :rdfs/comment "The system ontology of Wikibase",
    :rdfs/label "Wikibase system ontology",
    :rdfs/seeAlso
@@ -484,3 +484,16 @@
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment "Wiki group that the site belongs to.",
    :rdfs/label   "wikiGroup"})
+
+(def urn:uuid:64bacc41-0a21-56f0-9ae8-afdd6601edc6
+  {:cc/licence {:xsd/anyURI
+                "http://creativecommons.org/publicdomain/zero/1.0/"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment "The system ontology of Wikibase",
+   :rdfs/label "Wikibase system ontology",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://www.mediawiki.org/wiki/Extension:WikibaseLexeme/RDF_mapping"}
+     {:xsd/anyURI
+      "https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format"}},
+   :xsd/anyURI "http://wikiba.se/ontology#"})

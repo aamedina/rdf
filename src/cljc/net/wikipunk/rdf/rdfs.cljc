@@ -143,7 +143,7 @@
    :rdfs/label       "subPropertyOf",
    :rdfs/range       :rdf/Property})
 
-(def urn:uuid:a0f79a94-ba29-5d80-b116-6f6bc02eeb2c112347
+(def urn:uuid:a0f79a94-ba29-5d80-b116-6f6bc02eeb2c
   {:dc11/title   "The RDF Schema vocabulary (RDFS)",
    :rdf/type     :owl/Ontology,
    :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema-more"},

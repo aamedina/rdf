@@ -1,21 +1,21 @@
 (ns net.wikipunk.rdf.cred
   ^{:base       "https://w3.org/2018/credentials#",
-    :namespaces {"cred" "https://w3.org/2018/credentials#",
-                 "dc11" "http://purl.org/dc/terms/",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :namespaces {"cred"    "https://w3.org/2018/credentials#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
     :prefix     "cred",
     :source     "https://w3.org/2018/credentials#"}
-  {:dc11/date #inst "2023-09-05T00:00:00.000-00:00",
-   :dc11/description
+  {:dcterms/date #inst "2023-09-05T00:00:00.000-00:00",
+   :dcterms/description
    {:rdf/language "en",
     :rdf/value
     "RDFS [[RDF-SCHEMA]] vocabulary used by the Verifiable Credentials [[VC-DATA-MODEL]]"},
-   :dc11/title {:rdf/language "en",
-                :rdf/value    "Verifiable Credentials Vocabulary v2.0"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Verifiable Credentials Vocabulary v2.0"},
    :rdf/type :owl/Ontology,
    :rdfs/seeAlso {:xsd/anyURI "https://www.w3.org/TR/vc-data-model-2.0/"},
    :xsd/anyURI "https://w3.org/2018/credentials#"})
@@ -336,14 +336,14 @@
    :rdfs/range :cred/VerifiableCredentialGraph,
    :vs/term_status "stable"})
 
-(def urn:uuid:11a2a230-e08a-5065-a04c-26fafea6910592596
-  {:dc11/date #inst "2023-09-05T00:00:00.000-00:00",
-   :dc11/description
+(def urn:uuid:11a2a230-e08a-5065-a04c-26fafea69105
+  {:dcterms/date #inst "2023-09-05T00:00:00.000-00:00",
+   :dcterms/description
    {:rdf/language "en",
     :rdf/value
     "RDFS [[RDF-SCHEMA]] vocabulary used by the Verifiable Credentials [[VC-DATA-MODEL]]"},
-   :dc11/title {:rdf/language "en",
-                :rdf/value    "Verifiable Credentials Vocabulary v2.0"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Verifiable Credentials Vocabulary v2.0"},
    :rdf/type :owl/Ontology,
    :rdfs/seeAlso {:xsd/anyURI "https://www.w3.org/TR/vc-data-model-2.0/"},
    :xsd/anyURI "https://w3.org/2018/credentials#"})

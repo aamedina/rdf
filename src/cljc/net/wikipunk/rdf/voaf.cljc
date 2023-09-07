@@ -1,20 +1,52 @@
 (ns net.wikipunk.rdf.voaf
-  {:dcat/downloadURL "net/wikipunk/ext/voaf.ttl",
-   :namespaces       {"cc" "http://creativecommons.org/ns#",
-                      "dcterms" "http://purl.org/dc/terms/",
-                      "foaf" "http://xmlns.com/foaf/0.1/",
-                      "frbr" "http://purl.org/vocab/frbr/core#",
-                      "owl" "http://www.w3.org/2002/07/owl#",
-                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                      "spin" "http://spinrdf.org/spin#",
-                      "spinsp" "http://spinrdf.org/sp#",
-                      "vann" "http://purl.org/vocab/vann/",
-                      "voaf" "http://purl.org/vocommons/voaf#",
-                      "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "voaf",
-   :rdfa/uri         "http://purl.org/vocommons/voaf#"})
+  ^{:base       "http://purl.org/vocommons/voaf#",
+    :namespaces {"cc"      "http://creativecommons.org/ns#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "frbr"    "http://purl.org/vocab/frbr/core#",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "spin"    "http://spinrdf.org/spin#",
+                 "spinsp"  "http://spinrdf.org/sp#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "voaf"    "http://purl.org/vocommons/voaf#",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
+    :prefix     "voaf",
+    :source     "net/wikipunk/ext/voaf.ttl"}
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcterms/contributor
+   #{{:xsd/anyURI
+      "http://data.semanticweb.org/person/pierre-yves-vandenbussche"}
+     {:xsd/anyURI "http://data.semanticweb.org/person/lise-rozat"}},
+   :dcterms/creator {:xsd/anyURI
+                     "http://data.semanticweb.org/person/bernard-vatant"},
+   :dcterms/description
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Un vocabulaire de description des vocabulaires RDF et de leurs relations mutuelles"}
+     {:rdf/language "en",
+      :rdf/value
+      "A vocabulary to describe linked data vocabularies and their relations."}},
+   :dcterms/issued #inst "2011-03-11T00:00:00.000-00:00",
+   :dcterms/modified #inst "2013-05-24T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI
+                       "http://dbpedia.org/resource/Open_Knowledge_Foundation"},
+   :dcterms/title #{{:rdf/language "fr",
+                     :rdf/value    "Vocabulaire d'un ami"}
+                    {:rdf/language "en",
+                     :rdf/value    "Vocabulary of a Friend"}},
+   :frbr/realization #{{:xsd/anyURI "http://purl.org/vocommons/voaf/v1.0"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v1.1"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.3"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.2"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.0"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.1"}},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "voaf",
+   :vann/preferredNamespaceUri "http://purl.org/vocommons/voaf#",
+   :voaf/exampleDataset {:xsd/anyURI "http://lov.okfn.org/dataset/lov/lov.rdf"},
+   :xsd/anyURI "http://purl.org/vocommons/voaf"})
 
 (def DatasetOccurrences
   {:db/ident :voaf/DatasetOccurrences,
@@ -474,3 +506,209 @@
                   :rdf/value    "utilisé par"}},
    :rdfs/range :voaf/Vocabulary,
    :vs/term_status "stable"})
+
+(def urn:uuid:2a6508ef-6c86-56db-96fa-50b8f7262964
+  {:frbr/alternate {:xsd/anyURI
+                    "http://purl.org/vocommons/voaf/v2.3/index.html"},
+   :rdf/type       :frbr/Manifestation,
+   :xsd/anyURI     "http://purl.org/vocommons/voaf/v2.3/voaf_v2.3.rdf"})
+
+(def urn:uuid:7435d409-1c45-58ed-92ee-f1a8d3e742d4
+  {:rdf/type   :frbr/Manifestation,
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.2/index.html"})
+
+(def urn:uuid:ee51b09b-9e5f-5021-b29f-7be4ef9995b8
+  {:dcterms/date    "2011-03-11",
+   :frbr/embodiment {:xsd/anyURI
+                     "http://purl.org/vocommons/voaf/v1.0/voaf_v1.0.rdf"},
+   :owl/versionInfo "1.0",
+   :rdf/type        :frbr/Expression,
+   :rdfs/comment    #{{:rdf/language "fr",
+                       :rdf/value    "Première publication"}
+                      {:rdf/language "en",
+                       :rdf/value    "First published version"}},
+   :xsd/anyURI      "http://purl.org/vocommons/voaf/v1.0"})
+
+(def urn:uuid:6440ee41-c6d9-50c5-adbd-85b19b3c4838
+  {:frbr/alternate {:xsd/anyURI
+                    "http://purl.org/vocommons/voaf/v1.0/index.html"},
+   :rdf/type       :frbr/Manifestation,
+   :xsd/anyURI     "http://purl.org/vocommons/voaf/v1.0/voaf_v1.0.rdf"})
+
+(def urn:uuid:519521a3-faaa-5d4a-be04-493ce92d49f9
+  {:dcterms/date "2011-11-16",
+   :frbr/embodiment {:xsd/anyURI
+                     "http://purl.org/vocommons/voaf/v1.1/voaf_v1.1.rdf"},
+   :owl/versionInfo "1.1",
+   :rdf/type :frbr/Expression,
+   :rdfs/comment
+   #{{:rdf/language "en",
+      :rdf/value
+      "Depreciation of voaf:exampleDataset, replaced by voaf:dataset"}
+     {:rdf/language "fr",
+      :rdf/value
+      "Dépréciation de voaf:exampleDataset, remplacé par voaf:dataset"}},
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v1.1"})
+
+(def urn:uuid:492dc11f-e8ea-5573-b807-f4c03239facd
+  {:rdf/type   :foaf/Person,
+   :xsd/anyURI "http://data.semanticweb.org/person/bernard-vatant"})
+
+(def urn:uuid:2db7f569-9de1-5011-8b65-0c276fd9febd
+  {:rdf/type   :frbr/Manifestation,
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.0/index.html"})
+
+(def urn:uuid:6c86b106-025b-5743-be55-4e39f9f1e1ad
+  {:frbr/alternate {:xsd/anyURI
+                    "http://purl.org/vocommons/voaf/v2.2/index.html"},
+   :rdf/type       :frbr/Manifestation,
+   :xsd/anyURI     "http://purl.org/vocommons/voaf/v2.2/voaf_v2.2.rdf"})
+
+(def urn:uuid:5aec2dbd-a353-560c-92df-961dd11962b4
+  {:rdf/type   :foaf/Person,
+   :xsd/anyURI "http://data.semanticweb.org/person/pierre-yves-vandenbussche"})
+
+(def urn:uuid:750860e9-1605-53e7-a6e4-ce1d81931a8a
+  {:rdf/type   :frbr/Manifestation,
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.1/index.html"})
+
+(def urn:uuid:07ce2da5-80c9-5a8f-8e12-ba0e2471d7de
+  {:rdf/type   :frbr/Manifestation,
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.3/index.html"})
+
+(def urn:uuid:8435f637-baa8-5e96-bc44-70e49bbac833
+  {:dcterms/creator
+   {:xsd/anyURI "http://data.semanticweb.org/person/pierre-yves-vandenbussche"},
+   :dcterms/date "2013-04-24",
+   :frbr/embodiment {:xsd/anyURI
+                     "http://purl.org/vocommons/voaf/v2.2/voaf_v2.2.rdf"},
+   :owl/versionInfo "2.2",
+   :rdf/type :frbr/Expression,
+   :rdfs/comment
+   #{{:rdf/language "en",
+      :rdf/value
+      "Added properties to represent metrics of vocabulary elements usage in LOV and LOD"}
+     {:rdf/language "fr",
+      :rdf/value
+      "Ajout de propriétés pour représenter les métriques d'usage d'éléments de vocabulaire dans le LOV et le LOD"}},
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.2"})
+
+(def urn:uuid:0b472bbc-f2a2-589f-95d3-c0c846121284
+  {:rdf/type   :foaf/Person,
+   :xsd/anyURI "http://data.semanticweb.org/person/lise-rozat"})
+
+(def urn:uuid:61f3164d-5985-5cfb-83cf-b8075f195b01
+  {:dcterms/creator
+   {:xsd/anyURI "http://data.semanticweb.org/person/pierre-yves-vandenbussche"},
+   :dcterms/date "2012-10-15",
+   :frbr/embodiment {:xsd/anyURI
+                     "http://purl.org/vocommons/voaf/v2.1/voaf_v2.1.rdf"},
+   :owl/versionInfo "2.1",
+   :rdf/type :frbr/Expression,
+   :rdfs/comment
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Ajout des requêtes pour générer des relations VOAF entre deux vocabulaires"}
+     {:rdf/language "en",
+      :rdf/value
+      "Added desrciption of queries used to infer a particular VOAF relation between two vocabularies"}},
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.1"})
+
+(def urn:uuid:c0ef5b87-3f14-5d49-ae6f-3df246537b1b
+  {:dcterms/creator {:xsd/anyURI
+                     "http://data.semanticweb.org/person/bernard-vatant"},
+   :dcterms/date "2012-07-03",
+   :frbr/embodiment {:xsd/anyURI
+                     "http://purl.org/vocommons/voaf/v2.0/voaf_v2.0.rdf"},
+   :owl/versionInfo "2.0",
+   :rdf/type :frbr/Expression,
+   :rdfs/comment
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Namespace migré sous purl. Introduction des versions avec FRBR. voaf:Vocabulary rdfs:subClassOf  frbr:Work. Ajout des traductions françaises"}
+     {:rdf/language "en",
+      :rdf/value
+      "Namespace moved to purl. Introduction of versions using FRBR. voaf:Vocabulary rdfs:subClassOf  frbr:Work. Added labels and comments in French"}},
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.0"})
+
+(def urn:uuid:0d8076ab-9a8b-5427-876c-61c24c07ffdf
+  {:frbr/alternate {:xsd/anyURI
+                    "http://purl.org/vocommons/voaf/v2.1/index.html"},
+   :rdf/type       :frbr/Manifestation,
+   :xsd/anyURI     "http://purl.org/vocommons/voaf/v2.1/voaf_v2.1.rdf"})
+
+(def urn:uuid:7fbd5e90-408f-581f-97d6-d4249a43f693
+  {:rdf/type   :frbr/Manifestation,
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v1.1/index.html"})
+
+(def urn:uuid:9ae541b6-eb98-5969-b3e1-b0a3bff53c81
+  {:frbr/alternate {:xsd/anyURI
+                    "http://purl.org/vocommons/voaf/v1.1/index.html"},
+   :rdf/type       :frbr/Manifestation,
+   :xsd/anyURI     "http://purl.org/vocommons/voaf/v1.1/voaf_v1.1.rdf"})
+
+(def urn:uuid:aa5c81b6-15c2-5ebd-a59d-aff454353c16
+  {:rdf/type   :frbr/Manifestation,
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v1.0/index.html"})
+
+(def urn:uuid:ef095782-7d45-5340-92e5-fa98b0a99333
+  {:dcterms/creator
+   {:xsd/anyURI "http://data.semanticweb.org/person/pierre-yves-vandenbussche"},
+   :dcterms/date "2013-05-24",
+   :frbr/embodiment {:xsd/anyURI
+                     "http://purl.org/vocommons/voaf/v2.3/voaf_v2.3.rdf"},
+   :owl/versionInfo "2.3",
+   :rdf/type :frbr/Expression,
+   :rdfs/comment
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Remplacement de voaf:dataset par un objet permettant d'attacher la notion d'occurrenceet ajout supplémentaire de propriétés pour représenter les métriques d'usage d'éléments de vocabulaire dans le LOV et le LOD"}
+     {:rdf/language "en",
+      :rdf/value
+      "Refined the voaf:dataset to a more complex element with occurrences information and added extra properties to represent metrics of vocabulary elements usage in LOV and LOD"}},
+   :xsd/anyURI "http://purl.org/vocommons/voaf/v2.3"})
+
+(def urn:uuid:6137f943-7d5d-51ea-a995-0fd4f581beed
+  {:rdf/type   :foaf/Organization,
+   :xsd/anyURI "http://dbpedia.org/resource/Open_Knowledge_Foundation"})
+
+(def urn:uuid:e5c160a6-a5a1-5119-9aa9-641b7ab3d4d8
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcterms/contributor
+   #{{:xsd/anyURI
+      "http://data.semanticweb.org/person/pierre-yves-vandenbussche"}
+     {:xsd/anyURI "http://data.semanticweb.org/person/lise-rozat"}},
+   :dcterms/creator {:xsd/anyURI
+                     "http://data.semanticweb.org/person/bernard-vatant"},
+   :dcterms/description
+   #{{:rdf/language "fr",
+      :rdf/value
+      "Un vocabulaire de description des vocabulaires RDF et de leurs relations mutuelles"}
+     {:rdf/language "en",
+      :rdf/value
+      "A vocabulary to describe linked data vocabularies and their relations."}},
+   :dcterms/issued #inst "2011-03-11T00:00:00.000-00:00",
+   :dcterms/modified #inst "2013-05-24T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI
+                       "http://dbpedia.org/resource/Open_Knowledge_Foundation"},
+   :dcterms/title #{{:rdf/language "fr",
+                     :rdf/value    "Vocabulaire d'un ami"}
+                    {:rdf/language "en",
+                     :rdf/value    "Vocabulary of a Friend"}},
+   :frbr/realization #{{:xsd/anyURI "http://purl.org/vocommons/voaf/v1.0"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v1.1"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.3"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.2"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.0"}
+                       {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.1"}},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "voaf",
+   :vann/preferredNamespaceUri "http://purl.org/vocommons/voaf#",
+   :voaf/exampleDataset {:xsd/anyURI "http://lov.okfn.org/dataset/lov/lov.rdf"},
+   :xsd/anyURI "http://purl.org/vocommons/voaf"})
+
+(def urn:uuid:232407d5-63dd-5903-9b3b-83ec7764e21a
+  {:frbr/alternate {:xsd/anyURI
+                    "http://purl.org/vocommons/voaf/v2.0/index.html"},
+   :rdf/type       :frbr/Manifestation,
+   :xsd/anyURI     "http://purl.org/vocommons/voaf/v2.0/voaf_v2.0.rdf"})

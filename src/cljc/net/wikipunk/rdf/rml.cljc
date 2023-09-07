@@ -1,7 +1,21 @@
 (ns net.wikipunk.rdf.rml
-  "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"
+  ^{:base       "http://semweb.mmlab.be/ns/rml#",
+    :namespaces {"cc"      "http://creativecommons.org/ns#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "ql"      "http://semweb.mmlab.be/ns/ql#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "rml"     "http://semweb.mmlab.be/ns/rml#",
+                 "rmlt"    "http://semweb.mmlab.be/ns/rml-target#",
+                 "rr"      "http://www.w3.org/ns/r2rml#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "xml"     "http://www.w3.org/XML/1998/namespace",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "rml",
+    :source     "net/wikipunk/ext/rml.ttl"}
   {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
-   :dcat/downloadURL "net/wikipunk/ext/rml.ttl",
    :dcterms/creator #{{:foaf/name "Miel Vander Sande"}
                       {:foaf/name "Anastasia Dimou"}},
    :dcterms/description
@@ -12,23 +26,8 @@
    :dcterms/modified #inst "2014-09-10T00:00:00.000-00:00",
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "RML: Generic Mapping Language for RDF"},
-   :namespaces {"cc"      "http://creativecommons.org/ns#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "foaf"    "http://xmlns.com/foaf/0.1/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "ql"      "http://semweb.mmlab.be/ns/ql#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "rml"     "http://semweb.mmlab.be/ns/rml#",
-                "rmlt"    "http://semweb.mmlab.be/ns/rml-target#",
-                "rr"      "http://www.w3.org/ns/r2rml#",
-                "vann"    "http://purl.org/vocab/vann/",
-                "xml"     "http://www.w3.org/XML/1998/namespace",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "http://www.w3.org/ns/r2rml#"},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
-   :rdfa/prefix "rml",
-   :rdfa/uri "http://semweb.mmlab.be/ns/rml#",
    :vann/preferredNamespacePrefix "rml",
    :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#",
    :xsd/anyURI "http://semweb.mmlab.be/ns/rml"})
@@ -158,3 +157,21 @@
    :rdfs/domain  :rml/LogicalSource,
    :rdfs/label   "version",
    :rdfs/range   :xsd/string})
+
+(def urn:uuid:69c226d9-23c6-5fbe-ac40-b9cbb1f15877
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcterms/creator #{{:foaf/name "Miel Vander Sande"}
+                      {:foaf/name "Anastasia Dimou"}},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"},
+   :dcterms/issued #inst "2013-07-01T00:00:00.000-00:00",
+   :dcterms/modified #inst "2014-09-10T00:00:00.000-00:00",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "RML: Generic Mapping Language for RDF"},
+   :owl/imports {:xsd/anyURI "http://www.w3.org/ns/r2rml#"},
+   :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :vann/preferredNamespacePrefix "rml",
+   :vann/preferredNamespaceUri "http://semweb.mmlab.be/ns/rml#",
+   :xsd/anyURI "http://semweb.mmlab.be/ns/rml"})

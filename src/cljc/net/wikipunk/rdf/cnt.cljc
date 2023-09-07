@@ -1,18 +1,17 @@
 (ns net.wikipunk.rdf.cnt
-  "Representing Content in RDF as defined by http://www.w3.org/TR/Content-in-RDF/"
-  {:dcat/downloadURL "net/wikipunk/ext/content.rdf",
-   :namespaces {"cnt"     "http://www.w3.org/2011/content#",
-                "dcterms" "http://purl.org/dc/terms/",
-                "owl"     "http://www.w3.org/2002/07/owl#",
-                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :owl/imports {:xsd/anyURI "http://purl.org/dc/terms/"},
+  ^{:base       "http://www.w3.org/2011/content#",
+    :namespaces {"cnt"     "http://www.w3.org/2011/content#",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "cnt",
+    :source     "net/wikipunk/ext/content.rdf"}
+  {:owl/imports {:xsd/anyURI "http://purl.org/dc/terms/"},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Working Draft 29 April 2011"},
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "cnt",
-   :rdfa/uri "http://www.w3.org/2011/content#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -213,3 +212,18 @@
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "XML version"},
    :rdfs/range   :rdfs/Literal})
+
+(def urn:uuid:419db9d8-50b2-5502-854e-f455be0c36cf
+  {:owl/imports {:xsd/anyURI "http://purl.org/dc/terms/"},
+   :owl/versionInfo {:rdf/language "en",
+                     :rdf/value    "Working Draft 29 April 2011"},
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "Representing Content in RDF as defined by http://www.w3.org/TR/Content-in-RDF/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/Content-in-RDF/"},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Representing Content in RDF"},
+   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/WAI/intro/earl"},
+   :xsd/anyURI "http://www.w3.org/2011/content"})

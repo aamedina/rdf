@@ -10,7 +10,14 @@
                  "rdfs"  "http://www.w3.org/2000/01/rdf-schema#"},
     :prefix     "grddl",
     :source     "http://www.w3.org/2003/g/data-view#"}
-  {:rdf/type :owl/Ontology})
+  {:admin/generatorAgent {:xsd/anyURI "http://purl.org/NET/erdf/extract"},
+   :foaf/maker :grddl/grddl-wg,
+   :grddl/normative-reference #{{:xsd/anyURI "http://www.w3.org/TR/xslt"}
+                                {:xsd/anyURI "http://www.w3.org/TR/grddl/"}
+                                {:xsd/anyURI
+                                 "http://www.w3.org/TR/rdf-concepts/"}},
+   :rdf/type   :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/2003/g/data-view"})
 
 (def InformationResource
   {:db/ident :grddl/InformationResource,
@@ -119,31 +126,31 @@
    :rdfs/label "transformationProperty",
    :rdfs/range :grddl/TransformationProperty})
 
-(def urn:uuid:15fe4857-8a1b-5c59-bf2d-58590b07b9e7112365
+(def urn:uuid:15fe4857-8a1b-5c59-bf2d-58590b07b9e7
   {:rdfs/label "definition in Architecture of the World Wide Web, Volume One",
    :xsd/anyURI
    "http://www.w3.org/TR/2004/REC-webarch-20041215/#def-information-resource"})
 
-(def urn:uuid:eee7ee82-4a58-5154-a47c-e315d77edd17112366
+(def urn:uuid:eee7ee82-4a58-5154-a47c-e315d77edd17
   {:rdfs/label "Dan Connolly",
    :xsd/anyURI "http://www.w3.org/People/Connolly/"})
 
-(def urn:uuid:47c5db5b-93fd-539d-800d-eb86e7514719112367
+(def urn:uuid:47c5db5b-93fd-539d-800d-eb86e7514719
   {:rdfs/label
    "definition\n    in Resource Description Framework (RDF): Concepts and\n    Abstract Syntax",
    :xsd/anyURI
    "http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-rdf-graph"})
 
-(def urn:uuid:4a8bc1b3-e23b-561d-9ee3-71f55ba3098a112368
+(def urn:uuid:4a8bc1b3-e23b-561d-9ee3-71f55ba3098a
   {:rdfs/label
    "section\n    5.1 Root Node in XML Path Language (XPath) Version\n    1.0",
    :xsd/anyURI "http://www.w3.org/TR/1999/REC-xpath-19991116#root-node"})
 
-(def urn:uuid:2ab345d3-d89b-5b01-8702-25f8242ab9c5112369
+(def urn:uuid:2ab345d3-d89b-5b01-8702-25f8242ab9c5
   {:rdfs/label "public-grddl-comments",
    :xsd/anyURI "http://lists.w3.org/Archives/Public/public-grddl-comments/"})
 
-(def urn:uuid:6e06f7a9-aad4-5c39-bcbf-e3f596164c86112370
+(def urn:uuid:6e06f7a9-aad4-5c39-bcbf-e3f596164c86
   {:dc11/date "2004-02-10",
    :dc11/title
    "Resource\n      Description Framework (RDF): Concepts and Abstract\n      Syntax",
@@ -151,11 +158,11 @@
    "Resource\n      Description Framework (RDF): Concepts and Abstract\n      Syntax, 10\n      February 2004",
    :xsd/anyURI "http://www.w3.org/TR/rdf-concepts/"})
 
-(def urn:uuid:80dbe0b4-11b0-5c18-86ec-2e8f30f803ef112371
+(def urn:uuid:80dbe0b4-11b0-5c18-86ec-2e8f30f803ef
   {:rdfs/label "the GRDDL Working Group",
    :xsd/anyURI "http://www.w3.org/2001/sw-grddl-wg/"})
 
-(def urn:uuid:e4a1e529-6480-50c2-8a74-7fe152cc1f06112372
+(def urn:uuid:e4a1e529-6480-50c2-8a74-7fe152cc1f06
   {:admin/generatorAgent {:xsd/anyURI "http://purl.org/NET/erdf/extract"},
    :foaf/maker :grddl/grddl-wg,
    :grddl/normative-reference #{{:xsd/anyURI "http://www.w3.org/TR/xslt"}
@@ -164,7 +171,7 @@
                                  "http://www.w3.org/TR/rdf-concepts/"}},
    :xsd/anyURI "http://www.w3.org/2003/g/data-view"})
 
-(def urn:uuid:690a109c-32cc-55a6-b36c-612ed8f3bf3f112373
+(def urn:uuid:690a109c-32cc-55a6-b36c-612ed8f3bf3f
   {:dc11/date "2005-05-15",
    :dc11/title
    "Gleaning\n        Resource Descriptions from Dialects of Languages\n        (GRDDL)",
@@ -172,6 +179,6 @@
    "Gleaning\n        Resource Descriptions from Dialects of Languages\n        (GRDDL), 16\n        May 2005",
    :xsd/anyURI "http://www.w3.org/TR/grddl/"})
 
-(def urn:uuid:1775b6a9-66a2-562e-99c3-391491cdab53112374
+(def urn:uuid:1775b6a9-66a2-562e-99c3-391491cdab53
   {:rdfs/label "XSLT",
    :xsd/anyURI "http://www.w3.org/TR/xslt"})

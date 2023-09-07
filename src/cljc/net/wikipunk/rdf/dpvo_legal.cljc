@@ -1,7 +1,21 @@
 (ns net.wikipunk.rdf.dpvo-legal
-  "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."
-  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-legal/dpv-legal.ttl",
-   :dcterms/abstract
+  ^{:base       "https://w3id.org/dpv/dpv-owl/dpv-legal#",
+    :namespaces {"dcterms"    "http://purl.org/dc/terms/",
+                 "dpvo"       "https://w3id.org/dpv/dpv-owl#",
+                 "dpvo-gdpr"  "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
+                 "dpvo-legal" "https://w3id.org/dpv/dpv-owl/dpv-legal#",
+                 "foaf"       "http://xmlns.com/foaf/0.1/",
+                 "owl"        "http://www.w3.org/2002/07/owl#",
+                 "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"       "http://www.w3.org/2004/02/skos/core#",
+                 "time"       "http://www.w3.org/2006/time#",
+                 "vann"       "http://purl.org/vocab/vann/",
+                 "vs"         "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "xsd"        "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "dpvo-legal",
+    :source     "net/wikipunk/ext/dpv-owl/dpv-legal/dpv-legal.ttl"}
+  {:dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."},
@@ -20,24 +34,9 @@
    {:rdf/language "en",
     :rdf/value
     "DPV-LEGAL: Extension providing Jurisdictions, Laws, and Authorities for DPV"},
-   :namespaces {"dcterms"    "http://purl.org/dc/terms/",
-                "dpvo"       "https://w3id.org/dpv/dpv-owl#",
-                "dpvo-gdpr"  "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-                "dpvo-legal" "https://w3id.org/dpv/dpv-owl/dpv-legal#",
-                "foaf"       "http://xmlns.com/foaf/0.1/",
-                "owl"        "http://www.w3.org/2002/07/owl#",
-                "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"       "http://www.w3.org/2004/02/skos/core#",
-                "time"       "http://www.w3.org/2006/time#",
-                "vann"       "http://purl.org/vocab/vann/",
-                "vs"         "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                "xsd"        "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
-   :rdfa/prefix "dpvo-legal",
-   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
    :vann/preferredNamespacePrefix "dpvo-legal",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal"})
@@ -8144,3 +8143,30 @@
    :rdfs/subPropertyOf  :skos/altLabel,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
+
+(def urn:uuid:d2630642-9bc3-5944-ab2a-c0aa9f16d7c0
+  {:dcterms/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."},
+   :dcterms/contributor #{"Harshvardhan J. Pandit" "Julian Flake"},
+   :dcterms/created #inst "2022-04-02T00:00:00.000-00:00",
+   :dcterms/creator {:xsd/string "Harshvardhan J. Pandit"},
+   :dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "DPV-PD is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."},
+   :dcterms/license {:xsd/anyURI
+                     "https://www.w3.org/Consortium/Legal/2015/doc-license"},
+   :dcterms/modified #inst "2022-10-06T00:00:00.000-00:00",
+   :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
+   :dcterms/title
+   {:rdf/language "en",
+    :rdf/value
+    "DPV-LEGAL: Extension providing Jurisdictions, Laws, and Authorities for DPV"},
+   :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
+   :owl/versionInfo "0.8.2",
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "dpvo-legal",
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
+   :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal"})

@@ -313,7 +313,7 @@
    :rdfs/range :rdf/Property,
    :vs/term_status "testing"})
 
-(def urn:uuid:05357ef9-c431-5127-8901-2774f83532f1112325
+(def urn:uuid:05357ef9-c431-5127-8901-2774f83532f1
   {:dcterms/description
    "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.",
    :dcterms/title "The W3C Linked Data Platform (LDP) Vocabulary",

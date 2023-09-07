@@ -803,7 +803,7 @@
                   "https://www.w3.org/TR/did-core/#verification-methods"},
    :vs/term_status "stable"})
 
-(def urn:uuid:a2b9860c-cd32-559a-880b-ce2e60f5e54196031
+(def urn:uuid:a2b9860c-cd32-559a-880b-ce2e60f5e541
   {:dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",

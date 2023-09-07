@@ -742,7 +742,7 @@
     :rdf/value
     "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."}})
 
-(def urn:uuid:d3e99e26-2b10-505a-bdfe-63b2751531db112359
+(def urn:uuid:d3e99e26-2b10-505a-bdfe-63b2751531db
   {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
    :dcterms/creator
    {:foaf/name {:rdf/language "en",

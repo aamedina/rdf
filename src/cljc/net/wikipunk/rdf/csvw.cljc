@@ -1093,7 +1093,7 @@
                 :rdf/value    "virtual"},
    :rdfs/range :xsd/boolean})
 
-(def urn:uuid:ae18b4eb-2545-59c1-8690-6fea1f754aba112358
+(def urn:uuid:ae18b4eb-2545-59c1-8690-6fea1f754aba
   {:dc11/date #inst "2017-06-06T00:00:00.000-00:00",
    :dc11/description
    {:rdf/language "en",

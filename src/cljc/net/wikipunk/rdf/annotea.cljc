@@ -1,11 +1,17 @@
 (ns net.wikipunk.rdf.annotea
-  {:namespaces  {"annotea" "http://www.w3.org/2002/01/bookmark#",
+  ^{:base       "http://www.w3.org/2002/01/bookmark#",
+    :namespaces {"annotea" "http://www.w3.org/2002/01/bookmark#",
                  "dc11"    "http://purl.org/dc/elements/1.1/",
                  "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                  "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
-   :rdf/type    :rdfa/PrefixMapping,
-   :rdfa/prefix "annotea",
-   :rdfa/uri    "http://www.w3.org/2002/01/bookmark#"})
+    :prefix     "annotea",
+    :source     "http://www.w3.org/2002/01/bookmark#"}
+  {:dc11/description
+   "The Annotea Bookmark Schema, describing properties used\n        to define instances of bookmarks, topics, and shortcuts.",
+   :dc11/title "Bookmark Schema",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment "$Id: bookmark.rdf,v 1.16 2003/07/18 18:15:18 swick Exp $",
+   :xsd/anyURI "http://www.w3.org/2002/01/bookmark"})
 
 (def Bookmark
   {:db/ident     :annotea/Bookmark,
@@ -60,3 +66,10 @@
    :rdfs/comment
    "Describes a relationship between Topics.\n        When a topic T is a sub-topic of a topic U then all\n        bookmarks that have topic T are also considered to have\n        topic U. A topic may be a sub-topic of one or more\n        topics; trivially, every topic is a sub-topic of itself.\n        More formally; for all B, T, and U: b b:hasTopic T,\n        T b:subTopicOf U implies B b:hasTopic U.",
    :rdfs/label "subTopicOf"})
+
+(def urn:uuid:5ec4e18d-8d71-514c-8660-bc332629df9a
+  {:dc11/description
+   "The Annotea Bookmark Schema, describing properties used\n        to define instances of bookmarks, topics, and shortcuts.",
+   :dc11/title "Bookmark Schema",
+   :rdfs/comment "$Id: bookmark.rdf,v 1.16 2003/07/18 18:15:18 swick Exp $",
+   :xsd/anyURI "http://www.w3.org/2002/01/bookmark"})

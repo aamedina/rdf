@@ -746,7 +746,7 @@
    :rdfs/label "withRestrictions",
    :rdfs/range :rdf/List})
 
-(def urn:uuid:64e92819-163a-5984-92c3-39bf71eb19fd112348
+(def urn:uuid:64e92819-163a-5984-92c3-39bf71eb19fd
   {:dc11/title "The OWL 2 Schema vocabulary (OWL 2)",
    :grddl/namespaceTransformation
    {:xsd/anyURI "http://dev.w3.org/cvsweb/2009/owl-grddl/owx2rdf.xsl"},

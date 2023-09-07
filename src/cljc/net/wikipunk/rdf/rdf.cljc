@@ -237,7 +237,7 @@
    :rdfs/label       "value",
    :rdfs/range       :rdfs/Resource})
 
-(def urn:uuid:1f51ee89-dd69-5793-8a11-89959f0bc850112363
+(def urn:uuid:1f51ee89-dd69-5793-8a11-89959f0bc850
   {:dc11/date "2019-12-16",
    :dc11/description
    "This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts.",

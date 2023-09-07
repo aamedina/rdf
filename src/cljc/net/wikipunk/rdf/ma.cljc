@@ -696,7 +696,7 @@
    :rdfs/domain :ma/Track,
    :rdfs/subPropertyOf :ma/fragmentName})
 
-(def urn:uuid:6ed5c232-e4a6-5fb0-86f5-e829dd45c363112349
+(def urn:uuid:6ed5c232-e4a6-5fb0-86f5-e829dd45c363
   {:dc11/date #inst "2013-03-20T00:00:00.000-00:00",
    :owl/imports {:xsd/anyURI "http://dublincore.org/2008/01/14/dcelements.rdf"},
    :owl/versionInfo "R36",

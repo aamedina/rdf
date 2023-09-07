@@ -6,22 +6,9 @@
                  "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                  "xsd"  "http://www.w3.org/2001/XMLSchema#"},
     :prefix     "prov",
-    :source     "http://www.w3.org/ns/prov-o"}
-  {:owl/versionIRI {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130430"},
-   :owl/versionInfo {:rdf/language "en",
-                     :rdf/value    "Recommendation version 2013-04-30"},
-   :prov/specializationOf {:xsd/anyURI "http://www.w3.org/ns/prov-o"},
-   :prov/wasRevisionOf {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130312"},
-   :rdf/type :owl/Ontology,
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page). \n\nIf you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All feedback is welcome."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "W3C PROVenance Interchange Ontology (PROV-O)"},
-   :rdfs/seeAlso #{{:xsd/anyURI "http://www.w3.org/ns/prov"}
-                   {:xsd/anyURI "http://www.w3.org/TR/prov-o/"}},
-   :xsd/anyURI "http://www.w3.org/ns/prov-o#"}
+    :source     "net/wikipunk/boot/prov.ttl"}
+  {:rdf/type   :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/ns/prov#"}
   (:refer-clojure :exclude [agent]))
 
 (def Activity
@@ -699,6 +686,12 @@
    :rdfs/range :prov/Activity,
    :rdfs/subPropertyOf :prov/influencer})
 
+(def activityOfInfluence
+  {:db/ident         :prov/activityOfInfluence,
+   :owl/inverseOf    :prov/activity,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "activityOfInfluence"})
+
 (def agent
   {:db/ident :prov/agent,
    :prov/category "qualified",
@@ -717,6 +710,12 @@
    :rdfs/label "agent",
    :rdfs/range :prov/Agent,
    :rdfs/subPropertyOf :prov/influencer})
+
+(def agentOfInfluence
+  {:db/ident         :prov/agentOfInfluence,
+   :owl/inverseOf    :prov/agent,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "agentOfInfluence"})
 
 (def alternateOf
   {:db/ident :prov/alternateOf,
@@ -737,7 +736,8 @@
     "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :prov/Entity,
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy #{{:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"}
+                       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label "alternateOf",
    :rdfs/range :prov/Entity,
    :rdfs/seeAlso :prov/specializationOf})
@@ -819,6 +819,12 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
    :rdfs/subPropertyOf :rdfs/seeAlso})
 
+(def contributed
+  {:db/ident         :prov/contributed,
+   :owl/inverseOf    :prov/wasAttributedTo,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "contributed"})
+
 (def definition
   {:db/ident :prov/definition,
    :rdf/type :owl/AnnotationProperty,
@@ -857,6 +863,12 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
    :rdfs/subPropertyOf :prov/definition})
 
+(def ended
+  {:db/ident         :prov/ended,
+   :owl/inverseOf    :prov/wasEndedBy,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "ended"})
+
 (def endedAtTime
   {:db/ident :prov/endedAtTime,
    :prov/category "starting-point",
@@ -893,6 +905,18 @@
    :rdfs/range :prov/Entity,
    :rdfs/subPropertyOf :prov/influencer})
 
+(def entityOfInfluence
+  {:db/ident         :prov/entityOfInfluence,
+   :owl/inverseOf    :prov/entity,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "entityOfInfluence"})
+
+(def generalizationOf
+  {:db/ident         :prov/generalizationOf,
+   :owl/inverseOf    :prov/specializationOf,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "generalizationOf"})
+
 (def generated
   {:db/ident :prov/generated,
    :owl/inverseOf :prov/wasGeneratedBy,
@@ -906,10 +930,17 @@
    :prov/sharesDefinitionWith :prov/Generation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :prov/Activity,
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy #{{:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"}
+                       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label "generated",
    :rdfs/range :prov/Entity,
    :rdfs/subPropertyOf :prov/influenced})
+
+(def generatedAsDerivation
+  {:db/ident         :prov/generatedAsDerivation,
+   :owl/inverseOf    :prov/hadGeneration,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "generatedAsDerivation"})
 
 (def generatedAtTime
   {:db/ident :prov/generatedAtTime,
@@ -953,6 +984,18 @@
    :rdfs/label "hadActivity",
    :rdfs/range :prov/Activity})
 
+(def hadDelegate
+  {:db/ident         :prov/hadDelegate,
+   :owl/inverseOf    :prov/actedOnBehalfOf,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "hadDelegate"})
+
+(def hadDerivation
+  {:db/ident         :prov/hadDerivation,
+   :owl/inverseOf    :prov/wasDerivedFrom,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "hadDerivation"})
+
 (def hadGeneration
   {:db/ident :prov/hadGeneration,
    :prov/category "qualified",
@@ -967,6 +1010,12 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
    :rdfs/label "hadGeneration",
    :rdfs/range :prov/Generation})
+
+(def hadInfluence
+  {:db/ident         :prov/hadInfluence,
+   :owl/inverseOf    :prov/influencer,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "hadInfluence"})
 
 (def hadMember
   {:db/ident           :prov/hadMember,
@@ -1010,6 +1059,12 @@
    :rdfs/label             "hadPrimarySource",
    :rdfs/range             :prov/Entity,
    :rdfs/subPropertyOf     :prov/wasDerivedFrom})
+
+(def hadRevision
+  {:db/ident         :prov/hadRevision,
+   :owl/inverseOf    :prov/wasRevisionOf,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "hadRevision"})
 
 (def hadRole
   {:db/ident :prov/hadRole,
@@ -1056,7 +1111,8 @@
    :prov/inverse     "wasInfluencedBy",
    :prov/sharesDefinitionWith :prov/Influence,
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy #{{:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"}
+                       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label       "influenced"})
 
 (def influencer
@@ -1083,6 +1139,12 @@
    :rdfs/label "influencer",
    :rdfs/range :owl/Thing})
 
+(def informed
+  {:db/ident         :prov/informed,
+   :owl/inverseOf    :prov/wasInformedBy,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "informed"})
+
 (def invalidated
   {:db/ident :prov/invalidated,
    :owl/inverseOf :prov/wasInvalidatedBy,
@@ -1096,7 +1158,8 @@
    :prov/sharesDefinitionWith :prov/Invalidation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :prov/Activity,
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy #{{:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"}
+                       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label "invalidated",
    :rdfs/range :prov/Entity,
    :rdfs/subPropertyOf :prov/influenced})
@@ -1130,6 +1193,12 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
    :rdfs/seeAlso {:xsd/anyURI
                   "http://www.w3.org/TR/prov-o/#names-of-inverse-properties"}})
+
+(def locationOf
+  {:db/ident         :prov/locationOf,
+   :owl/inverseOf    :prov/atLocation,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "locationOf"})
 
 (def n
   {:db/ident :prov/n,
@@ -1168,6 +1237,12 @@
    :rdfs/range :prov/Association,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
 
+(def qualifiedAssociationOf
+  {:db/ident         :prov/qualifiedAssociationOf,
+   :owl/inverseOf    :prov/qualifiedAssociation,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedAssociationOf"})
+
 (def qualifiedAttribution
   {:db/ident :prov/qualifiedAttribution,
    :prov/category "qualified",
@@ -1185,6 +1260,12 @@
    :rdfs/label "qualifiedAttribution",
    :rdfs/range :prov/Attribution,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
+
+(def qualifiedAttributionOf
+  {:db/ident         :prov/qualifiedAttributionOf,
+   :owl/inverseOf    :prov/qualifiedAttribution,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedAttributionOf"})
 
 (def qualifiedCommunication
   {:db/ident :prov/qualifiedCommunication,
@@ -1204,6 +1285,12 @@
    :rdfs/range :prov/Communication,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
 
+(def qualifiedCommunicationOf
+  {:db/ident         :prov/qualifiedCommunicationOf,
+   :owl/inverseOf    :prov/qualifiedCommunication,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedCommunicationOf"})
+
 (def qualifiedDelegation
   {:db/ident :prov/qualifiedDelegation,
    :prov/category "qualified",
@@ -1221,6 +1308,12 @@
    :rdfs/label "qualifiedDelegation",
    :rdfs/range :prov/Delegation,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
+
+(def qualifiedDelegationOf
+  {:db/ident         :prov/qualifiedDelegationOf,
+   :owl/inverseOf    :prov/qualifiedDelegation,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedDelegationOf"})
 
 (def qualifiedDerivation
   {:db/ident :prov/qualifiedDerivation,
@@ -1240,6 +1333,12 @@
    :rdfs/range :prov/Derivation,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
 
+(def qualifiedDerivationOf
+  {:db/ident         :prov/qualifiedDerivationOf,
+   :owl/inverseOf    :prov/qualifiedDerivation,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedDerivationOf"})
+
 (def qualifiedEnd
   {:db/ident :prov/qualifiedEnd,
    :prov/category "qualified",
@@ -1257,6 +1356,12 @@
    :rdfs/label "qualifiedEnd",
    :rdfs/range :prov/End,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
+
+(def qualifiedEndOf
+  {:db/ident         :prov/qualifiedEndOf,
+   :owl/inverseOf    :prov/qualifiedEnd,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedEndOf"})
 
 (def qualifiedForm
   {:db/ident :prov/qualifiedForm,
@@ -1286,6 +1391,12 @@
    :rdfs/range :prov/Generation,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
 
+(def qualifiedGenerationOf
+  {:db/ident         :prov/qualifiedGenerationOf,
+   :owl/inverseOf    :prov/qualifiedGeneration,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedGenerationOf"})
+
 (def qualifiedInfluence
   {:db/ident :prov/qualifiedInfluence,
    :prov/category "qualified",
@@ -1304,6 +1415,12 @@
    :rdfs/label "qualifiedInfluence",
    :rdfs/range :prov/Influence})
 
+(def qualifiedInfluenceOf
+  {:db/ident         :prov/qualifiedInfluenceOf,
+   :owl/inverseOf    :prov/qualifiedInfluence,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedInfluenceOf"})
+
 (def qualifiedInvalidation
   {:db/ident :prov/qualifiedInvalidation,
    :prov/category "qualified",
@@ -1321,6 +1438,12 @@
    :rdfs/label "qualifiedInvalidation",
    :rdfs/range :prov/Invalidation,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
+
+(def qualifiedInvalidationOf
+  {:db/ident         :prov/qualifiedInvalidationOf,
+   :owl/inverseOf    :prov/qualifiedInvalidation,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedInvalidationOf"})
 
 (def qualifiedPrimarySource
   {:db/ident :prov/qualifiedPrimarySource,
@@ -1358,6 +1481,12 @@
    :rdfs/range :prov/Quotation,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
 
+(def qualifiedQuotationOf
+  {:db/ident         :prov/qualifiedQuotationOf,
+   :owl/inverseOf    :prov/qualifiedQuotation,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedQuotationOf"})
+
 (def qualifiedRevision
   {:db/ident :prov/qualifiedRevision,
    :prov/category "qualified",
@@ -1375,6 +1504,12 @@
    :rdfs/label "qualifiedRevision",
    :rdfs/range :prov/Revision,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
+
+(def qualifiedSourceOf
+  {:db/ident         :prov/qualifiedSourceOf,
+   :owl/inverseOf    :prov/qualifiedPrimarySource,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedSourceOf"})
 
 (def qualifiedStart
   {:db/ident :prov/qualifiedStart,
@@ -1394,6 +1529,12 @@
    :rdfs/range :prov/Start,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
 
+(def qualifiedStartOf
+  {:db/ident         :prov/qualifiedStartOf,
+   :owl/inverseOf    :prov/qualifiedStart,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedStartOf"})
+
 (def qualifiedUsage
   {:db/ident :prov/qualifiedUsage,
    :prov/category "qualified",
@@ -1411,6 +1552,24 @@
    :rdfs/label "qualifiedUsage",
    :rdfs/range :prov/Usage,
    :rdfs/subPropertyOf :prov/qualifiedInfluence})
+
+(def qualifiedUsingActivity
+  {:db/ident         :prov/qualifiedUsingActivity,
+   :owl/inverseOf    :prov/qualifiedUsage,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "qualifiedUsingActivity"})
+
+(def quotedAs
+  {:db/ident         :prov/quotedAs,
+   :owl/inverseOf    :prov/wasQuotedFrom,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "quotedAs"})
+
+(def revisedEntity
+  {:db/ident         :prov/revisedEntity,
+   :owl/inverseOf    :prov/qualifiedRevision,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "revisedEntity"})
 
 (def sharesDefinitionWith
   {:db/ident         :prov/sharesDefinitionWith,
@@ -1443,6 +1602,12 @@
    :rdfs/range :prov/Entity,
    :rdfs/seeAlso :prov/alternateOf,
    :rdfs/subPropertyOf :prov/alternateOf})
+
+(def started
+  {:db/ident         :prov/started,
+   :owl/inverseOf    :prov/wasStartedBy,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "started"})
 
 (def startedAtTime
   {:db/ident :prov/startedAtTime,
@@ -1515,6 +1680,18 @@
    :rdfs/domain :prov/Entity,
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
    :rdfs/label "value"})
+
+(def wasActivityOfInfluence
+  {:db/ident         :prov/wasActivityOfInfluence,
+   :owl/inverseOf    :prov/hadActivity,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasActivityOfInfluence"})
+
+(def wasAssociateFor
+  {:db/ident         :prov/wasAssociateFor,
+   :owl/inverseOf    :prov/wasAssociatedWith,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasAssociateFor"})
 
 (def wasAssociatedWith
   {:db/ident :prov/wasAssociatedWith,
@@ -1596,6 +1773,7 @@
 
 (def wasGeneratedBy
   {:db/ident               :prov/wasGeneratedBy,
+   :owl/inverseOf          :prov/generated,
    :owl/propertyChainAxiom [:prov/qualifiedGeneration :prov/activity],
    :prov/category          "starting-point",
    :prov/component         "entities-activities",
@@ -1603,13 +1781,16 @@
    :prov/qualifiedForm     #{:prov/Generation :prov/qualifiedGeneration},
    :rdf/type               :owl/ObjectProperty,
    :rdfs/domain            :prov/Entity,
-   :rdfs/isDefinedBy       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy       #{{:xsd/anyURI
+                              "http://www.w3.org/ns/prov-o-inverses#"}
+                             {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label             "wasGeneratedBy",
    :rdfs/range             :prov/Activity,
    :rdfs/subPropertyOf     :prov/wasInfluencedBy})
 
 (def wasInfluencedBy
   {:db/ident :prov/wasInfluencedBy,
+   :owl/inverseOf :prov/influenced,
    :prov/category "qualified",
    :prov/component "agents-responsibility",
    :prov/editorialNote
@@ -1627,7 +1808,8 @@
      "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>."},
    :rdfs/domain {:owl/unionOf [:prov/Activity :prov/Agent :prov/Entity],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy #{{:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"}
+                       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label "wasInfluencedBy",
    :rdfs/range {:owl/unionOf [:prov/Activity :prov/Agent :prov/Entity],
                 :rdf/type    :owl/Class}})
@@ -1652,6 +1834,7 @@
 
 (def wasInvalidatedBy
   {:db/ident               :prov/wasInvalidatedBy,
+   :owl/inverseOf          :prov/invalidated,
    :owl/propertyChainAxiom [:prov/qualifiedInvalidation :prov/activity],
    :prov/category          "expanded",
    :prov/component         "entities-activities",
@@ -1659,10 +1842,30 @@
    :prov/qualifiedForm     #{:prov/Invalidation :prov/qualifiedInvalidation},
    :rdf/type               :owl/ObjectProperty,
    :rdfs/domain            :prov/Entity,
-   :rdfs/isDefinedBy       {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :rdfs/isDefinedBy       #{{:xsd/anyURI
+                              "http://www.w3.org/ns/prov-o-inverses#"}
+                             {:xsd/anyURI "http://www.w3.org/ns/prov-o#"}},
    :rdfs/label             "wasInvalidatedBy",
    :rdfs/range             :prov/Activity,
    :rdfs/subPropertyOf     :prov/wasInfluencedBy})
+
+(def wasMemberOf
+  {:db/ident         :prov/wasMemberOf,
+   :owl/inverseOf    :prov/hadMember,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasMemberOf"})
+
+(def wasPlanOf
+  {:db/ident         :prov/wasPlanOf,
+   :owl/inverseOf    :prov/hadPlan,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasPlanOf"})
+
+(def wasPrimarySourceOf
+  {:db/ident         :prov/wasPrimarySourceOf,
+   :owl/inverseOf    :prov/hadPrimarySource,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasPrimarySourceOf"})
 
 (def wasQuotedFrom
   {:db/ident :prov/wasQuotedFrom,
@@ -1700,6 +1903,12 @@
    :rdfs/range :prov/Entity,
    :rdfs/subPropertyOf :prov/wasDerivedFrom})
 
+(def wasRoleIn
+  {:db/ident         :prov/wasRoleIn,
+   :owl/inverseOf    :prov/hadRole,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasRoleIn"})
+
 (def wasStartedBy
   {:db/ident :prov/wasStartedBy,
    :owl/propertyChainAxiom [:prov/qualifiedStart :prov/entity],
@@ -1718,7 +1927,19 @@
    :rdfs/range :prov/Entity,
    :rdfs/subPropertyOf :prov/wasInfluencedBy})
 
-(def urn:uuid:00f8088d-c19d-5871-b701-530a0860d85e112393
+(def wasUsedBy
+  {:db/ident         :prov/wasUsedBy,
+   :owl/inverseOf    :prov/used,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasUsedBy"})
+
+(def wasUsedInDerivation
+  {:db/ident         :prov/wasUsedInDerivation,
+   :owl/inverseOf    :prov/hadUsage,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses#"},
+   :rdfs/label       "wasUsedInDerivation"})
+
+(def urn:uuid:00f8088d-c19d-5871-b701-530a0860d85e
   {:owl/versionIRI {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130430"},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Recommendation version 2013-04-30"},
@@ -1735,6 +1956,21 @@
                    {:xsd/anyURI "http://www.w3.org/TR/prov-o/"}},
    :xsd/anyURI "http://www.w3.org/ns/prov-o#"})
 
-(def urn:uuid:fbf03e30-08b0-51f3-8856-cb14570e3a1d112394
+(def urn:uuid:fbf03e30-08b0-51f3-8856-cb14570e3a1d
   {:rdf/type   :owl/Ontology,
    :xsd/anyURI "http://www.w3.org/ns/prov#"})
+
+(def urn:uuid:710301a4-0971-5cb6-acc2-567245aea453
+  {:owl/imports           {:xsd/anyURI "http://www.w3.org/ns/prov-o#"},
+   :owl/versionIRI        {:xsd/anyURI
+                           "http://www.w3.org/ns/prov-o-inverses-20130430"},
+   :prov/alternateOf      {:xsd/anyURI
+                           "http://www.w3.org/TR/prov-o/#inverse-names-table"},
+   :prov/specializationOf {:xsd/anyURI "http://www.w3.org/ns/prov-o-inverses"},
+   :prov/wasDerivedFrom   {:xsd/anyURI "http://www.w3.org/ns/prov-o-20130430"},
+   :prov/wasRevisionOf    {:xsd/anyURI
+                           "http://www.w3.org/ns/prov-o-inverses-20130312"},
+   :rdf/type              :owl/Ontology,
+   :rdfs/seeAlso          {:xsd/anyURI
+                           "http://www.w3.org/TR/prov-o/#inverse-names"},
+   :xsd/anyURI            "http://www.w3.org/ns/prov-o-inverses#"})

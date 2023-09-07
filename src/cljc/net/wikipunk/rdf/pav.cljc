@@ -1,17 +1,69 @@
 (ns net.wikipunk.rdf.pav
-  {:dcat/downloadURL "https://pav-ontology.github.io/pav/pav.rdf",
-   :namespaces       {"dc11"    "http://purl.org/dc/elements/1.1/",
-                      "dcterms" "http://purl.org/dc/terms/",
-                      "foaf"    "http://xmlns.com/foaf/0.1/",
-                      "owl"     "http://www.w3.org/2002/07/owl#",
-                      "pav"     "http://purl.org/pav/",
-                      "prov"    "http://www.w3.org/ns/prov#",
-                      "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                      "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "pav",
-   :rdfa/uri         "http://purl.org/pav/"})
+  ^{:base       "http://purl.org/pav/",
+    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "pav"     "http://purl.org/pav/",
+                 "prov"    "http://www.w3.org/ns/prov#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "pav",
+    :source     "https://pav-ontology.github.io/pav/pav.rdf"}
+  {:dc11/contributor #{"Simon Jupp" "Khalid Belhajjame" "Marco Ocana"
+                       "Alasdair J G Gray"},
+   :dc11/creator #{"Stian Soiland-Reyes" "Paolo Ciccarese"},
+   :dc11/description
+   #{{:rdf/language "en",
+      :rdf/value
+      "PAV supplies terms for distinguishing between the different roles of the agents contributing content in current web based systems: contributors, authors, curators and digital artifact creators. The ontology also provides terms for tracking provenance of digital entities that are published on the web and then accessed, transformed and consumed. In order to support broader interoperability, PAV specializes the general purpose W3C PROV provenance model (PROV-O).\n\nPAV distinguishes between the data related to the digital artifact - named Provenance - and those related to the actual knowledge creation and therefore to the intellectual property aspects – named Authoring. The Versioning axis describes the evolution of digital entities in time.\n\nUsing PAV, descriptions can define the authors that originate or gave existence to the work that is expressed in the digital resource (pav:authoredBy); curators (pav:curatedBy) who are content specialists responsible for shaping the expression in an appropriate format, and contributors (super-property pav:contributedBy) that provided some help in conceiving the resource or in the expressed knowledge creation/extraction.\n\nThese provenance aspects can be detailed with dates using pav:curatedOn, pav:authoredOn, etc. Further details about the creation activities, such as different authors contributing specific parts of the resource at different dates are out of scope for PAV and should be defined using vocabularies like PROV-O and additional intermediate entities to describe the different states.\n\nFor resources based on other resources, PAV allows specification of direct retrieval (pav:retrievedFrom), import through transformations (pav:importedFrom) and sources that were merely consulted (pav:sourceAccessedAt). These aspects can also define the agents responsible using pav:retrievedBy, pav:importedBy and pav:sourceAccessedBy.\n\nVersion number of a resource can be given with pav:version, the previous version of the resource with pav:previousVersion, and any other earlier versions with pav:hasEarlierVersion. Unversioned, 'mutable' resources can specify their current version as a snapshot resource using pav:hasCurrentVersion and list the earlier versions using pav:hasVersion.\n\nThe creation of the digital representation (e.g. an RDF graph or a .docx file) can in many cases be different from the authorship of the content/knowledge, and in PAV this digital creation is specified using pav:createdBy, pav:createdWith and pav:createdOn.\n\nPAV specializes terms from W3C PROV-O (prov:) and DC Terms (dcterms:), however these ontologies are not OWL imported as PAV can be used independently. The \"is defined by\" links indicate where those terms are included from. See http://www.w3.org/TR/prov-o and http://dublincore.org/documents/2012/06/14/dcmi-terms/ for more details. See http://purl.org/pav/mapping/dcterms For a comprehensive SKOS mapping to DC Terms.\n\nPAV 2 is based on PAV 1.2 but in a different namespace ( http://purl.org/pav/ ). Terms compatible with 1.2 are indicated in this ontology using owl:equivalentProperty.\n\nThe ontology IRI http://purl.org/pav/ always resolve to the latest version of PAV 2. Particular versionIRIs such as http://purl.org/pav/2.1 can be used by clients to force imports of a particular version - note however that all terms are defined directly in the http://purl.org/pav/ namespace.\n\nThe goal of PAV is to provide a lightweight, straight forward way to give the essential information about authorship, provenance and versioning, and therefore these properties are described directly on the published resource. As such, PAV does not define any classes or restrict domain/ranges, as all properties are applicable to any online resource.\n\n--\n\nCopyright 2008-2014 Massachusetts General Hospital; Harvard Medical School; Balboa Systems; University of Manchester\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.\n"}
+     {:xsd/anyURI
+      "http://pav-ontology.googlecode.com/svn/branches/2.3/images/pav-overview.svg"}},
+   :dcterms/contributor
+   #{{:xsd/anyURI "http://www.paolociccarese.info/foaf.rdf#marco-ocana"}
+     {:xsd/anyURI "http://orcid.org/0000-0002-0643-3144"}
+     {:xsd/anyURI "http://orcid.org/0000-0002-5711-4872"}
+     {:xsd/anyURI "http://orcid.org/0000-0001-6938-0820"}},
+   :dcterms/creator #{{:xsd/anyURI "http://orcid.org/0000-0002-5156-2703"}
+                      {:xsd/anyURI "http://orcid.org/0000-0001-9842-9718"}},
+   :dcterms/format "application/rdf+xml",
+   :dcterms/issued #inst "2014-08-28T15:00:00.000-00:00",
+   :dcterms/language "en",
+   :dcterms/license {:xsd/anyURI "http://www.apache.org/licenses/LICENSE-2.0"},
+   :dcterms/modified #inst "2014-08-28T14:41:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://www.mindinformatics.org/"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "PAV - Provenance, Authoring and Versioning"},
+   :foaf/homepage :pav/home,
+   :foaf/isPrimaryTopicOf #{{:xsd/anyURI "http://arxiv.org/abs/1304.7224"}
+                            {:xsd/anyURI
+                             "http://dx.doi.org/10.1186/2041-1480-4-37"}},
+   :owl/backwardCompatibleWith
+   #{{:xsd/anyURI "http://purl.org/pav/2.0/"}
+     {:xsd/anyURI "http://purl.org/pav/authoring/2.0/"}
+     {:xsd/anyURI "http://purl.org/pav/provenance/2.0/"} :pav/|2.1|
+     {:xsd/anyURI "http://purl.org/pav/versioning/2.0/"} :pav/|2.2|},
+   :owl/incompatibleWith
+   {:xsd/anyURI "http://swan.mindinformatics.org/ontologies/1.2/pav.owl"},
+   :owl/priorVersion :pav/|2.2|,
+   :owl/versionIRI :pav/|2.3|,
+   :owl/versionInfo "2.3.1",
+   :prov/has_provenance :pav/provenance.ttl,
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "PAV is a lightweight ontology for tracking Provenance, Authoring and Versioning. PAV specializes the W3C provenance ontology PROV-O in order to describe authorship, curation and digital creation of online resources.\n\n          This ontology describes the defined PAV properties and their usage. Note that PAV does not define any explicit classes or domain/ranges, as every property is meant to be used directly on the described online resource.\n\n          Cite as: Paolo Ciccarese, Stian Soiland-Reyes, Khalid Belhajjame, Alasdair JG Gray, Carole Goble, Tim Clark (2013): PAV ontology: provenance, authoring and versioning. Journal of biomedical semantics 4 (1), 37. doi:10.1186/2041-1480-4-37\n        "},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Provenance, Authoring and Versioning (PAV)"},
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "http://www.w3.org/ns/prov#"}
+     {:xsd/anyURI "http://code.google.com/p/pav-ontology/"}
+     {:xsd/anyURI "https://code.google.com/p/pav-ontology/wiki/Versions"}
+     {:xsd/anyURI "http://pav-ontology.googlecode.com/svn/trunk/1.2/pav.owl"}
+     :pav/doc},
+   :xsd/anyURI "http://purl.org/pav/"})
 
 (def authoredBy
   {:db/ident :pav/authoredBy,
@@ -441,3 +493,96 @@
                 :rdf/value    "Version"},
    :rdfs/range :xsd/string,
    :rdfs/seeAlso :pav/previousVersion})
+
+(def urn:uuid:a3ae6416-f125-5e90-b36e-5a8b593e039e
+  {:foaf/name  "Alasdair J G Gray",
+   :rdf/type   #{:foaf/Person :owl/NamedIndividual},
+   :rdfs/label "Alasdair J G Gray",
+   :xsd/anyURI "http://orcid.org/0000-0002-5711-4872"})
+
+(def urn:uuid:c9e0bd14-9e23-5daa-a43c-e7e7899c377d
+  {:foaf/name  "Paolo Ciccarese",
+   :owl/sameAs {:xsd/anyURI "http://www.hcklab.org/foaf.rdf#me"},
+   :rdf/type   #{:foaf/Person :owl/NamedIndividual :prov/Person},
+   :rdfs/label "Paolo Ciccarese",
+   :xsd/anyURI "http://orcid.org/0000-0002-5156-2703"})
+
+(def urn:uuid:98004b19-fa31-5197-94fb-a01655c2d063
+  {:foaf/name  "Simon Jupp",
+   :rdf/type   #{:foaf/Person :owl/NamedIndividual},
+   :rdfs/label "Simon Jupp",
+   :xsd/anyURI "http://orcid.org/0000-0002-0643-3144"})
+
+(def urn:uuid:1652e1c5-ec5b-583b-abf7-20893f0aad27
+  {:foaf/name  "Marco Ocana",
+   :rdf/type   #{:foaf/Person :owl/NamedIndividual :prov/Person},
+   :rdfs/label "Marco Ocana",
+   :xsd/anyURI "http://www.paolociccarese.info/foaf.rdf#marco-ocana"})
+
+(def urn:uuid:8da82c41-70c5-50f7-9a9b-d6a97a4612fd
+  {:dc11/contributor #{"Simon Jupp" "Khalid Belhajjame" "Marco Ocana"
+                       "Alasdair J G Gray"},
+   :dc11/creator #{"Stian Soiland-Reyes" "Paolo Ciccarese"},
+   :dc11/description
+   #{{:rdf/language "en",
+      :rdf/value
+      "PAV supplies terms for distinguishing between the different roles of the agents contributing content in current web based systems: contributors, authors, curators and digital artifact creators. The ontology also provides terms for tracking provenance of digital entities that are published on the web and then accessed, transformed and consumed. In order to support broader interoperability, PAV specializes the general purpose W3C PROV provenance model (PROV-O).\n\nPAV distinguishes between the data related to the digital artifact - named Provenance - and those related to the actual knowledge creation and therefore to the intellectual property aspects – named Authoring. The Versioning axis describes the evolution of digital entities in time.\n\nUsing PAV, descriptions can define the authors that originate or gave existence to the work that is expressed in the digital resource (pav:authoredBy); curators (pav:curatedBy) who are content specialists responsible for shaping the expression in an appropriate format, and contributors (super-property pav:contributedBy) that provided some help in conceiving the resource or in the expressed knowledge creation/extraction.\n\nThese provenance aspects can be detailed with dates using pav:curatedOn, pav:authoredOn, etc. Further details about the creation activities, such as different authors contributing specific parts of the resource at different dates are out of scope for PAV and should be defined using vocabularies like PROV-O and additional intermediate entities to describe the different states.\n\nFor resources based on other resources, PAV allows specification of direct retrieval (pav:retrievedFrom), import through transformations (pav:importedFrom) and sources that were merely consulted (pav:sourceAccessedAt). These aspects can also define the agents responsible using pav:retrievedBy, pav:importedBy and pav:sourceAccessedBy.\n\nVersion number of a resource can be given with pav:version, the previous version of the resource with pav:previousVersion, and any other earlier versions with pav:hasEarlierVersion. Unversioned, 'mutable' resources can specify their current version as a snapshot resource using pav:hasCurrentVersion and list the earlier versions using pav:hasVersion.\n\nThe creation of the digital representation (e.g. an RDF graph or a .docx file) can in many cases be different from the authorship of the content/knowledge, and in PAV this digital creation is specified using pav:createdBy, pav:createdWith and pav:createdOn.\n\nPAV specializes terms from W3C PROV-O (prov:) and DC Terms (dcterms:), however these ontologies are not OWL imported as PAV can be used independently. The \"is defined by\" links indicate where those terms are included from. See http://www.w3.org/TR/prov-o and http://dublincore.org/documents/2012/06/14/dcmi-terms/ for more details. See http://purl.org/pav/mapping/dcterms For a comprehensive SKOS mapping to DC Terms.\n\nPAV 2 is based on PAV 1.2 but in a different namespace ( http://purl.org/pav/ ). Terms compatible with 1.2 are indicated in this ontology using owl:equivalentProperty.\n\nThe ontology IRI http://purl.org/pav/ always resolve to the latest version of PAV 2. Particular versionIRIs such as http://purl.org/pav/2.1 can be used by clients to force imports of a particular version - note however that all terms are defined directly in the http://purl.org/pav/ namespace.\n\nThe goal of PAV is to provide a lightweight, straight forward way to give the essential information about authorship, provenance and versioning, and therefore these properties are described directly on the published resource. As such, PAV does not define any classes or restrict domain/ranges, as all properties are applicable to any online resource.\n\n--\n\nCopyright 2008-2014 Massachusetts General Hospital; Harvard Medical School; Balboa Systems; University of Manchester\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.\n"}
+     {:xsd/anyURI
+      "http://pav-ontology.googlecode.com/svn/branches/2.3/images/pav-overview.svg"}},
+   :dcterms/contributor
+   #{{:xsd/anyURI "http://www.paolociccarese.info/foaf.rdf#marco-ocana"}
+     {:xsd/anyURI "http://orcid.org/0000-0002-0643-3144"}
+     {:xsd/anyURI "http://orcid.org/0000-0002-5711-4872"}
+     {:xsd/anyURI "http://orcid.org/0000-0001-6938-0820"}},
+   :dcterms/creator #{{:xsd/anyURI "http://orcid.org/0000-0002-5156-2703"}
+                      {:xsd/anyURI "http://orcid.org/0000-0001-9842-9718"}},
+   :dcterms/format "application/rdf+xml",
+   :dcterms/issued #inst "2014-08-28T15:00:00.000-00:00",
+   :dcterms/language "en",
+   :dcterms/license {:xsd/anyURI "http://www.apache.org/licenses/LICENSE-2.0"},
+   :dcterms/modified #inst "2014-08-28T14:41:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://www.mindinformatics.org/"},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "PAV - Provenance, Authoring and Versioning"},
+   :foaf/homepage :pav/home,
+   :foaf/isPrimaryTopicOf #{{:xsd/anyURI "http://arxiv.org/abs/1304.7224"}
+                            {:xsd/anyURI
+                             "http://dx.doi.org/10.1186/2041-1480-4-37"}},
+   :owl/backwardCompatibleWith
+   #{{:xsd/anyURI "http://purl.org/pav/2.0/"}
+     {:xsd/anyURI "http://purl.org/pav/authoring/2.0/"}
+     {:xsd/anyURI "http://purl.org/pav/provenance/2.0/"} :pav/|2.1|
+     {:xsd/anyURI "http://purl.org/pav/versioning/2.0/"} :pav/|2.2|},
+   :owl/incompatibleWith
+   {:xsd/anyURI "http://swan.mindinformatics.org/ontologies/1.2/pav.owl"},
+   :owl/priorVersion :pav/|2.2|,
+   :owl/versionIRI :pav/|2.3|,
+   :owl/versionInfo "2.3.1",
+   :prov/has_provenance :pav/provenance.ttl,
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "PAV is a lightweight ontology for tracking Provenance, Authoring and Versioning. PAV specializes the W3C provenance ontology PROV-O in order to describe authorship, curation and digital creation of online resources.\n\n          This ontology describes the defined PAV properties and their usage. Note that PAV does not define any explicit classes or domain/ranges, as every property is meant to be used directly on the described online resource.\n\n          Cite as: Paolo Ciccarese, Stian Soiland-Reyes, Khalid Belhajjame, Alasdair JG Gray, Carole Goble, Tim Clark (2013): PAV ontology: provenance, authoring and versioning. Journal of biomedical semantics 4 (1), 37. doi:10.1186/2041-1480-4-37\n        "},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Provenance, Authoring and Versioning (PAV)"},
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "http://www.w3.org/ns/prov#"}
+     {:xsd/anyURI "http://code.google.com/p/pav-ontology/"}
+     {:xsd/anyURI "https://code.google.com/p/pav-ontology/wiki/Versions"}
+     {:xsd/anyURI "http://pav-ontology.googlecode.com/svn/trunk/1.2/pav.owl"}
+     :pav/doc},
+   :xsd/anyURI "http://purl.org/pav/"})
+
+(def urn:uuid:edccbd71-0e86-50a9-9b8f-7672eea465b1
+  {:foaf/name  "Khalid Belhajjame",
+   :rdf/type   #{:foaf/Person :owl/NamedIndividual},
+   :rdfs/label "Khalid Belhajjame",
+   :xsd/anyURI "http://orcid.org/0000-0001-6938-0820"})
+
+(def urn:uuid:e5eaea08-0e45-59e6-9e7b-c85a48d18860
+  {:foaf/name  "Stian Soiland-Reyes",
+   :owl/sameAs {:xsd/anyURI "http://soiland-reyes.com/stian/#me"},
+   :rdf/type   #{:foaf/Person :owl/NamedIndividual :prov/Person},
+   :rdfs/label "Stian Soiland-Reyes",
+   :xsd/anyURI "http://orcid.org/0000-0001-9842-9718"})

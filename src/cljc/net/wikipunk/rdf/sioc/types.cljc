@@ -1,22 +1,31 @@
 (ns net.wikipunk.rdf.sioc.types
-  {:dcat/downloadURL "net/wikipunk/ext/sioc.types.rdf",
-   :namespaces       {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
-                      "annotea" "http://www.w3.org/2002/01/bookmark#",
-                      "cal" "http://www.w3.org/2002/12/cal/icaltzd#",
-                      "dcterms" "http://purl.org/dc/terms/",
-                      "doap" "http://usefulinc.com/ns/doap#",
-                      "exif" "http://www.w3.org/2003/12/exif/ns/",
-                      "foaf" "http://xmlns.com/foaf/0.1/",
-                      "owl" "http://www.w3.org/2002/07/owl#",
-                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                      "sioc" "http://rdfs.org/sioc/ns#",
-                      "sioc.types" "http://rdfs.org/sioc/types#",
-                      "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                      "wot" "http://xmlns.com/wot/0.1/"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "sioc.types",
-   :rdfa/uri         "http://rdfs.org/sioc/types#"})
+  ^{:base       "http://rdfs.org/sioc/types#",
+    :namespaces {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
+                 "annotea"    "http://www.w3.org/2002/01/bookmark#",
+                 "cal"        "http://www.w3.org/2002/12/cal/icaltzd#",
+                 "dcterms"    "http://purl.org/dc/terms/",
+                 "doap"       "http://usefulinc.com/ns/doap#",
+                 "exif"       "http://www.w3.org/2003/12/exif/ns/",
+                 "foaf"       "http://xmlns.com/foaf/0.1/",
+                 "owl"        "http://www.w3.org/2002/07/owl#",
+                 "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+                 "sioc"       "http://rdfs.org/sioc/ns#",
+                 "sioc.types" "http://rdfs.org/sioc/types#",
+                 "vs"         "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                 "wot"        "http://xmlns.com/wot/0.1/"},
+    :prefix     "sioc.types",
+    :source     "net/wikipunk/ext/sioc.types.rdf"}
+  {:dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "Extends the SIOC Core Ontology (Semantically-Interlinked Online Communities) by defining subclasses and subproperties of SIOC terms."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SIOC Types Ontology Module Namespace"},
+   :owl/imports {:xsd/anyURI "http://rdfs.org/sioc/ns#"},
+   :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfs/seeAlso {:xsd/anyURI "http://rdfs.org/sioc/spec/#sec-modules"},
+   :xsd/anyURI "http://rdfs.org/sioc/types#"})
 
 (def AddressBook
   {:db/ident :sioc.types/AddressBook,
@@ -474,3 +483,23 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Wish List"},
    :rdfs/subClassOf  :sioc/Container})
+
+(def urn:uuid:c0f29cb5-b2ef-5181-aaff-f23938aadc96
+  {:rdf/type   :owl/Ontology,
+   :xsd/anyURI "http://rdfs.org/sioc/ns#"})
+
+(def urn:uuid:82891b3f-3945-5284-ae64-1159841fbc13
+  {:dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "Extends the SIOC Core Ontology (Semantically-Interlinked Online Communities) by defining subclasses and subproperties of SIOC terms."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SIOC Types Ontology Module Namespace"},
+   :owl/imports {:xsd/anyURI "http://rdfs.org/sioc/ns#"},
+   :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfs/seeAlso {:xsd/anyURI "http://rdfs.org/sioc/spec/#sec-modules"},
+   :xsd/anyURI "http://rdfs.org/sioc/types#"})
+
+(def urn:uuid:bd3dd40a-6ad2-5cae-9ba7-ec68cbcba9f2
+  {:rdf/type   :owl/Class,
+   :xsd/anyURI "http://www.w3.org/2008/05/skos#Concept"})

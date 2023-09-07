@@ -35795,7 +35795,7 @@
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/01000931-v"},
    :rdfs/subPropertyOf :d3f/accesses})
 
-(def urn:uuid:014778de-3bab-586d-b0dd-54227e50e87282345
+(def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
   {:d3f/release-date #inst "2023-07-07T00:00:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
@@ -35810,3 +35810,13 @@
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
    :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"})
+
+(def urn:uuid:8ae1c486-2d19-5306-b114-5c38451c1a50
+  {:d3f/kb-organization "MITRE/NSA",
+   :xsd/anyURI
+   "wptmp:entity#Reference%20-%20%20CAR-2016-04-004:%20Successful%20Local%20Account%20Login"})
+
+(def urn:uuid:c3221305-13f1-5f6d-a671-617d02252a63
+  {:d3f/kb-author "Alessandro Vesely",
+   :xsd/anyURI
+   "wptmp:entity#Reference%20-%20DNS%20Whitelist%20(DNSWL)%20Email%20Authentication%20Method%20Extension"})

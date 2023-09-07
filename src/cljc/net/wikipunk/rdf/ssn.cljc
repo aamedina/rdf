@@ -424,7 +424,7 @@
     :rdf/value
     "Relation between an Observation and the Stimulus that originated it."}})
 
-(def urn:uuid:25a15805-ef63-583a-9226-4349a6b39db2112361
+(def urn:uuid:25a15805-ef63-583a-9226-4349a6b39db2
   {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
    :dcterms/creator
    {:foaf/name {:rdf/language "en",

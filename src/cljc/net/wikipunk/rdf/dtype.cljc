@@ -1,17 +1,19 @@
 (ns net.wikipunk.rdf.dtype
-  {:dcat/downloadURL
-   "https://lov.linkeddata.es/dataset/lov/vocabs/dtype/versions/2014-06-28.n3",
-   :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
-                "dtype" "http://www.linkedmodel.org/schema/dtype#",
-                "owl"   "http://www.w3.org/2002/07/owl#",
-                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                "vaem"  "http://www.linkedmodel.org/schema/vaem#",
-                "voag"  "http://voag.linkedmodel.org/voag#",
-                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "dtype",
-   :rdfa/uri "http://www.linkedmodel.org/schema/dtype#"}
+  ^{:base "http://www.linkedmodel.org/schema/dtype#",
+    :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
+                 "dtype" "http://www.linkedmodel.org/schema/dtype#",
+                 "owl"   "http://www.w3.org/2002/07/owl#",
+                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                 "vaem"  "http://www.linkedmodel.org/schema/vaem#",
+                 "voag"  "http://voag.linkedmodel.org/voag#",
+                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+    :prefix "dtype",
+    :source
+    "https://lov.linkeddata.es/dataset/lov/vocabs/dtype/versions/2014-06-28.n3"}
+  {:owl/imports {:xsd/anyURI "http://www.linkedmodel.org/schema/vaem"},
+   :rdf/type    :owl/Ontology,
+   :xsd/anyURI  "http://www.linkedmodel.org/schema/dtype"}
   (:refer-clojure :exclude [type]))
 
 (def CodeList
@@ -288,3 +290,32 @@
    :rdfs/label "value",
    :vaem/comment
    "The property \"dtype:value\" is a general property that in some cases could have scalar values and in other cases may refer to a first class concept that is a \"value object\". For this reason, the  type of this property is set as \"rdf:Property\" and the property is rangeless."})
+
+(def urn:uuid:c2ade4ca-38f5-5111-b981-a054570ea7e7
+  {:owl/imports {:xsd/anyURI "http://www.linkedmodel.org/schema/vaem"},
+   :rdf/type    :owl/Ontology,
+   :xsd/anyURI  "http://www.linkedmodel.org/schema/dtype"})
+
+(def urn:uuid:cfe0fdff-ed26-59dc-a260-5f9282379260
+  {:dc11/author "Ralph Hodgson",
+   :dc11/subject "Datatype schema",
+   :dc11/title "Datatype Ontology",
+   :owl/versionInfo "Created with TopBraid Composer",
+   :rdfs/label "Datatype Ontology",
+   :vaem/dateCreated {:rdf/type  :vaem/dateUnion,
+                      :rdf/value "2011-05-29"},
+   :vaem/description
+   "The ontology \"dtype\" provides a specification of simple data types such as enumerations and codelists. These are needed in support of the conversion of XML Schemas and UML Models to OWL. The purpose of \"dtype\" is to provide a foundation for expressing rich data types. These data types are typically needed when dealing with OWL representations of data structures derived from XML Schema.",
+   :vaem/hasGraphRole :vaem/SchemaGraph,
+   :vaem/hasLicenseType :voag/CC-SHAREALIKE_3PT0-US,
+   :vaem/lastUpdated {:rdf/type  :vaem/dateUnion,
+                      :rdf/value "2014-06-28"},
+   :vaem/name "DTYPE",
+   :vaem/namespace {:xsd/anyURI "http://www.linkedmodel.org/schema/dtype"},
+   :vaem/namespacePrefix "dtype",
+   :vaem/owner "TopQuadrant",
+   :vaem/revision "1.1",
+   :vaem/usesNonImportedResource #{:dc11/subject :dc11/title :dc11/author
+                                   :dc11/contributor :dc11/description},
+   :vaem/withAttributionTo :voag/TopQuadrantAttribution,
+   :xsd/anyURI "http://www.linkedmodel.org/1.1/schema/dtype"})

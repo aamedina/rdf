@@ -280,7 +280,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valid until"}})
 
-(def urn:uuid:1129553a-92f7-51a1-a9d5-0889bfc98a06112385
+(def urn:uuid:1129553a-92f7-51a1-a9d5-0889bfc98a06
   {:dcterms/issued "2009-09-01",
    :dcterms/modified #{"2017-06-02" "2010-11-08"},
    :owl/versionInfo "2 June 2017",

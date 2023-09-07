@@ -207,6 +207,7 @@
         (map ns-publics) 
         (mapcat vals)    
         (map deref)
+        (filter (every-pred :rdfa/prefix :rdfa/uri))
         (map (juxt :rdfa/prefix :rdfa/uri)))
       (completing
         (fn [m [prefix uri]]
@@ -1168,17 +1169,12 @@
                             (or (= prefix ns-name)
                                 (and (= ns-name "obo")
                                      (= prefix (first (str/split (name (:db/ident form)) #"_"))))))))
-        ontologies (->> (remove public? forms)
-                        (filter :rdf/type)
-                        (filter (fn [form]
-                                  (let [t (mop/type-of form)]
-                                    (or (isa? t :owl/Ontology)
-                                        (isa? t :voaf/Vocabulary)
-                                        (isa? t :madsrdf/MADSScheme))))))
-        the-ont    (first ontologies)
         resources  (->> forms
-                        #_(remove #(keyword? (:db/ident %)))
+                        (remove #(:db/ident %))
                         (filter #(:xsd/anyURI %)))
+        the-ont    (some-> (or (get (group-by :xsd/anyURI resources) (:rdfa/uri md))
+                               (get (group-by :xsd/anyURI resources) (str/replace (:rdfa/uri md) #"[#/]$" "")))
+                           first)
         forms      (filter #(keyword? (:db/ident %)) forms)
         publics    (filter public? forms)
         privates   (->> (remove public? forms)
@@ -1188,7 +1184,16 @@
                         (pmap #(assoc % :private true)))]
     (with-meta (into (vec (sort-by :db/ident publics))
                      (when *private* (sort-by :db/ident privates)))
-      (assoc md :ontology the-ont :privates privates :resources resources))))
+      (assoc md
+             :ontology (cond-> the-ont
+                         (nil? (:rdf/type the-ont))
+                         (assoc :rdf/type :owl/Ontology)
+
+                         (and (set? (:rdf/type the-ont))
+                              (not (contains? (:rdf/type the-ont) :owl/Ontology)))
+                         (update :rdf/type conj :owl/Ontology))
+             :privates privates
+             :resources resources))))
 
 (defmulti rdf-doc
   "`rdf-doc` is a multimethod that dispatches on the type of its
@@ -1281,7 +1286,7 @@
         md         (meta forms)
         resources  (->> (:resources md)
                         (map (fn [resource]
-                               (list 'def (gensym (urn:uuid (:xsd/anyURI resource))) resource))))
+                               (list 'def (symbol (urn:uuid (:xsd/anyURI resource))) resource))))
         exclusions (->> forms
                         (filter (comp qualified-keyword? :db/ident))
                         (map (comp symbol name :db/ident))
@@ -1824,6 +1829,10 @@
 (defmethod emit :rdfa/PrefixMapping
   [prefix-mapping arg-map]
   ((get-method emit clojure.lang.IPersistentMap) prefix-mapping arg-map))
+
+(defmethod emit :rdfa/TermMapping
+  [term-mapping arg-map]
+  nil)
 
 (defmethod graph :rdfa/PrefixMapping
   [prefix-mapping]

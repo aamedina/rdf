@@ -1,52 +1,21 @@
 (ns net.wikipunk.rdf.voag
-  "Vocabulary Of Attribution and Governance"
-  {:dc11/rights
-   "The LinkedModel VOAG Ontology is issued under a Creative Commons Attribution Share Alike 3.0 United States License. Attribution should be made to <a href=\"http://www.topquadrant.com\">TopQuadrant, Inc.</a>.",
-   :dc11/subject
-   "Linked Models Vocabulary of Attribution and Governance (VOAG) Ontology",
-   :dc11/title "Vocabulary Of Attribution and Governance",
-   :dcat/downloadURL "net/wikipunk/ext/voag.ttl",
-   :namespaces {"dc11"     "http://purl.org/dc/elements/1.1/",
-                "dtype"    "http://www.linkedmodel.org/schema/dtype#",
-                "omv"      "http://omv.ontoware.org/2005/05/ontology#",
-                "ontology" "http://omv.ontoware.org/2005/05/ontology#",
-                "owl"      "http://www.w3.org/2002/07/owl#",
-                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                "skos"     "http://www.w3.org/2004/02/skos/core#",
-                "vaem"     "http://www.linkedmodel.org/schema/vaem#",
-                "voag"     "http://voag.linkedmodel.org/schema/voag#",
-                "voag-1.0" "http://voag.linkedmodel.org/1.0/schema/voag#",
-                "void"     "http://rdfs.org/ns/void#",
-                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-   :owl/imports #{{:xsd/anyURI "http://www.linkedmodel.org/1.2/schema/vaem"}
-                  {:xsd/anyURI "http://rdfs.org/ns/void"}
-                  {:xsd/anyURI "http://www.linkedmodel.org/1.0/schema/dtype"}},
-   :owl/versionIRI {:xsd/anyURI
-                    "http://www.linkedmodel.org/1.1/owl/schema/core"},
-   :owl/versionInfo
-   "$Id: OSG_voag-(v1.0).ttl 5095 2011-06-13 05:12:09Z RalphHodgson $",
-   :rdf/type :owl/Ontology,
-   :rdfa/prefix "voag",
-   :rdfa/uri "http://voag.linkedmodel.org/schema/voag#",
-   :rdfs/label "Vocabulary Of Attribution and Governance",
-   :vaem/acronym "VOAG",
-   :vaem/dateCreated #inst "2011-01-31T10:00:00.000-00:00",
-   :vaem/description
-   "VOAG stands for \"Vocabulary Of Attribution and Governance\". The ontology is intended to specify licensing, attribution, provenance and governance of an ontology. VOAG captures many common license types and their restrictions. Where a license requires attribution, VOAG provides resources that allow the attribution should be made. Provenance is defined in terms of source and pedigree. A miminal model of governance is provided based on how issues, releases and changes are managed. VOAG does not import, but makes uses of some concepts from VOID (http://vocab.deri.ie/void), notably void:Dataset.",
-   :vaem/hasCatalogEntry {:xsd/anyURI "voag:VOAG_Catalog_Entry"},
-   :vaem/lastUpdated
-   "$LastChangedDate: 2011-06-12 22:12:09 -0700 (Sun, 12 Jun 2011) $",
-   :vaem/namespace "http://voag.linkedmodel.org/schema/voag",
-   :vaem/namespacePrefix "voag",
-   :vaem/revisionNumber "1.0",
-   :vaem/specificity #vaem/integer_1to5 "1",
-   :vaem/url {:xsd/anyURI "http://voag.linkedmodel.org/1.0/owl/schema/voag"},
-   :vaem/usesNonImportedResource #{:dc11/subject :dc11/title :dc11/rights},
-   :voag/hasLicenseType :voag/CC-SHAREALIKE_3PT0-US,
-   :voag/intent
-   "Provides a basic vocabulary and schema for intellectual capital rights, attribution and governance. Includes some treatment of provenance.  Typical use of the ontology is to refer to its resources, as opposed to importing the ontology.",
-   :xsd/anyURI "http://voag.linkedmodel.org/1.0/schema/voag"})
+  ^{:base       "http://voag.linkedmodel.org/schema/voag#",
+    :namespaces {"dc11"     "http://purl.org/dc/elements/1.1/",
+                 "dtype"    "http://www.linkedmodel.org/schema/dtype#",
+                 "omv"      "http://omv.ontoware.org/2005/05/ontology#",
+                 "ontology" "http://omv.ontoware.org/2005/05/ontology#",
+                 "owl"      "http://www.w3.org/2002/07/owl#",
+                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"     "http://www.w3.org/2004/02/skos/core#",
+                 "vaem"     "http://www.linkedmodel.org/schema/vaem#",
+                 "voag"     "http://voag.linkedmodel.org/schema/voag#",
+                 "voag-1.0" "http://voag.linkedmodel.org/1.0/schema/voag#",
+                 "void"     "http://rdfs.org/ns/void#",
+                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "voag",
+    :source     "net/wikipunk/ext/voag.ttl"}
+  {:rdf/type :owl/Ontology})
 
 (def ACADEMIIC_FREE_LICENSE
   {:db/ident :voag/ACADEMIIC_FREE_LICENSE,
@@ -3459,3 +3428,37 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "wintnessed by",
    :rdfs/subPropertyOf :voag/isGovernedBy})
+
+(def urn:uuid:522c2c07-5ea6-5417-8519-16317a6bc288
+  {:dc11/rights
+   "The LinkedModel VOAG Ontology is issued under a Creative Commons Attribution Share Alike 3.0 United States License. Attribution should be made to <a href=\"http://www.topquadrant.com\">TopQuadrant, Inc.</a>.",
+   :dc11/subject
+   "Linked Models Vocabulary of Attribution and Governance (VOAG) Ontology",
+   :dc11/title "Vocabulary Of Attribution and Governance",
+   :owl/imports #{{:xsd/anyURI "http://www.linkedmodel.org/1.2/schema/vaem"}
+                  {:xsd/anyURI "http://rdfs.org/ns/void"}
+                  {:xsd/anyURI "http://www.linkedmodel.org/1.0/schema/dtype"}},
+   :owl/versionIRI {:xsd/anyURI
+                    "http://www.linkedmodel.org/1.1/owl/schema/core"},
+   :owl/versionInfo
+   "$Id: OSG_voag-(v1.0).ttl 5095 2011-06-13 05:12:09Z RalphHodgson $",
+   :rdf/type :owl/Ontology,
+   :rdfs/label "Vocabulary Of Attribution and Governance",
+   :vaem/acronym "VOAG",
+   :vaem/dateCreated #inst "2011-01-31T10:00:00.000-00:00",
+   :vaem/description
+   "VOAG stands for \"Vocabulary Of Attribution and Governance\". The ontology is intended to specify licensing, attribution, provenance and governance of an ontology. VOAG captures many common license types and their restrictions. Where a license requires attribution, VOAG provides resources that allow the attribution should be made. Provenance is defined in terms of source and pedigree. A miminal model of governance is provided based on how issues, releases and changes are managed. VOAG does not import, but makes uses of some concepts from VOID (http://vocab.deri.ie/void), notably void:Dataset.",
+   :vaem/hasCatalogEntry {:xsd/anyURI "voag:VOAG_Catalog_Entry"},
+   :vaem/lastUpdated
+   "$LastChangedDate: 2011-06-12 22:12:09 -0700 (Sun, 12 Jun 2011) $",
+   :vaem/namespace "http://voag.linkedmodel.org/schema/voag",
+   :vaem/namespacePrefix "voag",
+   :vaem/revisionNumber "1.0",
+   :vaem/specificity {:rdf/type  :vaem/integer_1to5,
+                      :rdf/value "1"},
+   :vaem/url {:xsd/anyURI "http://voag.linkedmodel.org/1.0/owl/schema/voag"},
+   :vaem/usesNonImportedResource #{:dc11/subject :dc11/title :dc11/rights},
+   :voag/hasLicenseType :voag/CC-SHAREALIKE_3PT0-US,
+   :voag/intent
+   "Provides a basic vocabulary and schema for intellectual capital rights, attribution and governance. Includes some treatment of provenance.  Typical use of the ontology is to refer to its resources, as opposed to importing the ontology.",
+   :xsd/anyURI "http://voag.linkedmodel.org/1.0/schema/voag"})

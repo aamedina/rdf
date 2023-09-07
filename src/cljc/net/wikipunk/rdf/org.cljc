@@ -1455,7 +1455,7 @@
    :rdfs/range :org/FormalOrganization,
    :rdfs/subPropertyOf :org/subOrganizationOf})
 
-(def urn:uuid:1ad4e5bb-349d-56ba-b9ac-3fab39676ff6112395
+(def urn:uuid:1ad4e5bb-349d-56ba-b9ac-3fab39676ff6
   {:dcterms/contributor
    #{{:foaf/mbox "dguardiola@quinode.fr",
       :foaf/name "Dominique Guardiola"}

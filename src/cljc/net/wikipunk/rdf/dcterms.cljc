@@ -8,7 +8,12 @@
                  "skos"    "http://www.w3.org/2004/02/skos/core#"},
     :prefix     "dcterms",
     :source     "net/wikipunk/boot/dublin_core_terms.ttl"}
-  {:rdf/type :owl/Ontology}
+  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
+   :dcterms/title     {:rdf/language "en",
+                       :rdf/value    "DCMI Metadata Terms - other"},
+   :rdf/type          :owl/Ontology,
+   :xsd/anyURI        "http://purl.org/dc/terms/"}
   (:refer-clojure :exclude [format type]))
 
 (def Agent
@@ -1444,7 +1449,7 @@
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf #{:dc11/date :dcterms/date}})
 
-(def urn:uuid:5d4a8a31-57ec-5315-8da2-8d5d8b73c709112324
+(def urn:uuid:5d4a8a31-57ec-5315-8da2-8d5d8b73c709
   {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
    :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
    :dcterms/title     {:rdf/language "en",

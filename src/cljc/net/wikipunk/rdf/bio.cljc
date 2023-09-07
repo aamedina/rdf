@@ -1,21 +1,41 @@
 (ns net.wikipunk.rdf.bio
-  {:dcat/downloadURL "net/wikipunk/ext/bio.rdf",
-   :namespaces       {"bio" "http://purl.org/vocab/bio/0.1/",
-                      "cc" "http://web.resource.org/cc/",
-                      "dc11" "http://purl.org/dc/terms/",
-                      "dcterms" "http://purl.org/dc/terms/",
-                      "foaf" "http://xmlns.com/foaf/0.1/",
-                      "label" "http://purl.org/net/vocab/2004/03/label#",
-                      "ov" "http://open.vocab.org/terms/",
-                      "owl" "http://www.w3.org/2002/07/owl#",
-                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                      "skos" "http://www.w3.org/2004/02/skos/core#",
-                      "vann" "http://purl.org/vocab/vann/",
-                      "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type         :rdfa/PrefixMapping,
-   :rdfa/prefix      "bio",
-   :rdfa/uri         "http://purl.org/vocab/bio/0.1/"}
+  ^{:base       "http://purl.org/vocab/bio/0.1/",
+    :namespaces {"bio"     "http://purl.org/vocab/bio/0.1/",
+                 "cc"      "http://web.resource.org/cc/",
+                 "dc11"    "http://purl.org/dc/terms/",
+                 "dcterms" "http://purl.org/dc/terms/",
+                 "foaf"    "http://xmlns.com/foaf/0.1/",
+                 "label"   "http://purl.org/net/vocab/2004/03/label#",
+                 "ov"      "http://open.vocab.org/terms/",
+                 "owl"     "http://www.w3.org/2002/07/owl#",
+                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                 "skos"    "http://www.w3.org/2004/02/skos/core#",
+                 "vann"    "http://purl.org/vocab/vann/",
+                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
+    :prefix     "bio",
+    :source     "net/wikipunk/ext/bio.rdf"}
+  {:dc11/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "This document describes a vocabulary for describing biographical information about people, both living and dead. "},
+   :dc11/creator #{"David Galbraith" {:xsd/anyURI "http://iandavis.com/id/me"}},
+   :dc11/date #inst "2010-05-10T00:00:00.000-00:00",
+   :dc11/description
+   "<div>\n        \n        <p>The BIO vocabulary contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information. \n        The approach taken is to describe a person's life as a series of interconnected key events, around which other information can be woven. \n        This vocabulary defines the event framework and supplies a set of core event types that cover many use cases, but it is expected that it \n        will be extended in other vocabularies to suit their needs. The intention of this vocabulary is to describe biographical events of people \n        and this intention carries through to the definitions of the properties and classes which are person-centric rather than neutral. For example \n        the Employment event puts the person being employed as the principal agent in the event rather than the employer.</p>\n        <p>The BIO vocabulary defines a number of core classes and properties for describing biographical information: </p>\n        <p><figure><img src=\"/bio/core-classes.png\"></img><br></br>Figure: Biography Vocabulary Core Classes (<a href=\"http://vocab.org/bio/core-classes.png\">PNG version</a>, <a href=\"http://vocab.org/bio/core-classes.svg\">SVG version</a>)</figure></p>\n        <p>At its heart the BIO vocabulary is concerned with people, their relationships and the events in their lives. Together these can be\n        used to build up a narrative of a person's life and their interactions with other people, organizations and the world around them. Events bound intervals\n        of time that may be associated with particular relationships between people and groups or organisations. Many different types of life event are\n        defined in this vocabulary including the obvious Birth, Marriage and Death but also Coronation, Performance and even Murder. These events are not intended\n        to be fully comprehensive but are representative of the types of events associated with biographical material. Currently the relationship segment of the\n        vocabulary is underspecified with only a generic Relationship class available. It is envisaged that many types of relationship such as families, employments\n        and ownerships will be specified in the future.</p>\n        <p>The sequence of events and intervals build a timeline of history against which people and their relationships can be placed. The aim is\n        to enable simple forms of genealogical reasoning such as determining whether a child was born out of wedlock or the location of a family\n        given the fact one of their children was attending a particular school. Events are ordered in time by relating them to one another and to abstract\n        intervals of time:</p>\n        <p><figure><img src=\"/bio/timelines.png\"></img><br></br>Figure: Biography Vocabulary Timelines(<a href=\"http://vocab.org/bio/timelines.png\">PNG version</a>, <a href=\"http://vocab.org/bio/timelines.svg\">SVG version</a>)</figure></p>\n        <p>Please see <a href=\"https://github.com/iand/vocab-bio\">https://github.com/iand/vocab-bio</a> for the master version of this vocabulary.</p>\n      </div>",
+   :dc11/identifier "http://purl.org/vocab/bio/0.1/schema",
+   :dc11/issued #inst "2003-03-07T00:00:00.000-00:00",
+   :dc11/rights "Copyright © 2002-2010 Ian Davis and David Galbraith",
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "BIO: A vocabulary for biographical information"},
+   :ov/discussionList
+   {:xsd/anyURI "http://lists.foaf-project.org/mailman/listinfo/foaf-dev"},
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "bio",
+   :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
+   :vann/termGroup #{:bio/termgroup5 :bio/termgroup3 :bio/termgroup4
+                     :bio/termgroup1 :bio/termgroup2},
+   :xsd/anyURI "http://purl.org/vocab/bio/0.1/"}
   (:refer-clojure :exclude [agent]))
 
 (def Accession
@@ -1173,3 +1193,47 @@
                 :rdf/value    "Witness"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :bio/spectator})
+
+(def urn:uuid:6a60ce50-fac7-51e2-a21e-6b4cb7d75a65
+  {:rdfs/label "FOAF-DEV mailing list",
+   :xsd/anyURI "http://lists.foaf-project.org/mailman/listinfo/foaf-dev"})
+
+(def urn:uuid:da4bcce9-0472-51b5-a03d-833863c98737
+  {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/1.0/"},
+   :dc11/type  :dcmitype/Text,
+   :rdf/type   :cc/Work,
+   :xsd/anyURI "file:///home/adrian/src/wikipunk/rdf/net/wikipunk/ext/bio.rdf"})
+
+(def urn:uuid:ff9fd58b-0e52-545b-bb52-0f0a04ddb44b
+  {:dc11/abstract
+   {:rdf/language "en",
+    :rdf/value
+    "This document describes a vocabulary for describing biographical information about people, both living and dead. "},
+   :dc11/creator #{"David Galbraith" {:xsd/anyURI "http://iandavis.com/id/me"}},
+   :dc11/date #inst "2010-05-10T00:00:00.000-00:00",
+   :dc11/description
+   "<div>\n        \n        <p>The BIO vocabulary contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information. \n        The approach taken is to describe a person's life as a series of interconnected key events, around which other information can be woven. \n        This vocabulary defines the event framework and supplies a set of core event types that cover many use cases, but it is expected that it \n        will be extended in other vocabularies to suit their needs. The intention of this vocabulary is to describe biographical events of people \n        and this intention carries through to the definitions of the properties and classes which are person-centric rather than neutral. For example \n        the Employment event puts the person being employed as the principal agent in the event rather than the employer.</p>\n        <p>The BIO vocabulary defines a number of core classes and properties for describing biographical information: </p>\n        <p><figure><img src=\"/bio/core-classes.png\"></img><br></br>Figure: Biography Vocabulary Core Classes (<a href=\"http://vocab.org/bio/core-classes.png\">PNG version</a>, <a href=\"http://vocab.org/bio/core-classes.svg\">SVG version</a>)</figure></p>\n        <p>At its heart the BIO vocabulary is concerned with people, their relationships and the events in their lives. Together these can be\n        used to build up a narrative of a person's life and their interactions with other people, organizations and the world around them. Events bound intervals\n        of time that may be associated with particular relationships between people and groups or organisations. Many different types of life event are\n        defined in this vocabulary including the obvious Birth, Marriage and Death but also Coronation, Performance and even Murder. These events are not intended\n        to be fully comprehensive but are representative of the types of events associated with biographical material. Currently the relationship segment of the\n        vocabulary is underspecified with only a generic Relationship class available. It is envisaged that many types of relationship such as families, employments\n        and ownerships will be specified in the future.</p>\n        <p>The sequence of events and intervals build a timeline of history against which people and their relationships can be placed. The aim is\n        to enable simple forms of genealogical reasoning such as determining whether a child was born out of wedlock or the location of a family\n        given the fact one of their children was attending a particular school. Events are ordered in time by relating them to one another and to abstract\n        intervals of time:</p>\n        <p><figure><img src=\"/bio/timelines.png\"></img><br></br>Figure: Biography Vocabulary Timelines(<a href=\"http://vocab.org/bio/timelines.png\">PNG version</a>, <a href=\"http://vocab.org/bio/timelines.svg\">SVG version</a>)</figure></p>\n        <p>Please see <a href=\"https://github.com/iand/vocab-bio\">https://github.com/iand/vocab-bio</a> for the master version of this vocabulary.</p>\n      </div>",
+   :dc11/identifier "http://purl.org/vocab/bio/0.1/schema",
+   :dc11/issued #inst "2003-03-07T00:00:00.000-00:00",
+   :dc11/rights "Copyright © 2002-2010 Ian Davis and David Galbraith",
+   :dc11/title {:rdf/language "en",
+                :rdf/value    "BIO: A vocabulary for biographical information"},
+   :ov/discussionList
+   {:xsd/anyURI "http://lists.foaf-project.org/mailman/listinfo/foaf-dev"},
+   :rdf/type :owl/Ontology,
+   :vann/preferredNamespacePrefix "bio",
+   :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
+   :vann/termGroup #{:bio/termgroup5 :bio/termgroup3 :bio/termgroup4
+                     :bio/termgroup1 :bio/termgroup2},
+   :xsd/anyURI "http://purl.org/vocab/bio/0.1/"})
+
+(def urn:uuid:9defd8b2-38dc-5571-bb27-757d3c3d4d31
+  {:cc/permits  #{:cc/Reproduction :cc/Distribution :cc/DerivativeWorks},
+   :cc/requires #{:cc/Notice :cc/Attribution},
+   :rdf/type    :cc/License,
+   :xsd/anyURI  "http://creativecommons.org/licenses/by/1.0/"})
+
+(def urn:uuid:af127918-c803-5fba-98c2-af1e164a64b6
+  {:foaf/name  "Ian Davis",
+   :rdf/type   :foaf/Person,
+   :xsd/anyURI "http://iandavis.com/id/me"})

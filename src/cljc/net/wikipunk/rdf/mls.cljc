@@ -1,13 +1,23 @@
 (ns net.wikipunk.rdf.mls
-  {:namespaces  {"mls"  "http://www.w3.org/ns/mls#",
+  ^{:base       "http://www.w3.org/ns/mls#",
+    :namespaces {"mls"  "http://www.w3.org/ns/mls#",
                  "owl"  "http://www.w3.org/2002/07/owl#",
                  "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                  "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                  "xml"  "http://www.w3.org/XML/1998/namespace",
                  "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type    :rdfa/PrefixMapping,
-   :rdfa/prefix "mls",
-   :rdfa/uri    "http://www.w3.org/ns/mls#"})
+    :prefix     "mls",
+    :source     "http://www.w3.org/ns/mls#"}
+  {:dcterms/description
+   "ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiments",
+   :dcterms/hasVersion 1,
+   :dcterms/title "Machine Learning Schema",
+   :owl/versionIRI {:xsd/anyURI "http://www.w3.org/2016/03/mls#"},
+   :rdf/type :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/ns/mls#",
+   {:xsd/anyURI
+    "http://protege.stanford.edu/plugins/owl/protege#defaultLanguage"}
+   "EN"})
 
 (def Algorithm
   {:db/ident            :mls/Algorithm,
@@ -380,3 +390,23 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between an entity and the information content entity that specifies it."})
+
+(def urn:uuid:b5a698a7-6a28-5028-8323-6796e4395a50
+  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+   :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
+   :dcterms/title     {:rdf/language "en",
+                       :rdf/value
+                       "Dublin Core Metadata Element Set, Version 1.1"},
+   :xsd/anyURI        "http://purl.org/dc/elements/1.1/"})
+
+(def urn:uuid:6a568a23-bbaa-5de8-b1c0-9547c9604f62
+  {:dcterms/description
+   "ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiments",
+   :dcterms/hasVersion 1,
+   :dcterms/title "Machine Learning Schema",
+   :owl/versionIRI {:xsd/anyURI "http://www.w3.org/2016/03/mls#"},
+   :rdf/type :owl/Ontology,
+   :xsd/anyURI "http://www.w3.org/ns/mls#",
+   {:xsd/anyURI
+    "http://protege.stanford.edu/plugins/owl/protege#defaultLanguage"}
+   "EN"})

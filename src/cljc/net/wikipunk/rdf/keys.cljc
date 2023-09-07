@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.keys
-  {:dcat/downloadURL "https://motools.sourceforge.net/keys/keys.owl",
-   :namespaces       {"keys" "http://purl.org/NET/c4dm/keys.owl#",
-                      "owl"  "http://www.w3.org/2002/07/owl#",
-                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type         :owl/Ontology,
-   :rdfa/prefix      "keys",
-   :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#",
-   :xsd/anyURI       "http://purl.org/NET/c4dm/keys.owl"})
+  ^{:base       "http://purl.org/NET/c4dm/keys.owl#",
+    :namespaces {"keys" "http://purl.org/NET/c4dm/keys.owl#",
+                 "owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+    :prefix     "keys",
+    :source     "https://motools.sourceforge.net/keys/keys.owl"}
+  {:rdf/type   :owl/Ontology,
+   :xsd/anyURI "http://purl.org/NET/c4dm/keys.owl"})
 
 (def A
   {:db/ident :keys/A,
@@ -316,3 +316,7 @@
   {:db/ident   :keys/wikipedia,
    :rdf/type   :owl/DatatypeProperty,
    :rdfs/range :xsd/anyURI})
+
+(def urn:uuid:e59e410c-2faf-5ab2-8080-eb96ced8cf40
+  {:rdf/type   :owl/Ontology,
+   :xsd/anyURI "http://purl.org/NET/c4dm/keys.owl"})

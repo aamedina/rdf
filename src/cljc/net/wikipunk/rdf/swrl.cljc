@@ -1,13 +1,16 @@
 (ns net.wikipunk.rdf.swrl
-  {:dcat/downloadURL
-   "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf",
-   :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
-                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                "swrl" "http://www.w3.org/2003/11/swrl#"},
-   :rdf/type :rdfa/PrefixMapping,
-   :rdfa/prefix "swrl",
-   :rdfa/uri "http://www.w3.org/2003/11/swrl#"})
+  ^{:base       "http://www.w3.org/2003/11/swrl#",
+    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
+                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                 "swrl" "http://www.w3.org/2003/11/swrl#"},
+    :prefix     "swrl",
+    :source     "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf"}
+  {:owl/versionInfo "$Id: swrl.rdf,v 1.1 2004/05/21 18:46:39 vivien Exp $",
+   :rdf/type :owl/Ontology,
+   :rdfs/comment
+   "RDF Schema definition of the RDF Concrete Syntax for the Semantic Web Rule Language",
+   :xsd/anyURI "http://www.w3.org/2003/11/swrl"})
 
 (def Atom
   {:db/ident     :swrl/Atom,
@@ -127,3 +130,9 @@
    :rdf/type    :rdf/Property,
    :rdfs/domain :swrl/Atom,
    :rdfs/range  :rdf/Property})
+
+(def urn:uuid:6f4389a2-bb84-5cc9-ba51-e337e94101f2
+  {:owl/versionInfo "$Id: swrl.rdf,v 1.1 2004/05/21 18:46:39 vivien Exp $",
+   :rdfs/comment
+   "RDF Schema definition of the RDF Concrete Syntax for the Semantic Web Rule Language",
+   :xsd/anyURI "http://www.w3.org/2003/11/swrl"})

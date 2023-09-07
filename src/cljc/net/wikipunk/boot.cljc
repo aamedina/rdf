@@ -207,7 +207,7 @@
 
 (def prov
   "Provenance Vocabulary"
-  {:dcat/downloadURL "http://www.w3.org/ns/prov-o"
+  {:dcat/downloadURL "net/wikipunk/boot/prov.ttl"
    :rdfa/uri         "http://www.w3.org/ns/prov#",
    :rdfa/prefix      "prov",
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/prov-o/"},
@@ -402,3 +402,24 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/xmlschema-2/"},
    :rdf/type         :rdfa/PrefixMapping
    :emit             false})
+
+(def describedby
+  "Refers to resource providing a description."
+  {:rdf/type         :rdfa/TermMapping
+   :rdfa/uri         "http://www.w3.org/2007/05/powder-s#describedby"
+   :rdfa/term        "describedby"
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/2009/REC-powder-formal-20090901/#pp"}})
+
+(def license
+  "Refers to a license associated with this context."
+  {:rdf/type         :rdfa/TermMapping
+   :rdfa/uri         "http://www.w3.org/1999/xhtml/vocab#license"
+   :rdfa/term        "license"
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.iana.org/assignments/link-relations/link-relations.xml"}})
+
+(def role
+  "Indicates the purpose of the resource. See the XHTML Role Vocabulary for roles in this vocabulary space."
+  {:rdf/type         :rdfa/TermMapping
+   :rdfa/uri         "http://www.w3.org/1999/xhtml/vocab#role"
+   :rdfa/term        "role"
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/xhtml-role"}})
