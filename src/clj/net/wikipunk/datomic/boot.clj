@@ -513,7 +513,7 @@
         (pmap select-attributes))))
 
 (defn test-bootstrap
-  "Tests importing XTDB documents into Datomic."
+  "Tests importing Asami entities into Datomic."
   ([conn]
    (test-bootstrap @#'clojure.core/global-hierarchy mop/*env* *schema* conn))
   ([h env schema conn]

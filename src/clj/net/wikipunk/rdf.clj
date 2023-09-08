@@ -29,9 +29,6 @@
    [ont-app.vocabulary.lstr :as lstr]
    [net.wikipunk.boot :as boot]
    [net.wikipunk.mop :as mop]
-   [taoensso.nippy :as nippy]
-   [xtdb.api :as xt]
-   [xtdb.node]
    [zprint.core :as zprint]
    [net.wikipunk.ext]
    [net.wikipunk.rdf.rdf]
@@ -1505,7 +1502,7 @@
                                                  (first v)
                                                  v))))
                                 m))
-                            {} (dissoc (mop/find-class ident) :xt/id)))
+                            {} (dissoc (mop/find-class ident) :id)))
 
       (qualified-symbol? ident)
       (resolve ident)

@@ -38,8 +38,6 @@
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
    [net.wikipunk.mop :as mop]
-   [taoensso.nippy :as nippy]
-   [xtdb.api :as xt]
    [zprint.core :as zprint]
    [datomic.client.api :as d]
    [net.wikipunk.datomic :as datomic]

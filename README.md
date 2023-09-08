@@ -161,12 +161,12 @@ are resolved. It can be one of three values:
 1. nil -- When nil, metaobjects are resolved in Clojure namespaces by
    looking up the namespace as a prefix in a registry and then looking
    up the name in that namespace.
-2. Asami -- When a Asami (`net.wikipunk.asami.Connection`) is bound
+2. Asami -- When Asami (`net.wikipunk.asami.Connection`) is bound
    to the environment metaobjects are resolved by looking the idents
    up using `asami.core/entity`.
-3. Datomic -- When a `net.wikipunk.datomic.Connection` is bound to the
-   environment metaobjects are resolved by looking up the idents using
-   `datomic.client.api/pull`.
+3. Datomic -- When Datomic (`net.wikipunk.datomic.Connection`) is
+   bound to the environment metaobjects are resolved by looking up the
+   idents using `datomic.client.api/pull`.
 
 
 ### credits

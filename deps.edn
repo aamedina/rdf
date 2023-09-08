@@ -13,10 +13,6 @@
   {:mvn/version "1.4.1"}
   com.stuartsierra/component
   {:mvn/version "1.1.0"}
-  com.xtdb/xtdb-core
-  {:mvn/version "1.24.0"}
-  com.taoensso/nippy
-  {:mvn/version "3.2.0"}
   danlentz/clj-uuid
   {:mvn/version "0.1.9"}
   instaparse/instaparse
@@ -65,8 +61,6 @@
   {:mvn/version "1.4.4"}
   org.glassfish/jakarta.json
   {:mvn/version "2.0.1"}
-  org.topbraid/shacl
-  {:mvn/version "1.4.2"}
   zprint/zprint
   {:mvn/version "1.2.7"}}
  :paths ["src/clj" "src/cljc" "classes" "resources"]
