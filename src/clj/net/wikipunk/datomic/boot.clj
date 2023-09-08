@@ -186,8 +186,11 @@
                                              :db.type/ref     (if (isa? (:rdfs/range rdf/*metaobjects*)
                                                                         k :rdf/List)
                                                                 (g/rdf-list (cond
-                                                                              (set? v)
+                                                                              (and (set? v) (coll? (first v)))
                                                                               (first v)
+
+                                                                              (set? v)
+                                                                              (vec v)
                                                                               
                                                                               (sequential? v)
                                                                               v
