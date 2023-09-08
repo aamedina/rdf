@@ -542,7 +542,7 @@
                                 output-to ; used to configure the default path where namespaces are emitted
                                 context ; used to declare what namespaces should be in the boot context
                                 env ; the environment is where metaobjects are resolved
-                                ]
+                                finalize?]
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
@@ -558,7 +558,7 @@
         (alter-var-root #'*metaobjects* (constantly hierarchies))
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         (alter-var-root #'mop/*env* (constantly env))
-        (finalize)
+        (when finalize? (finalize))
         this)))
   (stop [this]
     (alter-var-root #'mop/*env* (constantly nil))
@@ -1457,17 +1457,17 @@
                              (descendants :owl/Class))))
   ([force? metaobjects]
    (finalize force?
-             (binding [mop/*env* nil]
-               (doall
-                 (pmap (fn [ident]
-                         (if-some [class (mop/find-class ident)]
-                           (try
-                             (when (or force? (not (mop/class-finalized? class)))
-                               (mop/finalize-inheritance class))
-                             (catch Throwable ex
-                               (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
-                           (throw (ex-info "Could not locate metaobject" {:ident ident}))))
-                       metaobjects)))
+             (pmap (fn [ident]
+                     (if-some [class (mop/find-class ident)]
+                       (try
+                         (when (or force? (not (mop/class-finalized? class)))
+                           (binding [mop/*env* nil]
+                             (mop/finalize-inheritance class)))
+                         (catch Throwable ex
+                           (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
+                       (throw (ex-info "Could not locate metaobject" {:ident ident})))
+                     )
+                   metaobjects)
              mop/*env*))
   ([force? metaobjects env]
    (mop/intern-class-using-env metaobjects env)))

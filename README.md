@@ -16,7 +16,9 @@ RDF models as Clojure(script) namespaces
           :output-to    "src/cljc/net/wikipunk/rdf/"
           ;; used to declare what namespaces should be in the boot JSON-LD context
           ;; see below for more information
-          :context      []}}
+          :context      []
+          ;; set to true to materialize MOP slots in classes
+          :finalize?    true}}
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)

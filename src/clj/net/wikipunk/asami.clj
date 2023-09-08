@@ -56,15 +56,15 @@
 (defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.asami.Connection]
   [class env]
   (try
-    (asami/transact (:conn env) {:tx-data [class]})
+    (asami/transact-async (:conn env) {:tx-data [class]})
     (catch Throwable ex
       (throw (ex-info (.getMessage ex) {:class class} ex)))))
 
 (defmethod mop/intern-class-using-env [clojure.lang.Sequential net.wikipunk.asami.Connection]
   [tx-data env]
   (try
-    (doseq [part (partition-all 4096 tx-data)]
-      (asami/transact (:conn env) {:tx-data part}))
+    (doseq [part (partition-all 512 tx-data)]
+      (asami/transact-async (:conn env) {:tx-data part}))
     (catch Throwable ex
       (throw (ex-info (.getMessage ex) {:class class} ex)))))
 

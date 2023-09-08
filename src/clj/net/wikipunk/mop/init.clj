@@ -225,39 +225,15 @@
                                                                        :metaclass))
                               mop/*env*))
 
-#_(defmethod mop/finalize-inheritance :rdfs/Class
-  [class]
-  (let [class (assoc class
-                     :mop/classDirectSlots
-                     (mop/class-direct-slots class))
-        class (assoc class
-                     :mop/classDirectDefaultInitargs
-                     (let [d (filter :sh/defaultValue (:mop/classDirectSlots class))]
-                       (zipmap (map :db/ident d)
-                               (map :sh/defaultValue d))))
-        class (assoc class
-                     :mop/classPrecedenceList
-                     (mop/compute-class-precedence-list class))
-        class (assoc class
-                     :mop/classSlots
-                     (mop/compute-slots class))
-        class (assoc class
-                     :mop/classDefaultInitargs
-                     (mop/compute-default-initargs class))
-        class (assoc class
-                     :mop/classDirectSubclasses
-                     (mop/class-direct-subclasses class))]
-    (mop/intern-class-using-env class mop/*env*)))
-
 (defmethod mop/finalize-inheritance :rdfs/Class
   [class]
-  (let [cds (mop/class-direct-slots class)
-        cpl (mop/class-precedence-list class)]    
-    (mop/intern-class-using-env
-      (cond-> class
-        (seq cds) (assoc :mop/classDirectSlots cds)
-        (seq cpl) (assoc :mop/classPrecedenceList cpl))
-      mop/*env*)))
+  (let [cpl   (mop/compute-class-precedence-list class)
+        class (assoc class :mop/classPrecedenceList cpl)
+        cds   (mop/class-direct-slots class)
+        class (if (seq cds) (assoc class :mop/classDirectSlots cds) class)
+        subs  (mop/class-direct-subclasses class)
+        class (if (seq subs) (assoc class :mop/classDirectSubclasses subs) class)]
+    (mop/intern-class-using-env class mop/*env*)))
 
 (defmethod mop/intern-class-using-env [:rdfs/Class nil]
   [class env]
@@ -393,7 +369,13 @@
     :mop/keys [classDirectSubclasses]}]
   (or classDirectSubclasses
       (into #{}
-            (filter #(identical? (second (mop/compute-class-precedence-list %)) ident))
+            (comp
+              (map datafy)
+              (filter (fn [{:rdfs/keys [subClassOf]}]
+                        (if (set? subClassOf)
+                          (contains? subClassOf ident)
+                          (identical? subClassOf ident))))
+              (keep :db/ident))
             (descendants (:rdfs/Class rdf/*metaobjects*) ident))))
 
 (defmethod mop/compute-class-precedence-list :default

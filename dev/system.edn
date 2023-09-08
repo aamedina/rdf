@@ -1,6 +1,7 @@
 {:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
           :uri          "asami:mem://.vocab"}
  :client {:sc/create-fn datomic.client.api/client
+          :storage-dir  :mem
           :server-type  :datomic-local
           :system       "dev"}
  :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
@@ -11,4 +12,5 @@
           :ns-prefix    "net.wikipunk.rdf."
           :output-to    "src/cljc/net/wikipunk/rdf/"
           :context      [net.wikipunk.boot
-                         net.wikipunk.ext]}}
+                         net.wikipunk.ext]
+          :finalize?    true}}
