@@ -42,34 +42,42 @@
              :schema/Play
              :schema/Chapter
              :schema/Thesis
+             :schema/PublicationIssue
              :schema/Photograph
              :schema/MusicRecording
              :schema/Review
              :schema/VisualArtwork
              :schema/HyperTocEntry
              :schema/WebContent
+             :schema/TVSeries
              :schema/Legislation
              :schema/WebSite
              :schema/Comment
              :schema/HyperToc
              :schema/LearningResource
              :schema/Conversation
-             :mo/AudioFile
              :schema/Game
              :schema/SoftwareApplication
              :schema/MenuSection
+             :schema/Diet
              :schema/WebPage
              :schema/Manuscript
              :schema/SoftwareSourceCode
+             :schema/DataCatalog
              :schema/PublicationVolume
              :schema/EducationalOccupationalCredential
+             :schema/CreativeWorkSeries
              :schema/MediaReviewItem
-             :foaf/Document
              :schema/Poster
+             :schema/Course
              :schema/Quotation
              :schema/ArchiveComponent
+             :schema/HowToSection
+             :schema/AmpStory
              :schema/WebPageElement
+             :schema/HowToStep
              :schema/Guide
+             :schema/ExercisePlan
              :schema/Sculpture
              :schema/Code
              :schema/Clip
@@ -82,11 +90,15 @@
              :schema/Statement
              :schema/Season
              :schema/Drawing
+             :schema/TVSeason
              :schema/MusicPlaylist
+             :schema/HowToDirection
              :schema/ShortStory
              :schema/Message
+             :schema/HowToTip
              :schema/HowTo
              :schema/ComicStory
+             :schema/Dataset
              :schema/SheetMusic
              :schema/DefinedTermSet
              :schema/Atlas}))))
