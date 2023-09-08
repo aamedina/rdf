@@ -80,19 +80,20 @@
 
 (defmethod mop/find-class-using-env [clojure.lang.Keyword net.wikipunk.datomic.Connection]
   [ident env]
-  (when-some [m (not-empty (walk/prewalk (fn [form]
-                                           (if (map? form)
-                                             (cond
-                                               (contains? form :db/ident)
-                                               (:db/ident form)
+  (when-some [m (not-empty (->> (walk/prewalk (fn [form]
+                                                (if (map? form)
+                                                  (cond
+                                                    (contains? form :db/ident)
+                                                    (:db/ident form)
 
-                                               (and (:db/id form)
-                                                    (not (contains? form :db/ident)))
-                                               (dissoc (d/pull env *pull* (:db/id form)) :db/id)
+                                                    (and (:db/id form)
+                                                         (not (contains? form :db/ident)))
+                                                    (dissoc (d/pull env *pull* (:db/id form)) :db/id)
 
-                                               :else (dissoc form :db/id))
-                                             form))
-                                         (dissoc (d/pull env *pull* ident) :db/ident)))]
+                                                    :else (dissoc form :db/id))
+                                                  form))
+                                              (dissoc (d/pull env *pull* ident) :db/ident))
+                                (walk/postwalk rdf/walk-rdf-list)))]
     (cond-> (assoc m :db/ident ident)
       (:rdf/type m)
       (update :rdf/type #(filterv keyword? %)))))
