@@ -83,8 +83,7 @@
   (when-some [m (not-empty (walk/prewalk (fn [form]
                                            (if (map? form)
                                              (cond
-                                               (and (contains? form :db/ident)
-                                                    (not= ident (:db/ident form)))
+                                               (contains? form :db/ident)
                                                (:db/ident form)
 
                                                (and (:db/id form)
@@ -93,8 +92,8 @@
 
                                                :else (dissoc form :db/id))
                                              form))
-                                         (d/pull env *pull* ident)))]
-    (cond-> m
+                                         (dissoc (d/pull env *pull* ident) :db/ident)))]
+    (cond-> (assoc m :db/ident ident)
       (:rdf/type m)
       (update :rdf/type #(filterv keyword? %)))))
 
