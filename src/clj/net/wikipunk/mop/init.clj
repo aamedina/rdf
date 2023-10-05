@@ -141,7 +141,8 @@
                allValuesFrom
                someValuesFrom]
     :as       class}]
-  #{onProperty}
+  (when (keyword? onProperty)
+    #{onProperty})
   #_[(cond-> {:db/ident onProperty}
        allValuesFrom  (update :rdfs/range (fnil conj #{}) allValuesFrom)
        someValuesFrom (update :rdfs/range (fnil conj #{}) someValuesFrom)
