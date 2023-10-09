@@ -1388,10 +1388,11 @@
                               (when (find-ns ns-name)
                                 (ns-resolve ns-name (unmunge ident))))
                             (catch java.io.FileNotFoundException _ nil))))]
-      (with-meta @var {:var var :type (or (and (keyword? (type var))
-                                               (type var))
-                                          (:type (alter-meta! var assoc :type (mop/type-of @var)))
-                                          :rdfs/Resource)}))))
+      (when-not (fn? @var)
+        (with-meta @var {:var var :type (or (and (keyword? (type var))
+                                                 (type var))
+                                            (:type (alter-meta! var assoc :type (mop/type-of @var)))
+                                            :rdfs/Resource)})))))
 
 (defn print-doc
   "Prints documentation for metaobject."
