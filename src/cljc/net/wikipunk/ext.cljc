@@ -787,3 +787,13 @@
     "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
     "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
     "dcterms" "http://purl.org/dc/terms/"}})
+
+(def prof
+  {:rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/ns/dx/prof/",
+   :rdfa/prefix      "prof"})
+
+(def role
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/dx/prof/role/",
+   :rdfa/prefix "role"})
