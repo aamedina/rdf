@@ -1,16 +1,4 @@
 (ns net.wikipunk.rdf.pav
-  ^{:base       "http://purl.org/pav/",
-    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "pav"     "http://purl.org/pav/",
-                 "prov"    "http://www.w3.org/ns/prov#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "pav",
-    :source     "https://pav-ontology.github.io/pav/pav.rdf"}
   {:dc11/contributor #{"Simon Jupp" "Khalid Belhajjame" "Marco Ocana"
                        "Alasdair J G Gray"},
    :dc11/creator #{"Stian Soiland-Reyes" "Paolo Ciccarese"},
@@ -20,6 +8,7 @@
       "PAV supplies terms for distinguishing between the different roles of the agents contributing content in current web based systems: contributors, authors, curators and digital artifact creators. The ontology also provides terms for tracking provenance of digital entities that are published on the web and then accessed, transformed and consumed. In order to support broader interoperability, PAV specializes the general purpose W3C PROV provenance model (PROV-O).\n\nPAV distinguishes between the data related to the digital artifact - named Provenance - and those related to the actual knowledge creation and therefore to the intellectual property aspects – named Authoring. The Versioning axis describes the evolution of digital entities in time.\n\nUsing PAV, descriptions can define the authors that originate or gave existence to the work that is expressed in the digital resource (pav:authoredBy); curators (pav:curatedBy) who are content specialists responsible for shaping the expression in an appropriate format, and contributors (super-property pav:contributedBy) that provided some help in conceiving the resource or in the expressed knowledge creation/extraction.\n\nThese provenance aspects can be detailed with dates using pav:curatedOn, pav:authoredOn, etc. Further details about the creation activities, such as different authors contributing specific parts of the resource at different dates are out of scope for PAV and should be defined using vocabularies like PROV-O and additional intermediate entities to describe the different states.\n\nFor resources based on other resources, PAV allows specification of direct retrieval (pav:retrievedFrom), import through transformations (pav:importedFrom) and sources that were merely consulted (pav:sourceAccessedAt). These aspects can also define the agents responsible using pav:retrievedBy, pav:importedBy and pav:sourceAccessedBy.\n\nVersion number of a resource can be given with pav:version, the previous version of the resource with pav:previousVersion, and any other earlier versions with pav:hasEarlierVersion. Unversioned, 'mutable' resources can specify their current version as a snapshot resource using pav:hasCurrentVersion and list the earlier versions using pav:hasVersion.\n\nThe creation of the digital representation (e.g. an RDF graph or a .docx file) can in many cases be different from the authorship of the content/knowledge, and in PAV this digital creation is specified using pav:createdBy, pav:createdWith and pav:createdOn.\n\nPAV specializes terms from W3C PROV-O (prov:) and DC Terms (dcterms:), however these ontologies are not OWL imported as PAV can be used independently. The \"is defined by\" links indicate where those terms are included from. See http://www.w3.org/TR/prov-o and http://dublincore.org/documents/2012/06/14/dcmi-terms/ for more details. See http://purl.org/pav/mapping/dcterms For a comprehensive SKOS mapping to DC Terms.\n\nPAV 2 is based on PAV 1.2 but in a different namespace ( http://purl.org/pav/ ). Terms compatible with 1.2 are indicated in this ontology using owl:equivalentProperty.\n\nThe ontology IRI http://purl.org/pav/ always resolve to the latest version of PAV 2. Particular versionIRIs such as http://purl.org/pav/2.1 can be used by clients to force imports of a particular version - note however that all terms are defined directly in the http://purl.org/pav/ namespace.\n\nThe goal of PAV is to provide a lightweight, straight forward way to give the essential information about authorship, provenance and versioning, and therefore these properties are described directly on the published resource. As such, PAV does not define any classes or restrict domain/ranges, as all properties are applicable to any online resource.\n\n--\n\nCopyright 2008-2014 Massachusetts General Hospital; Harvard Medical School; Balboa Systems; University of Manchester\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.\n"}
      {:xsd/anyURI
       "http://pav-ontology.googlecode.com/svn/branches/2.3/images/pav-overview.svg"}},
+   :dcat/downloadURL "https://pav-ontology.github.io/pav/pav.rdf",
    :dcterms/contributor
    #{{:xsd/anyURI "http://www.paolociccarese.info/foaf.rdf#marco-ocana"}
      {:xsd/anyURI "http://orcid.org/0000-0002-0643-3144"}
@@ -39,6 +28,15 @@
    :foaf/isPrimaryTopicOf #{{:xsd/anyURI "http://arxiv.org/abs/1304.7224"}
                             {:xsd/anyURI
                              "http://dx.doi.org/10.1186/2041-1480-4-37"}},
+   :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
+                "dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "pav"     "http://purl.org/pav/",
+                "prov"    "http://www.w3.org/ns/prov#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/backwardCompatibleWith
    #{{:xsd/anyURI "http://purl.org/pav/2.0/"}
      {:xsd/anyURI "http://purl.org/pav/authoring/2.0/"}
@@ -51,6 +49,8 @@
    :owl/versionInfo "2.3.1",
    :prov/has_provenance :pav/provenance.ttl,
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "pav",
+   :rdfa/uri "http://purl.org/pav/",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value

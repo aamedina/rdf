@@ -1,14 +1,15 @@
 (ns net.wikipunk.rdf.prov
-  ^{:base       "http://www.w3.org/ns/prov#",
-    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
-                 "prov" "http://www.w3.org/ns/prov#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "prov",
-    :source     "net/wikipunk/boot/prov.ttl"}
-  {:rdf/type   :owl/Ontology,
-   :xsd/anyURI "http://www.w3.org/ns/prov#"}
+  {:dcat/downloadURL "net/wikipunk/boot/prov.ttl",
+   :namespaces       {"owl"  "http://www.w3.org/2002/07/owl#",
+                      "prov" "http://www.w3.org/ns/prov#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "prov",
+   :rdfa/uri         "http://www.w3.org/ns/prov#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/prov-o/"},
+   :xsd/anyURI       "http://www.w3.org/ns/prov#"}
   (:refer-clojure :exclude [agent]))
 
 (def Activity

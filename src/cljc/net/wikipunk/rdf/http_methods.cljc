@@ -1,13 +1,13 @@
 (ns net.wikipunk.rdf.http-methods
-  ^{:base       "http://www.w3.org/2011/http-methods#",
-    :namespaces {"dcterms"      "http://purl.org/dc/terms/",
-                 "http"         "http://www.w3.org/2011/http#",
-                 "http-methods" "http://www.w3.org/2011/http-methods#",
-                 "rdf"          "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"         "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix     "http-methods",
-    :source     "net/wikipunk/ext/http-methods.rdf"}
-  {:rdf/type :owl/Ontology})
+  {:dcat/downloadURL "net/wikipunk/ext/http-methods.rdf",
+   :namespaces       {"dcterms" "http://purl.org/dc/terms/",
+                      "http" "http://www.w3.org/2011/http#",
+                      "http-methods" "http://www.w3.org/2011/http-methods#",
+                      "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "http-methods",
+   :rdfa/uri         "http://www.w3.org/2011/http-methods#"})
 
 (def CONNECT
   {:db/ident :http-methods/CONNECT,

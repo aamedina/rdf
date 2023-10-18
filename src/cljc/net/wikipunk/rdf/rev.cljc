@@ -1,25 +1,26 @@
 (ns net.wikipunk.rdf.rev
-  ^{:base "http://purl.org/stuff/rev#",
-    :namespaces {"cc"    "http://web.resource.org/cc/",
-                 "dc11"  "http://purl.org/dc/elements/1.1/",
-                 "foaf"  "http://xmlns.com/foaf/0.1/",
-                 "grddl" "http://www.w3.org/2003/g/data-view#",
-                 "owl"   "http://www.w3.org/2002/07/owl#",
-                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "rev"   "http://purl.org/stuff/rev#",
-                 "vann"  "http://purl.org/vocab/vann/",
-                 "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-    :prefix "rev",
-    :source
-    "https://raw.githubusercontent.com/iand/vocabdotorg/main/www/src/review/review.rdf"}
   {:dc11/date "2007-11-08",
    :dc11/description
    "Vocabulary for expressing reviews and ratings using the Resource Description Framework. It is compatible with hReview and conforms to OWL Lite",
+   :dcat/downloadURL
+   "https://raw.githubusercontent.com/iand/vocabdotorg/main/www/src/review/review.rdf",
    :grddl/profileTransformation
    {:xsd/anyURI
     "http://danja.talis.com/xmlns/rev_2007-11-09/hreview2rdfxml.xsl"},
+   :namespaces {"cc"    "http://web.resource.org/cc/",
+                "dc11"  "http://purl.org/dc/elements/1.1/",
+                "foaf"  "http://xmlns.com/foaf/0.1/",
+                "grddl" "http://www.w3.org/2003/g/data-view#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "rev"   "http://purl.org/stuff/rev#",
+                "vann"  "http://purl.org/vocab/vann/",
+                "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfa/prefix "rev",
+   :rdfa/uri "http://purl.org/stuff/rev#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://vocab.org/review/terms.html"},
    :rdfs/label "RDF Review Vocabulary",
    :vann/preferredNamespacePrefix "rev",
    :vann/preferredNamespaceUri "http://purl.org/stuff/rev#",

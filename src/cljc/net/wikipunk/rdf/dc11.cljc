@@ -1,20 +1,21 @@
 (ns net.wikipunk.rdf.dc11
-  ^{:base       "http://purl.org/dc/elements/1.1/",
-    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
-                 "dcam"    "http://purl.org/dc/dcam/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"    "http://www.w3.org/2004/02/skos/core#"},
-    :prefix     "dc11",
-    :source     "net/wikipunk/boot/dublin_core_elements.ttl"}
-  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+  {:dcat/downloadURL  "net/wikipunk/boot/dublin_core_elements.ttl",
+   :dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
    :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
    :dcterms/title     {:rdf/language "en",
                        :rdf/value
                        "Dublin Core Metadata Element Set, Version 1.1"},
+   :namespaces        {"dc11"    "http://purl.org/dc/elements/1.1/",
+                       "dcam"    "http://purl.org/dc/dcam/",
+                       "dcterms" "http://purl.org/dc/terms/",
+                       "owl"     "http://www.w3.org/2002/07/owl#",
+                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                       "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type          :owl/Ontology,
+   :rdfa/prefix       "dc11",
+   :rdfa/uri          "http://purl.org/dc/elements/1.1/",
+   :rdfs/isDefinedBy  {:xsd/anyURI "http://purl.org/dc/elements/1.1/"},
    :xsd/anyURI        "http://purl.org/dc/elements/1.1/"}
   (:refer-clojure :exclude [format type]))
 

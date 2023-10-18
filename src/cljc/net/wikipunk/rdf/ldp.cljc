@@ -1,19 +1,20 @@
 (ns net.wikipunk.rdf.ldp
-  ^{:base       "http://www.w3.org/ns/ldp#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "ldp"     "http://www.w3.org/ns/ldp#",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-    :prefix     "ldp",
-    :source     "net/wikipunk/boot/ldp.rdf"}
-  {:dcterms/description
+  {:dcat/downloadURL "net/wikipunk/boot/ldp.rdf",
+   :dcterms/description
    "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.",
    :dcterms/title "The W3C Linked Data Platform (LDP) Vocabulary",
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "ldp"     "http://www.w3.org/ns/ldp#",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "ldp",
+   :rdfa/uri "http://www.w3.org/ns/ldp#",
    :rdfs/comment
    "This ontology provides an informal representation of the concepts and terms as defined in the LDP specification.  Consult the LDP specification for normative reference.",
+   :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/TR/ldp/"},
    :rdfs/label "W3C Linked Data Platform (LDP)",
    :rdfs/seeAlso #{{:xsd/anyURI "http://www.w3.org/2012/ldp"}
                    {:xsd/anyURI "http://www.w3.org/TR/ldp/"}

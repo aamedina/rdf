@@ -1,23 +1,23 @@
 (ns net.wikipunk.rdf.sec
-  ^{:base       "https://w3id.org/security#",
-    :namespaces {"cred"    "https://w3.org/2018/credentials#",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "sec"     "https://w3id.org/security#",
-                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "sec",
-    :source     "net/wikipunk/ext/sec.ttl"}
-  {:dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
+  {:dcat/downloadURL "net/wikipunk/ext/sec.ttl",
+   :dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
     "vocabulary used to ensure the authenticity and integrity of Verifiable Credentials and similar types of constrained digital documents using cryptography, especially through the use of digital signatures and related mathematical proofs\n"},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Security Vocabulary"},
+   :namespaces {"cred"    "https://w3.org/2018/credentials#",
+                "dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "sec"     "https://w3id.org/security#",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "sec",
+   :rdfa/uri "https://w3id.org/security#",
    :rdfs/seeAlso {:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/"},
    :xsd/anyURI "https://w3id.org/security#"})
 

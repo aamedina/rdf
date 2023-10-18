@@ -1,12 +1,4 @@
 (ns net.wikipunk.rdf.mf
-  ^{:base       "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
-    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                 "mf"
-                 "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
-                 "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix     "mf",
-    :source     "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#"}
   {:dc11/creator "Andy Seaborne",
    :dc11/date "2004-07",
    :dc11/description "Test case manifest vocabulary",
@@ -14,7 +6,14 @@
    :dc11/publisher "W3C RDF Data Access Working Group",
    :dc11/subject "",
    :dc11/title "Test case manifest vocabulary",
+   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                "mf"
+                "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
+                "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "mf",
+   :rdfa/uri "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
    :rdfs/comment "Manifest vocabulary for test cases",
    :xsd/anyURI "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#"}
   (:refer-clojure :exclude [name]))

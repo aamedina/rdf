@@ -1,26 +1,23 @@
 (ns net.wikipunk.rdf.owl
-  ^{:base       "http://www.w3.org/2002/07/owl#",
-    :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
-                 "grddl" "http://www.w3.org/2003/g/data-view#",
-                 "owl"   "http://www.w3.org/2002/07/owl#",
-                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "xml"   "http://www.w3.org/XML/1998/namespace",
-                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "owl",
-    :source     "http://www.w3.org/2002/07/owl#"}
   {:dc11/title "The OWL 2 Schema vocabulary (OWL 2)",
    :grddl/namespaceTransformation
    {:xsd/anyURI "http://dev.w3.org/cvsweb/2009/owl-grddl/owx2rdf.xsl"},
+   :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
+                "grddl" "http://www.w3.org/2003/g/data-view#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "xml"   "http://www.w3.org/XML/1998/namespace",
+                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema"},
    :owl/versionInfo "$Date: 2009/11/15 10:54:12 $",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "owl",
+   :rdfa/uri "http://www.w3.org/2002/07/owl#",
    :rdfs/comment
    "\r\n  This ontology partially describes the built-in classes and\r\n  properties that together form the basis of the RDF/XML syntax of OWL 2.\r\n  The content of this ontology is based on Tables 6.1 and 6.2\r\n  in Section 6.4 of the OWL 2 RDF-Based Semantics specification,\r\n  available at http://www.w3.org/TR/owl2-rdf-based-semantics/.\r\n  Please note that those tables do not include the different annotations\r\n  (labels, comments and rdfs:isDefinedBy links) used in this file.\r\n  Also note that the descriptions provided in this ontology do not\r\n  provide a complete and correct formal description of either the syntax\r\n  or the semantics of the introduced terms (please see the OWL 2\r\n  recommendations for the complete and normative specifications).\r\n  Furthermore, the information provided by this ontology may be\r\n  misleading if not used with care. This ontology SHOULD NOT be imported\r\n  into OWL ontologies. Importing this file into an OWL 2 DL ontology\r\n  will cause it to become an OWL 2 Full ontology and may have other,\r\n  unexpected, consequences.\r\n   ",
-   :rdfs/isDefinedBy #{{:xsd/anyURI "http://www.w3.org/TR/owl2-mapping-to-rdf/"}
-                       {:xsd/anyURI "http://www.w3.org/TR/owl2-syntax/"}
-                       {:xsd/anyURI
-                        "http://www.w3.org/TR/owl2-rdf-based-semantics/"}},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/2009/REC-owl2-overview-20091027/"},
    :rdfs/seeAlso
    #{{:xsd/anyURI
       "http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-properties"}

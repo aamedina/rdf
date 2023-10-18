@@ -1,27 +1,27 @@
 (ns net.wikipunk.rdf.label
-  ^{:base "http://purl.org/net/vocab/2004/03/label#",
-    :namespaces {"cc"      "http://web.resource.org/cc/",
-                 "dc11"    "http://purl.org/dc/elements/1.1/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "label"   "http://purl.org/net/vocab/2004/03/label#",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "vann"    "http://purl.org/vocab/vann/"},
-    :prefix "label",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/label/versions/2004-03-28.n3"}
   {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/1.0/"},
+   :dcat/downloadURL
+   "https://lov.linkeddata.es/dataset/lov/vocabs/label/versions/2004-03-28.n3",
    :dcterms/created {:rdf/language "en",
                      :rdf/value    "2004-03-28"},
    :foaf/maker {:foaf/homepage     {:xsd/anyURI "http://www.wasab.dk/morten/"},
                 :foaf/mbox_sha1sum "65b983bb397fb71849da910996741752ace8369b",
                 :foaf/name         "Morten Høybye Frederiksen",
                 :rdf/type          :foaf/Person},
+   :namespaces {"cc"      "http://web.resource.org/cc/",
+                "dc11"    "http://purl.org/dc/elements/1.1/",
+                "dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "label"   "http://purl.org/net/vocab/2004/03/label#",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "vann"    "http://purl.org/vocab/vann/"},
    :owl/imports #{{:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema"}
                   {:xsd/anyURI "http://www.w3.org/2002/07/owl"}},
    :rdf/type #{:cc/Work :owl/Ontology},
+   :rdfa/prefix "label",
+   :rdfa/uri "http://purl.org/net/vocab/2004/03/label#",
    :rdfs/comment
    #{{:rdf/language "da",
       :rdf/value

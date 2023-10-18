@@ -1,19 +1,19 @@
 (ns net.wikipunk.rdf.dtype
-  ^{:base "http://www.linkedmodel.org/schema/dtype#",
-    :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
-                 "dtype" "http://www.linkedmodel.org/schema/dtype#",
-                 "owl"   "http://www.w3.org/2002/07/owl#",
-                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "vaem"  "http://www.linkedmodel.org/schema/vaem#",
-                 "voag"  "http://voag.linkedmodel.org/voag#",
-                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "dtype",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/dtype/versions/2014-06-28.n3"}
-  {:owl/imports {:xsd/anyURI "http://www.linkedmodel.org/schema/vaem"},
-   :rdf/type    :owl/Ontology,
-   :xsd/anyURI  "http://www.linkedmodel.org/schema/dtype"}
+  {:dcat/downloadURL
+   "https://lov.linkeddata.es/dataset/lov/vocabs/dtype/versions/2014-06-28.n3",
+   :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
+                "dtype" "http://www.linkedmodel.org/schema/dtype#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "vaem"  "http://www.linkedmodel.org/schema/vaem#",
+                "voag"  "http://voag.linkedmodel.org/voag#",
+                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+   :owl/imports {:xsd/anyURI "http://www.linkedmodel.org/schema/vaem"},
+   :rdf/type :owl/Ontology,
+   :rdfa/prefix "dtype",
+   :rdfa/uri "http://www.linkedmodel.org/schema/dtype#",
+   :xsd/anyURI "http://www.linkedmodel.org/schema/dtype"}
   (:refer-clojure :exclude [type]))
 
 (def CodeList

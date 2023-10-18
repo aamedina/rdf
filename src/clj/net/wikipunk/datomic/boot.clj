@@ -313,7 +313,7 @@
 (defmethod rdf/infer-datomic-type :rdfa/term [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :rdfa/prefix [_] :db.type/string)
 
-#_(defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
 (defmethod rdf/infer-datomic-type :owl/real [_] :db.type/bigdec)
 (defmethod rdf/infer-datomic-type :owl/deprecated [_] :db.type/boolean)
 (defmethod rdf/infer-datomic-type :owl/versionInfo [_] :db.type/string)

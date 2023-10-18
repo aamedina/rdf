@@ -1,14 +1,16 @@
 (ns net.wikipunk.rdf.as
-  ^{:base       "https://www.w3.org/ns/activitystreams#",
-    :namespaces {"as"   "http://www.w3.org/ns/activitystreams#",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "xml"  "http://www.w3.org/XML/1998/namespace",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "as",
-    :source     "net/wikipunk/boot/activitystreams2.ttl"}
-  {:rdf/type :owl/Ontology}
+  {:dcat/downloadURL "net/wikipunk/boot/activitystreams2.ttl",
+   :namespaces       {"as"   "http://www.w3.org/ns/activitystreams#",
+                      "owl"  "http://www.w3.org/2002/07/owl#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "xml"  "http://www.w3.org/XML/1998/namespace",
+                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "as",
+   :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "https://www.w3.org/TR/activitystreams-vocabulary/"}}
   (:refer-clojure :exclude [first last name next]))
 
 (def Accept

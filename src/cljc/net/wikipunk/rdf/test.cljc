@@ -1,12 +1,11 @@
 (ns net.wikipunk.rdf.test
-  ^{:base       "http://www.w3.org/2006/03/test-description#",
-    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "test" "http://www.w3.org/2006/03/test-description#"},
-    :prefix     "test",
-    :source     "http://www.w3.org/2006/03/test-description#"}
-  {:rdf/type     :owl/Ontology,
+  {:namespaces   {"owl"  "http://www.w3.org/2002/07/owl#",
+                  "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                  "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                  "test" "http://www.w3.org/2006/03/test-description#"},
+   :rdf/type     :owl/Ontology,
+   :rdfa/prefix  "test",
+   :rdfa/uri     "http://www.w3.org/2006/03/test-description#",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://www.w3.org/TR/2005/NOTE-test-metadata-20050914/"},
    :xsd/anyURI   "http://www.w3.org/2006/03/test-description"})

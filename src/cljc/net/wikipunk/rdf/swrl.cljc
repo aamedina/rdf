@@ -1,13 +1,14 @@
 (ns net.wikipunk.rdf.swrl
-  ^{:base       "http://www.w3.org/2003/11/swrl#",
-    :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "swrl" "http://www.w3.org/2003/11/swrl#"},
-    :prefix     "swrl",
-    :source     "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf"}
-  {:owl/versionInfo "$Id: swrl.rdf,v 1.1 2004/05/21 18:46:39 vivien Exp $",
+  {:dcat/downloadURL
+   "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf",
+   :namespaces {"owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "swrl" "http://www.w3.org/2003/11/swrl#"},
+   :owl/versionInfo "$Id: swrl.rdf,v 1.1 2004/05/21 18:46:39 vivien Exp $",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "swrl",
+   :rdfa/uri "http://www.w3.org/2003/11/swrl#",
    :rdfs/comment
    "RDF Schema definition of the RDF Concrete Syntax for the Semantic Web Rule Language",
    :xsd/anyURI "http://www.w3.org/2003/11/swrl"})

@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.keys
-  ^{:base       "http://purl.org/NET/c4dm/keys.owl#",
-    :namespaces {"keys" "http://purl.org/NET/c4dm/keys.owl#",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "keys",
-    :source     "https://motools.sourceforge.net/keys/keys.owl"}
-  {:rdf/type   :owl/Ontology,
-   :xsd/anyURI "http://purl.org/NET/c4dm/keys.owl"})
+  {:dcat/downloadURL "https://motools.sourceforge.net/keys/keys.owl",
+   :namespaces       {"keys" "http://purl.org/NET/c4dm/keys.owl#",
+                      "owl"  "http://www.w3.org/2002/07/owl#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                      "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "keys",
+   :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#",
+   :xsd/anyURI       "http://purl.org/NET/c4dm/keys.owl"})
 
 (def A
   {:db/ident :keys/A,

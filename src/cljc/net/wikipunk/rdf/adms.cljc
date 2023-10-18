@@ -1,10 +1,6 @@
 (ns net.wikipunk.rdf.adms
-  ^{:base       "http://www.w3.org/ns/adms#",
-    :namespaces {"adms" "http://www.w3.org/ns/adms#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
-    :prefix     "adms",
-    :source     "http://uri.semic.eu/w3c/ns/adms.ttl"}
-  {:dcterms/issued   "2023-04-05",
+  {:dcat/downloadURL "http://uri.semic.eu/w3c/ns/adms.ttl",
+   :dcterms/issued   "2023-04-05",
    :dcterms/license  {:xsd/anyURI
                       "https://creativecommons.org/licenses/by/4.0/"},
    :dcterms/mediator {:foaf/homepage {:xsd/anyURI "https://semic.eu"},
@@ -14,7 +10,11 @@
                       :rdf/type       :foaf/Person,
                       {:xsd/anyURI "https://schema.org/affiliation"}
                       {:foaf/name "SEMIC EU"}},
+   :namespaces       {"adms" "http://www.w3.org/ns/adms#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
    :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "adms",
+   :rdfa/uri         "http://www.w3.org/ns/adms#",
    :rdfs/label       #{{:rdf/language "nl",
                         :rdf/value    "adms"}
                        {:rdf/language "en",

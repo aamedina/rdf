@@ -18,7 +18,10 @@ RDF models as Clojure(script) namespaces
           ;; see below for more information
           :context      []
           ;; set to true to materialize MOP slots in classes
-          :finalize?    true}}
+          :finalize?    true
+          ;; (optional) import private vars from one namespace as
+		  ;; public ones in another before starting the system
+	      :import-from  {net.wikipunk.rdf.aio net.wikipunk.rdf.obo}}}
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)

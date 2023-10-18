@@ -1,16 +1,4 @@
 (ns net.wikipunk.rdf.vann
-  ^{:base       "http://purl.org/vocab/vann/",
-    :namespaces {"bio"    "http://purl.org/vocab/bio/0.1/",
-                 "cc"     "http://web.resource.org/cc/",
-                 "dc11"   "http://purl.org/dc/terms/",
-                 "dcterm" "http://purl.org/dc/terms/",
-                 "foaf"   "http://xmlns.com/foaf/0.1/",
-                 "owl"    "http://www.w3.org/2002/07/owl#",
-                 "rdf"    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"   "http://www.w3.org/2000/01/rdf-schema#",
-                 "vann"   "http://purl.org/vocab/vann/"},
-    :prefix     "vann",
-    :source     "https://vocab.org/vann/vann-vocab-20100607.rdf"}
   {:dc11/creator {:xsd/anyURI "http://iandavis.com/id/me"},
    :dc11/date "2010-06-07",
    :dc11/description
@@ -23,7 +11,19 @@
    :dc11/title {:rdf/language "en",
                 :rdf/value
                 "VANN: A vocabulary for annotating vocabulary descriptions"},
+   :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf",
+   :namespaces {"bio"    "http://purl.org/vocab/bio/0.1/",
+                "cc"     "http://web.resource.org/cc/",
+                "dc11"   "http://purl.org/dc/terms/",
+                "dcterm" "http://purl.org/dc/terms/",
+                "foaf"   "http://xmlns.com/foaf/0.1/",
+                "owl"    "http://www.w3.org/2002/07/owl#",
+                "rdf"    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"   "http://www.w3.org/2000/01/rdf-schema#",
+                "vann"   "http://purl.org/vocab/vann/"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "vann",
+   :rdfa/uri "http://purl.org/vocab/vann/",
    :vann/preferredNamespacePrefix "vann",
    :vann/preferredNamespaceUri "http://purl.org/vocab/vann/",
    :xsd/anyURI "http://purl.org/vocab/vann/"})

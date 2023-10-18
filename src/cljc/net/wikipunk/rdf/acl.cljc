@@ -1,17 +1,16 @@
 (ns net.wikipunk.rdf.acl
-  ^{:base       "http://www.w3.org/ns/auth/acl#",
-    :namespaces {"acl"     "http://www.w3.org/ns/auth/acl#",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "gen"     "http://www.w3.org/2006/gen/ont#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "vcard"   "http://www.w3.org/2006/vcard/ns#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "acl",
-    :source     "http://www.w3.org/ns/auth/acl#"}
   {:dcterms/title "Basic Access Control ontology",
+   :namespaces {"acl"     "http://www.w3.org/ns/auth/acl#",
+                "dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "gen"     "http://www.w3.org/2006/gen/ont#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "vcard"   "http://www.w3.org/2006/vcard/ns#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "acl",
+   :rdfa/uri "http://www.w3.org/ns/auth/acl#",
    :rdfs/comment
    "Defines the class Authorization and its essential properties,\n    and also some classes of access such as read and write. ",
    :xsd/anyURI "http://www.w3.org/ns/auth/acl"}

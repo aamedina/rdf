@@ -1,19 +1,19 @@
 (ns net.wikipunk.rdf.spdx
-  ^{:base "http://spdx.org/rdf/terms#",
-    :namespaces {"doap" "http://usefulinc.com/ns/doap#",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "ptr"  "http://www.w3.org/2009/pointers#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "spdx" "http://spdx.org/rdf/terms#",
-                 "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "spdx",
-    :source
-    "https://raw.githubusercontent.com/spdx/spdx-spec/v2.3/ontology/spdx-ontology.owl.xml"}
-  {:owl/versionIRI {:xsd/anyURI "http://spdx.org/rdf/terms/2.3"},
+  {:dcat/downloadURL
+   "https://raw.githubusercontent.com/spdx/spdx-spec/v2.3/ontology/spdx-ontology.owl.xml",
+   :namespaces {"doap" "http://usefulinc.com/ns/doap#",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "ptr"  "http://www.w3.org/2009/pointers#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "spdx" "http://spdx.org/rdf/terms#",
+                "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :owl/versionIRI {:xsd/anyURI "http://spdx.org/rdf/terms/2.3"},
    :owl/versionInfo 2.3M,
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "spdx",
+   :rdfa/uri "http://spdx.org/rdf/terms#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value

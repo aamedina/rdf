@@ -11,9 +11,7 @@
   (start [this]
     (let [new-db? (asami/create-database uri)
           conn    (asami/connect uri)]
-      (when new-db? 
-        (asami/transact conn (rdf/all-ns-metaobjects)))
-      (assoc this :conn conn)))
+      (assoc this :conn conn :new-asami-db? new-db?)))
   (stop [this]
     (assoc this :conn nil))
 

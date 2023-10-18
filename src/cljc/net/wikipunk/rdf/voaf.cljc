@@ -1,20 +1,6 @@
 (ns net.wikipunk.rdf.voaf
-  ^{:base       "http://purl.org/vocommons/voaf#",
-    :namespaces {"cc"      "http://creativecommons.org/ns#",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "frbr"    "http://purl.org/vocab/frbr/core#",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "spin"    "http://spinrdf.org/spin#",
-                 "spinsp"  "http://spinrdf.org/sp#",
-                 "vann"    "http://purl.org/vocab/vann/",
-                 "voaf"    "http://purl.org/vocommons/voaf#",
-                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-    :prefix     "voaf",
-    :source     "net/wikipunk/ext/voaf.ttl"}
   {:cc/license {:xsd/anyURI "http://creativecommons.org/licenses/by/3.0/"},
+   :dcat/downloadURL "net/wikipunk/ext/voaf.ttl",
    :dcterms/contributor
    #{{:xsd/anyURI
       "http://data.semanticweb.org/person/pierre-yves-vandenbussche"}
@@ -42,7 +28,21 @@
                        {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.2"}
                        {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.0"}
                        {:xsd/anyURI "http://purl.org/vocommons/voaf/v2.1"}},
+   :namespaces {"cc"      "http://creativecommons.org/ns#",
+                "dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "frbr"    "http://purl.org/vocab/frbr/core#",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "spin"    "http://spinrdf.org/spin#",
+                "spinsp"  "http://spinrdf.org/sp#",
+                "vann"    "http://purl.org/vocab/vann/",
+                "voaf"    "http://purl.org/vocommons/voaf#",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :rdfa/prefix "voaf",
+   :rdfa/uri "http://purl.org/vocommons/voaf#",
    :vann/preferredNamespacePrefix "voaf",
    :vann/preferredNamespaceUri "http://purl.org/vocommons/voaf#",
    :voaf/exampleDataset {:xsd/anyURI "http://lov.okfn.org/dataset/lov/lov.rdf"},

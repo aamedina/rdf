@@ -1,17 +1,6 @@
 (ns net.wikipunk.rdf.dpvo-tech
-  ^{:base       "https://w3id.org/dpv/dpv-owl/dpv-tech#",
-    :namespaces {"dcterms"   "http://purl.org/dc/terms/",
-                 "dpvo"      "https://w3id.org/dpv/dpv-owl#",
-                 "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
-                 "owl"       "http://www.w3.org/2002/07/owl#",
-                 "rdf"       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"      "http://www.w3.org/2000/01/rdf-schema#",
-                 "vann"      "http://purl.org/vocab/vann/",
-                 "vs"        "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"       "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "dpvo-tech",
-    :source     "net/wikipunk/ext/dpv-owl/dpv-tech/dpv-tech.ttl"}
-  {:dcterms/abstract
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-tech/dpv-tech.ttl",
+   :dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "DPVO-TECH is an extension to the Data Privacy Vocabulary (OWL) that provides additional terms related to Technologies."},
@@ -31,9 +20,20 @@
    {:rdf/language "en",
     :rdf/value
     "DPVO-TECH: Extension providing Technology concepts for DPV (OWL)"},
+   :namespaces {"dcterms"   "http://purl.org/dc/terms/",
+                "dpvo"      "https://w3id.org/dpv/dpv-owl#",
+                "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
+                "owl"       "http://www.w3.org/2002/07/owl#",
+                "rdf"       "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"      "http://www.w3.org/2000/01/rdf-schema#",
+                "vann"      "http://purl.org/vocab/vann/",
+                "vs"        "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "xsd"       "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "dpvo-tech",
+   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-tech#",
    :vann/preferredNamespacePrefix "dpvo-tech",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-tech#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-tech"})

@@ -1,15 +1,4 @@
 (ns net.wikipunk.rdf.exif
-  ^{:base       "http://www.w3.org/2003/12/exif/ns#",
-    :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "ex"      "http://example.org/",
-                 "exif"    "http://www.w3.org/2003/12/exif/ns#",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix     "exif",
-    :source     "net/wikipunk/ext/exif.rdf"}
   {:dc11/description
    #{{:rdf/language "fr",
       :rdf/value
@@ -23,14 +12,25 @@
    :dc11/source {:xsd/anyURI "http://tsc.jeita.or.jp/avs/data/cp3451.pdf"},
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Exif data description vocabulary"},
+   :dcat/downloadURL "net/wikipunk/ext/exif.rdf",
    :dcterms/created {:rdf/language "en",
                      :rdf/value    "2003-07-18"},
    :dcterms/modified {:rdf/language "en",
                       :rdf/value    "2003-08-19"},
    :foaf/maker {:xsd/anyURI "urn:pin:MK705"},
+   :namespaces {"dc11"    "http://purl.org/dc/elements/1.1/",
+                "dcterms" "http://purl.org/dc/terms/",
+                "ex"      "http://example.org/",
+                "exif"    "http://www.w3.org/2003/12/exif/ns#",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Experimental version."},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "exif",
+   :rdfa/uri "http://www.w3.org/2003/12/exif/ns#",
    :xsd/anyURI "http://www.w3.org/2003/12/exif/ns"})
 
 (def IFD

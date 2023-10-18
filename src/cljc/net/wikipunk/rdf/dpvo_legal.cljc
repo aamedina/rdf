@@ -1,21 +1,6 @@
 (ns net.wikipunk.rdf.dpvo-legal
-  ^{:base       "https://w3id.org/dpv/dpv-owl/dpv-legal#",
-    :namespaces {"dcterms"    "http://purl.org/dc/terms/",
-                 "dpvo"       "https://w3id.org/dpv/dpv-owl#",
-                 "dpvo-gdpr"  "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-                 "dpvo-legal" "https://w3id.org/dpv/dpv-owl/dpv-legal#",
-                 "foaf"       "http://xmlns.com/foaf/0.1/",
-                 "owl"        "http://www.w3.org/2002/07/owl#",
-                 "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"       "http://www.w3.org/2004/02/skos/core#",
-                 "time"       "http://www.w3.org/2006/time#",
-                 "vann"       "http://purl.org/vocab/vann/",
-                 "vs"         "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"        "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "dpvo-legal",
-    :source     "net/wikipunk/ext/dpv-owl/dpv-legal/dpv-legal.ttl"}
-  {:dcterms/abstract
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/dpv-legal/dpv-legal.ttl",
+   :dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "DPV-LEGAL is an extension to the Data Privacy Vocabulary that provides additional terms related to Jurisdictions, Laws, and Authorities."},
@@ -34,9 +19,24 @@
    {:rdf/language "en",
     :rdf/value
     "DPV-LEGAL: Extension providing Jurisdictions, Laws, and Authorities for DPV"},
+   :namespaces {"dcterms"    "http://purl.org/dc/terms/",
+                "dpvo"       "https://w3id.org/dpv/dpv-owl#",
+                "dpvo-gdpr"  "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
+                "dpvo-legal" "https://w3id.org/dpv/dpv-owl/dpv-legal#",
+                "foaf"       "http://xmlns.com/foaf/0.1/",
+                "owl"        "http://www.w3.org/2002/07/owl#",
+                "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"       "http://www.w3.org/2004/02/skos/core#",
+                "time"       "http://www.w3.org/2006/time#",
+                "vann"       "http://purl.org/vocab/vann/",
+                "vs"         "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "xsd"        "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "dpvo-legal",
+   :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
    :vann/preferredNamespacePrefix "dpvo-legal",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/dpv-legal#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal"})

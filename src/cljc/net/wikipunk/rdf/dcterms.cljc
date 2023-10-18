@@ -1,18 +1,20 @@
 (ns net.wikipunk.rdf.dcterms
-  ^{:base       "http://purl.org/dc/terms/",
-    :namespaces {"dcam"    "http://purl.org/dc/dcam/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"    "http://www.w3.org/2004/02/skos/core#"},
-    :prefix     "dcterms",
-    :source     "net/wikipunk/boot/dublin_core_terms.ttl"}
-  {:dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
+  {:dcat/downloadURL  "net/wikipunk/boot/dublin_core_terms.ttl",
+   :dcterms/modified  #inst "2012-06-14T00:00:00.000-00:00",
    :dcterms/publisher {:xsd/anyURI "http://purl.org/dc/aboutdcmi#DCMI"},
    :dcterms/title     {:rdf/language "en",
                        :rdf/value    "DCMI Metadata Terms - other"},
+   :namespaces        {"dcam"    "http://purl.org/dc/dcam/",
+                       "dcterms" "http://purl.org/dc/terms/",
+                       "owl"     "http://www.w3.org/2002/07/owl#",
+                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                       "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type          :owl/Ontology,
+   :rdfa/prefix       "dcterms",
+   :rdfa/uri          "http://purl.org/dc/terms/",
+   :rdfs/isDefinedBy  {:xsd/anyURI
+                       "http://dublincore.org/documents/dcmi-terms/#H2"},
    :xsd/anyURI        "http://purl.org/dc/terms/"}
   (:refer-clojure :exclude [format type]))
 

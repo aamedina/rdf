@@ -1,21 +1,22 @@
 (ns net.wikipunk.rdf.og
-  ^{:base "http://ogp.me/ns#",
-    :namespaces {"bibo"  "http://purl.org/ontology/bibo/",
-                 "dc11"  "http://purl.org/dc/elements/1.1/",
-                 "foaf"  "http://xmlns.com/foaf/0.1/",
-                 "geo"   "http://www.w3.org/2003/01/geo/wgs84_pos#",
-                 "gr"    "http://purl.org/goodrelations/v1#",
-                 "og"    "http://ogp.me/ns#",
-                 "ogc"   "http://ogp.me/ns/class#",
-                 "owl"   "http://www.w3.org/2002/07/owl#",
-                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "vcard" "http://www.w3.org/2006/vcard/ns#",
-                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "og",
-    :source
-    "https://raw.githubusercontent.com/facebookarchive/open-graph-protocol/master/ns/ogp.me.rdf"}
-  {:rdf/type :owl/Ontology}
+  {:dcat/downloadURL
+   "https://raw.githubusercontent.com/facebookarchive/open-graph-protocol/master/ns/ogp.me.rdf",
+   :namespaces {"bibo"  "http://purl.org/ontology/bibo/",
+                "dc11"  "http://purl.org/dc/elements/1.1/",
+                "foaf"  "http://xmlns.com/foaf/0.1/",
+                "geo"   "http://www.w3.org/2003/01/geo/wgs84_pos#",
+                "gr"    "http://purl.org/goodrelations/v1#",
+                "og"    "http://ogp.me/ns#",
+                "ogc"   "http://ogp.me/ns/class#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "vcard" "http://www.w3.org/2006/vcard/ns#",
+                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type :owl/Ontology,
+   :rdfa/prefix "og",
+   :rdfa/uri "http://ogp.me/ns#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://ogp.me/"}}
   (:refer-clojure :exclude [type]))
 
 (def audio

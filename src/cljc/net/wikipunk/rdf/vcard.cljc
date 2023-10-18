@@ -1,21 +1,22 @@
 (ns net.wikipunk.rdf.vcard
-  ^{:base       "http://www.w3.org/2006/vcard/ns#",
-    :namespaces {"owl"   "http://www.w3.org/2002/07/owl#",
-                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "vcard" "http://www.w3.org/2006/vcard/ns#",
-                 "xml"   "http://www.w3.org/XML/1998/namespace",
-                 "xsd"   "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "vcard",
-    :source     "http://www.w3.org/2006/vcard/ns#"}
-  {:owl/versionInfo {:rdf/language "en",
+  {:namespaces {"owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "vcard" "http://www.w3.org/2006/vcard/ns#",
+                "xml"   "http://www.w3.org/XML/1998/namespace",
+                "xsd"   "http://www.w3.org/2001/XMLSchema#"},
+   :owl/versionInfo {:rdf/language "en",
                      :rdf/value    "Final"},
-   :rdf/type        :owl/Ontology,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Ontology for vCard based on RFC6350"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Ontology for vCard"},
-   :xsd/anyURI      "http://www.w3.org/2006/vcard/ns"}
+   :rdf/type :owl/Ontology,
+   :rdfa/prefix "vcard",
+   :rdfa/uri "http://www.w3.org/2006/vcard/ns#",
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Ontology for vCard based on RFC6350"},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI "http://www.w3.org/Submission/2010/SUBM-vcard-rdf-20100120/"},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Ontology for vCard"},
+   :xsd/anyURI "http://www.w3.org/2006/vcard/ns"}
   (:refer-clojure :exclude [agent class fn key]))
 
 (def Acquaintance

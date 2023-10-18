@@ -1,19 +1,20 @@
 (ns net.wikipunk.rdf.foaf
-  ^{:base "http://xmlns.com/foaf/0.1/",
-    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                 "foaf" "http://xmlns.com/foaf/0.1/",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "wot"  "http://xmlns.com/wot/0.1/"},
-    :prefix "foaf",
-    :source
-    "https://raw.githubusercontent.com/arachne-framework/aristotle/main/test/foaf.rdf"}
   {:dc11/description
    "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.",
    :dc11/title "Friend of a Friend (FOAF) vocabulary",
+   :dcat/downloadURL
+   "https://raw.githubusercontent.com/arachne-framework/aristotle/main/test/foaf.rdf",
+   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                "foaf" "http://xmlns.com/foaf/0.1/",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "wot"  "http://xmlns.com/wot/0.1/"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "foaf",
+   :rdfa/uri "http://xmlns.com/foaf/0.1/",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://xmlns.com/foaf/spec/"},
    :xsd/anyURI "http://xmlns.com/foaf/0.1/"}
   (:refer-clojure :exclude [name]))
 

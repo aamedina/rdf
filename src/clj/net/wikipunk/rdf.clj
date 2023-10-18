@@ -63,8 +63,9 @@
 (def ^:dynamic *ns-aliases*
   "Configured by `make-boot-context` holding a map of namespace
   aliases mapping prefixes to delays which when dereferenced return a
-  Clojure namespace or nil if none could be found."
-  {})
+  Clojure namespace. Some functions may create empty namespaces with
+  :rdf/type of :owl/Ontology."
+  nil)
 
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *output-to* "src/cljc/net/wikipunk/rdf/")
@@ -184,6 +185,21 @@
   []
   (filter #(isa? (mop/type-of (meta %)) :jsonld/Context) (all-ns)))
 
+(defn ns-prefix
+  [ns-name]
+  (str/replace (str ns-name) (re-pattern *ns-prefix*) ""))
+
+(defn ensure-ns
+  "Tries to require namespace using `ns-name`, else creates it and sets its prefix via metadata using the currently bound *ns-prefix*."
+  [ns-name]
+  (try
+    (require ns-name)
+    (catch java.io.FileNotFoundException ex
+      (create-ns ns-name)
+      (alter-meta! (find-ns ns-name) assoc :rdf/type :owl/Ontology)
+      (alter-var-root #'*ns-aliases* assoc (ns-prefix ns-name) (delay (find-ns ns-name)))))
+  (find-ns ns-name))
+
 (defn make-boot-context
   "A function which configures an Aristotle registry for bootstrapping
   RDF data.
@@ -221,11 +237,7 @@
                                (delay
                                  (some (fn [ns-prefix]
                                          (let [ns-name (symbol (str ns-prefix "." prefix))]
-                                           (try
-                                             (require ns-name)
-                                             (find-ns ns-name)
-                                             (catch java.io.FileNotFoundException ex
-                                               nil))))
+                                           (ensure-ns ns-name)))
                                        ns-prefixes))))))))
       {:registry   (reg/add-prefix {:prefixes  {}
                                     :prefixes' {}
@@ -535,23 +547,31 @@
 ;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
 ;; should be looked up.)
 
+(declare import-from)
+
 (defrecord UniversalTranslator [ns-prefix ; used to name the Clojure namespace when emitting 
                                 output-to ; used to configure the default path where namespaces are emitted
                                 context ; used to declare what namespaces should be in the boot context
                                 env ; the environment is where metaobjects are resolved
-                                finalize?]
+                                finalize?
+                                import-from]
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *output-to* (or output-to *output-to*)]
       (require 'net.wikipunk.mop.init)
+      (run! (fn [[from to]]
+              (net.wikipunk.rdf/import-from from to))
+            import-from)
       (let [all                           (all-ns-metaobjects)
             {:keys [registry ns-aliases]} (make-boot-context)
             hierarchies                   (make-hierarchies all)
             gen                           (atom nil)]
+        (when (:new-asami-db? env)
+          (asami/transact (:conn env) all))
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
-        (alter-var-root #'*ns-aliases* (constantly ns-aliases))        
+        (alter-var-root #'*ns-aliases* (constantly (merge *ns-aliases* ns-aliases)))
         (alter-var-root #'*metaobjects* (constantly hierarchies))
         (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         (alter-var-root #'mop/*env* (constantly env))
@@ -674,6 +694,10 @@
 
       ;; ignore unidentified namespaces
       (re-find #"^ns\d*$" (namespace k))
+      nil
+
+      ;; Do not return file extensions
+      (re-find #"\.\w+$" (name k))
       nil
 
       (or (= (last (name k)) \/)
@@ -1284,12 +1308,8 @@
               ~@(let [docstring (or (get-doc md) (:doc md))]
                   (when docstring
                     [docstring]))
-              ~(with-meta (or (get md :ontology) {:rdf/type :owl/Ontology})
-                 (cond-> {:namespaces (get md :namespaces)
-                          :base       (get md :rdfa/uri)
-                          :prefix     (get md :rdfa/prefix)
-                          :source     (or (get md :dcat/downloadURL)
-                                          (get md :rdfa/uri))}))
+              ~(merge (or (get md :ontology) {:rdf/type :owl/Ontology})
+                      (dissoc md :ontology :privates :resources :rdf/type))
               ~@(when (seq exclusions)
                   [(list :refer-clojure :exclude exclusions)]))
             forms)
@@ -1335,6 +1355,14 @@
                         (newline))))))))
       (zprint/zprint (unroll-forms model)))))
 
+(defn resolve-ns-alias
+  "Resolve bound value for a given prefix and named term if the ns
+  exists in *ns-aliases*."
+  [prefix term]
+  (some-> (get *ns-aliases* prefix)
+          (deref)
+          (ns-resolve (symbol term))))
+
 (defn find-obo-metaobject
   "Find a metaobject in the OBO namespace."
   [ident]
@@ -1342,7 +1370,8 @@
     (try
       (if (= prefix "APOLLO")
         (ns-resolve (get *ns-aliases* "APOLLO_SV") (unmunge ident))
-        (or (ns-resolve (get *ns-aliases* prefix) (unmunge ident))
+        (or (resolve-ns-alias "obo" (unmunge ident))
+            (ns-resolve (get *ns-aliases* prefix) (unmunge ident))
             (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident))
             (ns-resolve (get *ns-aliases* (str/upper-case prefix)) (unmunge ident))))
       (catch Throwable ex
@@ -1350,7 +1379,7 @@
           (if (and (contains? *ns-aliases* prefix)
                    (nil? (get *ns-aliases* prefix)))
             (do
-              (println "requiring" (str *ns-prefix* prefix))
+              (log/info (str "requiring " *ns-prefix* prefix))
               (require (symbol (str *ns-prefix* prefix)))
               (ns-resolve (symbol (str *ns-prefix* prefix)) (unmunge ident)))
             (throw (ex-info "Could not resolve OBO metaobject" {:ident ident}))))
@@ -1528,14 +1557,18 @@
 
 (defmethod import-from [clojure.lang.Symbol clojure.lang.Symbol]
   [from to]
-  (require from to)
-  (import-from (find-ns from) (find-ns to)))
+  (import-from (ensure-ns from) (ensure-ns to)))
 
 (defmethod import-from [clojure.lang.Namespace clojure.lang.Namespace]
   [from to]
   (->> (vals (ns-map from))
-       (filter (comp :private meta))
-       (filter (comp (partial = (:rdfa/prefix (meta to))) namespace :db/ident deref))
+       (filter (fn [v]
+                 (:private (meta v))))
+       (filter (fn [v]
+                 (some-> @v
+                         :db/ident
+                         namespace
+                         (= (ns-prefix to)))))
        (run! (fn [v]
                (intern to
                        (:name (meta v))

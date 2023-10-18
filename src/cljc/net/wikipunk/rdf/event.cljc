@@ -1,25 +1,25 @@
 (ns net.wikipunk.rdf.event
-  ^{:base "http://purl.org/NET/c4dm/event.owl#",
-    :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
-                 "event" "http://purl.org/NET/c4dm/event.owl#",
-                 "foaf"  "http://xmlns.com/foaf/0.1/",
-                 "geo"   "http://www.w3.org/2003/01/geo/wgs84_pos#",
-                 "owl"   "http://www.w3.org/2002/07/owl#",
-                 "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "time"  "http://www.w3.org/2006/time#",
-                 "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-    :prefix "event",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/event/versions/2007-10-25.n3"}
   {:dc11/date "$Date: 2007/06/29 15:25:11 $",
    :dc11/description
    "\n\t\tThis ontology deals with the notion of reified events---\n\t\tevents seen as first-class objects. It only defines one\n\t\tconcept: Event, which may have agents (actively\n\t\tparticipating), factors (passively participating), products,\n\t\tand a location in space and time. \n\n\t\tRegarding the ontological status of event tokens, they are seen\n\t\tas the way cognitive agents classify space/time regions\n\t",
    :dc11/title "The Event ontology",
+   :dcat/downloadURL
+   "https://lov.linkeddata.es/dataset/lov/vocabs/event/versions/2007-10-25.n3",
    :foaf/maker {:xsd/anyURI "http://moustaki.org/foaf.rdf#moustaki"},
+   :namespaces {"dc11"  "http://purl.org/dc/elements/1.1/",
+                "event" "http://purl.org/NET/c4dm/event.owl#",
+                "foaf"  "http://xmlns.com/foaf/0.1/",
+                "geo"   "http://www.w3.org/2003/01/geo/wgs84_pos#",
+                "owl"   "http://www.w3.org/2002/07/owl#",
+                "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+                "time"  "http://www.w3.org/2006/time#",
+                "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :owl/imports {:xsd/anyURI "http://www.w3.org/2006/time"},
    :owl/versionInfo "Revision: 1.01",
    :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfa/prefix "event",
+   :rdfa/uri "http://purl.org/NET/c4dm/event.owl#",
    :rdfs/label "The Event ontology",
    :xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}
   (:refer-clojure :exclude [agent time]))

@@ -1,14 +1,4 @@
 (ns net.wikipunk.rdf.ctag
-  ^{:base "http://commontag.org/ns#",
-    :namespaces {"ctag"    "http://commontag.org/ns#",
-                 "dc11"    "http://purl.org/dc/elements/1.1/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix "ctag",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/ctag/versions/2009-06-08.n3"}
   {:dc11/contributor #{"Vuk Milicic" "Andraz Tori" "Peter Mika"
                        "Alexandre Passant" "Scott Montgomerie" "Alex Iskold"
                        "Jamie Taylor"},
@@ -18,8 +8,19 @@
     "Common Tag RDF vocabulary, described using W3C RDF Schema. Common Tags allows documents and document fragments (any resource which can be identified by a URI) to be labeled with keywords and URIs, unambigiously idenfying the concepts covered by the resource."},
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Common Tag vocabulary"},
+   :dcat/downloadURL
+   "https://lov.linkeddata.es/dataset/lov/vocabs/ctag/versions/2009-06-08.n3",
    :dcterms/issued "2009-06-08",
+   :namespaces {"ctag"    "http://commontag.org/ns#",
+                "dc11"    "http://purl.org/dc/elements/1.1/",
+                "dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "ctag",
+   :rdfa/uri "http://commontag.org/ns#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://commontag.org/Specification"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Common Tag vocabulary"},
    :rdfs/seeAlso {:xsd/anyURI "http://commontag.org/mappings"},

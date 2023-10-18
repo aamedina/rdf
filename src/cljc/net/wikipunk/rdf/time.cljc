@@ -1,16 +1,7 @@
 (ns net.wikipunk.rdf.time
-  ^{:base "http://www.w3.org/2006/time#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"    "http://www.w3.org/2004/02/skos/core#",
-                 "time"    "http://www.w3.org/2006/time#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "time",
-    :source
-    "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time.ttl"}
-  {:dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
+  {:dcat/downloadURL
+   "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time.ttl",
+   :dcterms/contributor #{{:xsd/anyURI "mailto:chris.little@metoffice.gov.uk"}
                           {:xsd/anyURI
                            "https://orcid.org/0000-0001-8269-8171"}},
    :dcterms/created #inst "2006-09-27T00:00:00.000-00:00",
@@ -25,9 +16,20 @@
    {:rdf/language "en",
     :rdf/value
     "Copyright © 2006-2021 W3C, OGC. W3C and OGC liability, trademark and document use rules apply."},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"    "http://www.w3.org/2004/02/skos/core#",
+                "time"    "http://www.w3.org/2006/time#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/priorVersion :time/|2006|,
    :owl/versionIRI :time/|2016|,
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "time",
+   :rdfa/uri "http://www.w3.org/2006/time#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "https://www.w3.org/TR/2017/REC-owl-time-20171019/"},
    :rdfs/label #{{:rdf/language "es",
                   :rdf/value    "Tiempo en OWL"}
                  {:rdf/language "en",

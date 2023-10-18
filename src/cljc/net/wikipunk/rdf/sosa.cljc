@@ -1,19 +1,4 @@
 (ns net.wikipunk.rdf.sosa
-  ^{:base       "http://www.w3.org/ns/sosa/",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "schema"  "http://schema.org/",
-                 "skos"    "http://www.w3.org/2004/02/skos/core#",
-                 "sosa"    "http://www.w3.org/ns/sosa/",
-                 "time"    "http://www.w3.org/2006/time#",
-                 "vann"    "http://purl.org/vocab/vann/",
-                 "voaf"    "http://purl.org/vocommons/voaf#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "sosa",
-    :source     "http://www.w3.org/ns/sosa/"}
   {:dcterms/created #inst "2017-04-17T00:00:00.000-00:00",
    :dcterms/creator
    {:foaf/name {:rdf/language "en",
@@ -31,7 +16,23 @@
    :dcterms/title {:rdf/language "en",
                    :rdf/value
                    "Sensor, Observation, Sample, and Actuator (SOSA) Ontology"},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "schema"  "http://schema.org/",
+                "skos"    "http://www.w3.org/2004/02/skos/core#",
+                "sosa"    "http://www.w3.org/ns/sosa/",
+                "time"    "http://www.w3.org/2006/time#",
+                "vann"    "http://purl.org/vocab/vann/",
+                "voaf"    "http://purl.org/vocommons/voaf#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type #{:owl/Ontology :voaf/Vocabulary},
+   :rdfa/prefix "sosa",
+   :rdfa/uri "http://www.w3.org/ns/sosa/",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
    :vann/preferredNamespacePrefix "sosa",
    :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/",
    :xsd/anyURI "http://www.w3.org/ns/sosa/"})

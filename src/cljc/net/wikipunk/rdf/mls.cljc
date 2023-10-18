@@ -1,19 +1,18 @@
 (ns net.wikipunk.rdf.mls
-  ^{:base       "http://www.w3.org/ns/mls#",
-    :namespaces {"mls"  "http://www.w3.org/ns/mls#",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "xml"  "http://www.w3.org/XML/1998/namespace",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "mls",
-    :source     "http://www.w3.org/ns/mls#"}
   {:dcterms/description
    "ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiments",
    :dcterms/hasVersion 1,
    :dcterms/title "Machine Learning Schema",
+   :namespaces {"mls"  "http://www.w3.org/ns/mls#",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "xml"  "http://www.w3.org/XML/1998/namespace",
+                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI {:xsd/anyURI "http://www.w3.org/2016/03/mls#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "mls",
+   :rdfa/uri "http://www.w3.org/ns/mls#",
    :xsd/anyURI "http://www.w3.org/ns/mls#",
    {:xsd/anyURI
     "http://protege.stanford.edu/plugins/owl/protege#defaultLanguage"}

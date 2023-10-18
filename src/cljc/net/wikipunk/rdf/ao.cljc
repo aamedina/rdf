@@ -1,19 +1,4 @@
 (ns net.wikipunk.rdf.ao
-  ^{:base       "http://purl.org/ontology/ao/core#",
-    :namespaces {"ao"      "http://purl.org/ontology/ao/core#",
-                 "dc11"    "http://purl.org/dc/elements/1.1/",
-                 "dcterms" "http://purl.org/dc/terms/",
-                 "event"   "http://purl.org/NET/c4dm/event.owl#",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "rev"     "http://purl.org/stuff/rev#",
-                 "sim"     "http://purl.org/ontology/similarity/",
-                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "ao",
-    :source     "https://purl.org/ontology/ao/associationontology.owl"}
   {:dc11/creator #{{:xsd/anyURI "http://foaf.me/zazi#me"}
                    {:xsd/anyURI "http://tobyinkster.co.uk/#i"}},
    :dc11/date #inst "2010-09-13T12:59:52.000-00:00",
@@ -23,6 +8,19 @@
     "The Association Ontology specification provides basic properties \nfor describing specific associations to something, e.g. a context, an occasion, a genre or a mood, and enables furthermore, a mechanism to \nlike/rate and feedback these associations in context to something on/ for the Semantic Web. This document contains a RDF description \nof the Association Ontology."},
    :dc11/title {:rdf/language "en",
                 :rdf/value    "The Association Ontology"},
+   :dcat/downloadURL "https://purl.org/ontology/ao/associationontology.owl",
+   :namespaces {"ao"      "http://purl.org/ontology/ao/core#",
+                "dc11"    "http://purl.org/dc/elements/1.1/",
+                "dcterms" "http://purl.org/dc/terms/",
+                "event"   "http://purl.org/NET/c4dm/event.owl#",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "rev"     "http://purl.org/stuff/rev#",
+                "sim"     "http://purl.org/ontology/similarity/",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports #{{:xsd/anyURI "http://purl.org/stuff/rev"}
                   {:xsd/anyURI "http://www.w3.org/2003/06/sw-vocab-status/ns"}
                   {:xsd/anyURI "http://purl.org/dc/elements/1.1/"}
@@ -32,6 +30,8 @@
                   {:xsd/anyURI "http://purl.org/NET/c4dm/event.owl"}},
    :owl/versionInfo 0.4M,
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "ao",
+   :rdfa/uri "http://purl.org/ontology/ao/core#",
    :xsd/anyURI "http://purl.org/ontology/ao/core#"}
   (:refer-clojure :exclude [time]))
 

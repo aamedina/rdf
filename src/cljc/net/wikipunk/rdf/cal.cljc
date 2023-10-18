@@ -1,20 +1,21 @@
 (ns net.wikipunk.rdf.cal
-  ^{:base       "http://www.w3.org/2002/12/cal/icaltzd#",
-    :namespaces {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
-                 "dc11" "http://purl.org/dc/elements/1.1/",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
-                 "xhv"  "http://www.w3.org/1999/xhtml",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "cal",
-    :source     "https://www.w3.org/2002/12/cal/icaltzd.rdf"}
   {:dc11/source {:xsd/anyURI "http://www.ietf.org/rfc/rfc2445.txt"},
+   :dcat/downloadURL "https://www.w3.org/2002/12/cal/icaltzd.rdf",
+   :namespaces {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
+                "dc11" "http://purl.org/dc/elements/1.1/",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
+                "xhv"  "http://www.w3.org/1999/xhtml",
+                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo
    #{"$Id: icaltzd.rdf,v 1.6 2007/06/28 18:22:09 connolly Exp $"
      "subject to change with notice to www-rdf-calendar@w3.org"},
    :rdf/type :owl/Thing,
+   :rdfa/prefix "cal",
+   :rdfa/uri "http://www.w3.org/2002/12/cal/icaltzd#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/2002/12/cal/icaltzd#"},
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://lists.w3.org/Archives/Public/www-rdf-calendar/"}
                    {:xsd/anyURI "http://esw.w3.org/topic/RdfCalendar"}

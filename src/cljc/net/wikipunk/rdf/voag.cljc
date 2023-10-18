@@ -1,21 +1,21 @@
 (ns net.wikipunk.rdf.voag
-  ^{:base       "http://voag.linkedmodel.org/schema/voag#",
-    :namespaces {"dc11"     "http://purl.org/dc/elements/1.1/",
-                 "dtype"    "http://www.linkedmodel.org/schema/dtype#",
-                 "omv"      "http://omv.ontoware.org/2005/05/ontology#",
-                 "ontology" "http://omv.ontoware.org/2005/05/ontology#",
-                 "owl"      "http://www.w3.org/2002/07/owl#",
-                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"     "http://www.w3.org/2004/02/skos/core#",
-                 "vaem"     "http://www.linkedmodel.org/schema/vaem#",
-                 "voag"     "http://voag.linkedmodel.org/schema/voag#",
-                 "voag-1.0" "http://voag.linkedmodel.org/1.0/schema/voag#",
-                 "void"     "http://rdfs.org/ns/void#",
-                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "voag",
-    :source     "net/wikipunk/ext/voag.ttl"}
-  {:rdf/type :owl/Ontology})
+  {:dcat/downloadURL "net/wikipunk/ext/voag.ttl",
+   :namespaces       {"dc11"     "http://purl.org/dc/elements/1.1/",
+                      "dtype"    "http://www.linkedmodel.org/schema/dtype#",
+                      "omv"      "http://omv.ontoware.org/2005/05/ontology#",
+                      "ontology" "http://omv.ontoware.org/2005/05/ontology#",
+                      "owl"      "http://www.w3.org/2002/07/owl#",
+                      "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                      "skos"     "http://www.w3.org/2004/02/skos/core#",
+                      "vaem"     "http://www.linkedmodel.org/schema/vaem#",
+                      "voag"     "http://voag.linkedmodel.org/schema/voag#",
+                      "voag-1.0" "http://voag.linkedmodel.org/1.0/schema/voag#",
+                      "void"     "http://rdfs.org/ns/void#",
+                      "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "voag",
+   :rdfa/uri         "http://voag.linkedmodel.org/schema/voag#"})
 
 (def ACADEMIIC_FREE_LICENSE
   {:db/ident :voag/ACADEMIIC_FREE_LICENSE,

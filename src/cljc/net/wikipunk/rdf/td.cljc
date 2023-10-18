@@ -1,20 +1,4 @@
 (ns net.wikipunk.rdf.td
-  ^{:base       "https://www.w3.org/2019/wot/td#",
-    :namespaces {"dcterms"    "http://purl.org/dc/terms/",
-                 "foaf"       "http://xmlns.com/foaf/0.1/",
-                 "hctl"       "https://www.w3.org/2019/wot/hypermedia#",
-                 "jsonschema" "https://www.w3.org/2019/wot/json-schema#",
-                 "owl"        "http://www.w3.org/2002/07/owl#",
-                 "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
-                 "schema"     "http://schema.org/",
-                 "td"         "https://www.w3.org/2019/wot/td#",
-                 "vann"       "http://purl.org/vocab/vann/",
-                 "wotsec"     "https://www.w3.org/2019/wot/security#",
-                 "xml"        "http://www.w3.org/XML/1998/namespace",
-                 "xsd"        "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "td",
-    :source     "https://www.w3.org/2019/wot/td#"}
   {:dcterms/author {:xsd/anyURI "https://vcharpenay.link/#me"},
    :dcterms/contributor #{{:xsd/anyURI "http://purl.org/net/mpoveda"}
                           {:xsd/anyURI "http://maxime-lefrancois.info/me#"}},
@@ -24,8 +8,23 @@
                        :schema/url  {:xsd/anyURI "https://www.w3.org/WoT/WG/"}},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Thing Description Ontology"},
+   :namespaces {"dcterms"    "http://purl.org/dc/terms/",
+                "foaf"       "http://xmlns.com/foaf/0.1/",
+                "hctl"       "https://www.w3.org/2019/wot/hypermedia#",
+                "jsonschema" "https://www.w3.org/2019/wot/json-schema#",
+                "owl"        "http://www.w3.org/2002/07/owl#",
+                "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+                "schema"     "http://schema.org/",
+                "td"         "https://www.w3.org/2019/wot/td#",
+                "vann"       "http://purl.org/vocab/vann/",
+                "wotsec"     "https://www.w3.org/2019/wot/security#",
+                "xml"        "http://www.w3.org/XML/1998/namespace",
+                "xsd"        "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "0.9.0",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "td",
+   :rdfa/uri "https://www.w3.org/2019/wot/td#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -102,13 +101,15 @@
 
 (def baseURI
   {:db/ident :td/baseURI,
-   :rdf/type :owl/AnnotationProperty,
+   :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "Define the base URI that is used for all relative URI references throughout a TD document. In TD instances, all relative URIs are resolved relative to the base URI using the algorithm defined in [RFC3986]. base does not affect the URIs used in @context and the IRIs used within Linked Data [LINKED-DATA] graphs that are relevant when semantic processing is applied to TD instances."},
    :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/2019/wot/td"},
-   :rdfs/label "baseURI"})
+   :rdfs/label "baseURI",
+   :schema/domainIncludes :td/Thing,
+   :schema/rangeIncludes :schema/URL})
 
 (def cancelAction
   {:db/ident         :td/cancelAction,
@@ -154,13 +155,14 @@
 
 (def followsProfile
   {:db/ident :td/followsProfile,
-   :rdf/type :owl/AnnotationProperty,
+   :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "Indicates the WoT Profile mechanisms followed by this Thing Description and the corresponding Thing implementation."},
    :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/2019/wot/td"},
-   :rdfs/label "followsProfile"})
+   :rdfs/label "followsProfile",
+   :schema/domainIncludes :td/Thing})
 
 (def hasActionAffordance
   {:db/ident :td/hasActionAffordance,
@@ -326,12 +328,13 @@
 
 (def instance
   {:db/ident         :td/instance,
-   :rdf/type         :owl/AnnotationProperty,
+   :rdf/type         :owl/DatatypeProperty,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "Provides a version identicator of this TD instance."},
    :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       "instance"})
+   :rdfs/label       "instance",
+   :schema/domainIncludes :td/Thing})
 
 (def invokeAction
   {:db/ident         :td/invokeAction,
@@ -392,12 +395,13 @@
 
 (def model
   {:db/ident         :td/model,
-   :rdf/type         :owl/AnnotationProperty,
+   :rdf/type         :owl/DatatypeProperty,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "Provides a version indicator of the underlying TM."},
    :rdfs/isDefinedBy {:xsd/anyURI "https://www.w3.org/2019/wot/td"},
-   :rdfs/label       "model"})
+   :rdfs/label       "model",
+   :schema/domainIncludes :td/Thing})
 
 (def name
   {:db/ident :td/name,

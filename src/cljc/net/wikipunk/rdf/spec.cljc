@@ -1,6 +1,5 @@
 (ns net.wikipunk.rdf.spec
-  ^{:base       "http://www.w3.org/2002/12/cal/icalSpec#",
-    :namespaces {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
+  {:namespaces  {"cal"  "http://www.w3.org/2002/12/cal/icaltzd#",
                  "dc11" "http://purl.org/dc/elements/1.1/",
                  "owl"  "http://www.w3.org/2002/07/owl#",
                  "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -8,9 +7,9 @@
                  "spec" "http://www.w3.org/2002/12/cal/icalSpec#",
                  "xhv"  "http://www.w3.org/1999/xhtml",
                  "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "spec",
-    :source     "http://www.w3.org/2002/12/cal/icalSpec#"}
-  {:rdf/type :owl/Ontology}
+   :rdf/type    :owl/Ontology,
+   :rdfa/prefix "spec",
+   :rdfa/uri    "http://www.w3.org/2002/12/cal/icalSpec#"}
   (:refer-clojure :exclude [class comment repeat sequence]))
 
 (def Valarm

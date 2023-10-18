@@ -1,18 +1,4 @@
 (ns net.wikipunk.rdf.frbr
-  ^{:base       "http://purl.org/vocab/frbr/core#",
-    :namespaces {"cc"       "http://web.resource.org/cc/",
-                 "dc11"     "http://purl.org/dc/elements/1.1/",
-                 "dcmitype" "http://purl.org/dc/dcmitype/",
-                 "dcterms"  "http://purl.org/dc/terms/",
-                 "frbr"     "http://purl.org/vocab/frbr/core#",
-                 "owl"      "http://www.w3.org/2002/07/owl#",
-                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"     "http://www.w3.org/2004/02/skos/core#",
-                 "vann"     "http://purl.org/vocab/vann/",
-                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "frbr",
-    :source     "net/wikipunk/ext/frbr-core-20050810.rdf"}
   {:dc11/contributor "Bruce D'Arcus",
    :dc11/creator #{"Ian Davis <http://purl.org/NET/iand>" "Richard Newman"},
    :dc11/date #inst "2005-08-10T00:00:00.000-00:00",
@@ -20,13 +6,27 @@
    :dc11/rights "Copyright © 2005 Richard Newman and Ian Davis",
    :dc11/title {:rdf/language "en",
                 :rdf/value    "Expression of Core FRBR Concepts in RDF"},
+   :dcat/downloadURL "net/wikipunk/ext/frbr-core-20050810.rdf",
    :dcterms/hasFormat
    #{{:xsd/anyURI "http://purl.org/vocab/frbr/frbr-core-20050810.html"}
      {:xsd/anyURI "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"}},
    :dcterms/issued #inst "2005-07-15T00:00:00.000-00:00",
    :dcterms/replaces {:xsd/anyURI
                       "http://purl.org/vocab/frbr/frbr-core-20050809"},
+   :namespaces {"cc"       "http://web.resource.org/cc/",
+                "dc11"     "http://purl.org/dc/elements/1.1/",
+                "dcmitype" "http://purl.org/dc/dcmitype/",
+                "dcterms"  "http://purl.org/dc/terms/",
+                "frbr"     "http://purl.org/vocab/frbr/core#",
+                "owl"      "http://www.w3.org/2002/07/owl#",
+                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"     "http://www.w3.org/2004/02/skos/core#",
+                "vann"     "http://purl.org/vocab/vann/",
+                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "frbr",
+   :rdfa/uri "http://purl.org/vocab/frbr/core#",
    :rdfs/comment
    #{{:rdf/language "en",
       :rdf/value

@@ -1,19 +1,4 @@
 (ns net.wikipunk.rdf.dcat
-  ^{:base       "http://www.w3.org/ns/dcat#",
-    :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
-                 "dcmitype" "http://purl.org/dc/dcmitype/",
-                 "dcterms"  "http://purl.org/dc/terms/",
-                 "foaf"     "http://xmlns.com/foaf/0.1/",
-                 "owl"      "http://www.w3.org/2002/07/owl#",
-                 "prov"     "http://www.w3.org/ns/prov#",
-                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                 "schema"   "http://schema.org/",
-                 "skos"     "http://www.w3.org/2004/02/skos/core#",
-                 "vcard"    "http://www.w3.org/2006/vcard/ns#",
-                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "dcat",
-    :source     "http://www.w3.org/ns/dcat#"}
   {:dcterms/contributor
    #{{:foaf/homepage {:xsd/anyURI "https://jakub.klímek.com/"},
       :foaf/name     "Jakub Klímek",
@@ -80,6 +65,18 @@
      #inst "2021-09-14T00:00:00.000-00:00"},
    :foaf/maker {:foaf/homepage {:xsd/anyURI "http://www.w3.org/2011/gld/"},
                 :foaf/name     "Government Linked Data WG"},
+   :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
+                "dcmitype" "http://purl.org/dc/dcmitype/",
+                "dcterms"  "http://purl.org/dc/terms/",
+                "foaf"     "http://xmlns.com/foaf/0.1/",
+                "owl"      "http://www.w3.org/2002/07/owl#",
+                "prov"     "http://www.w3.org/ns/prov#",
+                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                "schema"   "http://schema.org/",
+                "skos"     "http://www.w3.org/2004/02/skos/core#",
+                "vcard"    "http://www.w3.org/2006/vcard/ns#",
+                "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports #{{:xsd/anyURI "http://www.w3.org/ns/prov-o#"}
                   {:xsd/anyURI "http://purl.org/dc/terms/"}
                   {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"}},
@@ -100,6 +97,8 @@
       :rdf/value
       "Toto je aktualizovaná kopie slovníku DCAT verze 2.0, převzatá z https://www.w3.org/ns/dcat.ttl"}},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "dcat",
+   :rdfa/uri "http://www.w3.org/ns/dcat#",
    :rdfs/comment
    #{{:rdf/language "en",
       :rdf/value
@@ -128,6 +127,7 @@
      {:rdf/language "da",
       :rdf/value
       "DCAT er et RDF-vokabular som har til formål at understøtte interoperabilitet mellem datakataloger udgivet på nettet. Ved at anvende DCAT til at beskrive datasæt i datakataloger, kan udgivere øge findbarhed og gøre det gøre det lettere for applikationer at anvende metadata fra forskellige kataloger. Derudover understøttes decentraliseret udstilling af kataloger og fødererede datasætsøgninger på tværs af websider. Aggregerede DCAT-metadata kan fungere som fortegnelsesfiler der kan understøtte digital bevaring. DCAT er defineret på http://www.w3.org/TR/vocab-dcat/. Enhver forskel mellem det normative dokument og dette schema er en fejl i dette schema."}},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/vocab-dcat/"},
    :rdfs/label #{{:rdf/language "ja",
                   :rdf/value    "データ・カタログ語彙（DCAT）"}
                  {:rdf/language "fr",

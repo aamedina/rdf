@@ -1,14 +1,4 @@
 (ns net.wikipunk.rdf.vs
-  ^{:base       "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                 "foaf" "http://xmlns.com/foaf/0.1/",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "vann" "http://purl.org/vocab/vann/",
-                 "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-    :prefix     "vs",
-    :source     "http://www.w3.org/2003/06/sw-vocab-status/ns#"}
   {:dc11/contributor "Pierre-Yves Vandenbussche",
    :dc11/creator #{"Leigh Dodds" "Dan Brickley" "Libby Miller"},
    :dc11/description
@@ -16,7 +6,16 @@
    :dc11/issued #inst "2003-06-01T00:00:00.000-00:00",
    :dc11/modified #inst "2011-12-12T00:00:00.000-00:00",
    :dc11/title "SemWeb Vocab Status ontology",
+   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                "foaf" "http://xmlns.com/foaf/0.1/",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "vann" "http://purl.org/vocab/vann/",
+                "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "vs",
+   :rdfa/uri "http://www.w3.org/2003/06/sw-vocab-status/ns#",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value

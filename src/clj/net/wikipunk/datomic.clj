@@ -93,10 +93,30 @@
                                                     :else (dissoc form :db/id))
                                                   form))
                                               (dissoc (d/pull env *pull* ident) :db/ident))
-                                (walk/postwalk rdf/walk-rdf-list)))]
+                                (walk/postwalk (fn [form]
+                                                 (cond
+                                                   (and (sequential? form)
+                                                        (not (map-entry? form)))
+                                                   (if (== (count form) 1)
+                                                     (first form)
+                                                     (set form))
+                                                   
+                                                   :else form)))
+                                (walk/postwalk rdf/walk-rdf-list)
+                                (walk/postwalk (fn [form]
+                                                 (cond
+                                                   (and (:rdf/value form)
+                                                        (== (count form) 1))
+                                                   (:rdf/value form)
+
+                                                   :else form)))))]
+    
     (cond-> (assoc m :db/ident ident)
       (:rdf/type m)
-      (update :rdf/type #(filterv keyword? %)))))
+      (update :rdf/type (fn [rdf-type]
+                          (if (coll? rdf-type)
+                            (set (filter keyword? rdf-type))
+                            rdf-type))))))
 
 (defn- pull-simple
   [env selector id]

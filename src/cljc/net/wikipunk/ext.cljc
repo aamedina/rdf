@@ -797,3 +797,21 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.w3.org/ns/dx/prof/role/",
    :rdfa/prefix "role"})
+
+(def aio
+  {:rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "https://w3id.org/aio/"
+   :rdfa/prefix      "aio"
+   :dcat/downloadURL "net/wikipunk/ext/aio.owl"
+   :private          true})
+
+(def obo
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://purl.obolibrary.org/obo/"
+   :rdfa/prefix "obo"
+   :emit        false})
+
+(def oboInOwl
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.geneontology.org/formats/oboInOwl#"
+   :rdfa/prefix "oboInOwl"})

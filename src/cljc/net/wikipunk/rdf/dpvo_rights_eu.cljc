@@ -1,18 +1,6 @@
 (ns net.wikipunk.rdf.dpvo-rights-eu
-  ^{:base       "https://w3id.org/dpv/dpv-owl/rights/eu#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "dpvo" "https://w3id.org/dpv/dpv-owl#",
-                 "dpvo-rights-eu" "https://w3id.org/dpv/dpv-owl/rights/eu#",
-                 "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
-                 "owl" "http://www.w3.org/2002/07/owl#",
-                 "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "vann" "http://purl.org/vocab/vann/",
-                 "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "xsd" "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "dpvo-rights-eu",
-    :source     "net/wikipunk/ext/dpv-owl/rights/eu/rights-eu.ttl"}
-  {:dcterms/abstract
+  {:dcat/downloadURL "net/wikipunk/ext/dpv-owl/rights/eu/rights-eu.ttl",
+   :dcterms/abstract
    {:rdf/language "en",
     :rdf/value
     "A vocabulary providing EU Fundamental Rights as concepts that can be used with DPV-OWL"},
@@ -29,9 +17,21 @@
    :dcterms/source {:xsd/anyURI "https://www.w3.org/community/dpvcg/"},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "EU Fundamental Rights"},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "dpvo" "https://w3id.org/dpv/dpv-owl#",
+                "dpvo-rights-eu" "https://w3id.org/dpv/dpv-owl/rights/eu#",
+                "dpvo-tech" "https://w3id.org/dpv/dpv-owl/dpv-tech#",
+                "owl" "http://www.w3.org/2002/07/owl#",
+                "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "vann" "http://purl.org/vocab/vann/",
+                "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :owl/imports {:xsd/anyURI "https://w3id.org/dpv/dpv-owl"},
    :owl/versionInfo "0.8.2",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "dpvo-rights-eu",
+   :rdfa/uri "https://w3id.org/dpv/dpv-owl/rights/eu#",
    :vann/preferredNamespacePrefix "dpvo-rights-eu",
    :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl/rights/eu#",
    :xsd/anyURI "https://w3id.org/dpv/dpv-owl/rights/eu"})

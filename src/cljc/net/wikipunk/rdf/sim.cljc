@@ -1,26 +1,26 @@
 (ns net.wikipunk.rdf.sim
-  ^{:base "http://purl.org/ontology/similarity/",
-    :namespaces {"dc11"    "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "log"     "http://www.w3.org/2000/10/swap/log#",
-                 "mo"      "http://purl.org/ontology/mo/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "owl2xml" "http://www.w3.org/2006/12/owl2-xml#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "sim"     "http://purl.org/ontology/similarity/",
-                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "wordnet" "http://xmlns.com/wordnet/1.6/",
-                 "xml"     "http://www.w3.org/XML/1998/namespace",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "sim",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/sim/versions/2010-03-10.n3"}
   {:dc11/creator #{{:xsd/anyURI "http://moustaki.org/foaf.rdf#moustaki"}
                    {:xsd/anyURI "http://kurtisrandom.com/foaf.rdf#kurtjx"}},
    :dc11/title "The Similarity Ontology",
+   :dcat/downloadURL
+   "https://lov.linkeddata.es/dataset/lov/vocabs/sim/versions/2010-03-10.n3",
+   :namespaces {"dc11"    "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "log"     "http://www.w3.org/2000/10/swap/log#",
+                "mo"      "http://purl.org/ontology/mo/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "owl2xml" "http://www.w3.org/2006/12/owl2-xml#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "sim"     "http://purl.org/ontology/similarity/",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "wordnet" "http://xmlns.com/wordnet/1.6/",
+                "xml"     "http://www.w3.org/XML/1998/namespace",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "Revision: 0.2.02",
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "sim",
+   :rdfa/uri "http://purl.org/ontology/similarity/",
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value

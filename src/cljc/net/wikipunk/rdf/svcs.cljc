@@ -1,18 +1,17 @@
 (ns net.wikipunk.rdf.svcs
-  ^{:base       "http://rdfs.org/sioc/services#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "sioc"    "http://rdfs.org/sioc/ns#",
-                 "svcs"    "http://rdfs.org/sioc/services#"},
-    :prefix     "svcs",
-    :source     "http://rdfs.org/sioc/services#"}
   {:dcterms/description
    "Extends the SIOC Core Ontology (Semantically-Interlinked Online Communities) by defining basic information on community-related web services.",
    :dcterms/title "SIOC Services Ontology Module Namespace",
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "sioc"    "http://rdfs.org/sioc/ns#",
+                "svcs"    "http://rdfs.org/sioc/services#"},
    :owl/imports {:xsd/anyURI "http://rdfs.org/sioc/ns#"},
    :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfa/prefix "svcs",
+   :rdfa/uri "http://rdfs.org/sioc/services#",
    :rdfs/seeAlso {:xsd/anyURI "http://rdfs.org/sioc/spec/#sec-modules"},
    :xsd/anyURI "http://rdfs.org/sioc/services#"})
 

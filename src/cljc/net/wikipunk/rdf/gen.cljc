@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.gen
-  ^{:base       "http://www.w3.org/2006/gen/ont#",
-    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                 "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
-                 "gen"  "http://www.w3.org/2000/01/rdf-schema#",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix     "gen",
-    :source     "net/wikipunk/ext/gen.rdf"}
-  {:rdf/type :owl/Ontology})
+  {:dcat/downloadURL "net/wikipunk/ext/gen.rdf",
+   :namespaces       {"dc11" "http://purl.org/dc/elements/1.1/",
+                      "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
+                      "gen"  "http://www.w3.org/2000/01/rdf-schema#",
+                      "owl"  "http://www.w3.org/2002/07/owl#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "gen",
+   :rdfa/uri         "http://www.w3.org/2006/gen/ont#"})
 
 (def ContentTypeGenericResource
   {:db/ident :gen/ContentTypeGenericResource,

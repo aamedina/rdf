@@ -1,23 +1,25 @@
 (ns net.wikipunk.rdf.sioc
-  ^{:base       "http://rdfs.org/sioc/ns#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "sioc"    "http://rdfs.org/sioc/ns#",
-                 "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                 "wot"     "http://xmlns.com/wot/0.1/"},
-    :prefix     "sioc",
-    :source     "net/wikipunk/boot/sioc.rdf"}
-  {:dcterms/description
+  {:dcat/downloadURL "net/wikipunk/boot/sioc.rdf",
+   :dcterms/description
    {:rdf/language "en",
     :rdf/value
     "SIOC (Semantically-Interlinked Online Communities) is an ontology for describing the information in online communities. \nThis information can be used to export information from online communities and to link them together. The scope of the application areas that SIOC can be used for includes (and is not limited to) weblogs, message boards, mailing lists and chat channels."},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "SIOC Core Ontology Namespace"},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "sioc"    "http://rdfs.org/sioc/ns#",
+                "vs"      "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+                "wot"     "http://xmlns.com/wot/0.1/"},
    :owl/versionInfo "Revision: 1.36",
    :rdf/type #{:owl/Thing :owl/Ontology},
+   :rdfa/prefix "sioc",
+   :rdfa/uri "http://rdfs.org/sioc/ns#",
+   :rdfs/isDefinedBy
+   {:xsd/anyURI "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"},
    :rdfs/seeAlso {:xsd/anyURI "http://rdfs.org/sioc/spec"},
    :xsd/anyURI "http://rdfs.org/sioc/ns#"}
   (:refer-clojure :exclude [name]))

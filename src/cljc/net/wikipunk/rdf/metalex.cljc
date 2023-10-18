@@ -1,15 +1,15 @@
 (ns net.wikipunk.rdf.metalex
-  ^{:base       "http://www.metalex.eu/metalex-cen.owl#",
-    :namespaces {"metalex"  "http://www.metalex.eu/metalex/2008-05-02#",
-                 "owl"      "http://www.w3.org/2002/07/owl#",
-                 "owl11"    "http://www.w3.org/2006/12/owl11#",
-                 "owl11xml" "http://www.w3.org/2006/12/owl11-xml#",
-                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                 "xsd"      "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "metalex",
-    :source     "http://www.metalex.eu/metalex-cen.owl"}
-  {:rdf/type :owl/Ontology}
+  {:dcat/downloadURL "http://www.metalex.eu/metalex-cen.owl",
+   :namespaces       {"metalex"  "http://www.metalex.eu/metalex/2008-05-02#",
+                      "owl"      "http://www.w3.org/2002/07/owl#",
+                      "owl11"    "http://www.w3.org/2006/12/owl11#",
+                      "owl11xml" "http://www.w3.org/2006/12/owl11-xml#",
+                      "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                      "xsd"      "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "metalex",
+   :rdfa/uri         "http://www.metalex.eu/metalex-cen.owl#"}
   (:refer-clojure :exclude [agent]))
 
 (def Action

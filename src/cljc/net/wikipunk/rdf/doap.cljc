@@ -1,15 +1,4 @@
 (ns net.wikipunk.rdf.doap
-  ^{:base "http://usefulinc.com/ns/doap#",
-    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                 "doap" "http://usefulinc.com/ns/doap#",
-                 "foaf" "http://xmlns.com/foaf/0.1/",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-    :prefix "doap",
-    :source
-    "https://raw.githubusercontent.com/ewilderj/doap/master/schema/doap.rdf"}
   {:dc11/creator "Edd Wilder-James",
    :dc11/description
    #{"The Description of a Project (DOAP) vocabulary, described using W3C RDF Schema and the Web Ontology Language."
@@ -31,11 +20,22 @@
    :dc11/format "application/rdf+xml",
    :dc11/rights "Copyright © The DOAP Authors",
    :dc11/title "Description of a Project (DOAP) vocabulary",
+   :dcat/downloadURL
+   "https://raw.githubusercontent.com/ewilderj/doap/master/schema/doap.rdf",
    :foaf/maker {:foaf/mbox {:xsd/anyURI "mailto:edd@usefulinc.com"},
                 :foaf/name "Edd Wilder-James",
                 :rdf/type  :foaf/Person},
+   :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
+                "doap" "http://usefulinc.com/ns/doap#",
+                "foaf" "http://xmlns.com/foaf/0.1/",
+                "owl"  "http://www.w3.org/2002/07/owl#",
+                "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "vs"   "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :owl/imports :foaf/index.rdf,
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "doap",
+   :rdfa/uri "http://usefulinc.com/ns/doap#",
    :xsd/anyURI "http://usefulinc.com/ns/doap#"}
   (:refer-clojure :exclude [name]))
 

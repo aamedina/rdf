@@ -1,15 +1,16 @@
 (ns net.wikipunk.rdf.rdfs
-  ^{:base       "http://www.w3.org/2000/01/rdf-schema#",
-    :namespaces {"dc11" "http://purl.org/dc/elements/1.1/",
-                 "owl"  "http://www.w3.org/2002/07/owl#",
-                 "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix     "rdfs",
-    :source     "http://www.w3.org/2000/01/rdf-schema#"}
-  {:dc11/title   "The RDF Schema vocabulary (RDFS)",
-   :rdf/type     :owl/Ontology,
-   :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema-more"},
-   :xsd/anyURI   "http://www.w3.org/2000/01/rdf-schema#"}
+  {:dc11/title       "The RDF Schema vocabulary (RDFS)",
+   :namespaces       {"dc11" "http://purl.org/dc/elements/1.1/",
+                      "owl"  "http://www.w3.org/2002/07/owl#",
+                      "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                      "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/type         :owl/Ontology,
+   :rdfa/prefix      "rdfs",
+   :rdfa/uri         "http://www.w3.org/2000/01/rdf-schema#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/2004/REC-rdf-mt-20040210/"},
+   :rdfs/seeAlso     {:xsd/anyURI "http://www.w3.org/2000/01/rdf-schema-more"},
+   :xsd/anyURI       "http://www.w3.org/2000/01/rdf-schema#"}
   (:refer-clojure :exclude [comment range]))
 
 (def T

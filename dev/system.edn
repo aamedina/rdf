@@ -13,4 +13,6 @@
           :output-to    "src/cljc/net/wikipunk/rdf/"
           :context      [net.wikipunk.boot
                          net.wikipunk.ext]
-          :finalize?    true}}
+          :finalize?    true
+          ;; example of how to import from a namespace to another if necessary 
+          :import-from  {net.wikipunk.rdf.aio net.wikipunk.rdf.obo}}}

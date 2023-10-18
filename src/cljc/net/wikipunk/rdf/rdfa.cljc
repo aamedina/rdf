@@ -1,14 +1,4 @@
 (ns net.wikipunk.rdf.rdfa
-  ^{:base       "http://www.w3.org/ns/rdfa#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "foaf"    "http://xmlns.com/foaf/0.1/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfa"    "http://www.w3.org/ns/rdfa#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-    :prefix     "rdfa",
-    :source     "http://www.w3.org/ns/rdfa#"}
   {:dcterms/creator {:xsd/anyURI "http://www.ivan-herman.net/foaf#me"},
    :dcterms/date "2013-01-18",
    :dcterms/description
@@ -16,10 +6,18 @@
    :dcterms/publisher {:xsd/anyURI "http://www.w3.org/data#W3C"},
    :dcterms/title
    "RDFa Vocabulary for Term and Prefix Assignment, and for Processor Graph Reporting",
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "foaf"    "http://xmlns.com/foaf/0.1/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfa"    "http://www.w3.org/ns/rdfa#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionInfo "$Date: 2013-03-11 07:54:23 $",
    :rdf/type :owl/Ontology,
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://www.w3.org/TR/rdfa-core/#s_initialcontexts"},
+   :rdfa/prefix "rdfa",
+   :rdfa/uri "http://www.w3.org/ns/rdfa#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/rdfa-core/"},
    :xsd/anyURI "http://www.w3.org/ns/rdfa#"})
 
 (def DocumentError

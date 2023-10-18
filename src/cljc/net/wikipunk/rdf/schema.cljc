@@ -1,18 +1,20 @@
 (ns net.wikipunk.rdf.schema
-  ^{:base       "http://schema.org/",
-    :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
-                 "dcmitype" "http://purl.org/dc/dcmitype/",
-                 "dcterms"  "http://purl.org/dc/terms/",
-                 "foaf"     "http://xmlns.com/foaf/0.1/",
-                 "owl"      "http://www.w3.org/2002/07/owl#",
-                 "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
-                 "schema"   "http://schema.org/",
-                 "skos"     "http://www.w3.org/2004/02/skos/core#",
-                 "void"     "http://rdfs.org/ns/void#"},
-    :prefix     "schema",
-    :source     "https://schema.org/version/latest/schemaorg-current-http.ttl"}
-  {:rdf/type :owl/Ontology}
+  {:dcat/downloadURL
+   "https://schema.org/version/latest/schemaorg-current-http.ttl",
+   :namespaces {"dcat"     "http://www.w3.org/ns/dcat#",
+                "dcmitype" "http://purl.org/dc/dcmitype/",
+                "dcterms"  "http://purl.org/dc/terms/",
+                "foaf"     "http://xmlns.com/foaf/0.1/",
+                "owl"      "http://www.w3.org/2002/07/owl#",
+                "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                "schema"   "http://schema.org/",
+                "skos"     "http://www.w3.org/2004/02/skos/core#",
+                "void"     "http://rdfs.org/ns/void#"},
+   :rdf/type :owl/Ontology,
+   :rdfa/prefix "schema",
+   :rdfa/uri "http://schema.org/",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://schema.org/docs/full.html"}}
   (:refer-clojure :exclude [agent comment map name parents]))
 
 (def AMRadioChannel
@@ -4121,7 +4123,7 @@
   {:db/ident :schema/HealthInsurancePlan,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A US-style health insurance plan, including PPOs, EPOs, and HMOs. ",
+   "A US-style health insurance plan, including PPOs, EPOs, and HMOs.",
    :rdfs/label "HealthInsurancePlan",
    :rdfs/subClassOf :schema/Intangible,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -4143,7 +4145,7 @@
   {:db/ident :schema/HealthPlanFormulary,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "For a given health insurance plan, the specification for costs and coverage of prescription drugs. ",
+   "For a given health insurance plan, the specification for costs and coverage of prescription drugs.",
    :rdfs/label "HealthPlanFormulary",
    :rdfs/subClassOf :schema/Intangible,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -4153,7 +4155,7 @@
 (def HealthPlanNetwork
   {:db/ident        :schema/HealthPlanNetwork,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    "A US-style health insurance plan network. ",
+   :rdfs/comment    "A US-style health insurance plan network.",
    :rdfs/label      "HealthPlanNetwork",
    :rdfs/subClassOf :schema/Intangible,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -11006,7 +11008,7 @@
 (def WearableMeasurementBack
   {:db/ident        :schema/WearableMeasurementBack,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the back section, for example of a jacket",
+   :rdfs/comment    "Measurement of the back section, for example of a jacket.",
    :rdfs/label      "WearableMeasurementBack",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11015,7 +11017,8 @@
 (def WearableMeasurementChestOrBust
   {:db/ident :schema/WearableMeasurementChestOrBust,
    :rdf/type :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment "Measurement of the chest/bust section, for example of a suit",
+   :rdfs/comment
+   "Measurement of the chest/bust section, for example of a suit.",
    :rdfs/label "WearableMeasurementChestOrBust",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source {:xsd/anyURI
@@ -11024,7 +11027,7 @@
 (def WearableMeasurementCollar
   {:db/ident        :schema/WearableMeasurementCollar,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the collar, for example of a shirt",
+   :rdfs/comment    "Measurement of the collar, for example of a shirt.",
    :rdfs/label      "WearableMeasurementCollar",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11033,7 +11036,7 @@
 (def WearableMeasurementCup
   {:db/ident        :schema/WearableMeasurementCup,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the cup, for example of a bra",
+   :rdfs/comment    "Measurement of the cup, for example of a bra.",
    :rdfs/label      "WearableMeasurementCup",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11043,7 +11046,7 @@
   {:db/ident :schema/WearableMeasurementHeight,
    :rdf/type :schema/WearableMeasurementTypeEnumeration,
    :rdfs/comment
-   "Measurement of the height, for example the heel height of a shoe",
+   "Measurement of the height, for example the heel height of a shoe.",
    :rdfs/label "WearableMeasurementHeight",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source {:xsd/anyURI
@@ -11052,7 +11055,7 @@
 (def WearableMeasurementHips
   {:db/ident        :schema/WearableMeasurementHips,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the hip section, for example of a skirt",
+   :rdfs/comment    "Measurement of the hip section, for example of a skirt.",
    :rdfs/label      "WearableMeasurementHips",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11061,7 +11064,7 @@
 (def WearableMeasurementInseam
   {:db/ident        :schema/WearableMeasurementInseam,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the inseam, for example of pants",
+   :rdfs/comment    "Measurement of the inseam, for example of pants.",
    :rdfs/label      "WearableMeasurementInseam",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11070,7 +11073,7 @@
 (def WearableMeasurementLength
   {:db/ident        :schema/WearableMeasurementLength,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Represents the length, for example of a dress",
+   :rdfs/comment    "Represents the length, for example of a dress.",
    :rdfs/label      "WearableMeasurementLength",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11079,7 +11082,7 @@
 (def WearableMeasurementOutsideLeg
   {:db/ident        :schema/WearableMeasurementOutsideLeg,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the outside leg, for example of pants",
+   :rdfs/comment    "Measurement of the outside leg, for example of pants.",
    :rdfs/label      "WearableMeasurementOutsideLeg",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11088,7 +11091,7 @@
 (def WearableMeasurementSleeve
   {:db/ident        :schema/WearableMeasurementSleeve,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the sleeve length, for example of a shirt",
+   :rdfs/comment    "Measurement of the sleeve length, for example of a shirt.",
    :rdfs/label      "WearableMeasurementSleeve",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11108,7 +11111,7 @@
 (def WearableMeasurementWaist
   {:db/ident        :schema/WearableMeasurementWaist,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the waist section, for example of pants",
+   :rdfs/comment    "Measurement of the waist section, for example of pants.",
    :rdfs/label      "WearableMeasurementWaist",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11117,7 +11120,7 @@
 (def WearableMeasurementWidth
   {:db/ident        :schema/WearableMeasurementWidth,
    :rdf/type        :schema/WearableMeasurementTypeEnumeration,
-   :rdfs/comment    "Measurement of the width, for example of shoes",
+   :rdfs/comment    "Measurement of the width, for example of shoes.",
    :rdfs/label      "WearableMeasurementWidth",
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source   {:xsd/anyURI
@@ -11347,7 +11350,7 @@
   {:db/ident :schema/WearableSizeSystemEnumeration,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "Enumerates common size systems specific for wearable products",
+   "Enumerates common size systems specific for wearable products.",
    :rdfs/label "WearableSizeSystemEnumeration",
    :rdfs/subClassOf :schema/SizeSystemEnumeration,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -11749,7 +11752,7 @@
   {:db/ident :schema/accessibilitySummary,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed.\"",
+   "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed\".",
    :rdfs/label "accessibilitySummary",
    :schema/domainIncludes :schema/CreativeWork,
    :schema/rangeIncludes :schema/Text,
@@ -12022,7 +12025,7 @@
   {:db/ident :schema/additionalType,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the \n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"http://schema.org/docs/styleguide.html\">style guide</a>",
+   "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"http://schema.org/docs/styleguide.html\">style guide</a>.",
    :rdfs/label "additionalType",
    :rdfs/subPropertyOf :rdf/type,
    :schema/domainIncludes :schema/Thing,
@@ -12146,6 +12149,18 @@
    :rdfs/label "agent",
    :schema/domainIncludes :schema/Action,
    :schema/rangeIncludes #{:schema/Organization :schema/Person}})
+
+(def agentInteractionStatistic
+  {:db/ident :schema/agentInteractionStatistic,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action (indicated in the statistic), and in a particular context (i.e. interactionService).",
+   :rdfs/label "agentInteractionStatistic",
+   :schema/domainIncludes #{:schema/Organization :schema/Person},
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/rangeIncludes :schema/InteractionCounter,
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/2858"}})
 
 (def aggregateRating
   {:db/ident :schema/aggregateRating,
@@ -16911,7 +16926,7 @@
   {:db/ident :schema/floorSize,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The size of the accommodation, e.g. in square meter or squarefoot.\nTypical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard ",
+   "The size of the accommodation, e.g. in square meter or squarefoot.\nTypical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard.",
    :rdfs/label "floorSize",
    :schema/contributor
    {:xsd/anyURI "http://schema.org/docs/collab/STI_Accommodation_Ontology"},
@@ -20394,7 +20409,7 @@
   {:db/ident :schema/mileageFromOdometer,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The total distance travelled by the particular vehicle since its initial production, as read from its odometer.\\n\\nTypical unit code(s): KMT for kilometers, SMI for statute miles",
+   "The total distance travelled by the particular vehicle since its initial production, as read from its odometer.\\n\\nTypical unit code(s): KMT for kilometers, SMI for statute miles.",
    :rdfs/label "mileageFromOdometer",
    :schema/contributor
    {:xsd/anyURI
@@ -20887,7 +20902,7 @@
 (def numberOfAxles
   {:db/ident :schema/numberOfAxles,
    :rdf/type :rdf/Property,
-   :rdfs/comment "The number of axles.\\n\\nTypical unit code(s): C62",
+   :rdfs/comment "The number of axles.\\n\\nTypical unit code(s): C62.",
    :rdfs/label "numberOfAxles",
    :schema/contributor
    {:xsd/anyURI
@@ -20947,7 +20962,7 @@
 (def numberOfDoors
   {:db/ident :schema/numberOfDoors,
    :rdf/type :rdf/Property,
-   :rdfs/comment "The number of doors.\\n\\nTypical unit code(s): C62",
+   :rdfs/comment "The number of doors.\\n\\nTypical unit code(s): C62.",
    :rdfs/label "numberOfDoors",
    :schema/contributor
    {:xsd/anyURI
@@ -20976,7 +20991,7 @@
   {:db/ident :schema/numberOfForwardGears,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The total number of forward gears available for the transmission system of the vehicle.\\n\\nTypical unit code(s): C62",
+   "The total number of forward gears available for the transmission system of the vehicle.\\n\\nTypical unit code(s): C62.",
    :rdfs/label "numberOfForwardGears",
    :schema/contributor
    {:xsd/anyURI
@@ -21051,7 +21066,7 @@
   {:db/ident :schema/numberOfPreviousOwners,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The number of owners of the vehicle, including the current one.\\n\\nTypical unit code(s): C62",
+   "The number of owners of the vehicle, including the current one.\\n\\nTypical unit code(s): C62.",
    :rdfs/label "numberOfPreviousOwners",
    :schema/contributor
    {:xsd/anyURI
@@ -21146,7 +21161,7 @@
   {:db/ident :schema/occupancy,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The allowed total occupancy for the accommodation in persons (including infants etc). For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement (e.g. a double room used by a single person).\nTypical unit code(s): C62 for person",
+   "The allowed total occupancy for the accommodation in persons (including infants etc). For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement (e.g. a double room used by a single person).\nTypical unit code(s): C62 for person.",
    :rdfs/label "occupancy",
    :schema/contributor
    {:xsd/anyURI "http://schema.org/docs/collab/STI_Accommodation_Ontology"},
@@ -21517,12 +21532,13 @@
    :schema/rangeIncludes :schema/Person})
 
 (def parentItem
-  {:db/ident             :schema/parentItem,
-   :rdf/type             :rdf/Property,
-   :rdfs/comment         "The parent of a question, answer or item in general.",
-   :rdfs/label           "parentItem",
-   :schema/domainIncludes :schema/Comment,
-   :schema/rangeIncludes :schema/Comment})
+  {:db/ident :schema/parentItem,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.",
+   :rdfs/label "parentItem",
+   :schema/domainIncludes #{:schema/Comment :schema/Answer :schema/Question},
+   :schema/rangeIncludes #{:schema/Comment :schema/CreativeWork}})
 
 (def parentOrganization
   {:db/ident :schema/parentOrganization,
@@ -22644,7 +22660,7 @@
   {:db/ident :schema/publicAccess,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A flag to signal that the [[Place]] is open to public visitors.  If this property is omitted there is no assumed default boolean value",
+   "A flag to signal that the [[Place]] is open to public visitors.  If this property is omitted there is no assumed default boolean value.",
    :rdfs/label "publicAccess",
    :schema/domainIncludes :schema/Place,
    :schema/rangeIncludes :schema/Boolean})
@@ -23828,7 +23844,7 @@
   {:db/ident :schema/sdDatePublished,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "Indicates the date on which the current structured data was generated / published. Typically used alongside [[sdPublisher]]",
+   "Indicates the date on which the current structured data was generated / published. Typically used alongside [[sdPublisher]].",
    :rdfs/label "sdDatePublished",
    :schema/domainIncludes :schema/CreativeWork,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -23918,7 +23934,7 @@
   {:db/ident :schema/seatingCapacity,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons ",
+   "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons.",
    :rdfs/label "seatingCapacity",
    :schema/contributor
    {:xsd/anyURI
@@ -24160,7 +24176,7 @@
   {:db/ident :schema/sha256,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The [SHA-2](https://en.wikipedia.org/wiki/SHA-2) SHA256 hash of the content of the item. For example, a zero-length input has value 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'",
+   "The [SHA-2](https://en.wikipedia.org/wiki/SHA-2) SHA256 hash of the content of the item. For example, a zero-length input has value 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'.",
    :rdfs/label "sha256",
    :rdfs/subPropertyOf :schema/description,
    :schema/domainIncludes :schema/MediaObject,
@@ -24175,7 +24191,7 @@
    :rdfs/comment
    "A CreativeWork such as an image, video, or audio clip shared as part of this posting.",
    :rdfs/label "sharedContent",
-   :schema/domainIncludes :schema/SocialMediaPosting,
+   :schema/domainIncludes #{:schema/SocialMediaPosting :schema/Comment},
    :schema/rangeIncludes :schema/CreativeWork})
 
 (def shippingDestination
@@ -24336,7 +24352,7 @@
   {:db/ident :schema/sizeGroup,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The size group (also known as \"size type\") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example \"men's big and tall\", \"petite maternity\" or \"regular\"",
+   "The size group (also known as \"size type\") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example \"men's big and tall\", \"petite maternity\" or \"regular\".",
    :rdfs/label "sizeGroup",
    :schema/domainIncludes :schema/SizeSpecification,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -25252,7 +25268,7 @@
   {:db/ident :schema/termCode,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]",
+   "A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]].",
    :rdfs/label "termCode",
    :schema/domainIncludes :schema/DefinedTerm,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -25895,10 +25911,11 @@
 (def uploadDate
   {:db/ident :schema/uploadDate,
    :rdf/type :rdf/Property,
-   :rdfs/comment "Date when this media object was uploaded to this site.",
+   :rdfs/comment
+   "Date (including time if available) when this media object was uploaded to this site.",
    :rdfs/label "uploadDate",
    :schema/domainIncludes :schema/MediaObject,
-   :schema/rangeIncludes :schema/Date})
+   :schema/rangeIncludes #{:schema/Date :schema/DateTime}})
 
 (def upvoteCount
   {:db/ident :schema/upvoteCount,
@@ -26450,7 +26467,7 @@
   {:db/ident :schema/wheelbase,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The distance between the centers of the front and rear wheels.\\n\\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet",
+   "The distance between the centers of the front and rear wheels.\\n\\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet.",
    :rdfs/label "wheelbase",
    :schema/contributor
    {:xsd/anyURI

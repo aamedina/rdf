@@ -1,16 +1,17 @@
 (ns net.wikipunk.rdf.xhv
-  ^{:base "http://www.w3.org/1999/xhtml/vocab#",
-    :namespaces {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfa" "http://www.w3.org/ns/rdfa#",
-                 "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                 "xhv"  "http://www.w3.org/1999/xhtml/vocab#",
-                 "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-    :prefix "xhv",
-    :source
-    "https://lov.linkeddata.es/dataset/lov/vocabs/xhv/versions/2010-01-27.n3"}
-  {:rdf/type       :owl/Ontology,
+  {:dcat/downloadURL
+   "https://lov.linkeddata.es/dataset/lov/vocabs/xhv/versions/2010-01-27.n3",
+   :namespaces {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfa" "http://www.w3.org/ns/rdfa#",
+                "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                "xhv"  "http://www.w3.org/1999/xhtml/vocab#",
+                "xsd"  "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type :owl/Ontology,
+   :rdfa/prefix "xhv",
+   :rdfa/uri "http://www.w3.org/1999/xhtml/vocab#",
+   :rdfs/isDefinedBy {:xsd/anyURI "http://www.w3.org/TR/rdfa-core/"},
    :xhv/stylesheet {:xsd/anyURI "http://www.w3.org/StyleSheets/TR/base.css"},
-   :xsd/anyURI     "http://www.w3.org/1999/xhtml/vocab"}
+   :xsd/anyURI "http://www.w3.org/1999/xhtml/vocab"}
   (:refer-clojure :exclude [first last list meta next]))
 
 (def alert

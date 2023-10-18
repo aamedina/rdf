@@ -1,13 +1,4 @@
 (ns net.wikipunk.rdf.skosxl
-  ^{:base       "http://www.w3.org/2008/05/skos-xl#",
-    :namespaces {"dcterms" "http://purl.org/dc/terms/",
-                 "owl"     "http://www.w3.org/2002/07/owl#",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                 "skos"    "http://www.w3.org/2004/02/skos/core#",
-                 "skosxl"  "http://www.w3.org/2008/05/skos-xl#"},
-    :prefix     "skosxl",
-    :source     "http://www.w3.org/2008/05/skos-xl#"}
   {:dcterms/contributor
    "Participants in W3C's Semantic Web Deployment Working Group.",
    :dcterms/creator #{{:rdf/value "Sean Bechhofer"}
@@ -18,8 +9,18 @@
     "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."},
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "SKOS XL Vocabulary"},
+   :namespaces {"dcterms" "http://purl.org/dc/terms/",
+                "owl"     "http://www.w3.org/2002/07/owl#",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                "skos"    "http://www.w3.org/2004/02/skos/core#",
+                "skosxl"  "http://www.w3.org/2008/05/skos-xl#"},
    :owl/imports {:xsd/anyURI "http://www.w3.org/2004/02/skos/core"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "skosxl",
+   :rdfa/uri "http://www.w3.org/2008/05/skos-xl#",
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://www.w3.org/TR/2009/REC-skos-reference-20090818/"},
    :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/2008/05/skos"},
    :xsd/anyURI "http://www.w3.org/2008/05/skos-xl"})
 

@@ -1,15 +1,14 @@
 (ns net.wikipunk.rdf.annotea
-  ^{:base       "http://www.w3.org/2002/01/bookmark#",
-    :namespaces {"annotea" "http://www.w3.org/2002/01/bookmark#",
-                 "dc11"    "http://purl.org/dc/elements/1.1/",
-                 "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
-    :prefix     "annotea",
-    :source     "http://www.w3.org/2002/01/bookmark#"}
   {:dc11/description
    "The Annotea Bookmark Schema, describing properties used\n        to define instances of bookmarks, topics, and shortcuts.",
    :dc11/title "Bookmark Schema",
+   :namespaces {"annotea" "http://www.w3.org/2002/01/bookmark#",
+                "dc11"    "http://purl.org/dc/elements/1.1/",
+                "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
+   :rdfa/prefix "annotea",
+   :rdfa/uri "http://www.w3.org/2002/01/bookmark#",
    :rdfs/comment "$Id: bookmark.rdf,v 1.16 2003/07/18 18:15:18 swick Exp $",
    :xsd/anyURI "http://www.w3.org/2002/01/bookmark"})
 
