@@ -1,0 +1,37 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://www.w3.org/2019/wot/json-schema#",
+    "jsonschema": "https://www.w3.org/2019/wot/json-schema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "id": { "@id": "@id" },
+    "type": { "@id": "@type" },
+    "object": "ObjectSchema",
+    "array": "ArraySchema",
+    "boolean": "BooleanSchema",
+    "string": "StringSchema",
+    "number": "NumberSchema",
+    "integer": "IntegerSchema",
+    "null": "NullSchema",
+    "properties": {
+      "@container": "@index",
+      "@index": "propertyName"
+    },
+    "items": { "@type": "@vocab" },
+    "oneOf": { "@type": "@vocab", "@container": "@set" },
+    "allOf": { "@type": "@vocab", "@container": "@set" },
+    "anyOf": { "@type": "@vocab", "@container": "@set" },
+    "minItems": { "@type": "xsd:nonNegativeInteger" },
+    "maxItems": { "@type": "xsd:nonNegativeInteger" },
+    "minimum": { "@type": "xsd:decimal" },
+    "maximum": { "@type": "xsd:decimal" },
+    "enum": { "@container": "@set", "@type": "@json" },
+    "writeOnly": { "@type": "xsd:boolean" },
+    "readOnly": { "@type": "xsd:boolean" },
+    "format": { "@type": "xsd:string" },
+    "required": { "@type": "xsd:string", "@container": "@set" },
+    "title": { "@id": "dcterms:title", "@type": "xsd:string" },
+    "description": { "@id": "dcterms:description", "@type": "xsd:string" }
+  }
+}
