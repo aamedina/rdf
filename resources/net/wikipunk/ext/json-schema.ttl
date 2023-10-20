@@ -447,7 +447,7 @@
   rdfs:comment "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object."@en ;
   
   schema:domainIncludes :ObjectSchema ;
-  schema:rangeIncludes xsd:boolean .
+  rdfs:range xsd:boolean .
 
 ### https://www.w3.org/2019/wot/json-schema#nullable
 

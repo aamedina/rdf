@@ -108,8 +108,8 @@
     :rdf/value
     "When `false` no additional properties are allowed beyond those in the `jsonschema:properties` of this object."},
    :rdfs/label "additionalProperties",
-   :schema/domainIncludes :jsonschema/ObjectSchema,
-   :schema/rangeIncludes :xsd/boolean})
+   :rdfs/range :xsd/boolean,
+   :schema/domainIncludes :jsonschema/ObjectSchema})
 
 (def allOf
   {:db/ident :jsonschema/allOf,

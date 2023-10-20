@@ -713,10 +713,10 @@
    :rdf/type         :rdfa/PrefixMapping})
 
 (def mop
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "https://wikipunk.net/mop/"
-   :rdfa/prefix "mop"
-   :emit        false})
+  {:rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "https://wikipunk.net/mop/"
+   :rdfa/prefix      "mop"
+   :dcat/downloadURL "net/wikipunk/ext/mop.ttl"})
 
 #_(def eli
     {:rdf/type    :rdfa/PrefixMapping

@@ -1,0 +1,49 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mop: <https://wikipunk.net/mop/> .
+
+<https://wikipunk.net/mop/> a owl:Ontology ;
+  rdfs:label "Metaobject Protocol" ;
+  rdfs:comment """RDF vocabulary for the Metaobject Protocol.
+  
+  A metaobject represents one program element--usually a class or
+  property in your RDF graph.
+
+  Associated with each metaobject is the information required to serve
+  its role. This includes information provided directly by a RDF model
+  or computed indirectly from other relevant metaobjects related to
+  its metaclass's initialization protocol.""" .
+
+mop:classDirectSlots a owl:ObjectProperty ;
+  rdfs:domain rdfs:Class ;
+  rdfs:range rdf:Property .
+
+mop:classDirectSubclasses a owl:ObjectProperty ;
+  rdfs:domain rdfs:Class ;
+  rdfs:range rdfs:Class .
+
+mop:classDirectSuperclasses a owl:ObjectProperty ;
+  rdfs:domain rdfs:Class ;
+  rdfs:range rdfs:Class .
+
+mop:classSlots a owl:ObjectProperty ;
+  rdfs:domain rdfs:Class ;
+  rdfs:range rdf:Property .
+
+mop:classPrecedenceList a owl:ObjectProperty ;
+  rdfs:domain rdfs:Class ;
+  rdfs:range rdf:List .
+
+mop:ancestors a owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:range rdfs:Resource .
+
+mop:descendants a owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:range rdfs:Resource .
+
+mop:parents a owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:range rdfs:Resource .

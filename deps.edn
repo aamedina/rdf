@@ -64,7 +64,9 @@
   org.glassfish/jakarta.json
   {:mvn/version "2.0.1"}
   zprint/zprint
-  {:mvn/version "1.2.8"}}
+  {:mvn/version "1.2.8"}
+  org.json/json
+  {:mvn/version "20231013"}}
  :paths ["src/clj" "src/cljc" "classes" "resources"]
  :aliases
  {:dev
