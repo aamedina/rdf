@@ -345,14 +345,26 @@
   [metaobject f]
   (map f (:mop/dependents metaobject)))
 
+(def ^:dynamic *metaclasses*
+  "a set of metaclasses that are removed from the class precedence list"
+  #{:owl/Thing
+    :owl/NamedIndividual
+    :oboInOwl/ObsoleteClass
+    :oboInOwl/ObsoleteProperty
+    :rdfs/Resource})
+
 (defmethod mop/compute-class-precedence-list :rdfs/Class
   [{:db/keys [ident]}]
-  (into [ident] (sort isa? (disj (ancestors ident)
-                                 :owl/Thing
-                                 :owl/NamedIndividual
-                                 :oboInOwl/ObsoleteClass
-                                 :oboInOwl/ObsoleteProperty
-                                 :rdfs/Resource))))
+  (letfn [(compute-cpl [cls] ; Define a recursive function to compute the class precedence list
+            (let [parents (parents cls)] ; Summon the direct parents
+              (if (empty? parents) 
+                [cls]         ; If no parents, return the class itself
+                (into [cls] ; Combine the essence of the class with the computed parents
+                      (sort isa? (mapcat compute-cpl parents))))))] ; Recursively compute the cpl for each parent
+    (->> (distinct (compute-cpl ident)) ; Ensure each essence appears once and only once in the cpl
+         (remove *metaclasses*)
+         (sort isa?)
+         (into []))))
 
 (defmethod mop/class-direct-superclasses :rdfs/Class
   [{:rdfs/keys [subClassOf]}]

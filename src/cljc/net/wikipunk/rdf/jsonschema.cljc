@@ -310,6 +310,17 @@
    :schema/domainIncludes #{:jsonschema/IntegerSchema
                             :jsonschema/NumberSchema}})
 
+(def nullable
+  {:db/ident :jsonschema/nullable,
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "Boolean value that is a hint to indicate whether a property interaction / value is nullable (=true) or not (=false)"},
+   :rdfs/label "nullable",
+   :rdfs/range :xsd/boolean,
+   :schema/domainIncludes :jsonschema/DataSchema})
+
 (def oneOf
   {:db/ident :jsonschema/oneOf,
    :rdf/type :owl/ObjectProperty,

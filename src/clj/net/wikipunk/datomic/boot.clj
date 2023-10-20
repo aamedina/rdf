@@ -270,6 +270,8 @@
 (defmethod rdf/infer-datomic-cardinality :jsonschema/readOnly [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/uniqueItems [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :jsonschema/writeOnly [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :jsonschema/nullable [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :jsonschema/additionalProperties [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-cardinality :owl/propertyChainAxiom [_] :db.cardinality/one)
 

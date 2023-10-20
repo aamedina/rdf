@@ -260,3 +260,21 @@
          "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature."))
   (is (= (rdf/get-doc (datafy :d3f/BayesianEstimation))
          "A Bayes estimator or a Bayes action is an estimator or decision rule that minimizes the posterior expected value of a loss function (i.e., the posterior expected loss).")))
+
+(deftest cpl
+  (testing "mop/compute-class-precedence-list"
+    (is (= (mop/compute-class-precedence-list :schema/Movie)
+           [:schema/Movie
+            :schema/CreativeWork
+            :schema/Thing
+            :rdfs/Class]))
+    (is (= (mop/compute-class-precedence-list :d3f/ApplicationHardening)
+           [:d3f/ApplicationHardening
+            :d3f/DefensiveTechnique
+            :d3f/CapabilityFeature
+            :d3f/Technique
+            :d3f/InformationContentEntity
+            :d3f/D3FENDCatalogThing
+            :d3f/D3FENDThing
+            :owl/Class
+            :rdfs/Class]))))

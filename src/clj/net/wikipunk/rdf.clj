@@ -910,7 +910,8 @@
   "unrolls RDF lists into Vectors"
   [form]
   (cond
-    (identical? (:rdf/rest form) :rdf/nil)
+    (or (identical? (:rdf/rest form) :rdf/nil)
+        (and (map? form) (== (count form) 1) (:rdf/first form)))
     [(:rdf/first form)]
 
     (and (:rdf/first form) (:rdf/rest form))
