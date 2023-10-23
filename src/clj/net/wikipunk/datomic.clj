@@ -97,9 +97,7 @@
                                                  (cond
                                                    (and (sequential? form)
                                                         (not (map-entry? form)))
-                                                   (if (== (count form) 1)
-                                                     (first form)
-                                                     (set form))
+                                                   (set form)
                                                    
                                                    :else form)))
                                 (walk/postwalk rdf/walk-rdf-list)
