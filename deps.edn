@@ -20,12 +20,12 @@
   io.github.arachne-framework/aristotle
   {:sha     "15f0cb61d6a7ad2b579266b3fa78397004ae7e25"
    :git/url "https://github.com/arachne-framework/aristotle.git"}
-  io.github.quoll/donatello
-  {:git/tag "v1.2.11" :git/sha "db6315f"}
-  io.github.quoll/michelangelo
-  {:git/tag "v0.1.6" :git/sha "9db4d39"}
+  org.clojars.quoll/donatello
+  {:mvn/version "1.3.4"}
+  org.clojars.quoll/michelangelo
+  {:mvn/version "0.1.8"}
   luposlip/json-schema
-  {:mvn/version "0.4.1"}
+  {:mvn/version "0.4.2"}
   ont-app/vocabulary
   {:mvn/version "0.4.2"}
   org.apache.jena/apache-jena-libs
@@ -36,11 +36,9 @@
   org.clojars.quoll/asami
   {:mvn/version "2.3.4"}
   org.clojars.quoll/raphael
-  {:mvn/version "0.2.0"}
-  methodical/methodical
-  {:mvn/version "0.15.1"}
+  {:mvn/version "0.3.4"}
   org.clojure/clojure
-  {:mvn/version "1.12.0-alpha4"}
+  {:mvn/version "1.12.0-alpha5"}
   org.clojure/core.async
   {:mvn/version "1.6.681"}
   org.clojure/data.csv
@@ -64,9 +62,7 @@
   org.glassfish/jakarta.json
   {:mvn/version "2.0.1"}
   zprint/zprint
-  {:mvn/version "1.2.8"}
-  org.json/json
-  {:mvn/version "20231013"}}
+  {:mvn/version "1.2.8"}}
  :paths ["src/clj" "src/cljc" "classes" "resources"]
  :aliases
  {:dev
@@ -78,7 +74,7 @@
     org.clojure/test.check
     {:mvn/version "1.1.1"}    
     org.slf4j/slf4j-simple
-    {:mvn/version "2.0.7"}
+    {:mvn/version "2.0.9"}
     vlaaad/reveal
     {:mvn/version "1.3.280"}}
    :extra-paths ["dev"]
@@ -98,7 +94,7 @@
     org.clojure/test.check
     {:mvn/version "1.1.1"}
     org.slf4j/slf4j-simple
-    {:mvn/version "2.0.7"}}
+    {:mvn/version "2.0.9"}}
    :main-opts   ["-m" "cognitect.test-runner"]
    :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"
                  "-XX:+HeapDumpOnOutOfMemoryError"
@@ -112,6 +108,5 @@
    :main-opts ["-m" "eastwood.lint"]}
   :build
   {:deps
-   {io.github.clojure/tools.build
-    {:git/tag "v0.9.5" :git/sha "24f2894"}}
+   {io.github.clojure/tools.build {:git/tag "v0.9.6" :git/sha "8e78bcc"}}
    :ns-default build}}}
