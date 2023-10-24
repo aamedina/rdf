@@ -80,8 +80,7 @@
    :extra-paths ["dev" "resources"]
    :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"
                  "-XX:+HeapDumpOnOutOfMemoryError"
-                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
-                 "-Djava.util.Arrays.useLegacyMergeSort=true"]}
+                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"]}
   :test
   {:extra-paths ["test"]
    :extra-deps
@@ -98,8 +97,7 @@
    :main-opts   ["-m" "cognitect.test-runner"]
    :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"
                  "-XX:+HeapDumpOnOutOfMemoryError"
-                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
-                 "-Djava.util.Arrays.useLegacyMergeSort=true"]
+                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"]
    :exec-fn     cognitect.test-runner.api/test}
   :eastwood
   {:extra-deps

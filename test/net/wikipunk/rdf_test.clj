@@ -276,5 +276,4 @@
             :d3f/InformationContentEntity
             :d3f/D3FENDCatalogThing
             :d3f/D3FENDThing
-            :owl/Class
-            :rdfs/Class]))))
+            :owl/Class]))))

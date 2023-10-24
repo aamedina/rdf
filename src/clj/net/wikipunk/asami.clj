@@ -41,7 +41,10 @@
                    (case k
                      (:mop/classDirectSlots                                     
                       :mop/classSlots
-                      :mop/classDirectSubclasses)
+                      :mop/classDirectSubclasses
+                      :mop/classDirectSuperclasses
+                      :rdfs/subClassOf
+                      :rdfs/subPropertyOf)
                      (assoc m k (if (keyword? v) #{v} v))
                      (assoc m k (if (and (set? v) (== (count v) 1))
                                   (first v)

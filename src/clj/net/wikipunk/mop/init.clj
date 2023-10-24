@@ -228,12 +228,14 @@
 
 (defmethod mop/finalize-inheritance :rdfs/Class
   [class]
-  (let [cpl   (mop/compute-class-precedence-list class)
-        class (assoc class :mop/classPrecedenceList cpl)
-        cds   (mop/class-direct-slots class)
-        class (if (seq cds) (assoc class :mop/classDirectSlots cds) class)
-        subs  (mop/class-direct-subclasses class)
-        class (if (seq subs) (assoc class :mop/classDirectSubclasses subs) class)]
+  (let [subs   (mop/class-direct-subclasses class)
+        class  (if (seq subs) (assoc class :mop/classDirectSubclasses subs) class)
+        supers (mop/class-direct-superclasses class)
+        class  (if (seq subs) (assoc class :mop/classDirectSuperclasses supers) class)
+        cpl    (mop/compute-class-precedence-list class)
+        class  (assoc class :mop/classPrecedenceList cpl)
+        cds    (mop/class-direct-slots class)
+        class  (if (seq cds) (assoc class :mop/classDirectSlots cds) class)]
     (mop/intern-class-using-env class mop/*env*)))
 
 (defmethod mop/intern-class-using-env [:rdfs/Class nil]
@@ -355,27 +357,51 @@
 
 (defmethod mop/compute-class-precedence-list :rdfs/Class
   [{:db/keys [ident]}]
-  (letfn [(compute-cpl [cls] ; Define a recursive function to compute the class precedence list
-            (let [parents (parents cls)] ; Summon the direct parents
-              (if (empty? parents) 
-                [cls]         ; If no parents, return the class itself
-                (into [cls] ; Combine the essence of the class with the computed parents
-                      (sort isa? (mapcat compute-cpl parents))))))] ; Recursively compute the cpl for each parent
-    (->> (distinct (compute-cpl ident)) ; Ensure each essence appears once and only once in the cpl
-         (remove *metaclasses*)
-         (sort isa?)
-         (into []))))
+  (letfn [(compute-cpl [cls]
+            (let [parents (mop/class-direct-superclasses cls)]
+              (if (empty? parents)
+                [cls]
+                (into [cls] (sort isa? (distinct (mapcat compute-cpl parents)))))))]
+    (let [cpl (vec (sort isa? (distinct (compute-cpl ident))))]
+      (cond
+        (and (isa? ident :owl/Class)
+             (not (identical? ident :owl/Class)))
+        (conj cpl :owl/Class)
+
+        (and (isa? ident :owl/NamedIndividual)
+             (not (identical? ident :owl/NamedIndividual)))
+        (conj cpl :owl/NamedIndividual)
+
+        (not (identical? ident :rdfs/Class))
+        (conj cpl :rdfs/Class)
+
+        :else cpl))))
+
+(defmethod mop/compute-class-precedence-list :rdf/Property
+  [{:db/keys [ident]}]
+  (letfn [(compute-cpl [prop]
+            (let [supers (:rdfs/subPropertyOf (mop/find-class prop))
+                  parents (when supers
+                            (if (coll? supers)
+                              supers
+                              #{supers}))]
+              (if (empty? parents)
+                [prop]
+                (into [prop] (sort isa? (distinct (mapcat compute-cpl parents)))))))]
+    (vec (sort isa? (distinct (compute-cpl ident))))))
 
 (defmethod mop/class-direct-superclasses :rdfs/Class
-  [{:rdfs/keys [subClassOf]}]
-  (->> (if (and (coll? subClassOf) (not (map? subClassOf)))
-         subClassOf
-         [subClassOf])
-       (filter keyword?)
-       ;; Everything is an :rdfs/Resource in this protocol and we are
-       ;; not concerned with tautological inferences.
-       (remove #{:rdfs/Resource})
-       (into #{})))
+  [{:rdfs/keys [subClassOf]
+    :mop/keys  [classDirectSuperclasses]}]
+  (or classDirectSuperclasses
+      (->> (if (and (coll? subClassOf) (not (map? subClassOf)))
+             subClassOf
+             [subClassOf])
+           (filter keyword?)
+           ;; Everything is an :rdfs/Resource in this protocol and we are
+           ;; not concerned with tautological inferences.
+           (remove #{:rdfs/Resource})
+           (into #{}))))
 
 (defmethod mop/class-direct-subclasses :rdfs/Class
   [{:db/keys  [ident]

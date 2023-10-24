@@ -1509,7 +1509,9 @@
                               (if (qualified-keyword? k)
                                 (case k
                                   (:mop/classDirectSlots                                     
-                                   :mop/classSlots)
+                                   :mop/classSlots
+                                   :rdfs/subClassOf
+                                   :rdfs/subPropertyOf)
                                   (if (some? v)
                                     (assoc m k (into #{} (map (some-fn :db/ident identity))
                                                      (if (keyword? v)
@@ -1522,7 +1524,8 @@
                                    :mop/classPrototype)
                                   m
 
-                                  :mop/classDirectSubclasses
+                                  (:mop/classDirectSubclasses
+                                   :mop/classDirectSuperclasses)
                                   (if (seq v)
                                     (assoc m k v)
                                     m)
