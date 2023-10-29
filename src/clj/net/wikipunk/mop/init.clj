@@ -362,7 +362,11 @@
               (if (empty? parents)
                 [cls]
                 (into [cls] (sort isa? (distinct (mapcat compute-cpl parents)))))))]
-    (let [cpl (vec (sort isa? (distinct (compute-cpl ident))))]
+    (let [cpl (->> (compute-cpl ident)
+                   (remove *metaclasses*)
+                   (distinct)
+                   (sort isa?)
+                   (into []))]
       (cond
         (and (isa? ident :owl/Class)
              (not (identical? ident :owl/Class)))

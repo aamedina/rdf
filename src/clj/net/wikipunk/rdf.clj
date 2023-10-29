@@ -1289,7 +1289,10 @@
                                             (symbol (str/replace (name sym) #"\." "_"))
 
                                             :else sym)
-                                      sym       (if (:private v) (with-meta sym {:private true}) sym)
+                                      sym       (if (:private v)
+                                                  (with-meta (symbol (urn:uuid (iri (:db/ident v))))
+                                                    {:private true})
+                                                  sym)
                                       v         (if (:private v) (dissoc v :private) v)
                                       docstring #_ (get-doc v) nil
                                       v         (cond-> (assoc v :db/ident k)
@@ -1562,6 +1565,11 @@
 (defmethod import-from [clojure.lang.Symbol clojure.lang.Symbol]
   [from to]
   (import-from (ensure-ns from) (ensure-ns to)))
+
+(defmethod import-from [clojure.lang.Symbol clojure.lang.Sequential]
+  [from to]
+  (doseq [to-ns to]
+    (import-from from to-ns)))
 
 (defmethod import-from [clojure.lang.Namespace clojure.lang.Namespace]
   [from to]
