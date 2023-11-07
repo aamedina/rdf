@@ -696,10 +696,6 @@
       (re-find #"^ns\d*$" (namespace k))
       nil
 
-      ;; Do not return file extensions
-      (re-find #"\.\w+$" (name k))
-      nil
-
       (or (= (last (name k)) \/)
           (str/ends-with? (name k) "#"))
       nil

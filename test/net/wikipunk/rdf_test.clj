@@ -272,8 +272,7 @@
            [:d3f/ApplicationHardening
             :d3f/DefensiveTechnique
             :d3f/CapabilityFeature
-            :d3f/Technique
-            :d3f/InformationContentEntity
             :d3f/D3FENDCatalogThing
+            :d3f/Technique
             :d3f/D3FENDThing
             :owl/Class]))))
