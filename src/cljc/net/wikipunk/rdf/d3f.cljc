@@ -13,6 +13,9 @@
                 "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+   :owl/versionIRI
+   {:xsd/anyURI
+    "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
    :owl/versionInfo "0.13.0-BETA-1",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
@@ -20,15 +23,13 @@
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
    :slash true,
-   :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#"}
+   :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"}
   (:refer-clojure :exclude [comment name next]))
 
 (def AMD64CodeSegment
   {:db/ident   :d3f/AMD64CodeSegment,
-   :rdf/type   #{:d3f/ImageCodeSegment :d3f/D3FENDThing :d3f/FileSection
-                 :d3f/ProcessCodeSegment :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/BinarySegment :d3f/ImageSegment :d3f/Artifact
-                 :owl/NamedIndividual :d3f/ProcessSegment},
+   :rdf/type   #{:d3f/ImageCodeSegment :d3f/ProcessCodeSegment
+                 :owl/NamedIndividual},
    :rdfs/label "AMD64 Code Segment"})
 
 (def ANN-basedClustering
@@ -58,10 +59,8 @@
 
 (def ARM32CodeSegment
   {:db/ident   :d3f/ARM32CodeSegment,
-   :rdf/type   #{:d3f/ImageCodeSegment :d3f/D3FENDThing :d3f/FileSection
-                 :d3f/ProcessCodeSegment :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/BinarySegment :d3f/ImageSegment :d3f/Artifact
-                 :owl/NamedIndividual :d3f/ProcessSegment},
+   :rdf/type   #{:d3f/ImageCodeSegment :d3f/ProcessCodeSegment
+                 :owl/NamedIndividual},
    :rdfs/label "ARM32 Code Segment"})
 
 (def ARMA_Model
@@ -72,16 +71,13 @@
    "## References\nWikipedia. (n.d.). Autoregressive-moving-average model. [Link](https://en.wikipedia.org/wiki/Autoregressive%E2%80%93moving-average_model)",
    :d3f/synonym "Autoregressive moving average model",
    :db/ident :d3f/ARMA_Model,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AnalyticTechnique :d3f/TimeSeriesAnalysis
-               :owl/NamedIndividual :d3f/StatisticalMethod :owl/Class},
+   :rdf/type #{:d3f/TimeSeriesAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "ARMA Model",
    :rdfs/subClassOf :d3f/TimeSeriesAnalysis})
 
 (def ASCIIDomainName
   {:db/ident   :d3f/ASCIIDomainName,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-                 :d3f/DomainName},
+   :rdf/type   #{:owl/NamedIndividual :d3f/DomainName},
    :rdfs/label "ASCII Domain Name"})
 
 (def ATTACKMitigation
@@ -119,7 +115,7 @@
   {:d3f/definition
    "Information about what access permissions are granted to particular users for particular objects",
    :db/ident :d3f/AccessControlConfiguration,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Access Control Configuration",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Access-control_list"},
@@ -130,7 +126,7 @@
    "A collection of objects that can have access controls placed on them.",
    :d3f/restricted-by :d3f/AccessControlList,
    :db/ident :d3f/AccessControlGroup,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Access Control Group",
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/group"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricted-by,
@@ -142,7 +138,7 @@
   {:d3f/definition   "A list of permissions attached to an object.",
    :d3f/restricts    :d3f/UserGroup,
    :db/ident         :d3f/AccessControlList,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Access-control_list"},
    :rdfs/label       "Access Control List",
@@ -159,9 +155,7 @@
    :d3f/Reference-RFC7642SystemForCrossDomainIdentityManagementDefinitionsOverviewConceptsAndRequirements,
    :d3f/maps #{:d3f/UserAccount :d3f/AccessControlConfiguration},
    :db/ident :d3f/AccessModeling,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :d3f/OperationalActivityMapping
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/OperationalActivityMapping :owl/NamedIndividual :owl/Class},
    :rdfs/label "Access Modeling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/UserAccount,
@@ -175,7 +169,7 @@
   {:d3f/definition
    "In computer systems, an access token contains the security credentials for a login session and identifies the user, the user's groups, the user's privileges, and, in some cases, a particular application. Typically one may be asked to enter the access token (e.g. 40 random characters) rather than the usual password (it therefore should be kept secret just like a password).",
    :db/ident :d3f/AccessToken,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Access Token",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Access_token"},
    :rdfs/subClassOf :d3f/Credential,
@@ -193,9 +187,7 @@
    #{:d3f/Reference-AccountMonitoring_ForescoutTechnologies
      :d3f/Reference-FrameworkForNotifyingADirectoryServiceOfAuthenticationEventsProcessedOutsideTheDirectoryService_OracleInternationalCorp},
    :db/ident :d3f/AccountLocking,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialEviction :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialEviction :owl/NamedIndividual :owl/Class},
    :rdfs/label "Account Locking",
    :rdfs/subClassOf #{:d3f/CredentialEviction
                       {:owl/onProperty     :d3f/disables,
@@ -211,9 +203,7 @@
    "## How it works\nAnalysis of server certificates using active methods to detect if certificates have been misconfigured or spoofed by using elements of the certificate, certificate authorities and signatures.\n\n### Certificate validity analysis\nThis can be accomplished by verifying the digital signature on certificate.\n\n### Certificate path analysis\nThe client's browser can perform path verification to ensure that the server's certificate contains a valid trust anchor.\n\n### Certificate configuration analysis\nSome browsers can be configured to implement the key-usage extensions contained certificates. This can help to prevent a certificate from being misused.\n\n### Certificate revocation status analysis\nUsing either Certificate Revocation Lists (CRLs) or Online Certificate Status Protocol (OCSP) to determine the revocation status. OCSP Stapling, binding the status with the certificate, helps to mitigate potential delay in status verifications.\n\n## Considerations\n* Management of the PKI across the enterprise typically requires automation to maintain scalability and flexibility\n* If the certificate authority, issuing the certificate, is compromised then all of the certificates issued by the CA are suspect\n* There may be delays associated with updates to certificates\n* Revoked certificates give the appearance of valid certificates until they are published to a trusted revocation service (OCSP or CRL)\n* The revocation service (OCSP or CRL) may be down during our connection and a browser will need to make a decision will need to be made about trusting the connection",
    :d3f/kb-reference :d3f/Reference-SecuringWebTransactions,
    :db/ident :d3f/ActiveCertificateAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :d3f/CertificateAnalysis :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/CertificateAnalysis :owl/Class},
    :rdfs/label "Active Certificate Analysis",
    :rdfs/subClassOf :d3f/CertificateAnalysis})
 
@@ -239,9 +229,7 @@
      :d3f/Reference-SNMPNetworkAutoDiscovery},
    :d3f/may-query :d3f/CollectorAgent,
    :db/ident :d3f/ActiveLogicalLinkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/LogicalLinkMapping :d3f/Technique :owl/NamedIndividual
-               :d3f/NetworkMapping :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/LogicalLinkMapping :owl/NamedIndividual :owl/Class},
    :rdfs/label "Active Logical Link Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-query,
                        :owl/someValuesFrom :d3f/CollectorAgent,
@@ -259,9 +247,7 @@
    :d3f/synonym "Active Physical Layer Mapping",
    :db/ident :d3f/ActivePhysicalLinkMapping,
    :owl/disjointWith :d3f/PassivePhysicalLinkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PhysicalLinkMapping
-               :d3f/NetworkMapping :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/PhysicalLinkMapping :owl/Class},
    :rdfs/label "Active Physical Link Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-query,
                        :owl/someValuesFrom :d3f/CollectorAgent,
@@ -328,7 +314,7 @@
   {:db/ident        :d3f/AdminFeatureAssessment,
    :rdf/type        :owl/Class,
    :rdfs/label      "Admin Feature Assessment",
-   :rdfs/subClassOf #{:d3f/DefensiveTechniqueClaim :d3f/FeatureAssessment
+   :rdfs/subClassOf #{:d3f/FeatureAssessment
                       {:owl/onProperty     :d3f/assesses,
                        :owl/someValuesFrom :d3f/AdminFeatureClaim,
                        :rdf/type           :owl/Restriction}}})
@@ -368,9 +354,7 @@
      :d3f/Reference-WindowsRemoteManagement_WinRM_MITRE
      :d3f/Reference-RemoteRegistry_MITRE},
    :db/ident :d3f/AdministrativeNetworkActivityAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Administrative Network Activity Analysis",
    :rdfs/subClassOf
    #{{:owl/onProperty     :d3f/analyzes,
@@ -381,7 +365,7 @@
   {:d3f/definition
    "Administrative network traffic is network traffic related to the remote administration or control of hosts or devices through a standard remote administrative protocol.  Remote shells, terminals, RDP, and VNC are examples of these protocols, which are typically only used by administrators.",
    :db/ident :d3f/AdministrativeNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Administrative Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Remote_administration"},
@@ -390,9 +374,7 @@
 (def AdobePDFFile1_3
   {:d3f/may-contain :d3f/JavascriptFile,
    :db/ident        :d3f/AdobePDFFile1.3,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                      :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                      :owl/NamedIndividual},
+   :rdf/type        #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label      "Adobe PDF File 1.3"})
 
 (def Agent
@@ -435,7 +417,7 @@
 (def AllocateMemory
   {:d3f/creates     :d3f/MemoryBlock,
    :db/ident        :d3f/AllocateMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Allocate Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/MemoryBlock,
@@ -451,8 +433,7 @@
                       :d3f/D3FENDCatalogThing
                       {:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/PortfolioAssessment,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def AnalyticLatency
   {:db/ident        :d3f/AnalyticLatency,
@@ -500,7 +481,7 @@
    "A program that gives a computer instructions that provide the user with tools to accomplish a task; \"he has tried several different word processing applications\".  Distinct from system software that is intrinsically part of the operating system.  An application can be made up of executable files, configuration files, shared libraries, etc.",
    :d3f/may-contain :d3f/ApplicationConfiguration,
    :db/ident :d3f/Application,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Application",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/Application_software"}
@@ -513,7 +494,7 @@
   {:d3f/definition
    "Information used to configure the parameters and initial settings for an application.",
    :db/ident :d3f/ApplicationConfiguration,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Application Configuration",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/05739724-n"},
    :rdfs/subClassOf :d3f/ConfigurationResource})
@@ -522,7 +503,7 @@
   {:d3f/contains    :d3f/ApplicationConfigurationDatabaseRecord,
    :d3f/definition  "A database used to hold application configuration data.",
    :db/ident        :d3f/ApplicationConfigurationDatabase,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Application Configuration Database",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/contains,
                        :owl/someValuesFrom
@@ -533,7 +514,7 @@
   {:d3f/definition
    "A database record holding information used to configure the parameters and initial settings for an application.",
    :db/ident :d3f/ApplicationConfigurationDatabaseRecord,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Application Configuration Database Record",
    :rdfs/subClassOf #{:d3f/ApplicationConfiguration
                       :d3f/ConfigurationDatabaseRecord}})
@@ -543,7 +524,7 @@
    :d3f/definition
    "A file containing Information used to configure the parameters and initial settings for an application.. A plist file is an example of this type of file for macOS.  Usually text-based.",
    :db/ident :d3f/ApplicationConfigurationFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Application Configuration File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/ApplicationConfiguration,
@@ -561,9 +542,7 @@
    #{:d3f/Reference-RedHatEnterpriseLinux8SecurityTechnicalImplementationGuide
      :d3f/Reference-Windows10STIG},
    :db/ident :d3f/ApplicationConfigurationHardening,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Application Configuration Hardening",
    :rdfs/subClassOf #{:d3f/ApplicationHardening
                       {:owl/onProperty     :d3f/hardens,
@@ -579,9 +558,7 @@
    "## Technique Overview\n\nExploits may, for example, rely on knowledge of addresses in a process's memory, they may alter memory contents, and they may cause a program to use instructions in a way that they were not intended.  By, for example, including code that dynamically changes the memory address of data or code on each run, introducing logic to validating the memory contents before certain potentially dangerous flows are executed, or monitoring a program for unusual sequence of instructions, this makes it harder for an attacker to craft a working exploit.",
    :d3f/synonym "Process Hardening",
    :db/ident :d3f/ApplicationHardening,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Application Hardening",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Harden,
@@ -590,7 +567,7 @@
 
 (def ApplicationInstaller
   {:db/ident        :d3f/ApplicationInstaller,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Application Installer",
    :rdfs/subClassOf :d3f/UserApplication})
 
@@ -598,14 +575,12 @@
   {:d3f/definition  "Collects information on applications on an endpoint.",
    :d3f/monitors    :d3f/Application,
    :db/ident        :d3f/ApplicationInventorySensor,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Application Inventory Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/Application,
-                       :rdf/type           :owl/Restriction} :d3f/EndpointSensor
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EndpointSensor}})
 
 (def ApplicationLayerFirewall
   {:d3f/definition
@@ -629,7 +604,7 @@
    "An application process is an instance of an application computer program that is being executed.",
    :d3f/runs :d3f/Application,
    :db/ident :d3f/ApplicationProcess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Application Process",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Application_software"},
@@ -680,7 +655,7 @@
   {:d3f/definition
    "An archive file is a file that is composed of one or more computer files along with metadata. Archive files are used to collect multiple data files together into a single file for easier portability and storage, or simply to compress files to use less storage space. Archive files often store directory structures, error detection and correction information, arbitrary comments, and sometimes use built-in encryption.",
    :db/ident :d3f/ArchiveFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Archive_file"},
    :rdfs/label "Archive File",
    :rdfs/subClassOf :d3f/File})
@@ -756,9 +731,7 @@
    :d3f/enables :d3f/Model,
    :d3f/synonym #{"Asset Discovery" "Asset Inventorying"},
    :db/ident :d3f/AssetInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Asset Inventory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Model,
@@ -776,9 +749,7 @@
      :d3f/Reference-AutomatedComputerVulnerabilityResolutionSystem
      :d3f/Reference-SecurityVulnerabilityInformationAggregation},
    :db/ident :d3f/AssetVulnerabilityEnumeration,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/AssetInventory
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/AssetInventory :owl/Class},
    :rdfs/label "Asset Vulnerability Enumeration",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/identifies,
                        :owl/someValuesFrom :d3f/Vulnerability,
@@ -829,7 +800,7 @@
   {:d3f/definition
    "Audio input devices allow a user to send audio info to a computer for processing, recording, or carrying out commands. Devices such as microphones allow users to speak to the computer in order to record a voice message or navigate software. Aside from recording, audio input devices are also used with speech recognition software.",
    :db/ident :d3f/AudioInputDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/Input_device#Voice_input_devices"},
    :rdfs/label "Audio Input Device",
@@ -838,16 +809,12 @@
 (def AuthenticateUser
   {:d3f/authenticates :d3f/UserAccount,
    :db/ident          :d3f/AuthenticateUser,
-   :rdf/type          #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                        :d3f/D3FENDCatalogThing :d3f/Technique
-                        :owl/NamedIndividual :owl/Class
-                        :d3f/DefensiveTechnique},
+   :rdf/type          :owl/Class,
    :rdfs/label        "Authenticate User",
    :rdfs/subClassOf   #{:d3f/SystemCall
                         {:owl/onProperty     :d3f/authenticates,
                          :owl/someValuesFrom :d3f/UserAccount,
-                         :rdf/type           :owl/Restriction}
-                        :d3f/DefensiveTechnique}})
+                         :rdf/type           :owl/Restriction}}})
 
 (def Authentication
   {:d3f/authenticates :d3f/User,
@@ -856,10 +823,7 @@
    :d3f/may-create :d3f/IntranetNetworkTraffic,
    :d3f/originates-from :d3f/PhysicalLocation,
    :db/ident :d3f/Authentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DigitalArtifact
-               :d3f/DigitalObject :d3f/D3FENDCatalogThing :d3f/UserAction
-               :d3f/Artifact :d3f/Technique :owl/NamedIndividual
-               :d3f/DigitalEvent :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Authentication",
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://wordnet-rdf.princeton.edu/id/00155053-n"}
@@ -872,8 +836,7 @@
                        :rdf/type           :owl/Restriction} :d3f/UserAction
                       {:owl/onProperty     :d3f/originates-from,
                        :owl/someValuesFrom :d3f/PhysicalLocation,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def AuthenticationCacheInvalidation
   {:d3f/d3fend-id "D3-ANCI",
@@ -886,9 +849,7 @@
    #{:d3f/Reference-SystemAndMethodForProvidingAnActivelyInvalidatedClient-sideNetworkResourceCache_IMVU
      :d3f/Reference-SecureCachingOfServerCredentials_DellProductsLP},
    :db/ident :d3f/AuthenticationCacheInvalidation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialEviction :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialEviction :owl/NamedIndividual :owl/Class},
    :rdfs/label "Authentication Cache Invalidation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/Credential,
@@ -910,9 +871,7 @@
      :d3f/Reference-SimultaneousLoginsOnAHost_MITRE
      :d3f/Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc},
    :db/ident :d3f/AuthenticationEventThresholding,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Authentication Event Thresholding",
    :rdfs/subClassOf #{:d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -924,21 +883,18 @@
    :d3f/definition
    "Authenticates a user account by verifying a presented credential.",
    :db/ident :d3f/AuthenticationFunction,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Authentication Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/authenticates,
                        :owl/someValuesFrom :d3f/UserAccount,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def AuthenticationLog
   {:d3f/definition  "A log of authentication events.",
    :d3f/records     :d3f/Authentication,
    :db/ident        :d3f/AuthenticationLog,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Authentication Log",
    :rdfs/seeAlso    #{{:xsd/anyURI
                        "http://wordnet-rdf.princeton.edu/id/00155053-n"}
@@ -963,7 +919,7 @@
   {:d3f/definition
    "An authentication service is a mechanism, analogous to the use of passwords on time-sharing systems, for the secure authentication of the identity of network clients by servers and vice versa, without presuming the operating system integrity of either (e.g., Kerberos).",
    :db/ident :d3f/AuthenticationService,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://www.gartner.com/en/information-technology/glossary/authentication-service"},
@@ -976,15 +932,12 @@
    :d3f/definition
    "Authorization is the function of specifying access rights to resources related to information security and computer security in general and to access control in particular. More formally, \"to authorize\" is to define an access policy. For example, human resources staff is normally authorized to access employee records and this policy is usually formalized as access control rules in a computer system. During operation, the system uses the access control rules to decide whether access requests from (authenticated) consumers shall be approved (granted) or disapproved (rejected). Resources include individual files or an item's data, computer programs, computer devices and functionality provided by computer applications. Examples of consumers are computer users, computer program",
    :db/ident :d3f/Authorization,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Authorization"},
    :rdfs/label "Authorization",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/authorizes,
                        :owl/someValuesFrom :d3f/NetworkResourceAccess,
-                       :rdf/type           :owl/Restriction} :d3f/UserAction
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/UserAction}})
 
 (def AuthorizationEventThresholding
   {:d3f/analyzes :d3f/Authorization,
@@ -1000,9 +953,7 @@
      :d3f/Reference-SMBSessionSetups_MITRE
      :d3f/Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc},
    :db/ident :d3f/AuthorizationEventThresholding,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Authorization Event Thresholding",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Authorization,
@@ -1013,7 +964,7 @@
   {:d3f/definition  "A log of authorization events.",
    :d3f/records     :d3f/NetworkResourceAccess,
    :db/ident        :d3f/AuthorizationLog,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Authorization Log",
    :rdfs/seeAlso    #{{:xsd/anyURI
                        "http://wordnet-rdf.princeton.edu/id/00155053-n"}
@@ -1084,8 +1035,7 @@
 
 (def BSDProcess
   {:db/ident   :d3f/BSDProcess,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/Process :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/Process :owl/NamedIndividual},
    :rdfs/label "BSD Process"})
 
 (def BarcodeScannerInputDevice
@@ -1100,9 +1050,7 @@
 
 (def BashScriptFile
   {:db/ident   :d3f/BashScriptFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/ExecutableScript
-                 :d3f/DigitalArtifact :d3f/DigitalObject :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Bash Script File"})
 
 (def BayesOptimalClassifier
@@ -1231,9 +1179,7 @@
    #{:d3f/Reference-TokenlessBiometricTransactionAuthorizationMethodAndSystem
      :d3f/Reference-www.biometric-solutions.com_keystroke-dynamics},
    :db/ident :d3f/BiometricAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Biometric Authentication",
    :rdfs/subClassOf #{:d3f/CredentialHardening
                       {:owl/onProperty     :d3f/authenticates,
@@ -1256,7 +1202,7 @@
    "A block device (or block special file) provides buffered access to hardware devices, and provides some abstraction from their specifics.\n\nIEEE Std 1003.1-2017: A file that refers to a device. A block special file is normally distinguished from a character special file by providing access to the device in a manner such that the hardware characteristics of the device are not visible.",
    :d3f/may-contain :d3f/Volume,
    :db/ident :d3f/BlockDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Device_file#BLOCKDEV"},
    :rdfs/label "Block Device",
@@ -1280,7 +1226,7 @@
 
 (def Book
   {:db/ident   :d3f/Book,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ReferenceType :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ReferenceType :owl/NamedIndividual},
    :rdfs/label "Book"})
 
 (def BookReference
@@ -1316,7 +1262,7 @@
   {:d3f/definition
    "A bootloader is software that is responsible for booting a computer. When a computer is turned off, its software‍-‌including operating systems, application code, and data‍-‌remains stored on non-volatile memory. When the computer is powered on, it typically does not have an operating system or its loader in random-access memory (RAM). The computer first executes a relatively small program stored in read-only memory (ROM, and later EEPROM, NOR flash) along with some needed data, to initialize RAM (especially on x86 systems) to access the nonvolatile device (usually block device, eg NAND flash) or devices from which the operating system programs and data can be loaded into RAM.",
    :db/ident :d3f/BootLoader,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Bootloader"},
    :rdfs/label "Boot Loader",
    :rdfs/subClassOf :d3f/DigitalArtifact,
@@ -1334,7 +1280,7 @@
   {:d3f/definition
    "A boot record [boot sector] is the sector of a persistent data storage device (e.g., hard disk, floppy disk, optical disc, etc.) which contains machine code to be loaded into random-access memory (RAM) and then executed by a computer system's built-in firmware (e.g., the BIOS, Das U-Boot, etc.).",
    :db/ident :d3f/BootSector,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Boot Sector",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Boot_sector"},
    :rdfs/subClassOf :d3f/BootRecord})
@@ -1347,9 +1293,7 @@
    :d3f/kb-reference :d3f/Reference-UEFIPlatformInitialization-Specification,
    :d3f/synonym "Secure Boot",
    :db/ident :d3f/BootloaderAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Bootloader Authentication",
    :rdfs/subClassOf #{:d3f/PlatformHardening
                       {:owl/onProperty     :d3f/authenticates,
@@ -1379,9 +1323,7 @@
      :d3f/Reference-BroadcastIsolationAndLevel3NetworkSwitch_HewlettPackardEnterpriseDevelopmentLP},
    :d3f/synonym "Network Segmentation",
    :db/ident :d3f/BroadcastDomainIsolation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "Broadcast Domain Isolation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/filters,
                        :owl/someValuesFrom :d3f/LocalAreaNetworkTraffic,
@@ -1393,7 +1335,7 @@
    "A web browser (commonly referred to as a browser) is a software application for retrieving, presenting, and traversing information resources on the World Wide Web. An information resource is identified by a Uniform Resource Identifier (URI/URL) and may be a web page, image, video or other piece of content. Hyperlinks present in resources enable users easily to navigate their browsers to related resources. Although browsers are primarily intended to use the World Wide Web, they can also be used to access information provided by web servers in private networks or files in file systems.",
    :d3f/may-contain :d3f/BrowserExtension,
    :db/ident :d3f/Browser,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Web_browser"},
    :rdfs/label "Browser",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/13376000-n"},
@@ -1407,7 +1349,7 @@
    "A browser extension is a plug-in that extends the functionality of a web browser in some way. Some extensions are authored using web technologies such as HTML, JavaScript, and CSS. Browser extensions can change the user interface of the web browser without directly affecting viewable content of a web page; for example, by adding a \"toolbar.\"",
    :d3f/extends :d3f/Browser,
    :db/ident :d3f/BrowserExtension,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Browser_extension"},
    :rdfs/label "Browser Extension",
@@ -1458,9 +1400,7 @@
      :d3f/Reference-Network-BasedBufferOverflowDetectionByExploitCodeAnalysis_InformationSecurityResearchCentre},
    :d3f/synonym "Shellcode Transmission Detection",
    :db/ident :d3f/ByteSequenceEmulation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Byte Sequence Emulation",
    :rdfs/subClassOf :d3f/NetworkTrafficAnalysis})
 
@@ -1501,8 +1441,8 @@
 (def CAPEC-663
   {:d3f/capec-id     "CAPEC-553",
    :db/ident         :d3f/CAPEC-663,
-   :rdf/type         #{:d3f/CAPECThing :d3f/CommonAttackPattern
-                       :owl/NamedIndividual :owl/Class},
+   :rdf/type         #{:d3f/CommonAttackPattern :owl/NamedIndividual
+                       :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://capec.mitre.org/data/definitions/663.html"},
    :rdfs/label       "Exploitation of Transient Instruction Execution",
@@ -1528,10 +1468,8 @@
   {:d3f/archived-at {:xsd/anyURI "https://public.cyber.mil/stigs/cci/"},
    :d3f/version     {:rdf/value "2022-04-05"},
    :db/ident        :d3f/CCICatalog_v2022-04-05,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Catalog :d3f/D3FENDCatalogThing
-                      :d3f/ControlCatalog
-                      :d3f/ControlCorrelationIdentifierCatalog
-                      :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type        #{:d3f/ControlCorrelationIdentifierCatalog
+                      :owl/NamedIndividual},
    :rdfs/label      "CCI Catalog v2022-04-05",
    :rdfs/seeAlso    {:xsd/anyURI "https://public.cyber.mil/stigs/cci/"}})
 
@@ -2425,7 +2363,7 @@
   {:d3f/cwe-id "CWE-119",
    :d3f/weakness-of :d3f/RawMemoryAccessFunction,
    :db/ident :d3f/CWE-119,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Improper Restriction of Operations within the Bounds of a Memory Buffer",
    :rdfs/subClassOf #{:d3f/CWE-118
@@ -2697,8 +2635,7 @@
   {:d3f/cwe-id      "CWE-125",
    :d3f/weakness-of :d3f/RawMemoryAccessFunction,
    :db/ident        :d3f/CWE-125,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Out-of-bounds Read",
    :rdfs/subClassOf #{:d3f/CWE-119
                       {:owl/onProperty     :d3f/weakness-of,
@@ -3831,8 +3768,7 @@
   {:d3f/cwe-id      "CWE-190",
    :d3f/weakness-of :d3f/MathematicalFunction,
    :db/ident        :d3f/CWE-190,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Integer Overflow or Wraparound",
    :rdfs/subClassOf #{:d3f/CWE-682
                       {:owl/onProperty     :d3f/weakness-of,
@@ -3899,8 +3835,7 @@
   {:d3f/cwe-id      "CWE-20",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident        :d3f/CWE-20,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Improper Input Validation",
    :rdfs/subClassOf #{:d3f/CWE-707
                       {:owl/onProperty     :d3f/weakness-of,
@@ -4032,7 +3967,7 @@
   {:d3f/cwe-id "CWE-22",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-22,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
    :rdfs/subClassOf #{:d3f/CWE-706 :d3f/CWE-668
@@ -4402,8 +4337,7 @@
   {:d3f/cwe-id      "CWE-276",
    :d3f/weakness-of :d3f/ApplicationInstaller,
    :db/ident        :d3f/CWE-276,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Incorrect Default Permissions",
    :rdfs/subClassOf #{:d3f/CWE-732
                       {:owl/onProperty     :d3f/weakness-of,
@@ -4491,8 +4425,7 @@
   {:d3f/cwe-id      "CWE-287",
    :d3f/weakness-of :d3f/AuthenticationFunction,
    :db/ident        :d3f/CWE-287,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Improper Authentication",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/AuthenticationFunction,
@@ -4983,8 +4916,7 @@
   {:d3f/cwe-id      "CWE-352",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident        :d3f/CWE-352,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cross-Site Request Forgery (CSRF)",
    :rdfs/subClassOf #{:d3f/CWE-345
                       {:owl/onProperty     :d3f/weakness-of,
@@ -5052,7 +4984,7 @@
   {:d3f/cwe-id "CWE-362",
    :d3f/weakness-of :d3f/SharedResourceAccessFunction,
    :db/ident :d3f/CWE-362,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')",
    :rdfs/subClassOf #{:d3f/CWE-691
@@ -5508,8 +5440,7 @@
   {:d3f/cwe-id      "CWE-434",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident        :d3f/CWE-434,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Unrestricted Upload of File with Dangerous Type",
    :rdfs/subClassOf #{:d3f/CWE-669
                       {:owl/onProperty     :d3f/weakness-of,
@@ -5782,8 +5713,7 @@
   {:d3f/cwe-id      "CWE-476",
    :d3f/weakness-of :d3f/PointerDereferencingFunction,
    :db/ident        :d3f/CWE-476,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "NULL Pointer Dereference",
    :rdfs/subClassOf #{:d3f/CWE-710
                       {:owl/onProperty     :d3f/weakness-of,
@@ -5985,8 +5915,7 @@
    :d3f/may-be-weakness-of :d3f/UserInputFunction,
    :d3f/weakness-of :d3f/DeserializationFunction,
    :db/ident        :d3f/CWE-502,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Deserialization of Untrusted Data",
    :rdfs/subClassOf #{:d3f/CWE-913
                       {:owl/onProperty     :d3f/may-be-weakness-of,
@@ -6719,8 +6648,7 @@
   {:d3f/cwe-id      "CWE-611",
    :d3f/weakness-of :d3f/ExternalContentInclusionFunction,
    :db/ident        :d3f/CWE-611,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Improper Restriction of XML External Entity Reference",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/weakness-of,
                        :owl/someValuesFrom
@@ -7512,7 +7440,7 @@
   {:d3f/cwe-id "CWE-77",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-77,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Improper Neutralization of Special Elements used in a Command ('Command Injection')",
    :rdfs/subClassOf #{:d3f/CWE-74
@@ -7598,7 +7526,7 @@
    :d3f/may-be-weakness-of #{:d3f/ProcessStartFunction :d3f/EvalFunction
                              :d3f/UserInputFunction},
    :db/ident :d3f/CWE-78,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-be-weakness-of,
@@ -7666,8 +7594,7 @@
   {:d3f/cwe-id      "CWE-787",
    :d3f/weakness-of :d3f/RawMemoryAccessFunction,
    :db/ident        :d3f/CWE-787,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Out-of-bounds Write",
    :rdfs/subClassOf #{:d3f/CWE-119
                       {:owl/onProperty     :d3f/weakness-of,
@@ -7692,7 +7619,7 @@
   {:d3f/cwe-id "CWE-79",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-79,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
    :rdfs/subClassOf #{:d3f/CWE-74
@@ -7761,8 +7688,7 @@
   {:d3f/cwe-id      "CWE-798",
    :d3f/weakness-of :d3f/AuthenticationFunction,
    :db/ident        :d3f/CWE-798,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Use of Hard-coded Credentials",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/AuthenticationFunction,
@@ -8059,7 +7985,7 @@
   {:d3f/cwe-id "CWE-89",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-89,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label
    "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
    :rdfs/subClassOf #{:d3f/CWE-943
@@ -8165,8 +8091,7 @@
   {:d3f/cwe-id      "CWE-918",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident        :d3f/CWE-918,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Server-Side Request Forgery (SSRF)",
    :rdfs/subClassOf #{:d3f/CWE-441
                       {:owl/onProperty     :d3f/weakness-of,
@@ -8250,8 +8175,7 @@
   {:d3f/cwe-id      "CWE-94",
    :d3f/may-be-weakness-of #{:d3f/EvalFunction :d3f/UserInputFunction},
    :db/ident        :d3f/CWE-94,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/Weakness :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Improper Control of Generation of Code ('Code Injection')",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-be-weakness-of,
                        :owl/someValuesFrom :d3f/EvalFunction,
@@ -8335,7 +8259,7 @@
    "Cache memory is temporary storage that is more readily available to the processor than the computer's main memory source, located between the main memory and the processor.  It is typically either integrated directly into the CPU chip (level 1 cache) or placed on a separate chip with a bus interconnect with the CPU (level 2 cache).",
    :d3f/may-contain :d3f/ProcessSegment,
    :db/ident :d3f/CacheMemory,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://whatis.techtarget.com/definition/memory"},
    :rdfs/label "Processor Cache Memory",
@@ -8355,7 +8279,7 @@
    :d3f/definition
    "In computer science, a call stack is a stack data structure that stores information about the active subroutines of a computer program. This kind of stack is also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to just \"the stack\". Although maintenance of the call stack is important for the proper functioning of most software, the details are normally hidden and automatic in high-level programming languages. Many computer instruction sets provide special instructions for manipulating stacks.",
    :db/ident :d3f/CallStack,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Call_stack"},
    :rdfs/label "Call Stack",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -8400,7 +8324,6 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-evidence,
                        :owl/someValuesFrom :d3f/DefensiveTechniqueAssessment,
                        :rdf/type           :owl/Restriction} :d3f/Assessment
-                      :d3f/DefensiveTechniqueClaim
                       {:owl/onProperty     :d3f/has-evidence,
                        :owl/someValuesFrom :d3f/AdminFeatureAssessment,
                        :rdf/type           :owl/Restriction}
@@ -8452,7 +8375,7 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/latency,
                        :owl/someValuesFrom :d3f/D3FENDCatalogThing,
                        :rdf/type           :owl/Restriction}
-                      :d3f/D3FENDCatalogThing :d3f/CapabilityFeatureClaim
+                      :d3f/D3FENDCatalogThing
                       {:owl/onProperty     :d3f/operating-system,
                        :owl/someValuesFrom :xsd/string,
                        :rdf/type           :owl/Restriction}
@@ -8481,7 +8404,7 @@
                       :d3f/CacheMemory},
    :d3f/synonym #{"CPU" "Main Processor" "Central Processor"},
    :db/ident :d3f/CentralProcessingUnit,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://en.wikipedia.org/wiki/Central_processing_unit"},
    :rdfs/label "Central Processing Unit",
@@ -8527,7 +8450,7 @@
    :d3f/todo
    "Since we say it contains a PK, must be PKC.  Rewire certificate hierarchy to include attribute/authorization certificates more generally.  Push this down to specifically represent PKCs.  Also key and authority issues may require parallel adjustments http://dbpedia.org/resource/Authorization_certificate",
    :db/ident :d3f/Certificate,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Public_key_certificate"},
    :rdfs/label "Certificate",
@@ -8548,9 +8471,7 @@
    :d3f/kb-reference
    :d3f/Reference-TokenlessBiometricTransactionAuthorizationMethodAndSystem,
    :db/ident :d3f/Certificate-basedAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Certificate-based Authentication",
    :rdfs/subClassOf :d3f/CredentialHardening})
 
@@ -8563,9 +8484,7 @@
    "## How it works\nCertificate Analysis ensures that the data elements of the certificate are current and anchored in a known trust model. Certificate authorities, revocation lists, and third-party secure logs are used in the analysis. Analysis includes detection of server impersonation, phishing domains, and forged certificates.\n\nTLS certificates are designed to expire to ensure that the cryptographic keys are forced to be changed on a regular basis. The certificates in the trust path also expire and can cause a break in the trust chain. This means that even if a server certificate is updated correctly, intermediate certificates can expire and the trust chain is not maintained. This can cause services to become unavailable.",
    :d3f/kb-reference :d3f/Reference-SecuringWebTransactions,
    :db/ident :d3f/CertificateAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Certificate Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/CertificateFile,
@@ -8577,7 +8496,7 @@
    :d3f/definition
    "A file containing a digital certificate. In cryptography, a public key certificate (also known as a digital certificate or identity certificate) is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct. If the signature is valid, and the person examining the certificate trusts the signer, then they know they can use that key to communicate with its owner.",
    :db/ident :d3f/CertificateFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Public_key_certificate"},
    :rdfs/label "Certificate File",
@@ -8595,9 +8514,7 @@
    :d3f/kb-reference #{:d3f/Reference-End-to-endCertificatePinning
                        :d3f/Reference-CertificateAndPublicKeyPinning},
    :db/ident :d3f/CertificatePinning,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Certificate Pinning",
    :rdfs/subClassOf #{:d3f/CredentialHardening
                       {:owl/onProperty     :d3f/authenticates,
@@ -8609,7 +8526,7 @@
    :d3f/definition
    "A certificate truststore is used to store public certificates used to authenticate clients by the server for an SSL connection.",
    :db/ident :d3f/CertificateTrustStore,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Certificate Trust Store",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/Public_key_certificate"}
@@ -8665,9 +8582,7 @@
    :d3f/kb-reference
    :d3f/Reference-MethodAndSystemForDetectingMaliciousPayloads_VectraNetworksInc,
    :db/ident :d3f/Client-serverPayloadProfiling,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Client-server Payload Profiling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -8678,7 +8593,7 @@
   {:d3f/definition
    "A client application is software that accesses a service made available by a server. The server is often (but not always) on another computer system, in which case the client accesses the service by way of a network. The term applies to the role that programs or devices play in the client-server model",
    :db/ident :d3f/ClientApplication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Client_(computing)"},
    :rdfs/label "Client Application",
@@ -8702,7 +8617,7 @@
   {:d3f/definition
    "The clipboard is a buffer that some operating systems provide for short-term storage and transfer within and between application programs. The clipboard is usually temporary and unnamed, and its contents reside in the computer's RAM. The clipboard is sometimes called the paste buffer. Windows, Linux and macOS support a single clipboard transaction. Each cut or copy overwrites the previous contents. Normally, paste operations copy the contents, leaving the contents available in the clipboard for further pasting.",
    :db/ident :d3f/Clipboard,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Clipboard_(computing)"},
    :rdfs/label "Clipboard",
@@ -8712,7 +8627,7 @@
   {:d3f/definition
    "Information used to configure the services, parameters, and initial settings for a virtual server instance running in a cloud service..",
    :db/ident :d3f/CloudConfiguration,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Cloud Configuration",
    :rdfs/subClassOf :d3f/ConfigurationResource,
    :skos/altLabel "Cloud Configuration Information"})
@@ -8721,7 +8636,7 @@
   {:d3f/definition
    "Cloud instance metadata is configuration information on the instance and users of the instance.  This includes such information as security groups, public ip addresses, and private addresses, public keys configured, and event rotating security keys. User data can contain initialization scripts, variables, passwords, and more.",
    :db/ident :d3f/CloudInstanceMetadata,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Cloud Instance Metadata",
    :rdfs/seeAlso
    {:xsd/anyURI "https://isc.sans.edu/forums/diary/Cloud+Metadata+Urls/22046"},
@@ -8731,7 +8646,7 @@
   {:d3f/definition
    "A request-response comprising a user credential presentation to a system and a verification response where the verifying party is a cloud service.",
    :db/ident :d3f/CloudServiceAuthentication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Cloud Service Authentication",
    :rdfs/subClassOf :d3f/WebAuthentication})
 
@@ -8739,7 +8654,7 @@
   {:d3f/definition
    "Cloud authorization is the function of specifying access rights to cloud resources.",
    :db/ident :d3f/CloudServiceAuthorization,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Cloud Service Authorization",
    :rdfs/subClassOf :d3f/Authorization})
 
@@ -8749,22 +8664,19 @@
    :d3f/monitors #{:d3f/CloudServiceAuthentication
                    :d3f/CloudServiceAuthorization},
    :db/ident :d3f/CloudServiceSensor,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Cloud Service Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/CloudServiceAuthentication,
                        :rdf/type           :owl/Restriction} :d3f/Sensor
                       {:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/CloudServiceAuthorization,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def CloudStorage
   {:d3f/definition   "Cloud storage is storage held within a computing cloud.",
    :db/ident         :d3f/CloudStorage,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Cloud_storage"},
    :rdfs/label       "Cloud Storage",
    :rdfs/seeAlso     {:xsd/anyURI
@@ -8775,7 +8687,7 @@
   {:d3f/definition
    "A user account on a given host is a local user account for a given cloud and specified resources within that cloud.",
    :db/ident :d3f/CloudUserAccount,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Cloud User Account",
    :rdfs/subClassOf :d3f/UserAccount})
 
@@ -8813,7 +8725,7 @@
    :d3f/definition
    "A code repository is a form of database where code, typically source code, is stored and managed.  In revision control systems, a repository is a data structure that stores metadata for a set of files or directory structure. Depending on whether the version control system in use is distributed like (Git or Mercurial) or centralized like (Subversion, CVS, or Perforce), the whole set of information in the repository may be duplicated on every user's system or may be maintained on a single server.",
    :db/ident :d3f/CodeRepository,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/Repository_(version_control)"},
    :rdfs/label "Code Repository",
@@ -8848,15 +8760,14 @@
 (def Collection
   {:d3f/display-order 9,
    :db/ident          :d3f/Collection,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Collection",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def CollectionTechnique
   {:d3f/enables     :d3f/Collection,
    :db/ident        :d3f/CollectionTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Collection Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Collection,
@@ -8868,7 +8779,7 @@
    "A network agent is software installed on a network node or device that transmits information back to a collector agent or management system.  Kinds of network agents include SNMP Agent, IPMI agents, WBEM agents, and many proprietary agents capturing network monitoring and management information.",
    :d3f/synonym "Exporter",
    :db/ident :d3f/CollectorAgent,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Agent",
    :rdfs/subClassOf :d3f/Software})
 
@@ -8876,7 +8787,7 @@
   {:d3f/definition
    "In computing, a command is a directive to a computer program acting as an interpreter of some kind, in order to perform a specific task. Most commonly a command is either a directive to some kind of command-line interface, such as a shell, or an event in a graphical user interface triggered by the user selecting an option in a menu.",
    :db/ident :d3f/Command,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Command_(computing)"},
    :rdfs/label "Command",
@@ -8885,15 +8796,14 @@
 (def CommandAndControl
   {:d3f/display-order 10,
    :db/ident          :d3f/CommandAndControl,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Command And Control",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def CommandAndControlTechnique
   {:d3f/enables     :d3f/CommandAndControl,
    :db/ident        :d3f/CommandAndControlTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Command and Control Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/CommandAndControl,
@@ -8903,7 +8813,7 @@
 (def CommandHistoryLog
   {:d3f/definition  "A log of commands run in an operating system shell.",
    :db/ident        :d3f/CommandHistoryLog,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Command History Log",
    :rdfs/seeAlso    #{{:rdf/value "d3f:CommandLineInterface"}
                       {:xsd/anyURI
@@ -8915,7 +8825,7 @@
    :d3f/definition
    "A command history log file is a file containing a command history, which the history of commands run in an operating system shell.",
    :db/ident :d3f/CommandHistoryLogFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Command History Log File",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Command_history"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
@@ -8946,7 +8856,7 @@
    "In computing, a compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language). The name \"compiler\" is primarily used for programs that translate source code from a high-level programming language to a lower level language (e.g., assembly language, object code, or machine code) to create an executable program.",
    :d3f/reads :d3f/CompilerConfigurationFile,
    :db/ident :d3f/Compiler,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Compiler"},
    :rdfs/label "Compiler",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
@@ -8957,7 +8867,7 @@
   {:d3f/definition
    "A file containing Information used to configure the parameters and initial settings for a compiler.",
    :db/ident :d3f/CompilerConfigurationFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Compiler Configuration File",
    :rdfs/subClassOf :d3f/ApplicationConfigurationFile})
 
@@ -8989,7 +8899,7 @@
 (def ConfigurationDatabase
   {:d3f/contains    :d3f/ConfigurationDatabaseRecord,
    :db/ident        :d3f/ConfigurationDatabase,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Configuration Database",
    :rdfs/subClassOf #{:d3f/ConfigurationResource
                       {:owl/onProperty     :d3f/contains,
@@ -8999,7 +8909,7 @@
 (def ConfigurationDatabaseRecord
   {:d3f/synonym     "Configuration Record",
    :db/ident        :d3f/ConfigurationDatabaseRecord,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Configuration Database Record",
    :rdfs/subClassOf #{:d3f/ConfigurationResource :d3f/Record}})
 
@@ -9025,9 +8935,7 @@
                        :d3f/Reference-Web-BasedEnterpriseManagement
                        :d3f/Reference-Windows-Management-Infrastructure},
    :db/ident :d3f/ConfigurationInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/AssetInventory
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/AssetInventory :owl/Class},
    :rdfs/label "Configuration Inventory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/inventories,
                        :owl/someValuesFrom :d3f/ConfigurationResource,
@@ -9055,7 +8963,7 @@
   {:d3f/definition
    "A resource used to configure a system including software and hardware.",
    :db/ident :d3f/ConfigurationResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Configuration Resource",
    :rdfs/subClassOf :d3f/Resource})
 
@@ -9064,7 +8972,7 @@
    :d3f/definition
    "The connect socket system call connects the socket to a target address.",
    :db/ident :d3f/ConnectSocket,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Connect Socket",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://man7.org/linux/man-pages/man2/connect.2.html"},
@@ -9082,9 +8990,7 @@
    :d3f/Reference-ModificationOfAServerToMimicADeceptionMechanism_AcalvioTechnologiesInc,
    :d3f/spoofs :d3f/LocalAreaNetwork,
    :db/ident :d3f/ConnectedHoneynet,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/DecoyEnvironment
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/DecoyEnvironment :owl/Class},
    :rdfs/label "Connected Honeynet",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/spoofs,
                        :owl/someValuesFrom :d3f/LocalAreaNetwork,
@@ -9107,9 +9013,7 @@
    :d3f/Reference-DetectingNetworkReconnaissanceByTrackingIntranetDark-netCommunications_VECTRANETWORKSInc,
    :d3f/synonym "Network Scan Detection",
    :db/ident :d3f/ConnectionAttemptAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Connection Attempt Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
@@ -9135,7 +9039,7 @@
   {:d3f/definition
    "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.\n\nContainer images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.",
    :db/ident :d3f/ContainerImage,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://www.docker.com/resources/what-container"},
    :rdfs/label "Container Image",
@@ -9146,7 +9050,7 @@
   {:d3f/definition
    "A d3f:Software which manages and coordinates running one or more d3f:ContainerProcess.",
    :db/ident :d3f/ContainerOrchestrationSoftware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Container Orchestration Software",
    :rdfs/subClassOf :d3f/ServiceApplication})
 
@@ -9163,7 +9067,7 @@
    "A software layer between d3f:ContainerProcess and d3f:Kernel which often mediates the invocation of d3f:SystemCall",
    :d3f/runs :d3f/ContainerImage,
    :db/ident :d3f/ContainerRuntime,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Container Runtime",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
                        :owl/someValuesFrom :d3f/ContainerImage,
@@ -9224,7 +9128,7 @@
   {:d3f/copies      :d3f/MemoryBlock,
    :d3f/definition  "Copies a memory block from one location to another.",
    :db/ident        :d3f/CopyMemoryFunction,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Copy Memory Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/copies,
@@ -9234,9 +9138,7 @@
 (def CopyToken
   {:d3f/copies      :d3f/AccessToken,
    :db/ident        :d3f/CopyToken,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                      :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-                      :d3f/DigitalEvent :owl/Class},
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Copy Token",
    :rdfs/subClassOf #{:d3f/SystemCall
                       {:owl/onProperty     :d3f/copies,
@@ -9282,7 +9184,7 @@
    :d3f/definition
    "System call to create a new file on a file system. Some operating systems implement this functionality as part of their d3f:OpenFile system call.",
    :db/ident :d3f/CreateFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Create File",
    :rdfs/seeAlso
    #{{:xsd/anyURI "https://linux.die.net/man/2/creat"}
@@ -9303,7 +9205,7 @@
      "Creates a process." "Executes a process."},
    :d3f/executes :d3f/Process,
    :db/ident :d3f/CreateProcess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Create Process",
    :rdfs/seeAlso
    #{{:xsd/anyURI "https://dbpedia.org/page/Fork%E2%80%93exec"}
@@ -9325,7 +9227,7 @@
    :d3f/definition
    "A create socket system call creates an endpoint for communication and returns a file descriptor that refers to that endpoint.",
    :db/ident :d3f/CreateSocket,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Create Socket",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://www.man7.org/linux/man-pages/man2/socket.2.html"},
@@ -9338,7 +9240,7 @@
    :d3f/definition
    "Threads are an execution model that exists independently from a language, as well as a parallel execution model. They enable a program to control multiple different flows of work that overlap in time.",
    :db/ident :d3f/CreateThread,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Create Thread",
    :rdfs/seeAlso
    #{{:xsd/anyURI
@@ -9353,9 +9255,7 @@
    :d3f/definition
    "A credential is a physical/tangible object, a piece of knowledge, or a facet of a person's physical being that enables an individual access to a given physical facility or computer-based information system. Typically, credentials can be something a person knows (such as a number or PIN), something they have (such as an access badge), something they are (such as a biometric feature), something they do (measurable behavioral patterns) or some combination of these items. This is known as multi-factor authentication. The typical credential is an access card or key-fob, and newer software can also turn users' smartphones into access devices.",
    :db/ident :d3f/Credential,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Access_control#Credential"},
    :rdfs/label "Credential",
@@ -9363,14 +9263,12 @@
    :rdfs/subClassOf #{:d3f/DigitalArtifact
                       {:owl/onProperty     :d3f/authenticates,
                        :owl/someValuesFrom :d3f/UserAccount,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def CredentialAccess
   {:d3f/display-order 6,
    :db/ident          :d3f/CredentialAccess,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Credential Access",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
@@ -9380,7 +9278,7 @@
    :d3f/may-access  :d3f/PasswordFile,
    :d3f/may-invoke  :d3f/CreateProcess,
    :db/ident        :d3f/CredentialAccessTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credential Access Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/CredentialAccess,
@@ -9407,9 +9305,7 @@
    #{:d3f/Reference-AllLoginsSinceLastBoot_MITRE
      :d3f/Reference-SystemsAndMethodsForDetectingCredentialTheft_SymantecCorp},
    :db/ident :d3f/CredentialCompromiseScopeAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Credential Compromise Scope Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Credential,
@@ -9422,9 +9318,7 @@
    "Credential Eviction techniques disable or remove compromised credentials from a computer network.",
    :d3f/enables :d3f/Evict,
    :db/ident :d3f/CredentialEviction,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Credential Eviction",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Evict,
@@ -9437,9 +9331,7 @@
    "Credential Hardening techniques modify system or network properties in order to protect system or network/domain credentials.",
    :d3f/enables :d3f/Harden,
    :db/ident :d3f/CredentialHardening,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Credential Hardening",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Harden,
@@ -9450,7 +9342,7 @@
   {:d3f/definition
    "Credential Management, also referred to as a Credential Management System (CMS), is an established form of software that is used for issuing and managing credentials as part of public key infrastructure (PKI).",
    :db/ident :d3f/CredentialManagementSystem,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Credential_Management"},
    :rdfs/label "Credential Management System",
@@ -9466,9 +9358,7 @@
    :d3f/kb-reference
    :d3f/Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft,
    :db/ident :d3f/CredentialRevoking,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialEviction :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialEviction :owl/NamedIndividual :owl/Class},
    :rdfs/label "Credential Revoking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/Credential,
@@ -9486,9 +9376,7 @@
      :d3f/Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA},
    :d3f/regenerates :d3f/Credential,
    :db/ident :d3f/CredentialRotation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Credential Rotation",
    :rdfs/subClassOf #{:d3f/CredentialHardening
                       {:owl/onProperty     :d3f/regenerates,
@@ -9504,9 +9392,7 @@
    :d3f/restricts :d3f/Credential,
    :d3f/synonym "Phishing Resistant Authentication",
    :db/ident :d3f/CredentialTransmissionScoping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Credential Transmission Scoping",
    :rdfs/seeAlso #{{:xsd/anyURI "https://www.w3.org/TR/webauthn-2/"}
                    {:xsd/anyURI
@@ -9530,7 +9416,7 @@
   {:d3f/definition
    "A custom archive file is an archive file conforming to a custom format; that is, an archive file that does not conform to a common standard.",
    :db/ident :d3f/CustomArchiveFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Custom Archive File",
    :rdfs/subClassOf :d3f/ArchiveFile})
 
@@ -9556,7 +9442,7 @@
   {:d3f/definition
    "D3FEND things are concepts defined in the core D3FEND Framework.",
    :db/ident :d3f/D3FENDThing,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "D3FEND Thing"})
 
 (def D3FENDUseCase
@@ -9600,7 +9486,7 @@
   {:d3f/definition
    "DHCP Network Traffic is network traffic related to the DHCP protocol, used by network nodes to negotiate and configure either IPv4 or IPv6 addresses.",
    :db/ident :d3f/DHCPNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "DHCP Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -9619,8 +9505,7 @@
   {:d3f/definition
    "Defense Information Systems Agency (DISA) Field Security Office (FSO)",
    :db/ident :d3f/DISA_FSO,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Organization :d3f/D3FENDCatalogThing
-               :d3f/Agent :owl/NamedIndividual},
+   :rdf/type #{:d3f/Organization :owl/NamedIndividual},
    :rdfs/label "DISA FSO"})
 
 (def DNN-basedClustering
@@ -9643,9 +9528,7 @@
    :d3f/Reference-DNSWhitelist-DNSWL-EmailAuthenticationMethodExtension,
    :d3f/synonym "DNS Whitelisting",
    :db/ident :d3f/DNSAllowlisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "DNS Allowlisting",
    :rdfs/subClassOf #{:d3f/NetworkIsolation
                       {:owl/onProperty :d3f/blocks,
@@ -9663,9 +9546,7 @@
    :d3f/kb-reference :d3f/Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries,
    :d3f/synonym "DNS Blacklisting",
    :db/ident :d3f/DNSDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "DNS Denylisting",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/blocks,
                        :owl/someValuesFrom :d3f/DNSNetworkTraffic,
@@ -9676,7 +9557,7 @@
   {:d3f/definition
    "A Domain Name System (DNS) lookup is a record returned from a DNS resolver after querying a DNS name server.  Typically considered an A or AAAA record, where a domain name is resolved to an IPv4 or IPv6 address, respectively.",
    :db/ident :d3f/DNSLookup,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "DNS Lookup",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/List_of_DNS_record_types"}
@@ -9688,7 +9569,7 @@
   {:d3f/definition
    "DNS network traffic is network traffic related to queries and responses involving the Domain Name System. DNS traffic can involve clients, servers such as relays or resolvers. This includes only network traffic conforming to standard DNS protocol; not custom protocols.",
    :db/ident :d3f/DNSNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "DNS Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -9728,9 +9609,7 @@
    :d3f/may-contain :d3f/DNSLookup,
    :d3f/synonym "Domain Name Analysis",
    :db/ident :d3f/DNSTrafficAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "DNS Traffic Analysis",
    :rdfs/subClassOf #{:d3f/NetworkTrafficAnalysis
                       {:owl/onProperty :d3f/analyzes,
@@ -9753,7 +9632,7 @@
 (def DataDependency
   {:d3f/synonym     "Transactional Dependency",
    :db/ident        :d3f/DataDependency,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data Dependency",
    :rdfs/subClassOf :d3f/Dependency})
 
@@ -9768,9 +9647,7 @@
    :d3f/maps :d3f/DataDependency,
    :d3f/synonym #{"Data Flow Mapping" "Information Exchange Mapping"},
    :db/ident :d3f/DataExchangeMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class :d3f/SystemMapping
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/SystemMapping},
    :rdfs/label "Data Exchange Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/DataDependency,
@@ -9786,9 +9663,7 @@
    :d3f/Reference-DataProcessingAndScanningSystemsForGeneratingAndPopulatingADataInventory,
    :d3f/synonym #{"Data Discovery" "Data Inventorying"},
    :db/ident :d3f/DataInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/AssetInventory
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/AssetInventory :owl/Class},
    :rdfs/label "Data Inventory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/inventories,
                        :owl/someValuesFrom :d3f/Database,
@@ -9811,7 +9686,7 @@
   {:d3f/definition
    "A database is an organized collection of data, generally stored and accessed electronically from a computer system. Where databases are more complex they are often developed using formal design and modeling techniques.",
    :db/ident :d3f/Database,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Database"},
    :rdfs/label "Database",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Database"},
@@ -9819,7 +9694,7 @@
 
 (def DatabaseFile
   {:db/ident        :d3f/DatabaseFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Database File",
    :rdfs/subClassOf :d3f/File})
 
@@ -9827,7 +9702,7 @@
   {:d3f/definition
    "A specific query expressed in SQL, SPARQL, or similar language against a database.",
    :db/ident :d3f/DatabaseQuery,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Database Query",
    :rdfs/subClassOf :d3f/Command})
 
@@ -9841,9 +9716,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemAndMethodForInternetSecurity_CylanceInc,
    :db/ident :d3f/DatabaseQueryStringAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Database Query String Analysis",
    :rdfs/subClassOf #{:d3f/ProcessAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -9855,7 +9728,7 @@
    :d3f/definition
    "A database server is a server which uses a database application that provides database services to other computer programs or to computers, as defined by the client-server model. Database management systems (DBMSs) frequently provide database-server functionality, and some database management systems (such as MySQL) rely exclusively on the client-server model for database access (while others e.g. SQLite are meant for using as an embedded database). For clarification, a database server is simply a server that maintains services related to clients via database applications.",
    :db/ident :d3f/DatabaseServer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Database_server"},
    :rdfs/label "Database Server",
@@ -9884,9 +9757,7 @@
    "## How it works\n\nDead code is code that is considered unreachable by normal program execution. Dead code can be created by adding code under a condition that never evaluates to true. Dead code should be removed since this type of code can produce unexpected results, if accidentally or maliciously forced to execute.\n\nDead code identification is typically performed by algorithms that implement program flows analysis looking for unreachable code. The dead code is eliminated by instructing compilers to remove the code through compiler flags, i.e., '-fdce' is used for Dead Code Elimination.\n\n## Considerations\n\nCode can also be deemed unreachable for certain run-time conditions. Different deployed systems and environments may contain some code that is unreachable for the given environment. This technique does not consider run-time conditions for unreachable code.",
    :d3f/kb-reference :d3f/Reference-DeadCodeElimination,
    :db/ident :d3f/DeadCodeElimination,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Dead Code Elimination",
    :rdfs/subClassOf :d3f/ApplicationHardening})
 
@@ -9896,8 +9767,7 @@
    :d3f/display-order 3,
    :d3f/display-priority 0,
    :db/ident :d3f/Deceive,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DefensiveTactic :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Deceive",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -9928,7 +9798,7 @@
    "A decoy is an imitation digital artifact in any sense of a digital artifact, object, or phenomenon that is intended to deceive a cyber attacker's surveillance devices or mislead their evaluation.  Examples include fake files, accounts, hosts (honeypots), and network segments (honeynets).",
    :d3f/may-contain :d3f/DigitalArtifact,
    :db/ident :d3f/DecoyArtifact,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Decoy Artifact",
    :rdfs/seeAlso #{{:xsd/anyURI "https://doi.org/10.1007/978-3-319-25133-2"}
                    {:xsd/anyURI "https://shield.mitre.org/"}
@@ -9950,9 +9820,7 @@
    :d3f/manages :d3f/DecoyArtifact,
    :d3f/synonym "Honeypot",
    :db/ident :d3f/DecoyEnvironment,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Decoy Environment",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Deceive,
@@ -9974,9 +9842,7 @@
      :d3f/Reference-OpenSourceIntelligenceDeceptions_IllusiveNetworksLtd},
    :d3f/spoofs :d3f/File,
    :db/ident :d3f/DecoyFile,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DecoyObject
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DecoyObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Decoy File",
    :rdfs/subClassOf #{:d3f/DecoyObject
                       {:owl/onProperty     :d3f/spoofs,
@@ -9996,9 +9862,7 @@
      :d3f/Reference-AutomaticallyGeneratingNetworkResourceGroupsAndAssigningCustomizedDecoyPoliciesThereto_IllusiveNetworksLtd},
    :d3f/spoofs :d3f/NetworkResource,
    :db/ident :d3f/DecoyNetworkResource,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DecoyObject
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DecoyObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Decoy Network Resource",
    :rdfs/subClassOf #{:d3f/DecoyObject
                       {:owl/onProperty     :d3f/spoofs,
@@ -10014,9 +9878,7 @@
    "## Technique Overview\nDecoy objects are typically configured with detectable means of communication but do not have any legitimate business purpose. Any communication via or to these objects should be logged and analyzed to find potential indicators of compromise for a possible past or future attack against other systems.",
    :d3f/synonym "Lure",
    :db/ident :d3f/DecoyObject,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Decoy Object",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Deceive,
@@ -10034,9 +9896,7 @@
      :d3f/Reference-DecoyPersonasForSafeguardingOnlineIdentityUsingDeception_},
    :d3f/spoofs :d3f/User,
    :db/ident :d3f/DecoyPersona,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DecoyObject
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DecoyObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Decoy Persona",
    :rdfs/subClassOf #{:d3f/DecoyObject
                       {:owl/onProperty     :d3f/spoofs,
@@ -10051,9 +9911,7 @@
    :d3f/kb-reference
    :d3f/Reference-MockAttackCybersecurityTrainingSystemAndMethods_WOMBATSECURITYTECHNOLOGIESInc,
    :db/ident :d3f/DecoyPublicRelease,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DecoyObject
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DecoyObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Decoy Public Release",
    :rdfs/subClassOf :d3f/DecoyObject})
 
@@ -10067,9 +9925,7 @@
    :d3f/Reference-DecoyAndDeceptiveDataObjectTechnology_CymmetriaInc,
    :d3f/spoofs :d3f/AccessToken,
    :db/ident :d3f/DecoySessionToken,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DecoyObject
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DecoyObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Decoy Session Token",
    :rdfs/subClassOf #{:d3f/DecoyObject
                       {:owl/onProperty     :d3f/spoofs,
@@ -10088,9 +9944,7 @@
      :d3f/Reference-DecoyNetwork-BasedServiceForDeceivingAttackers-AmazonTechnologies},
    :d3f/spoofs :d3f/Credential,
    :db/ident :d3f/DecoyUserCredential,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DecoyObject
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DecoyObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Decoy User Credential",
    :rdfs/subClassOf #{:d3f/DecoyObject
                       {:owl/onProperty     :d3f/spoofs,
@@ -10135,7 +9989,7 @@
   {:d3f/definition
    "Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems or default factory/provider set accounts on other types of systems, software, or devices.",
    :db/ident :d3f/DefaultUserAccount,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Default User Account",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -10145,15 +9999,14 @@
 (def DefenseEvasion
   {:d3f/display-order 5,
    :db/ident          :d3f/DefenseEvasion,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Defense Evasion",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def DefenseEvasionTechnique
   {:d3f/enables     :d3f/DefenseEvasion,
    :db/ident        :d3f/DefenseEvasionTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Defense Evasion Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/DefenseEvasion,
@@ -10179,7 +10032,7 @@
    :d3f/synonym #{"Defensive Capability Feature" "Countermeasure Technique"
                   "Technical Security Control"},
    :db/ident :d3f/DefensiveTechnique,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Technique :owl/NamedIndividual :owl/Class},
+   :rdf/type #{:d3f/Technique :owl/NamedIndividual :owl/Class},
    :rdfs/label "Defensive Technique",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://csrc.nist.gov/glossary/term/security_control"},
@@ -10212,7 +10065,7 @@
                       {:owl/onProperty     :d3f/counters,
                        :owl/someValuesFrom :d3f/OffensiveTechnique,
                        :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechniqueClaim :d3f/FeatureAssessment
+                      :d3f/FeatureAssessment
                       {:owl/allValuesFrom {:owl/oneOf [{:rdf/value "Deceive"}
                                                        {:rdf/value "Detect"}
                                                        {:rdf/value "Evict"}
@@ -10255,14 +10108,11 @@
   {:d3f/definition  "Remove a file from a machine.",
    :d3f/deletes     :d3f/File,
    :db/ident        :d3f/DeleteFile,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Delete File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/File,
-                       :rdf/type           :owl/Restriction} :d3f/SystemCall
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/SystemCall}})
 
 (def Density-basedClustering
   {:d3f/d3fend-id "D3A-DBC",
@@ -10303,7 +10153,7 @@
    :d3f/dependent :d3f/D3FENDThing,
    :d3f/provider :d3f/D3FENDThing,
    :db/ident :d3f/Dependency,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Dependency",
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://wordnet-rdf.princeton.edu/id/14024833-n"}
@@ -10342,7 +10192,7 @@
   {:d3f/definition
    "Function with an input of serialized data which deserializes that data, usually with data parsing methods.",
    :db/ident :d3f/DeserializationFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Deserialization Function",
    :rdfs/subClassOf :d3f/Subroutine})
 
@@ -10362,8 +10212,7 @@
    :d3f/display-order 1,
    :d3f/display-priority 0,
    :db/ident :d3f/Detect,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DefensiveTactic :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Detect",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -10393,7 +10242,7 @@
    :d3f/display-baseurl "/dao/artifact/",
    :d3f/synonym "Digital Asset",
    :db/ident :d3f/DigitalArtifact,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Digital Artifact",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/Virtual_artifact"}
@@ -10436,7 +10285,7 @@
   {:d3f/definition
    "A digital system is a group of interacting or interrelated digital artifacts that act according to a set of rules to form a unified whole. A digital system, surrounded and influenced by its environment, is described by its boundaries, structure and purpose and expressed in its functioning. Systems are the subjects of study of systems theory.",
    :db/ident :d3f/DigitalSystem,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Digital System",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/System"},
    :rdfs/subClassOf #{:d3f/DigitalArtifact :d3f/System}})
@@ -10457,7 +10306,7 @@
    "In computing, a directory is a file system cataloging structure which contains references to other computer files, and possibly other directories. On many computers, directories are known as folders, or drawers to provide some relevancy to a workbench or the traditional office file cabinet.",
    :d3f/may-contain :d3f/File,
    :db/ident :d3f/Directory,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Directory_(computing)"},
    :rdfs/label "Directory",
@@ -10470,7 +10319,7 @@
   {:d3f/definition
    "In computing, directory service or name service maps the names of network resources to their respective network addresses. It is a shared information infrastructure for locating, managing, administering and organizing everyday items and network resources, which can include volumes, folders, files, printers, users, groups, devices, telephone numbers and other objects. A directory service is a critical component of a network operating system. A directory server or name server is a server which provides such a service. Each resource on the network is considered an object by the directory server. Information about a particular resource is stored as a collection of attributes associated with that resource or object.",
    :db/ident :d3f/DirectoryService,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Directory_service"},
    :rdfs/label "Directory Service",
@@ -10479,15 +10328,14 @@
 (def Discovery
   {:d3f/display-order 7,
    :db/ident          :d3f/Discovery,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Discovery",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def DiscoveryTechnique
   {:d3f/enables     :d3f/Discovery,
    :db/ident        :d3f/DiscoveryTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Discovery Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Discovery,
@@ -10512,9 +10360,7 @@
    :d3f/encrypts :d3f/Storage,
    :d3f/kb-reference :d3f/Reference-LUKS1On-DiskFormatSpecificationVersion1.2.3,
    :db/ident :d3f/DiskEncryption,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Disk Encryption",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/encrypts,
                        :owl/someValuesFrom :d3f/Storage,
@@ -10525,7 +10371,7 @@
   {:d3f/definition
    "A graphics card (also called a display card, video card, display adapter, or graphics adapter) is an expansion card which generates a feed of output images to a display device (such as a computer monitor). Frequently, these are advertised as discrete or dedicated graphics cards, emphasizing the distinction between these and integrated graphics. At the core of both is the graphics processing unit (GPU), which is the main part that does the actual computations, but should not be confused with the video card as a whole, although \"GPU\" is often used to refer to video cards.",
    :db/ident :d3f/DisplayAdapter,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Video_card"},
    :rdfs/label "Display Adapter",
    :rdfs/subClassOf :d3f/OutputDevice,
@@ -10535,7 +10381,7 @@
   {:d3f/definition  "A device driver for a display adapter.",
    :d3f/drives      :d3f/DisplayAdapter,
    :db/ident        :d3f/DisplayDeviceDriver,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Display Device Driver",
    :rdfs/seeAlso    #{{:xsd/anyURI
                        "http://dbpedia.org/resource/Display_adapter"}
@@ -10550,7 +10396,7 @@
   {:d3f/definition
    "A display server or window server is a program whose primary task is to coordinate the input and output of its clients to and from the rest of the operating system, the hardware, and each other. The display server communicates with its clients over the display server protocol, a communications protocol, which can be network-transparent or simply network-capable. The display server is a key component in any graphical user interface, specifically the windowing system.",
    :db/ident :d3f/DisplayServer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Display_server"},
    :rdfs/label "Display Server",
    :rdfs/subClassOf :d3f/DigitalArtifact,
@@ -10600,7 +10446,7 @@
    "A document is a written, drawn, presented or recorded representation of thoughts. An electronic document file is usually used to describe a primarily textual file, along with its structure and design, such as fonts, colors and additional images.",
    :d3f/may-contain :d3f/ExecutableScript,
    :db/ident :d3f/DocumentFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Document File",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Document"},
    :rdfs/subClassOf #{:d3f/File
@@ -10615,9 +10461,7 @@
    :d3f/kb-reference :d3f/Reference-AuditUserAccountManagement,
    :d3f/monitors :d3f/DomainUserAccount,
    :db/ident :d3f/DomainAccountMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Domain Account Monitoring",
    :rdfs/subClassOf #{:d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/monitors,
@@ -10629,7 +10473,7 @@
    "A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet. Domain names are formed by the rules and procedures of the Domain Name System (DNS). Any name registered in the DNS is a domain name.Domain names are used in various networking contexts and application-specific naming and addressing purposes. In general, a domain name represents an Internet Protocol (IP) resource, such as a personal computer used to access the Internet, a server computer hosting a web site, or the web site itself or any other service communicated via the Internet. In 2015, 294 million domain names had been registered.",
    :d3f/identifies :d3f/IPAddress,
    :db/ident :d3f/DomainName,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Domain Name",
    :rdfs/subClassOf #{:d3f/Identifier
                       {:owl/onProperty     :d3f/identifies,
@@ -10644,10 +10488,8 @@
    #{:d3f/Reference-Database_for_receiving_storing_and_compiling_information_about_email_messages
      :d3f/Reference-Finding_phishing_sites},
    :db/ident :d3f/DomainNameReputationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/IdentifierAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :d3f/IdentifierReputationAnalysis :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/IdentifierReputationAnalysis
+               :owl/Class},
    :rdfs/label "Domain Name Reputation Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/DomainName,
@@ -10659,7 +10501,7 @@
    "A domain registration, or domain name registration data, is the relevant registration data from Internet resources such as domain names, IP addresses, and autonomous system numbers. Registration data is typically retrieved by means of either the Registration Data Access Protocol (RDAP) or its predecessor, the WHOIS protocol.",
    :d3f/may-contain :d3f/DomainName,
    :db/ident :d3f/DomainRegistration,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Domain Registration",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/WHOIS"}
                    {:xsd/anyURI
@@ -10678,9 +10520,7 @@
    :d3f/Reference-HowTrustRelationshipsWorkForResourceForestsInAzureActiveDirectoryDomainServices,
    :d3f/restricts #{:d3f/DirectoryService :d3f/T1087.002},
    :db/ident :d3f/DomainTrustPolicy,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Domain Trust Policy",
    :rdfs/subClassOf #{:d3f/CredentialHardening
                       {:owl/onProperty     :d3f/restricts,
@@ -10694,7 +10534,7 @@
   {:d3f/definition
    "A domain user account in Microsoft Windows (2000) defines that user's access to a logical group of network objects (computers, users, devices) that share the same Active Directory databases; that is, a user's access to a domain.",
    :db/ident :d3f/DomainUserAccount,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Domain User Account",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://networkencyclopedia.com/global-user-account"},
@@ -10711,9 +10551,7 @@
    #{:d3f/Reference-ProtectedComputingEnvironment_MicrosoftTechnologyLicensingLLC
      :d3f/Reference-IntegrityAssuranceThroughEarlyLoadingInTheBootPhase_CrowdstrikeInc},
    :db/ident :d3f/DriverLoadIntegrityChecking,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Driver Load Integrity Checking",
    :rdfs/subClassOf #{:d3f/PlatformHardening
                       {:owl/onProperty     :d3f/authenticates,
@@ -10742,9 +10580,7 @@
      :d3f/Reference-UseOfAnApplicationControllerToMonitorAndControlSoftwareFileAndApplicationEnvironments_SophosLtd},
    :d3f/synonym #{"Malware Sandbox" "Malware Detonation"},
    :db/ident :d3f/DynamicAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Dynamic Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/DocumentFile,
@@ -10770,7 +10606,7 @@
    "An email, or email message, is a document that is sent between computer users across computer networks.",
    :d3f/may-contain #{:d3f/URL :d3f/File},
    :db/ident :d3f/Email,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Email",
    :rdfs/seeAlso #{{:xsd/anyURI "https://schema.ocsf.io/objects/email"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Email"}},
@@ -10786,7 +10622,7 @@
    :d3f/definition
    "An email attachment is a computer file sent along with an email message. One or more files can be attached to any email message, and be sent along with it to the recipient. This is typically used as a simple method to share documents and images.",
    :db/ident :d3f/EmailAttachment,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Email_attachment"},
    :rdfs/label "Email Attachment",
@@ -10805,10 +10641,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemAndMethodForProvidingAnonymousRemailingAndFilteringOfElectronicMail_Nokia,
    :db/ident :d3f/EmailFiltering,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/NetworkTrafficFiltering :d3f/D3FENDCatalogThing
-               :d3f/InboundTrafficFiltering :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/InboundTrafficFiltering :owl/NamedIndividual :owl/Class},
    :rdfs/label "Email Filtering",
    :rdfs/subClassOf #{:d3f/InboundTrafficFiltering
                       {:owl/onProperty     :d3f/filters,
@@ -10827,9 +10660,7 @@
    :d3f/may-access :d3f/MailServer,
    :d3f/synonym "Email Deletion",
    :db/ident :d3f/EmailRemoval,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileEviction
-               :d3f/D3FENDCatalogThing :d3f/FileRemoval :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileRemoval :owl/NamedIndividual :owl/Class},
    :rdfs/label "Email Removal",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/Email,
@@ -10842,7 +10673,7 @@
   {:d3f/definition
    "A configuration of an email application which is used to apply logical or data processing functions to data processed by the email  application.",
    :db/ident :d3f/EmailRule,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Email Rule",
    :rdfs/subClassOf :d3f/ApplicationRule})
 
@@ -10865,9 +10696,7 @@
    :d3f/kb-reference
    :d3f/Reference-Network-levelPolymorphicShellcodeDetectionUsingEmulation,
    :db/ident :d3f/EmulatedFileAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Emulated File Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/DocumentFile,
@@ -10881,7 +10710,7 @@
    "Network enclaves consist of standalone assets that do not interact with other information systems or networks. A major difference between a DMZ or demilitarized zone and a network enclave is a DMZ allows inbound and outbound traffic access, where firewall boundaries are traversed. In an enclave, firewall boundaries are not traversed. Enclave protection tools can be used to provide protection within specific security domains. These mechanisms are installed as part of an Intranet to connect networks that have similar security requirements.",
    :d3f/may-contain :d3f/LocalAreaNetwork,
    :db/ident :d3f/Enclave,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Network_enclave"},
    :rdfs/label "Enclave",
@@ -10894,7 +10723,7 @@
 (def EncryptedCredential
   {:d3f/definition  "A credential that is encrypted.",
    :db/ident        :d3f/EncryptedCredential,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Encrypted Credential",
    :rdfs/subClassOf :d3f/Credential})
 
@@ -10910,10 +10739,7 @@
    :d3f/isolates     :d3f/IntranetNetwork,
    :d3f/kb-reference :d3f/Reference-SecurityArchitectureForTheInternetProtocol,
    :db/ident         :d3f/EncryptedTunnels,
-   :rdf/type         #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                       :d3f/NetworkIsolation :d3f/D3FENDCatalogThing
-                       :d3f/Technique :owl/NamedIndividual :owl/Class
-                       :d3f/DefensiveTechnique},
+   :rdf/type         #{:d3f/NetworkIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label       "Encrypted Tunnels",
    :rdfs/subClassOf  #{:d3f/NetworkIsolation
                        {:owl/onProperty     :d3f/isolates,
@@ -10930,10 +10756,7 @@
    :d3f/monitors :d3f/NetworkNode,
    :d3f/synonym "Endpoint Health Telemetry",
    :db/ident :d3f/EndpointHealthBeacon,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "Endpoint Health Beacon",
    :rdfs/subClassOf #{:d3f/OperatingSystemMonitoring
                       {:owl/onProperty     :d3f/monitors,
@@ -10944,7 +10767,7 @@
   {:d3f/definition
    "A sensor application installed on a endpoint (platform) to collect information on platform components.",
    :db/ident :d3f/EndpointSensor,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Endpoint Sensor",
    :rdfs/seeAlso {:rdf/value "d3f:Platform"},
    :rdfs/subClassOf :d3f/Sensor})
@@ -11001,7 +10824,7 @@
    "Takes inputs of strings and evaluations them as expressions.",
    :d3f/invokes :d3f/Subroutine,
    :db/ident :d3f/EvalFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Eval Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/invokes,
@@ -11012,7 +10835,7 @@
   {:d3f/definition
    "Event logs record events taking place in the execution of a system in order to provide an audit trail that can be used to understand the activity of the system and to diagnose problems. They are essential to understand the activities of complex systems, particularly in the case of applications with little user interaction (such as server applications).",
    :db/ident :d3f/EventLog,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Log_file#Event_logs"},
    :rdfs/label "Event Log",
@@ -11024,8 +10847,7 @@
    :d3f/display-order 4,
    :d3f/display-priority 0,
    :db/ident :d3f/Evict,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DefensiveTactic :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Evict",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -11067,9 +10889,7 @@
    :d3f/synonym "Exception Handler Validation",
    :d3f/validates :d3f/Pointer,
    :db/ident :d3f/ExceptionHandlerPointerValidation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Exception Handler Pointer Validation",
    :rdfs/subClassOf #{:d3f/ApplicationHardening
                       {:owl/onProperty     :d3f/validates,
@@ -11079,7 +10899,7 @@
 (def Exec
   {:d3f/executes    :d3f/ExecutableBinary,
    :db/ident        :d3f/Exec,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exec",
    :rdfs/seeAlso    {:xsd/anyURI "https://dbpedia.org/page/Exec"},
    :rdfs/subClassOf #{:d3f/SystemCall
@@ -11100,9 +10920,7 @@
    :d3f/restricts :d3f/CreateProcess,
    :d3f/synonym "File Signature Authentication",
    :db/ident :d3f/ExecutableAllowlisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Executable Allowlisting",
    :rdfs/subClassOf #{:d3f/ExecutionIsolation
                       {:owl/onProperty     :d3f/restricts,
@@ -11118,7 +10936,7 @@
    "An executable binary contains machine code instructions for a physical CPU. D3FEND also considers byte code for a virtual machine to be binary code.  This is in contrast to executable scripts written in a scripting language.",
    :d3f/may-interpret :d3f/ExecutableScript,
    :db/ident :d3f/ExecutableBinary,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Executable Binary",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Executable"},
    :rdfs/subClassOf #{:d3f/ExecutableFile
@@ -11145,9 +10963,7 @@
    :d3f/restricts :d3f/CreateProcess,
    :d3f/synonym "Executable Blacklisting",
    :db/ident :d3f/ExecutableDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExecutionIsolation :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ExecutionIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "Executable Denylisting",
    :rdfs/subClassOf #{:d3f/ExecutionIsolation
                       {:owl/onProperty     :d3f/restricts,
@@ -11162,7 +10978,7 @@
    :d3f/definition
    "In computing, executable code or an executable file or executable program, sometimes simply an executable, causes a computer \"to perform indicated tasks according to encoded instructions,\" as opposed to a data file that must be parsed by a program to be meaningful. These instructions are traditionally machine code instructions for a physical CPU. However, in a more general sense, a file containing instructions (such as bytecode) for a software interpreter may also be considered executable; even a scripting language source file may therefore be considered executable in this sense. The exact interpretation depends upon the use; while the term often refers only to machine code files, in the context of protection against computer viruses all files which cause potentially hazardous instruction",
    :db/ident :d3f/ExecutableFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Executable"},
    :rdfs/label "Executable File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
@@ -11174,7 +10990,7 @@
   {:d3f/definition
    "An executable script is written in a scripting language and interpreted at run time. This is in contrast with an executable binary, which contains machine code instructions for a physical CPU or byte code for a virtual machine.",
    :db/ident :d3f/ExecutableScript,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Executable Script",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Executable"},
    :rdfs/subClassOf :d3f/ExecutableFile})
@@ -11182,8 +10998,7 @@
 (def Execution
   {:d3f/display-order 2,
    :db/ident          :d3f/Execution,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Execution",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
@@ -11193,9 +11008,7 @@
    "Execution Isolation techniques prevent application processes from accessing non-essential system resources, such as memory, devices, or files.",
    :d3f/enables :d3f/Isolate,
    :db/ident :d3f/ExecutionIsolation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Execution Isolation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Isolate,
@@ -11205,7 +11018,7 @@
 (def ExecutionTechnique
   {:d3f/enables     :d3f/Execution,
    :db/ident        :d3f/ExecutionTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Execution Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Execution,
@@ -11215,15 +11028,14 @@
 (def Exfiltration
   {:d3f/display-order 11,
    :db/ident          :d3f/Exfiltration,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Exfiltration",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def ExfiltrationTechnique
   {:d3f/enables     :d3f/Exfiltration,
    :db/ident        :d3f/ExfiltrationTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Exfiltration,
@@ -11267,7 +11079,7 @@
   {:d3f/definition
    "External content, strings or data, are inserted into a local document (e.g. xml document) as if it were a native part of that document.",
    :db/ident :d3f/ExternalContentInclusionFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "External Content Inclusion Function",
    :rdfs/subClassOf :d3f/Subroutine})
 
@@ -11294,9 +11106,7 @@
 
 (def FQDNDomainName
   {:db/ident   :d3f/FQDNDomainName,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-                 :d3f/DomainName},
+   :rdf/type   #{:owl/NamedIndividual :d3f/DomainName},
    :rdfs/label "FQDN Domain Name"})
 
 (def FastSymbolicLink
@@ -11326,7 +11136,7 @@
    :d3f/definition  "A file maintained in computer-readable form.",
    :d3f/may-contain :d3f/URL,
    :db/ident        :d3f/File,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File",
    :rdfs/seeAlso    {:xsd/anyURI
                      "http://wordnet-rdf.princeton.edu/id/06521201-n"},
@@ -11350,9 +11160,7 @@
    :d3f/kb-reference
    :d3f/Reference-File-modifyingMalwareDetection_CrowdstrikeInc,
    :db/ident :d3f/FileAccessPatternAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "File Access Pattern Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/LocalResourceAccess,
@@ -11368,9 +11176,7 @@
    :d3f/kb-article
    "## Technique Overview\nSome techniques use file signatures or file metadata to compare against historical collections of malware. Files may also be compared against a source of ground truth such as cryptographic signatures. Examining files for potential malware using pattern matching against file contents/file behavior. Binary code may be dissembled and analyzed for predictive malware behavior, such as API call signatures. Analysis might occur within a protected environment such as a sandbox or live system.",
    :db/ident :d3f/FileAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "File Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/File,
@@ -11390,9 +11196,7 @@
    :d3f/kb-reference
    :d3f/Reference-ComputerWormDefenseSystemAndMethod_FireEyeInc,
    :db/ident :d3f/FileCarving,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Carving",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/FileTransferNetworkTraffic,
@@ -11408,9 +11212,7 @@
    :d3f/kb-reference
    :d3f/Reference-CyberVaccineAndPredictiveMalwareDefensiveMethodsAndSystems,
    :db/ident :d3f/FileContentAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Content Analysis",
    :rdfs/subClassOf :d3f/FileAnalysis})
 
@@ -11427,9 +11229,7 @@
      :d3f/Reference-ComputationalModelingAndClassificationOfDataStreams_CrowdstrikeInc},
    :d3f/synonym #{"File Signatures" "File Content Signatures"},
    :db/ident :d3f/FileContentRules,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileAnalysis
-               :d3f/FileContentAnalysis :d3f/D3FENDCatalogThing :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileContentAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Content Rules",
    :rdfs/subClassOf :d3f/FileContentAnalysis})
 
@@ -11442,9 +11242,7 @@
    #{:d3f/Reference-CAR-2020-09-001:ScheduledTask-FileAccess_MITRE
      :d3f/Reference-LsassProcessDumpViaProcdump_MITRE},
    :db/ident :d3f/FileCreationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/SystemCallAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :d3f/ProcessAnalysis :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/SystemCallAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Creation Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/CreateFile,
@@ -11459,9 +11257,7 @@
    "## How it Works\nFiles are encrypted using either a single key for both encryption and decryption or separate keys. Single key encryption is symmetric encryption and using two key distinct keys is asymmetric encryption.\n\n### Symmetric Cryptography\nSymmetric encryption uses the same cryptographic key for both the encryption and decryption a file. Managing keys at scale sometimes uses asymmetric key exchange protocols such as Diffie-Hellman can be used to share the symmetric cryptographic key with the others.\n\n### Asymmetric Cryptography\nAsymmetric encryption is typically accomplished using public and private key certificates based on the X.509 standard. Files are encrypted using the public key and decrypted using their private key. Asymmetric encryption is typically slower than symmetric encryption and not widely used for large file encryption, but is popular for key wrapping, key exchanges, and digital signatures.\n\n## Considerations\n- Continuous monitoring to ensure private keys are not compromised and the certificate authority (CA) is trusted.\n- Secure transfer of private keys between multiple devices.",
    :d3f/kb-reference :d3f/Reference-MethodForFileEncryption,
    :db/ident :d3f/FileEncryption,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Encryption",
    :rdfs/subClassOf #{:d3f/PlatformHardening
                       {:owl/onProperty     :d3f/encrypts,
@@ -11473,9 +11269,7 @@
    :d3f/definition  "File eviction techniques evict files from system storage.",
    :d3f/enables     :d3f/Evict,
    :db/ident        :d3f/FileEviction,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label      "File Eviction",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Evict,
@@ -11485,7 +11279,7 @@
 (def FileHash
   {:d3f/identifies  :d3f/File,
    :db/ident        :d3f/FileHash,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File Hash",
    :rdfs/subClassOf #{:d3f/DigitalFingerprint
                       {:owl/onProperty     :d3f/identifies,
@@ -11499,10 +11293,8 @@
    :d3f/kb-reference
    :d3f/Reference-Reputation_of_an_entity_associated_with_a_content_item,
    :db/ident :d3f/FileHashReputationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/IdentifierAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :d3f/IdentifierReputationAnalysis :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/IdentifierReputationAnalysis
+               :owl/Class},
    :rdfs/label "File Hash Reputation Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/FileHash,
@@ -11516,9 +11308,7 @@
    "## How it works\nThis technique requires a list of hashes to compare a file against.\n\n## Considerations\nPerformance on large files or very large numbers of files.",
    :d3f/kb-reference :d3f/Reference-Munin,
    :db/ident :d3f/FileHashing,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Hashing",
    :rdfs/subClassOf :d3f/FileAnalysis})
 
@@ -11533,9 +11323,7 @@
    #{:d3f/Reference-FileIntegrityMonitoringinMicrosoftDefenderforCloud-Microsoft
      :d3f/Reference-Tripwire},
    :db/ident :d3f/FileIntegrityMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PlatformMonitoring
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "File Integrity Monitoring",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/File,
@@ -11548,7 +11336,7 @@
    "Has an input of a file path, and opens a file handle for reading or writing.",
    :d3f/invokes :d3f/OpenFile,
    :db/ident :d3f/FilePathOpenFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "File Path Open Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/invokes,
@@ -11570,9 +11358,7 @@
    :d3f/may-access :d3f/FileServer,
    :d3f/synonym "File Deletion",
    :db/ident :d3f/FileRemoval,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/FileEviction
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FileEviction :owl/NamedIndividual :owl/Class},
    :rdfs/label "File Removal",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/FileServer,
@@ -11586,7 +11372,7 @@
   {:d3f/definition
    "A file section is one of the portions of a file in which the file is regarded as divided and where together the file sections constitute the whole file.",
    :db/ident :d3f/FileSection,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "File Section",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/05876035-n"},
    :rdfs/subClassOf :d3f/DigitalArtifact,
@@ -11596,7 +11382,7 @@
   {:d3f/definition
    "The term server highlights the role of the machine in the traditional client-server scheme, where the clients are the workstations using the storage. A file server does not normally perform computational tasks or run programs on behalf of its client workstations. File servers are commonly found in schools and offices, where users use a local area network to connect their client computers.",
    :db/ident :d3f/FileServer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/File_server"},
    :rdfs/label "File Server",
    :rdfs/subClassOf :d3f/Server})
@@ -11616,7 +11402,7 @@
    :d3f/definition
    "In computing, a file system or filesystem is used to control how data is stored and retrieved. Without a file system, information placed in a storage medium would be one large body of data with no way to tell where one piece of information stops and the next begins. By separating the data into pieces and giving each piece a name, the information is easily isolated and identified. Taking its name from the way paper-based information systems are named, each group of data is called a \"file\". The structure and logic rules used to manage the groups of information and their names is called a \"file system\".",
    :db/ident :d3f/FileSystem,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/File_system"},
    :rdfs/label "File System",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -11637,7 +11423,7 @@
   {:d3f/definition
    "A file system link associates a name with a file on a file system.  Most generally, this may be a direct reference (a hard link) or an indirect one (a soft link).",
    :db/ident :d3f/FileSystemLink,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Hard_link"},
    :rdfs/label "File System Link",
    :rdfs/subClassOf :d3f/DigitalArtifact})
@@ -11646,7 +11432,7 @@
   {:d3f/definition
    "Metadata about the files and directories in a file system.  For example file name, file length, time modified, group and user ids, and other file attributes.",
    :db/ident :d3f/FileSystemMetadata,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "File System Metadata",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/File_system#Metadata"},
@@ -11656,20 +11442,18 @@
   {:d3f/definition  "Collects files and file metadata on an endpoint.",
    :d3f/monitors    :d3f/File,
    :db/ident        :d3f/FileSystemSensor,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File System Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/File,
-                       :rdf/type           :owl/Restriction} :d3f/EndpointSensor
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EndpointSensor}})
 
 (def FileTransferNetworkTraffic
   {:d3f/definition
    "File transfer network traffic is network traffic related to file transfers between network nodes..This includes only network traffic conforming to standard file transfer protocols, not custom transfer protocols.",
    :db/ident :d3f/FileTransferNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "File Transfer Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -11699,7 +11483,7 @@
   {:d3f/definition
    "In electronic systems and computing, firmware is a type of software that provides control, monitoring and data manipulation of engineered products and systems. Typical examples of devices containing firmware are embedded systems (such as traffic lights, consumer appliances, remote controls and digital watches), computers, computer peripherals, mobile phones, and digital cameras. The firmware contained in these devices provides the low-level control program for the device.",
    :db/ident :d3f/Firmware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Firmware"},
    :rdfs/label "Firmware",
    :rdfs/subClassOf :d3f/Software})
@@ -11715,9 +11499,7 @@
                        :d3f/Reference-FirmwareBehaviorAnalysisConFirm},
    :d3f/synonym "Firmware Timing Analysis",
    :db/ident :d3f/FirmwareBehaviorAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PlatformMonitoring
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/PlatformMonitoring :owl/Class},
    :rdfs/label "Firmware Behavior Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Firmware,
@@ -11734,9 +11516,7 @@
    :d3f/kb-reference #{:d3f/Reference-FirmwareEmbeddedMonitoringCodeSymbiotes
                        :d3f/Reference-FirmwareEmbeddedMonitoringCodeRedBalloon},
    :db/ident :d3f/FirmwareEmbeddedMonitoringCode,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PlatformMonitoring
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/PlatformMonitoring :owl/Class},
    :rdfs/label "Firmware Embedded Monitoring Code",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Firmware,
@@ -11747,14 +11527,12 @@
   {:d3f/definition "Collects information on firmware installed on an Endpoint.",
    :d3f/monitors :d3f/Firmware,
    :db/ident :d3f/FirmwareSensor,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Firmware Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/Firmware,
-                       :rdf/type           :owl/Restriction} :d3f/EndpointSensor
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EndpointSensor}})
 
 (def FirmwareVerification
   {:d3f/d3fend-id "D3-FV",
@@ -11766,9 +11544,7 @@
                        :d3f/Reference-FirmwareVerificationEclypsium},
    :d3f/verifies :d3f/Firmware,
    :db/ident :d3f/FirmwareVerification,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PlatformMonitoring
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/PlatformMonitoring :owl/Class},
    :rdfs/label "Firmware Verification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/verifies,
                        :owl/someValuesFrom :d3f/Firmware,
@@ -11829,9 +11605,7 @@
    :d3f/kb-reference :d3f/Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries,
    :d3f/synonym "Forward Resolution Domain Blacklisting",
    :db/ident :d3f/ForwardResolutionDomainDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DNSDenylisting
-               :d3f/NetworkIsolation :d3f/D3FENDCatalogThing :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class},
    :rdfs/label "Forward Resolution Domain Denylisting",
    :rdfs/subClassOf #{:d3f/DNSDenylisting
                       {:owl/onProperty :d3f/blocks,
@@ -11848,9 +11622,7 @@
    :d3f/kb-reference :d3f/Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries,
    :d3f/synonym "Forward Resolution IP Blacklisting",
    :db/ident :d3f/ForwardResolutionIPDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DNSDenylisting
-               :d3f/NetworkIsolation :d3f/D3FENDCatalogThing :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class},
    :rdfs/label "Forward Resolution IP Denylisting",
    :rdfs/subClassOf #{:d3f/DNSDenylisting
                       {:owl/onProperty :d3f/blocks,
@@ -11861,15 +11633,12 @@
 (def FreeMemory
   {:d3f/deletes     :d3f/MemoryBlock,
    :db/ident        :d3f/FreeMemory,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Free Memory",
    :rdfs/subClassOf #{:d3f/SystemCall
                       {:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/MemoryBlock,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def FuzzyLogic
   {:d3f/d3fend-id "D3A-FL",
@@ -11884,10 +11653,7 @@
 
 (def GNUGCCStackGuard
   {:db/ident   :d3f/GNUGCCStackGuard,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                 :d3f/ApplicationHardening :d3f/D3FENDCatalogThing
-                 :d3f/Technique :d3f/StackFrameCanaryValidation
-                 :owl/NamedIndividual :d3f/DefensiveTechnique},
+   :rdf/type   #{:d3f/StackFrameCanaryValidation :owl/NamedIndividual},
    :rdfs/label "GNU GCC StackGuard"})
 
 (def GPT
@@ -11944,9 +11710,7 @@
 
 (def GetForegroundWindow
   {:db/ident :d3f/GetForegroundWindow,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/GetOpenWindows
-               :d3f/DigitalObject :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent},
+   :rdf/type #{:d3f/GetOpenWindows :owl/NamedIndividual},
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getforegroundwindow"}})
@@ -11954,7 +11718,7 @@
 (def GetOpenSockets
   {:d3f/enumerates  :d3f/Pipe,
    :db/ident        :d3f/GetOpenSockets,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Get Open Sockets",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enumerates,
                        :owl/someValuesFrom :d3f/Pipe,
@@ -11962,26 +11726,26 @@
 
 (def GetOpenWindows
   {:db/ident        :d3f/GetOpenWindows,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Get Open Windows",
    :rdfs/subClassOf :d3f/SystemCall})
 
 (def GetRunningProcesses
   {:db/ident        :d3f/GetRunningProcesses,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Get Running Processes",
    :rdfs/subClassOf :d3f/SystemCall})
 
 (def GetScreenCapture
   {:db/ident        :d3f/GetScreenCapture,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Get Screen Capture",
    :rdfs/subClassOf :d3f/SystemCall})
 
 (def GetSystemConfigValue
   {:d3f/reads :d3f/SystemConfigurationDatabaseRecord,
    :db/ident :d3f/GetSystemConfigValue,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Get System Config Value",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -11993,7 +11757,7 @@
 
 (def GetSystemNetworkConfigValue
   {:db/ident        :d3f/GetSystemNetworkConfigValue,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Get System Network Config Value",
    :rdfs/subClassOf :d3f/GetSystemConfigValue})
 
@@ -12001,7 +11765,7 @@
   {:d3f/definition
    "A system call that gets the system time.  For POSIX.1 systems, time() invokes a call to get the system time.",
    :db/ident :d3f/GetSystemTime,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Get System Time",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://man7.org/linux/man-pages/man2/time.2.html"},
@@ -12011,7 +11775,7 @@
   {:d3f/definition
    "A type of user account in Microsoft Windows (NT) that has a domain-wide scope.defines that user's access to a logical group of network objects (computers, users, devices) that share the same Active Directory databases; that is, a user's access to the domain.",
    :db/ident :d3f/GlobalUserAccount,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Global User Account",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://networkencyclopedia.com/global-user-account"},
@@ -12069,7 +11833,7 @@
   {:d3f/definition
    "A graphical user interface (GUI)  is a type of user interface that allows users to interact with electronic devices through graphical icons and visual indicators such as secondary notation, instead of text-based user interfaces, typed command labels or text navigation. GUIs were introduced in reaction to the perceived steep learning curve of command-line interfaces (CLIs), which require commands to be typed on a computer keyboard.",
    :db/ident :d3f/GraphicalUserInterface,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Graphical_user_interface"},
    :rdfs/label "Graphical User Interface",
@@ -12118,7 +11882,7 @@
   {:d3f/definition
    "Group Policy is a feature of the Microsoft Windows NT family of operating systems that controls the working environment of user accounts and computer accounts. Group Policy provides the centralized management and configuration of operating systems, applications, and users' settings in an Active Directory environment. A version of Group Policy called Local Group Policy (\"LGPO\" or \"LocalGPO\") also allows Group Policy Object management on standalone and non-domain computers.",
    :db/ident :d3f/GroupPolicy,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Group Policy",
    :rdfs/subClassOf :d3f/AccessControlConfiguration})
 
@@ -12153,14 +11917,12 @@
 
 (def HTTPSURL
   {:db/ident   :d3f/HTTPSURL,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/URL :d3f/Identifier
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/URL :owl/NamedIndividual},
    :rdfs/label "HTTPS URL"})
 
 (def HTTPURL
   {:db/ident   :d3f/HTTPURL,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/URL :d3f/Identifier
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/URL :owl/NamedIndividual},
    :rdfs/label "HTTP URL"})
 
 (def HardDiskFirmware
@@ -12187,8 +11949,7 @@
    :d3f/display-order 0,
    :d3f/display-priority 0,
    :db/ident :d3f/Harden,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DefensiveTactic :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Harden",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -12206,9 +11967,7 @@
    :d3f/restricts :d3f/CreateProcess,
    :d3f/synonym "Virtualization",
    :db/ident :d3f/Hardware-basedProcessIsolation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExecutionIsolation :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ExecutionIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "Hardware-based Process Isolation",
    :rdfs/subClassOf #{:d3f/ExecutionIsolation
                       {:owl/onProperty     :d3f/restricts,
@@ -12229,9 +11988,7 @@
    :d3f/synonym #{"Hardware Component Discovery"
                   "Hardware Component Inventorying"},
    :db/ident :d3f/HardwareComponentInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/AssetInventory
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/AssetInventory :owl/Class},
    :rdfs/label "Hardware Component Inventory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/inventories,
                        :owl/someValuesFrom :d3f/HardwareDevice,
@@ -12242,7 +11999,7 @@
   {:d3f/definition
    "Hardware devices are the physical artifacts that constitute a network or computer system. Hardware devices are the physical parts or components of a computer, such as the monitor, keyboard, computer data storage, hard disk drive (HDD), graphic cards, sound cards, memory (RAM), motherboard, and so on, all of which are tangible physical objects. By contrast, software is instructions that can be stored and run by hardware. Hardware is directed by the software to execute any command or instruction. A combination of hardware and software forms a usable computing system.",
    :db/ident :d3f/HardwareDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Computer_hardware"},
    :rdfs/label "Hardware Device",
@@ -12254,7 +12011,7 @@
    "In computing, a device driver (commonly referred to simply as a driver) is a computer program that operates or controls a particular type of device that is attached to a computer. A driver provides a software interface to hardware devices, enabling operating systems and other computer programs to access hardware functions without needing to know precise details of the hardware being used. A driver communicates with the device through the computer bus or communications subsystem to which the hardware connects. When a calling program invokes a routine in the driver, the driver issues commands to the device. Once the device sends data back to the driver, the driver may invoke routines in the original calling program. Drivers are hardware dependent and operating-system-specific. They usually provide the interrupt handling required for any necessary asynchronous time-dependent hardware interface.",
    :d3f/drives :d3f/HardwareDevice,
    :db/ident :d3f/HardwareDriver,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Device_driver"},
    :rdfs/label "Hardware Driver",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -12338,10 +12095,8 @@
    :d3f/kb-reference :d3f/Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries,
    :d3f/synonym "Hierarchical Domain Blacklisting",
    :db/ident :d3f/HierarchicalDomainDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DNSDenylisting
-               :d3f/ForwardResolutionDomainDenylisting :d3f/NetworkIsolation
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ForwardResolutionDomainDenylisting :owl/NamedIndividual
+               :owl/Class},
    :rdfs/label "Hierarchical Domain Denylisting",
    :rdfs/subClassOf :d3f/ForwardResolutionDomainDenylisting})
 
@@ -12394,10 +12149,8 @@
    :d3f/kb-reference :d3f/Reference-DetectionOfMaliciousIDNHomoglyphDomains,
    :d3f/synonym "Homoglyph Blacklisting",
    :db/ident :d3f/HomoglyphDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DNSDenylisting
-               :d3f/ForwardResolutionDomainDenylisting :d3f/NetworkIsolation
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ForwardResolutionDomainDenylisting :owl/NamedIndividual
+               :owl/Class},
    :rdfs/label "Homoglyph Denylisting",
    :rdfs/subClassOf :d3f/ForwardResolutionDomainDenylisting})
 
@@ -12412,9 +12165,7 @@
    #{:d3f/Reference-SystemAndMethodForDetectingHomoglyphAttacksWithASiameseConvolutionalNeuralNetwork_EndgameInc
      :d3f/Reference-Computer-implementedMethodsAndSystemsForIdentifyingVisuallySimilarTextCharacterStrings_GreathornInc},
    :db/ident :d3f/HomoglyphDetection,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/IdentifierAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/IdentifierAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Homoglyph Detection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Email,
@@ -12430,7 +12181,7 @@
    "A host is a computer or other device, typically connected to a computer network. A network host may offer information resources, services, and applications to users or other nodes on the network. A network host is a network node that is assigned a network layer host address. Network hosts that participate in applications that use the client-server model of computing, are classified as server or client systems. Network hosts may also function as nodes in peer-to-peer applications, in which all nodes share and consume resources in an equipotent manner.",
    :d3f/runs :d3f/OperatingSystem,
    :db/ident :d3f/Host,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Host_(network)"},
    :rdfs/label "Host",
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/device"},
@@ -12450,7 +12201,7 @@
   {:d3f/definition
    "A software firewall which controls network inbound and outbound network traffic to the host computer.",
    :db/ident :d3f/Host-basedFirewall,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Host-based Firewall",
    :rdfs/subClassOf :d3f/SystemSoftware})
 
@@ -12459,24 +12210,21 @@
    :d3f/monitors    #{:d3f/ApplicationConfiguration
                       :d3f/OperatingSystemConfiguration},
    :db/ident        :d3f/HostConfigurationSensor,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Host Configuration Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/OperatingSystemConfiguration,
                        :rdf/type           :owl/Restriction} :d3f/EndpointSensor
                       {:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/ApplicationConfiguration,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def HostGroup
   {:d3f/contains :d3f/Host,
    :d3f/definition
    "A collection of Hosts used to allow operations such as access control to be applied to the entire group.",
    :db/ident :d3f/HostGroup,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Host Group",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Host,
@@ -12488,9 +12236,7 @@
    "In computer networking, a hostname (archaically nodename) is a label that is assigned to a device connected to a computer network and that is used to identify the device in various forms of electronic communication, such as the World Wide Web. Hostnames may be simple names consisting of a single word or phrase, or they may be structured.",
    :d3f/identifies :d3f/Host,
    :db/ident :d3f/Hostname,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-               :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual :owl/Class
-               :d3f/DomainName},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DomainName},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Hostname"},
    :rdfs/label "Hostname",
    :rdfs/subClassOf #{:d3f/Identifier
@@ -12555,9 +12301,7 @@
      :d3f/Reference-MethodAndSystemForControllingCommunicationPorts
      :d3f/Reference-ComputerMotherboardHavingPeripheralSecurityFunctions},
    :db/ident :d3f/IOPortRestriction,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExecutionIsolation :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ExecutionIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "IO Port Restriction",
    :rdfs/subClassOf #{:d3f/ExecutionIsolation
                       {:owl/onProperty     :d3f/filters,
@@ -12572,7 +12316,7 @@
    "An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.An IP address serves two main functions: host or network interface identification and location addressing. Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. IPv6 deployment has been ongoing since the mid-2000s.",
    :d3f/identifies :d3f/NetworkNode,
    :db/ident :d3f/IPAddress,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/IP_address"},
    :rdfs/label "IP Address",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/identifies,
@@ -12606,9 +12350,7 @@
    :d3f/todo
    "Rec'd delete analyzes itself (same class).  Intent was probably to capture target DAOs for IPC.  Some IPC is between processes on same machine, and not just process analysis.  System Calls/Streams/Pipes/Mesg Queues covered?",
    :db/ident :d3f/IPCTrafficAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "IPC Traffic Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/IntranetIPCNetworkTraffic,
@@ -12635,10 +12377,8 @@
    #{:d3f/Reference-Database_for_receiving_storing_and_compiling_information_about_email_messages
      :d3f/Reference-Finding_phishing_sites},
    :db/ident :d3f/IPReputationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/IdentifierAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :d3f/IdentifierReputationAnalysis :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/IdentifierReputationAnalysis
+               :owl/Class},
    :rdfs/label "IP Reputation Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/IPAddress,
@@ -12649,7 +12389,7 @@
   {:d3f/definition
    "An identifier is a name that identifies (that is, labels the identity of) either a unique object or a unique class of objects, where the \"object\" or class may be an idea, physical [countable] object (or class thereof), or physical [noncountable] substance (or class thereof). The abbreviation ID often refers to identity, identification (the process of identifying), or an identifier (that is, an instance of identification). An identifier may be a word, number, letter, symbol, or any combination of those.",
    :db/ident :d3f/Identifier,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Identifier"},
    :rdfs/label "Identifier",
    :rdfs/subClassOf :d3f/DigitalArtifact,
@@ -12663,9 +12403,7 @@
    "## How it works\n\nIdentifier activity analysis is the process of taking identifiers--typically known malicious identifiers--and determining the artifacts that have interacted with those identifiers.\n\nThere are many open and closed source repositories of identifiers that represent indicators of compromise. For example, VirusTotal contains hash signatures of malware and IP Addresses used by threat actors. Defenders can search for these indicators of compromise their own systems to gain context on activity around an identifier.\n\n## Considerations\n\nIndicator activity analysis is a good way to gain high precision analysis, but adversaries can modify their own signatures such as hashes quickly to evade detection. This is related to David Bianco’s Pyramid of Pain - Indicators on the lower level (hash values, IP addresses domain names) are easy for adversaries to change.\n\nIdentifier activity data of interest for analysis with the identifier might include, but is not limited to:\n\n* network traffic activity where the identifier was used to identify communicating entities or referred to in the communication\n* process activity referencing the identifier, especially for resource access\n* file activity referencing the identifier\n* registry settings referencing the identifier",
    :d3f/kb-reference :d3f/Reference-ThePyramidOfPain-DavidBianco,
    :db/ident :d3f/IdentifierActivityAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/IdentifierAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/IdentifierAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Identifier Activity Analysis",
    :rdfs/subClassOf :d3f/IdentifierAnalysis})
 
@@ -12676,9 +12414,7 @@
    "Analyzing identifier artifacts such as IP address, domain names, or URL(I)s.",
    :d3f/enables :d3f/Detect,
    :db/ident :d3f/IdentifierAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Identifier Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Identifier,
@@ -12693,10 +12429,7 @@
    :d3f/definition   "Analyzing the reputation of an identifier.",
    :d3f/kb-reference :d3f/Reference-Finding_phishing_sites,
    :db/ident         :d3f/IdentifierReputationAnalysis,
-   :rdf/type         #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                       :d3f/IdentifierAnalysis :d3f/D3FENDCatalogThing
-                       :d3f/Technique :owl/NamedIndividual :owl/Class
-                       :d3f/DefensiveTechnique},
+   :rdf/type         #{:d3f/IdentifierAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label       "Identifier Reputation Analysis",
    :rdfs/subClassOf  :d3f/IdentifierAnalysis})
 
@@ -12716,7 +12449,7 @@
    :d3f/definition
    "An image code segment, also known as a text segment or simply as text, is a portion of an object file that contains executable instructions. The term \"segment\" comes from the memory segment, which is a historical approach to memory management that has been succeeded by paging. When a program is stored in an object file, the code segment is a part of this file; when the loader places a program into memory so that it may be executed, various memory regions are allocated (in particular, as pages), corresponding to both the segments in the object files and to segments only needed at run time. For example, the code segment of an object file is loaded into a corresponding code segment in memory.",
    :db/ident :d3f/ImageCodeSegment,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Image Code Segment",
    :rdfs/seeAlso #{{:rdf/value "Process Code Segment"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Code_segment"}},
@@ -12729,7 +12462,7 @@
   {:d3f/definition
    "An image data segment (often denoted .data) is a portion of an object file that contains initialized static variables, that is, global variables and static local variables. The size of this segment is determined by the size of the values in the program's source code, and does not change at run time. This segmenting of the memory space into discrete blocks with specific tasks carried over into the programming languages of the day and the concept is still widely in use within modern programming languages.",
    :db/ident :d3f/ImageDataSegment,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Image Data Segment",
    :rdfs/seeAlso #{{:rdf/value "Process Data Segment"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Data_segment"}},
@@ -12769,15 +12502,14 @@
 (def Impact
   {:d3f/display-order 12,
    :db/ident          :d3f/Impact,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Impact",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def ImpactTechnique
   {:d3f/enables     :d3f/Impact,
    :db/ident        :d3f/ImpactTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Impact Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Impact,
@@ -12787,9 +12519,7 @@
 (def ImpersonateUser
   {:d3f/forges      :d3f/UserAccount,
    :db/ident        :d3f/ImpersonateUser,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                      :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-                      :d3f/DigitalEvent :owl/Class},
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Impersonate User",
    :rdfs/subClassOf #{:d3f/SystemCall
                       {:owl/onProperty     :d3f/forges,
@@ -12801,7 +12531,7 @@
    "Loads an external software library to enable the invocations of its methods.",
    :d3f/loads :d3f/SharedLibraryFile,
    :db/ident :d3f/ImportLibraryFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Import Library Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/loads,
@@ -12811,7 +12541,7 @@
 (def In-memoryPasswordStore
   {:d3f/definition  "A password store held in memory.",
    :db/ident        :d3f/In-memoryPasswordStore,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "In-memory Password Store",
    :rdfs/subClassOf :d3f/PasswordStore})
 
@@ -12819,7 +12549,7 @@
   {:d3f/definition
    "Inbound internet DNS response traffic is DNS response traffic from a host outside a given network initiated on an incoming connection to a host inside that network.",
    :db/ident :d3f/InboundInternetDNSResponseTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Inbound Internet DNS Response Traffic",
    :rdfs/subClassOf :d3f/InboundInternetNetworkTraffic})
 
@@ -12827,7 +12557,7 @@
   {:d3f/definition
    "Inbound internet mail traffic is network traffic that is: (a) coming from a host outside a given network via an incoming connection to a host inside that same network, and (b) using a standard protocol for email.",
    :db/ident :d3f/InboundInternetMailTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Inbound Internet Mail Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf #{:d3f/MailNetworkTraffic :d3f/InboundInternetNetworkTraffic
@@ -12838,7 +12568,7 @@
    "Inbound internet traffic is network traffic from a host outside a given network initiated on an incoming connection to a host inside that network.",
    :d3f/produces :d3f/NetworkTraffic,
    :db/ident :d3f/InboundInternetNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Inbound Internet Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
@@ -12850,7 +12580,7 @@
   {:d3f/definition
    "Inbound traffic is network traffic originating from another host (client), to the host of interest (server).",
    :db/ident :d3f/InboundNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Inbound Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -12868,9 +12598,7 @@
      :d3f/Reference-IdentifyingADenial-of-serviceAttackInACloud-basedProxyService-CloudfareInc.
      :d3f/Reference-MethodAndSystemForUDPFloodAttackDetection-RioreyLLC},
    :db/ident :d3f/InboundSessionVolumeAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Inbound Session Volume Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
@@ -12895,10 +12623,7 @@
      :d3f/Reference-FirewallForProcessingConnection-orientedAndConnectionlessDatagramsOverAConnection-orientedNetwork_NationalSecurityAgency
      :d3f/Reference-AutomaticallyGeneratingRulesForConnectionSecurity_Microsoft},
    :db/ident :d3f/InboundTrafficFiltering,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/NetworkTrafficFiltering :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficFiltering :owl/NamedIndividual :owl/Class},
    :rdfs/label "Inbound Traffic Filtering",
    :rdfs/subClassOf #{:d3f/NetworkTrafficFiltering
                       {:owl/onProperty     :d3f/filters,
@@ -12913,9 +12638,7 @@
    "## How it works\n\nThis technique is used to detect an attacker attempting to exploit and execute code on a target system's call stack using return-oriented programming (ROP). Modern processors that have the ability to maintain a list of the branching calls, e.g., Intel's Last Branch Recording (LBR), can be used to track and analyze indirect branching calls that are indicative of malicious activity.\n\nIn order to reduce the number of indirect branch calls to analyze to a manageable set it is assumed that malicious ROP activity will involve the use of system calls.  The technique observes indirect branch calls that are part of paths that lead to system calls, all others are ignored. Branching calls chained together is often referred to as gadgets and gadgets are often used in ROP attacks. Indirect branch calls that involve a transfer from user-space to kernel-space are of interest for this technique.\n\nIdentification of potential ROP exploit execution includes:\n\n- Inspecting the LBR when a system function call is made\n\n  - The LBR is configured to return only instruction of interest (ret, indirect jmp, indirect calls)\n\n\n- Behavior is analyzed for\n  - Ret instructions that appear to target areas not preceded by the call sites\n  - Sequences of small code fragments that appear to be chained through the indirect branching calls (gadgets)\n\n\n- Of interest are returns that appear to not render control back after calls\n  - Typical ret-call are paired\n  - gadgets will appear to have ret followed by instruction of next instruction of the following gadget\n\n\n## Considerations\n\n* May be operating system dependent since specific system calls are used to scope branching behavoir\n* Processors need to support access to a Last Branch Recording list feature\n* The size of the LBR stack can limit the expected size of the analyzed execution stack\n* If processor does not support LBR then overhead costs for the analysis can be significant",
    :d3f/kb-reference :d3f/Reference-IndirectBranchingCalls,
    :db/ident :d3f/IndirectBranchCallAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Indirect Branch Call Analysis",
    :rdfs/subClassOf :d3f/ProcessAnalysis})
 
@@ -12957,15 +12680,14 @@
 (def InitialAccess
   {:d3f/display-order 1,
    :db/ident          :d3f/InitialAccess,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Initial Access",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def InitialAccessTechnique
   {:d3f/enables     :d3f/InitialAccess,
    :db/ident        :d3f/InitialAccessTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Initial Access Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/InitialAccess,
@@ -12976,7 +12698,7 @@
   {:d3f/definition
    "In computing, an input device is a piece of equipment used to provide data and control signals to an information processing system such as a computer or information appliance. Examples of input devices include keyboards, mouse, scanners, digital cameras, joysticks, and microphones. Input devices can be categorized based on:",
    :db/ident :d3f/InputDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Input_device"},
    :rdfs/label "Input Device",
    :rdfs/subClassOf #{:d3f/LocalResource :d3f/HardwareDevice}})
@@ -12992,10 +12714,7 @@
    #{:d3f/Reference-www.biometric-solutions.com_keystroke-dynamics
      :d3f/Reference-ContinuousAuthenticationByAnalysisOfKeyboardTypingCharacteristics_BradfordUniv.%2CUK},
    :db/ident :d3f/InputDeviceAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "Input Device Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/InputDevice,
@@ -13040,9 +12759,7 @@
    :d3f/Reference-SynchronizingAHoneyNetworkConfigurationToReflectATargetNetworkEnvironment_PaloAltoNetworksInc,
    :d3f/spoofs :d3f/IntranetNetwork,
    :db/ident :d3f/IntegratedHoneynet,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/DecoyEnvironment
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/DecoyEnvironment :owl/Class},
    :rdfs/label "Integrated Honeynet",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/spoofs,
                        :owl/someValuesFrom :d3f/IntranetNetwork,
@@ -13061,15 +12778,12 @@
 
 (def InternationalizedDomainName
   {:db/ident   :d3f/InternationalizedDomainName,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-                 :d3f/DomainName},
+   :rdf/type   #{:owl/NamedIndividual :d3f/DomainName},
    :rdfs/label "Internationalized Domain Name"})
 
 (def InternetArticle
   {:db/ident        :d3f/InternetArticle,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/ReferenceType :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
    :rdfs/label      "Internet Article",
    :rdfs/subClassOf :d3f/NewsArticle})
 
@@ -13114,7 +12828,7 @@
   {:d3f/definition
    "Internet network traffic is network traffic that crosses a boundary between networks. [This is the general sense of inter-networking; It may or may not cross to or from the Internet]",
    :db/ident :d3f/InternetNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Internet Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/NetworkTraffic})
@@ -13123,7 +12837,7 @@
   {:d3f/definition
    "In computer science, inter-process communication or inter-process communication (IPC) refers specifically to the mechanisms an operating system provides to allow processes it manages to share data. Typically, applications can use IPC categorized as clients and servers, where the client requests data and the server responds to client requests. Many applications are both clients and servers, as commonly seen in distributed computing. Methods for achieving IPC are divided into categories which vary based on software requirements, such as performance and modularity requirements, and system circumstances, such as network bandwidth and latency.",
    :db/ident :d3f/InterprocessCommunication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/Inter-process_communication"},
    :rdfs/label "Interprocess Communication",
@@ -13156,7 +12870,7 @@
   {:d3f/definition
    "Intranet administrative network traffic is administrative network traffic that does not cross a given network's boundaries and uses a standard administrative protocol.",
    :db/ident :d3f/IntranetAdministrativeNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Intranet Administrative Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf #{:d3f/IntranetNetworkTraffic
@@ -13175,7 +12889,7 @@
   {:d3f/definition
    "Intranet file transfer traffic is file transfer traffic that does not cross a given network's boundaries and uses a standard file transfer protocol.",
    :db/ident :d3f/IntranetFileTransferTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Intranet File Transfer Traffic",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/File_transfer"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Intranet"}},
@@ -13187,7 +12901,7 @@
    "Intranet IPC network traffic is network traffic that does not cross a given network's boundaries and uses a standard inter-process communication (IPC) networking protocol.",
    :d3f/may-contain :d3f/File,
    :db/ident :d3f/IntranetIPCNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Intranet IPC Network Traffic",
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://dbpedia.org/resource/Inter-process_communication"}
@@ -13203,7 +12917,7 @@
    :d3f/todo
    "Add Multicast Network Traffic class under Network Traffic and subclass this to that added class.",
    :db/ident :d3f/IntranetMulticastNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Intranet Multicast Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Multicast"},
    :rdfs/subClassOf :d3f/IntranetNetworkTraffic})
@@ -13212,7 +12926,7 @@
   {:d3f/definition
    "An intranet is a private network accessible only to an organization's staff or delegates. Generally a wide range of information and services from the organization's internal IT systems are available that would not be available to the public from the Internet. A company-wide intranet can constitute an important focal point of internal communication and collaboration, and provide a single starting point to access internal and external resources. In its simplest form an intranet is established with the technologies for local area networks (LANs) and wide area networks (WANs).",
    :db/ident :d3f/IntranetNetwork,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Intranet"},
    :rdfs/label "Intranet Network",
    :rdfs/subClassOf :d3f/Network})
@@ -13221,7 +12935,7 @@
   {:d3f/definition
    "Intranet network traffic is network traffic traversing that does not traverse a given network's boundaries.",
    :db/ident :d3f/IntranetNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Intranet Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf :d3f/NetworkTraffic})
@@ -13242,7 +12956,7 @@
    "Intranet web network traffic is network traffic that does not cross a given network's boundaries and uses a standard web protocol.",
    :d3f/may-contain :d3f/File,
    :db/ident :d3f/IntranetWebNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Intranet Web Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
@@ -13292,8 +13006,7 @@
    :d3f/display-order 2,
    :d3f/display-priority 0,
    :db/ident :d3f/Isolate,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DefensiveTactic :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Isolate",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -13310,15 +13023,13 @@
   {:d3f/definition
    "A JavaScript Blob is a Blob that was created by a JavaScript Blob() constructor call or equivalent function.",
    :db/ident :d3f/JavaScriptBlob,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "JavaScript Blob",
    :rdfs/subClassOf :d3f/BinaryLargeObject})
 
 (def JavascriptFile
   {:db/ident   :d3f/JavascriptFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/ExecutableScript
-                 :d3f/DigitalArtifact :d3f/DigitalObject :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Javascript File"})
 
 (def JobFunctionAccessPatternAnalysis
@@ -13331,9 +13042,7 @@
    :d3f/kb-reference
    :d3f/Reference-AnomalyDetectionUsingAdaptiveBehavioralProfiles_SecuronixInc,
    :db/ident :d3f/JobFunctionAccessPatternAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Job Function Access Pattern Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Authorization,
@@ -13347,7 +13056,7 @@
    :d3f/modified-by :d3f/JobSchedulerSoftware,
    :d3f/synonym "Task Schedule",
    :db/ident :d3f/JobSchedule,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Job Schedule",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Cron"}
                    {:xsd/anyURI
@@ -13367,7 +13076,7 @@
    :d3f/modifies #{:d3f/JobSchedule :d3f/ScheduledJob},
    :d3f/synonym "Task Scheduler Software",
    :db/ident :d3f/JobSchedulerSoftware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Job Scheduler Software",
    :rdfs/seeAlso #{{:rdf/value "Scheduled Task"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Cron"}
@@ -13451,7 +13160,7 @@
 (def KerberosTicket
   {:d3f/definition  "An access ticket/token issued by a Kerberos system.",
    :db/ident        :d3f/KerberosTicket,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Kerberos Ticket",
    :rdfs/subClassOf :d3f/AccessToken})
 
@@ -13468,7 +13177,7 @@
   {:d3f/definition
    "A ticket granting ticket issued by a Kerberos system; that is, a ticket that grants a user domain admin access.",
    :db/ident :d3f/KerberosTicketGrantingTicket,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Kerberos Ticket Granting Ticket",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Ticket_Granting_Ticket"},
@@ -13482,7 +13191,7 @@
    :d3f/manages #{:d3f/OperatingSystemProcess :d3f/UserProcess},
    :d3f/may-contain #{:d3f/KernelModule :d3f/HardwareDriver},
    :db/ident :d3f/Kernel,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Kernel_(operating_system)"},
    :rdfs/label "Kernel",
@@ -13512,10 +13221,7 @@
    :d3f/definition   "Using kernel-level capabilities to isolate processes.",
    :d3f/kb-reference :d3f/Reference-OverviewOfTheSeccompSandbox,
    :db/ident         :d3f/Kernel-basedProcessIsolation,
-   :rdf/type         #{:d3f/D3FENDThing :d3f/ExecutionIsolation
-                       :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-                       :d3f/Technique :owl/NamedIndividual :owl/Class
-                       :d3f/DefensiveTechnique},
+   :rdf/type         #{:d3f/ExecutionIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label       "Kernel-based Process Isolation",
    :rdfs/subClassOf  :d3f/ExecutionIsolation})
 
@@ -13523,20 +13229,18 @@
   {:d3f/definition  "Monitors system calls (operating system api functions).",
    :d3f/monitors    :d3f/SystemCall,
    :db/ident        :d3f/KernelAPISensor,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Kernel API Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/SystemCall,
-                       :rdf/type           :owl/Restriction} :d3f/EndpointSensor
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EndpointSensor}})
 
 (def KernelModule
   {:d3f/definition
    "A loadable kernel module (LKM) is an object file that contains code to extend the running kernel, or so-called base kernel, of an operating system. LKMs are typically used to add support for new hardware (as device drivers) and/or filesystems, or for adding system calls. When the functionality provided by a LKM is no longer required, it can be unloaded in order to free memory and other resources.\n\nMost current Unix-like systems and Microsoft Windows support loadable kernel modules, although they might use a different name for them, such as kernel loadable module (kld) in FreeBSD, kernel extension (kext) in macOS,[1] kernel extension module in AIX, kernel-mode driver in Windows NT[2] and downloadable kernel module (DKM) in VxWorks. They are also known as kernel loadable modules (or KLM), and simply as kernel modules (KMOD).",
    :db/ident :d3f/KernelModule,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Loadable_kernel_module"},
    :rdfs/label "Kernel Module",
@@ -13548,7 +13252,7 @@
   {:d3f/definition
    "A data structure in the kernel which is a table containing all of the information that must be saved when the CPU switches from running one process to another in a multitasking system. It allows the operating system to track all the process's execution status, and contains the For every process managed by the kernel, there is a process control block (PCB) in the process table.",
    :db/ident :d3f/KernelProcessTable,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "https://encyclopedia2.thefreedictionary.com/process+table"},
    :rdfs/label "Kernel Process Table",
@@ -13562,7 +13266,7 @@
   {:d3f/definition
    "A computer keyboard is a typewriter-style device which uses an arrangement of buttons or keys to act as mechanical levers or electronic switches. Following the decline of punch cards and paper tape, interaction via teleprinter-style keyboards became the main input method for computers. A keyboard is also used to give commands to the operating system of a computer, such as Windows' Control-Alt-Delete combination. Although on Pre-Windows 95 Microsoft operating systems this forced a re-boot, now it brings up a system security options screen.",
    :db/ident :d3f/KeyboardInputDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Computer_keyboard"},
    :rdfs/label "Keyboard Input Device",
@@ -13593,8 +13297,7 @@
 
 (def LDIFRecord
   {:db/ident   :d3f/LDIFRecord,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/UserAccount
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/UserAccount :owl/NamedIndividual},
    :rdfs/label "LDIF Record"})
 
 (def LaptopComputer
@@ -13617,15 +13320,14 @@
 (def LateralMovement
   {:d3f/display-order 8,
    :db/ident          :d3f/LateralMovement,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Lateral Movement",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def LateralMovementTechnique
   {:d3f/enables     :d3f/LateralMovement,
    :db/ident        :d3f/LateralMovementTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Lateral Movement Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/LateralMovement,
@@ -13637,7 +13339,7 @@
    "In computing, a legacy system is an old method, technology, computer system, or application program, \"of, relating to, or being a previous or outdated computer system,\" yet still in use. Often referencing a system as \"legacy\" means that it paved the way for the standards that would follow it. This can also imply that the system is out of date or in need of replacement.",
    :d3f/synonym "Legacy Digital System",
    :db/ident :d3f/LegacySystem,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Legacy_system"},
    :rdfs/label "Legacy System",
    :rdfs/subClassOf :d3f/DigitalSystem})
@@ -13778,16 +13480,12 @@
 (def LinuxELFFile32bit
   {:d3f/definition "test",
    :db/ident       :d3f/LinuxELFFile32bit,
-   :rdf/type       #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/DigitalArtifact
-                     :d3f/DigitalObject :d3f/ExecutableBinary :d3f/Resource
-                     :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type       #{:d3f/ExecutableBinary :owl/NamedIndividual},
    :rdfs/label     "Linux ELF File 32bit"})
 
 (def LinuxELFFile64bit
   {:db/ident   :d3f/LinuxELFFile64bit,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/ExecutableBinary :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableBinary :owl/NamedIndividual},
    :rdfs/label "Linux ELF File 64bit"})
 
 (def LinuxExecve
@@ -13934,8 +13632,7 @@
 
 (def LinuxProcess
   {:db/ident   :d3f/LinuxProcess,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/Process :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/Process :owl/NamedIndividual},
    :rdfs/label "Linux Process"})
 
 (def LinuxPtraceArgumentPTRACEINTERRUPT
@@ -14103,9 +13800,7 @@
      :d3f/Reference-OSQueryWindowsUserCollectionCode
      :d3f/Reference-CAR-2016-04-004_SuccessfulLocalAccountLogin},
    :db/ident :d3f/LocalAccountMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Local Account Monitoring",
    :rdfs/subClassOf #{:d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -14117,7 +13812,7 @@
    "A local area network (LAN) is a computer network that interconnects computers within a limited area such as a residence, school, laboratory, university campus or office building and has its network equipment and interconnects locally managed. Ethernet and Wi-Fi are the two most common transmission technologies in use for local area networks. Historical technologies include ARCNET, Token ring, and AppleTalk.",
    :d3f/may-contain :d3f/Host,
    :db/ident :d3f/LocalAreaNetwork,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Local_area_network"},
    :rdfs/label "Local Area Network",
@@ -14130,7 +13825,7 @@
   {:d3f/definition
    "Intranet local area network (LAN) traffic is network traffic that does not cross a given network's boundaries; where that network is defined as a LAN.",
    :db/ident :d3f/LocalAreaNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Local Area Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf :d3f/IntranetNetworkTraffic})
@@ -14158,9 +13853,7 @@
    :d3f/kb-reference :d3f/Reference-FileAndFolderPermissions,
    :d3f/restricts #{:d3f/File :d3f/Directory},
    :db/ident :d3f/LocalFilePermissions,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Local File Permissions",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
                        :owl/someValuesFrom :d3f/File,
@@ -14174,7 +13867,7 @@
   {:d3f/definition
    "In computing, a system resource, or simply resource, is any physical or virtual component of limited availability within a computer system. Every device connected to a computer system is a resource. Every internal system component is a resource. Virtual system resources include files (concretely file handles), network connections (concretely network sockets), and memory areas. Managing resources is referred to as resource management, and includes both preventing resource leaks (releasing a resource when a process has finished using it) and dealing with resource contention (when multiple processes wish to access a limited resource).",
    :db/ident :d3f/LocalResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Local Resource",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/System_resource"},
    :rdfs/subClassOf :d3f/Resource,
@@ -14185,7 +13878,7 @@
    :d3f/definition
    "Ephemeral digital artifact comprising a request of a local resource and any response from that resource.",
    :db/ident :d3f/LocalResourceAccess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Local Resource Access",
    :rdfs/subClassOf #{:d3f/ResourceAccess
                       {:owl/onProperty     :d3f/accesses,
@@ -14197,14 +13890,14 @@
   {:d3f/definition
    "A user account on a given host is a local user account for that specific host.",
    :db/ident :d3f/LocalUserAccount,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Local User Account",
    :rdfs/subClassOf :d3f/UserAccount})
 
 (def Log
   {:d3f/definition   "A record of events in the order of their occurrence.",
    :db/ident         :d3f/Log,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://wordnet-rdf.princeton.edu/id/06515215-n"},
    :rdfs/label       "Log",
@@ -14217,7 +13910,7 @@
    :d3f/definition
    "A log file is a file that records either events that occur in an operating system or other software runs, or messages between different users of a communication software. Logging is the act of keeping a log. In the simplest case, messages are written to a single log file.\n\nA transaction log is a file (i.e., log) of the communications between a system and the users of that system, or a data collection method that automatically captures the type, content, or time of transactions made by a person from a terminal with that system. For Web searching, a transaction log is an electronic record of interactions that have occurred during a searching episode between a Web search engine and users searching for information on that Web search engine.\n\nMany operating systems, software frameworks and programs include a logging system. A widely used logging standard is syslog, defined in Internet Engineering Task Force (IETF) RFC 5424). The syslog standard enables a dedicated, standardized subsystem to generate, filter, record, and analyze log messages. This relieves software developers of having to design and code their own ad hoc logging systems.",
    :db/ident :d3f/LogFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Log_file"},
    :rdfs/label "Log File",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/06515875-n"},
@@ -14245,7 +13938,7 @@
 
 (def LogicalLink
   {:db/ident        :d3f/LogicalLink,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Logical Link",
    :rdfs/subClassOf :d3f/Link})
 
@@ -14256,9 +13949,7 @@
    :d3f/kb-reference :d3f/Reference-LibreNMSDocsNetworkMapExtension,
    :d3f/maps #{:d3f/NetworkNode :d3f/LogicalLink :d3f/Network},
    :db/ident :d3f/LogicalLinkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/NetworkMapping
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/NetworkMapping :owl/Class},
    :rdfs/label "Logical Link Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/NetworkNode,
@@ -14286,7 +13977,7 @@
   {:d3f/definition
    "In computing, a login session is the period of activity between a user logging in and logging out of a (multi-user) system. On Unix and Unix-like operating systems, a login session takes one of two main forms: (a) When a textual user interface is used, a login session is represented as a kernel session -- a collection of process groups with the logout action managed by a session leader, and (b) Where an X display manager is employed, a login session is considered to be the lifetime of a designated user process that the display manager invokes.",
    :db/ident :d3f/LoginSession,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Login_session"},
    :rdfs/label "Login Session",
    :rdfs/subClassOf :d3f/Session})
@@ -14319,16 +14010,12 @@
 (def LogonUser
   {:d3f/authenticates :d3f/UserAccount,
    :db/ident          :d3f/LogonUser,
-   :rdf/type          #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                        :d3f/D3FENDCatalogThing :d3f/Technique
-                        :owl/NamedIndividual :owl/Class
-                        :d3f/DefensiveTechnique},
+   :rdf/type          :owl/Class,
    :rdfs/label        "Logon User",
    :rdfs/subClassOf   #{:d3f/SystemCall
                         {:owl/onProperty     :d3f/authenticates,
                          :owl/someValuesFrom :d3f/UserAccount,
-                         :rdf/type           :owl/Restriction}
-                        :d3f/DefensiveTechnique}})
+                         :rdf/type           :owl/Restriction}}})
 
 (def LongShort-termMemory
   {:d3f/d3fend-id "D3A-LSTM",
@@ -14343,16 +14030,14 @@
 
 (def LuaScriptFile
   {:db/ident   :d3f/LuaScriptFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/ExecutableScript
-                 :d3f/DigitalArtifact :d3f/DigitalObject :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Lua Script File"})
 
 (def M1013
   {:d3f/d3fend-comment
    "A future release of D3FEND will define a taxonomy of Source Code Hardening Techniques.",
    :db/ident :d3f/M1013,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Application Developer Guidance"})
 
 (def M1015
@@ -14361,35 +14046,35 @@
    :d3f/related #{:d3f/AuthenticationCacheInvalidation
                   :d3f/UserAccountPermissions :d3f/DomainTrustPolicy},
    :db/ident :d3f/M1015,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Active Directory Configuration"})
 
 (def M1016
   {:d3f/d3fend-comment
    "Future D3FEND releases will model the scanning and inventory domains.",
    :db/ident :d3f/M1016,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Vulnerability Scanning"})
 
 (def M1017
   {:d3f/d3fend-comment
    "Modeling user training is  outside the scope of D3FEND.",
    :db/ident :d3f/M1017,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "User Training"})
 
 (def M1018
   {:d3f/related #{:d3f/SystemConfigurationPermissions :d3f/LocalFilePermissions
                   :d3f/MandatoryAccessControl},
    :db/ident    :d3f/M1018,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "User Account Management"})
 
 (def M1019
   {:d3f/d3fend-comment
    "Establishing and running a Threat Intelligence Program is outside the scope of D3FEND.",
    :db/ident :d3f/M1019,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Threat Intelligence Program"})
 
 (def M1020
@@ -14397,7 +14082,7 @@
    "D3FEND models this as an infrastructure dependency to support D3-NTA.",
    :d3f/related :d3f/NetworkTrafficAnalysis,
    :db/ident :d3f/M1020,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "SSL/TLS Inspection"})
 
 (def M1021
@@ -14408,19 +14093,19 @@
                   :d3f/InboundTrafficFiltering :d3f/NetworkTrafficAnalysis
                   :d3f/DNSAllowlisting},
    :db/ident :d3f/M1021,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Restrict Web-Based Content"})
 
 (def M1022
   {:d3f/related :d3f/LocalFilePermissions,
    :db/ident    :d3f/M1022,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Restrict File and Directory Permissions"})
 
 (def M1024
   {:d3f/related :d3f/SystemConfigurationPermissions,
    :db/ident    :d3f/M1024,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Restrict Registry Permission"})
 
 (def M1025
@@ -14428,33 +14113,33 @@
                   :d3f/DriverLoadIntegrityChecking :d3f/MandatoryAccessControl
                   :d3f/BootloaderAuthentication},
    :db/ident    :d3f/M1025,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Privileged Process Integrity"})
 
 (def M1026
   {:d3f/related #{:d3f/LocalAccountMonitoring :d3f/StrongPasswordPolicy
                   :d3f/DomainAccountMonitoring},
    :db/ident    :d3f/M1026,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Privileged Account Management"})
 
 (def M1027
   {:d3f/related #{:d3f/StrongPasswordPolicy :d3f/One-timePassword},
    :db/ident    :d3f/M1027,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Password Policies"})
 
 (def M1028
   {:d3f/related :d3f/PlatformHardening,
    :db/ident    :d3f/M1028,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Operating System Configuration"})
 
 (def M1029
   {:d3f/d3fend-comment
    "IT disaster recovery plans are outside the current scope of D3FEND.",
    :db/ident :d3f/M1029,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Remote Data Storage"})
 
 (def M1030
@@ -14462,38 +14147,38 @@
                   :d3f/BroadcastDomainIsolation :d3f/InboundTrafficFiltering
                   :d3f/EncryptedTunnels},
    :db/ident    :d3f/M1030,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Network Segmentation"})
 
 (def M1031
   {:d3f/related #{:d3f/OutboundTrafficFiltering :d3f/InboundTrafficFiltering
                   :d3f/NetworkTrafficAnalysis},
    :db/ident    :d3f/M1031,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Network Intrusion Prevention"})
 
 (def M1032
   {:d3f/related :d3f/Multi-factorAuthentication,
    :db/ident    :d3f/M1032,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Multi-factor Authentication"})
 
 (def M1033
   {:d3f/related #{:d3f/ExecutableAllowlisting :d3f/ExecutableDenylisting},
    :db/ident    :d3f/M1033,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Limit Software Installation"})
 
 (def M1034
   {:d3f/related :d3f/IOPortRestriction,
    :db/ident    :d3f/M1034,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Limit Hardware Installation"})
 
 (def M1035
   {:d3f/related :d3f/NetworkIsolation,
    :db/ident    :d3f/M1035,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Limit Access to Resource Over Network"})
 
 (def M1036
@@ -14502,13 +14187,13 @@
    :d3f/related #{:d3f/AuthenticationEventThresholding
                   :d3f/AuthenticationCacheInvalidation :d3f/AccountLocking},
    :db/ident :d3f/M1036,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Account Use Policies"})
 
 (def M1037
   {:d3f/related :d3f/NetworkIsolation,
    :db/ident    :d3f/M1037,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Filter Network Traffic"})
 
 (def M1038
@@ -14516,14 +14201,14 @@
                   :d3f/DriverLoadIntegrityChecking :d3f/ExecutableAllowlisting
                   :d3f/ExecutableDenylisting},
    :db/ident    :d3f/M1038,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Execution Prevention"})
 
 (def M1039
   {:d3f/related #{:d3f/SystemFileAnalysis
                   :d3f/ApplicationConfigurationHardening},
    :db/ident    :d3f/M1039,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Environment Variable Permissions"})
 
 (def M1040
@@ -14535,48 +14220,47 @@
                   :d3f/AuthorizationEventThresholding
                   :d3f/JobFunctionAccessPatternAnalysis},
    :db/ident    :d3f/M1040,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Behavior Prevention on Endpoint"})
 
 (def M1041
   {:d3f/related #{:d3f/MessageEncryption :d3f/DiskEncryption :d3f/FileEncryption
                   :d3f/EncryptedTunnels},
    :db/ident    :d3f/M1041,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Encrypt Sensitive Information"})
 
 (def M1042
   {:d3f/related #{:d3f/ApplicationConfigurationHardening
                   :d3f/MandatoryAccessControl :d3f/ExecutableDenylisting},
    :db/ident    :d3f/M1042,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Disable or Remove Feature or Program"})
 
 (def M1043
   {:d3f/related :d3f/Hardware-basedProcessIsolation,
    :db/ident    :d3f/M1043,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Credential Access Protection"})
 
 (def M1044
   {:d3f/d3fend-comment "D3-SCF is one possible way to filter library loading.",
    :d3f/related        :d3f/SystemCallFiltering,
    :db/ident           :d3f/M1044,
-   :rdf/type           #{:d3f/ATTACKMitigation :d3f/ATTACKThing
-                         :owl/NamedIndividual},
+   :rdf/type           #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label         "Restrict Library Loading"})
 
 (def M1045
   {:d3f/related #{:d3f/DriverLoadIntegrityChecking :d3f/ExecutableAllowlisting
                   :d3f/ServiceBinaryVerification},
    :db/ident    :d3f/M1045,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Code Signing"})
 
 (def M1046
   {:d3f/related #{:d3f/TPMBootIntegrity :d3f/BootloaderAuthentication},
    :db/ident    :d3f/M1046,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Boot Integrity"})
 
 (def M1047
@@ -14585,7 +14269,7 @@
    :d3f/related #{:d3f/LocalAccountMonitoring :d3f/SystemFileAnalysis
                   :d3f/DomainAccountMonitoring},
    :db/ident :d3f/M1047,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Audit"})
 
 (def M1048
@@ -14595,7 +14279,7 @@
                   :d3f/MandatoryAccessControl :d3f/DynamicAnalysis
                   :d3f/SystemCallFiltering},
    :db/ident :d3f/M1048,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Application Isolation and Sandboxing"})
 
 (def M1049
@@ -14603,8 +14287,7 @@
    :d3f/related        #{:d3f/FileHashing :d3f/FileContentRules
                          :d3f/ProcessAnalysis},
    :db/ident           :d3f/M1049,
-   :rdf/type           #{:d3f/ATTACKMitigation :d3f/ATTACKThing
-                         :owl/NamedIndividual},
+   :rdf/type           #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label         "Antivirus/Antimalware"})
 
 (def M1050
@@ -14612,58 +14295,56 @@
                   :d3f/ApplicationHardening :d3f/ShadowStackComparisons
                   :d3f/InboundTrafficFiltering},
    :db/ident    :d3f/M1050,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Exploit Protection"})
 
 (def M1051
   {:d3f/related :d3f/SoftwareUpdate,
    :db/ident    :d3f/M1051,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Update Software"})
 
 (def M1052
   {:d3f/related :d3f/MandatoryAccessControl,
    :db/ident    :d3f/M1052,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "User Account Control"})
 
 (def M1053
   {:d3f/d3fend-comment
    "Comprehensive IT disaster recovery plans are outside the current scope of D3FEND.",
    :db/ident :d3f/M1053,
-   :rdf/type #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Data Backup"})
 
 (def M1054
   {:d3f/related #{:d3f/ApplicationConfigurationHardening
                   :d3f/CertificatePinning},
    :db/ident    :d3f/M1054,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Software Configuration"})
 
 (def M1055
   {:db/ident   :d3f/M1055,
-   :rdf/type   #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label "Do Not Mitigate"})
 
 (def M1056
   {:d3f/related #{:d3f/DecoyObject :d3f/DecoyEnvironment},
    :db/ident    :d3f/M1056,
-   :rdf/type    #{:d3f/ATTACKMitigation :d3f/ATTACKThing :owl/NamedIndividual},
+   :rdf/type    #{:d3f/ATTACKMitigation :owl/NamedIndividual},
    :rdfs/label  "Pre-compromise"})
 
 (def MSGEmailFile
   {:db/ident   :d3f/MSGEmailFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/Email :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/Resource :d3f/DocumentFile
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/Email :owl/NamedIndividual},
    :rdfs/label "MSG Email File"})
 
 (def MacOSKeychain
   {:d3f/definition
    "Keychain is the password management system in macOS, developed by Apple. It was introduced with Mac OS 8.6, and has been included in all subsequent versions of the operating system, now known as macOS. A Keychain can contain various types of data: passwords (for websites, FTP servers, SSH accounts, network shares, wireless networks, groupware applications, encrypted disk images), private keys, certificates, and secure notes.",
    :db/ident :d3f/MacOSKeychain,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Keychain_(software)"},
    :rdfs/label "MacOS Keychain",
@@ -14686,7 +14367,7 @@
    :d3f/definition
    "Mail traffic is network traffic that uses a standard mail transfer protocol.",
    :db/ident :d3f/MailNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Mail Network Traffic",
    :rdfs/subClassOf #{:d3f/NetworkTraffic
                       {:owl/onProperty     :d3f/contains,
@@ -14698,7 +14379,7 @@
    "Within the Internet email system, a message transfer agent or mail transfer agent (MTA) or mail relay is software that transfers electronic mail messages from one computer to another using SMTP. The terms mail server, mail exchanger, and MX host are also used in some contexts. Messages exchanged across networks are passed between mail servers, including any attached data files (such as images, multimedia or documents). These servers also often keep mailboxes for email. Access to this email by end users is typically either via webmail or an email client.",
    :d3f/runs :d3f/MessageTransferAgent,
    :db/ident :d3f/MailServer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Message_transfer_agent"},
    :rdfs/label "Mail Server",
@@ -14732,10 +14413,8 @@
      :d3f/Reference-AnalysisOfTheWindowsVistaSecurityModel_SymantecCorporation},
    :d3f/restricts :d3f/CreateProcess,
    :db/ident :d3f/MandatoryAccessControl,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExecutionIsolation :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Kernel-basedProcessIsolation
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/Kernel-basedProcessIsolation :owl/NamedIndividual
+               :owl/Class},
    :rdfs/label "Mandatory Access Control",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -14747,7 +14426,7 @@
 
 (def MarketingMaterial
   {:db/ident   :d3f/MarketingMaterial,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ReferenceType :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ReferenceType :owl/NamedIndividual},
    :rdfs/label "Marketing Material"})
 
 (def Matching
@@ -14759,7 +14438,7 @@
 (def MathematicalFunction
   {:d3f/definition  "Computes mathematical expressions.",
    :db/ident        :d3f/MathematicalFunction,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Mathematical Function",
    :rdfs/subClassOf :d3f/Subroutine})
 
@@ -14840,12 +14519,10 @@
    :d3f/definition
    "In computing, a memory address is a reference to a specific memory location used at various levels by software and hardware.",
    :db/ident :d3f/MemoryAddress,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-               :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Memory_address"},
    :rdfs/label "Memory Address",
-   :rdfs/subClassOf #{:d3f/DigitalArtifact :d3f/Identifier
+   :rdfs/subClassOf #{:d3f/DigitalArtifact
                       {:owl/onProperty     :d3f/addresses,
                        :owl/someValuesFrom :d3f/MemoryWord,
                        :rdf/type           :owl/Restriction}}})
@@ -14855,7 +14532,7 @@
    :d3f/definition
    "A memory address space is a space containing memory addresses.",
    :db/ident :d3f/MemoryAddressSpace,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Memory Address Space",
    :rdfs/subClassOf #{:d3f/AddressSpace
                       {:owl/onProperty     :d3f/contains,
@@ -14866,7 +14543,7 @@
   {:d3f/definition  "Reserves memory for a running process to use.",
    :d3f/invokes     :d3f/AllocateMemory,
    :db/ident        :d3f/MemoryAllocationFunction,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Memory Allocation Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/invokes,
@@ -14879,7 +14556,7 @@
    "In computing (specifically data transmission and data storage), a block, sometimes called a physical record, is a sequence of bytes or bits, usually containing some whole number of records, having a maximum length; a block size. Data thus structured are said to be blocked. The process of putting data into blocks is called blocking, while deblocking is the process of extracting data from blocks. Blocked data is normally stored in a data buffer and read or written a whole block at a time.",
    :d3f/may-contain :d3f/Record,
    :db/ident :d3f/MemoryBlock,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://dbpedia.org/page/Block_(data_storage)"},
    :rdfs/label "Memory Block",
@@ -14901,10 +14578,7 @@
    :d3f/kb-reference
    :d3f/Reference-InferentialExploitAttemptDetection_CrowdstrikeInc,
    :db/ident :d3f/MemoryBoundaryTracking,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "Memory Boundary Tracking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/ProcessCodeSegment,
@@ -14922,7 +14596,7 @@
    "Releases previously reserved memory associated with a process.",
    :d3f/invokes :d3f/FreeMemory,
    :db/ident :d3f/MemoryFreeFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Memory Free Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/invokes,
@@ -14936,7 +14610,7 @@
    "A computer’s memory management unit (MMU) is the physical hardware that handles its virtual memory and caching operations. The MMU is usually located within the computer’s central processing unit (CPU), but sometimes operates in a separate integrated chip (IC).",
    :d3f/manages #{:d3f/PageTable :d3f/Storage},
    :db/ident :d3f/MemoryManagementUnit,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://www.techopedia.com/definition/4768/memory-management-unit-mmu"},
@@ -14968,7 +14642,7 @@
    :d3f/definition
    "Memory pools, also called fixed-size blocks allocation, is the use of pools for memory management… preallocating a number of memory blocks with the same size called the memory pool. The application can allocate, access, and free blocks represented by handles at run time.",
    :db/ident :d3f/MemoryPool,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Memory_pool"},
    :rdfs/label "Memory Pool",
    :rdfs/subClassOf #{:d3f/MemoryExtent
@@ -14978,7 +14652,7 @@
 
 (def MemoryProtectionUnit
   {:db/ident        :d3f/MemoryProtectionUnit,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Memory Protection Unit",
    :rdfs/subClassOf :d3f/ProcessorComponent})
 
@@ -14986,7 +14660,7 @@
   {:d3f/definition
    "A memory word is the natural unit of data used by a particular computer processor design; a fixed-size piece of data handled as a unit by the instruction set or the hardware of the processor.",
    :db/ident :d3f/MemoryWord,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://dbpedia.org/page/Word_(computer_architecture)"},
    :rdfs/label "Memory Word",
@@ -15001,9 +14675,7 @@
    "## Technique Overview\n\nEmail and messaging are frequently used to deliver malicious content to targets. These enterprise capabilities are used to deliver software exploits or social engineering tricks. If the recipient of a message trusts the sender, attackers can avoid escalating suspicion.\n\nEmails and messages are also complex data structures. They contain files and links, and complex data encodings which vary region to region. Thus the defensive techniques used to analyze emails and messages are highly varied ranging from deep content analysis and execution to social network graph-style analytics to analyze trust or risk.",
    :d3f/synonym #{"Electronic Message Analysis" "Email Or Messaging Analysis"},
    :db/ident :d3f/MessageAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Message Analysis",
    :rdfs/subClassOf #{:d3f/DefensiveTechnique
                       {:owl/onProperty     :d3f/enables,
@@ -15021,9 +14693,7 @@
    #{:d3f/Reference-SecureMultipurposeInternetMailExtensionsMIME-Version3.1
      :d3f/Reference-DomainKeysIdentifiedMail-Signatures-IETF},
    :db/ident :d3f/MessageAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/MessageHardening :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/MessageHardening},
    :rdfs/label "Message Authentication",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/authenticates,
                        :owl/someValuesFrom :d3f/UserToUserMessage,
@@ -15039,9 +14709,7 @@
    :d3f/kb-reference
    :d3f/Reference-SecureMultipurposeInternetMailExtensionsMIME-Version3.1,
    :db/ident :d3f/MessageEncryption,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/MessageHardening :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/MessageHardening},
    :rdfs/label "Message Encryption",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/encrypts,
                        :owl/someValuesFrom :d3f/UserToUserMessage,
@@ -15055,9 +14723,7 @@
    :d3f/enables :d3f/Harden,
    :d3f/synonym "Email Or Messaging Hardening",
    :db/ident :d3f/MessageHardening,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Message Hardening",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Harden,
@@ -15068,7 +14734,7 @@
   {:d3f/definition
    "A message transfer agent or mail transfer agent (MTA) or mail relay is software that transfers electronic mail messages from one computer to another using a client-server application architecture. An MTA implements both the client (sending) and server (receiving) portions of the Simple Mail Transfer Protocol.",
    :db/ident :d3f/MessageTransferAgent,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Message Transfer Agent",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Message_transfer_agent"},
@@ -15097,7 +14763,7 @@
 (def MicrosoftHTMLApplication
   {:d3f/may-contain  :d3f/ExecutableScript,
    :db/ident         :d3f/MicrosoftHTMLApplication,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/HTML_Application"},
    :rdfs/label       "Microsoft HTML Application",
@@ -15108,66 +14774,47 @@
 
 (def MicrosoftVCCLCompilerToolBufferSecurityCheck
   {:db/ident   :d3f/MicrosoftVCCLCompilerToolBufferSecurityCheck,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                 :d3f/ApplicationHardening :d3f/D3FENDCatalogThing
-                 :d3f/Technique :d3f/StackFrameCanaryValidation
-                 :owl/NamedIndividual :d3f/DefensiveTechnique},
+   :rdf/type   #{:d3f/StackFrameCanaryValidation :owl/NamedIndividual},
    :rdfs/label "Microsoft VCCLCompilerTool BufferSecurityCheck"})
 
 (def MicrosoftWordDOCBFile
   {:db/ident   :d3f/MicrosoftWordDOCBFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOCB File"})
 
 (def MicrosoftWordDOCFile
   {:db/ident   :d3f/MicrosoftWordDOCFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOC File"})
 
 (def MicrosoftWordDOCMFile
   {:db/ident   :d3f/MicrosoftWordDOCMFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOCM File"})
 
 (def MicrosoftWordDOCXFile
   {:db/ident   :d3f/MicrosoftWordDOCXFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOCX File"})
 
 (def MicrosoftWordDOTFile
   {:db/ident   :d3f/MicrosoftWordDOTFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOT File"})
 
 (def MicrosoftWordDOTMFile
   {:db/ident   :d3f/MicrosoftWordDOTMFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOTM File"})
 
 (def MicrosoftWordDOTXFile
   {:db/ident   :d3f/MicrosoftWordDOTXFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word DOTX File"})
 
 (def MicrosoftWordWBKFile
   {:db/ident   :d3f/MicrosoftWordWBKFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Resource :d3f/DocumentFile :d3f/Artifact :d3f/File
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/DocumentFile :owl/NamedIndividual},
    :rdfs/label "Microsoft Word WBK File"})
 
 (def MobilePhone
@@ -15208,8 +14855,7 @@
    :d3f/display-order -1,
    :d3f/display-priority 1,
    :db/ident :d3f/Model,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DefensiveTactic :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Model",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -15307,7 +14953,7 @@
    "A system call to rename or move a file.  Linux's rename() is an example of this kind of system call. Another way of handling it is to call a copy file system call followed by a delete file system call.",
    :d3f/modifies :d3f/FileSystemMetadata,
    :db/ident :d3f/MoveFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Move File",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://man7.org/linux/man-pages/man2/rename.2.html"},
@@ -15338,9 +14984,7 @@
    :d3f/kb-reference
    :d3f/Reference-MethodAndApparatusForUtilizingATokenForResourceAccess_RsaSecurityInc.,
    :db/ident :d3f/Multi-factorAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Multi-factor Authentication",
    :rdfs/subClassOf #{:d3f/CredentialHardening
                       {:owl/onProperty     :d3f/authenticates,
@@ -15437,9 +15081,7 @@
     "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"},
    :d3f/version {:xsd/long 3},
    :db/ident :d3f/NIST_SP_800-53_R3,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Catalog :d3f/D3FENDCatalogThing
-               :d3f/NISTSP800-53ControlCatalog :d3f/ControlCatalog
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual},
    :rdfs/label "NIST SP 800-53 R3",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -15451,9 +15093,7 @@
     "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"},
    :d3f/version {:xsd/long 4},
    :db/ident :d3f/NIST_SP_800-53_R4,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Catalog :d3f/D3FENDCatalogThing
-               :d3f/NISTSP800-53ControlCatalog :d3f/ControlCatalog
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual},
    :rdfs/label "NIST SP 800-53 R4",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -15465,9 +15105,7 @@
     "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"},
    :d3f/version {:xsd/long 5},
    :db/ident :d3f/NIST_SP_800-53_R5,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Catalog :d3f/D3FENDCatalogThing
-               :d3f/NISTSP800-53ControlCatalog :d3f/ControlCatalog
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual},
    :rdfs/label "NIST SP 800-53 R5",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -15526,7 +15164,7 @@
   {:d3f/definition
    "A network is a group of computers that use a set of common communication protocols over digital interconnections for the purpose of sharing resources located on or provided by the network nodes. The interconnections between nodes are formed from a broad spectrum of telecommunication network technologies, based on physically wired, optical, and wireless radio-frequency methods that may be arranged in a variety of network topologies.",
    :db/ident :d3f/Network,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/03826490-n"},
    :rdfs/subClassOf :d3f/DigitalArtifact,
@@ -15548,7 +15186,7 @@
    :d3f/definition
    "A directory resource made available from one host to other hosts on a computer network.",
    :db/ident :d3f/NetworkDirectoryResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Directory Resource",
    :rdfs/subClassOf #{:d3f/NetworkFileShareResource
                       {:owl/onProperty     :d3f/contains,
@@ -15560,7 +15198,7 @@
    :d3f/definition
    "A computer file resource made available from one host to other hosts on a computer network.",
    :db/ident :d3f/NetworkFileResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network File Resource",
    :rdfs/subClassOf #{:d3f/NetworkFileShareResource
                       {:owl/onProperty     :d3f/contains,
@@ -15571,7 +15209,7 @@
   {:d3f/definition
    "A shared file resource, or network file share, is a computer file made available from one host to other hosts on a computer network. Network sharing is made possible by inter-process communication over the network. It includes both files and directories.",
    :db/ident :d3f/NetworkFileShareResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network File Share Resource",
    :rdfs/subClassOf :d3f/NetworkResource})
 
@@ -15580,7 +15218,7 @@
    "A summarization of network transactions between a client and server. It often summarizes bytes sent, bytes received, and protocol flags.",
    :d3f/summarizes :d3f/NetworkTraffic,
    :db/ident :d3f/NetworkFlow,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Flow",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
                       {:owl/onProperty     :d3f/summarizes,
@@ -15592,20 +15230,18 @@
    "Monitors network traffic and produces summaries of data flows traversing the network.",
    :d3f/monitors :d3f/NetworkFlow,
    :db/ident :d3f/NetworkFlowSensor,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Flow Sensor",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/NetworkFlow,
-                       :rdf/type           :owl/Restriction} :d3f/NetworkSensor
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkSensor}})
 
 (def NetworkInitScriptFileResource
   {:d3f/definition
    "A computer file resource made available from one host to other hosts on a computer network that is also an initialization script.",
    :db/ident :d3f/NetworkInitScriptFileResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Init Script File Resource",
    :rdfs/subClassOf #{:d3f/NetworkFileResource :d3f/InitScript}})
 
@@ -15615,9 +15251,7 @@
    "Network Isolation techniques prevent network hosts from accessing non-essential system network resources.",
    :d3f/enables :d3f/Isolate,
    :db/ident :d3f/NetworkIsolation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Network Isolation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Isolate,
@@ -15644,9 +15278,7 @@
    :d3f/display-order 3,
    :d3f/enables :d3f/Model,
    :db/ident :d3f/NetworkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Network Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Model,
@@ -15658,7 +15290,7 @@
    "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node.",
    :d3f/runs :d3f/OperatingSystem,
    :db/ident :d3f/NetworkNode,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Node_(networking)"},
    :rdfs/label "Network Node",
@@ -15683,9 +15315,7 @@
      :d3f/Reference-Windows-Management-Infrastructure},
    :d3f/synonym #{"System Inventorying" "System Discovery"},
    :db/ident :d3f/NetworkNodeInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/AssetInventory
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/AssetInventory :owl/Class},
    :rdfs/label "Network Node Inventory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/inventories,
                        :owl/someValuesFrom :d3f/NetworkNode,
@@ -15696,7 +15326,7 @@
   {:d3f/definition
    "A network packet is a formatted unit of data carried by a packet-switched network. Computer communications links that do not support packets, such as traditional point-to-point telecommunications links, simply transmit data as a bit stream. When data is formatted into packets, packet switching is possible and the bandwidth of the communication medium can be better shared among users than with circuit switching.",
    :db/ident :d3f/NetworkPackets,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Network_packet"},
    :rdfs/label "Network Packet",
    :rdfs/subClassOf :d3f/NetworkTraffic})
@@ -15718,20 +15348,18 @@
    "Monitors and parses network protocols to extract values from various network protocol layers.",
    :d3f/monitors :d3f/NetworkTraffic,
    :db/ident :d3f/NetworkProtocolAnalyzer,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Protocol Analyzer",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
-                       :rdf/type           :owl/Restriction} :d3f/NetworkSensor
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkSensor}})
 
 (def NetworkResource
   {:d3f/definition
    "In computing, a shared resource, or network share, is a computer resource made available from one host to other hosts on a computer network. It is a device or piece of information on a computer that can be remotely accessed from another computer, typically via a local area network or an enterprise intranet, transparently as if it were a resource in the local machine.Network sharing is made possible by inter-process communication over the network.",
    :db/ident :d3f/NetworkResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Resource",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Shared_resource"},
    :rdfs/subClassOf :d3f/RemoteResource,
@@ -15742,7 +15370,7 @@
    :d3f/definition
    "Ephemeral digital artifact comprising a request of a network resource and any response from that network resource.",
    :db/ident :d3f/NetworkResourceAccess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Resource Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
@@ -15772,7 +15400,7 @@
    :d3f/definition
    "A network session is a temporary and interactive information interchange between two or more devices communicating over a network. A session is established at a certain point in time, and then 'torn down' - brought to an end - at some later point. An established communication session may involve more than one message in each direction. A session is typically stateful, meaning that at least one of the communicating parties needs to hold current state information and save information about the session history in order to be able to communicate, as opposed to stateless communication, where the communication consists of independent requests with responses. Network sessions may be established and implemented as part of protocols and services at the application, session, or transport layers of the OSI model.",
    :db/ident :d3f/NetworkSession,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Session",
    :rdfs/seeAlso
    #{{:xsd/anyURI "https://schema.ocsf.io/objects/network_connection_info"}
@@ -15798,7 +15426,7 @@
    :d3f/may-contain :d3f/DomainName,
    :d3f/originates-from :d3f/PhysicalLocation,
    :db/ident :d3f/NetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Traffic",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Network_traffic"}
                    {:xsd/anyURI
@@ -15818,9 +15446,7 @@
    "Analyzing intercepted or summarized computer network traffic to detect unauthorized activity.",
    :d3f/enables :d3f/Detect,
    :db/ident :d3f/NetworkTrafficAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Network Traffic Analysis",
    :rdfs/subClassOf #{:d3f/DefensiveTechnique
                       {:owl/onProperty     :d3f/enables,
@@ -15831,8 +15457,7 @@
   {:d3f/definition
    "A packet analyzer, also known as packet sniffer, protocol analyzer, or network analyzer, is a computer program or computer hardware such as a packet capture appliance, that can intercept and log traffic that passes over a computer network or part of a network.",
    :db/ident :d3f/NetworkTrafficAnalysisSoftware,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/Artifact :owl/NamedIndividual :owl/Class},
+   :rdf/type #{:d3f/DigitalArtifact :owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Packet_analyzer"},
    :rdfs/label "Network Traffic Analysis Software",
    :rdfs/seeAlso {:xsd/anyURI
@@ -15850,9 +15475,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemForImplementingThreatDetectionUsingDailyNetworkTrafficCommunityOutliers_VECTRANETWORKSInc,
    :db/ident :d3f/NetworkTrafficCommunityDeviation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Traffic Community Deviation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -15874,9 +15497,7 @@
      :d3f/Reference-FirewallForProcessingConnection-orientedAndConnectionlessDatagramsOverAConnection-orientedNetwork_NationalSecurityAgency
      :d3f/Reference-AutomaticallyGeneratingRulesForConnectionSecurity_Microsoft},
    :db/ident :d3f/NetworkTrafficFiltering,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkIsolation :owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Traffic Filtering",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/filters,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -15893,9 +15514,7 @@
    :d3f/synonym #{"Web Security Gateway Policy Mapping" "DLP Policy Mapping"
                   "IPS Policy Mapping" "Firewall Mapping"},
    :db/ident :d3f/NetworkTrafficPolicyMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/NetworkMapping
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/NetworkMapping :owl/Class},
    :rdfs/label "Network Traffic Policy Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/queries,
                        :owl/someValuesFrom :d3f/CollectorAgent,
@@ -15911,9 +15530,7 @@
    :d3f/evaluates :d3f/Network,
    :d3f/identifies :d3f/Vulnerability,
    :db/ident :d3f/NetworkVulnerabilityAssessment,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/NetworkMapping
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/NetworkMapping :owl/Class},
    :rdfs/label "Network Vulnerability Assessment",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/identifies,
                        :owl/someValuesFrom :d3f/Vulnerability,
@@ -15988,7 +15605,7 @@
 (def OSAPIAllocateMemory
   {:d3f/invokes     :d3f/AllocateMemory,
    :db/ident        :d3f/OSAPIAllocateMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Allocate Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/AllocateMemory,
@@ -15998,7 +15615,7 @@
 (def OSAPIConnectSocket
   {:d3f/invokes     :d3f/ConnectSocket,
    :db/ident        :d3f/OSAPIConnectSocket,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Connect Socket",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ConnectSocket,
@@ -16008,7 +15625,7 @@
 (def OSAPICopyToken
   {:d3f/invokes     :d3f/CopyToken,
    :db/ident        :d3f/OSAPICopyToken,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Copy Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CopyToken,
@@ -16018,7 +15635,7 @@
 (def OSAPICreateFile
   {:d3f/invokes     :d3f/CreateFile,
    :db/ident        :d3f/OSAPICreateFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Create File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateFile,
@@ -16028,7 +15645,7 @@
 (def OSAPICreateProcess
   {:d3f/invokes     :d3f/CreateProcess,
    :db/ident        :d3f/OSAPICreateProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Create Process",
    :rdfs/subClassOf #{:d3f/OSAPIFunction
                       {:owl/onProperty     :d3f/invokes,
@@ -16038,7 +15655,7 @@
 (def OSAPICreateSocket
   {:d3f/invokes     :d3f/CreateSocket,
    :db/ident        :d3f/OSAPICreateSocket,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Create Socket",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateSocket,
@@ -16048,7 +15665,7 @@
 (def OSAPICreateThread
   {:d3f/invokes     :d3f/CreateThread,
    :db/ident        :d3f/OSAPICreateThread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Create Thread",
    :rdfs/subClassOf #{:d3f/OSAPIFunction
                       {:owl/onProperty     :d3f/invokes,
@@ -16058,7 +15675,7 @@
 (def OSAPIDeleteFile
   {:d3f/invokes     :d3f/DeleteFile,
    :db/ident        :d3f/OSAPIDeleteFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Delete File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/DeleteFile,
@@ -16068,7 +15685,7 @@
 (def OSAPIExec
   {:d3f/invokes     :d3f/Exec,
    :db/ident        :d3f/OSAPIExec,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Exec",
    :rdfs/subClassOf #{:d3f/OSAPIFunction
                       {:owl/onProperty     :d3f/invokes,
@@ -16078,7 +15695,7 @@
 (def OSAPIFreeMemory
   {:d3f/invokes     :d3f/FreeMemory,
    :db/ident        :d3f/OSAPIFreeMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Free Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/FreeMemory,
@@ -16097,7 +15714,7 @@
 (def OSAPIGetSystemTime
   {:d3f/invokes     :d3f/GetSystemTime,
    :db/ident        :d3f/OSAPIGetSystemTime,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Get System Time",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/GetSystemTime,
@@ -16107,7 +15724,7 @@
 (def OSAPIMoveFile
   {:d3f/invokes     :d3f/MoveFile,
    :db/ident        :d3f/OSAPIMoveFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Move File",
    :rdfs/subClassOf #{:d3f/OSAPIFunction
                       {:owl/onProperty     :d3f/invokes,
@@ -16117,7 +15734,7 @@
 (def OSAPIOpenFile
   {:d3f/invokes     :d3f/OpenFile,
    :db/ident        :d3f/OSAPIOpenFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Open File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/OpenFile,
@@ -16133,7 +15750,7 @@
 (def OSAPIReadFile
   {:d3f/invokes     :d3f/ReadFile,
    :db/ident        :d3f/OSAPIReadFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Read File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ReadFile,
@@ -16143,7 +15760,7 @@
 (def OSAPISuspendProcess
   {:d3f/invokes     :d3f/SuspendProcess,
    :db/ident        :d3f/OSAPISuspendProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Suspend Process",
    :rdfs/subClassOf #{:d3f/OSAPIFunction
                       {:owl/onProperty     :d3f/invokes,
@@ -16153,7 +15770,7 @@
 (def OSAPISuspendThread
   {:d3f/invokes     :d3f/SuspendThread,
    :db/ident        :d3f/OSAPISuspendThread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Suspend Thread",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SuspendThread,
@@ -16163,7 +15780,7 @@
 (def OSAPITerminateProcess
   {:d3f/invokes     :d3f/TerminateProcess,
    :db/ident        :d3f/OSAPITerminateProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Terminate Process",
    :rdfs/subClassOf #{:d3f/OSAPIFunction
                       {:owl/onProperty     :d3f/invokes,
@@ -16173,7 +15790,7 @@
 (def OSAPITraceProcess
   {:d3f/invokes     :d3f/TraceProcess,
    :db/ident        :d3f/OSAPITraceProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Trace Process",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/TraceProcess,
@@ -16183,7 +15800,7 @@
 (def OSAPIWriteFile
   {:d3f/invokes     :d3f/WriteFile,
    :db/ident        :d3f/OSAPIWriteFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "OS API Write File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/WriteFile,
@@ -16209,7 +15826,7 @@
    "An object file is a file that contains relocatable machine code.",
    :d3f/todo "Fix IRI to fix 'i' in \"File\" substring of IRI",
    :db/ident :d3f/ObjectFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Object File",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Object_file"},
    :rdfs/subClassOf :d3f/File})
@@ -16245,7 +15862,7 @@
   {:d3f/definition
    "An office application is one that is part of an application suite (e.g., Microsoft Office, Open Office).",
    :db/ident :d3f/OfficeApplication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Office Application",
    :rdfs/subClassOf :d3f/UserApplication})
 
@@ -16253,7 +15870,7 @@
   {:d3f/definition
    "A document file in a format associated with an d3f:OfficeApplication.",
    :db/ident :d3f/OfficeApplicationFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Office Application File",
    :rdfs/seeAlso {:rdf/value "d3f:OfficeApplication"},
    :rdfs/subClassOf :d3f/DocumentFile})
@@ -16269,9 +15886,7 @@
    :d3f/synonym "OTP",
    :d3f/use-limits :d3f/Password,
    :db/ident :d3f/One-timePassword,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "One-time Password",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/One-time_password"},
    :rdfs/subClassOf #{:d3f/CredentialHardening
@@ -16293,7 +15908,7 @@
    :d3f/definition
    "For most file systems, a program initializes access to a file in a file system using the open system call. This allocates resources associated to the file (the file descriptor), and returns a handle that the process will use to refer to that file. In some cases the open is performed by the first access. During the open, the filesystem may allocate memory for buffers, or it may wait until the first operation. Various other errors which may occur during the open include directory update failures, un-permitted multiple connections, media failures, communication link failures and device failures.",
    :db/ident :d3f/OpenFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Open_(system_call)"},
    :rdfs/label "Open File",
@@ -16316,7 +15931,7 @@
    "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs. All computer programs, excluding firmware, require an operating system to function. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.",
    :d3f/may-contain :d3f/OperatingSystemConfigurationComponent,
    :db/ident :d3f/OperatingSystem,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System",
    :rdfs/seeAlso #{{:xsd/anyURI "https://schema.ocsf.io/objects/os"}
                    {:xsd/anyURI
@@ -16337,7 +15952,7 @@
   {:d3f/definition
    "Information used to configure the services, parameters, and initial settings for an operating system.",
    :db/ident :d3f/OperatingSystemConfiguration,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System Configuration",
    :rdfs/subClassOf :d3f/ConfigurationResource})
 
@@ -16346,7 +15961,7 @@
    "An component of the overall information necessary for the configuration of an operating system.",
    :d3f/todo "Clean this up",
    :db/ident :d3f/OperatingSystemConfigurationComponent,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System Configuration Component",
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/03085025-n"},
    :rdfs/subClassOf :d3f/OperatingSystemConfiguration,
@@ -16359,7 +15974,7 @@
    :d3f/definition
    "An operating system configuration file is a file used to configure the operating system.",
    :db/ident :d3f/OperatingSystemConfigurationFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System Configuration File",
    :rdfs/seeAlso #{{:rdf/value "Configuration File"}
                    {:xsd/anyURI
@@ -16372,7 +15987,7 @@
   {:d3f/definition
    "An operating system executable is a critical executable that is part of the operating system, and without which, the operating system may not operate correctly.",
    :db/ident :d3f/OperatingSystemExecutableFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System Executable File",
    :rdfs/subClassOf :d3f/OperatingSystemFile})
 
@@ -16380,7 +15995,7 @@
   {:d3f/definition
    "An operating system file is a file that is part of, or used to store information about, the operating system itself.",
    :db/ident :d3f/OperatingSystemFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System File",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Operating_system"}
                    {:xsd/anyURI "http://dbpedia.org/resource/System_file"}},
@@ -16390,7 +16005,7 @@
   {:d3f/definition
    "An operating system log file records events that occur in an operating system",
    :db/ident :d3f/OperatingSystemLogFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Log_file"},
    :rdfs/label "Operating System Log File",
    :rdfs/seeAlso {:rdf/value "Log File"},
@@ -16407,9 +16022,7 @@
    #{:d3f/Reference-UserActivityFromClearingEventLogs_MITRE
      :d3f/Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd},
    :db/ident :d3f/OperatingSystemMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PlatformMonitoring
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/PlatformMonitoring :owl/Class},
    :rdfs/label "Operating System Monitoring",
    :rdfs/subClassOf :d3f/PlatformMonitoring})
 
@@ -16425,7 +16038,7 @@
   {:d3f/definition
    "An operating system process, or system process, is a process running to perform operating system functions.",
    :db/ident :d3f/OperatingSystemProcess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System Process",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -16437,7 +16050,7 @@
   {:d3f/definition
    "An operating system shared library file is a shared library file that is part of the operating system and that incorporates common operating system code for use by any application or to provide operating system services.",
    :db/ident :d3f/OperatingSystemSharedLibraryFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating System Shared Library File",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -16452,9 +16065,7 @@
    :d3f/kb-reference :d3f/Reference-CatiaUAFPlugin,
    :d3f/synonym "Mission Mapping",
    :db/ident :d3f/OperationalActivityMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Operational Activity Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Model,
@@ -16473,9 +16084,7 @@
      :d3f/Reference-MissionDependencyModelingForCyberSituationalAwareness},
    :d3f/maps #{:d3f/OrganizationalActivity :d3f/Dependency},
    :db/ident :d3f/OperationalDependencyMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :d3f/OperationalActivityMapping
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/OperationalActivityMapping :owl/NamedIndividual :owl/Class},
    :rdfs/label "Operational Dependency Mapping",
    :rdfs/subClassOf #{:d3f/OperationalActivityMapping
                       {:owl/onProperty     :d3f/maps,
@@ -16500,9 +16109,7 @@
      :d3f/Reference-NIST-Special-Publication-800-53A-Revision-5},
    :d3f/synonym "Mission Risk Assessment",
    :db/ident :d3f/OperationalRiskAssessment,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :d3f/OperationalActivityMapping
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/OperationalActivityMapping :owl/NamedIndividual :owl/Class},
    :rdfs/label "Operational Risk Assessment",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/identifies,
                        :owl/someValuesFrom :d3f/Vulnerability,
@@ -16539,7 +16146,7 @@
    :d3f/definition
    "An orchestration server provides orchestration services that automate the configuration, coordination, and management of computer systems and software.",
    :db/ident :d3f/OrchestrationController,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Orchestration Controller",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/ContainerOrchestrationSoftware,
@@ -16567,7 +16174,7 @@
 
 (def Organization
   {:db/ident        :d3f/Organization,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Organization",
    :rdfs/subClassOf #{:d3f/Agent
                       {:owl/onProperty     :d3f/has-member,
@@ -16585,9 +16192,7 @@
    :d3f/maps #{:d3f/Person :d3f/Organization :d3f/Dependency},
    :d3f/may-map :d3f/OrganizationalActivity,
    :db/ident :d3f/OrganizationMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :d3f/OperationalActivityMapping
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/OperationalActivityMapping :owl/NamedIndividual :owl/Class},
    :rdfs/label "Organization Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/Organization,
@@ -16605,7 +16210,7 @@
 
 (def OrganizationalActivity
   {:db/ident        :d3f/OrganizationalActivity,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Organizational Activity",
    :rdfs/subClassOf :d3f/Activity})
 
@@ -16614,7 +16219,7 @@
    "Outbound internet DNS lookup traffic is network traffic using the DNS protocol on an outgoing connection initiated from a host within a network to a host outside the network.",
    :d3f/may-contain :d3f/DNSLookup,
    :db/ident :d3f/OutboundInternetDNSLookupTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet DNS Lookup Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf
@@ -16627,7 +16232,7 @@
   {:d3f/definition
    "Outbound internet encrypted remote terminal traffic is encrypted network traffic for a standard remote terminal protocol on an outgoing connection initiated from a host within a network to a host outside the network.",
    :db/ident :d3f/OutboundInternetEncryptedRemoteTerminalTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Encrypted Remote Terminal Traffic",
    :rdfs/subClassOf :d3f/OutboundInternetEncryptedTraffic,
    :skos/altLabel #{"Outbound Internet Encrypted RDP Traffic"
@@ -16637,7 +16242,7 @@
   {:d3f/definition
    "Outbound internet encrypted traffic is encrypted network traffic on an outgoing connection initiated from a host within a network to a host outside the network.",
    :db/ident :d3f/OutboundInternetEncryptedTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Encrypted Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/OutboundInternetNetworkTraffic})
@@ -16646,7 +16251,7 @@
   {:d3f/definition
    "Outbound internet encrypted web traffic is network traffic using a standard web protocol on an outgoing connection initiated from a host within a network to a host outside the network.",
    :db/ident :d3f/OutboundInternetEncryptedWebTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Encrypted Web Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf #{:d3f/OutboundInternetEncryptedTraffic
@@ -16657,7 +16262,7 @@
    :d3f/definition
    "Outbound internet file transfer traffic is file transfer traffic that is: (a) on an outgoing connection initiated from a host within a network to a host outside the network, and (b) using a standard file transfer protocol.",
    :db/ident :d3f/OutboundInternetFileTransferTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet File Transfer Traffic",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/File_transfer"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"}},
@@ -16672,7 +16277,7 @@
   {:d3f/definition
    "Outbound internet DNS lookup traffic is network traffic using a standard email protocol on an outgoing connection initiated from a host within a network to a host outside the network.",
    :db/ident :d3f/OutboundInternetMailTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Mail Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/OutboundInternetNetworkTraffic,
@@ -16682,7 +16287,7 @@
   {:d3f/definition
    "Outbound internet network traffic is network traffic on an outgoing connection initiated from a host within a network to a host outside the network.",
    :db/ident :d3f/OutboundInternetNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf #{:d3f/InternetNetworkTraffic :d3f/OutboundNetworkTraffic}})
@@ -16704,7 +16309,7 @@
    "Outbound internet web traffic is network traffic that is: (a) on an outgoing connection initiated from a host within a network to a host outside the network, and (b) using a standard web protocol.",
    :d3f/may-contain :d3f/URL,
    :db/ident :d3f/OutboundInternetWebTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Web Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf #{:d3f/OutboundInternetNetworkTraffic :d3f/WebNetworkTraffic
@@ -16716,7 +16321,7 @@
   {:d3f/definition
    "Outbound traffic is network traffic originating from a host of interest (client), to another host (server).",
    :db/ident :d3f/OutboundNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Outbound Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -16730,10 +16335,7 @@
    :d3f/kb-reference
    :d3f/Reference-AutomaticallyGeneratingRulesForConnectionSecurity_Microsoft,
    :db/ident :d3f/OutboundTrafficFiltering,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/NetworkIsolation
-               :d3f/NetworkTrafficFiltering :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficFiltering :owl/NamedIndividual :owl/Class},
    :rdfs/label "Outbound Traffic Filtering",
    :rdfs/subClassOf #{:d3f/NetworkTrafficFiltering
                       {:owl/onProperty     :d3f/filters,
@@ -16751,16 +16353,12 @@
 
 (def PE32ExecutableFile
   {:db/ident   :d3f/PE32ExecutableFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/ExecutableBinary :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableBinary :owl/NamedIndividual},
    :rdfs/label "PE32 Executable File"})
 
 (def PE32PLUSExecutableFile
   {:db/ident   :d3f/PE32PLUSExecutableFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/ExecutableBinary :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableBinary :owl/NamedIndividual},
    :rdfs/label "PE32+ Executable File"})
 
 (def POSIXSymbolicLink
@@ -16777,7 +16375,7 @@
    "A log of all the network packet data captured from a network by a network sensor (i.e., packet analyzer),",
    :d3f/records :d3f/NetworkSession,
    :db/ident :d3f/PacketLog,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Packet Log",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Packet_analyzer"},
    :rdfs/subClassOf #{:d3f/Log
@@ -16800,7 +16398,7 @@
    :d3f/definition
    "A page frame is the smallest fixed-length contiguous block of physical memory into which memory pages are mapped by the operating system.",
    :db/ident :d3f/PageFrame,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://dbpedia.org/page/Page_(computer_memory)"},
    :rdfs/label "Page Frame",
@@ -16814,7 +16412,7 @@
    :d3f/definition
    "A page table  is the data structure used by the MMU in a virtual memory computer system  to store the mapping between virtual addresses (virtual pages) and physical addresses (page frames).",
    :db/ident :d3f/PageTable,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdf/value "Page table - Wikipedia"},
    :rdfs/label "Page Table",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -16873,7 +16471,7 @@
   {:d3f/definition
    "A partition is a region on secondary storage device created so that the region can be managed by itself; separate from any other regions (partitions) on that secondary storage device. Creating partitions is typically the first step of preparing a newly installed storage device, before any file system is created. The device stores the information about the partitions' locations and sizes in an area known as the partition table that the operating system reads before any other part of the disk. Each partition then appears to the operating system as a distinct \"logical\" storage device that uses part of the actual device. System administrators use a program called a partition editor to create, resize, delete, and manipulate the partitions. Partitioning allows the use of different filesystems to be installed for different kinds of files. Separating user data from system data can prevent the system partition from becoming full and rendering the system unusable. Partitioning can also make backing up easier. [Definition adapted as generalization from definition of disk partitioning and distinct from in-memory partitions.]",
    :db/ident :d3f/Partition,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Disk_partitioning"},
    :rdfs/label "Partition",
@@ -16889,16 +16487,14 @@
    :d3f/definition
    "A partition is a fixed-size subset of a storage device which is treated as a unit by the operating system. A partition table is a table maintained on the storage device by the operating system describing the partitions on that device. The terms partition table and partition map are most commonly associated with the MBR partition table of a Master Boot Record (MBR) in IBM PC compatibles, but it may be used generically to refer to other \"formats\" that divide a disk drive into partitions, such as: GUID Partition Table (GPT), Apple partition map (APM), or BSD disklabel.",
    :db/ident :d3f/PartitionTable,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-               :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Partition_table"},
    :rdfs/label "Partition Table",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
                       {:owl/onProperty     :d3f/addresses,
                        :owl/someValuesFrom :d3f/Partition,
-                       :rdf/type           :owl/Restriction} :d3f/Identifier}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def PassiveCertificateAnalysis
   {:d3f/d3fend-id "D3-PCA",
@@ -16910,9 +16506,7 @@
    :d3f/kb-reference #{:d3f/Reference-StreamingPhish
                        :d3f/Reference-CertificateTransparency},
    :db/ident :d3f/PassiveCertificateAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :d3f/CertificateAnalysis :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/CertificateAnalysis :owl/Class},
    :rdfs/label "Passive Certificate Analysis",
    :rdfs/subClassOf :d3f/CertificateAnalysis})
 
@@ -16923,9 +16517,7 @@
    :d3f/kb-reference :d3f/Reference-TenablePassiveNetworkMonitoring,
    :d3f/synonym "Passive Logical Layer Mapping",
    :db/ident :d3f/PassiveLogicalLinkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/LogicalLinkMapping :d3f/Technique :owl/NamedIndividual
-               :d3f/NetworkMapping :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/LogicalLinkMapping :owl/NamedIndividual :owl/Class},
    :rdfs/label "Passive Logical Link Mapping",
    :rdfs/subClassOf :d3f/LogicalLinkMapping})
 
@@ -16935,9 +16527,7 @@
    "Passive physical link mapping only listens to network traffic as a means to map the physical layer.",
    :d3f/synonym "Passive Physical Layer Mapping",
    :db/ident :d3f/PassivePhysicalLinkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/PhysicalLinkMapping
-               :d3f/NetworkMapping :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/PhysicalLinkMapping :owl/Class},
    :rdfs/label "Passive Physical Link Mapping",
    :rdfs/subClassOf :d3f/PhysicalLinkMapping})
 
@@ -16945,7 +16535,7 @@
   {:d3f/definition
    "A password, sometimes called a passcode, is a memorized secret, typically a string of characters, usually used to confirm the identity of a user. Using the terminology of the NIST Digital Identity Guidelines, the secret is memorized by a party called the claimant while the party verifying the identity of the claimant is called the verifier. When the claimant successfully demonstrates knowledge of the password to the verifier through an established authentication protocol, the verifier is able to infer the claimant's identity.",
    :db/ident :d3f/Password,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Password"},
    :rdfs/label "Password",
    :rdfs/subClassOf :d3f/Credential,
@@ -16963,7 +16553,7 @@
   {:d3f/definition
    "Simple form of password database held in a single file (e.g., /etc/password)",
    :db/ident :d3f/PasswordFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Password File",
    :rdfs/subClassOf #{:d3f/PasswordDatabase :d3f/File}})
 
@@ -16981,15 +16571,14 @@
   {:d3f/definition
    "A user repository of account passwords, often accessed via a password manager.",
    :db/ident :d3f/PasswordStore,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Password Store",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Password_manager"},
    :rdfs/subClassOf :d3f/PasswordDatabase})
 
 (def Patent
   {:db/ident        :d3f/Patent,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/ReferenceType :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
    :rdfs/label      "Patent",
    :rdfs/subClassOf :d3f/Document})
 
@@ -17032,9 +16621,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemForDetectingThreatsUsingScenario-basedTrackingOfInternalAndExternalNetworkTraffic_VECTRANETWORKSInc,
    :db/ident :d3f/PerHostDownload-UploadRatioAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Per Host Download-Upload Ratio Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -17044,7 +16631,7 @@
 (def PeripheralFirmware
   {:d3f/definition "Firmware that is installed on computer peripheral devices.",
    :db/ident :d3f/PeripheralFirmware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Peripheral Firmware",
    :rdfs/seeAlso #{:d3f/Firmware
                    {:xsd/anyURI "http://dbpedia.org/resource/Peripheral"}},
@@ -17059,9 +16646,7 @@
                        :d3f/Reference-FirmwareVerificationEclypsium},
    :d3f/verifies :d3f/PeripheralFirmware,
    :db/ident :d3f/PeripheralFirmwareVerification,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/FirmwareVerification :d3f/Technique :owl/NamedIndividual
-               :d3f/PlatformMonitoring :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FirmwareVerification :owl/NamedIndividual :owl/Class},
    :rdfs/label "Peripheral Firmware Verification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/verifies,
                        :owl/someValuesFrom :d3f/PeripheralFirmware,
@@ -17081,15 +16666,14 @@
 (def Persistence
   {:d3f/display-order 3,
    :db/ident          :d3f/Persistence,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Persistence",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def PersistenceTechnique
   {:d3f/enables     :d3f/Persistence,
    :db/ident        :d3f/PersistenceTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Persistence Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Persistence,
@@ -17098,7 +16682,7 @@
 
 (def Person
   {:db/ident        :d3f/Person,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Person",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/name,
                        :owl/someValuesFrom :xsd/string,
@@ -17142,14 +16726,14 @@
   {:d3f/definition
    "In a computer supporting virtual memory, the term physical address is used mostly to differentiate from a virtual address. In particular, in computers utilizing a memory management unit(MMU) to translate memory addresses, the virtual and physical addresses refer to an address before and after translation performed by the MMU, respectively.",
    :db/ident :d3f/PhysicalAddress,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Physical_address"},
    :rdfs/label "Physical Address",
    :rdfs/subClassOf :d3f/MemoryAddress})
 
 (def PhysicalArtifact
   {:db/ident        :d3f/PhysicalArtifact,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Physical Artifact",
    :rdfs/subClassOf #{:d3f/PhysicalObject :d3f/Artifact}})
 
@@ -17158,7 +16742,7 @@
    "A physical link is a dedicated connection for communication that uses some physical media (electrical, electromagnetic, optical, to include clear spaces or vacuums.)  A physical link represents only a single hop (link) in any larger communcations path, circuit, or network.\n\nNOTE: not synonymous with data link as a data link can be over a telecommunications circuit, which may be a virtual circuit composed of multiple phyical links.",
    :d3f/synonym "Layer-1 Link",
    :db/ident :d3f/PhysicalLink,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Physical Link",
    :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/resource/Physical_layer"},
    :rdfs/subClassOf :d3f/Link})
@@ -17171,9 +16755,7 @@
    :d3f/maps #{:d3f/NetworkNode :d3f/PhysicalLink},
    :d3f/synonym "Layer 1 Mapping",
    :db/ident :d3f/PhysicalLinkMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/NetworkMapping
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/NetworkMapping :owl/Class},
    :rdfs/label "Physical Link Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/NetworkNode,
@@ -17186,7 +16768,7 @@
   {:d3f/definition
    "The terms location  [here, a physical location] and place in geography are used to identify a point or an area on the Earth's surface or elsewhere. The term location generally implies a higher degree of certainty than place, which often indicates an entity with an ambiguous boundary, relying more on human or social attributes of place identity and sense of place than on geometry. The distinction between space and place is considered a central concern of geography, and has been addressed by scholars such as Yi-Fu Tuan and John Agnew.",
    :db/ident :d3f/PhysicalLocation,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Location_(geography)"},
    :rdfs/label "Physical Location",
@@ -17205,7 +16787,7 @@
   {:d3f/definition
    "In Unix-like computer operating systems, a pipeline is a mechanism for inter-process communication using message passing.  In the strictest sense, a pipe is a single segment of a pipeline, allowing one process to pass information forward to another.  Network pipes allow processes on different hosts to interact.",
    :db/ident :d3f/Pipe,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://www.linfo.org/pipe.html"},
    :rdfs/label "Pipe",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Pipeline_(Unix)"},
@@ -17236,7 +16818,7 @@
    :d3f/todo
    "Future work might identify an application platform like Chrome, however Chrome OS would be considered a platform with respect to cybersecurity architects.",
    :db/ident :d3f/Platform,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Platform",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Computing_platform"},
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -17258,9 +16840,7 @@
    :d3f/enables :d3f/Harden,
    :d3f/synonym #{"System Hardening" "Endpoint Hardening"},
    :db/ident :d3f/PlatformHardening,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Platform Hardening",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Harden,
@@ -17275,9 +16855,7 @@
    :d3f/kb-article
    "Platform monitoring consists of the analysis and monitoring of system level devices and low-level components, including hardware devices, to detect unauthorized modifications or suspicious activity.\n\nMonitored platform components includes system files and embedded devices such as:\n\n * Kernel software modules\n * Boot process code and load logic\n * Operating system components and device files\n * System libraries and dynamically loaded files\n * Hardware device drivers\n * Embedded firmware devices",
    :db/ident :d3f/PlatformMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Platform Monitoring",
    :rdfs/subClassOf #{:d3f/DefensiveTechnique
                       {:owl/onProperty     :d3f/enables,
@@ -17310,7 +16888,7 @@
   {:d3f/definition
    "In computer science, a pointer is a programming language object, whose value refers to (or \"points to\") another value stored elsewhere in the computer memory using its memory address. A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer. As an analogy, a page number in a book's index could be considered a pointer to the corresponding page; dereferencing such a pointer would be done by flipping to the page with the given page number.",
    :db/ident :d3f/Pointer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/Pointer_(computer_programming)"},
    :rdfs/label "Pointer",
@@ -17326,9 +16904,7 @@
    :d3f/kb-reference #{:d3f/Reference-PointerAuthenticationProjectZero
                        :d3f/Reference-PointerAuthenticationOnARMv8.3},
    :db/ident :d3f/PointerAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Pointer Authentication",
    :rdfs/subClassOf #{:d3f/ApplicationHardening
                       {:owl/onProperty     :d3f/authenticates,
@@ -17340,14 +16916,11 @@
    :d3f/definition
    "A function which has an operation which dereferences a pointer.",
    :db/ident :d3f/PointerDereferencingFunction,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-               :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/comment
    "Note, this is not the actual code which performs the dereferencing operation internal to an application runtime.",
    :rdfs/label "Pointer Dereferencing Function",
-   :rdfs/subClassOf #{:d3f/Identifier
-                      {:owl/onProperty     :d3f/addresses,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/addresses,
                        :owl/someValuesFrom :d3f/MemoryBlock,
                        :rdf/type           :owl/Restriction} :d3f/Subroutine
                       {:owl/onProperty     :d3f/addresses,
@@ -17391,7 +16964,7 @@
   {:d3f/definition
    "A PowerShell profile script is a script that runs when PowerShell starts and can be used as a logon script to customize user environments.",
    :db/ident :d3f/PowerShellProfileScript,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "PowerShell Profile Script",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -17400,9 +16973,7 @@
 
 (def PowershellScriptFile
   {:db/ident   :d3f/PowershellScriptFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/ExecutableScript
-                 :d3f/DigitalArtifact :d3f/DigitalObject :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Powershell Script File"})
 
 (def PredicateLogic
@@ -17421,7 +16992,7 @@
    :d3f/definition
    "Primary memory of a computer is memory that is wired directly to the processor, consisting of RAM and possibly ROM.  These terms are used in contrast to mass storage devices and cache memory (although we may note that when a program accesses main memory, it is often actually interacting with a cache).",
    :db/ident :d3f/PrimaryStorage,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://www.memorymanagement.org/glossary/m.html#term-main-memory"},
@@ -17473,7 +17044,7 @@
   {:d3f/definition
    "A private key can be used to decrypt messages encrypted using the corresponding public key, or used to sign a message that can be authenticated with the corresponding public key.",
    :db/ident :d3f/PrivateKey,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Private Key",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Public-key_cryptography"},
@@ -17482,15 +17053,14 @@
 (def PrivilegeEscalation
   {:d3f/display-order 4,
    :db/ident          :d3f/PrivilegeEscalation,
-   :rdf/type          #{:d3f/ATTACKThing :owl/NamedIndividual :owl/Class
-                        :d3f/OffensiveTactic},
+   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label        "Privilege Escalation",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def PrivilegeEscalationTechnique
   {:d3f/enables     :d3f/PrivilegeEscalation,
    :db/ident        :d3f/PrivilegeEscalationTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Privilege Escalation Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/PrivilegeEscalation,
@@ -17530,8 +17100,7 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/implements,
                        :owl/someValuesFrom :d3f/Technique,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/CapabilityImplementation}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def ProcessClass
   {:d3f/contains :d3f/ProcessImage,
@@ -17543,7 +17112,7 @@
    :d3f/process-user :d3f/UserAccount,
    :d3f/uses :d3f/Resource,
    :db/ident :d3f/Process,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Process_(computing)"},
    :rdfs/label "Process",
@@ -17586,9 +17155,7 @@
    "Process Analysis consists of observing a running application process and analyzing it to watch for certain behaviors or conditions which may indicate adversary activity. Analysis can occur inside of the process or through a third-party monitoring application. Examples include monitoring system and privileged calls, monitoring process initiation chains, and memory boundary allocations.",
    :d3f/enables :d3f/Detect,
    :db/ident :d3f/ProcessAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Process Analysis",
    :rdfs/subClassOf #{:d3f/DefensiveTechnique
                       {:owl/onProperty     :d3f/enables,
@@ -17601,7 +17168,7 @@
    "A process code segment, also known as a text segment or simply as text, is a portion of the program's virtual address space that contains executable instructions and corresponds to the loaded image code segment. Includes additional sections such as an import table.",
    :d3f/may-contain :d3f/ProcessSegment,
    :db/ident :d3f/ProcessCodeSegment,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Process Code Segment",
    :rdfs/seeAlso #{:d3f/ImageCodeSegment
                    {:xsd/anyURI "http://dbpedia.org/resource/Code_segment"}},
@@ -17629,9 +17196,7 @@
      :d3f/Reference-ThreatDetectionThroughTheAccumulatedDetectionOfThreatCharacteristics_SophosLtd},
    :d3f/verifies :d3f/ProcessCodeSegment,
    :db/ident :d3f/ProcessCodeSegmentVerification,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Process Code Segment Verification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/verifies,
                        :owl/someValuesFrom :d3f/ProcessCodeSegment,
@@ -17654,7 +17219,7 @@
    :d3f/todo
    "Did \"Environment Variable\" have an conflict with prior version of ATT&CK technique names or were there other env var classes that are no longer in d3fend?",
    :db/ident :d3f/ProcessEnvironmentVariable,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Environment_variable"},
    :rdfs/label "Process Environment Variable",
@@ -17667,9 +17232,7 @@
    "Process eviction techniques terminate or remove running process.",
    :d3f/enables :d3f/Evict,
    :db/ident :d3f/ProcessEviction,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Process Eviction",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Evict,
@@ -17681,7 +17244,7 @@
    :d3f/definition
    "A process image is a copy of a given process's state at a given point in time. It is often used to create persistence within an otherwise volatile system.",
    :db/ident :d3f/ProcessImage,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/System_image#Process_images"},
    :rdfs/label "Process Image",
@@ -17717,9 +17280,7 @@
      :d3f/Reference-ServicesLaunchingCmd_MITRE},
    :d3f/synonym "Process Tree Analysis",
    :db/ident :d3f/ProcessLineageAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/ProcessSpawnAnalysis :d3f/Technique :owl/NamedIndividual
-               :d3f/ProcessAnalysis :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ProcessSpawnAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Process Lineage Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/ProcessTree,
@@ -17734,7 +17295,7 @@
    "Process segments are distinct partitions of the memory space of a running process.  Heap, data, code, and stack segments are examples of process segments.",
    :d3f/synonym "Process Memory",
    :db/ident :d3f/ProcessSegment,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Process Segment",
    :rdfs/subClassOf :d3f/BinarySegment})
 
@@ -17749,9 +17310,7 @@
    :d3f/neutralizes :d3f/ProcessSegment,
    :d3f/synonym #{"No Execute" "Execute Disable"},
    :db/ident :d3f/ProcessSegmentExecutionPrevention,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Process Segment Execution Prevention",
    :rdfs/subClassOf #{:d3f/ApplicationHardening
                       {:owl/onProperty     :d3f/neutralizes,
@@ -17768,9 +17327,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemAndMethodForProcessHollowingDetection_CarbonBlackInc,
    :db/ident :d3f/ProcessSelf-ModificationDetection,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Process Self-Modification Detection",
    :rdfs/subClassOf #{:d3f/ProcessAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -17827,9 +17384,7 @@
      :d3f/Reference-CAR-2021-05-004:BITSJobPersistence_MITRE
      :d3f/Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE},
    :db/ident :d3f/ProcessSpawnAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Process Spawn Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -17844,7 +17399,7 @@
    "A function creates a new computer process, usually by invoking a create process system call.",
    :d3f/invokes :d3f/CreateProcess,
    :db/ident :d3f/ProcessStartFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Process Start Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/invokes,
@@ -17859,9 +17414,7 @@
    :d3f/kb-reference :d3f/Reference-PsSuspend,
    :d3f/suspends :d3f/Process,
    :db/ident :d3f/ProcessSuspension,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ProcessEviction
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ProcessEviction :owl/NamedIndividual :owl/Class},
    :rdfs/label "Process Suspension",
    :rdfs/subClassOf #{:d3f/ProcessEviction
                       {:owl/onProperty     :d3f/suspends,
@@ -17881,9 +17434,7 @@
    :d3f/todo
    "Research on the proprietary methods.  This might include directly overwriting process memory, altering system data structures which relate to processes, changing the operating system task scheduler, or other low-level nonstandard operations that cause a process to cease its own intended operation.",
    :db/ident :d3f/ProcessTermination,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ProcessEviction
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ProcessEviction :owl/NamedIndividual :owl/Class},
    :rdfs/label "Process Termination",
    :rdfs/subClassOf #{:d3f/ProcessEviction
                       {:owl/onProperty     :d3f/terminates,
@@ -17895,7 +17446,7 @@
    :d3f/definition
    "A process tree is a tree structure representation of parent-child relationships established via process spawn operations.",
    :db/ident :d3f/ProcessTree,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Process Tree",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Parent_process"}
                    {:rdf/value "Process Spawn"}
@@ -17923,7 +17474,7 @@
    :d3f/definition
    "A processor register is a quickly accessible location available to a computer's processor. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.",
    :db/ident :d3f/ProcessorRegister,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://dbpedia.org/page/Processor_register"},
    :rdfs/label "Processor Register",
@@ -17999,7 +17550,7 @@
   {:d3f/definition
    "In the OS X, iOS, NeXTSTEP, and GNUstep programming frameworks, property list files are files that store serialized objects. Property list files use the filename extension .plist, and thus are often referred to as p-list files. Property list files are often used to store a user's settings. They are also used to store information about bundles and applications, a task served by the resource fork in the old Mac OS.",
    :db/ident :d3f/PropertyListFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Property_list"},
    :rdfs/label "Property List File",
    :rdfs/subClassOf :d3f/ConfigurationFile,
@@ -18043,9 +17594,7 @@
      :d3f/Reference-MethodAndSystemForDetectingThreatsUsingMetadataVectors_VECTRANETWORKSInc
      :d3f/Reference-SystemForImplementingThreatDetectionUsingDailyNetworkTrafficCommunityOutliers_VECTRANETWORKSInc},
    :db/ident :d3f/ProtocolMetadataAnomalyDetection,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Protocol Metadata Anomaly Detection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -18075,7 +17624,7 @@
   {:d3f/definition
    "A public key can be disseminated widely as part of an asymmetric cryptography framework and be used to encrypt messages to send to the public key's owner or to authenticate signed messages from that sender.",
    :db/ident :d3f/PublicKey,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Public Key",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Public-key_cryptography"},
@@ -18133,7 +17682,7 @@
   {:d3f/definition
    "A Remote Desktop Protocol (RDP) session is a session established using the RDP protocol to access Remove Desktop Services (RDS).",
    :db/ident :d3f/RDPSession,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "RDP Session",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/Remote_Desktop_Services"}
@@ -18161,9 +17710,7 @@
    #{:d3f/Reference-PrivacyAndSecuritySystemsAndMethodsOfUse
      :d3f/Reference-Technical_Specifications_for_Construction_and_Management_of_Sensitive_Compartmented_Information_Facilities},
    :db/ident :d3f/RFShielding,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "RF Shielding",
    :rdfs/subClassOf :d3f/PlatformHardening})
 
@@ -18193,7 +17740,7 @@
   {:d3f/definition
    "RPC network traffic is network traffic related to remote procedure calls between network nodes..This includes only network traffic conforming to a standard RPC protocol; not custom protocols.",
    :db/ident :d3f/RPCNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "RPC Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -18215,9 +17762,7 @@
      :d3f/Reference-SMBWriteRequest-NamedPipes_MITRE},
    :d3f/synonym "RPC Protocol Analysis",
    :db/ident :d3f/RPCTrafficAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "RPC Traffic Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/RPCNetworkTraffic,
@@ -18291,7 +17836,7 @@
    :d3f/definition
    "A function which accesses raw memory, usually using memory addresses.",
    :db/ident :d3f/RawMemoryAccessFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Raw Memory Access Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/accesses,
@@ -18303,7 +17848,7 @@
    "A program that needs to access data from a file stored in a file system uses the read system call. The file is identified by a file descriptor that is normally obtained from a previous call to open. This system call reads in data in bytes, the number of which is specified by the caller, from the file and stores then into a buffer supplied by the calling process.",
    :d3f/reads :d3f/File,
    :db/ident :d3f/ReadFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Read File",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Read_(system_call)"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
@@ -18313,14 +17858,14 @@
 (def Reconnaissance
   {:d3f/display-order -1,
    :db/ident          :d3f/Reconnaissance,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class},
+   :rdf/type          :owl/Class,
    :rdfs/label        "Reconnaissance",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def ReconnaissanceTechnique
   {:d3f/enables     :d3f/Reconnaissance,
    :db/ident        :d3f/ReconnaissanceTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Reconnaissance Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Reconnaissance,
@@ -18331,7 +17876,7 @@
   {:d3f/definition
    "In computer science, a record (also called struct or compound data) is a basic data structure. A record is a collection of fields, possibly of different data types, typically in fixed number and sequence . The fields of a record may also be called members, particularly in object-oriented programming. Fields may also be called elements, though these risk confusion with the elements of a collection. A tuple may or may not be considered a record, and vice versa, depending on conventions and the specific programming language.",
    :db/ident :d3f/Record,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Record_(computer_science)"},
    :rdfs/label "Record",
@@ -18369,9 +17914,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-AccessPermissionModification_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2019-07-001: Access Permission Modification - MITRE"})
 
@@ -18387,8 +17930,7 @@
    :d3f/kb-reference-title "Account monitoring",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-AccountMonitoring_ForescoutTechnologies,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Account monitoring - Forescout Technologies"})
 
 (def Reference-ActiveDirectoryDumpingViaNTDSUtil_MITRE
@@ -18406,9 +17948,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-ActiveDirectoryDumpingViaNTDSUtil_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2019-08-002: Active Directory Dumping via NTDSUtil - MITRE"})
 
@@ -18426,8 +17966,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-ActiveFirewallSystemAndMethodology_McAfeeLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Active firewall system and methodology - McAfee LLC"})
 
@@ -18441,8 +17980,7 @@
    :d3f/kb-reference-of :d3f/HardwareComponentInventory,
    :d3f/kb-reference-title "Advanced device matching system",
    :db/ident :d3f/Reference-AdvancedDeviceMatchingSystem,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Advanced device matching system"})
 
 (def Reference-AllLoginsSinceLastBoot_MITRE
@@ -18459,9 +17997,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-AllLoginsSinceLastBoot_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2015-07-001: All Logins Since Last Boot - MITRE"})
 
@@ -18481,8 +18017,7 @@
      "Could not determine reference type; TechniqueReference class used instead"},
    :db/ident
    :d3f/Reference-AnalysisOfTheWindowsVistaSecurityModel_SymantecCorporation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Analysis of the Windows Vista Security Model - Symantec Corporation"})
 
@@ -18501,8 +18036,7 @@
    "Anomaly Detection Using Adaptive Behavioral Profiles",
    :db/ident
    :d3f/Reference-AnomalyDetectionUsingAdaptiveBehavioralProfiles_SecuronixInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Anomaly Detection Using Adaptive Behavioral Profiles - Securonix Inc"})
 
@@ -18519,8 +18053,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-Anti-tamperSystemWithSelf-adjustingGuards_ARXANTECHNOLOGIESInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Anti-tamper system with self-adjusting guards - ARXAN TECHNOLOGIES Inc"})
 
@@ -18539,8 +18072,7 @@
    "Apparatus for to provide content to and query a reverse domain name system server",
    :db/ident
    :d3f/Reference-ApparatusForToProvideContentToAndQueryAReverseDomainNameSystemServer,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Apparatus for to provide content to and query a reverse domain name system server - Barrracuda Networks"})
 
@@ -18559,8 +18091,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ApproachesForSecuringAnInternetEndpointUsingFine-grainedOperatingSystemVirtualization_Bromium%2CInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Approaches for securing an internet endpoint using fine-grained operating system virtualization - Bromium, Inc."})
 
@@ -18579,8 +18110,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ArchitectureOfTransparentNetworkSecurityForApplicationContainers_NeuvectorInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Architecture of transparent network security for application containers - Neuvector Inc"})
 
@@ -18595,9 +18125,7 @@
                           :d3f/DomainAccountMonitoring},
    :d3f/kb-reference-title "Audit User Account Management",
    :db/ident :d3f/Reference-AuditUserAccountManagement,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label "Reference - Audit User Account Management"})
 
 (def Reference-AutomatedComputerVulnerabilityResolutionSystem
@@ -18609,8 +18137,7 @@
    :d3f/kb-reference-of :d3f/AssetVulnerabilityEnumeration,
    :d3f/kb-reference-title "Automated computer vulnerability resolution system",
    :db/ident :d3f/Reference-AutomatedComputerVulnerabilityResolutionSystem,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Automated computer vulnerability resolution system"})
 
@@ -18630,8 +18157,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-AutomaticallyGeneratingNetworkResourceGroupsAndAssigningCustomizedDecoyPoliciesThereto_IllusiveNetworksLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Automatically generating network resource groups and assigning customized decoy policies thereto - Illusive Networks Ltd"})
 
@@ -18653,8 +18179,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-AutomaticallyGeneratingRulesForConnectionSecurity_Microsoft,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Automatically generating rules for connection security - Microsoft"})
 
@@ -18670,9 +18195,7 @@
    :d3f/kb-reference-title "CAR-2013-01-002: Autorun Differences",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-AutorunDifferences_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-01-002: Autorun Differences - MITRE"})
 
 (def Reference-BiometricChallenge-ResponseAuthentication-Accenture
@@ -18685,8 +18208,7 @@
    :d3f/kb-reference-of :d3f/Multi-factorAuthentication,
    :d3f/kb-reference-title "Biometric Challenge-Response Authentication",
    :db/ident :d3f/Reference-BiometricChallenge-ResponseAuthentication-Accenture,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Biometric Challenge-Response Authentication - Accenture"})
 
@@ -18703,8 +18225,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-BroadcastIsolationAndLevel3NetworkSwitch_HewlettPackardEnterpriseDevelopmentLP,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Broadcast isolation and level 3 network switch - Hewlett Packard Enterprise Development LP"})
 
@@ -18719,9 +18240,7 @@
    :d3f/kb-reference-title "CAR-2014-05-001: RPC Activity",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CAR-2014-05-001:RPCActivity_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-05-001: RPC Activity - MITRE"})
 
 (def
@@ -18740,9 +18259,7 @@
      "Could not determine reference type; TechniqueReference class used instead"},
    :db/ident
    :d3f/Reference-CAR-2014-11-007-RemoteWindowsManagementInstrumentation_WMI_OverRPC_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-11-007: Remote Windows Management Instrumentation (WMI) over RPC - MITRE"})
 
@@ -18757,9 +18274,7 @@
    :d3f/kb-reference-title "CAR-2015-04-001: Remotely Scheduled Tasks via AT",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CAR-2015-04-001:RemotelyScheduledTasksViaAT_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2015-04-001: Remotely Scheduled Tasks via AT - MITRE"})
 
@@ -18770,9 +18285,7 @@
    :d3f/kb-reference-title
    "Reference - CAR-2016-04-004: Successful Local Account Login",
    :db/ident :d3f/Reference-CAR-2016-04-004_SuccessfulLocalAccountLogin,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2016-04-004: Successful Local Account Login"})
 
 (def Reference-CAR-2020-04-001:ShadowCopyDeletion_MITRE
@@ -18786,9 +18299,7 @@
    :d3f/kb-reference-title "CAR-2020-04-001: Shadow Copy Deletion",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-04-001:ShadowCopyDeletion_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-04-001: Shadow Copy Deletion - MITRE"})
 
 (def Reference-CAR-2020-05-001:MiniDumpOfLSASS_MITRE
@@ -18804,9 +18315,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-CAR-2020-05-001:MiniDumpOfLSASS_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-05-001: MiniDump of LSASS - MITRE"})
 
 (def Reference-CAR-2020-05-003:RareLolBASCommandLines_MITRE
@@ -18820,9 +18329,7 @@
    :d3f/kb-reference-title "CAR-2020-05-003: Rare LolBAS Command Lines",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-05-003:RareLolBASCommandLines_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-05-003: Rare LolBAS Command Lines - MITRE"})
 
@@ -18840,9 +18347,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2020-08-001:NTFSAlternateDataStreamExecution-SystemUtilities_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-08-001: NTFS Alternate Data Stream Execution - System Utilities - MITRE"})
 
@@ -18857,9 +18362,7 @@
    :d3f/kb-reference-title "CAR-2020-09-001: Scheduled Task - FileAccess",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-09-001:ScheduledTask-FileAccess_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-001: Scheduled Task - FileAccess - MITRE"})
 
@@ -18874,9 +18377,7 @@
    :d3f/kb-reference-title "CAR-2020-09-002: Component Object Model Hijacking",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CAR-2020-09-002:ComponentObjectModelHijacking_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-002:  Component Object Model Hijacking - MITRE"})
 
@@ -18893,9 +18394,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2020-09-003:IndicatorBlocking-DriverUnloaded_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-003: Indicator Blocking - Driver Unloaded - MITRE"})
 
@@ -18910,9 +18409,7 @@
    :d3f/kb-reference-title "CAR-2020-09-004: Credentials in Files & Registry",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-09-004:CredentialsInFiles&Registry_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-004: Credentials in Files & Registry - MITRE"})
 
@@ -18927,9 +18424,7 @@
    :d3f/kb-reference-title "CAR-2020-09-005: AppInit DLLs",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CAR-2020-09-005:AppInitDLLs_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-09-005: AppInit DLLs - MITRE"})
 
 (def Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE
@@ -18945,9 +18440,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-001: Boot or Logon Initialization Scripts - MITRE"})
 
@@ -18962,9 +18455,7 @@
    :d3f/kb-reference-title "CAR-2020-11-002: Local Network Sniffing",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-002:LocalNetworkSniffing_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-002: Local Network Sniffing - MITRE"})
 
 (def Reference-CAR-2020-11-003:DLLInjectionWithMavinject_MITRE
@@ -18978,9 +18469,7 @@
    :d3f/kb-reference-title "CAR-2020-11-003: DLL Injection with Mavinject",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-003:DLLInjectionWithMavinject_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-003: DLL Injection with Mavinject - MITRE"})
 
@@ -18997,9 +18486,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-004: Processes Started From Irregular Parent - MITRE"})
 
@@ -19016,9 +18503,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2020-11-005:ClearPowershellConsoleCommandHistory_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-005: Clear Powershell Console Command History - MITRE"})
 
@@ -19033,9 +18518,7 @@
    :d3f/kb-reference-title "CAR-2020-11-006: Local Permission Group Discovery",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-006:LocalPermissionGroupDiscovery_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-006: Local Permission Group Discovery - MITRE"})
 
@@ -19050,9 +18533,7 @@
    :d3f/kb-reference-title "CAR-2020-11-007: Network Share Connection Removal",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-007:NetworkShareConnectionRemoval_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-007: Network Share Connection Removal - MITRE"})
 
@@ -19067,9 +18548,7 @@
    :d3f/kb-reference-title "CAR-2020-11-008: MSBuild and msxsl",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-008:MSBuildAndMsxsl_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-008: MSBuild and msxsl - MITRE"})
 
 (def Reference-CAR-2020-11-009:CompiledHTMLAccess_MITRE
@@ -19083,9 +18562,7 @@
    :d3f/kb-reference-title "CAR-2020-11-009: Compiled HTML Access",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-009:CompiledHTMLAccess_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-009: Compiled HTML Access - MITRE"})
 
 (def Reference-CAR-2020-11-010:CMSTP_MITRE
@@ -19099,9 +18576,7 @@
    :d3f/kb-reference-title "CAR-2020-11-010: CMSTP",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2020-11-010:CMSTP_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-010: CMSTP - MITRE"})
 
 (def Reference-CAR-2020-11-011:RegistryEditFromScreensaver
@@ -19115,9 +18590,7 @@
    :d3f/kb-reference-title "CAR-2020-11-011: Registry Edit from Screensaver",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CAR-2020-11-011:RegistryEditFromScreensaver,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-011: Registry Edit from Screensaver"})
 
 (def Reference-CAR-2021-01-002:UnusuallyLongCommandLineStrings_MITRE
@@ -19133,9 +18606,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-01-002:UnusuallyLongCommandLineStrings_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-002: Unusually Long Command Line Strings - MITRE"})
 
@@ -19151,9 +18622,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-01-003:ClearingWindowsLogsWithWevtutil_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-003: Clearing Windows Logs with Wevtutil - MITRE"})
 
@@ -19171,9 +18640,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-01-004:UnusualChildProcessForSpoolsv.ExeOrConnhost.Exe_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-004: Unusual Child Process for Spoolsv.Exe or Connhost.Exe - MITRE"})
 
@@ -19190,9 +18657,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-01-006:UnusualChildProcessSpawnedUsingDDEExploit_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-006: Unusual Child Process spawned using DDE exploit - MITRE"})
 
@@ -19211,9 +18676,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-01-007:DetectingTamperingOfWindowsDefenderCommandPrompt_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-007: Detecting Tampering of Windows Defender Command Prompt - MITRE"})
 
@@ -19228,9 +18691,7 @@
    :d3f/kb-reference-title "CAR-2021-01-008: Disable UAC",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-01-008:DisableUAC_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-01-008: Disable UAC - MITRE"})
 
 (def Reference-CAR-2021-01-009:DetectingShadowCopyDeletionViaVssadmin_exe_MITRE
@@ -19246,9 +18707,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-01-009:DetectingShadowCopyDeletionViaVssadmin.exe_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-009: Detecting Shadow Copy Deletion via Vssadmin.exe - MITRE"})
 
@@ -19264,9 +18723,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-02-001:Webshell-IndicativeProcessTree_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-02-001: Webshell-Indicative Process Tree - MITRE"})
 
@@ -19281,9 +18738,7 @@
    :d3f/kb-reference-title "CAR-2021-02-002: Get System Elevation",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-02-002:GetSystemElevation_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-02-002: Get System Elevation - MITRE"})
 
 (def Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE
@@ -19299,9 +18754,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-04-001: Common Windows Process Masquerading - MITRE"})
 
@@ -19318,9 +18771,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-05-001:AttemptToAddCertificateToUntrustedStore_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-001: Attempt To Add Certificate To Untrusted Store - MITRE"})
 
@@ -19335,9 +18786,7 @@
    :d3f/kb-reference-title "CAR-2021-05-002: Batch File Write to System32",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-05-002:BatchFileWriteToSystem32_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-002: Batch File Write to System32 - MITRE"})
 
@@ -19354,9 +18803,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-05-003:BCDEditFailureRecoveryModification_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-003: BCDEdit Failure Recovery Modification - MITRE"})
 
@@ -19371,9 +18818,7 @@
    :d3f/kb-reference-title "CAR-2021-05-004: BITS Job Persistence",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-05-004:BITSJobPersistence_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-05-004: BITS Job Persistence - MITRE"})
 
 (def Reference-CAR-2021-05-005:BITSAdminDownloadFile_MITRE
@@ -19387,9 +18832,7 @@
    :d3f/kb-reference-title "CAR-2021-05-005: BITSAdmin Download File",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-05-005:BITSAdminDownloadFile_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-05-005: BITSAdmin Download File - MITRE"})
 
 (def
@@ -19406,9 +18849,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-05-006:CertUtilDownloadWithURLCacheAndSplitArguments_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-006: CertUtil Download With URLCache and Split Arguments - MITRE"})
 
@@ -19423,9 +18864,7 @@
    "CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments",
    :db/ident
    :d3f/Reference-CAR-2021-05-007:CertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments - MITRE"})
 
@@ -19442,9 +18881,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-05-008:CertutilExeCertificateExtraction_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-008: Certutil exe certificate extraction - MITRE"})
 
@@ -19459,9 +18896,7 @@
    :d3f/kb-reference-title "CAR-2021-05-009: CertUtil With Decode Argument",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-05-009:CertUtilWithDecodeArgument_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-009: CertUtil With Decode Argument - MITRE"})
 
@@ -19478,9 +18913,7 @@
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
    :d3f/Reference-CAR-2021-05-010:CreateLocalAdminAccountsUsingNetExe_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-010: Create local admin accounts using net exe - MITRE"})
 
@@ -19495,9 +18928,7 @@
    :d3f/kb-reference-title "CAR-2021-05-011: Create Remote Thread into LSASS",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident :d3f/Reference-CAR-2021-05-011:CreateRemoteThreadIntoLSASS_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-011: Create Remote Thread into LSASS - MITRE"})
 
@@ -19514,8 +18945,7 @@
      :d3f/OperationalActivityMapping :d3f/OperationalDependencyMapping},
    :d3f/kb-reference-title "Catia UAF Plugin",
    :db/ident :d3f/Reference-CatiaUAFPlugin,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Catia UAF Plugin"})
 
 (def Reference-CertificateAndPublicKeyPinning
@@ -19529,8 +18959,7 @@
    :d3f/kb-reference-of :d3f/CertificatePinning,
    :d3f/kb-reference-title "Certificate and Public Key Pinning",
    :db/ident :d3f/Reference-CertificateAndPublicKeyPinning,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/TechniqueReference :owl/NamedIndividual},
    :rdfs/label "Reference - Certificate and Public Key Pinning"})
 
 (def Reference-CertificateTransparency
@@ -19542,8 +18971,7 @@
    :d3f/kb-reference-of :d3f/PassiveCertificateAnalysis,
    :d3f/kb-reference-title "Certificate Transparency",
    :db/ident :d3f/Reference-CertificateTransparency,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/TechniqueReference :owl/NamedIndividual},
    :rdfs/label "Reference - Certificate Transparency"})
 
 (def Reference-CiscoASR9000AccessListCommands
@@ -19557,8 +18985,7 @@
    :d3f/kb-reference-title
    "Cisco ASR 9000 Series Aggregation Services Routers - Access List Commands",
    :db/ident :d3f/Reference-CiscoASR9000AccessListCommands,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Cisco ASR 9000 Series Aggregation Services Routers - Access List Commands"})
 
@@ -19574,9 +19001,7 @@
    :d3f/kb-reference-title "CAR-2014-11-008: Command Launched from WinLogon",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CommandLaunchedFromWinLogon_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-11-008: Command Launched from WinLogon - MITRE"})
 
@@ -19596,9 +19021,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-CommandLineUsageOfArchivingSoftware_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-07-005: Command Line Usage of Archiving Software - MITRE"})
 
@@ -19618,8 +19041,7 @@
    "Computational modeling and classification of data streams",
    :db/ident
    :d3f/Reference-ComputationalModelingAndClassificationOfDataStreams_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Computational modeling and classification of data streams - Crowdstrike Inc"})
 
@@ -19639,8 +19061,7 @@
    "Computer-implemented methods and systems for identifying visually similar text character strings",
    :db/ident
    :d3f/Reference-Computer-implementedMethodsAndSystemsForIdentifyingVisuallySimilarTextCharacterStrings_GreathornInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Computer-implemented methods and systems for identifying visually similar text character strings - Greathorn Inc"})
 
@@ -19656,8 +19077,7 @@
    "Computer motherboard having peripheral security functions",
    :db/ident
    :d3f/Reference-ComputerMotherboardHavingPeripheralSecurityFunctions,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Computer motherboard having peripheral security functions"})
 
@@ -19673,8 +19093,7 @@
    :d3f/kb-reference-of :d3f/FileCarving,
    :d3f/kb-reference-title "Computer Worm Defense System and Method",
    :db/ident :d3f/Reference-ComputerWormDefenseSystemAndMethod_FireEyeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Computer Worm Defense System and Method - FireEye Inc"})
 
@@ -19693,8 +19112,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ComputingApparatusWithAutomaticIntegrityReferenceGenerationAndMaintenance_Tripwire%2CInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Computing apparatus with automatic integrity reference generation and maintenance - Tripwire, Inc."})
 
@@ -19708,8 +19126,7 @@
    :d3f/kb-reference-of :d3f/UserAccountPermissions,
    :d3f/kb-reference-title "Configure User Access Control and Permissions",
    :db/ident :d3f/Reference-ConfigureUserAccessControlAndPermissions,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Configure User Access Control and Permissions"})
 
 (def Reference-ContentExtractorAndAnalysisSystem_Bit9Inc%2CCarbonBlackInc
@@ -19725,8 +19142,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ContentExtractorAndAnalysisSystem_Bit9Inc%2CCarbonBlackInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Content extractor and analysis system - Bit 9 Inc, Carbon Black Inc"})
 
@@ -19746,8 +19162,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ContinuousAuthenticationByAnalysisOfKeyboardTypingCharacteristics_BradfordUniv.%2CUK,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Continuous authentication by analysis of keyboard typing characteristics - Bradford Univ., UK"})
 
@@ -19763,9 +19178,7 @@
    :d3f/kb-reference-title "CAR-2016-03-002: Create Remote Process via WMIC",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-CreateRemoteProcessViaWMIC_MITRE_Other,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2016-03-002: Create Remote Process via WMIC - MITRE"})
 
@@ -19783,9 +19196,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-CredentialDumpingViaMimikatz_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2019-04-004: Credential Dumping via Mimikatz - MITRE"})
 
@@ -19804,9 +19215,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-CredentialDumpingViaWindowsTaskManager_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2019-08-001: Credential Dumping via Windows Task Manager - MITRE"})
 
@@ -19820,8 +19229,7 @@
    :d3f/kb-reference-of :d3f/OperationalDependencyMapping,
    :d3f/kb-reference-title "Cyber Command System (CYCS)",
    :db/ident :d3f/Reference-CyberCommandSystemCYCS,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Cyber Command System (CYCS)"})
 
 (def Reference-CyberVaccineAndPredictiveMalwareDefensiveMethodsAndSystems
@@ -19836,8 +19244,7 @@
    "Cyber vaccine and predictive-malware-defense methods and systems",
    :db/ident
    :d3f/Reference-CyberVaccineAndPredictiveMalwareDefensiveMethodsAndSystems,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Cyber vaccine and predictive-malware-defense methods and systems"})
 
@@ -19853,9 +19260,7 @@
    "Cybersecurity Incident & Vulnerability Response Playbooks",
    :db/ident
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Cybersecurity Incident and Vulnerability Response Playbooks"})
 
@@ -19871,9 +19276,7 @@
    :d3f/kb-reference-title "CAR-2013-10-002: DLL Injection via Load Library",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-DLLInjectionViaLoadLibrary_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-10-002: DLL Injection via Load Library - MITRE"})
 
@@ -19884,8 +19287,7 @@
    "DNS Whitelist (DNSWL) Email Authentication Method Extension",
    :db/ident
    :d3f/Reference-DNSWhitelist-DNSWL-EmailAuthenticationMethodExtension,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - DNS Whitelist (DNSWL) Email Authentication Method Extension"})
 
@@ -19904,8 +19306,7 @@
                "MITRE Analysis was not found"},
    :db/ident
    :d3f/Reference-DYNAMICBASE_UseAddressSpaceLayoutRandomization_MicrosoftDocs,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - /DYNAMICBASE (Use address space layout randomization) - Microsoft Docs"})
 
@@ -19919,8 +19320,7 @@
    :d3f/kb-reference-of :d3f/OperationalDependencyMapping,
    :d3f/kb-reference-title "Dagger Fact Sheet",
    :db/ident :d3f/Reference-DaggerFactSheet,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Dagger Fact Sheet"})
 
 (def
@@ -19935,8 +19335,7 @@
    "Dagger: Modeling and visualization for mission impact situational awareness",
    :db/ident
    :d3f/Reference-DaggerModelingAndVisualizationForMissionImpactSituationalAwareness,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Dagger: Modeling and visualization for mission impact situational awareness"})
 
@@ -19955,8 +19354,7 @@
    "Mitigate threats by using Windows 10 security features: Data Execution Prevention",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-DataExecutionPrevention_Microsoft,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Mitigate threats by using Windows 10 security features: Data Execution Prevention - Microsoft"})
 
@@ -19974,8 +19372,7 @@
    "Data processing and scanning systems for generating and populating a data inventory",
    :db/ident
    :d3f/Reference-DataProcessingAndScanningSystemsForGeneratingAndPopulatingADataInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Data processing and scanning systems for generating and populating a data inventory"})
 
@@ -19990,8 +19387,7 @@
    "Database for receiving, storing and compiling information about email messages",
    :db/ident
    :d3f/Reference-Database_for_receiving_storing_and_compiling_information_about_email_messages,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Database for receiving, storing and compiling information about email messages"})
 
@@ -20005,8 +19401,7 @@
    :d3f/kb-reference-title
    "The Correctness-Security Gap in Compiler Optimization",
    :db/ident :d3f/Reference-DeadCodeElimination,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label "Reference - Dead code elimination"})
 
 (def Reference-DebuggersForAccessibilityApplications_MITRE
@@ -20025,9 +19420,7 @@
      "Could not determine reference type; TechniqueReference class used instead"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-DebuggersForAccessibilityApplications_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-11-003: Debuggers for Accessibility Applications - MITRE"})
 
@@ -20046,8 +19439,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-Deception-BasedResponsesToSecurityAttacks_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Deception-Based Responses to Security Attacks - Crowdstrike Inc"})
 
@@ -20065,8 +19457,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-DecoyAndDeceptiveDataObjectTechnology_Cymmetria%2CInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Decoy and deceptive data object technology - Cymmetria, Inc."})
 
@@ -20083,8 +19474,7 @@
    :d3f/kb-reference-title "Decoy and deceptive data object technology",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-DecoyAndDeceptiveDataObjectTechnology_CymmetriaInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Decoy and deceptive data object technology - Cymmetria Inc"})
 
@@ -20100,8 +19490,7 @@
    "Decoy network-based service for deceiving attackers",
    :db/ident
    :d3f/Reference-DecoyNetwork-BasedServiceForDeceivingAttackers-AmazonTechnologies,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Decoy Network-Based Service for Deceiving Attackers - Amazon Technologies"})
 
@@ -20122,8 +19511,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-DecoyPersonasForSafeguardingOnlineIdentityUsingDeception_,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Decoy Personas for Safeguarding Online Identity Using Deception - MITRE"})
 
@@ -20139,8 +19527,7 @@
    :d3f/kb-reference-title "DETECTING DDoS ATTACK USING Snort",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-DetectingDDoSAttackUsingSnort,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label "Reference - Detecting DDoS Attack Using Snort"})
 
 (def
@@ -20158,8 +19545,7 @@
    "Detecting network reconnaissance by tracking intranet dark-net communications",
    :db/ident
    :d3f/Reference-DetectingNetworkReconnaissanceByTrackingIntranetDark-netCommunications_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Detecting network reconnaissance by tracking intranet dark-net communications - VECTRA NETWORKS Inc"})
 
@@ -20175,8 +19561,7 @@
    :d3f/kb-reference-of #{:d3f/FileContentRules :d3f/ScriptExecutionAnalysis},
    :d3f/kb-reference-title "Detecting script-based malware",
    :db/ident :d3f/Reference-DetectingScript-basedMalware_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Detecting script-based malware - Crowdstrike Inc"})
 
 (def Reference-DetectionOfMaliciousIDNHomoglyphDomains
@@ -20190,8 +19575,7 @@
    :d3f/kb-reference-title
    "Detection of Malicious IDN Homoglyph Domains Using Active DNS Measurements",
    :db/ident :d3f/Reference-DetectionOfMaliciousIDNHomoglyphDomains,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Detection of Malicious IDNHomoglyph Domains"})
 
 (def
@@ -20210,8 +19594,7 @@
    "Deterministic method for detecting and blocking of exploits on interpreted code",
    :db/ident
    :d3f/Reference-DeterministicMethodForDetectingAndBlockingOfExploitsOnInterpretedCode_K2CyberSecurityInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Deterministic method for detecting and blocking of exploits on interpreted code - K2 Cyber Security Inc"})
 
@@ -20224,9 +19607,7 @@
    :d3f/kb-reference-of :d3f/StrongPasswordPolicy,
    :d3f/kb-reference-title "Digital Identity Guidelines",
    :db/ident :d3f/Reference-DigitalIdentityGuidelines800-63-3,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label "Reference - Digital Identity Guidelines 800-63-3"})
 
 (def Reference-DistributedMeta-informationQueryInANetwork_Bit9Inc
@@ -20242,8 +19623,7 @@
    :d3f/kb-reference-of :d3f/FileContentRules,
    :d3f/kb-reference-title "Distributed meta-information query in a network",
    :db/ident :d3f/Reference-DistributedMeta-informationQueryInANetwork_Bit9Inc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Distributed meta-information query in a network - Bit 9 Inc"})
 
@@ -20259,8 +19639,7 @@
    :d3f/kb-reference-title "Domain age registration alert",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-DomainAgeRegistrationAlert_IncRapid7IncRAPID7Inc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Domain age registration alert - Inc Rapid7 Inc RAPID7 Inc"})
 
@@ -20274,8 +19653,7 @@
    :d3f/kb-reference-title
    "RFC 6376: DomainKeys Identified Mail (DKIM) Signatures",
    :db/ident :d3f/Reference-DomainKeysIdentifiedMail-Signatures-IETF,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - RFC 6376: DomainKeys Identified Mail (DKIM) Signatures - IETF"})
 
@@ -20295,8 +19673,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-DynamicSelectionAndGenerationOfAVirtualCloneForDetonationOfSuspiciousContentWithinAHoneyNetwork_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Dynamic selection and generation of a virtual clone for detonation of suspicious content within a honey network - Palo Alto Networks Inc"})
 
@@ -20312,8 +19689,7 @@
    "Embedding contexts for on-line threats into response policy zones",
    :db/ident
    :d3f/Reference-EmbeddingContextsForOn-lineThreatsIntoResponsePolicyZones-VerisignInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Embedding contexts for on-line threats into response policy zones - Verisign Inc"})
 
@@ -20328,8 +19704,7 @@
    :d3f/kb-reference-of :d3f/CertificatePinning,
    :d3f/kb-reference-title "End-to-end Certificate Pinning",
    :db/ident :d3f/Reference-End-to-endCertificatePinning,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - End-to-end certificate pinning"})
 
 (def
@@ -20348,8 +19723,7 @@
    "Could not determine reference type; TechniqueReference class used instead",
    :db/ident
    :d3f/Reference-EnhancingNetworkSecurityByPreventingUser-InitiatedMalwareExecution_,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Enhancing Network Security By Preventing User-Initiated Malware Execution - MITRE"})
 
@@ -20363,8 +19737,7 @@
    "Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise",
    :db/ident
    :d3f/Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"})
 
@@ -20382,9 +19755,7 @@
                "No authors provided for reference"
                "MITRE Analysis was not found"},
    :db/ident :d3f/Reference-ExecutionWithAT_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-05-004: Execution with AT - MITRE"})
 
 (def Reference-ExecutionWithSchtasks_MITRE
@@ -20401,9 +19772,7 @@
                "No authors provided for reference"
                "MITRE Analysis was not found"},
    :db/ident :d3f/Reference-ExecutionWithSchtasks_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-08-001: Execution with schtasks - MITRE"})
 
 (def Reference-FWTK-FirewallToolkit_
@@ -20421,8 +19790,7 @@
      "Could not determine reference type; TechniqueReference class used instead"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-FWTK-FirewallToolkit_,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - FWTK - Firewall Toolkit"})
 
 (def Reference-FWTKDocumentation-Fwtk_org
@@ -20437,8 +19805,7 @@
    :d3f/kb-reference-title "FWTK Documentation",
    :d3f/todo #{"MITRE Analysis was not found" "add all authors"},
    :db/ident :d3f/Reference-FWTKDocumentation-Fwtk.org,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/TechniqueReference :owl/NamedIndividual},
    :rdfs/label "Reference - FWTK Documentation - fwtk.org"})
 
 (def Reference-File-modifyingMalwareDetection_CrowdstrikeInc
@@ -20454,8 +19821,7 @@
    :d3f/kb-reference-of :d3f/FileAccessPatternAnalysis,
    :d3f/kb-reference-title "File-modifying malware detection",
    :db/ident :d3f/Reference-File-modifyingMalwareDetection_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - File-modifying malware detection - Crowdstrike Inc"})
 
@@ -20467,8 +19833,7 @@
    :d3f/kb-reference-of :d3f/LocalFilePermissions,
    :d3f/kb-reference-title "File and Folder Permissions",
    :db/ident :d3f/Reference-FileAndFolderPermissions,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - File and Folder Permissions"})
 
 (def Reference-FileIntegrityMonitoringinMicrosoftDefenderforCloud-Microsoft
@@ -20481,8 +19846,7 @@
    "File Integrity Monitoring in Microsoft Defender for Cloud",
    :db/ident
    :d3f/Reference-FileIntegrityMonitoringinMicrosoftDefenderforCloud-Microsoft,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - File Integrity Monitoring in Microsoft Defender for Cloud - Microsoft"})
 
@@ -20494,8 +19858,7 @@
                           :d3f/URLReputationAnalysis :d3f/IPReputationAnalysis},
    :d3f/kb-reference-title "Finding phishing sites",
    :db/ident :d3f/Reference-Finding_phishing_sites,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Finding phishing sites"})
 
 (def Reference-FirewallForInterentAccess_SecureComputingLLC
@@ -20511,8 +19874,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-FirewallForInterentAccess_SecureComputingLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Firewall for interent access - Secure Computing LLC"})
 
@@ -20532,8 +19894,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-FirewallForProcessingAConnectionlessNetworkPacket_NationalSecurityAgency,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Firewall for processing a connectionless network packet - National Security Agency"})
 
@@ -20553,8 +19914,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-FirewallForProcessingConnection-orientedAndConnectionlessDatagramsOverAConnection-orientedNetwork_NationalSecurityAgency,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Firewall for processing connection-oriented and connectionless datagrams over a connection-oriented network - National Security Agency"})
 
@@ -20572,8 +19932,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-FirewallsThatFilterBasedUponProtocolCommands_IntelCorp,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Firewalls that filter based upon protocol commands - Intel Corp"})
 
@@ -20590,8 +19949,7 @@
    :d3f/kb-reference-title
    "ConFirm: Detecting Firmware Modifications in Embedded Systems\nusing Hardware Performance Counters",
    :db/ident :d3f/Reference-FirmwareBehaviorAnalysisConFirm,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label "Reference - Firmware Behavior Analysis ConFirm"})
 
 (def Reference-FirmwareBehaviorAnalysisVIPER
@@ -20605,8 +19963,7 @@
    :d3f/kb-reference-title
    "VIPER: Verifying the Integrity of PERipherals' Firmware",
    :db/ident :d3f/Reference-FirmwareBehaviorAnalysisVIPER,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label "Reference - Firmware Behavior Analysis VIPER"})
 
 (def Reference-FirmwareEmbeddedMonitoringCodeRedBalloon
@@ -20620,8 +19977,7 @@
    :d3f/kb-reference-title
    "Method and apparatus for securing embedded device firmware",
    :db/ident :d3f/Reference-FirmwareEmbeddedMonitoringCodeRedBalloon,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Firmware Embedded Monitoring Code Red Balloon"})
 
 (def Reference-FirmwareEmbeddedMonitoringCodeSymbiotes
@@ -20635,8 +19991,7 @@
    :d3f/kb-reference-of :d3f/FirmwareEmbeddedMonitoringCode,
    :d3f/kb-reference-title "Defending Embedded Systems with Software Symbiotes",
    :db/ident :d3f/Reference-FirmwareEmbeddedMonitoringCodeSymbiotes,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label "Reference - Firmware Embedded Monitoring Code Symbiotes"})
 
 (def Reference-FirmwareVerificationEclypsium
@@ -20650,8 +20005,7 @@
    :d3f/kb-reference-title
    "Methods and systems for hardware and firmware security monitoring",
    :db/ident :d3f/Reference-FirmwareVerificationEclypsium,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Firmware Verification Eclypsium"})
 
 (def Reference-FirmwareVerificationTrapezoid
@@ -20665,8 +20019,7 @@
    :d3f/kb-reference-title
    "System and method for hardware-based trust control management",
    :db/ident :d3f/Reference-FirmwareVerificationTrapezoid,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Firmware Verification Trapezoid"})
 
 (def
@@ -20684,8 +20037,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-FrameworkForNotifyingADirectoryServiceOfAuthenticationEventsProcessedOutsideTheDirectoryService_OracleInternationalCorp,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Framework for notifying a directory service of authentication events processed outside the directory service - Oracle International Corp"})
 
@@ -20704,8 +20056,7 @@
                "No authors provided for reference"
                "MITRE Analysis was not found"},
    :db/ident :d3f/Reference-GS_BufferSecurityCheck_MicrosoftDocs,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - /GS (Buffer Security Check) - Microsoft Docs"})
 
 (def Reference-GenericRegsvr32_MITRE
@@ -20722,9 +20073,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-GenericRegsvr32_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2019-04-002: Generic Regsvr32 - MITRE"})
 
 (def
@@ -20742,8 +20091,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-GuardsForApplicationInSoftwareTamperproofing_PurdueResearchFoundation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Guards for application in software tamperproofing - Purdue Research Foundation"})
 
@@ -20763,8 +20111,7 @@
    "Hardware-assisted system and method for detecting and analyzing system calls made to an operting system kernel",
    :db/ident
    :d3f/Reference-Hardware-assistedSystemAndMethodForDetectingAndAnalyzingSystemCallsMadeToAnOpertingSystemKernel_EndgameInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Hardware-assisted system and method for detecting and analyzing system calls made to an operting system kernel - Endgame Inc"})
 
@@ -20780,8 +20127,7 @@
    :d3f/kb-reference-of :d3f/DNSTrafficAnalysis,
    :d3f/kb-reference-title "Heuristic botnet detection",
    :db/ident :d3f/Reference-HeuristicBotnetDetection_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Heuristic botnet detection - Palo Alto Networks Inc"})
 
@@ -20799,9 +20145,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-HostDiscoveryCommands_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2016-03-001: Host Discovery Commands - MITRE"})
 
 (def
@@ -20821,8 +20165,7 @@
    "Host intrusion prevention system using software and user behavior analysis",
    :db/ident
    :d3f/Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Host intrusion prevention system using software and user behavior analysis - Sophos Ltd"})
 
@@ -20841,8 +20184,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-HowASLRProtectsLinuxSystemsFromBufferOverflowAttacks_NetworkWorld,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - How ASLR protects Linux systems from buffer overflow attacks - Network World"})
 
@@ -20856,8 +20198,7 @@
    :d3f/kb-reference-of :d3f/FileRemoval,
    :d3f/kb-reference-title "How Does Antivirus Quarantine Work?",
    :db/ident :d3f/Reference-HowDoesAntivirusQuarantineWork-SafetyDetectives,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - How Does Antivirus Quarantine Work? - Safety Detectives"})
 
@@ -20872,8 +20213,7 @@
    "How to change registry values or permissions from a command line or a script",
    :db/ident
    :d3f/Reference-HowToChangeRegistryValuesOrPermissionsFromACommandLineOrAScript,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - How to change registry values or permissions from a command line or a script"})
 
@@ -20890,8 +20230,7 @@
    "How trust relationships work for resource forests in Azure Active Directory Domain Services",
    :db/ident
    :d3f/Reference-HowTrustRelationshipsWorkForResourceForestsInAzureActiveDirectoryDomainServices,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - How trust relationships work for resource forests in Azure Active Directory Domain Services"})
 
@@ -20902,8 +20241,7 @@
    :d3f/kb-reference-title
    "IEEE Standard for Local and Metropolitan Area Networks - Station and Media Access Control Connectivity Discovery",
    :db/ident :d3f/Reference-IEEE-802_1AB-2016,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - IEEE Standard for Local and Metropolitan Area Networks - Station and Media Access Control Connectivity Discovery"})
 
@@ -20919,8 +20257,7 @@
    "Identification and extraction of key forensics indicators of compromise using subject-specific filesystem views",
    :db/ident
    :d3f/Reference-IdentificationAndExtractionOfKeyForensicsIndicatorsOfCompromiseUsingSubject-specificFilesystemViews,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Identification and extraction of key forensics indicators of compromise using subject-specific filesystem views"})
 
@@ -20935,8 +20272,7 @@
    :d3f/kb-reference-title
    "Identification of traceroute nodes and associated devices",
    :db/ident :d3f/Reference-IdentificationOfTracerouteNodesAndAssociatedDevices,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Identification of traceroute nodes and associated devices"})
 
@@ -20954,8 +20290,7 @@
    "Identification of visual international domain name collisions",
    :db/ident
    :d3f/Reference-IdentificationOfVisualInternationalDomainNameCollisions-VerisignInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Identification of visual international domain name collisions - Verisign Inc"})
 
@@ -20972,8 +20307,7 @@
    "Identifying a denial-of-service attack in a cloud-based proxy service",
    :db/ident
    :d3f/Reference-IdentifyingADenial-of-serviceAttackInACloud-basedProxyService-CloudfareInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Identifying a denial-of-service attack in a cloud-based proxy service - Cloudfare Inc."})
 
@@ -20990,8 +20324,7 @@
    :d3f/kb-reference-title
    "Transparent ROP Exploit Mitigation using Indirect Branch Tracing",
    :db/ident :d3f/Reference-IndirectBranchingCalls,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label "Reference - Indirect Branching Calls"})
 
 (def Reference-InferentialExploitAttemptDetection_CrowdstrikeInc
@@ -21007,8 +20340,7 @@
    :d3f/kb-reference-title "Inferential exploit attempt detection",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-InferentialExploitAttemptDetection_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Inferential exploit attempt detection - Crowdstrike Inc"})
 
@@ -21027,8 +20359,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-InstantProcessTerminationToolToRecoverControlOfAnInformationHandlingSystem_DellProductsLP,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Instant process termination tool to recover control of an information handling system - Dell Products LP"})
 
@@ -21047,8 +20378,7 @@
    "Integrity assurance through early loading in the boot phase",
    :db/ident
    :d3f/Reference-IntegrityAssuranceThroughEarlyLoadingInTheBootPhase_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Integrity assurance through early loading in the boot phase - Crowdstrike Inc"})
 
@@ -21064,8 +20394,7 @@
    :d3f/kb-reference-of :d3f/EndpointHealthBeacon,
    :d3f/kb-reference-title "Intrusion detection using a heartbeat",
    :db/ident :d3f/Reference-IntrusionDetectionUsingAHeartbeat_SophosLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Intrusion detection using a heartbeat - Sophos Ltd"})
 
@@ -21082,8 +20411,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-IsolationOfApplicationsWithinAVirtualMachine_Bromium%2CInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Isolation of applications within a virtual machine - Bromium, Inc."})
 
@@ -21097,8 +20425,7 @@
    :d3f/kb-reference-of :d3f/DiskEncryption,
    :d3f/kb-reference-title "LUKS1 On-Disk Format SpecificationVersion 1.2.3",
    :db/ident :d3f/Reference-LUKS1On-DiskFormatSpecificationVersion1.2.3,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - LUKS1 On-Disk Format SpecificationVersion 1.2.3"})
 
 (def Reference-LibreNMSDocsNetworkMapExtension
@@ -21110,8 +20437,7 @@
    :d3f/kb-reference-of :d3f/NetworkMapping,
    :d3f/kb-reference-title "Libre NMS - Network Map Extension",
    :db/ident :d3f/Reference-LibreNMSDocsNetworkMapExtension,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - Libre NMS - Network Map Extension"})
 
 (def Reference-LibreNMSDocsOxidizedExtension
@@ -21122,8 +20448,7 @@
    :d3f/kb-reference-of :d3f/DiskEncryption,
    :d3f/kb-reference-title "LibreNMSDocs - Oxidized Extension",
    :db/ident :d3f/Reference-LibreNMSDocsOxidizedExtension,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - Libre NMS - Oxidized Extension"})
 
 (def Reference-LsassProcessDumpViaProcdump_MITRE
@@ -21140,9 +20465,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-LsassProcessDumpViaProcdump_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2019-07-002: Lsass Process Dump via Procdump - MITRE"})
 
@@ -21159,8 +20482,7 @@
    "MGT516: Managing Security Vulnerabilities: Enterprise and Cloud",
    :db/ident
    :d3f/Reference-MGT516ManagingSecurityVulnerabilitiesEnterpriseAndCloud,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - MGT516: Managing Security Vulnerabilities: Enterprise and Cloud"})
 
@@ -21176,8 +20498,7 @@
    :d3f/kb-reference-of :d3f/RelayPatternAnalysis,
    :d3f/kb-reference-title "Malicious relay detection on networks",
    :db/ident :d3f/Reference-MaliciousRelayDetectionOnNetworks_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Malicious relay detection on networks - VECTRA NETWORKS Inc"})
 
@@ -21193,8 +20514,7 @@
    :d3f/kb-reference-of :d3f/DynamicAnalysis,
    :d3f/kb-reference-title "Malware analysis system",
    :db/ident :d3f/Reference-MalwareAnalysisSystem_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Malware analysis system - Palo Alto Networks Inc"})
 
 (def Reference-MalwareDetectionInEventLoops_CrowdstrikeInc
@@ -21209,8 +20529,7 @@
    :d3f/kb-reference-of :d3f/SystemCallAnalysis,
    :d3f/kb-reference-title "Malware detection in event loops",
    :db/ident :d3f/Reference-MalwareDetectionInEventLoops_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Malware detection in event loops - Crowdstrike Inc"})
 
@@ -21230,8 +20549,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-MalwareDetectionUsingLocalComputationalModels_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Malware detection using local computational models - Crowdstrike Inc"})
 
@@ -21250,8 +20568,7 @@
    "Method and Apparatus for Detecting Malicious Websites",
    :db/ident
    :d3f/Reference-MethodAndApparatusForDetectingMaliciousWebsites_EndgameInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and Apparatus for Detecting Malicious Websites - Endgame Inc"})
 
@@ -21269,8 +20586,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-MethodAndApparatusForIncreasingTheSpeedAtWhichComputerVirusesAreDetected_McAfeeLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and apparatus for increasing the speed at which computer viruses are detected - McAfee LLC"})
 
@@ -21292,8 +20608,7 @@
    "Method and Apparatus for Network Fraud Detection and Remediation Through Analytics",
    :db/ident
    :d3f/Reference-MethodAndApparatusForNetworkFraudDetectionAndRemediationThroughAnalytics_IdaptiveLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and Apparatus for Network Fraud Detection and Remediation Through Analytics - Idaptive LLC"})
 
@@ -21312,8 +20627,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-MethodAndApparatusForUtilizingATokenForResourceAccess_RsaSecurityInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and apparatus for utilizing a token for resource access - Rsa Security Inc."})
 
@@ -21327,8 +20641,7 @@
    :d3f/kb-reference-title
    "Method and system for controlling communication ports",
    :db/ident :d3f/Reference-MethodAndSystemForControllingCommunicationPorts,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for controlling communication ports"})
 
@@ -21347,8 +20660,7 @@
    "Method and system for detecting algorithm-generated domains",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingAlgorithm-generatedDomains_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting algorithm-generated domains - VECTRA NETWORKS Inc"})
 
@@ -21368,8 +20680,7 @@
    "Method and system for detecting external control of compromised hosts",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingExternalControlOfCompromisedHosts_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting external control of compromised hosts - VECTRA NETWORKS Inc"})
 
@@ -21387,8 +20698,7 @@
    :d3f/kb-reference-title "Method and system for detecting malicious payloads",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingMaliciousPayloads_VectraNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting malicious payloads - Vectra Networks Inc"})
 
@@ -21408,8 +20718,7 @@
    "Method and system for detecting restricted content associated with retrieved content",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingRestrictedContentAssociatedWithRetrievedContent_SophosLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting restricted content associated with retrieved content - Sophos Ltd"})
 
@@ -21428,8 +20737,7 @@
    "Method and system for detecting suspicious administrative activity",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingSuspiciousAdministrativeActivity_VectraNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting suspicious administrative activity - Vectra Networks Inc"})
 
@@ -21448,8 +20756,7 @@
    "Method and system for detecting threats using metadata vectors",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingThreatsUsingMetadataVectors_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting threats using metadata vectors - VECTRA NETWORKS Inc"})
 
@@ -21468,8 +20775,7 @@
    "Method and system for detecting threats using passive cluster mapping",
    :db/ident
    :d3f/Reference-MethodAndSystemForDetectingThreatsUsingPassiveClusterMapping_VectraNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for detecting threats using passive cluster mapping - Vectra Networks Inc"})
 
@@ -21482,8 +20788,7 @@
    "Method and system for providing software updates to local machines",
    :db/ident
    :d3f/Reference-MethodAndSystemForProvidingSoftwareUpdatesToLocalMachines,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for providing software updates to local machines"})
 
@@ -21495,8 +20800,7 @@
    :d3f/kb-reference-of :d3f/InboundSessionVolumeAnalysis,
    :d3f/kb-reference-title "Method and system for UDP flood attack detection",
    :db/ident :d3f/Reference-MethodAndSystemForUDPFloodAttackDetection-RioreyLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method and system for UDP flood attack detection - Riorey LLC"})
 
@@ -21515,8 +20819,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident
    :d3f/Reference-MethodForControllingComputerNetworkSecurity_CheckpointSoftwareTechnologiesLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method for controlling computer network security - Checkpoint Software Technologies Ltd"})
 
@@ -21531,8 +20834,7 @@
    :d3f/kb-reference-of :d3f/FileEncryption,
    :d3f/kb-reference-title "Method for file encryption",
    :db/ident :d3f/Reference-MethodForFileEncryption,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Method for file encryption"})
 
 (def
@@ -21549,8 +20851,7 @@
    "Method using kernel mode assistance for the detection and removal of threats which are actively preventing detection and removal from a running system",
    :db/ident
    :d3f/Reference-MethodUsingKernelModeAssistanceForTheDetectionAndRemovalOfThreatsWhichAreActivelyPreventingDetectionAndRemovalFromARunningSystem_SymantecCorporation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method using kernel mode assistance for the detection and removal of threats which are actively preventing detection and removal from a running system - Symantec Corporation"})
 
@@ -21566,8 +20867,7 @@
    "Mission Dependency Modeling for Cyber Situational Awareness",
    :db/ident
    :d3f/Reference-MissionDependencyModelingForCyberSituationalAwareness,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Mission Dependency Modeling for Cyber Situational Awareness"})
 
@@ -21586,8 +20886,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-MockAttackCybersecurityTrainingSystemAndMethods_WOMBATSECURITYTECHNOLOGIESInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Mock attack cybersecurity training system and methods - WOMBAT SECURITY TECHNOLOGIES Inc"})
 
@@ -21603,8 +20902,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ModelingUserAccessToComputerResources_DaedalusGroupLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Modeling user access to computer resources - Daedalus Group LLC (formerly IBM)"})
 
@@ -21623,8 +20921,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ModificationOfAServerToMimicADeceptionMechanism_AcalvioTechnologiesInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Modification of a Server to Mimic a Deception Mechanism - Acalvio Technologies Inc"})
 
@@ -21634,8 +20931,7 @@
    :d3f/kb-reference-title
    "Online Hash Checker for Virustotal and Other Services",
    :db/ident      :d3f/Reference-Munin,
-   :rdf/type      #{:d3f/SourceCodeReference :d3f/D3FENDThing :d3f/Reference
-                    :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type      #{:d3f/SourceCodeReference :owl/NamedIndividual},
    :rdfs/label    "Reference - Munin"})
 
 (def Reference-NIST-RMF-Quick-Start-Guide-Assess-Step-FAQ
@@ -21649,8 +20945,7 @@
    :d3f/kb-reference-title
    "NIST RMF Quick Start Guide - Assess Step - Frequently Asked Questions (FAQ)",
    :db/ident :d3f/Reference-NIST-RMF-Quick-Start-Guide-Assess-Step-FAQ,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - NIST RMF Quick Start Guide - Assess Step - Frequently Asked Questions (FAQ)"})
 
@@ -21664,9 +20959,7 @@
    :d3f/kb-reference-title
    "NIST Special Publication 800-160 Volume 1 - Systems Security Engineering",
    :db/ident :d3f/Reference-NIST-Special-Publication-800-160-Volume-1,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - NIST Special Publication 800-160 Volume 1 - System Security Engineering"})
 
@@ -21679,9 +20972,7 @@
    :d3f/kb-reference-title
    "NIST Special Publication 800-37 Revision 2 - Risk Management Framework for Information Systems and Organizations",
    :db/ident :d3f/Reference-NIST-Special-Publication-800-37-Revision-2,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - NIST Special Publication 800-37 Revision 2 - Risk Management Framework for Information Systems and Organizations"})
 
@@ -21694,9 +20985,7 @@
    :d3f/kb-reference-title
    "NIST Special Publication 800-53A Revision 5 - Assessing Security and Privacy Controls in Information Systems and Organizations",
    :db/ident :d3f/Reference-NIST-Special-Publication-800-53A-Revision-5,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - NIST Special Publication 800-53A Revision 5 - Assessing Security and Privacy Controls in Information Systems and Organizations"})
 
@@ -21710,9 +20999,7 @@
    :d3f/kb-reference-title
    "NIST Interagency Report 8011 Volume 1 - Automation Support for Security Control Assessments",
    :db/ident :d3f/Reference-NISTIR-8011-Volume-1,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - NISTIR 8011 Volume 1 - Automation Support for Security Control Assessments"})
 
@@ -21730,8 +21017,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-Network-BasedBufferOverflowDetectionByExploitCodeAnalysis_InformationSecurityResearchCentre,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Network-Based Buffer Overflow Detection by Exploit Code Analysis - Information Security Research Centre"})
 
@@ -21745,8 +21031,7 @@
    "Network-level polymorphic shellcode detection using emulation",
    :db/ident
    :d3f/Reference-Network-levelPolymorphicShellcodeDetectionUsingEmulation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Network-level polymorphic shellcode detection using emulation"})
 
@@ -21763,8 +21048,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-NetworkFirewallWithProxy_SecureComputingLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Network firewall with proxy - Secure Computing LLC"})
 
@@ -21774,8 +21058,7 @@
     "https://github.com/osquery/osquery/blob/d2be385d71f401c85872f00d479df8f499164c5a/osquery/tables/system/windows/users.cpp"},
    :d3f/kb-reference-title "OS Query Windows User Collection Code",
    :db/ident :d3f/Reference-OSQueryWindowsUserCollectionCode,
-   :rdf/type #{:d3f/SourceCodeReference :d3f/D3FENDThing :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/SourceCodeReference :owl/NamedIndividual},
    :rdfs/label "Reference - OS Query Windows User Collection Code"})
 
 (def Reference-OpenSourceIntelligenceDeceptions_IllusiveNetworksLtd
@@ -21793,8 +21076,7 @@
    :d3f/kb-reference-title "Open source intelligence deceptions",
    :db/ident
    :d3f/Reference-OpenSourceIntelligenceDeceptions_IllusiveNetworksLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Open source intelligence deceptions - Illusive Networks Ltd"})
 
@@ -21807,8 +21089,7 @@
    :d3f/kb-reference-of :d3f/OrganizationMapping,
    :d3f/kb-reference-title "Organization Mapping in SAP ERP HCM",
    :db/ident :d3f/Reference-OrganizationalManagementInSAPERPHCM,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/BookReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/BookReference},
    :rdfs/label "Reference - Organizational Management in SAP ERP HCM"})
 
 (def Reference-OutlierParentsOfCmd_MITRE
@@ -21824,9 +21105,7 @@
    :d3f/todo #{"Examine reference for additional techniques"
                "MITRE Analysis was not found"},
    :db/ident :d3f/Reference-OutlierParentsOfCmd_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-11-002: Outlier Parents of Cmd - MITRE"})
 
 (def Reference-OverviewOfTheSeccompSandbox
@@ -21836,8 +21115,7 @@
    :d3f/kb-reference-of :d3f/SystemCallFiltering,
    :d3f/kb-reference-title "Overview of the seccomp sandbox",
    :db/ident :d3f/Reference-OverviewOfTheSeccompSandbox,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Overview of the seccomp sandbox"})
 
 (def Reference-PasswordandKeyRotation-SSH
@@ -21847,8 +21125,7 @@
    :d3f/kb-reference-of :d3f/CredentialRotation,
    :d3f/kb-reference-title "Password and Key Rotation",
    :db/ident     :d3f/Reference-PasswordandKeyRotation-SSH,
-   :rdf/type     #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-                   :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type     #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label   "Reference - Password and Key Rotation - SSH"})
 
 (def Reference-PlatformFirmwareResiliencyGuidelines_NIST
@@ -21864,9 +21141,7 @@
    :d3f/kb-reference-title "Platform Firmware Resiliency Guidelines",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-PlatformFirmwareResiliencyGuidelines_NIST,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label "Reference - Platform Firmware Resiliency Guidelines - NIST"})
 
 (def Reference-PointerAuthenticationOnARMv8_3
@@ -21880,8 +21155,7 @@
    :d3f/kb-reference-of :d3f/PointerAuthentication,
    :d3f/kb-reference-title "Pointer Authentication on ARMv8.3",
    :db/ident :d3f/Reference-PointerAuthenticationOnARMv8.3,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Pointer Authentication on ARMv8.3"})
 
 (def Reference-PointerAuthenticationProjectZero
@@ -21895,8 +21169,7 @@
    :d3f/kb-reference-of :d3f/PointerAuthentication,
    :d3f/kb-reference-title "Examining Pointer Authentication on the iPhone XS",
    :db/ident :d3f/Reference-PointerAuthenticationProjectZero,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Pointer Authentication Project Zero"})
 
 (def
@@ -21914,8 +21187,7 @@
    "Post sandbox methods and systems for detecting and blocking zero-day exploits via api call validation",
    :db/ident
    :d3f/Reference-PostSandboxMethodsAndSystemsForDetectingAndBlockingZero-dayExploitsViaApiCallValidation_K2CyberSecurityInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Post sandbox methods and systems for detecting and blocking zero-day exploits via api call validation - K2 Cyber Security Inc"})
 
@@ -21933,9 +21205,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-PowershellExecution_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-04-003: Powershell Execution - MITRE"})
 
 (def
@@ -21953,8 +21223,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-PredictingDomainGenerationAlgorithmsWithLongShort-TermMemoryNetworks_,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Predicting Domain Generation Algorithms with Long Short-Term Memory Networks"})
 
@@ -21971,8 +21240,7 @@
    :d3f/kb-reference-of :d3f/ScheduledJobAnalysis,
    :d3f/kb-reference-title "Preventing execution of task scheduled malware",
    :db/ident :d3f/Reference-PreventingExecutionOfTaskScheduledMalware_McAfeeLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Preventing execution of task scheduled malware - McAfee LLC"})
 
@@ -21982,8 +21250,7 @@
    :d3f/kb-author "Teddy David Thomas",
    :d3f/kb-reference-title "Privacy and security systems and methods of use",
    :db/ident :d3f/Reference-PrivacyAndSecuritySystemsAndMethodsOfUse,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Privacy and security systems and methods of use"})
 
 (def Reference-PrivateVirtualLocalAreaNetworkIsolation_CiscoTechnologyInc
@@ -21998,8 +21265,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-PrivateVirtualLocalAreaNetworkIsolation_CiscoTechnologyInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Private virtual local area network isolation - Cisco Technology Inc"})
 
@@ -22018,9 +21284,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-ProcessesSpawningCmd.exe_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-02-003: Processes Spawning cmd.exe - MITRE"})
 
@@ -22038,8 +21302,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ProtectedComputingEnvironment_MicrosoftTechnologyLicensingLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Protected computing environment - Microsoft Technology Licensing LLC"})
 
@@ -22055,8 +21318,7 @@
    "Protecting against distributed denial of service attacks",
    :db/ident
    :d3f/Reference-ProtectingAgainstDistributedDenialOfServiceAttacks-CiscoTechnologyInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Protecting against distributed denial of service attacks - Cisco Technology Inc."})
 
@@ -22073,8 +21335,7 @@
    "Protecting against distributed network flood attacks",
    :db/ident
    :d3f/Reference-ProtectingAgainstDistributedNetworkFloodAttacks-JuniperNetworksInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Protecting against distributed network flood attacks - Juniper Networks Inc."})
 
@@ -22087,8 +21348,7 @@
    :d3f/kb-reference-of :d3f/ProcessSuspension,
    :d3f/kb-reference-title "PsSuspend",
    :db/ident :d3f/Reference-PsSuspend,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - PsSuspend - Microsoft"})
 
 (def Reference-QualysNetworkPassiveSensorGettingStartedGuide
@@ -22102,8 +21362,7 @@
    :d3f/kb-reference-title
    "Qualys Network Passive Sensor Getting Started Guide",
    :db/ident :d3f/Reference-QualysNetworkPassiveSensorGettingStartedGuide,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Qualys Network Passive Sensor Getting Started Guide"})
 
@@ -22122,9 +21381,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-QuickExecutionOfASeriesOfSuspiciousCommands_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-04-002: Quick execution of a series of suspicious commands - MITRE"})
 
@@ -22143,9 +21400,7 @@
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."
      "This reference is not a good fit for the stated technique; see where to move it to."},
    :db/ident :d3f/Reference-RDPConnectionDetection_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-07-002: RDP Connection Detection - MITRE"})
 
 (def Reference-RFC2289-AOne-TimePasswordSystem
@@ -22155,8 +21410,7 @@
    :d3f/kb-reference-title "A One-Time Password System",
    :d3f/todo     "Fix all the things - found this under owl:Thing --PG",
    :db/ident     :d3f/Reference-RFC2289-AOne-TimePasswordSystem,
-   :rdf/type     #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-                   :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type     #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label   "Reference - RFC 2289 - A One-Time Password System"})
 
 (def
@@ -22170,8 +21424,7 @@
    "An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks",
    :db/ident
    :d3f/Reference-RFC3411-AnArchitectureForDescribingSimpleNetworkManagementProtocolSNMPManagementFrameworks,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks"})
 
@@ -22187,8 +21440,7 @@
    "RFC 7208: Sender Policy Framework (SPF) for Authorizing Use of Domains in Email",
    :db/ident
    :d3f/Reference-RFC7208-SenderPolicyFramework-SPF-ForAuthorizingUseOfDomainsInEmail-IETF,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - RFC 7208: Sender Policy Framework (SPF) for Authorizing Use of Domains in Email - IETF"})
 
@@ -22204,8 +21456,7 @@
    "RFC 7489: Domain-based Message Authentication, Reporting, and Conformance (DMARC)",
    :db/ident
    :d3f/Reference-RFC7489-Domain-basedMessageAuthentication-Reporting-AndConformance-DMARC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - RFC 7489: Domain-based Message Authentication, Reporting, and Conformance (DMARC) - IETF"})
 
@@ -22221,8 +21472,7 @@
    "RFC7642: System for Cross-domain Identity Management: Definitions, Overview, Concepts, and Requirements",
    :db/ident
    :d3f/Reference-RFC7642SystemForCrossDomainIdentityManagementDefinitionsOverviewConceptsAndRequirements,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - RFC 7642: System for Cross-domain Identity Management: Definitions, Overview, Concepts, and Requirements"})
 
@@ -22238,8 +21488,7 @@
    :d3f/kb-reference-title "RPC call interception",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-RPCCallInterception_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - RPC call interception - Crowdstrike Inc"})
 
 (def Reference-RedHatEnterpriseLinux8SecurityTechnicalImplementationGuide
@@ -22251,9 +21500,7 @@
    "Red Hat Enterprise Linux 8 Security Technical Implementation Guide",
    :db/ident
    :d3f/Reference-RedHatEnterpriseLinux8SecurityTechnicalImplementationGuide,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Red Hat Enterprise Linux 8 Security Technical Implementation Guide"})
 
@@ -22272,9 +21519,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-Reg.exeCalledFromCommandShell_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-03-001: Reg.exe called from Command Shell - MITRE"})
 
@@ -22288,8 +21533,7 @@
    :d3f/kb-reference-of :d3f/UserSessionInitConfigAnalysis,
    :d3f/kb-reference-title "Registry Key Security and Access Rights",
    :db/ident :d3f/Reference-RegistryKeySecurityAndAccessRights,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - Registry Key Security and Access Rights"})
 
 (def Reference-RemoteDesktopLogon_MITRE
@@ -22306,9 +21550,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-RemoteDesktopLogon_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2016-04-005: Remote Desktop Logon - MITRE"})
 
 (def Reference-RemoteRegistry_MITRE
@@ -22323,9 +21565,7 @@
    :d3f/kb-reference-title "CAR-2014-11-005: Remote Registry",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-RemoteRegistry_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-11-005: Remote Registry - MITRE"})
 
 (def Reference-RemotelyLaunchedExecutablesViaServices_MITRE
@@ -22341,9 +21581,7 @@
    "CAR-2014-03-005: Remotely Launched Executables via Services",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-RemotelyLaunchedExecutablesViaServices_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-03-005: Remotely Launched Executables via Services - MITRE"})
 
@@ -22360,9 +21598,7 @@
    "CAR-2014-12-001: Remotely Launched Executables via WMI",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-RemotelyLaunchedExecutablesViaWMI_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-12-001: Remotely Launched Executables via WMI - MITRE"})
 
@@ -22379,9 +21615,7 @@
    "CAR-2015-04-002: Remotely Scheduled Tasks via Schtasks",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-RemotelyScheduledTasksViaSchtasks_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2015-04-002: Remotely Scheduled Tasks via Schtasks - MITRE"})
 
@@ -22394,8 +21628,7 @@
    "Reputation of an entity associated with a content item",
    :db/ident
    :d3f/Reference-Reputation_of_an_entity_associated_with_a_content_item,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Reputation of an entity associated with a content item"})
 
@@ -22409,8 +21642,7 @@
    :d3f/kb-reference-of :d3f/ReverseResolutionDomainDenylisting,
    :d3f/kb-reference-title "Reverse DNS Blocking",
    :db/ident :d3f/Reference-ReverseDNSBlocking_BarracudaNetworks,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - Reverse DNS Blocking - Barracuda Networks"})
 
 (def Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft
@@ -22424,8 +21656,7 @@
    :d3f/kb-reference-title "Revoke a previously issued verifiable credential",
    :db/ident
    :d3f/Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - Revoke a previously issued verifiable credential - Microsoft"})
 
@@ -22443,9 +21674,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-RunDLL32.exeMonitoring_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-03-006: RunDLL32.exe monitoring - MITRE"})
 
 (def Reference-SAFESEH_ImageHasSafeExceptionHandlers_MicrosoftDocs
@@ -22464,8 +21693,7 @@
    #{"Document Abstract was not found" "MITRE Analysis was not found"
      "Could not determine reference type; TechniqueReference class used instead"},
    :db/ident :d3f/Reference-SAFESEH_ImageHasSafeExceptionHandlers_MicrosoftDocs,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - /SAFESEH (Image has Safe Exception Handlers) - Microsoft Docs"})
 
@@ -22484,9 +21712,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-SMBCopyAndExecution_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-05-005: SMB Copy and Execution - MITRE"})
 
 (def Reference-SMBEventsMonitoring_MITRE
@@ -22501,9 +21727,7 @@
    :d3f/kb-reference-title "CAR-2013-01-003: SMB Events Monitoring",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-SMBEventsMonitoring_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-01-003: SMB Events Monitoring - MITRE"})
 
 (def Reference-SMBSessionSetups_MITRE
@@ -22521,9 +21745,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-SMBSessionSetups_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-09-003: SMB Session Setups - MITRE"})
 
 (def Reference-SMBWriteRequest-NamedPipes_MITRE
@@ -22538,9 +21760,7 @@
    :d3f/kb-reference-title "CAR-2014-03-001: SMB Write Request - NamedPipes",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-SMBWriteRequest-NamedPipes_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-03-001: SMB Write Request - NamedPipes - MITRE"})
 
@@ -22559,9 +21779,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-SMBWriteRequest_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-05-003: SMB Write Request - MITRE"})
 
 (def Reference-SNMPNetworkAutoDiscovery
@@ -22574,8 +21792,7 @@
    :d3f/kb-reference-of :d3f/ActiveLogicalLinkMapping,
    :d3f/kb-reference-title "SNMP - Network Auto Discovery",
    :db/ident :d3f/Reference-SNMPNetworkAutoDiscovery,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - SNMP - Network Auto-Discovery"})
 
 (def Reference-SecureCachingOfServerCredentials_DellProductsLP
@@ -22591,8 +21808,7 @@
    :d3f/kb-reference-title "Secure caching of server credentials",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-SecureCachingOfServerCredentials_DellProductsLP,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Secure caching of server credentials - Dell Products LP"})
 
@@ -22603,8 +21819,7 @@
    "Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1 Message Specification",
    :db/ident
    :d3f/Reference-SecureMultipurposeInternetMailExtensionsMIME-Version3.1,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1"})
 
@@ -22620,9 +21835,7 @@
    :d3f/kb-reference-of :d3f/ActiveCertificateAnalysis,
    :d3f/kb-reference-title "Securing Web Transactions",
    :db/ident :d3f/Reference-SecuringWebTransactions,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label "Reference - Securing Web Transactions"})
 
 (def
@@ -22638,9 +21851,7 @@
    "Securing Web Transactions TLS Server Certificate Management - Appendix A Passive Inspection",
    :db/ident
    :d3f/Reference-Securing_Web_Transactions__TLS_Server_Certificate_Management_Appendix_A_Passive_Inspection,
-   :rdf/type #{:d3f/D3FENDThing :d3f/GuidelineReference :d3f/Reference
-               :d3f/TechniqueReference :d3f/PolicyReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Securing Web Transactions TLS Server Certificate Management - Appendix A Passive Inspection"})
 
@@ -22652,8 +21863,7 @@
    :d3f/kb-reference-of :d3f/EncryptedTunnels,
    :d3f/kb-reference-title "Security Architecture for the Internet Protocol",
    :db/ident :d3f/Reference-SecurityArchitectureForTheInternetProtocol,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Security Architecture for the Internet Protocol"})
 
 (def
@@ -22671,8 +21881,7 @@
    "Security System with Methodology for Interprocess Communication Control",
    :db/ident
    :d3f/Reference-SecuritySystemWithMethodologyForInterprocessCommunicationControl_CheckPointSoftwareTechInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Security System with Methodology for Interprocess Communication Control - Check Point Software Tech Inc"})
 
@@ -22685,8 +21894,7 @@
    :d3f/kb-reference-of :d3f/AssetVulnerabilityEnumeration,
    :d3f/kb-reference-title "Security vulnerability information aggregation",
    :db/ident :d3f/Reference-SecurityVulnerabilityInformationAggregation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Security vulnerability information aggregation"})
 
 (def Reference-ServiceBinaryModifications_MITRE
@@ -22701,9 +21909,7 @@
    :d3f/kb-reference-title "CAR-2014-02-001: Service Binary Modifications",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-ServiceBinaryModifications_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-02-001: Service Binary Modifications - MITRE"})
 
@@ -22722,9 +21928,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-ServiceOutlierExecutables_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-09-005: Service Outlier Executables - MITRE"})
 
@@ -22742,9 +21946,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-ServiceSearchPathInterception_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-07-001: Service Search Path Interception - MITRE"})
 
@@ -22763,9 +21965,7 @@
      "MITRE Analysis was not found"
      "Could not determine reference type; TechniqueReference class used instead"},
    :db/ident :d3f/Reference-ServicesLaunchingCmd_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-05-002: Services launching Cmd - MITRE"})
 
 (def Reference-SimultaneousLoginsOnAHost_MITRE
@@ -22779,9 +21979,7 @@
    :d3f/kb-reference-of :d3f/AuthenticationEventThresholding,
    :d3f/kb-reference-title "CAR-2013-02-008: Simultaneous Logins on a Host",
    :db/ident :d3f/Reference-SimultaneousLoginsOnAHost_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-02-008: Simultaneous Logins on a Host - MITRE"})
 
@@ -22800,8 +21998,7 @@
    "Sinkholing bad network domains by registering the bad network domains on the internet",
    :db/ident
    :d3f/Reference-SinkholingBadNetworkDomainsByRegisteringTheBadNetworkDomainsOnTheInternet_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Sinkholing bad network domains by registering the bad network domains on the internet - Palo Alto Networks Inc"})
 
@@ -22818,8 +22015,7 @@
                           :d3f/SystemVulnerabilityAssessment},
    :d3f/kb-reference-title "Software vulnerability graph database",
    :db/ident :d3f/Reference-SoftwareVulnerabilityGraphDatabase,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Software vulnerability graph database"})
 
 (def Reference-Squiblydoo_MITRE
@@ -22836,9 +22032,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-Squiblydoo_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2019-04-003: Squiblydoo - MITRE"})
 
 (def Reference-StackSmashingProtection_StackGuard_RedHat
@@ -22854,8 +22048,7 @@
    "Security Technologies: Stack Smashing Protection (StackGuard)",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-StackSmashingProtection_StackGuard_RedHat,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Security Technologies: Stack Smashing Protection (StackGuard) - Red Hat"})
 
@@ -22868,8 +22061,7 @@
    :d3f/kb-reference-of :d3f/PassiveCertificateAnalysis,
    :d3f/kb-reference-title "StreamingPhish",
    :db/ident :d3f/Reference-StreamingPhish,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/TechniqueReference :owl/NamedIndividual},
    :rdfs/label "Reference - StreamingPhish"})
 
 (def Reference-SupplyChainCyber-deception_Cymmetria%2CInc_
@@ -22886,8 +22078,7 @@
    #{"MITRE Analysis was not found"
      "Section header did not match either 'MITRE Analysis' or 'Document Abstract' (possible typo?):  Additional Information from Document\nThe deception data objects 214 may include, for example, one or more of the following:\n\nCookies and/or history log entries. In case the access client 255 is browsing, for example, to a supplier-facing website (an exemplary resource 222) of the protected network 235, typically, a cookie is added to the to be added to the access client 255 and the website's address added to the history log of the access client 255. In such a case, the campaign manager 216 may, for example, open an iframe to a deception website (an exemplary deception resource 210 corresponding to the exemplary resource 222) in which different cookie(s) and/or different history log entry(s) may be added to the access client 255. The different cookie(s) and/or history log entry(s) may point to the deception environment, for example, a false website, an identical system that is not used by real users (internal and/or external), a proxy that redirects to a real system within the protected network 235, a different service, such as, for example, email, SharePoint and/or the like.\n\nJavaScripts, pop-up windows, pop-under windows and/or any other browsing technique used to browse to another website(s). In case the access client 255 is browsing, for example, to the supplier-facing website, the campaign manager 216 may, for example, initiate a JavaScript, a pop-up window and/or a pop-under window to direct the access client 255 to the deception website in which the different cookie(s) and/or the different history log entry(s) may be added to the access client 255. The JavaScripts, the pop-up windows and/or the pop-under windows may maintain a visibility similarity with the supplier-facing website such that they do not significantly alter the browsing experience of the external user(s) using the access client(s) 255.\n\nCredential object. In case the external user(s) use the RDP serving as the access client 255, upon login of the RDP, the campaign manager 216 may install additional fake credentials on the external endpoint 251 from which the RDP is initiated.\n\nConfiguration file. In case the external user(s) use the RDP serving as the access client 255, upon login of the RDP, the campaign manager 216 may install a fake remote access configuration file on the external endpoint 251 from which the RDP is initiated.\n\nDeception file, password and/or the like. In case the external user(s) use the VNC serving as the access client 255, the campaign manager 216 may install additional fake credentials, files, password(s) and/or the like on the external endpoint 251from which the VNC is initiated.\n\nIn some cases, the access client 255 may be offered with automatic password completion when accessing a resource, a service and/or an application at the remote network. In such case(s), the campaign manager 216 may manipulate the automatic password completion and provide fake password(s) to the access client 255 accessing the protected network 235.\n\nArchive files, for example, zip, rar, tar.gz and/or the like. In case the external user(s) using the access client 255 performs a backup and/or retrieves data from the protected network 235, the campaign manager 216 may insert one or more deception data objects 214 into one or more of the created archive files.\n\nAn account. The campaign manager 216 may provide the external user(s) one or more false accounts for accessing one of more of the deception applications 212. The campaign manager 216 may configure each of the deception data objects 214 to interact with one or more of the deception resources 210. The campaign manager 216 may configure the deception data objects 214 and define their relationships according to a deception policy and/or methods defined for the deception campaign. Naturally, the campaign manager 216 creates and configures the deception data objects 214 according to the resource(s) 222 accessed by the access client(s) 255. The campaign manager 216 also defines the interaction with the deception resource(s) 210 which map the accessed resource(s) 222. For example, the deceptive data object 214 of type \"browser cookie\" may be created to interact with one or more deception resources 210, for example, a fake website and/or a deception application launched using, for example, a deception resource 210 of type \"browser\" created during the deception campaign. As another example, a deceptive data object 214 of type \"compressed file\" may be created for external user(s) using a certain one of the external endpoints 251. As another example, a deceptive data object 214 of type \"credentials\" may be created for users accessing a certain application 212 of type \"ERP\". Optionally, the campaign manager 216 periodically and/or dynamically updates one or more of the deception data objects 214 to impersonate an active real (valid) processing environment such that the deception data objects 214 appear to be valid data objects to lead the potential attacker to believe the emulated deception environment is a real one."},
    :db/ident :d3f/Reference-SupplyChainCyber-deception_Cymmetria%2CInc.,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - Supply chain cyber-deception - Cymmetria, Inc."})
 
 (def Reference-SuspiciousArguments_MITRE
@@ -22905,9 +22096,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-SuspiciousArguments_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-07-001: Suspicious Arguments - MITRE"})
 
 (def Reference-SuspiciousRunLocations_MITRE
@@ -22925,9 +22114,7 @@
      "No authors provided for reference" "MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-SuspiciousRunLocations_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-05-002: Suspicious Run Locations - MITRE"})
 
 (def
@@ -22945,8 +22132,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SynchronizingAHoneyNetworkConfigurationToReflectATargetNetworkEnvironment_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Synchronizing a honey network configuration to reflect a target network environment - Palo Alto Networks Inc"})
 
@@ -22969,8 +22155,7 @@
    "System, method, and computer program product for detecting and assessing security risks in a network",
    :db/ident
    :d3f/Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System, method, and computer program product for detecting and assessing security risks in a network - Exabeam Inc"})
 
@@ -22991,8 +22176,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemAndAMethodForIdentifyingThePresenceOfMalwareAndRansomwareUsingMini-trapsSetAtNetworkEndpoints_FidelisCybersecuritySolutionsInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and a method for identifying the presence of malware and ransomware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"})
 
@@ -23011,8 +22195,7 @@
    "System and method for detecting homoglyph attacks with a siamese convolutional neural network",
    :db/ident
    :d3f/Reference-SystemAndMethodForDetectingHomoglyphAttacksWithASiameseConvolutionalNeuralNetwork_EndgameInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for detecting homoglyph attacks with a siamese convolutional neural network - Endgame Inc"})
 
@@ -23032,8 +22215,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemAndMethodForDetectingMalwareInjectedIntoMemoryOfAComputingDevice_EndgameInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for detecting malware injected into memory of a computing device - Endgame Inc"})
 
@@ -23053,8 +22235,7 @@
    "System and Method for Detection of a Change in Behavior in the Use of a Website Through Vector Velocity Analysis",
    :db/ident
    :d3f/Reference-SystemAndMethodForDetectionOfAChangeInBehaviorInTheUseOfAWebsiteThroughVectorVelocityAnalysis_SilverTailSystems,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and Method for Detection of a Change in Behavior in the Use of a Website Through Vector Velocity Analysis - Silver Tail Systems"})
 
@@ -23075,8 +22256,7 @@
    "System and method for identifying the presence of malware using mini-traps set at network endpoints",
    :db/ident
    :d3f/Reference-SystemAndMethodForIdentifyingThePresenceOfMalwareUsingMini-trapsSetAtNetworkEndpoints_FidelisCybersecuritySolutionsInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for identifying the presence of malware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"})
 
@@ -23092,8 +22272,7 @@
    :d3f/kb-reference-of :d3f/DatabaseQueryStringAnalysis,
    :d3f/kb-reference-title "System and method for internet security",
    :db/ident :d3f/Reference-SystemAndMethodForInternetSecurity_CylanceInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for internet security - Cylance Inc"})
 
@@ -23108,8 +22287,7 @@
    "System and method for managed security assessment and mitigation",
    :db/ident
    :d3f/Reference-SystemAndMethodForManagedSecurityAssessmentAndMitigation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for managed security assessment and mitigation"})
 
@@ -23130,8 +22308,7 @@
    "System and Method for Network Security Including Detection of Attacks Through Partner Websites",
    :db/ident
    :d3f/Reference-SystemAndMethodForNetworkSecurityIncludingDetectionOfAttacksThroughPartnerWebsites_EMCIPHoldingCoLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and Method for Network Security Including Detection of Attacks Through Partner Websites - EMC IP Holding Co LLC"})
 
@@ -23148,8 +22325,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemAndMethodForProcessHollowingDetection_CarbonBlackInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and Method for Process Hollowing Detection - Carbon Black Inc"})
 
@@ -23168,8 +22344,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemAndMethodForProvidingAnActivelyInvalidatedClient-sideNetworkResourceCache_IMVU,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for providing an actively invalidated client-side network resource cache - IMVU"})
 
@@ -23186,8 +22361,7 @@
    "System and method for providing anonymous remailing and filtering of electronic mail",
    :db/ident
    :d3f/Reference-SystemAndMethodForProvidingAnonymousRemailingAndFilteringOfElectronicMail_Nokia,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for providing anonymous remailing and filtering of electronic mail - Nokia"})
 
@@ -23204,8 +22378,7 @@
    "System and method for scanning remote services to locate stored objects with malware",
    :db/ident
    :d3f/Reference-SystemAndMethodForScanningRemoteServicesToLocateStoredObjectsWithMalware,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for scanning remote services to locate stored objects with malware"})
 
@@ -23225,8 +22398,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemAndMethodForValidatingIn-memoryIntegrityOfExecutableFilesToIdentifyMaliciousActivity_EndgameInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for validating in-memory integrity of executable files to identify malicious activity - Endgame Inc"})
 
@@ -23240,8 +22412,7 @@
    :d3f/kb-reference-of :d3f/AssetVulnerabilityEnumeration,
    :d3f/kb-reference-title "System and method for vulnerability risk analysis",
    :db/ident :d3f/Reference-SystemAndMethodForVulnerabilityRiskAssessment,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - System and method for vulnerability risk analysis"})
 
 (def
@@ -23261,8 +22432,7 @@
    "System and method thereof for identifying and responding to security incidents based on preemptive forensics",
    :db/ident
    :d3f/Reference-SystemAndMethodThereofForIdentifyingAndRespondingToSecurityIncidentsBasedOnPreemptiveForensics_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method thereof for identifying and responding to security incidents based on preemptive forensics - Palo Alto Networks Inc"})
 
@@ -23282,8 +22452,7 @@
    "System and methods thereof for causality identification and attributions determination of processes in a network",
    :db/ident
    :d3f/Reference-SystemAndMethodsThereofForCausalityIdentificationAndAttributionsDeterminationOfProcessesInANetwork_PaloAltoNetworksIncCyberSecdoLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and methods thereof for causality identification and attributions determination of processes in a network - Palo Alto Networks IncCyber Secdo Ltd"})
 
@@ -23302,8 +22471,7 @@
    "System and methods thereof for detection of persistent threats in a computerized environment background",
    :db/ident
    :d3f/Reference-SystemAndMethodsThereofForDetectionOfPersistentThreatsInAComputerizedEnvironmentBackground_PaloAltoNetworksIncCyberSecdoLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and methods thereof for detection of persistent threats in a computerized environment background - Palo Alto Networks IncCyber Secdo Ltd"})
 
@@ -23323,8 +22491,7 @@
    "System and methods thereof for identification of suspicious system processes",
    :db/ident
    :d3f/Reference-SystemAndMethodsThereofForIdentificationOfSuspiciousSystemProcesses_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and methods thereof for identification of suspicious system processes - Palo Alto Networks Inc"})
 
@@ -23344,8 +22511,7 @@
    "System and methods thereof for logical identification of malicious threats across a plurality of end-point devices (epd) communicatively connected by a network",
    :db/ident
    :d3f/Reference-SystemAndMethodsThereofForLogicalIdentificationOfMaliciousThreatsAcrossAPluralityOfEnd-pointDevicesCommunicativelyConnectedByANetwork_PaloAltoNetworksIncCyberSecdoLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and methods thereof for logical identification of malicious threats across a plurality of end-point devices (epd) communicatively connected by a network - Palo Alto Networks IncCyber Secdo Ltd"})
 
@@ -23365,8 +22531,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemAndMethodsThereofForPreventingRansomwareFromEncryptingDataElementsStoredInAMemoryOfAComputer-basedSystem_PaloAltoNetworksInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and methods thereof for preventing ransomware from encrypting data elements stored in a memory of a computer-based system - Palo Alto Networks Inc"})
 
@@ -23385,8 +22550,7 @@
    "System for detecting threats using scenario-based tracking of internal and external network traffic",
    :db/ident
    :d3f/Reference-SystemForDetectingThreatsUsingScenario-basedTrackingOfInternalAndExternalNetworkTraffic_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System for detecting threats using scenario-based tracking of internal and external network traffic - VECTRA NETWORKS Inc"})
 
@@ -23406,8 +22570,7 @@
    "System for implementing threat detection using daily network traffic community outliers",
    :db/ident
    :d3f/Reference-SystemForImplementingThreatDetectionUsingDailyNetworkTrafficCommunityOutliers_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System for implementing threat detection using daily network traffic community outliers - VECTRA NETWORKS Inc"})
 
@@ -23426,8 +22589,7 @@
    "System for implementing threat detection using threat and risk assessment of asset-actor interactions",
    :db/ident
    :d3f/Reference-SystemForImplementingThreatDetectionUsingThreatAndRiskAssessmentOfAsset-actorInteractions_VECTRANETWORKSInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System for implementing threat detection using threat and risk assessment of asset-actor interactions - VECTRA NETWORKS Inc"})
 
@@ -23447,8 +22609,7 @@
    "Systems and methods for detecting and/or handling targeted attacks in the email channel",
    :db/ident
    :d3f/Reference-SystemsAndMethodsForDetectingAnd_orHandlingTargetedAttacksInTheEmailChannel_GraphusInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Systems and methods for detecting and/or handling targeted attacks in the email channel - Graphus Inc"})
 
@@ -23465,8 +22626,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-SystemsAndMethodsForDetectingCredentialTheft_SymantecCorp,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Systems and methods for detecting credential theft - Symantec Corp"})
 
@@ -23479,8 +22639,7 @@
    "TCG Trusted Attestation Protocol Use Cases for TPM Families 1.2 and 2.0 and DICE",
    :db/ident
    :d3f/Reference-TCGTrustedAttestationProtocolUseCasesForTPMFamilies1.2And2.0AndDICE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - TCG Trusted Attestation Protocol Use Cases for TPM Families 1.2 and 2.0 and DICE"})
 
@@ -23499,8 +22658,7 @@
                "MITRE Analysis was not found"},
    :db/ident
    :d3f/Reference-TPM2.0LibrarySpecification_TrustedComputingGroup%2CIncorporated,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - TPM 2.0 Library Specification - Trusted Computing Group, Incorporated"})
 
@@ -23517,8 +22675,7 @@
    :d3f/kb-reference-title "Tamper proof mutating software",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-TamperProofMutatingSoftware_ARXANTECHNOLOGIESInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Tamper proof mutating software - ARXAN TECHNOLOGIES Inc"})
 
@@ -23533,8 +22690,7 @@
    "Technical Specifications for Construction and Management of Sensitive Compartmented Information Facilities",
    :db/ident
    :d3f/Reference-Technical_Specifications_for_Construction_and_Management_of_Sensitive_Compartmented_Information_Facilities,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - Technical Specifications for Construction and Management of Sensitive Compartmented Information Facilities"})
 
@@ -23551,8 +22707,7 @@
    "Techniques for impeding and detecting network threats",
    :db/ident
    :d3f/Reference-TechniquesForImpedingAndDetectingNetworkThreats_VerisignInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Techniques for impeding and detecting network threats - Verisign Inc"})
 
@@ -23567,8 +22722,7 @@
                           :d3f/PassivePhysicalLinkMapping},
    :d3f/kb-reference-title "Tenable Passive Network Monitoring",
    :db/ident :d3f/Reference-TenablePassiveNetworkMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Tenable Passive Network Monitoring"})
 
 (def
@@ -23582,8 +22736,7 @@
    "Testing Metrics for Password Creation Policies by Attacking Large Sets of Revealed Passwords",
    :db/ident
    :d3f/Reference-Testing_Metrics_for_Password_Creation_Policies_by_Attacking_Large_Sets_of_Revealed_Passwords,
-   :rdf/type #{:d3f/D3FENDThing :d3f/AcademicPaperReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Testing Metrics for Password Creation Policies by Attacking Large Sets of Revealed Passwords"})
 
@@ -23597,8 +22750,7 @@
    :d3f/kb-reference-of :d3f/IdentifierActivityAnalysis,
    :d3f/kb-reference-title "The Pyramid of Pain",
    :db/ident :d3f/Reference-ThePyramidOfPain-DavidBianco,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - The Pyramid of Pain - David Bianco"})
 
 (def Reference-ThreatDetectionForReturnOrientedProgramming_CrowdstrikeInc
@@ -23614,8 +22766,7 @@
    :d3f/kb-reference-title "Threat detection for return oriented programming",
    :db/ident
    :d3f/Reference-ThreatDetectionForReturnOrientedProgramming_CrowdstrikeInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Threat detection for return oriented programming - Crowdstrike Inc"})
 
@@ -23635,8 +22786,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-ThreatDetectionThroughTheAccumulatedDetectionOfThreatCharacteristics_SophosLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Threat detection through the accumulated detection of threat characteristics - Sophos Ltd"})
 
@@ -23653,8 +22803,7 @@
    "Tivoli Application Dependency Discovery Manager 7.3.0 - Dependencies between resources",
    :db/ident
    :d3f/Reference-TivoliApplicationDependencyDiscoverManager7_3_0DependenciesBetweenResources,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Tivoli Application Dependency Discovery Manager 7.3.0 - Dependencies between resources"})
 
@@ -23668,8 +22817,7 @@
    "Tokenless biometric transaction authorization method and system",
    :db/ident
    :d3f/Reference-TokenlessBiometricTransactionAuthorizationMethodAndSystem,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Tokenless biometric transaction authorization method and system"})
 
@@ -23678,9 +22826,7 @@
    :d3f/kb-reference-of :d3f/FileIntegrityMonitoring,
    :d3f/kb-reference-title "Reference - Tripwire",
    :db/ident            :d3f/Reference-Tripwire,
-   :rdf/type            #{:d3f/D3FENDThing :d3f/UserManualReference
-                          :d3f/Reference :d3f/TechniqueReference
-                          :owl/NamedIndividual},
+   :rdf/type            #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label          "Reference - Tripwire"})
 
 (def Reference-TrustedAttestationProtocolUseCases
@@ -23691,8 +22837,7 @@
    "## Document Abstract\nThis specification defines the Trusted Platform Module (TPM) a device that enables trust in computing platforms in general. It is broken into parts to make the role of each part clear. All parts are required in order to constitute a complete standard. For a complete definition of all requirements necessary to build a TPM, the designer will need to use the appropriate platform-specific specification to understand all of the requirements for a TPM in a specific application or make appropriate choices as an implementer. Those wishing to create a TPM need to be aware that this specification does not provide a complete picture of the options and commands necessary to implement a TPM. To implement a TPM the designer needs to refer to the relevant platform-specific specification to understand the options and settings required for a TPM in a specific type of platform or make appropriate choices as an implementer.",
    :d3f/kb-reference-title "Trusted Attestation Protocol Use Cases",
    :db/ident :d3f/Reference-TrustedAttestationProtocolUseCases,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Trusted Attestation Protocol Use Cases"})
 
 (def
@@ -23709,8 +22854,7 @@
    :d3f/kb-reference-title "Trusted Communications With Child Processes",
    :db/ident
    :d3f/Reference-TrustedCommunicationsWithChildProcesses_MicrosoftTechnologyLicensingLLC,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Trusted Communications With Child Processes - Microsoft Technology Licensing LLC"})
 
@@ -23728,9 +22872,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-UACBypass_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2019-04-001: UAC Bypass - MITRE"})
 
 (def Reference-UEFIPlatformInitialization-Specification
@@ -23740,8 +22882,7 @@
    :d3f/kb-reference-of :d3f/BootloaderAuthentication,
    :d3f/kb-reference-title "UEFI Platform Initialization (PI) Specification",
    :db/ident :d3f/Reference-UEFIPlatformInitialization-Specification,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - UEFI Platform Initialization (PI) Specification"})
 
 (def Reference-USBFilterForHubMaliciousCodePreventionSystem
@@ -23755,8 +22896,7 @@
    :d3f/kb-reference-title
    "Universal serial bus (USB) filter hub malicious code prevention system",
    :db/ident :d3f/Reference-USBFilterForHubMaliciousCodePreventionSystem,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - USB filter for hub malicious code prevention system"})
 
@@ -23771,8 +22911,7 @@
      :d3f/OperationalActivityMapping :d3f/OperationalDependencyMapping},
    :d3f/kb-reference-title "Unified Architecture Framework (UAF)",
    :db/ident :d3f/Reference-UnifiedArchitectureFrameworkUAF,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Unified Architecture Framework (UAF)"})
 
 (def Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries
@@ -23782,8 +22921,7 @@
    :d3f/kb-organization "Microsoft",
    :d3f/kb-reference-title "Use DNS Policy for Applying Filters on DNS Queries",
    :db/ident :d3f/Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries,
-   :rdf/type #{:d3f/D3FENDThing :d3f/UserManualReference :d3f/Reference
-               :d3f/TechniqueReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Use DNS Policy for Applying Filters on DNS Queries"})
 
@@ -23802,8 +22940,7 @@
    "Use of an application controller to monitor and control software file and application environments",
    :db/ident
    :d3f/Reference-UseOfAnApplicationControllerToMonitorAndControlSoftwareFileAndApplicationEnvironments_SophosLtd,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Use of an application controller to monitor and control software file and application environments - Sophos Ltd"})
 
@@ -23816,8 +22953,7 @@
    :d3f/kb-reference-of :d3f/ProcessTermination,
    :d3f/kb-reference-title "Use Rkill to Stop Malware Processes",
    :db/ident :d3f/Reference-UseRkillToStopMalwareProcesses-Ghacks.net,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual},
+   :rdf/type #{:d3f/TechniqueReference :owl/NamedIndividual},
    :rdfs/label "Reference - Use Rkill to Stop Malware Processes - ghacks.net"})
 
 (def Reference-UserActivityFromClearingEventLogs_MITRE
@@ -23835,9 +22971,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-UserActivityFromClearingEventLogs_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2016-04-002: User Activity from Clearing Event Logs - MITRE"})
 
@@ -23855,9 +22989,7 @@
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
    :d3f/Reference-UserActivityFromStoppingWindowsDefensiveServices_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2016-04-003: User Activity from Stopping Windows Defensive Services - MITRE"})
 
@@ -23876,9 +23008,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-UserLoggedInToMultipleHosts_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-02-012: User Logged in to Multiple Hosts - MITRE"})
 
@@ -23895,9 +23025,7 @@
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
    :db/ident :d3f/Reference-UserLoginActivityMonitoring_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2013-10-001: User Login Activity Monitoring - MITRE"})
 
@@ -23912,8 +23040,7 @@
    "Using spanning tree protocol (STP) to enhance layer-2 topology maps",
    :db/ident
    :d3f/Reference-UsingSpanningTreeProtocolSTPToEnhanceLayer2NetworkTopologyMaps,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Using spanning tree protocol (STP) to enhance layer-2 topology maps"})
 
@@ -23929,8 +23056,7 @@
    :d3f/kb-reference-title "Virtualized process isolation",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-VirtualizedProcessIsolation_AdvancedMicroDevicesInc,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/PatentReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Virtualized process isolation - Advanced Micro Devices Inc"})
 
@@ -23942,8 +23068,7 @@
                           :d3f/NetworkNodeInventory},
    :d3f/kb-reference-title "Web-Based Enterprise Management",
    :db/ident     :d3f/Reference-Web-BasedEnterpriseManagement,
-   :rdf/type     #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-                   :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type     #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label   "Reference - Web-Based Enterprise Management"})
 
 (def Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2
@@ -23956,8 +23081,7 @@
    "Web Authentication: An API for accessing Public Key Credentials\nLevel 2",
    :db/ident
    :d3f/Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - Web Authentication: An API for accessing Public Key Credentials\nLevel 2"})
 
@@ -23973,8 +23097,7 @@
    :d3f/todo #{"No authors provided for reference"
                "MITRE Analysis was not found"},
    :db/ident :d3f/Reference-WhatIsNX_XDFeature_RedHat,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - What is NX/XD feature?"})
 
 (def Reference-Windows-Management-Infrastructure
@@ -23987,8 +23110,7 @@
                           :d3f/NetworkNodeInventory},
    :d3f/kb-reference-title "Windows Management Infrastructure",
    :db/ident :d3f/Reference-Windows-Management-Infrastructure,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Windows Management Infrastructure (MI)"})
 
 (def Reference-Windows-Management-Instrumentation
@@ -24001,8 +23123,7 @@
                           :d3f/NetworkNodeInventory},
    :d3f/kb-reference-title "Windows Management Instrumentation",
    :db/ident :d3f/Reference-Windows-Management-Instrumentation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :owl/NamedIndividual :d3f/SpecificationReference},
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Windows Management Instrumentation (WMI)"})
 
 (def Reference-Windows10STIG
@@ -24012,9 +23133,7 @@
    :d3f/kb-reference-of :d3f/ApplicationConfigurationHardening,
    :d3f/kb-reference-title "Windows 10 Security Technical Implementation Guide",
    :db/ident            :d3f/Reference-Windows10STIG,
-   :rdf/type            #{:d3f/D3FENDThing :d3f/GuidelineReference
-                          :d3f/Reference :d3f/TechniqueReference
-                          :d3f/PolicyReference :owl/NamedIndividual},
+   :rdf/type            #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label          "Reference - Windows 10 STIG"})
 
 (def Reference-WindowsRemoteManagement_WinRM_MITRE
@@ -24030,9 +23149,7 @@
      "MITRE Analysis was not found"
      "Could not determine reference type; TechniqueReference class used instead"},
    :db/ident :d3f/Reference-WindowsRemoteManagement_WinRM_MITRE,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExternalKnowledgeBase :d3f/Reference
-               :d3f/TechniqueReference :d3f/D3FENDCatalogThing
-               :owl/NamedIndividual :d3f/InformationContentEntity},
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2014-11-006: Windows Remote Management (WinRM) - MITRE"})
 
@@ -24047,8 +23164,7 @@
    :d3f/kb-reference-title "Keystroke Dynamics",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident :d3f/Reference-www.biometric-solutions.com_keystroke-dynamics,
-   :rdf/type #{:d3f/D3FENDThing :d3f/Reference :d3f/TechniqueReference
-               :d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - http://www.biometric-solutions.com/keystroke-dynamics.html - biometric-solutions.com"})
 
@@ -24060,87 +23176,51 @@
 
 (def RegOpenKeyA
   {:db/ident :d3f/RegOpenKeyA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent
-               :d3f/GetSystemConfigValue}})
+   :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
 
 (def RegOpenKeyExA
   {:db/ident :d3f/RegOpenKeyExA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent
-               :d3f/GetSystemConfigValue}})
+   :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
 
 (def RegOpenKeyExW
   {:db/ident :d3f/RegOpenKeyExW,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent
-               :d3f/GetSystemConfigValue}})
+   :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
 
 (def RegOpenKeyTransactedA
   {:db/ident :d3f/RegOpenKeyTransactedA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent
-               :d3f/GetSystemConfigValue}})
+   :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
 
 (def RegOpenKeyTransactedW
   {:db/ident :d3f/RegOpenKeyTransactedW,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent
-               :d3f/GetSystemConfigValue}})
+   :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
 
 (def RegOpenKeyW
   {:db/ident :d3f/RegOpenKeyW,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/Artifact :d3f/SystemCall
-               :owl/NamedIndividual :d3f/DigitalEvent
-               :d3f/GetSystemConfigValue}})
+   :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
 
 (def RegSetKeyValueA
   {:db/ident :d3f/RegSetKeyValueA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/SetSystemConfigValue
-               :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-               :d3f/DigitalEvent}})
+   :rdf/type #{:d3f/SetSystemConfigValue :owl/NamedIndividual}})
 
 (def RegSetKeyValueW
   {:db/ident :d3f/RegSetKeyValueW,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/SetSystemConfigValue
-               :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-               :d3f/DigitalEvent}})
+   :rdf/type #{:d3f/SetSystemConfigValue :owl/NamedIndividual}})
 
 (def RegSetValueA
   {:db/ident :d3f/RegSetValueA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/SetSystemConfigValue
-               :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-               :d3f/DigitalEvent}})
+   :rdf/type #{:d3f/SetSystemConfigValue :owl/NamedIndividual}})
 
 (def RegSetValueExA
   {:db/ident :d3f/RegSetValueExA,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/SetSystemConfigValue
-               :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-               :d3f/DigitalEvent}})
+   :rdf/type #{:d3f/SetSystemConfigValue :owl/NamedIndividual}})
 
 (def RegSetValueExW
   {:db/ident :d3f/RegSetValueExW,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/SetSystemConfigValue
-               :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-               :d3f/DigitalEvent}})
+   :rdf/type #{:d3f/SetSystemConfigValue :owl/NamedIndividual}})
 
 (def RegSetValueW
   {:db/ident :d3f/RegSetValueW,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/SystemConfigSystemCall :d3f/SetSystemConfigValue
-               :d3f/Artifact :d3f/SystemCall :owl/NamedIndividual
-               :d3f/DigitalEvent}})
+   :rdf/type #{:d3f/SetSystemConfigValue :owl/NamedIndividual}})
 
 (def RegexMatching
   {:d3f/d3fend-id "D3A-RM",
@@ -24195,9 +23275,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/Credential,
    :db/ident :d3f/ReissueCredential,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Reissue Credential",
    :rdfs/subClassOf #{:d3f/RestoreObject
                       {:owl/onProperty     :d3f/restores,
@@ -24226,9 +23304,7 @@
    :d3f/Reference-MaliciousRelayDetectionOnNetworks_VECTRANETWORKSInc,
    :d3f/synonym "Relay Network Detection",
    :db/ident :d3f/RelayPatternAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Relay Pattern Analysis",
    :rdfs/subClassOf #{:d3f/NetworkTrafficAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -24291,7 +23367,7 @@
   {:d3f/definition
    "A remote login session is a login session where a client has logged in from their local host machine to a server via a network.",
    :db/ident :d3f/RemoteSession,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Remote Session",
    :rdfs/subClassOf :d3f/LoginSession})
 
@@ -24315,9 +23391,7 @@
      :d3f/Reference-RDPConnectionDetection_MITRE
      :d3f/Reference-MethodAndSystemForDetectingExternalControlOfCompromisedHosts_VECTRANETWORKSInc},
    :db/ident :d3f/RemoteTerminalSessionDetection,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/NetworkTrafficAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Remote Terminal Session Detection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -24328,7 +23402,7 @@
   {:d3f/definition
    "A removable media device is a hardware device used for computer storage and that is designed to be inserted and removed from the system.  It is distinct from other removable media in that all the hardware required to read the data are built into the device.  So USB flash drives and external hard drives are removable media devices, whereas tapes and disks are not, as they require additional hardware to perform read/write operations.",
    :db/ident :d3f/RemovableMediaDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Removable Media Device",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Removable_media"},
    :rdfs/subClassOf :d3f/HardwareDevice})
@@ -24359,7 +23433,7 @@
   {:d3f/definition
    "In computing, a system resource, or simply resource, is any physical or virtual component of limited availability within a computer system. Every device connected to a computer system is a resource. Every internal system component is a resource. Virtual system resources include files (concretely file handles), network connections (concretely network sockets), and memory areas. Managing resources is referred to as resource management, and includes both preventing resource leaks (releasing a resource when a process has finished using it) and dealing with resource contention (when multiple processes wish to access a limited resource).",
    :db/ident :d3f/Resource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/System_resource"},
    :rdfs/label "Resource",
@@ -24369,7 +23443,7 @@
   {:d3f/definition
    "Ephemeral digital artifact comprising a request of a resource and any response from that resource.",
    :db/ident :d3f/ResourceAccess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Resource Access",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Computer_access_control"},
@@ -24389,9 +23463,7 @@
      :d3f/Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc
      :d3f/Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd},
    :db/ident :d3f/ResourceAccessPatternAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Resource Access Pattern Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Authorization,
@@ -24404,14 +23476,14 @@
 (def ResourceDevelopment
   {:d3f/display-order 0,
    :db/ident          :d3f/ResourceDevelopment,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class},
+   :rdf/type          :owl/Class,
    :rdfs/label        "Resource Development",
    :rdfs/subClassOf   :d3f/OffensiveTactic})
 
 (def ResourceDevelopmentTechnique
   {:d3f/enables     :d3f/ResourceDevelopment,
    :db/ident        :d3f/ResourceDevelopmentTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Resource Development Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/ResourceDevelopment,
@@ -24422,7 +23494,7 @@
   {:d3f/definition
    "The resource fork is a fork or section of a file on Apple's classic Mac OS operating system, which was also carried over to the modern macOS for compatibility, used to store structured data along with the unstructured data stored within the data fork.",
    :db/ident :d3f/ResourceFork,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Resource_fork"},
    :rdfs/label "Resource Fork",
    :rdfs/subClassOf :d3f/FileSection})
@@ -24433,7 +23505,7 @@
    :d3f/display-order 5,
    :d3f/display-priority 0,
    :db/ident :d3f/Restore,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Restore",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -24444,9 +23516,7 @@
    :d3f/kb-reference
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :db/ident :d3f/RestoreAccess,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Restore Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Restore,
@@ -24460,9 +23530,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/ConfigurationResource,
    :db/ident :d3f/RestoreConfiguration,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore Configuration",
    :rdfs/subClassOf #{:d3f/RestoreObject
                       {:owl/onProperty     :d3f/restores,
@@ -24476,9 +23544,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/Database,
    :db/ident :d3f/RestoreDatabase,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore Database",
    :rdfs/subClassOf #{:d3f/RestoreObject
                       {:owl/onProperty     :d3f/restores,
@@ -24491,9 +23557,7 @@
    :d3f/kb-reference
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :db/ident :d3f/RestoreDiskImage,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore Disk Image",
    :rdfs/subClassOf :d3f/RestoreObject})
 
@@ -24504,9 +23568,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/Email,
    :db/ident :d3f/RestoreEmail,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/RestoreFile :d3f/D3FENDCatalogThing :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreFile :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore Email",
    :rdfs/subClassOf #{:d3f/RestoreFile
                       {:owl/onProperty     :d3f/restores,
@@ -24520,9 +23582,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/File,
    :db/ident :d3f/RestoreFile,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore File",
    :rdfs/subClassOf #{:d3f/RestoreObject
                       {:owl/onProperty     :d3f/restores,
@@ -24536,9 +23596,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/Host,
    :db/ident :d3f/RestoreNetworkAccess,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreAccess :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreAccess :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore Network Access",
    :rdfs/subClassOf #{:d3f/RestoreAccess
                       {:owl/onProperty     :d3f/restores,
@@ -24551,9 +23609,7 @@
    "Restoring an object for an entity to access. This is the broadest class for object restoral.",
    :d3f/enables :d3f/Restore,
    :db/ident :d3f/RestoreObject,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "Restore Object",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Restore,
@@ -24567,9 +23623,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/Software,
    :db/ident :d3f/RestoreSoftware,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreObject :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreObject :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore Software",
    :rdfs/subClassOf #{:d3f/RestoreObject
                       {:owl/onProperty     :d3f/restores,
@@ -24583,9 +23637,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/UserAccount,
    :db/ident :d3f/RestoreUserAccountAccess,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreAccess :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreAccess :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore User Account Access",
    :rdfs/subClassOf #{:d3f/RestoreAccess
                       {:owl/onProperty     :d3f/restores,
@@ -24610,9 +23662,7 @@
    "## How it works\n\nIn reverse resolution requests, the client sends to a nameserver (such as a DNS server) a query of an IP address, to get a response of the associated domain name(s). This technique drops reverse lookup responses where a domain name matches an entry in the blacklist, either verbatim or as a wildcard subdomain of a higher-level domain on the list. Such domain names might be unwanted because Forward Domain Name Resolution requests to such a blacklisted domain might return an unwanted IP address.\n\nThis technique is useful because relying solely on Forward Resolution Domain Blacklisting will miss instances where the domain in question is forward-resolved in a manner that is not inspected via a subsequent technique (as is likely the case if that resolution is performed with DoH (DNS over HTTPS) or DoT (DNS over TLS)). Additionally, note that responses to forward lookups of that domain are *not* necessarily equal to the original IP in the reverse lookup request, and that future lookups of a string based on this domain may even employ a less-common name resolution protocol, such as NBNS.\n\nThe DNS response can either be blocked by dropping the network traffic with an inline device, or by modifying the value of the response sent by the DNS server.  To prevent client applications from hanging on a request, it is common practice to replace malicious values, either with names like \"localhost.\" or the address of a honeypot maintained by the network administrators.\n\n## Considerations\n\n* This technique does not prevent the client from contacting the blacklisted domain or any IP addresses that it might resolve to, only from learning about this domain name via a nameserver lookup.\n* DNS response traffic can be transmitted over many different protocols, which presents a challenge to implementing methods to extract all DNS answer domain name value(s).\n  * DNS has historically used UDP port 53, with TCP port 53 instead used for responses over 512 bytes or after a lack of response over UDP.\n  * Usage of new protocols to provide confidentiality for DNS traffic, such as DoH (DNS over HTTPS) and DoT (DNS over TLS), complicates collection of the IP address(es) in DNS responses. These protocols have often been enabled in browser settings transparently after a browser update, with DNS requests proxied over one of these cryptographic protocols through a specified host.\n* This technique must be deployed between the application that receives the response and the server which sent the response.\n  * DNS responses sent in an encrypted manner, such as using DoH or DoT, will require interception of the TLS connections in order to determine the domain name(s) in the response.\n* Replacing the response is not effective in the case that the nameserver uses a technique to provide integrity of its responses, such as DNSSEC for DNS responses.",
    :d3f/synonym "Reverse Resolution Domain Blacklisting",
    :db/ident :d3f/ReverseResolutionDomainDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DNSDenylisting
-               :d3f/NetworkIsolation :d3f/D3FENDCatalogThing :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class},
    :rdfs/label "Reverse Resolution Domain Denylisting",
    :rdfs/subClassOf #{:d3f/DNSDenylisting
                       {:owl/onProperty :d3f/blocks,
@@ -24630,9 +23680,7 @@
    :d3f/kb-reference :d3f/Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries,
    :d3f/synonym "Reverse Resolution IP Blacklisting",
    :db/ident :d3f/ReverseResolutionIPDenylisting,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/DNSDenylisting
-               :d3f/NetworkIsolation :d3f/D3FENDCatalogThing :d3f/Technique
-               :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class},
    :rdfs/label "Reverse Resolution IP Denylisting",
    :rdfs/subClassOf #{:d3f/DNSDenylisting
                       {:owl/onProperty :d3f/blocks,
@@ -24652,9 +23700,7 @@
 
 (def RubyScriptFile
   {:db/ident   :d3f/RubyScriptFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/ExecutableScript
-                 :d3f/DigitalArtifact :d3f/DigitalObject :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Ruby Script File"})
 
 (def SARSA
@@ -24675,7 +23721,7 @@
   {:d3f/definition
    "A Secure Shell Protocol (SSH) session is a session over a secure channel established using SSH to connect a client to a server and establish the remote session.",
    :db/ident :d3f/SSHSession,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "SSH Session",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Secure_Shell_Protocol"},
@@ -24698,7 +23744,7 @@
    :d3f/modified-by :d3f/JobSchedulerSoftware,
    :d3f/synonym #{"Task Scheduler Process" "Scheduled Task"},
    :db/ident :d3f/ScheduledJob,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job",
    :rdfs/seeAlso #{{:xsd/anyURI "https://schema.ocsf.io/objects/job"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Cron"}
@@ -24729,10 +23775,7 @@
      :d3f/Reference-ExecutionWithSchtasks_MITRE},
    :d3f/synonym "Scheduled Job Execution",
    :db/ident :d3f/ScheduledJobAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "Scheduled Job Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/JobSchedule,
@@ -24752,7 +23795,7 @@
    :d3f/todo
    "Consider renaming simply \"Script Process\", as it might not be an \"application\" per se that is intended. Check against motivating offensive techniques and other relationships with Protege.",
    :db/ident :d3f/ScriptApplicationProcess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Script Application Process",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/interprets,
                        :owl/someValuesFrom :d3f/ExecutableScript,
@@ -24769,9 +23812,7 @@
    "## How it works\nSoftware installed on the host system hooks into a scripting engine to intercept commands before they are executed and block commands if they are determined to be harmful. Pattern matching is used to identify unauthorized commands or in the case of script files, a hash of the file is compared against hashes of known unauthorized script files.\n\n## Considerations\nList of known unauthorized script files or regular expression patterns must be kept up to date to ensure detection of new threats.",
    :d3f/kb-reference :d3f/Reference-DetectingScript-basedMalware_CrowdstrikeInc,
    :db/ident :d3f/ScriptExecutionAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Script Execution Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/ScriptApplicationProcess,
@@ -24804,7 +23845,7 @@
    :d3f/definition
    "Security tokens are peripheral devices used to prove one's identity electronically (as in the case of a customer trying to access their bank account). The token is used in addition to or in place of a password to prove that the customer is who they claim to be. The token acts like an electronic key to access something.",
    :db/ident :d3f/SecurityToken,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Security_token"},
    :rdfs/label "Security Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
@@ -24824,9 +23865,7 @@
    :d3f/obfuscates :d3f/ProcessSegment,
    :d3f/synonym #{"ASLR" "Address Space Layout Randomization"},
    :db/ident :d3f/SegmentAddressOffsetRandomization,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Segment Address Offset Randomization",
    :rdfs/subClassOf #{:d3f/ApplicationHardening
                       {:owl/onProperty     :d3f/obfuscates,
@@ -24989,9 +24028,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemsAndMethodsForDetectingAnd_orHandlingTargetedAttacksInTheEmailChannel_GraphusInc,
    :db/ident :d3f/SenderMTAReputationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/MessageAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/MessageAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Sender MTA Reputation Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Email,
@@ -25008,9 +24045,7 @@
    :d3f/kb-reference
    :d3f/Reference-SystemsAndMethodsForDetectingAnd_orHandlingTargetedAttacksInTheEmailChannel_GraphusInc,
    :db/ident :d3f/SenderReputationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/MessageAnalysis :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/MessageAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Sender Reputation Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Email,
@@ -25048,7 +24083,7 @@
    :d3f/manages :d3f/ServiceApplicationProcess,
    :d3f/runs :d3f/ServiceApplication,
    :db/ident :d3f/Server,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Server_(computing)"},
    :rdfs/label "Server",
@@ -25070,7 +24105,7 @@
   {:d3f/definition
    "An application that provides a set of software functionalities so that multiple clients who can reuse the functionality, provided they are authorized for use of the service.",
    :db/ident :d3f/ServiceApplication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Service Application",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/Server_(computing)"}
@@ -25080,7 +24115,7 @@
 
 (def ServiceApplicationProcess
   {:db/ident        :d3f/ServiceApplicationProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Service Application Process",
    :rdfs/subClassOf :d3f/ApplicationProcess})
 
@@ -25093,10 +24128,7 @@
    :d3f/kb-reference :d3f/Reference-ServiceBinaryModifications_MITRE,
    :d3f/verifies :d3f/ServiceApplication,
    :db/ident :d3f/ServiceBinaryVerification,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/SystemFileAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/SystemFileAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Service Binary Verification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/verifies,
                        :owl/someValuesFrom :d3f/ServiceApplication,
@@ -25107,7 +24139,7 @@
   {:d3f/definition
    "A service dependency indicates a service has an activity, agent, or another service which relies on it in order to be functional.",
    :db/ident :d3f/ServiceDependency,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Service Dependency",
    :rdfs/subClassOf :d3f/Dependency})
 
@@ -25124,9 +24156,7 @@
    :d3f/maps :d3f/ServiceDependency,
    :d3f/synonym "Distributed Tracing",
    :db/ident :d3f/ServiceDependencyMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class :d3f/SystemMapping
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/SystemMapping},
    :rdfs/label "Service Dependency Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/ServiceDependency,
@@ -25156,7 +24186,7 @@
   {:d3f/definition
    "A session cookie, also known as an in-memory cookie, transient cookie or non-persistent cookie, exists only in temporary memory while the user navigates the website. Web browsers normally delete session cookies when the user closes the browser. Unlike other cookies, session cookies do not have an expiration date assigned to them, which is how the browser knows to treat them as session cookies.",
    :db/ident :d3f/SessionCookie,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "https://schema.ocsf.io/objects/http_cookie"},
    :rdfs/label "Session Cookie",
    :rdfs/seeAlso #{{:xsd/anyURI "https://schema.ocsf.io/objects/http_cookie"}
@@ -25176,9 +24206,7 @@
    #{:d3f/Reference-MethodAndApparatusForNetworkFraudDetectionAndRemediationThroughAnalytics_IdaptiveLLC
      :d3f/Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc},
    :db/ident :d3f/SessionDurationAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Session Duration Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Authorization,
@@ -25191,7 +24219,7 @@
 (def SetSystemConfigValue
   {:d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
    :db/ident :d3f/SetSystemConfigValue,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Set System Config Value",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -25208,7 +24236,7 @@
    :d3f/todo
    "Model more completely: what manages the shadowstack, where does it reside specifically in memory.",
    :db/ident :d3f/ShadowStack,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Shadow_stack"},
    :rdfs/label "Shadow Stack",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/copy-of,
@@ -25226,9 +24254,7 @@
    :d3f/kb-reference
    :d3f/Reference-ThreatDetectionForReturnOrientedProgramming_CrowdstrikeInc,
    :db/ident :d3f/ShadowStackComparisons,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Shadow Stack Comparisons",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/StackFrame,
@@ -25248,7 +24274,7 @@
   {:d3f/definition
    "A shared library file is a file that is intended to be shared by executable files and further shared library (object) files. Modules used by a program are loaded from individual shared objects into memory at load time or runtime, rather than being copied by a linker when it creates a single monolithic executable file for the program",
    :db/ident :d3f/SharedLibraryFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "http://dbpedia.org/resource/Library_(computing)#Shared_libraries"},
@@ -25260,7 +24286,7 @@
   {:d3f/accesses    :d3f/Resource,
    :d3f/definition  "A function which access a shared resource.",
    :db/ident        :d3f/SharedResourceAccessFunction,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Shared Resource Access Function",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
@@ -25270,7 +24296,7 @@
   {:d3f/definition
    "In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere. Shims can be used to support an old API in a newer environment, or a new API in an older environment. Shims can also be used for running programs on different software platforms than those for which they were developed.",
    :db/ident :d3f/Shim,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Shim_(computing)"},
    :rdfs/label "Shim",
@@ -25280,7 +24306,7 @@
   {:d3f/definition
    "A application configuration database that contains or points to software shims (e.g., for backward compatibility, patches, etc.)",
    :db/ident :d3f/ShimDatabase,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Shim Database",
    :rdfs/subClassOf :d3f/ApplicationConfigurationDatabase})
 
@@ -25341,7 +24367,7 @@
    "Computer software, or simply software, is that part of a computer system that consists of encoded information or computer instructions, in contrast to the physical hardware from which the system is built.",
    :d3f/instructs :d3f/Process,
    :db/ident :d3f/Software,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Software"},
    :rdfs/label "Software",
    :rdfs/subClassOf #{:d3f/DigitalArtifact
@@ -25351,7 +24377,6 @@
                       {:owl/onProperty     :d3f/implements,
                        :owl/someValuesFrom :d3f/Subroutine,
                        :rdf/type           :owl/Restriction}
-                      :d3f/CapabilityImplementation
                       {:owl/onProperty     :d3f/instructs,
                        :owl/someValuesFrom :d3f/Process,
                        :rdf/type           :owl/Restriction}}})
@@ -25372,7 +24397,7 @@
   {:d3f/definition
    "Software that coordinates the deployment process of software to systems, typically remotely.",
    :db/ident :d3f/SoftwareDeploymentTool,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Software Deployment Tool",
    :rdfs/subClassOf :d3f/ServiceApplication})
 
@@ -25388,9 +24413,7 @@
                        :d3f/Reference-Windows-Management-Infrastructure},
    :d3f/synonym #{"Software Inventorying" "Software Discovery"},
    :db/ident :d3f/SoftwareInventory,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/AssetInventory
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/AssetInventory :owl/Class},
    :rdfs/label "Software Inventory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/inventories,
                        :owl/someValuesFrom :d3f/Software,
@@ -25402,7 +24425,7 @@
    :d3f/definition
    "A software library is a collection of software components that are used to build a software product.",
    :db/ident :d3f/SoftwareLibrary,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Software Library",
    :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/page/Library_(computing)"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
@@ -25415,7 +24438,7 @@
    "A software library is a collection of software components that are used to build a software product.",
    :d3f/may-contain #{:d3f/ExecutableScript :d3f/ExecutableBinary},
    :db/ident :d3f/SoftwareLibraryFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Software Library File",
    :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/page/Library_(computing)"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
@@ -25477,9 +24500,7 @@
    :d3f/Reference-MethodAndSystemForProvidingSoftwareUpdatesToLocalMachines,
    :d3f/updates :d3f/Software,
    :db/ident :d3f/SoftwareUpdate,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Software Update",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/updates,
                        :owl/someValuesFrom :d3f/Software,
@@ -25506,8 +24527,7 @@
 
 (def SourceCode
   {:db/ident        :d3f/SourceCode,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/ReferenceType :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
    :rdfs/label      "Source Code",
    :rdfs/subClassOf :d3f/InformationContentEntity})
 
@@ -25574,7 +24594,7 @@
    "A machine-dependent and application-binary-dependent (ABI-dependent) data structure containing subroutine state information including the arguments passed into the routine, the return address back to the routine's caller, and space for local variables of the routine.",
    :d3f/may-contain #{:d3f/Pointer :d3f/StackFrameCanary},
    :db/ident :d3f/StackFrame,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Call_stack#Structure"},
    :rdfs/label "Stack Frame",
@@ -25592,7 +24612,7 @@
   {:d3f/definition
    "Stack canaries, named for their analogy to a canary in a coal mine, are used to detect a stack buffer overflow before execution of malicious code can occur. This method works by placing a small integer, the value of which is randomly chosen at program start, in memory just before the stack return pointer. Most buffer overflows overwrite memory from lower to higher memory addresses, so in order to overwrite the return pointer (and thus take control of the process) the canary value must also be overwritten. This value is checked to make sure it has not changed before a routine uses the return pointer on the stack. This technique can greatly increase the difficulty of exploiting a stack buffer overflow because it forces the attacker to gain control of the instruction pointer by some non-traditional means such as corrupting other important variables on the stack.",
    :db/ident :d3f/StackFrameCanary,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "http://dbpedia.org/resource/Stack_buffer_overflow#Stack_canaries"},
@@ -25610,9 +24630,7 @@
                        :d3f/Reference-GS_BufferSecurityCheck_MicrosoftDocs},
    :d3f/validates :d3f/StackFrame,
    :db/ident :d3f/StackFrameCanaryValidation,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/ApplicationHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Stack Frame Canary Validation",
    :rdfs/subClassOf #{:d3f/ApplicationHardening
                       {:owl/onProperty     :d3f/validates,
@@ -25624,7 +24642,7 @@
    :d3f/definition
    "The stack segment contains the program stack, a last-in-first-out structure, typically allocated in the higher parts of memory for the process.",
    :db/ident :d3f/StackSegment,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Stack Segment",
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://dbpedia.org/resource/Data_segment#Stack"}
@@ -25655,9 +24673,7 @@
    :d3f/Reference-DynamicSelectionAndGenerationOfAVirtualCloneForDetonationOfSuspiciousContentWithinAHoneyNetwork_PaloAltoNetworksInc,
    :d3f/spoofs :d3f/IntranetNetwork,
    :db/ident :d3f/StandaloneHoneynet,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/DecoyEnvironment
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/DecoyEnvironment :owl/Class},
    :rdfs/label "Standalone Honeynet",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/spoofs,
                        :owl/someValuesFrom :d3f/IntranetNetwork,
@@ -25744,7 +24760,7 @@
    :d3f/may-contain :d3f/FileSystem,
    :d3f/synonym #{"Storage" "Computer data storage"},
    :db/ident :d3f/Storage,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Computer_data_storage"},
    :rdfs/label "Storage",
@@ -25757,7 +24773,7 @@
   {:d3f/definition
    "A stored procedure (also termed proc, storp, sproc, StoPro, StoredProc, StoreProc, sp, or SP) is a subroutine available to applications that access a relational database management system (RDBMS). Such procedures are stored in the database data dictionary.",
    :db/ident :d3f/StoredProcedure,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Stored_procedure"},
    :rdfs/label "Stored Procedure",
@@ -25804,9 +24820,7 @@
      :d3f/Reference-DigitalIdentityGuidelines800-63-3},
    :d3f/strengthens #{:d3f/UserAccount :d3f/Password},
    :db/ident :d3f/StrongPasswordPolicy,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CredentialHardening :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Strong Password Policy",
    :rdfs/subClassOf #{:d3f/CredentialHardening
                       {:owl/onProperty     :d3f/strengthens,
@@ -25832,7 +24846,7 @@
    "In different programming languages, a subroutine may be called a procedure, a function, a routine, a method, or a subprogram. The generic term callable unit is sometimes used.",
    :d3f/synonym #{"Software Function" "Method"},
    :db/ident :d3f/Subroutine,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Subroutine",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Subroutine"},
    :rdfs/subClassOf :d3f/Software})
@@ -25890,32 +24904,26 @@
 (def SuspendProcess
   {:d3f/suspends    :d3f/Process,
    :db/ident        :d3f/SuspendProcess,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Suspend Process",
    :rdfs/subClassOf #{:d3f/SystemCall
                       {:owl/onProperty     :d3f/suspends,
                        :owl/someValuesFrom :d3f/Process,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def SuspendThread
   {:d3f/definition
    "Suspending a thread causes the thread to stop executing user-mode code.",
    :d3f/suspends :d3f/Thread,
    :db/ident :d3f/SuspendThread,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Suspend Thread",
    :rdfs/seeAlso
    {:xsd/anyURI
     "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-suspendthread"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/suspends,
                        :owl/someValuesFrom :d3f/Thread,
-                       :rdf/type           :owl/Restriction} :d3f/SystemCall
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/SystemCall}})
 
 (def Switch
   {:d3f/definition
@@ -25945,15 +24953,13 @@
    :d3f/definition
    "A symbolic link (also symlink or soft link) is a term for any file that contains a reference to another file or directory in the form of an absolute or relative path and that affects pathname resolution.",
    :db/ident :d3f/SymbolicLink,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-               :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Symbolic_link"},
    :rdfs/label "Symbolic Link",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/addresses,
                        :owl/someValuesFrom :d3f/File,
-                       :rdf/type           :owl/Restriction} :d3f/Identifier
-                      :d3f/File :d3f/FileSystemLink},
+                       :rdf/type           :owl/Restriction} :d3f/File
+                      :d3f/FileSystemLink},
    :skos/altLabel #{"Symlink" "Soft Link" "Softlink"}})
 
 (def SymbolicLogic
@@ -26004,7 +25010,7 @@
    :d3f/executes :d3f/Subroutine,
    :d3f/synonym "API Monitoring",
    :db/ident :d3f/SystemCall,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/System_call"},
    :rdfs/label "System Call",
    :rdfs/subClassOf #{:d3f/DigitalArtifact :d3f/DigitalEvent
@@ -26029,9 +25035,7 @@
      :d3f/Reference-CredentialDumpingViaWindowsTaskManager_MITRE
      :d3f/Reference-DLLInjectionViaLoadLibrary_MITRE},
    :db/ident :d3f/SystemCallAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :d3f/ProcessAnalysis
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "System Call Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/SystemCall,
@@ -26046,10 +25050,8 @@
    :d3f/kb-reference :d3f/Reference-OverviewOfTheSeccompSandbox,
    :d3f/todo "write kb-article",
    :db/ident :d3f/SystemCallFiltering,
-   :rdf/type #{:d3f/D3FENDThing :d3f/ExecutionIsolation :d3f/CapabilityFeature
-               :d3f/D3FENDCatalogThing :d3f/Kernel-basedProcessIsolation
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/Kernel-basedProcessIsolation :owl/NamedIndividual
+               :owl/Class},
    :rdfs/label "System Call Filtering",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/filters,
                        :owl/someValuesFrom :d3f/SystemCall,
@@ -26065,7 +25067,7 @@
 (def SystemConfigurationDatabase
   {:d3f/definition  "A database used to hold system configuration data.",
    :db/ident        :d3f/SystemConfigurationDatabase,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Configuration Database",
    :rdfs/subClassOf :d3f/Database})
 
@@ -26073,7 +25075,7 @@
   {:d3f/definition
    "A database record holding information used to configure the services, parameters, and initial settings for an operating system.",
    :db/ident :d3f/SystemConfigurationDatabaseRecord,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Configuration Database Record",
    :rdfs/subClassOf #{:d3f/OperatingSystemConfigurationComponent
                       :d3f/ConfigurationDatabaseRecord}})
@@ -26082,7 +25084,7 @@
   {:d3f/definition
    "A database record holding information used to configure the services, parameters, and initial settings for an operating system at startup.",
    :db/ident :d3f/SystemConfigurationInitDatabaseRecord,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Configuration Init Database Record",
    :rdfs/subClassOf #{:d3f/SystemConfigurationDatabaseRecord
                       :d3f/SystemInitConfiguration
@@ -26107,9 +25109,7 @@
    :d3f/restricts :d3f/SystemConfigurationDatabase,
    :d3f/todo "write kb-article",
    :db/ident :d3f/SystemConfigurationPermissions,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "System Configuration Permissions",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -26131,10 +25131,7 @@
      :d3f/Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd},
    :d3f/monitors :d3f/OperatingSystemProcess,
    :db/ident :d3f/SystemDaemonMonitoring,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "System Daemon Monitoring",
    :rdfs/subClassOf #{:d3f/OperatingSystemMonitoring
                       {:owl/onProperty     :d3f/monitors,
@@ -26145,7 +25142,7 @@
   {:d3f/definition
    "A system dependency indicates a system has an activity, agent, or another system which relies on it in order to be functional.",
    :db/ident :d3f/SystemDependency,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Dependency",
    :rdfs/seeAlso
    #{{:xsd/anyURI "https://r-docs.synapse.org/articles/systemDependencies.html"}
@@ -26167,9 +25164,7 @@
      :d3f/Reference-TivoliApplicationDependencyDiscoverManager7_3_0DependenciesBetweenResources},
    :d3f/maps :d3f/SystemDependency,
    :db/ident :d3f/SystemDependencyMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class :d3f/SystemMapping
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/SystemMapping},
    :rdfs/label "System Dependency Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/SystemDependency,
@@ -26187,10 +25182,7 @@
                        :d3f/Reference-AutorunDifferences_MITRE
                        :d3f/Reference-UserActivityFromClearingEventLogs_MITRE},
    :db/ident :d3f/SystemFileAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "System File Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/OperatingSystemFile,
@@ -26204,23 +25196,20 @@
    :d3f/todo
    "No SystemFirewall class specified in ontology to relate the configuration concept to... ahem.",
    :db/ident :d3f/SystemFirewallConfiguration,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "System Firewall Configuration",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Firewall_(computing)"},
    :rdfs/subClassOf #{:d3f/OperatingSystemConfigurationComponent
                       {:owl/onProperty     :d3f/configures,
                        :owl/someValuesFrom :d3f/Host-basedFirewall,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction}}})
 
 (def SystemFirmware
   {:d3f/definition
    "Firmware that is installed on a computer's main board which manages the initial boot process. It can also continue to run or function after the operating system boots.",
    :db/ident :d3f/SystemFirmware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Firmware",
    :rdfs/subClassOf :d3f/Firmware,
    :skos/altLabel #{"UEFI Firmware" "BIOS Firmware"}})
@@ -26235,9 +25224,7 @@
                        :d3f/Reference-FirmwareVerificationEclypsium},
    :d3f/verifies :d3f/SystemFirmware,
    :db/ident :d3f/SystemFirmwareVerification,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/FirmwareVerification :d3f/Technique :owl/NamedIndividual
-               :d3f/PlatformMonitoring :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/FirmwareVerification :owl/NamedIndividual :owl/Class},
    :rdfs/label "System Firmware Verification",
    :rdfs/subClassOf #{:d3f/FirmwareVerification
                       {:owl/onProperty     :d3f/verifies,
@@ -26254,10 +25241,7 @@
      :d3f/Reference-CAR-2020-09-005:AppInitDLLs_MITRE},
    :d3f/synonym #{"Autorun Analysis" "Startup Analysis"},
    :db/ident :d3f/SystemInitConfigAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "System Init Config Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/SystemInitConfiguration,
@@ -26269,7 +25253,7 @@
   {:d3f/definition
    "System initialization configuration information is configuration information used to configure the services, parameters, and initial settings for an operating system at startup.",
    :db/ident :d3f/SystemInitConfiguration,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Init Configuration",
    :rdfs/subClassOf :d3f/OperatingSystemConfigurationComponent,
    :skos/altLabel "Autoruns"})
@@ -26291,7 +25275,7 @@
   {:d3f/definition
    "A script used to initialize and configure elements of the system's environment, applications, services, or its operating system.",
    :db/ident :d3f/SystemInitScript,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Init Script",
    :rdfs/subClassOf #{:d3f/ExecutableScript :d3f/SystemInitConfiguration
                       :d3f/SystemConfigurationInitResource}})
@@ -26303,9 +25287,7 @@
    :d3f/display-order 2,
    :d3f/enables :d3f/Model,
    :db/ident :d3f/SystemMapping,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/label "System Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Model,
@@ -26316,7 +25298,7 @@
   {:d3f/definition
    "A password database used by a system service or process to authenticate users (e.g., Security Account Manager)",
    :db/ident :d3f/SystemPasswordDatabase,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Password Database",
    :rdfs/subClassOf :d3f/PasswordDatabase})
 
@@ -26325,7 +25307,7 @@
    :d3f/definition
    "Software services provided as part of the operating system, typically accessed through system calls.",
    :db/ident :d3f/SystemServiceSoftware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Service Software",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://www.os-book.com/OS9/slide-dir/PPT-dir/ch2.ppt"},
@@ -26345,7 +25327,7 @@
   {:d3f/definition
    "A system startup directory is a directory containing executable files or links to executable files which are run when the system starts.",
    :db/ident :d3f/SystemStartupDirectory,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Startup Directory",
    :rdfs/subClassOf #{:d3f/Directory :d3f/SystemInitConfiguration
                       :d3f/SystemConfigurationInitResource}})
@@ -26354,7 +25336,7 @@
   {:d3f/definition
    "A system time utility is utility software that can get the system time, such as the Unix date command or Windows' Net utility.",
    :db/ident :d3f/SystemTimeApplication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "System Time Application",
    :rdfs/subClassOf :d3f/UtilitySoftware})
 
@@ -26374,9 +25356,7 @@
    :d3f/identifies :d3f/Vulnerability,
    :d3f/kb-reference :d3f/Reference-SoftwareVulnerabilityGraphDatabase,
    :db/ident :d3f/SystemVulnerabilityAssessment,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class :d3f/SystemMapping
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/SystemMapping},
    :rdfs/label "System Vulnerability Assessment",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/identifies,
                        :owl/someValuesFrom :d3f/Vulnerability,
@@ -26390,7 +25370,7 @@
   {:d3f/attack-id   "T1001",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data Obfuscation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -26436,7 +25416,7 @@
   {:d3f/accesses    #{:d3f/Process :d3f/AuthenticationService},
    :d3f/attack-id   "T1003.001",
    :db/ident        :d3f/T1003.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "LSASS Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Process,
@@ -26450,7 +25430,7 @@
    :d3f/may-access  #{:d3f/Process :d3f/SystemPasswordDatabase
                       :d3f/AuthenticationService},
    :db/ident        :d3f/T1003.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Security Account Manager",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/SystemPasswordDatabase,
@@ -26466,7 +25446,7 @@
   {:d3f/accesses    :d3f/EncryptedCredential,
    :d3f/attack-id   "T1003.003",
    :db/ident        :d3f/T1003.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "NTDS",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/EncryptedCredential,
@@ -26476,7 +25456,7 @@
   {:d3f/attack-id   "T1003.004",
    :d3f/may-access  #{:d3f/Process :d3f/SystemPasswordDatabase},
    :db/ident        :d3f/T1003.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "LSA Secrets",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/SystemPasswordDatabase,
@@ -26490,7 +25470,7 @@
    :d3f/attack-id   "T1003.005",
    :d3f/may-modify  :d3f/Log,
    :db/ident        :d3f/T1003.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cached Domain Credentials",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/EncryptedCredential,
@@ -26504,7 +25484,7 @@
    :d3f/may-modify  :d3f/EventLog,
    :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
    :db/ident        :d3f/T1003.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "DCSync",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -26518,7 +25498,7 @@
   {:d3f/accesses    #{:d3f/ProcessImage :d3f/OperatingSystemFile},
    :d3f/attack-id   "T1003.007",
    :db/ident        :d3f/T1003.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Proc Filesystem",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/ProcessImage,
@@ -26531,7 +25511,7 @@
   {:d3f/accesses    #{:d3f/PasswordFile :d3f/EncryptedCredential},
    :d3f/attack-id   "T1003.008",
    :db/ident        :d3f/T1003.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "/etc/passwd and /etc/shadow",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/PasswordFile,
@@ -26551,7 +25531,7 @@
   {:d3f/accesses    #{:d3f/File :d3f/LocalResource},
    :d3f/attack-id   "T1005",
    :db/ident        :d3f/T1005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data from Local System",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/LocalResource,
@@ -26565,7 +25545,7 @@
   {:d3f/accesses    :d3f/Volume,
    :d3f/attack-id   "T1006",
    :db/ident        :d3f/T1006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Direct Volume Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Volume,
@@ -26576,7 +25556,7 @@
   {:d3f/attack-id   "T1007",
    :d3f/may-invoke  #{:d3f/CreateProcess :d3f/GetRunningProcesses},
    :db/ident        :d3f/T1007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Service Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -26590,7 +25570,7 @@
   {:d3f/attack-id   "T1008",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Fallback Channels",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -26608,7 +25588,7 @@
   {:d3f/attack-id   "T1010",
    :d3f/may-invoke  #{:d3f/GetOpenWindows :d3f/CreateProcess},
    :db/ident        :d3f/T1010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Application Window Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -26622,7 +25602,7 @@
   {:d3f/attack-id   "T1011",
    :d3f/produces    :d3f/InternetNetworkTraffic,
    :db/ident        :d3f/T1011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration Over Other Network Medium",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -26641,7 +25621,7 @@
    :d3f/attack-id   "T1012",
    :d3f/may-invoke  :d3f/GetSystemConfigValue,
    :db/ident        :d3f/T1012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Query Registry",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -26664,7 +25644,7 @@
    :d3f/may-modify  #{:d3f/Firmware :d3f/Kernel :d3f/BootSector
                       :d3f/KernelModule :d3f/SharedLibraryFile},
    :db/ident        :d3f/T1014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Rootkit",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/Kernel,
@@ -26696,7 +25676,7 @@
    :d3f/may-execute :d3f/ExecutableScript,
    :d3f/may-invoke  #{:d3f/GetSystemNetworkConfigValue :d3f/CreateProcess},
    :db/ident        :d3f/T1016,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Network Configuration Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-execute,
@@ -26729,7 +25709,7 @@
    :d3f/may-invoke  #{:d3f/CreateSocket :d3f/CreateProcess},
    :d3f/produces    :d3f/NetworkTraffic,
    :db/ident        :d3f/T1018,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote System Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -26757,7 +25737,7 @@
   {:d3f/attack-id   "T1020",
    :d3f/produces    :d3f/InternetNetworkTraffic,
    :db/ident        :d3f/T1020,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Automated Exfiltration",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -26775,7 +25755,7 @@
   {:d3f/attack-id   "T1021",
    :d3f/produces    :d3f/IntranetNetworkTraffic,
    :db/ident        :d3f/T1021,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote Services",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
@@ -26787,7 +25767,7 @@
    :d3f/creates     :d3f/RDPSession,
    :d3f/produces    :d3f/AdministrativeNetworkTraffic,
    :db/ident        :d3f/T1021.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote Desktop Protocol",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/RDPSession,
@@ -26815,7 +25795,7 @@
    :d3f/creates     :d3f/SSHSession,
    :d3f/produces    :d3f/AdministrativeNetworkTraffic,
    :db/ident        :d3f/T1021.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "SSH",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/SSHSession,
@@ -26863,7 +25843,7 @@
   {:d3f/accesses    :d3f/RemovableMediaDevice,
    :d3f/attack-id   "T1025",
    :db/ident        :d3f/T1025,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data from Removable Media",
    :rdfs/subClassOf #{:d3f/CollectionTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -26881,7 +25861,7 @@
   {:d3f/attack-id   "T1027.001",
    :d3f/modifies    :d3f/ExecutableBinary,
    :db/ident        :d3f/T1027.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Binary Padding",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
@@ -26891,14 +25871,11 @@
   {:d3f/attack-id   "T1027.002",
    :d3f/obfuscates  :d3f/ExecutableFile,
    :db/ident        :d3f/T1027.002,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Software Packing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/obfuscates,
                        :owl/someValuesFrom :d3f/ExecutableFile,
-                       :rdf/type           :owl/Restriction} :d3f/T1027
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/T1027}})
 
 (def T1027_003
   {:d3f/attack-id   "T1027.003",
@@ -26911,7 +25888,7 @@
   {:d3f/attack-id   "T1027.004",
    :d3f/creates     :d3f/ExecutableFile,
    :db/ident        :d3f/T1027.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Compile After Delivery",
    :rdfs/subClassOf #{:d3f/T1027
                       {:owl/onProperty     :d3f/creates,
@@ -26932,7 +25909,7 @@
    :d3f/todo
    "Digital artifact is not quite specific enough here.  Although hides must for HTML hide an IBO, t is a file .. or information (so isn't always characterizable as a file.)  Transmittable digitable artifacts (or digitally encodable (as opposed to physical hardware.  But not \"software\", not executable.  Ephemeral?  What captures the essence of this?  Binary data seems right (close enough, though binary data can be at rest and fixed in HW or SW... if accessible by digital system.  That's close enough unless Mutable Binary Data is a necessary thing.  But you could HTML smuggling in immutable-hardware memory (ROM) say, and it would be Binary Data (if we coin that na dfit it in could work.)",
    :db/ident :d3f/T1027.006,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "HTML Smuggling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/hides,
                        :owl/someValuesFrom :d3f/DigitalArtifact,
@@ -26952,7 +25929,7 @@
   {:d3f/attack-id   "T1029",
    :d3f/produces    :d3f/InternetNetworkTraffic,
    :db/ident        :d3f/T1029,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Scheduled Transfer",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -26963,7 +25940,7 @@
   {:d3f/attack-id   "T1030",
    :d3f/produces    :d3f/InternetNetworkTraffic,
    :db/ident        :d3f/T1030,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data Transfer Size Limits",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -26990,7 +25967,7 @@
                       :d3f/ProcessSegment :d3f/GetSystemConfigValue},
    :d3f/may-invoke  #{:d3f/CopyToken :d3f/CreateProcess},
    :db/ident        :d3f/T1033,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Owner/User Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-access,
@@ -27030,7 +26007,7 @@
   {:d3f/attack-id   "T1036.001",
    :d3f/creates     :d3f/ExecutableBinary,
    :db/ident        :d3f/T1036.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Invalid Code Signature",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/creates,
@@ -27041,7 +26018,7 @@
   {:d3f/attack-id   "T1036.002",
    :d3f/modifies    :d3f/FileSystemMetadata,
    :db/ident        :d3f/T1036.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Right-to-Left Override",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
@@ -27052,7 +26029,7 @@
    :d3f/may-create  :d3f/ExecutableFile,
    :d3f/may-modify  :d3f/OperatingSystemExecutableFile,
    :db/ident        :d3f/T1036.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Rename System Utilities",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/may-modify,
@@ -27066,7 +26043,7 @@
   {:d3f/attack-id   "T1036.004",
    :d3f/modifies    :d3f/JobSchedule,
    :db/ident        :d3f/T1036.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Masquerade Task or Service",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/JobSchedule,
@@ -27077,7 +26054,7 @@
    :d3f/invokes     :d3f/MoveFile,
    :d3f/may-create  :d3f/File,
    :db/ident        :d3f/T1036.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Match Legitimate Name or Location",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/File,
@@ -27090,7 +26067,7 @@
   {:d3f/attack-id   "T1036.006",
    :d3f/creates     :d3f/File,
    :db/ident        :d3f/T1036.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Space after Filename",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/creates,
@@ -27101,7 +26078,7 @@
   {:d3f/attack-id   "T1036.007",
    :d3f/modifies    :d3f/FileSystemMetadata,
    :db/ident        :d3f/T1036.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Double File Extension",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
@@ -27119,7 +26096,7 @@
   {:d3f/attack-id   "T1037.001",
    :d3f/modifies    :d3f/UserInitScript,
    :db/ident        :d3f/T1037.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Logon Script (Windows)",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
@@ -27130,7 +26107,7 @@
   {:d3f/attack-id   "T1037.002",
    :d3f/modifies    :d3f/UserInitScript,
    :db/ident        :d3f/T1037.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Logon Script (Mac)",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
@@ -27145,7 +26122,7 @@
    :d3f/todo
    "May want to represent more detail here, or capture distinct characteristic of Active Directory more later.  ADUC to GPO just seems like naming/implementation of same underlying thing.  Doesn't matter pre-release.",
    :db/ident :d3f/T1037.003,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Logon Script",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
@@ -27156,7 +26133,7 @@
   {:d3f/attack-id   "T1037.004",
    :d3f/modifies    :d3f/SystemInitScript,
    :db/ident        :d3f/T1037.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Rc.common",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
@@ -27167,7 +26144,7 @@
   {:d3f/attack-id   "T1037.005",
    :d3f/modifies    :d3f/SystemStartupDirectory,
    :db/ident        :d3f/T1037.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Startup Items",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemStartupDirectory,
@@ -27185,7 +26162,7 @@
   {:d3f/accesses    :d3f/NetworkFileShareResource,
    :d3f/attack-id   "T1039",
    :db/ident        :d3f/T1039,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data from Network Shared Drive",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/NetworkFileShareResource,
@@ -27196,7 +26173,7 @@
   {:d3f/attack-id   "T1040",
    :d3f/may-produce :d3f/DNSLookup,
    :db/ident        :d3f/T1040,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Network Sniffing",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique :d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/may-produce,
@@ -27208,7 +26185,7 @@
    :d3f/may-transfer :d3f/CertificateFile,
    :d3f/produces     :d3f/InternetNetworkTraffic,
    :db/ident         :d3f/T1041,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/label       "Exfiltration Over C2 Channel",
    :rdfs/subClassOf  #{:d3f/ExfiltrationTechnique
                        {:owl/onProperty     :d3f/produces,
@@ -27252,7 +26229,7 @@
    :d3f/may-create  :d3f/IntranetAdministrativeNetworkTraffic,
    :d3f/may-invoke  :d3f/CreateProcess,
    :db/ident        :d3f/T1047,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Windows Management Instrumentation Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty :d3f/may-create,
@@ -27267,7 +26244,7 @@
   {:d3f/attack-id   "T1048",
    :d3f/produces    :d3f/InternetNetworkTraffic,
    :db/ident        :d3f/T1048,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration Over Alternative Protocol",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -27278,7 +26255,7 @@
   {:d3f/attack-id   "T1048.001",
    :d3f/produces    :d3f/OutboundInternetEncryptedTraffic,
    :db/ident        :d3f/T1048.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration Over Symmetric Encrypted Non-C2 Protocol",
    :rdfs/subClassOf #{:d3f/T1048
                       {:owl/onProperty :d3f/produces,
@@ -27291,7 +26268,7 @@
    :d3f/may-transfer :d3f/CertificateFile,
    :d3f/produces     :d3f/OutboundInternetEncryptedTraffic,
    :db/ident         :d3f/T1048.002,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/label       "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
    :rdfs/subClassOf  #{:d3f/T1048
                        {:owl/onProperty :d3f/produces,
@@ -27306,7 +26283,7 @@
   {:d3f/attack-id   "T1048.003",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1048.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -27316,7 +26293,7 @@
   {:d3f/attack-id   "T1049",
    :d3f/may-invoke  :d3f/GetOpenSockets,
    :db/ident        :d3f/T1049,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Network Connections Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -27342,7 +26319,7 @@
   {:d3f/attack-id   "T1052.001",
    :d3f/modifies    :d3f/RemovableMediaDevice,
    :db/ident        :d3f/T1052.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration over USB",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/RemovableMediaDevice,
@@ -27356,7 +26333,7 @@
    :d3f/invokes :d3f/CreateProcess,
    :d3f/modifies :d3f/JobSchedule,
    :db/ident :d3f/T1053,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Scheduled Task/Job Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -27396,7 +26373,7 @@
   {:d3f/attack-id   "T1053.004",
    :d3f/creates     :d3f/PropertyListFile,
    :db/ident        :d3f/T1053.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Launchd",
    :rdfs/subClassOf #{:d3f/T1053
                       {:owl/onProperty     :d3f/creates,
@@ -27409,7 +26386,7 @@
    "Renamed from ATT&CK to be consistent with at, launchd, cron siblings; name as is looks like parent.  Not sure why parent is not just Scheduled Task [Execution[.",
    :d3f/executes :d3f/ScheduledJob,
    :db/ident :d3f/T1053.005,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Schtasks Execution",
    :rdfs/subClassOf #{:d3f/T1053
                       {:owl/onProperty     :d3f/executes,
@@ -27451,7 +26428,7 @@
    :d3f/invokes     :d3f/SystemCall,
    :d3f/loads       :d3f/SharedLibraryFile,
    :db/ident        :d3f/T1055.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Dynamic-link Library Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/loads,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -27467,7 +26444,7 @@
   {:d3f/attack-id   "T1055.002",
    :d3f/may-add     :d3f/ObjectFile,
    :db/ident        :d3f/T1055.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Portable Executable Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-add,
                        :owl/someValuesFrom :d3f/ObjectFile,
@@ -27478,7 +26455,7 @@
    :d3f/invokes     :d3f/SystemCall,
    :d3f/may-add     :d3f/ExecutableBinary,
    :db/ident        :d3f/T1055.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Thread Execution Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-add,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
@@ -27491,7 +26468,7 @@
   {:d3f/attack-id   "T1055.004",
    :d3f/may-invoke  :d3f/CreateProcess,
    :db/ident        :d3f/T1055.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Asynchronous Procedure Call",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -27501,7 +26478,7 @@
   {:d3f/attack-id   "T1055.005",
    :d3f/invokes     :d3f/SystemCall,
    :db/ident        :d3f/T1055.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Thread Local Storage",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/invokes,
@@ -27512,7 +26489,7 @@
   {:d3f/attack-id   "T1055.008",
    :d3f/invokes     :d3f/SystemCall,
    :db/ident        :d3f/T1055.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Ptrace System Calls",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/invokes,
@@ -27524,7 +26501,7 @@
    :d3f/attack-id   "T1055.009",
    :d3f/may-modify  :d3f/OperatingSystemFile,
    :db/ident        :d3f/T1055.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Proc Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/OperatingSystemFile,
@@ -27544,7 +26521,7 @@
   {:d3f/attack-id   "T1055.012",
    :d3f/modifies    :d3f/ProcessCodeSegment,
    :db/ident        :d3f/T1055.012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Process Hollowing",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/modifies,
@@ -27555,7 +26532,7 @@
   {:d3f/attack-id   "T1055.013",
    :d3f/invokes     :d3f/CreateProcess,
    :db/ident        :d3f/T1055.013,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Process Doppelgänging",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/invokes,
@@ -27567,7 +26544,7 @@
    :d3f/attack-id   "T1055.014",
    :d3f/invokes     :d3f/SystemCall,
    :db/ident        :d3f/T1055.014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "VDSO Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -27594,7 +26571,7 @@
   {:d3f/accesses    :d3f/KeyboardInputDevice,
    :d3f/attack-id   "T1056.001",
    :db/ident        :d3f/T1056.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Keylogging",
    :rdfs/subClassOf #{:d3f/T1056
                       {:owl/onProperty     :d3f/accesses,
@@ -27605,7 +26582,7 @@
   {:d3f/accesses    :d3f/GraphicalUserInterface,
    :d3f/attack-id   "T1056.002",
    :db/ident        :d3f/T1056.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "GUI Input Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/GraphicalUserInterface,
@@ -27615,7 +26592,7 @@
   {:d3f/attack-id   "T1056.003",
    :d3f/modifies    :d3f/WebServerApplication,
    :db/ident        :d3f/T1056.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Web Portal Capture",
    :rdfs/subClassOf #{:d3f/T1056
                       {:owl/onProperty     :d3f/modifies,
@@ -27626,7 +26603,7 @@
   {:d3f/attack-id   "T1056.004",
    :d3f/may-modify  :d3f/ProcessCodeSegment,
    :db/ident        :d3f/T1056.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credential API Hooking",
    :rdfs/subClassOf #{:d3f/T1056
                       {:owl/onProperty     :d3f/may-modify,
@@ -27637,7 +26614,7 @@
   {:d3f/attack-id   "T1057",
    :d3f/may-invoke  #{:d3f/CreateProcess :d3f/GetRunningProcesses},
    :db/ident        :d3f/T1057,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Process Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -27659,7 +26636,7 @@
   {:d3f/attack-id   "T1059",
    :d3f/executes    :d3f/ExecutableScript,
    :db/ident        :d3f/T1059,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Command and Scripting Interpreter Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/executes,
@@ -27765,7 +26742,7 @@
    :d3f/may-modify  :d3f/StackFrame,
    :d3f/modifies    :d3f/ProcessCodeSegment,
    :db/ident        :d3f/T1068,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exploitation for Privilege Escalation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
@@ -27817,7 +26794,7 @@
   {:d3f/attack-id   "T1070.001",
    :d3f/modifies    :d3f/EventLog,
    :db/ident        :d3f/T1070.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Clear Windows Event Logs",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -27827,7 +26804,7 @@
   {:d3f/attack-id   "T1070.002",
    :d3f/modifies    :d3f/OperatingSystemLogFile,
    :db/ident        :d3f/T1070.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Clear Linux or Mac System Logs",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/OperatingSystemLogFile,
@@ -27837,7 +26814,7 @@
   {:d3f/attack-id   "T1070.003",
    :d3f/modifies    :d3f/CommandHistoryLog,
    :db/ident        :d3f/T1070.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Clear Command History",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/CommandHistoryLog,
@@ -27848,23 +26825,20 @@
    :d3f/deletes     :d3f/File,
    :d3f/may-modify  :d3f/File,
    :db/ident        :d3f/T1070.004,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File Deletion",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/File,
-                       :rdf/type           :owl/Restriction} :d3f/T1070
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/T1070}})
 
 (def T1070_005
   {:d3f/attack-id   "T1070.005",
    :d3f/unmounts    :d3f/NetworkFileShareResource,
    :db/ident        :d3f/T1070.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Network Share Connection Removal",
    :rdfs/subClassOf #{:d3f/T1070
                       {:owl/onProperty     :d3f/unmounts,
@@ -27875,7 +26849,7 @@
   {:d3f/attack-id   "T1070.006",
    :d3f/forges      :d3f/FileSystemMetadata,
    :db/ident        :d3f/T1070.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Timestomp",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/forges,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
@@ -27887,7 +26861,7 @@
    :d3f/pref-label   "Application Layer Protocol C2",
    :d3f/produces     :d3f/OutboundInternetNetworkTraffic,
    :db/ident         :d3f/T1071,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/label       "Application Layer Protocol",
    :rdfs/subClassOf  #{{:owl/onProperty     :d3f/produces,
                         :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -27902,7 +26876,7 @@
    :d3f/may-transfer :d3f/CertificateFile,
    :d3f/produces     :d3f/OutboundInternetWebTraffic,
    :db/ident         :d3f/T1071.001,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/label       "Web Protocols",
    :rdfs/subClassOf  #{:d3f/T1071
                        {:owl/onProperty     :d3f/produces,
@@ -27916,7 +26890,7 @@
   {:d3f/attack-id   "T1071.002",
    :d3f/produces    :d3f/OutboundInternetFileTransferTraffic,
    :db/ident        :d3f/T1071.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File Transfer Protocols",
    :rdfs/subClassOf #{:d3f/T1071
                       {:owl/onProperty :d3f/produces,
@@ -27928,7 +26902,7 @@
   {:d3f/attack-id   "T1071.003",
    :d3f/produces    :d3f/OutboundInternetMailTraffic,
    :db/ident        :d3f/T1071.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Mail Protocols",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetMailTraffic,
@@ -27938,7 +26912,7 @@
   {:d3f/attack-id   "T1071.004",
    :d3f/produces    :d3f/OutboundInternetDNSLookupTraffic,
    :db/ident        :d3f/T1071.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "DNS",
    :rdfs/subClassOf #{:d3f/T1071
                       {:owl/onProperty :d3f/produces,
@@ -27952,7 +26926,7 @@
    :d3f/executes    :d3f/SoftwareDeploymentTool,
    :d3f/installs    :d3f/Software,
    :db/ident        :d3f/T1072,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Software Deployment Tools Execution",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/installs,
                        :owl/someValuesFrom :d3f/Software,
@@ -27977,7 +26951,7 @@
   {:d3f/attack-id   "T1074",
    :d3f/reads       :d3f/Resource,
    :db/ident        :d3f/T1074,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data Staged",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/Resource,
@@ -27989,7 +26963,7 @@
    :d3f/may-create  :d3f/File,
    :d3f/may-invoke  :d3f/CreateFile,
    :db/ident        :d3f/T1074.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Local Data Staging",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateFile,
@@ -28002,7 +26976,7 @@
   {:d3f/attack-id   "T1074.002",
    :d3f/modifies    :d3f/NetworkResource,
    :db/ident        :d3f/T1074.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote Data Staging",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/NetworkResource,
@@ -28034,7 +27008,7 @@
    :d3f/produces    #{:d3f/Authorization :d3f/Authentication},
    :d3f/uses        :d3f/UserAccount,
    :db/ident        :d3f/T1078,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Valid Accounts",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/uses,
@@ -28053,7 +27027,7 @@
   {:d3f/attack-id   "T1078.001",
    :d3f/uses        :d3f/DefaultUserAccount,
    :db/ident        :d3f/T1078.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Default Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/DefaultUserAccount,
@@ -28063,7 +27037,7 @@
   {:d3f/attack-id   "T1078.002",
    :d3f/uses        :d3f/DomainUserAccount,
    :db/ident        :d3f/T1078.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Domain Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/DomainUserAccount,
@@ -28073,7 +27047,7 @@
   {:d3f/attack-id   "T1078.003",
    :d3f/uses        :d3f/LocalUserAccount,
    :db/ident        :d3f/T1078.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Local Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/LocalUserAccount,
@@ -28083,7 +27057,7 @@
   {:d3f/attack-id   "T1078.004",
    :d3f/uses        :d3f/CloudUserAccount,
    :db/ident        :d3f/T1078.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/CloudUserAccount,
@@ -28100,7 +27074,7 @@
   {:d3f/attack-id   "T1080",
    :d3f/modifies    :d3f/NetworkResource,
    :db/ident        :d3f/T1080,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Taint Shared Content",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/NetworkResource,
@@ -28119,7 +27093,7 @@
    :d3f/may-access  :d3f/DecoyArtifact,
    :d3f/may-invoke  :d3f/CreateProcess,
    :db/ident        :d3f/T1082,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Information Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -28133,7 +27107,7 @@
   {:d3f/accesses    #{:d3f/File :d3f/Directory},
    :d3f/attack-id   "T1083",
    :db/ident        :d3f/T1083,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File and Directory Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -28177,7 +27151,7 @@
    :d3f/todo
    "Review User Local Account as special case of User Account; could use Local Account of dao/d3f namespace if had one.  That or could rename attack's Local Account to something like Local Account [Persistence] Technique",
    :db/ident :d3f/T1087.001,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Local Account",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/LocalUserAccount,
@@ -28187,7 +27161,7 @@
   {:d3f/attack-id   "T1087.002",
    :d3f/creates     :d3f/DomainUserAccount,
    :db/ident        :d3f/T1087.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Domain Account",
    :rdfs/subClassOf #{:d3f/T1136
                       {:owl/onProperty     :d3f/creates,
@@ -28205,7 +27179,7 @@
   {:d3f/attack-id   "T1087.004",
    :d3f/creates     :d3f/CloudUserAccount,
    :db/ident        :d3f/T1087.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Account",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/CloudUserAccount,
@@ -28237,7 +27211,7 @@
   {:d3f/attack-id   "T1090.001",
    :d3f/produces    :d3f/IntranetNetworkTraffic,
    :db/ident        :d3f/T1090.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Internal Proxy",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty     :d3f/produces,
@@ -28248,7 +27222,7 @@
   {:d3f/attack-id   "T1090.002",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1090.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "External Proxy",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty     :d3f/produces,
@@ -28259,7 +27233,7 @@
   {:d3f/attack-id   "T1090.003",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1090.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Multi-hop Proxy",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty     :d3f/produces,
@@ -28270,7 +27244,7 @@
   {:d3f/attack-id   "T1090.004",
    :d3f/produces    :d3f/OutboundInternetEncryptedWebTraffic,
    :db/ident        :d3f/T1090.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Domain Fronting",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty :d3f/produces,
@@ -28282,7 +27256,7 @@
   {:d3f/attack-id   "T1091",
    :d3f/executes    :d3f/RemovableMediaDevice,
    :db/ident        :d3f/T1091,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Replication Through Removable Media",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/executes,
@@ -28294,7 +27268,7 @@
   {:d3f/attack-id   "T1092",
    :d3f/modifies    :d3f/RemovableMediaDevice,
    :db/ident        :d3f/T1092,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Communication Through Removable Media",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -28319,7 +27293,7 @@
   {:d3f/attack-id   "T1095",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1095,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Non-Application Layer Protocol",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -28344,7 +27318,7 @@
   {:d3f/attack-id   "T1098",
    :d3f/modifies    :d3f/UserAccount,
    :db/ident        :d3f/T1098,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Account Manipulation",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -28356,7 +27330,7 @@
    :d3f/creates     :d3f/Credential,
    :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
    :db/ident        :d3f/T1098.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Additional Azure Service Principal Credentials",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
@@ -28370,7 +27344,7 @@
   {:d3f/attack-id   "T1098.002",
    :d3f/modifies    :d3f/DomainUserAccount,
    :db/ident        :d3f/T1098.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exchange Email Delegate Permissions",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/DomainUserAccount,
@@ -28380,7 +27354,7 @@
   {:d3f/attack-id   "T1098.003",
    :d3f/modifies    :d3f/GlobalUserAccount,
    :db/ident        :d3f/T1098.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Add Office 365 Global Administrator Role",
    :rdfs/subClassOf #{:d3f/T1098
                       {:owl/onProperty     :d3f/modifies,
@@ -28427,7 +27401,7 @@
   {:d3f/attack-id   "T1102",
    :d3f/produces    :d3f/OutboundInternetWebTraffic,
    :db/ident        :d3f/T1102,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Web Service",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -28467,7 +27441,7 @@
   {:d3f/attack-id   "T1104",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1104,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Multi-Stage Channels",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -28480,7 +27454,7 @@
    "Session is initiated by the client, and may be a custom protocol which is why it is related to generic network traffic instead of file transfer network traffic.",
    :d3f/produces :d3f/OutboundInternetNetworkTraffic,
    :db/ident :d3f/T1105,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Ingress Tool Transfer",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -28491,7 +27465,7 @@
   {:d3f/attack-id   "T1106",
    :d3f/invokes     :d3f/SystemCall,
    :db/ident        :d3f/T1106,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Native API Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/invokes,
@@ -28525,7 +27499,7 @@
    :d3f/modifies    :d3f/AuthenticationLog,
    :d3f/produces    :d3f/Authentication,
    :db/ident        :d3f/T1110.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Password Guessing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AuthenticationLog,
@@ -28541,7 +27515,7 @@
   {:d3f/accesses    :d3f/Password,
    :d3f/attack-id   "T1110.002",
    :db/ident        :d3f/T1110.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Password Cracking",
    :rdfs/subClassOf #{:d3f/T1110
                       {:owl/onProperty     :d3f/accesses,
@@ -28555,7 +27529,7 @@
    :d3f/modifies    :d3f/AuthenticationLog,
    :d3f/produces    :d3f/Authentication,
    :db/ident        :d3f/T1110.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Password Spraying",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-create,
                        :owl/someValuesFrom
@@ -28577,7 +27551,7 @@
    :d3f/modifies    :d3f/AuthenticationLog,
    :d3f/produces    :d3f/Authentication,
    :db/ident        :d3f/T1110.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credential Stuffing",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-create,
                        :owl/someValuesFrom
@@ -28594,7 +27568,7 @@
   {:d3f/attack-id   "T1111",
    :d3f/may-access  :d3f/SecurityToken,
    :db/ident        :d3f/T1111,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Two-Factor Authentication Interception",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/may-access,
@@ -28605,7 +27579,7 @@
   {:d3f/attack-id   "T1112",
    :d3f/modifies    :d3f/WindowsRegistry,
    :db/ident        :d3f/T1112,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Modify Registry",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/WindowsRegistry,
@@ -28617,7 +27591,7 @@
    :d3f/may-access  :d3f/DisplayServer,
    :d3f/may-invoke  :d3f/GetScreenCapture,
    :db/ident        :d3f/T1113,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Screen Capture",
    :rdfs/subClassOf #{:d3f/CollectionTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -28631,7 +27605,7 @@
   {:d3f/accesses    :d3f/Resource,
    :d3f/attack-id   "T1114",
    :db/ident        :d3f/T1114,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Email Collection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
@@ -28642,7 +27616,7 @@
   {:d3f/attack-id   "T1114.001",
    :d3f/reads       :d3f/Email,
    :db/ident        :d3f/T1114.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Local Email Collection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/Email,
@@ -28652,7 +27626,7 @@
   {:d3f/accesses    :d3f/MailServer,
    :d3f/attack-id   "T1114.002",
    :db/ident        :d3f/T1114.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote Email Collection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/MailServer,
@@ -28662,7 +27636,7 @@
   {:d3f/attack-id   "T1114.003",
    :d3f/modifies    :d3f/ApplicationConfiguration,
    :db/ident        :d3f/T1114.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Email Forwarding Rule",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ApplicationConfiguration,
@@ -28672,7 +27646,7 @@
   {:d3f/attack-id   "T1115",
    :d3f/reads       :d3f/Clipboard,
    :db/ident        :d3f/T1115,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Clipboard Data",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/Clipboard,
@@ -28705,7 +27679,7 @@
    :d3f/attack-id   "T1119",
    :d3f/comment     "too generic to model",
    :db/ident        :d3f/T1119,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Automated Collection",
    :rdfs/subClassOf #{:d3f/CollectionTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -28737,7 +27711,7 @@
   {:d3f/accesses    :d3f/AudioInputDevice,
    :d3f/attack-id   "T1123",
    :db/ident        :d3f/T1123,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Audio Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/AudioInputDevice,
@@ -28748,7 +27722,7 @@
   {:d3f/attack-id   "T1124",
    :d3f/may-invoke  #{:d3f/GetSystemTime :d3f/CreateProcess},
    :db/ident        :d3f/T1124,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Time Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
@@ -28762,7 +27736,7 @@
   {:d3f/accesses    :d3f/VideoInputDevice,
    :d3f/attack-id   "T1125",
    :db/ident        :d3f/T1125,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Video Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/VideoInputDevice,
@@ -28788,7 +27762,7 @@
    :d3f/modifies    :d3f/CompilerConfigurationFile,
    :d3f/runs        :d3f/Compiler,
    :db/ident        :d3f/T1127.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "MSBuild",
    :rdfs/subClassOf #{:d3f/T1127
                       {:owl/onProperty     :d3f/modifies,
@@ -28832,7 +27806,7 @@
   {:d3f/attack-id   "T1132",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1132,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data Encoding",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -28858,7 +27832,7 @@
    :d3f/produces    #{:d3f/Authorization :d3f/Authentication
                       :d3f/NetworkSession},
    :db/ident        :d3f/T1133,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "External Remote Services",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -28884,11 +27858,7 @@
   {:d3f/attack-id   "T1134.001",
    :d3f/copies      :d3f/AccessToken,
    :db/ident        :d3f/T1134.001,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/DigitalArtifact :d3f/AccessToken :d3f/DigitalObject
-                      :d3f/D3FENDCatalogThing :d3f/Artifact :d3f/Technique
-                      :owl/NamedIndividual :d3f/Credential :owl/Class
-                      :d3f/DefensiveTechnique},
+   :rdf/type        #{:d3f/AccessToken :owl/NamedIndividual :owl/Class},
    :rdfs/label      "Token Impersonation/Theft",
    :rdfs/subClassOf #{:d3f/T1134
                       {:owl/onProperty     :d3f/copies,
@@ -28900,7 +27870,7 @@
    :d3f/copies      :d3f/AccessToken,
    :d3f/may-modify  :d3f/EventLog,
    :db/ident        :d3f/T1134.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Create Process with Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -28915,7 +27885,7 @@
    :d3f/creates     :d3f/LoginSession,
    :d3f/may-modify  :d3f/EventLog,
    :db/ident        :d3f/T1134.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Make and Impersonate Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -28931,7 +27901,7 @@
   {:d3f/attack-id   "T1134.004",
    :d3f/invokes     :d3f/CreateProcess,
    :db/ident        :d3f/T1134.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Parent PID Spoofing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -28941,7 +27911,7 @@
   {:d3f/attack-id   "T1134.005",
    :d3f/modifies    :d3f/AccessControlConfiguration,
    :db/ident        :d3f/T1134.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "SID-History Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
@@ -28958,7 +27928,7 @@
   {:d3f/attack-id   "T1136",
    :d3f/creates     :d3f/UserAccount,
    :db/ident        :d3f/T1136,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Create Account",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique
@@ -29000,7 +27970,7 @@
    :d3f/may-modify  #{:d3f/ExecutableScript
                       :d3f/SystemConfigurationDatabaseRecord},
    :db/ident        :d3f/T1137.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Office Template Macros",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
@@ -29017,7 +27987,7 @@
   {:d3f/attack-id   "T1137.002",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1137.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Office Test",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -29028,7 +27998,7 @@
   {:d3f/adds        :d3f/OfficeApplicationFile,
    :d3f/attack-id   "T1137.003",
    :db/ident        :d3f/T1137.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Outlook Forms",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty     :d3f/adds,
@@ -29039,7 +28009,7 @@
   {:d3f/attack-id   "T1137.004",
    :d3f/modifies    :d3f/ApplicationConfigurationDatabase,
    :db/ident        :d3f/T1137.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Outlook Home Page",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty :d3f/modifies,
@@ -29051,7 +28021,7 @@
   {:d3f/attack-id   "T1137.005",
    :d3f/modifies    :d3f/ApplicationConfigurationDatabase,
    :db/ident        :d3f/T1137.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Outlook Rules",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty :d3f/modifies,
@@ -29065,7 +28035,7 @@
    :d3f/may-modify  :d3f/SystemConfigurationDatabase,
    :d3f/modifies    :d3f/OfficeApplication,
    :db/ident        :d3f/T1137.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Add-ins",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty     :d3f/may-modify,
@@ -29099,7 +28069,7 @@
    :d3f/may-add     :d3f/ExecutableFile,
    :d3f/may-modify  :d3f/EventLog,
    :db/ident        :d3f/T1140,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Deobfuscate/Decode Files or Information",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -29123,7 +28093,7 @@
   {:d3f/accesses    :d3f/EncryptedCredential,
    :d3f/attack-id   "T1142",
    :db/ident        :d3f/T1142,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Keychain",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -29350,7 +28320,7 @@
   {:d3f/attack-id   "T1176",
    :d3f/modifies    :d3f/BrowserExtension,
    :db/ident        :d3f/T1176,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Browser Extensions",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -29421,7 +28391,7 @@
   {:d3f/attack-id   "T1185",
    :d3f/produces    :d3f/WebNetworkTraffic,
    :db/ident        :d3f/T1185,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Man in the Browser",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/WebNetworkTraffic,
@@ -29441,7 +28411,7 @@
    :d3f/modifies    :d3f/AuthenticationLog,
    :d3f/produces    :d3f/Authentication,
    :db/ident        :d3f/T1187,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Forced Authentication",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AuthenticationLog,
@@ -29466,7 +28436,7 @@
    :d3f/modifies    :d3f/ProcessSegment,
    :d3f/produces    #{:d3f/URL :d3f/OutboundInternetNetworkTraffic},
    :db/ident        :d3f/T1189,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Drive-by Compromise",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -29485,7 +28455,7 @@
    :d3f/modifies    :d3f/ProcessSegment,
    :d3f/produces    :d3f/InboundInternetNetworkTraffic,
    :db/ident        :d3f/T1190,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exploit Public-Facing Application",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/injects,
                        :owl/someValuesFrom :d3f/DatabaseQuery,
@@ -29530,7 +28500,7 @@
   {:d3f/attack-id   "T1195",
    :d3f/modifies    :d3f/DigitalArtifact,
    :db/ident        :d3f/T1195,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Supply Chain Compromise",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -29541,7 +28511,7 @@
   {:d3f/attack-id   "T1195.001",
    :d3f/modifies    :d3f/Software,
    :db/ident        :d3f/T1195.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Compromise Software Dependencies and Development Tools",
    :rdfs/subClassOf #{:d3f/T1195
                       {:owl/onProperty     :d3f/modifies,
@@ -29552,7 +28522,7 @@
   {:d3f/attack-id   "T1195.002",
    :d3f/modifies    :d3f/Software,
    :db/ident        :d3f/T1195.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Compromise Software Supply Chain",
    :rdfs/subClassOf #{:d3f/T1195
                       {:owl/onProperty     :d3f/modifies,
@@ -29563,7 +28533,7 @@
   {:d3f/attack-id   "T1195.003",
    :d3f/modifies    :d3f/HardwareDevice,
    :db/ident        :d3f/T1195.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Compromise Hardware Supply Chain",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/HardwareDevice,
@@ -29582,7 +28552,7 @@
                       :d3f/IntranetWebNetworkTraffic
                       :d3f/OutboundInternetWebTraffic},
    :db/ident        :d3f/T1197,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "BITS Jobs",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
@@ -29607,7 +28577,7 @@
    :d3f/creates     :d3f/LoginSession,
    :d3f/produces    :d3f/IntranetNetworkTraffic,
    :db/ident        :d3f/T1199,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Trusted Relationship",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
@@ -29623,7 +28593,7 @@
    :d3f/todo
    "This technique would best be captured as a frame, in that a hardware device is added (connected) to a local area network.  The technique could act as an ersatz frame if the roles connects and modifies were understood to be the item connected and the network connected to respectively (but not particular natural role names).",
    :db/ident :d3f/T1200,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Hardware Additions",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/connects,
@@ -29648,7 +28618,7 @@
   {:d3f/attack-id   "T1203",
    :d3f/modifies    #{:d3f/ProcessCodeSegment :d3f/StackFrame},
    :db/ident        :d3f/T1203,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exploitation for Client Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -29670,7 +28640,7 @@
    :d3f/attack-id   "T1204.001",
    :d3f/produces    :d3f/OutboundInternetWebTraffic,
    :db/ident        :d3f/T1204.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Malicious Link Execution",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/URL,
@@ -29683,7 +28653,7 @@
   {:d3f/attack-id   "T1204.002",
    :d3f/executes    :d3f/ExecutableFile,
    :db/ident        :d3f/T1204.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Malicious File Execution",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/ExecutableFile,
@@ -29701,7 +28671,7 @@
    :d3f/definition  "used all over so its not just internet traffic",
    :d3f/produces    :d3f/NetworkTraffic,
    :db/ident        :d3f/T1205,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Traffic Signaling",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -29713,7 +28683,7 @@
   {:d3f/attack-id   "T1205.001",
    :d3f/produces    :d3f/NetworkTraffic,
    :db/ident        :d3f/T1205.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Port Knocking",
    :rdfs/subClassOf #{:d3f/T1205
                       {:owl/onProperty     :d3f/produces,
@@ -29732,7 +28702,7 @@
    :d3f/modifies    :d3f/SystemConfigurationDatabase,
    :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
    :db/ident        :d3f/T1207,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Rogue Domain Controller",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -29763,7 +28733,7 @@
                       :d3f/ProcessSegment},
    :d3f/produces    :d3f/IntranetNetworkTraffic,
    :db/ident        :d3f/T1210,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exploitation of Remote Services",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
@@ -29783,7 +28753,7 @@
   {:d3f/attack-id   "T1211",
    :d3f/may-modify  #{:d3f/ProcessCodeSegment :d3f/StackFrame},
    :db/ident        :d3f/T1211,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exploitation for Defense Evasion",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
@@ -29799,7 +28769,7 @@
                       :d3f/CredentialManagementSystem},
    :d3f/may-modify  #{:d3f/ProcessCodeSegment :d3f/StackFrame},
    :db/ident        :d3f/T1212,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exploitation for Credential Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
@@ -29819,7 +28789,7 @@
   {:d3f/accesses    :d3f/Resource,
    :d3f/attack-id   "T1213",
    :db/ident        :d3f/T1213,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Data from Information Repositories",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -29831,7 +28801,7 @@
   {:d3f/accesses    :d3f/WebFileResource,
    :d3f/attack-id   "T1213.001",
    :db/ident        :d3f/T1213.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Confluence",
    :rdfs/subClassOf #{:d3f/T1213
                       {:owl/onProperty     :d3f/accesses,
@@ -29842,7 +28812,7 @@
   {:d3f/accesses    :d3f/WebFileResource,
    :d3f/attack-id   "T1213.002",
    :db/ident        :d3f/T1213.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Sharepoint",
    :rdfs/subClassOf #{:d3f/T1213
                       {:owl/onProperty     :d3f/accesses,
@@ -29853,7 +28823,7 @@
   {:d3f/attack-id   "T1213.003",
    :d3f/reads       :d3f/CodeRepository,
    :db/ident        :d3f/T1213.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Code Repositories",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/CodeRepository,
@@ -29905,7 +28875,7 @@
   {:d3f/attack-id   "T1218.001",
    :d3f/invokes     #{:d3f/CreateFile :d3f/CreateProcess},
    :db/ident        :d3f/T1218.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Compiled HTML File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateFile,
@@ -29919,7 +28889,7 @@
    :d3f/invokes     :d3f/CreateProcess,
    :d3f/may-modify  :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1218.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Control Panel Execution",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
@@ -29934,7 +28904,7 @@
    :d3f/invokes     :d3f/CreateProcess,
    :d3f/may-produce :d3f/NetworkTraffic,
    :db/ident        :d3f/T1218.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "CMSTP",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -29955,7 +28925,7 @@
    :d3f/interprets  :d3f/MicrosoftHTMLApplication,
    :d3f/invokes     :d3f/CreateProcess,
    :db/ident        :d3f/T1218.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Mshta Execution",
    :rdfs/subClassOf #{:d3f/T1218
                       {:owl/onProperty     :d3f/invokes,
@@ -29998,7 +28968,7 @@
    :d3f/invokes     :d3f/CreateProcess,
    :d3f/loads       :d3f/SharedLibraryFile,
    :db/ident        :d3f/T1218.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Rundll32 Execution",
    :rdfs/subClassOf #{:d3f/T1218
                       {:owl/onProperty     :d3f/loads,
@@ -30022,7 +28992,7 @@
    :d3f/todo
    "Could add additional invokes; requires adding additional function calls.  This is far more narrow than MMC, but still has multiple angles.  Specified at this level, one has knowledge with which to start to \"hunt\" with an auto-created analytic (as in CAR analytic.)  Do we want to note it runs Mavinject?  That would require specifying a specific program.",
    :db/ident :d3f/T1218.013,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Mavinject",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -30042,7 +29012,7 @@
    :d3f/todo
    "Consider may-install instead of may-add (may be distinct).  Not modeling MMC unique command per se, just as a command.  The mmc command operates what amounts to platform of same name that implements the console's capabilities.  MMC (the platform) might be modified by changing snap-ins (also not modeled; would be MMC modules.)  This ATT&CK technique is really just noting that MMC can do many things related to opportunities MMC presents.  Not sure why the ATT&CK technique is under Defense Evasion per se, other than it is using legacy software, which is really probably Software Downgrade technique and an /Execution Technique/ as well [for awareness of ATT&CK, check to see if both or not for MMC and SD.]",
    :db/ident :d3f/T1218.014,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "MMC",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -30058,7 +29028,7 @@
   {:d3f/attack-id   "T1219",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1219,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote Access Software",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -30071,7 +29041,7 @@
    :d3f/interprets  :d3f/ExecutableScript,
    :d3f/invokes     :d3f/CreateProcess,
    :db/ident        :d3f/T1220,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "XSL Script Processing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/interprets,
                        :owl/someValuesFrom :d3f/ExecutableScript,
@@ -30095,7 +29065,7 @@
   {:d3f/attack-id   "T1222",
    :d3f/modifies    :d3f/AccessControlConfiguration,
    :db/ident        :d3f/T1222,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "File and Directory Permissions Modification",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -30155,7 +29125,7 @@
   {:d3f/attack-id   "T1484",
    :d3f/modifies    :d3f/GroupPolicy,
    :db/ident        :d3f/T1484,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Group Policy Modification",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -30230,7 +29200,7 @@
   {:d3f/attack-id   "T1491.001",
    :d3f/modifies    :d3f/Resource,
    :db/ident        :d3f/T1491.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Internal Defacement",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/Resource,
@@ -30240,7 +29210,7 @@
   {:d3f/attack-id   "T1491.002",
    :d3f/modifies    :d3f/NetworkResource,
    :db/ident        :d3f/T1491.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "External Defacement",
    :rdfs/subClassOf #{:d3f/T1491
                       {:owl/onProperty     :d3f/modifies,
@@ -30308,7 +29278,7 @@
    :d3f/may-invoke  :d3f/GetSystemTime,
    :d3f/may-run     :d3f/SystemTimeApplication,
    :db/ident        :d3f/T1497.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Time Based Evasion",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-run,
                        :owl/someValuesFrom :d3f/SystemTimeApplication,
@@ -30328,7 +29298,7 @@
   {:d3f/attack-id   "T1498.001",
    :d3f/creates     :d3f/InboundInternetNetworkTraffic,
    :db/ident        :d3f/T1498.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Direct Network Flood",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
@@ -30338,7 +29308,7 @@
   {:d3f/attack-id   "T1498.002",
    :d3f/produces    :d3f/InboundInternetNetworkTraffic,
    :db/ident        :d3f/T1498.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Reflection Amplification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
@@ -30362,7 +29332,7 @@
   {:d3f/attack-id   "T1499.002",
    :d3f/produces    :d3f/InboundInternetNetworkTraffic,
    :db/ident        :d3f/T1499.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Service Exhaustion Flood",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
@@ -30431,7 +29401,7 @@
    :d3f/creates     :d3f/StoredProcedure,
    :d3f/invokes     :d3f/CreateProcess,
    :db/ident        :d3f/T1505.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "SQL Stored Procedures",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/StoredProcedure,
@@ -30445,7 +29415,7 @@
    :d3f/attack-id   "T1505.002",
    :d3f/modifies    :d3f/MailServer,
    :db/ident        :d3f/T1505.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Transport Agent",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/MailServer,
@@ -30460,7 +29430,7 @@
    :d3f/modifies    :d3f/WebServer,
    :d3f/produces    :d3f/Process,
    :db/ident        :d3f/T1505.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Web Shell",
    :rdfs/subClassOf #{:d3f/T1505
                       {:owl/onProperty     :d3f/produces,
@@ -30479,7 +29449,7 @@
    :d3f/todo
    "Post Release 3: Should we model Web Server extensions, modules, filters as distinct installs?  Do we further drive down to IIS specifics?  Do we characterize adds as installs for a technique such as this?",
    :db/ident :d3f/T1505.004,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "IIS Components",
    :rdfs/subClassOf #{:d3f/T1505
                       {:owl/onProperty     :d3f/adds,
@@ -30522,7 +29492,7 @@
                       :d3f/FileSystemMetadata},
    :d3f/may-invoke  :d3f/GetRunningProcesses,
    :db/ident        :d3f/T1518.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Security Software Discovery",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/KernelProcessTable,
@@ -30560,7 +29530,7 @@
   {:d3f/adds        :d3f/ContainerImage,
    :d3f/attack-id   "T1525",
    :db/ident        :d3f/T1525,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Implant Container Image",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/adds,
                        :owl/someValuesFrom :d3f/ContainerImage,
@@ -30571,7 +29541,7 @@
   {:d3f/attack-id   "T1526",
    :d3f/reads       :d3f/CloudConfiguration,
    :db/ident        :d3f/T1526,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Service Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/reads,
@@ -30590,7 +29560,7 @@
   {:d3f/accesses    :d3f/AccessToken,
    :d3f/attack-id   "T1528",
    :db/ident        :d3f/T1528,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Steal Application Access Token",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -30615,7 +29585,7 @@
   {:d3f/attack-id   "T1531",
    :d3f/modifies    :d3f/UserAccount,
    :db/ident        :d3f/T1531,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Account Access Removal",
    :rdfs/subClassOf #{:d3f/ImpactTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -30626,7 +29596,7 @@
   {:d3f/attack-id   "T1534",
    :d3f/produces    :d3f/Email,
    :db/ident        :d3f/T1534,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Internal Spearphishing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/Email,
@@ -30658,7 +29628,7 @@
   {:d3f/accesses    :d3f/CloudConfiguration,
    :d3f/attack-id   "T1538",
    :db/ident        :d3f/T1538,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Service Dashboard",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -30669,7 +29639,7 @@
   {:d3f/accesses    :d3f/SessionCookie,
    :d3f/attack-id   "T1539",
    :db/ident        :d3f/T1539,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Steal Web Session Cookie",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -30687,7 +29657,7 @@
   {:d3f/attack-id   "T1542.001",
    :d3f/modifies    :d3f/SystemFirmware,
    :db/ident        :d3f/T1542.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Firmware",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/modifies,
@@ -30698,7 +29668,7 @@
   {:d3f/attack-id   "T1542.002",
    :d3f/modifies    :d3f/Firmware,
    :db/ident        :d3f/T1542.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Component Firmware",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/modifies,
@@ -30709,7 +29679,7 @@
   {:d3f/attack-id   "T1542.003",
    :d3f/may-modify  #{:d3f/BootSector :d3f/BootLoader :d3f/VolumeBootRecord},
    :db/ident        :d3f/T1542.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Bootkit",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/may-modify,
@@ -30726,7 +29696,7 @@
   {:d3f/attack-id   "T1542.004",
    :d3f/modifies    :d3f/SystemFirmware,
    :db/ident        :d3f/T1542.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "ROMMONkit",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/modifies,
@@ -30737,7 +29707,7 @@
   {:d3f/attack-id   "T1542.005",
    :d3f/creates     :d3f/TFTPNetworkTraffic,
    :db/ident        :d3f/T1542.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "TFTP Boot",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/creates,
@@ -30756,7 +29726,7 @@
   {:d3f/attack-id   "T1543.001",
    :d3f/creates     :d3f/PropertyListFile,
    :db/ident        :d3f/T1543.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Launch Agent",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty     :d3f/creates,
@@ -30768,7 +29738,7 @@
    :d3f/may-create  :d3f/OperatingSystemConfigurationFile,
    :d3f/may-modify  :d3f/OperatingSystemConfigurationFile,
    :db/ident        :d3f/T1543.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Systemd Service",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty :d3f/may-create,
@@ -30784,7 +29754,7 @@
   {:d3f/attack-id   "T1543.003",
    :d3f/modifies    :d3f/SystemConfigurationDatabase,
    :db/ident        :d3f/T1543.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Windows Service",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty     :d3f/modifies,
@@ -30795,7 +29765,7 @@
   {:d3f/attack-id   "T1543.004",
    :d3f/modifies    :d3f/PropertyListFile,
    :db/ident        :d3f/T1543.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Launch Daemon",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty     :d3f/modifies,
@@ -30814,7 +29784,7 @@
   {:d3f/attack-id   "T1546.001",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1546.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Change Default File Association",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -30826,7 +29796,7 @@
    :d3f/creates     :d3f/ExecutableFile,
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1546.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Screensaver",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -30841,7 +29811,7 @@
    :d3f/modifies    :d3f/EventLog,
    :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
    :db/ident        :d3f/T1546.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Windows Management Instrumentation Event Subscription",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -30855,7 +29825,7 @@
   {:d3f/attack-id   "T1546.004",
    :d3f/modifies    :d3f/UserInitConfigurationFile,
    :db/ident        :d3f/T1546.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      ".bash_profile and .bashrc",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserInitConfigurationFile,
@@ -30868,7 +29838,7 @@
    :d3f/may-modify  :d3f/ExecutableScript,
    :d3f/modifies    :d3f/EventLog,
    :db/ident        :d3f/T1546.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Trap",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ExecutableScript,
@@ -30887,7 +29857,7 @@
   {:d3f/attack-id   "T1546.006",
    :d3f/modifies    :d3f/ExecutableBinary,
    :db/ident        :d3f/T1546.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "LC_LOAD_DYLIB Addition",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
@@ -30898,7 +29868,7 @@
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :d3f/produces    :d3f/Process,
    :db/ident        :d3f/T1546.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Netsh Helper DLL",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -30914,7 +29884,7 @@
    :d3f/may-modify  #{:d3f/ExecutableBinary
                       :d3f/SystemConfigurationDatabaseRecord},
    :db/ident        :d3f/T1546.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Accessibility Features",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
@@ -30934,7 +29904,7 @@
    :d3f/loads       :d3f/SharedLibraryFile,
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1546.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "AppCert DLLs",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -30953,7 +29923,7 @@
    :d3f/loads       :d3f/SharedLibraryFile,
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1546.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "AppInit DLLs",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -30971,7 +29941,7 @@
    :d3f/creates     :d3f/Shim,
    :d3f/modifies    :d3f/ShimDatabase,
    :db/ident        :d3f/T1546.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Application Shimming",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/Shim,
@@ -30984,7 +29954,7 @@
   {:d3f/attack-id   "T1546.012",
    :d3f/modifies    :d3f/SystemConfigurationDatabase,
    :db/ident        :d3f/T1546.012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Image File Execution Options Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -30994,7 +29964,7 @@
   {:d3f/attack-id   "T1546.013",
    :d3f/modifies    :d3f/PowerShellProfileScript,
    :db/ident        :d3f/T1546.013,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "PowerShell Profile",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/PowerShellProfileScript,
@@ -31006,7 +29976,7 @@
    :d3f/may-modify  :d3f/PropertyListFile,
    :d3f/modifies    :d3f/ConfigurationResource,
    :db/ident        :d3f/T1546.014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Emond",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/PropertyListFile,
@@ -31023,7 +29993,7 @@
    :d3f/loads       :d3f/ExecutableBinary,
    :d3f/modifies    :d3f/SystemConfigurationDatabase,
    :db/ident        :d3f/T1546.015,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Component Object Model Hijacking",
    :rdfs/seeAlso    {:xsd/anyURI
                      "http://dbpedia.org/resource/Component_Object_Model"},
@@ -31049,7 +30019,7 @@
    :d3f/todo
    "Two different things and different access (admin vs. user) given detail given to other siblings and apparent implementation.  Soon to be deprecated in favor of two?  Problematic in that can't assert at this class level some registry or some start up folder, because often not both.",
    :db/ident :d3f/T1547.001,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Registry Run Keys / Startup Folder",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty :d3f/may-modify,
@@ -31064,7 +30034,7 @@
   {:d3f/attack-id   "T1547.002",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1547.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Authentication Package",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31075,7 +30045,7 @@
   {:d3f/attack-id   "T1547.003",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1547.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Time Providers",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31086,7 +30056,7 @@
   {:d3f/attack-id   "T1547.004",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1547.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Winlogon Helper DLL",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31097,7 +30067,7 @@
   {:d3f/attack-id   "T1547.005",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1547.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Security Support Provider",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31108,7 +30078,7 @@
   {:d3f/attack-id   "T1547.006",
    :d3f/modifies    :d3f/KernelModule,
    :db/ident        :d3f/T1547.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Kernel Modules and Extensions",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
@@ -31119,7 +30089,7 @@
   {:d3f/attack-id   "T1547.007",
    :d3f/modifies    :d3f/ApplicationConfigurationFile,
    :db/ident        :d3f/T1547.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Re-opened Applications",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
@@ -31131,7 +30101,7 @@
    :d3f/may-create  :d3f/SharedLibraryFile,
    :d3f/modifies    :d3f/SystemServiceSoftware,
    :db/ident        :d3f/T1547.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "LSASS Driver",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -31144,7 +30114,7 @@
   {:d3f/attack-id   "T1547.009",
    :d3f/may-modify  #{:d3f/UserStartupScriptFile :d3f/SymbolicLink},
    :db/ident        :d3f/T1547.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Shortcut Modification",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/may-modify,
@@ -31158,7 +30128,7 @@
   {:d3f/attack-id   "T1547.010",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1547.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Port Monitors",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31169,7 +30139,7 @@
   {:d3f/attack-id   "T1547.011",
    :d3f/modifies    :d3f/ApplicationConfigurationFile,
    :db/ident        :d3f/T1547.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Plist Modification",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
@@ -31201,7 +30171,7 @@
   {:d3f/attack-id   "T1547.015",
    :d3f/modifies    :d3f/UserLogonInitResource,
    :db/ident        :d3f/T1547.015,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Login Items",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
@@ -31220,7 +30190,7 @@
   {:d3f/attack-id   "T1548.001",
    :d3f/modifies    :d3f/AccessControlConfiguration,
    :db/ident        :d3f/T1548.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Setuid and Setgid",
    :rdfs/subClassOf #{:d3f/T1548
                       {:owl/onProperty     :d3f/modifies,
@@ -31233,7 +30203,7 @@
    :d3f/invokes     :d3f/CreateProcess,
    :d3f/may-modify  :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1548.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Bypass User Access Control",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
@@ -31251,7 +30221,7 @@
    :d3f/may-modify  :d3f/EventLog,
    :d3f/modifies    :d3f/OperatingSystemConfigurationFile,
    :db/ident        :d3f/T1548.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Sudo and Sudo Caching",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
@@ -31266,7 +30236,7 @@
    :d3f/creates     :d3f/SystemConfigurationDatabase,
    :d3f/invokes     :d3f/SystemCall,
    :db/ident        :d3f/T1548.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Elevated Execution with Prompt",
    :rdfs/subClassOf #{:d3f/T1548
                       {:owl/onProperty     :d3f/creates,
@@ -31280,7 +30250,7 @@
   {:d3f/accesses    :d3f/AuthenticationService,
    :d3f/attack-id   "T1550",
    :db/ident        :d3f/T1550,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Use Alternate Authentication Material",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/AuthenticationService,
@@ -31293,7 +30263,7 @@
    :d3f/may-produce :d3f/NetworkTraffic,
    :d3f/uses        :d3f/AccessToken,
    :db/ident        :d3f/T1550.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Application Access Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -31306,7 +30276,7 @@
   {:d3f/attack-id   "T1550.002",
    :d3f/creates     :d3f/Authentication,
    :db/ident        :d3f/T1550.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Pass The Hash",
    :rdfs/subClassOf #{:d3f/T1550
                       {:owl/onProperty     :d3f/creates,
@@ -31317,7 +30287,7 @@
   {:d3f/attack-id   "T1550.003",
    :d3f/creates     :d3f/Authentication,
    :db/ident        :d3f/T1550.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Pass The Ticket",
    :rdfs/subClassOf #{:d3f/T1550
                       {:owl/onProperty     :d3f/creates,
@@ -31329,7 +30299,7 @@
    :d3f/attack-id   "T1550.004",
    :d3f/produces    :d3f/WebNetworkTraffic,
    :db/ident        :d3f/T1550.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Web Session Cookie",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/adds,
                        :owl/someValuesFrom :d3f/SessionCookie,
@@ -31342,7 +30312,7 @@
   {:d3f/accesses    :d3f/Credential,
    :d3f/attack-id   "T1552",
    :db/ident        :d3f/T1552,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Unsecured Credentials",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Credential,
@@ -31353,7 +30323,7 @@
   {:d3f/accesses    :d3f/File,
    :d3f/attack-id   "T1552.001",
    :db/ident        :d3f/T1552.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credentials in Files",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
@@ -31364,7 +30334,7 @@
   {:d3f/accesses    :d3f/SystemConfigurationDatabase,
    :d3f/attack-id   "T1552.002",
    :db/ident        :d3f/T1552.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credentials in Registry",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
@@ -31375,7 +30345,7 @@
   {:d3f/accesses    :d3f/CommandHistoryLogFile,
    :d3f/attack-id   "T1552.003",
    :db/ident        :d3f/T1552.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Bash History",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/CommandHistoryLogFile,
@@ -31385,7 +30355,7 @@
   {:d3f/accesses    :d3f/PrivateKey,
    :d3f/attack-id   "T1552.004",
    :db/ident        :d3f/T1552.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Private Keys",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
@@ -31396,7 +30366,7 @@
   {:d3f/accesses    :d3f/CloudInstanceMetadata,
    :d3f/attack-id   "T1552.005",
    :db/ident        :d3f/T1552.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Instance Metadata  API",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
@@ -31407,7 +30377,7 @@
   {:d3f/accesses    :d3f/GroupPolicy,
    :d3f/attack-id   "T1552.006",
    :db/ident        :d3f/T1552.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Group Policy Preferences",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/GroupPolicy,
@@ -31431,7 +30401,7 @@
   {:d3f/attack-id   "T1553.001",
    :d3f/modifies    :d3f/FileSystemMetadata,
    :db/ident        :d3f/T1553.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Gatekeeper Bypass",
    :rdfs/subClassOf #{:d3f/T1553
                       {:owl/onProperty     :d3f/modifies,
@@ -31442,7 +30412,7 @@
   {:d3f/attack-id   "T1553.002",
    :d3f/enables     :d3f/DefenseEvasion,
    :db/ident        :d3f/T1553.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Code Signing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/DefenseEvasion,
@@ -31452,7 +30422,7 @@
   {:d3f/attack-id   "T1553.003",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1553.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "SIP and Trust Provider Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31463,7 +30433,7 @@
   {:d3f/attack-id   "T1553.004",
    :d3f/modifies    :d3f/CertificateTrustStore,
    :db/ident        :d3f/T1553.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Install Root Certificate",
    :rdfs/subClassOf #{:d3f/T1553
                       {:owl/onProperty     :d3f/modifies,
@@ -31488,7 +30458,7 @@
   {:d3f/attack-id   "T1554",
    :d3f/modifies    :d3f/ClientApplication,
    :db/ident        :d3f/T1554,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Compromise Client Software Binary",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -31500,7 +30470,7 @@
    :d3f/attack-id   "T1555",
    :d3f/may-access  :d3f/DatabaseFile,
    :db/ident        :d3f/T1555,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credentials from Password Stores",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/PasswordStore,
@@ -31514,7 +30484,7 @@
   {:d3f/accesses    :d3f/MacOSKeychain,
    :d3f/attack-id   "T1555.001",
    :db/ident        :d3f/T1555.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Keychain",
    :rdfs/subClassOf #{:d3f/T1555
                       {:owl/onProperty     :d3f/accesses,
@@ -31525,7 +30495,7 @@
   {:d3f/accesses    :d3f/In-memoryPasswordStore,
    :d3f/attack-id   "T1555.002",
    :db/ident        :d3f/T1555.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Securityd Memory",
    :rdfs/subClassOf #{:d3f/T1555
                       {:owl/onProperty     :d3f/accesses,
@@ -31538,7 +30508,7 @@
    :d3f/may-access  :d3f/In-memoryPasswordStore,
    :d3f/may-invoke  :d3f/ReadFile,
    :db/ident        :d3f/T1555.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Credentials from Web Browsers",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/In-memoryPasswordStore,
@@ -31568,7 +30538,7 @@
   {:d3f/attack-id   "T1556",
    :d3f/modifies    :d3f/AuthenticationService,
    :db/ident        :d3f/T1556,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Modify Authentication Process",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       :d3f/DefenseEvasionTechnique
@@ -31588,7 +30558,7 @@
    :d3f/creates     :d3f/SharedLibraryFile,
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1556.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Password Filter DLL",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -31603,7 +30573,7 @@
    :d3f/may-modify  #{:d3f/OperatingSystemSharedLibraryFile
                       :d3f/OperatingSystemConfigurationFile},
    :db/ident        :d3f/T1556.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Pluggable Authentication Modules",
    :rdfs/subClassOf #{:d3f/T1556
                       {:owl/onProperty :d3f/may-modify,
@@ -31633,7 +30603,7 @@
   {:d3f/attack-id   "T1557",
    :d3f/produces    :d3f/NetworkTraffic,
    :db/ident        :d3f/T1557,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Man-in-the-Middle",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -31645,7 +30615,7 @@
   {:d3f/attack-id   "T1557.001",
    :d3f/produces    :d3f/IntranetMulticastNetworkTraffic,
    :db/ident        :d3f/T1557.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "LLMNR/NBT-NS Poisoning and SMB Relay",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetMulticastNetworkTraffic,
@@ -31662,7 +30632,7 @@
   {:d3f/attack-id   "T1557.003",
    :d3f/creates     :d3f/DHCPNetworkTraffic,
    :db/ident        :d3f/T1557.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "DHCP Spoofing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/DHCPNetworkTraffic,
@@ -31673,7 +30643,7 @@
    :d3f/may-access  :d3f/KerberosTicket,
    :d3f/may-create  :d3f/KerberosTicket,
    :db/ident        :d3f/T1558,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Steal or Forge Kerberos Tickets",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/KerberosTicket,
@@ -31687,7 +30657,7 @@
   {:d3f/attack-id   "T1558.001",
    :d3f/forges      :d3f/KerberosTicketGrantingTicket,
    :db/ident        :d3f/T1558.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Golden Ticket",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/forges,
                        :owl/someValuesFrom :d3f/KerberosTicketGrantingTicket,
@@ -31706,7 +30676,7 @@
    "Service Provider Name (SPN) scanning is one way to gather hashes, which results in RPC calls conforming to the NSPI protocol.",
    :d3f/may-produce :d3f/RPCNetworkTraffic,
    :db/ident :d3f/T1558.003,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Kerberoasting",
    :rdfs/seeAlso
    {:xsd/anyURI
@@ -31727,7 +30697,7 @@
   {:d3f/attack-id   "T1559",
    :d3f/injects     :d3f/InterprocessCommunication,
    :db/ident        :d3f/T1559,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Inter-Process Communication Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/injects,
@@ -31759,7 +30729,7 @@
   {:d3f/attack-id   "T1560",
    :d3f/creates     :d3f/ArchiveFile,
    :db/ident        :d3f/T1560,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Archive Collected Data",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ArchiveFile,
@@ -31770,7 +30740,7 @@
   {:d3f/attack-id   "T1560.001",
    :d3f/creates     :d3f/ArchiveFile,
    :db/ident        :d3f/T1560.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Archive via Utility",
    :rdfs/subClassOf #{:d3f/T1560
                       {:owl/onProperty     :d3f/creates,
@@ -31781,7 +30751,7 @@
   {:d3f/attack-id   "T1560.002",
    :d3f/creates     :d3f/ArchiveFile,
    :db/ident        :d3f/T1560.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Archive via Library",
    :rdfs/subClassOf #{:d3f/T1560
                       {:owl/onProperty     :d3f/creates,
@@ -31792,7 +30762,7 @@
   {:d3f/attack-id   "T1560.003",
    :d3f/creates     :d3f/CustomArchiveFile,
    :db/ident        :d3f/T1560.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Archive via Custom Method",
    :rdfs/subClassOf #{:d3f/T1560
                       {:owl/onProperty     :d3f/creates,
@@ -31812,7 +30782,7 @@
                       :d3f/PartitionTable},
    :d3f/modifies    :d3f/BlockDevice,
    :db/ident        :d3f/T1561.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Disk Content Wipe",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/Partition,
@@ -31834,7 +30804,7 @@
   {:d3f/attack-id   "T1561.002",
    :d3f/may-modify  #{:d3f/BootSector :d3f/PartitionTable},
    :db/ident        :d3f/T1561.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Disk Structure Wipe",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/PartitionTable,
@@ -31854,21 +30824,18 @@
   {:d3f/attack-id   "T1562.001",
    :d3f/disables    :d3f/OperatingSystemProcess,
    :db/ident        :d3f/T1562.001,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Disable or Modify Tools",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/disables,
                        :owl/someValuesFrom :d3f/OperatingSystemProcess,
-                       :rdf/type           :owl/Restriction} :d3f/T1562
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/T1562}})
 
 (def T1562_002
   {:d3f/attack-id   "T1562.002",
    :d3f/may-modify  #{:d3f/ApplicationConfiguration
                       :d3f/OperatingSystemConfigurationComponent},
    :db/ident        :d3f/T1562.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Disable Windows Event Logging",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
@@ -31883,7 +30850,7 @@
    :d3f/may-modify  #{:d3f/UserInitScript :d3f/WindowsRegistryKey},
    :d3f/modifies    :d3f/ProcessEnvironmentVariable,
    :db/ident        :d3f/T1562.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Impair Command History Logging",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/WindowsRegistryKey,
@@ -31899,7 +30866,7 @@
   {:d3f/attack-id   "T1562.004",
    :d3f/modifies    :d3f/SystemFirewallConfiguration,
    :db/ident        :d3f/T1562.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Disable or Modify System Firewall",
    :rdfs/subClassOf #{:d3f/T1562
                       {:owl/onProperty     :d3f/modifies,
@@ -31933,9 +30900,7 @@
                       :d3f/EndpointSensor},
    :d3f/may-modify  :d3f/EndpointHealthBeacon,
    :db/ident        :d3f/T1562.009,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                      :d3f/D3FENDCatalogThing :d3f/Technique
-                      :owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Safe Mode Boot",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/disables,
                        :owl/someValuesFrom
@@ -31946,14 +30911,13 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EndpointHealthBeacon,
-                       :rdf/type           :owl/Restriction} :d3f/T1562
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/T1562}})
 
 (def T1562_010
   {:d3f/accesses    :d3f/LegacySystem,
    :d3f/attack-id   "T1562.010",
    :db/ident        :d3f/T1562.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Downgrade Attack",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/LegacySystem,
@@ -31964,7 +30928,7 @@
    :d3f/attack-id   "T1563",
    :d3f/produces    :d3f/AdministrativeNetworkTraffic,
    :db/ident        :d3f/T1563,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Remote Service Session Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/AdministrativeNetworkTraffic,
@@ -31978,7 +30942,7 @@
   {:d3f/accesses    :d3f/SSHSession,
    :d3f/attack-id   "T1563.001",
    :db/ident        :d3f/T1563.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "SSH Hijacking",
    :rdfs/subClassOf #{:d3f/T1563
                       {:owl/onProperty     :d3f/accesses,
@@ -31989,7 +30953,7 @@
   {:d3f/accesses    :d3f/RDPSession,
    :d3f/attack-id   "T1563.002",
    :db/ident        :d3f/T1563.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "RDP Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/RDPSession,
@@ -32006,7 +30970,7 @@
   {:d3f/attack-id   "T1564.001",
    :d3f/modifies    :d3f/FileSystemMetadata,
    :db/ident        :d3f/T1564.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Hidden Files and Directories",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
@@ -32016,7 +30980,7 @@
   {:d3f/attack-id   "T1564.002",
    :d3f/modifies    :d3f/UserInitConfigurationFile,
    :db/ident        :d3f/T1564.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Hidden Users",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserInitConfigurationFile,
@@ -32028,7 +30992,7 @@
    :d3f/todo
    "Not full capture or relationships:. For instance, many of the extant software techniques in the wild result in powershell invocations with option to be hidden. This is a particular option. and -creates->process isn't the key distinction, so we want to be able to capture nuances like that.  The verb \"hides\" is lurking somewhere as knowledge to be exploited in model, but that is relative to viewer and not the data artifacts being changed.",
    :db/ident :d3f/T1564.003,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Hidden Window",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -32043,7 +31007,7 @@
    :d3f/todo
    "Consider in joint review: Master File Table (MFT) is a specific type of metadata associated with NTFS that is key to this technique, easy enough to subclass and refine other elements of file metadata as well.",
    :db/ident :d3f/T1564.004,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "NTFS File Attributes",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
@@ -32054,7 +31018,7 @@
    :d3f/may-modify  :d3f/SystemConfigurationDatabase,
    :d3f/modifies    :d3f/Storage,
    :db/ident        :d3f/T1564.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Hidden File System",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -32070,7 +31034,7 @@
    :d3f/may-add     :d3f/VirtualizationSoftware,
    :d3f/may-create  :d3f/Directory,
    :db/ident        :d3f/T1564.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Run Virtual Instance",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/VirtualizationSoftware,
@@ -32089,7 +31053,7 @@
   {:d3f/attack-id   "T1564.007",
    :d3f/modifies    :d3f/OfficeApplicationFile,
    :db/ident        :d3f/T1564.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "VBA Stomping",
    :rdfs/subClassOf #{:d3f/T1564
                       {:owl/onProperty     :d3f/modifies,
@@ -32102,7 +31066,7 @@
    :d3f/may-modify  :d3f/EmailRule,
    :d3f/modifies    :d3f/ApplicationConfiguration,
    :db/ident        :d3f/T1564.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Email Hiding Rules",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/EmailRule,
@@ -32119,7 +31083,7 @@
    :d3f/may-create  :d3f/ResourceFork,
    :d3f/may-modify  :d3f/ResourceFork,
    :db/ident        :d3f/T1564.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Resource Forking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ResourceFork,
@@ -32146,7 +31110,7 @@
   {:d3f/attack-id   "T1565.001",
    :d3f/modifies    :d3f/File,
    :db/ident        :d3f/T1565.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Stored Data Manipulation",
    :rdfs/subClassOf #{:d3f/T1565
                       {:owl/onProperty     :d3f/modifies,
@@ -32157,7 +31121,7 @@
   {:d3f/attack-id   "T1565.002",
    :d3f/may-modify  :d3f/NetworkTraffic,
    :db/ident        :d3f/T1565.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Transmitted Data Manipulation",
    :rdfs/subClassOf #{:d3f/T1565
                       {:owl/onProperty     :d3f/may-modify,
@@ -32168,7 +31132,7 @@
   {:d3f/attack-id   "T1565.003",
    :d3f/may-modify  :d3f/ExecutableFile,
    :db/ident        :d3f/T1565.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Runtime Data Manipulation",
    :rdfs/subClassOf #{:d3f/T1565
                       {:owl/onProperty     :d3f/may-modify,
@@ -32186,7 +31150,7 @@
   {:d3f/attack-id   "T1566.001",
    :d3f/produces    #{:d3f/Email :d3f/InboundInternetMailTraffic},
    :db/ident        :d3f/T1566.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Spearphishing Attachment",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
@@ -32199,7 +31163,7 @@
   {:d3f/attack-id   "T1566.002",
    :d3f/produces    #{:d3f/Email :d3f/InboundInternetMailTraffic :d3f/URL},
    :db/ident        :d3f/T1566.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Spearphishing Link",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
@@ -32215,7 +31179,7 @@
   {:d3f/attack-id   "T1566.003",
    :d3f/produces    #{:d3f/URL :d3f/File},
    :db/ident        :d3f/T1566.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Spearphishing Via Service",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/URL,
@@ -32228,7 +31192,7 @@
   {:d3f/attack-id   "T1567",
    :d3f/produces    :d3f/OutboundInternetWebTraffic,
    :db/ident        :d3f/T1567,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration Over Web Service",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
@@ -32240,7 +31204,7 @@
    :d3f/may-produce #{:d3f/OutboundInternetEncryptedRemoteTerminalTraffic
                       :d3f/OutboundInternetEncryptedWebTraffic},
    :db/ident        :d3f/T1567.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration to Code Repository",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-produce,
                        :owl/someValuesFrom
@@ -32255,7 +31219,7 @@
   {:d3f/attack-id   "T1567.002",
    :d3f/produces    :d3f/OutboundInternetEncryptedWebTraffic,
    :db/ident        :d3f/T1567.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Exfiltration to Cloud Storage",
    :rdfs/subClassOf #{:d3f/T1567
                       {:owl/onProperty :d3f/produces,
@@ -32267,7 +31231,7 @@
   {:d3f/attack-id   "T1568",
    :d3f/produces    :d3f/OutboundInternetDNSLookupTraffic,
    :db/ident        :d3f/T1568,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Dynamic Resolution",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty :d3f/produces,
@@ -32322,7 +31286,7 @@
   {:d3f/attack-id   "T1570",
    :d3f/produces    :d3f/IntranetFileTransferTraffic,
    :db/ident        :d3f/T1570,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Lateral Tool Transfer",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetFileTransferTraffic,
@@ -32333,7 +31297,7 @@
   {:d3f/attack-id   "T1571",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1571,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Non-Standard Port",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -32344,7 +31308,7 @@
   {:d3f/attack-id   "T1572",
    :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
    :db/ident        :d3f/T1572,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Protocol Tunneling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
@@ -32355,7 +31319,7 @@
   {:d3f/attack-id   "T1573",
    :d3f/produces    :d3f/OutboundInternetEncryptedTraffic,
    :db/ident        :d3f/T1573,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Encrypted Channel",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty :d3f/produces,
@@ -32369,7 +31333,7 @@
   {:d3f/attack-id   "T1573.001",
    :d3f/creates     :d3f/OutboundInternetEncryptedTraffic,
    :db/ident        :d3f/T1573.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Symmetric Cryptography",
    :rdfs/subClassOf #{:d3f/T1573
                       {:owl/onProperty :d3f/creates,
@@ -32382,7 +31346,7 @@
    :d3f/creates      :d3f/OutboundInternetEncryptedTraffic,
    :d3f/may-transfer :d3f/CertificateFile,
    :db/ident         :d3f/T1573.002,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+   :rdf/type         :owl/Class,
    :rdfs/label       "Asymmetric Cryptography",
    :rdfs/subClassOf  #{:d3f/T1573
                        {:owl/onProperty :d3f/creates,
@@ -32405,7 +31369,7 @@
   {:d3f/attack-id   "T1574.001",
    :d3f/may-create  :d3f/SharedLibraryFile,
    :db/ident        :d3f/T1574.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "DLL Search Order Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -32416,7 +31380,7 @@
    :d3f/may-create  :d3f/SharedLibraryFile,
    :d3f/may-modify  :d3f/SharedLibraryFile,
    :db/ident        :d3f/T1574.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "DLL Side-Loading",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -32430,7 +31394,7 @@
    :d3f/may-create  :d3f/SharedLibraryFile,
    :d3f/may-modify  :d3f/SharedLibraryFile,
    :db/ident        :d3f/T1574.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Dylib Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -32443,7 +31407,7 @@
   {:d3f/attack-id   "T1574.005",
    :d3f/modifies    :d3f/ServiceApplication,
    :db/ident        :d3f/T1574.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Executable Installer File Permissions Weakness",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/modifies,
@@ -32456,7 +31420,7 @@
    "Just modifies the system configuration file /etc/profile, does not appear to modify any other resource per their resources.",
    :d3f/modifies :d3f/OperatingSystemConfigurationFile,
    :db/ident :d3f/T1574.006,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "LD_PRELOAD",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -32467,7 +31431,7 @@
   {:d3f/attack-id   "T1574.007",
    :d3f/creates     :d3f/ExecutableFile,
    :db/ident        :d3f/T1574.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Path Interception by PATH Environment Variable",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/creates,
@@ -32478,7 +31442,7 @@
   {:d3f/attack-id   "T1574.008",
    :d3f/creates     :d3f/ExecutableFile,
    :db/ident        :d3f/T1574.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Path Interception by Search Order Hijacking",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/creates,
@@ -32489,7 +31453,7 @@
   {:d3f/attack-id   "T1574.009",
    :d3f/creates     :d3f/ExecutableFile,
    :db/ident        :d3f/T1574.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Path Interception by Unquoted Path",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/creates,
@@ -32500,7 +31464,7 @@
   {:d3f/attack-id   "T1574.010",
    :d3f/modifies    :d3f/ServiceApplication,
    :db/ident        :d3f/T1574.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Services File Permissions Weakness",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/modifies,
@@ -32512,7 +31476,7 @@
   {:d3f/attack-id   "T1574.011",
    :d3f/modifies    :d3f/SystemConfigurationInitDatabaseRecord,
    :db/ident        :d3f/T1574.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Services Registry Permissions Weakness",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty :d3f/modifies,
@@ -32525,7 +31489,7 @@
    :d3f/attack-id   "T1574.012",
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1574.012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "COR_PROFILER",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -33281,7 +32245,7 @@
   {:d3f/accesses    :d3f/ConfigurationResource,
    :d3f/attack-id   "T1614",
    :db/ident        :d3f/T1614,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Location Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -33292,7 +32256,7 @@
   {:d3f/attack-id   "T1614.001",
    :d3f/queries     :d3f/SystemConfigurationDatabase,
    :db/ident        :d3f/T1614.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "System Language Discovery",
    :rdfs/subClassOf #{:d3f/T1614
                       {:owl/onProperty     :d3f/queries,
@@ -33303,7 +32267,7 @@
   {:d3f/attack-id   "T1615",
    :d3f/reads       :d3f/GroupPolicy,
    :db/ident        :d3f/T1615,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Group Policy Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/reads,
@@ -33314,7 +32278,7 @@
   {:d3f/accesses    :d3f/CloudStorage,
    :d3f/attack-id   "T1619",
    :db/ident        :d3f/T1619,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Storage Object Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
@@ -33325,7 +32289,7 @@
   {:d3f/attack-id   "T1620",
    :d3f/modifies    :d3f/ProcessSegment,
    :db/ident        :d3f/T1620,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Reflective Code Loading",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ProcessSegment,
@@ -33357,7 +32321,7 @@
   {:d3f/definition
    "TFTP Network Traffic is network traffic typically used to automatically transfer configuration or boot files between machines.",
    :db/ident :d3f/TFTPNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "TFTP Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -33383,9 +32347,7 @@
      :d3f/Reference-TPM2.0LibrarySpecification_TrustedComputingGroup%2CIncorporated},
    :d3f/synonym #{"Static Root of Trust Measurement" "STRM"},
    :db/ident :d3f/TPMBootIntegrity,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/PlatformHardening
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/PlatformHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "TPM Boot Integrity",
    :rdfs/subClassOf :d3f/PlatformHardening})
 
@@ -33423,7 +32385,7 @@
    :rdfs/subClassOf #{:d3f/D3FENDThing
                       {:owl/onProperty     :d3f/has-link,
                        :owl/someValuesFrom :xsd/anyURI,
-                       :rdf/type           :owl/Restriction} :d3f/Reference
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/kb-reference-of,
                        :owl/someValuesFrom :d3f/DefensiveTechnique,
                        :rdf/type           :owl/Restriction}
@@ -33460,16 +32422,13 @@
    "On many computer operating systems, a computer process terminates its execution by making an exit system call. More generally, an exit in a multithreading environment means that a thread of execution has stopped running. For resource management, the operating system reclaims resources (memory, files, etc.) that were used by the process. The process is said to be a dead process after it terminates.",
    :d3f/terminates :d3f/Process,
    :db/ident :d3f/TerminateProcess,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Exit_(system_call)"},
    :rdfs/label "Terminate Process",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/terminates,
                        :owl/someValuesFrom :d3f/Process,
-                       :rdf/type           :owl/Restriction} :d3f/SystemCall
-                      :d3f/DefensiveTechnique}})
+                       :rdf/type           :owl/Restriction} :d3f/SystemCall}})
 
 (def TertiaryStorage
   {:d3f/definition
@@ -33505,7 +32464,7 @@
 
 (def ThreadClass
   {:db/ident        :d3f/Thread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Thread",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -33513,7 +32472,7 @@
   {:d3f/definition  "A function which invokes a create thread system call.",
    :d3f/executes    :d3f/Thread,
    :db/ident        :d3f/ThreadStartFunction,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/label      "Thread Start Function",
    :rdfs/subClassOf #{:d3f/Subroutine
                       {:owl/onProperty     :d3f/executes,
@@ -33551,17 +32510,14 @@
    "A trace system call provides a means by which one process (the \"tracer\") may observe and control the execution of another process (the \"tracee\"), and examine and change the tracee's memory and registers. It is primarily used to implement breakpoint debugging and system call tracing.",
    :d3f/monitors :d3f/Process,
    :db/ident :d3f/TraceProcess,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type :owl/Class,
    :rdfs/label "Trace Process",
    :rdfs/seeAlso #{{:xsd/anyURI "https://linux.die.net/man/2/ptrace"}
                    {:xsd/anyURI "https://dbpedia.org/resource/Ptrace"}},
    :rdfs/subClassOf #{:d3f/SystemCall
                       {:owl/onProperty     :d3f/monitors,
                        :owl/someValuesFrom :d3f/Process,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique},
+                       :rdf/type           :owl/Restriction}},
    :skos/altLabel "Open Process"})
 
 (def TrajectoryPrediction
@@ -33581,9 +32537,7 @@
      :d3f/Reference-DomainKeysIdentifiedMail-Signatures-IETF
      :d3f/Reference-RFC7208-SenderPolicyFramework-SPF-ForAuthorizingUseOfDomainsInEmail-IETF},
    :db/ident :d3f/TransferAgentAuthentication,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/MessageHardening :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/MessageHardening},
    :rdfs/label "Transfer Agent Authentication",
    :rdfs/subClassOf :d3f/MessageHardening})
 
@@ -33629,7 +32583,7 @@
   {:d3f/definition
    "A translation lookaside buffer (TLB) is a memory cache that is used to reduce the time taken to access a user memory location. It is a part of the chip's memory-management unit (MMU).",
    :db/ident :d3f/TranslationLookasideBuffer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://dbpedia.org/page/Translation_lookaside_buffer"},
    :rdfs/label "Translation Lookaside Buffer",
@@ -33671,9 +32625,7 @@
    :d3f/definition
    "A Uniform Resource Locator (URL), commonly informally termed a web address (a term which is not defined identically) is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.A URL is a specific type of Uniform Resource Identifier (URI), although many people use the two terms interchangeably. A URL implies the means to access an indicated resource, which is not true of every URI. URLs occur most commonly to reference web pages (http), but are also used for file transfer (ftp), email (mailto), database access (JDBC), and many other applications.",
    :db/ident :d3f/URL,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/Identifier
-               :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual
-               :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Uniform_Resource_Locator"},
    :rdfs/label "URL",
@@ -33695,9 +32647,7 @@
    #{:d3f/Reference-MethodAndSystemForDetectingRestrictedContentAssociatedWithRetrievedContent_SophosLtd
      :d3f/Reference-MethodAndApparatusForDetectingMaliciousWebsites_EndgameInc},
    :db/ident :d3f/URLAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/IdentifierAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/IdentifierAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "URL Analysis",
    :rdfs/subClassOf #{:d3f/IdentifierAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -33710,11 +32660,8 @@
    :d3f/definition   "Analyzing the reputation of a URL.",
    :d3f/kb-reference :d3f/Reference-Finding_phishing_sites,
    :db/ident         :d3f/URLReputationAnalysis,
-   :rdf/type         #{:d3f/D3FENDThing :d3f/CapabilityFeature
-                       :d3f/IdentifierAnalysis :d3f/D3FENDCatalogThing
-                       :d3f/Technique :owl/NamedIndividual
-                       :d3f/IdentifierReputationAnalysis :owl/Class
-                       :d3f/DefensiveTechnique},
+   :rdf/type         #{:owl/NamedIndividual :d3f/IdentifierReputationAnalysis
+                       :owl/Class},
    :rdfs/label       "URL Reputation Analysis",
    :rdfs/subClassOf  #{{:owl/onProperty     :d3f/analyzes,
                         :owl/someValuesFrom :d3f/URL,
@@ -33764,10 +32711,7 @@
    :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
    :d3f/restores :d3f/UserAccount,
    :db/ident :d3f/UnlockAccount,
-   :rdf/type #{:d3f/D3FENDThing :d3f/RestoreAccess :d3f/CapabilityFeature
-               :d3f/RestoreUserAccountAccess :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/RestoreUserAccountAccess :owl/NamedIndividual :owl/Class},
    :rdfs/label "Unlock Account",
    :rdfs/subClassOf #{:d3f/RestoreUserAccountAccess
                       {:owl/onProperty     :d3f/restores,
@@ -33826,7 +32770,7 @@
    :d3f/has-account :d3f/UserAccount,
    :d3f/restricted-by :d3f/AccessControlList,
    :db/ident :d3f/User,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/User_(computing)"},
    :rdfs/label "User",
@@ -33845,7 +32789,7 @@
   {:d3f/definition
    "A user account allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system; however, authentication does not imply authorization. To log into an account, a user is typically required to authenticate oneself with a password or other credentials for the purposes of accounting, security, logging, and resource management.",
    :db/ident :d3f/UserAccount,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/User_(computing)#User_account"},
    :rdfs/label "User Account",
@@ -33859,10 +32803,8 @@
    :d3f/kb-reference :d3f/Reference-ConfigureUserAccessControlAndPermissions,
    :d3f/restricts    :d3f/UserAccount,
    :db/ident         :d3f/UserAccountPermissions,
-   :rdf/type         #{:d3f/D3FENDThing :d3f/CredentialHardening
-                       :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-                       :d3f/Technique :owl/NamedIndividual :owl/Class
-                       :d3f/DefensiveTechnique},
+   :rdf/type         #{:d3f/CredentialHardening :owl/NamedIndividual
+                       :owl/Class},
    :rdfs/label       "User Account Permissions",
    :rdfs/subClassOf  #{:d3f/CredentialHardening
                        {:owl/onProperty     :d3f/restricts,
@@ -33873,7 +32815,7 @@
   {:d3f/definition
    "An action performed by a user. Executing commands, granting permissions, and accessing resources are examples of user actions.",
    :db/ident :d3f/UserAction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Action",
    :rdfs/subClassOf #{:d3f/DigitalArtifact :d3f/DigitalEvent}})
 
@@ -33892,7 +32834,7 @@
    :d3f/definition
    "A user behavior is a pattern of user actions, or set of such patterns. Modeling and analyzing these patterns and monitoring a users actions for meaningful anomalies is known as user behavior analytics (UBA).",
    :db/ident :d3f/UserBehavior,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Behavior",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/User_behavior_analytics"},
@@ -33910,9 +32852,7 @@
    "## Technique Overview\n\nSome techniques monitor patterns of human behavior and then apply algorithms and to identify patterns such as repeated login attempts from a single IP address or large file downloads, or abnormal accesses.\n\nOther techniques may have explicit or rigid definitions of \"bad behavior\" which are then matched against instances in a computer network environment.",
    :d3f/synonym #{"Credential Monitoring" "UBA"},
    :db/ident :d3f/UserBehaviorAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/User_behavior_analytics"},
    :rdfs/label "User Behavior Analysis",
@@ -33932,9 +32872,7 @@
      :d3f/Reference-SystemAndMethodThereofForIdentifyingAndRespondingToSecurityIncidentsBasedOnPreemptiveForensics_PaloAltoNetworksInc},
    :d3f/todo "improve kb-article",
    :db/ident :d3f/UserDataTransferAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "User Data Transfer Analysis",
    :rdfs/subClassOf #{:d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -33952,9 +32890,7 @@
    #{:d3f/Reference-MethodAndApparatusForNetworkFraudDetectionAndRemediationThroughAnalytics_IdaptiveLLC
      :d3f/Reference-System%2CMethod%2CAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc},
    :db/ident :d3f/UserGeolocationLogonPatternAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "User Geolocation Logon Pattern Analysis",
    :rdfs/subClassOf #{:d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -33967,7 +32903,7 @@
    "User groups are a way to collect user accounts and/or computer accounts into manageable units. Administrators can assign permissions, roles, or access to resources, as well as modify group membership, depending on the operating system.",
    :d3f/synonym "Security Group",
    :db/ident :d3f/UserGroup,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Group",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/User,
@@ -33978,7 +32914,7 @@
   {:d3f/definition
    "A user initialization configuration file is a file containing the information necessary to configure that part of a user's environment which is common to all applications and actions. User configurations may be overridden by more specific configuration information (such as that found in a application configuration file.)",
    :db/ident :d3f/UserInitConfigurationFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Init Configuration File",
    :rdfs/subClassOf #{:d3f/ConfigurationFile :d3f/UserLogonInitResource},
    :skos/altLabel "User Configuration File"})
@@ -33987,7 +32923,7 @@
   {:d3f/definition
    "A script used to initialize and configure elements of the user's applications and user environment.",
    :db/ident :d3f/UserInitScript,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Init Script",
    :rdfs/subClassOf #{:d3f/InitScript :d3f/ExecutableScript
                       :d3f/UserLogonInitResource}})
@@ -33996,7 +32932,7 @@
   {:d3f/definition
    "Generic function that receives direct user input from an untrusted source.",
    :db/ident :d3f/UserInputFunction,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Input Function",
    :rdfs/subClassOf :d3f/InputFunction})
 
@@ -34014,14 +32950,13 @@
   {:d3f/definition
    "A user logon initialization resource contains information used to configure a user's environment when a user logs into a system.",
    :db/ident :d3f/UserLogonInitResource,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Logon Init Resource",
    :rdfs/subClassOf :d3f/LocalResource})
 
 (def UserManual
   {:db/ident        :d3f/UserManual,
-   :rdf/type        #{:d3f/D3FENDThing :d3f/ReferenceType :owl/NamedIndividual
-                      :owl/Class},
+   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
    :rdfs/label      "User Manual",
    :rdfs/subClassOf :d3f/Document})
 
@@ -34036,7 +32971,7 @@
   {:d3f/definition
    "A user process is a process running to perform functions in the name of on particular user and user account, such as run an application or application service serving any number users.  This is in contrast to a system process, which executes software to fulfill operating system functions.",
    :db/ident :d3f/UserProcess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Process",
    :rdfs/subClassOf :d3f/Process})
 
@@ -34052,10 +32987,7 @@
      :d3f/Reference-CAR-2020-09-002:ComponentObjectModelHijacking_MITRE},
    :d3f/synonym "User Startup Config Analysis",
    :db/ident :d3f/UserSessionInitConfigAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/D3FENDCatalogThing
-               :d3f/Technique :owl/NamedIndividual
-               :d3f/OperatingSystemMonitoring :d3f/PlatformMonitoring :owl/Class
-               :d3f/DefensiveTechnique},
+   :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
    :rdfs/label "User Session Init Config Analysis",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/UserInitConfigurationFile,
@@ -34067,7 +32999,7 @@
    :d3f/definition
    "A user startup directory holds information necessary to start the users session with the system.",
    :db/ident :d3f/UserStartupDirectory,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Startup Directory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/UserStartupScriptFile,
@@ -34078,7 +33010,7 @@
   {:d3f/definition
    "A user startup script file is a shortcut file that is executed when a user logs in and starts a session on the host.  These indicate applications the user wants started at login.  For Windows, these are typically found in the user's startup directory.",
    :db/ident :d3f/UserStartupScriptFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "User Startup Script File",
    :rdfs/subClassOf #{:d3f/ExecutableScript :d3f/UserLogonInitResource}})
 
@@ -34089,7 +33021,7 @@
    :d3f/has-sender :d3f/UserAccount,
    :d3f/may-contain :d3f/Email,
    :db/ident :d3f/UserToUserMessage,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Personal_message"},
    :rdfs/label "User to User Message",
@@ -34189,7 +33121,7 @@
   {:d3f/definition
    "Video input devices are used to digitize images or video from the outside world into the computer. The information can be stored in a multitude of formats depending on the user's requirement.",
    :db/ident :d3f/VideoInputDevice,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/Input_device#Video_input_devices"},
    :rdfs/label "Video Input Device",
@@ -34200,7 +33132,7 @@
    "A virtual address in memory is a pointer or marker for a memory space that an operating system allows a process to use. The virtual address points to a location in primary storage that a process can use independently of other processes.",
    :d3f/synonym "Logical Address",
    :db/ident :d3f/VirtualAddress,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://www.techopedia.com/definition/9934/virtual-address-va"},
@@ -34226,7 +33158,7 @@
   {:d3f/definition
    "Virtualization software allows a single host computer to create and run one or more virtual environments. Virtualization software is most often used to emulate a complete computer system in order to allow a guest operating system to be run, for example allowing Linux to run as a guest on top of a PC that is natively running a Microsoft Windows operating system (or the inverse, running Windows as a guest on Linux).",
    :db/ident :d3f/VirtualizationSoftware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "http://dbpedia.org/resource/Category:Virtualization_software"},
    :rdfs/label "Virtualization Software",
@@ -34238,7 +33170,7 @@
    :d3f/todo
    "Can't create new class \"Volume\" and merge this into that new class, as it always resolves in  Web Protege to this entry.  Have to do as merge of external file into Protege, or find another method.",
    :db/ident :d3f/Volume,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Volume",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel #{"Logical Drive" "Drive Volume"}})
@@ -34247,7 +33179,7 @@
   {:d3f/definition
    "A volume boot record (VBR) (also known as a volume boot sector, a partition boot record or a partition boot sector) is a type of boot sector introduced by the IBM Personal Computer. It may be found on a partitioned data storage device, such as a hard disk, or an unpartitioned device, such as a floppy disk, and contains machine code for bootstrapping programs (usually, but not necessarily, operating systems) stored in other parts of the device. On non-partitioned storage devices, it is the first sector of the device. On partitioned devices, it is the first sector of an individual partition on the device, with the first sector of the entire device being a Master Boot Record (MBR) containing the partition table.",
    :db/ident :d3f/VolumeBootRecord,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Volume_boot_record"},
    :rdfs/label "Volume Boot Record",
@@ -34265,13 +33197,12 @@
 
 (def Vulnerability
   {:db/ident        :d3f/Vulnerability,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdf/type        :owl/Class,
    :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def WHOISCompatibleDomainRegistration
   {:db/ident   :d3f/WHOISCompatibleDomainRegistration,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/Artifact :owl/NamedIndividual :d3f/DomainRegistration},
+   :rdf/type   #{:owl/NamedIndividual :d3f/DomainRegistration},
    :rdfs/label "WHOIS Compatible Domain Registration"})
 
 (def Weakness
@@ -34311,7 +33242,7 @@
    "A request-response comprising a user credential presentation to a system and a verification response where the verifying party is a web server.",
    :d3f/may-create :d3f/SessionCookie,
    :db/ident :d3f/WebAuthentication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Web Authentication",
    :rdfs/subClassOf #{:d3f/Authentication
                       {:owl/onProperty     :d3f/may-create,
@@ -34323,8 +33254,7 @@
    :d3f/definition
    "A web resource is a resource identified by a Uniform Resource Identifier (URI) and made available from one host to another host via a web protocol and across a network or networks.",
    :db/ident :d3f/WebFileResource,
-   :rdf/type #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/DigitalObject
-               :d3f/Resource :d3f/Artifact :owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Web File Resource",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Web_resource"},
    :rdfs/subClassOf #{:d3f/NetworkFileResource
@@ -34337,7 +33267,7 @@
   {:d3f/definition
    "Web network traffic is network traffic that uses a standard web protocol.",
    :db/ident :d3f/WebNetworkTraffic,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Web Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -34345,7 +33275,7 @@
   {:d3f/definition
    "Ephemeral digital artifact comprising a request of a network resource and any response from that network resource using a standard web protocol.",
    :db/ident :d3f/WebResourceAccess,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Web Resource Access",
    :rdfs/subClassOf :d3f/NetworkResourceAccess})
 
@@ -34353,7 +33283,7 @@
   {:d3f/definition
    "A file containing a script in a web-scripting programming language. Web scripts may be present and run on the client or on the server side.",
    :db/ident :d3f/WebScriptFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Web Script File",
    :rdfs/subClassOf :d3f/ExecutableScript,
    :skos/altLabel "Web Script"})
@@ -34362,7 +33292,7 @@
   {:d3f/definition
    "A web server is server software, or hardware dedicated to running this software, that can satisfy client requests on the World Wide Web. A web server can, in general, contain one or more websites. A web server processes incoming network requests over HTTP and several other related protocols. While the major function is to serve content, a full implementation of HTTP also includes ways of receiving content from clients. This feature is used for submitting web forms, including uploading of files.",
    :db/ident :d3f/WebServer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Web_server"},
    :rdfs/label "Web Server",
    :rdfs/subClassOf :d3f/Server})
@@ -34371,7 +33301,7 @@
   {:d3f/definition
    "A web server application (or web app) is an application software that runs on a web server, unlike computer-based software programs that are stored locally on the Operating System (OS) of the device. Web applications are accessed by the user through a web browser with an active internet connection. These applications are programmed using a client-server modeled structure-the user (\"client\") is provided services through an off-site server that is hosted by a third-party. Examples of commonly-used, web applications, include: web-mail, online retail sales, online banking, and online auctions.",
    :db/ident :d3f/WebServerApplication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Web_application"},
    :rdfs/label "Web Server Application",
@@ -34391,9 +33321,7 @@
      :d3f/Reference-SystemAndMethodThereofForIdentifyingAndRespondingToSecurityIncidentsBasedOnPreemptiveForensics_PaloAltoNetworksInc
      :d3f/Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd},
    :db/ident :d3f/WebSessionActivityAnalysis,
-   :rdf/type #{:d3f/D3FENDThing :d3f/CapabilityFeature :d3f/UserBehaviorAnalysis
-               :d3f/D3FENDCatalogThing :d3f/Technique :owl/NamedIndividual
-               :owl/Class :d3f/DefensiveTechnique},
+   :rdf/type #{:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class},
    :rdfs/label "Web Session Activity Analysis",
    :rdfs/subClassOf #{:d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/analyzes,
@@ -34402,8 +33330,7 @@
 
 (def WebSocketURL
   {:db/ident   :d3f/WebSocketURL,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/DigitalArtifact :d3f/URL :d3f/Identifier
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/URL :owl/NamedIndividual},
    :rdfs/label "Web Socket URL"})
 
 (def WeightedMean
@@ -34430,9 +33357,7 @@
 
 (def WindowsBatchFile
   {:db/ident   :d3f/WindowsBatchFile,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/ExecutableFile :d3f/ExecutableScript
-                 :d3f/DigitalArtifact :d3f/DigitalObject :d3f/Resource
-                 :d3f/Artifact :d3f/File :owl/NamedIndividual},
+   :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Windows Batch File"})
 
 (def WindowsNtAllocateVirtualMemory
@@ -34621,8 +33546,7 @@
 
 (def WindowsProcess
   {:db/ident   :d3f/WindowsProcess,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/Process :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/Process :owl/NamedIndividual},
    :rdfs/label "Windows Process"})
 
 (def WindowsRegistry
@@ -34630,7 +33554,7 @@
    :d3f/definition
    "The Windows Registry is a hierarchical database that stores low-level settings for the Microsoft Windows operating system and for applications that opt to use the registry. The kernel, device drivers, services, Security Accounts Manager, and user interface can all use the registry. The registry also allows access to counters for profiling system performance.",
    :db/ident :d3f/WindowsRegistry,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "http://dbpedia.org/resource/Windows_Registry"}
      {:xsd/anyURI
@@ -34646,7 +33570,7 @@
    "Windows Registry Keys are container objects similar to folders that contain subkeys and/or data entries called values. A key can be a 'Registry Hive' when it is root key of a logical group of keys, subkeys, and values that has a set of supporting files loaded into memory when the operating system is started or a user logs in.",
    :d3f/may-contain :d3f/WindowsRegistryValue,
    :db/ident :d3f/WindowsRegistryKey,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    #{{:xsd/anyURI
       "https://learn.microsoft.com/en-us/windows/win32/sysinfo/structure-of-the-registry"}
@@ -34673,7 +33597,7 @@
    :d3f/definition
    "A Windows Registry Value is a data structure consisting of a name, type, data (as a pointer), and the length. Windows Registry Values are always associated with a Windows Registry Key. They store the actual configuration data for the operating system and the programs that run on the system.",
    :db/ident :d3f/WindowsRegistryValue,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://learn.microsoft.com/en-us/windows/win32/api/winreg/ns-winreg-valentw"},
@@ -34693,7 +33617,7 @@
 (def WindowsShortcutFile
   {:d3f/definition "A Microsoft Windows shortcut file.",
    :db/ident :d3f/WindowsShortcutFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Windows Shortcut File",
    :rdfs/seeAlso
    #{{:xsd/anyURI
@@ -34729,7 +33653,7 @@
    "The write is one of the most basic routines provided by a Unix-like operating system kernel. It writes data from a buffer declared by the user to a given device, such as a file. This is the primary way to output data from a program by directly using a system call. The destination is identified by a numeric code. The data to be written, for instance a piece of text, is defined by a pointer and a size, given in number of bytes. write thus takes three arguments.",
    :d3f/modifies :d3f/File,
    :db/ident :d3f/WriteFile,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Write_(system_call)"},
    :rdfs/label "Write File",
@@ -34739,10 +33663,8 @@
 
 (def X86CodeSegment
   {:db/ident   :d3f/X86CodeSegment,
-   :rdf/type   #{:d3f/ImageCodeSegment :d3f/D3FENDThing :d3f/FileSection
-                 :d3f/ProcessCodeSegment :d3f/DigitalArtifact :d3f/DigitalObject
-                 :d3f/BinarySegment :d3f/ImageSegment :d3f/Artifact
-                 :owl/NamedIndividual :d3f/ProcessSegment},
+   :rdf/type   #{:d3f/ImageCodeSegment :d3f/ProcessCodeSegment
+                 :owl/NamedIndividual},
    :rdfs/label "X86 Code Segment"})
 
 (def ZeroClientComputer
@@ -34881,13 +33803,19 @@
    "Drop as annotation and merge any as attack-technique-id data property. Reason: The unique id of a technique may be needed even for OWL 2 DL reasoning as it is the surrogate identity key (and the primary key) for all ATT&CK techniques.",
    :db/ident :d3f/attack-id,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "attack-id"})
+   :rdfs/domain :d3f/OffensiveTechnique,
+   :rdfs/label "attack-id",
+   :rdfs/range :xsd/string,
+   :rdfs/subPropertyOf :d3f/attack-kb-annotation})
 
 (def attack-kb-annotation
   {:d3f/definition
    "x attack-kb-annotation y: The offensive technique x has the kb annotation of y.",
    :db/ident :d3f/attack-kb-annotation,
-   :rdfs/label "attack-kb-annotation"})
+   :rdf/type :owl/AnnotationProperty,
+   :rdfs/domain :d3f/OffensiveTechnique,
+   :rdfs/label "attack-kb-annotation",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def attack-kb-data-property
   {:db/ident           :d3f/attack-kb-data-property,
@@ -35005,7 +33933,8 @@
    "x comment y: The d3fend object x a d3fend team specific comment y.  Not for use external to the MITRE development team.",
    :db/ident :d3f/comment,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "comment"})
+   :rdfs/label "comment",
+   :rdfs/subPropertyOf :d3f/d3fend-private-annotation})
 
 (def comments
   {:d3f/definition     "x comments y: x claim has provider comments y.",
@@ -35133,13 +34062,16 @@
    :rdfs/subPropertyOf :d3f/contributor})
 
 (def cwe-id
-  {:db/ident   :d3f/cwe-id,
-   :rdf/type   :owl/AnnotationProperty,
-   :rdfs/label "cwe-id"})
+  {:db/ident           :d3f/cwe-id,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "cwe-id",
+   :rdfs/subPropertyOf :d3f/cwe-kb-annotation})
 
 (def cwe-kb-annotation
-  {:db/ident   :d3f/cwe-kb-annotation,
-   :rdfs/label "cwe-kb-annotation"})
+  {:db/ident           :d3f/cwe-kb-annotation,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "cwe-kb-annotation",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def d3fend-annotation
   {:d3f/definition
@@ -35158,9 +34090,11 @@
    :rdfs/subPropertyOf :d3f/d3fend-data-property})
 
 (def d3fend-catalog-annotation-property
-  {:db/ident      :d3f/d3fend-catalog-annotation-property,
-   :rdfs/label    "d3fend-catalog-annotation-property",
-   :skos/altLabel "d3fend-vendor-registry-annotation-property"})
+  {:db/ident           :d3f/d3fend-catalog-annotation-property,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "d3fend-catalog-annotation-property",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation,
+   :skos/altLabel      "d3fend-vendor-registry-annotation-property"})
 
 (def d3fend-catalog-data-property
   {:db/ident           :d3f/d3fend-catalog-data-property,
@@ -35192,8 +34126,10 @@
    :rdfs/subPropertyOf :owl/topDataProperty})
 
 (def d3fend-display-annotation
-  {:db/ident   :d3f/d3fend-display-annotation,
-   :rdfs/label "d3fend-display-annotation"})
+  {:db/ident           :d3f/d3fend-display-annotation,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "d3fend-display-annotation",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def d3fend-display-property
   {:d3f/definition
@@ -35229,7 +34165,9 @@
    :d3f/todo
    "Move all subproperties under d3fend-kb-data-property and drop this (d3fend-kb-annotation-property) property definition.",
    :db/ident :d3f/d3fend-kb-annotation-property,
-   :rdfs/label "d3fend-kb-annotation-property"})
+   :rdf/type :owl/AnnotationProperty,
+   :rdfs/label "d3fend-kb-annotation-property",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def d3fend-kb-data-property
   {:d3f/definition
@@ -35253,7 +34191,11 @@
    :d3f/todo
    "Move subproperties under d3fend-kb-data-property and rename this d3fend-kb-reference-property definition.",
    :db/ident :d3f/d3fend-kb-reference-annotation,
-   :rdfs/label "d3fend-kb-reference-annotation"})
+   :rdf/type :owl/AnnotationProperty,
+   :rdfs/domain :d3f/Reference,
+   :rdfs/label "d3fend-kb-reference-annotation",
+   :rdfs/range :xsd/string,
+   :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
 
 (def d3fend-object-property
   {:db/ident :d3f/d3fend-object-property,
@@ -35264,7 +34206,9 @@
   {:d3f/definition
    "x d3fend-private-annotation: The d3fend object x has the internal comment or tracking property y.  Not for use external to the MITRE development team.",
    :db/ident :d3f/d3fend-private-annotation,
-   :rdfs/label "d3fend-private-annotation"})
+   :rdf/type :owl/AnnotationProperty,
+   :rdfs/label "d3fend-private-annotation",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def d3fend-process-object-property
   {:db/ident           :d3f/d3fend-process-object-property,
@@ -35321,7 +34265,8 @@
    :db/ident :d3f/definition,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/isDefinedBy {:xsd/anyURI "http://purl.obolibrary.org/obo/IAO_0000115"},
-   :rdfs/label #{"definition" "comment"}})
+   :rdfs/label #{"definition" "comment"},
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def deletes
   {:d3f/definition
@@ -35356,12 +34301,14 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def description
-  {:d3f/definition   "A statement that represents something in words.",
-   :db/ident         :d3f/description,
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://wordnet-rdf.princeton.edu/id/06737512-n"},
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "description"}})
+  {:d3f/definition     "A statement that represents something in words.",
+   :db/ident           :d3f/description,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/isDefinedBy   {:xsd/anyURI
+                        "http://wordnet-rdf.princeton.edu/id/06737512-n"},
+   :rdfs/label         {:rdf/language "en",
+                        :rdf/value    "description"},
+   :rdfs/subPropertyOf :d3f/d3fend-catalog-annotation-property})
 
 (def detects
   {:db/ident           :d3f/detects,
@@ -35384,7 +34331,8 @@
    "A base string to use as prefix to create a full URL for an entity. The baseurl must end in a forward slash: /",
    :db/ident :d3f/display-baseurl,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "display-baseurl"})
+   :rdfs/label "display-baseurl",
+   :rdfs/subPropertyOf :d3f/d3fend-display-annotation})
 
 (def display-order
   {:d3f/definition
@@ -35392,16 +34340,20 @@
    :d3f/todo "This should be an annotation property.",
    :db/ident :d3f/display-order,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "display-order"})
+   :rdfs/label "display-order",
+   :rdfs/subPropertyOf :d3f/d3fend-display-annotation})
 
 (def display-priority
-  {:db/ident   :d3f/display-priority,
-   :rdf/type   :owl/AnnotationProperty,
-   :rdfs/label "display-priority"})
+  {:db/ident           :d3f/display-priority,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "display-priority",
+   :rdfs/subPropertyOf :d3f/d3fend-display-annotation})
 
 (def draft
-  {:db/ident   :d3f/draft,
-   :rdfs/label "draft"})
+  {:db/ident           :d3f/draft,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "draft",
+   :rdfs/subPropertyOf :d3f/d3fend-private-annotation})
 
 (def drives
   {:d3f/definition
@@ -35730,8 +34682,7 @@
 
 (def iOSProcess
   {:db/ident   :d3f/iOSProcess,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/Process :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/Process :owl/NamedIndividual},
    :rdfs/label "iOS Process"})
 
 (def identified-by
@@ -35881,10 +34832,13 @@
    :rdfs/subPropertyOf :d3f/date})
 
 (def kb-abstract
-  {:d3f/definition "x kb-abstract y: The reference x has the abstract y.",
-   :db/ident       :d3f/kb-abstract,
-   :rdf/type       :owl/AnnotationProperty,
-   :rdfs/label     "kb-abstract"})
+  {:d3f/definition     "x kb-abstract y: The reference x has the abstract y.",
+   :db/ident           :d3f/kb-abstract,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/domain        :d3f/Reference,
+   :rdfs/label         "kb-abstract",
+   :rdfs/range         :xsd/string,
+   :rdfs/subPropertyOf :d3f/d3fend-kb-reference-annotation})
 
 (def kb-article
   {:d3f/definition
@@ -35892,7 +34846,10 @@
    :d3f/todo "make a d3fend-kb-data-property",
    :db/ident :d3f/kb-article,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "kb-article"})
+   :rdfs/domain :d3f/Technique,
+   :rdfs/label "kb-article",
+   :rdfs/range :xsd/string,
+   :rdfs/subPropertyOf :d3f/d3fend-kb-reference-annotation})
 
 (def kb-author
   {:d3f/definition "x kb-author y: The reference x has some author y.",
@@ -35901,7 +34858,10 @@
      "Eventually would be best to resolve these to Person instances in KB.  This might be kept as kb-author-string.  Also, we might choose to drop kb- prefix on many of these."},
    :db/ident :d3f/kb-author,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "kb-author"})
+   :rdfs/domain :d3f/Reference,
+   :rdfs/label "kb-author",
+   :rdfs/range :xsd/string,
+   :rdfs/subPropertyOf :d3f/d3fend-kb-reference-annotation})
 
 (def kb-mitre-analysis
   {:d3f/definition
@@ -35909,7 +34869,10 @@
    :d3f/todo "make a d3fend-kb-data-property",
    :db/ident :d3f/kb-mitre-analysis,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "kb-mitre-analysis"})
+   :rdfs/domain :d3f/Reference,
+   :rdfs/label "kb-mitre-analysis",
+   :rdfs/range :xsd/string,
+   :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
 
 (def kb-organization
   {:d3f/definition
@@ -35919,7 +34882,8 @@
      "Eventually would be best to resolve these to Organization instances in KB.  This might be kept as kb-organization-string.  Also, we might choose to drop kb- prefix on many of these."},
    :db/ident :d3f/kb-organization,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "kb-organization"})
+   :rdfs/label "kb-organization",
+   :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
 
 (def kb-reference
   {:db/ident           :d3f/kb-reference,
@@ -35951,9 +34915,11 @@
    :rdfs/subPropertyOf :d3f/d3fend-kb-data-property})
 
 (def label
-  {:db/ident   :d3f/label,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "label"}})
+  {:db/ident           :d3f/label,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         {:rdf/language "en",
+                        :rdf/value    "label"},
+   :rdfs/subPropertyOf :rdfs/label})
 
 (def latency
   {:d3f/todo
@@ -36006,8 +34972,7 @@
 
 (def macOSProcess
   {:db/ident   :d3f/macOSProcess,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/Process :d3f/DigitalArtifact
-                 :d3f/DigitalObject :d3f/Artifact :owl/NamedIndividual},
+   :rdf/type   #{:d3f/Process :owl/NamedIndividual},
    :rdfs/label "macOS Process"})
 
 (def manages
@@ -36405,14 +35370,12 @@
 
 (def non-real-time-analytic
   {:db/ident   :d3f/non-real-time-analytic,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/AnalyticLatency :d3f/Latency
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/AnalyticLatency :owl/NamedIndividual},
    :rdfs/label "non-real-time-analytic"})
 
 (def non-real-time-eviction
   {:db/ident   :d3f/non-real-time-eviction,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/EvictionLatency :d3f/Latency
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/EvictionLatency :owl/NamedIndividual},
    :rdfs/label "non-real-time-eviction"})
 
 (def obfuscates
@@ -36465,15 +35428,14 @@
    "x pref-label y: The preferred display value for x is y in d3fend tools.",
    :db/ident :d3f/pref-label,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "pref-label"})
+   :rdfs/label "pref-label",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def procedure-1
   {:d3f/implements :d3f/T1134.001,
    :d3f/start      :d3f/step-1,
    :db/ident       :d3f/procedure-1,
-   :rdf/type       #{:d3f/D3FENDThing :d3f/Proposition :d3f/D3FENDCatalogThing
-                     :d3f/CapabilityImplementation :d3f/CapabilityFeatureClaim
-                     :d3f/Procedure :d3f/Statement :owl/NamedIndividual},
+   :rdf/type       #{:d3f/Procedure :owl/NamedIndividual},
    :rdfs/label     "Procedure 1 - T1134.001 Access Token Manipulation"})
 
 (def process-ancestor
@@ -36654,14 +35616,12 @@
 
 (def real-time-analytic
   {:db/ident   :d3f/real-time-analytic,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/AnalyticLatency :d3f/Latency
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/AnalyticLatency :owl/NamedIndividual},
    :rdfs/label "real-time-analytic"})
 
 (def real-time-eviction
   {:db/ident   :d3f/real-time-eviction,
-   :rdf/type   #{:d3f/D3FENDThing :d3f/EvictionLatency :d3f/Latency
-                 :owl/NamedIndividual},
+   :rdf/type   #{:d3f/EvictionLatency :owl/NamedIndividual},
    :rdfs/label "real-time-eviction"})
 
 (def recorded-in
@@ -36707,7 +35667,8 @@
    "remove and place info in versionInfo on ontology annotations header",
    :db/ident :d3f/release-date,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "release-date"})
+   :rdfs/label "release-date",
+   :rdfs/subPropertyOf #{:owl/versionInfo :d3f/d3fend-annotation}})
 
 (def restores
   {:db/ident           :d3f/restores,
@@ -36796,14 +35757,14 @@
   {:d3f/invokes :d3f/CopyToken,
    :d3f/next    :d3f/step-2,
    :db/ident    :d3f/step-1,
-   :rdf/type    #{:d3f/D3FENDThing :owl/NamedIndividual :d3f/Step},
+   :rdf/type    #{:owl/NamedIndividual :d3f/Step},
    :rdfs/label  "Step 1 - Copy Token"})
 
 (def step-2
   {:d3f/creates :d3f/Authentication,
    :d3f/invokes :d3f/ImpersonateUser,
    :db/ident    :d3f/step-2,
-   :rdf/type    #{:d3f/D3FENDThing :owl/NamedIndividual :d3f/Step},
+   :rdf/type    #{:owl/NamedIndividual :d3f/Step},
    :rdfs/label  "Step 2 - Impersonate User"})
 
 (def strengthens
@@ -36842,10 +35803,11 @@
    :rdfs/subPropertyOf :d3f/evicts})
 
 (def synonym
-  {:d3f/definition "an equivalent term.",
-   :db/ident       :d3f/synonym,
-   :rdf/type       :owl/AnnotationProperty,
-   :rdfs/label     "synonym"})
+  {:d3f/definition     "an equivalent term.",
+   :db/ident           :d3f/synonym,
+   :rdf/type           :owl/AnnotationProperty,
+   :rdfs/label         "synonym",
+   :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def t-SNEClustering
   {:d3f/d3fend-id "D3A-TSC",
@@ -36894,7 +35856,8 @@
    "x todo y: The d3fend object x has a todo annotation y specific to the d3fend team. These may serve as a guide to implementing a low-level change; before work commences should be reflected in the tasks/issues.  Not for use external to the MITRE development team.",
    :db/ident :d3f/todo,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "todo"})
+   :rdfs/label "todo",
+   :rdfs/subPropertyOf :d3f/d3fend-private-annotation})
 
 (def unmounts
   {:d3f/definition
@@ -37036,18 +35999,21 @@
    :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/01000931-v"},
    :rdfs/subPropertyOf :d3f/accesses})
 
-(def urn:uuid:49567ac8-f6b6-5583-8271-a585e82d37c4
+(def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
   {:d3f/release-date #inst "2023-10-30T00:00:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
+   :owl/versionIRI
+   {:xsd/anyURI
+    "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
    :owl/versionInfo "0.13.0-BETA-1",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
-   :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#"})
+   :xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"})
 
 (def urn:uuid:8ae1c486-2d19-5306-b114-5c38451c1a50
   {:d3f/kb-organization "MITRE/NSA",
