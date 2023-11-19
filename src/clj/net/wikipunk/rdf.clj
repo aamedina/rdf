@@ -1474,6 +1474,7 @@
    (mop/finalize-inheritance :owl/NamedIndividual)
    (mop/finalize-inheritance :skos/Concept)
    (mop/finalize-inheritance :owl/Thing)
+   (mop/finalize-inheritance :owl/Class)
    (finalize true (set/union (set/difference (descendants :rdfs/Class)
                                              (descendants :rdf/Property)
                                              (descendants :owl/NamedIndividual)
@@ -1486,14 +1487,14 @@
    (finalize force?
              (pmap (fn [ident]
                      (if-some [class (mop/find-class ident)]
-                       (try
-                         (when (or force? (not (mop/class-finalized? class)))
-                           (binding [mop/*env* nil]
-                             (mop/finalize-inheritance class)))
-                         (catch Throwable ex
-                           (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
-                       (throw (ex-info "Could not locate metaobject" {:ident ident})))
-                     )
+                       (when (or (identical? (mop/type-of class) :rdfs/Class)
+                                 (identical? (mop/type-of class) :owl/Class))
+                         (try
+                           (when (or force? (not (mop/class-finalized? class)))
+                             (mop/finalize-inheritance class))
+                           (catch Throwable ex
+                             (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex)))))
+                       (throw (ex-info "Could not locate metaobject" {:ident ident}))))
                    metaobjects)
              mop/*env*))
   ([force? metaobjects env]
