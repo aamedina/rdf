@@ -727,7 +727,8 @@
                      (try
                        (let [n (java.net.URLDecoder/decode (name k) +utf-8+)]
                          (if (or (re-find #"/" n)
-                                 (re-find #"[\(\)\"]" n))
+                                 (re-find #"[\(\)\"]" n)
+                                 (re-find #"::" n))
                            (name k)
                            n))
                        (catch Throwable ex
