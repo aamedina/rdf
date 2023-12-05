@@ -11239,7 +11239,7 @@
    :d3f/definition
    "Analyzing the properties of file create system call invocations.",
    :d3f/kb-reference
-   #{:d3f/Reference-CAR-2020-09-001:ScheduledTask-FileAccess_MITRE
+   #{:d3f/Reference-CAR-2020-09-001%3AScheduledTask-FileAccess_MITRE
      :d3f/Reference-LsassProcessDumpViaProcdump_MITRE},
    :db/ident :d3f/FileCreationAnalysis,
    :rdf/type #{:d3f/SystemCallAnalysis :owl/NamedIndividual :owl/Class},
@@ -12341,10 +12341,10 @@
    :d3f/kb-reference
    #{:d3f/Reference-SMBCopyAndExecution_MITRE
      :d3f/Reference-SMBEventsMonitoring_MITRE
-     :d3f/Reference-CAR-2015-04-001:RemotelyScheduledTasksViaAT_MITRE
      :d3f/Reference-SecuritySystemWithMethodologyForInterprocessCommunicationControl_CheckPointSoftwareTechInc
      :d3f/Reference-SMBWriteRequest-NamedPipes_MITRE
      :d3f/Reference-SMBSessionSetups_MITRE
+     :d3f/Reference-CAR-2015-04-001%3ARemotelyScheduledTasksViaAT_MITRE
      :d3f/Reference-SMBWriteRequest_MITRE},
    :d3f/synonym "IPC Analysis",
    :d3f/todo
@@ -17261,20 +17261,20 @@
    :d3f/kb-article
    "## How it works\nProcess tree analysis techniques gather information on how a process was initiated to determine if a process is malicious. For example, if a process was not initiated from boot or not initiated by another process, that process is identified as suspicious. Also, if a new process was started before a process initiated by the device (ex. during boot) and that new process was not initiated by a user (which can be determined by examining process parameters such as type of process, its creator, source, etc.) the process is identified as suspicious.\n\nFor example, Microsoft Word may block execution of any subprocess that is not in an approved path.\n\n## Considerations\n* Attackers may spoof the parent PID (https://attack.mitre.org/techniques/T1502/), rendering such after-the-fact analysis on process lineage ineffective.\n* Processes may hide from various means of detection; an example on Linux is where a rootkit might remove key files for the process from its directory in /proc.\n* Zombie processes.",
    :d3f/kb-reference
-   #{:d3f/Reference-CAR-2021-02-002:GetSystemElevation_MITRE
+   #{:d3f/Reference-CAR-2021-02-002%3AGetSystemElevation_MITRE
+     :d3f/Reference-CAR-2021-05-003%3ABCDEditFailureRecoveryModification_MITRE
      :d3f/Reference-SystemAndMethodsThereofForIdentificationOfSuspiciousSystemProcesses_PaloAltoNetworksInc
+     :d3f/Reference-CAR-2020-11-004%3AProcessesStartedFromIrregularParent_MITRE
      :d3f/Reference-DebuggersForAccessibilityApplications_MITRE
      :d3f/Reference-ServiceSearchPathInterception_MITRE
-     :d3f/Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE
      :d3f/Reference-RemotelyLaunchedExecutablesViaWMI_MITRE
      :d3f/Reference-ServiceOutlierExecutables_MITRE
      :d3f/Reference-Reg.exeCalledFromCommandShell_MITRE
      :d3f/Reference-SystemAndMethodsThereofForCausalityIdentificationAndAttributionsDeterminationOfProcessesInANetwork_PaloAltoNetworksIncCyberSecdoLtd
-     :d3f/Reference-CAR-2020-11-002:LocalNetworkSniffing_MITRE
+     :d3f/Reference-CAR-2020-11-002%3ALocalNetworkSniffing_MITRE
      :d3f/Reference-CommandLaunchedFromWinLogon_MITRE
      :d3f/Reference-QuickExecutionOfASeriesOfSuspiciousCommands_MITRE
      :d3f/Reference-ProcessesSpawningCmd.exe_MITRE
-     :d3f/Reference-CAR-2021-05-003:BCDEditFailureRecoveryModification_MITRE
      :d3f/Reference-GenericRegsvr32_MITRE
      :d3f/Reference-OutlierParentsOfCmd_MITRE :d3f/Reference-UACBypass_MITRE
      :d3f/Reference-ServicesLaunchingCmd_MITRE},
@@ -17342,47 +17342,48 @@
    :d3f/kb-article
    "## How it works\nProcess attributes are established when an operating system spawns a new process. These attributes are analyzed to look for the presence or absence of specific values or patterns.\n\nSome attributes of interest are:\n - user\n - process name\n - image path\n - security content\n\n## Considerations\n\n - Attackers can spoof the parent process identifier (PPID), which could bypass this defense to allow execution of a malicious process from an arbitrary parent process.\n - Attackers could have legitimately compromised any of the process properties, such as the user, to make the execution appear legitimate.\n - Location: If the full image path is not checked, there could be a conflict with an executable that appears earlier due to resolution involving the system environment path/classpath variable.\n - Parsing issues: If the raw command from a shell is analyzed, rather than the actual function call, it is important to identify the actual command  being run from its arguments.  In Windows, services with unquoted file paths containing spaces will try to use the first token as the executable and the rest as arguments -- and shift tokens to the executable until a valid one is found.\n - Some [operating systems](/dao/artifact/d3f:OperatingSystem) can spawn processes without forking.",
    :d3f/kb-reference
-   #{:d3f/Reference-SuspiciousRunLocations_MITRE
-     :d3f/Reference-CAR-2021-01-007:DetectingTamperingOfWindowsDefenderCommandPrompt_MITRE
-     :d3f/Reference-CAR-2021-05-007:CertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE
-     :d3f/Reference-CAR-2021-05-010:CreateLocalAdminAccountsUsingNetExe_MITRE
-     :d3f/Reference-CAR-2021-05-006:CertUtilDownloadWithURLCacheAndSplitArguments_MITRE
-     :d3f/Reference-CAR-2021-01-003:ClearingWindowsLogsWithWevtutil_MITRE
-     :d3f/Reference-SuspiciousArguments_MITRE :d3f/Reference-Squiblydoo_MITRE
-     :d3f/Reference-CAR-2020-11-007:NetworkShareConnectionRemoval_MITRE
-     :d3f/Reference-CAR-2020-09-003:IndicatorBlocking-DriverUnloaded_MITRE
-     :d3f/Reference-CAR-2020-09-004:CredentialsInFiles&Registry_MITRE
-     :d3f/Reference-CAR-2021-01-009:DetectingShadowCopyDeletionViaVssadmin.exe_MITRE
-     :d3f/Reference-CAR-2021-05-001:AttemptToAddCertificateToUntrustedStore_MITRE
-     :d3f/Reference-CAR-2021-05-009:CertUtilWithDecodeArgument_MITRE
+   #{:d3f/Reference-CAR-2021-01-006%3AUnusualChildProcessSpawnedUsingDDEExploit_MITRE
+     :d3f/Reference-CAR-2021-05-003%3ABCDEditFailureRecoveryModification_MITRE
+     :d3f/Reference-CAR-2021-05-010%3ACreateLocalAdminAccountsUsingNetExe_MITRE
+     :d3f/Reference-SuspiciousRunLocations_MITRE
+     :d3f/Reference-CAR-2020-11-008%3AMSBuildAndMsxsl_MITRE
+     :d3f/Reference-CAR-2020-05-003%3ARareLolBASCommandLines_MITRE
+     :d3f/Reference-CAR-2021-01-009%3ADetectingShadowCopyDeletionViaVssadmin.exe_MITRE
+     :d3f/Reference-SuspiciousArguments_MITRE
+     :d3f/Reference-CAR-2021-04-001%3ACommonWindowsProcessMasquerading_MITRE
+     :d3f/Reference-Squiblydoo_MITRE
+     :d3f/Reference-CAR-2020-11-005%3AClearPowershellConsoleCommandHistory_MITRE
+     :d3f/Reference-CAR-2021-05-009%3ACertUtilWithDecodeArgument_MITRE
+     :d3f/Reference-CAR-2021-01-008%3ADisableUAC_MITRE
+     :d3f/Reference-CAR-2021-02-001%3AWebshell-IndicativeProcessTree_MITRE
      :d3f/Reference-HostDiscoveryCommands_MITRE
      :d3f/Reference-ActiveDirectoryDumpingViaNTDSUtil_MITRE
-     :d3f/Reference-CAR-2020-11-009:CompiledHTMLAccess_MITRE
-     :d3f/Reference-CAR-2021-01-006:UnusualChildProcessSpawnedUsingDDEExploit_MITRE
-     :d3f/Reference-CAR-2020-11-008:MSBuildAndMsxsl_MITRE
-     :d3f/Reference-CAR-2020-11-003:DLLInjectionWithMavinject_MITRE
-     :d3f/Reference-CAR-2021-01-008:DisableUAC_MITRE
+     :d3f/Reference-CAR-2021-01-002%3AUnusuallyLongCommandLineStrings_MITRE
+     :d3f/Reference-CAR-2020-11-001%3ABootOrLogonInitializationScripts_MITRE
+     :d3f/Reference-CAR-2020-04-001%3AShadowCopyDeletion_MITRE
+     :d3f/Reference-CAR-2021-01-007%3ADetectingTamperingOfWindowsDefenderCommandPrompt_MITRE
+     :d3f/Reference-CAR-2020-11-003%3ADLLInjectionWithMavinject_MITRE
+     :d3f/Reference-CAR-2020-09-004%3ACredentialsInFiles%26Registry_MITRE
      :d3f/Reference-CommandLineUsageOfArchivingSoftware_MITRE
      :d3f/Reference-CredentialDumpingViaMimikatz_MITRE
-     :d3f/Reference-CAR-2020-08-001:NTFSAlternateDataStreamExecution-SystemUtilities_MITRE
+     :d3f/Reference-CAR-2021-05-006%3ACertUtilDownloadWithURLCacheAndSplitArguments_MITRE
+     :d3f/Reference-CAR-2020-11-009%3ACompiledHTMLAccess_MITRE
      :d3f/Reference-LsassProcessDumpViaProcdump_MITRE
-     :d3f/Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE
-     :d3f/Reference-CAR-2021-05-002:BatchFileWriteToSystem32_MITRE
+     :d3f/Reference-CAR-2021-01-004%3AUnusualChildProcessForSpoolsv.ExeOrConnhost.Exe_MITRE
      :d3f/Reference-CreateRemoteProcessViaWMIC_MITRE_Other
+     :d3f/Reference-CAR-2021-05-004%3ABITSJobPersistence_MITRE
+     :d3f/Reference-CAR-2020-11-006%3ALocalPermissionGroupDiscovery_MITRE
      :d3f/Reference-PowershellExecution_MITRE
-     :d3f/Reference-CAR-2020-11-006:LocalPermissionGroupDiscovery_MITRE
-     :d3f/Reference-CAR-2020-11-005:ClearPowershellConsoleCommandHistory_MITRE
+     :d3f/Reference-CAR-2020-08-001%3ANTFSAlternateDataStreamExecution-SystemUtilities_MITRE
+     :d3f/Reference-CAR-2020-11-007%3ANetworkShareConnectionRemoval_MITRE
      :d3f/Reference-RunDLL32.exeMonitoring_MITRE
-     :d3f/Reference-CAR-2021-01-002:UnusuallyLongCommandLineStrings_MITRE
-     :d3f/Reference-CAR-2020-05-003:RareLolBASCommandLines_MITRE
-     :d3f/Reference-CAR-2021-05-003:BCDEditFailureRecoveryModification_MITRE
-     :d3f/Reference-CAR-2021-01-004:UnusualChildProcessForSpoolsv.ExeOrConnhost.Exe_MITRE
-     :d3f/Reference-CAR-2021-05-008:CertutilExeCertificateExtraction_MITRE
-     :d3f/Reference-CAR-2021-02-001:Webshell-IndicativeProcessTree_MITRE
-     :d3f/Reference-CAR-2020-04-001:ShadowCopyDeletion_MITRE
-     :d3f/Reference-CAR-2021-05-005:BITSAdminDownloadFile_MITRE
-     :d3f/Reference-CAR-2021-05-004:BITSJobPersistence_MITRE
-     :d3f/Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE},
+     :d3f/Reference-CAR-2021-01-003%3AClearingWindowsLogsWithWevtutil_MITRE
+     :d3f/Reference-CAR-2021-05-007%3ACertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE
+     :d3f/Reference-CAR-2021-05-005%3ABITSAdminDownloadFile_MITRE
+     :d3f/Reference-CAR-2021-05-008%3ACertutilExeCertificateExtraction_MITRE
+     :d3f/Reference-CAR-2020-09-003%3AIndicatorBlocking-DriverUnloaded_MITRE
+     :d3f/Reference-CAR-2021-05-002%3ABatchFileWriteToSystem32_MITRE
+     :d3f/Reference-CAR-2021-05-001%3AAttemptToAddCertificateToUntrustedStore_MITRE},
    :db/ident :d3f/ProcessSpawnAnalysis,
    :rdf/type #{:owl/NamedIndividual :d3f/ProcessAnalysis :owl/Class},
    :rdfs/label "Process Spawn Analysis",
@@ -17755,10 +17756,10 @@
    #{:d3f/Reference-RemotelyScheduledTasksViaSchtasks_MITRE
      :d3f/Reference-RPCCallInterception_CrowdstrikeInc
      :d3f/Reference-RemotelyLaunchedExecutablesViaWMI_MITRE
-     :d3f/Reference-CAR-2014-05-001:RPCActivity_MITRE
      :d3f/Reference-CAR-2014-11-007-RemoteWindowsManagementInstrumentation_WMI_OverRPC_MITRE
      :d3f/Reference-CreateRemoteProcessViaWMIC_MITRE_Other
      :d3f/Reference-RemotelyLaunchedExecutablesViaServices_MITRE
+     :d3f/Reference-CAR-2014-05-001%3ARPCActivity_MITRE
      :d3f/Reference-SMBWriteRequest-NamedPipes_MITRE},
    :d3f/synonym "RPC Protocol Analysis",
    :db/ident :d3f/RPCTrafficAnalysis,
@@ -18229,7 +18230,7 @@
    :rdfs/label
    "Reference - Broadcast isolation and level 3 network switch - Hewlett Packard Enterprise Development LP"})
 
-(def Reference-CAR-2014-05-001:RPCActivity_MITRE
+(def Reference-CAR-2014-05-001%3ARPCActivity_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2014-05-001/"},
    :d3f/kb-abstract
@@ -18239,7 +18240,7 @@
    :d3f/kb-reference-of :d3f/RPCTrafficAnalysis,
    :d3f/kb-reference-title "CAR-2014-05-001: RPC Activity",
    :d3f/todo "MITRE Analysis was not found",
-   :db/ident :d3f/Reference-CAR-2014-05-001:RPCActivity_MITRE,
+   :db/ident :d3f/Reference-CAR-2014-05-001%3ARPCActivity_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-05-001: RPC Activity - MITRE"})
 
@@ -18263,7 +18264,7 @@
    :rdfs/label
    "Reference - CAR-2014-11-007: Remote Windows Management Instrumentation (WMI) over RPC - MITRE"})
 
-(def Reference-CAR-2015-04-001:RemotelyScheduledTasksViaAT_MITRE
+(def Reference-CAR-2015-04-001%3ARemotelyScheduledTasksViaAT_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2015-04-001/"},
    :d3f/kb-abstract
@@ -18273,7 +18274,7 @@
    :d3f/kb-reference-of :d3f/IPCTrafficAnalysis,
    :d3f/kb-reference-title "CAR-2015-04-001: Remotely Scheduled Tasks via AT",
    :d3f/todo "MITRE Analysis was not found",
-   :db/ident :d3f/Reference-CAR-2015-04-001:RemotelyScheduledTasksViaAT_MITRE,
+   :db/ident :d3f/Reference-CAR-2015-04-001%3ARemotelyScheduledTasksViaAT_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2015-04-001: Remotely Scheduled Tasks via AT - MITRE"})
@@ -18288,7 +18289,7 @@
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2016-04-004: Successful Local Account Login"})
 
-(def Reference-CAR-2020-04-001:ShadowCopyDeletion_MITRE
+(def Reference-CAR-2020-04-001%3AShadowCopyDeletion_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-04-001/"},
    :d3f/kb-abstract
@@ -18298,11 +18299,11 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-04-001: Shadow Copy Deletion",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-04-001:ShadowCopyDeletion_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-04-001%3AShadowCopyDeletion_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-04-001: Shadow Copy Deletion - MITRE"})
 
-(def Reference-CAR-2020-05-001:MiniDumpOfLSASS_MITRE
+(def Reference-CAR-2020-05-001%3AMiniDumpOfLSASS_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-05-001/"},
    :d3f/kb-abstract
@@ -18314,11 +18315,11 @@
    :d3f/todo
    #{"MITRE Analysis was not found"
      "No section headers were given (MITRE Analysis or Document Abstract); all text placed in kb-abstract section."},
-   :db/ident :d3f/Reference-CAR-2020-05-001:MiniDumpOfLSASS_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-05-001%3AMiniDumpOfLSASS_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-05-001: MiniDump of LSASS - MITRE"})
 
-(def Reference-CAR-2020-05-003:RareLolBASCommandLines_MITRE
+(def Reference-CAR-2020-05-003%3ARareLolBASCommandLines_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-05-003/"},
    :d3f/kb-abstract
@@ -18328,13 +18329,13 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-05-003: Rare LolBAS Command Lines",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-05-003:RareLolBASCommandLines_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-05-003%3ARareLolBASCommandLines_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-05-003: Rare LolBAS Command Lines - MITRE"})
 
 (def
-  Reference-CAR-2020-08-001:NTFSAlternateDataStreamExecution-SystemUtilities_MITRE
+  Reference-CAR-2020-08-001%3ANTFSAlternateDataStreamExecution-SystemUtilities_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-08-001/"},
    :d3f/kb-abstract
@@ -18346,12 +18347,12 @@
    "CAR-2020-08-001: NTFS Alternate Data Stream Execution - System Utilities",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2020-08-001:NTFSAlternateDataStreamExecution-SystemUtilities_MITRE,
+   :d3f/Reference-CAR-2020-08-001%3ANTFSAlternateDataStreamExecution-SystemUtilities_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-08-001: NTFS Alternate Data Stream Execution - System Utilities - MITRE"})
 
-(def Reference-CAR-2020-09-001:ScheduledTask-FileAccess_MITRE
+(def Reference-CAR-2020-09-001%3AScheduledTask-FileAccess_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-09-001/"},
    :d3f/kb-abstract
@@ -18361,12 +18362,12 @@
    :d3f/kb-reference-of :d3f/FileCreationAnalysis,
    :d3f/kb-reference-title "CAR-2020-09-001: Scheduled Task - FileAccess",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-09-001:ScheduledTask-FileAccess_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-09-001%3AScheduledTask-FileAccess_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-001: Scheduled Task - FileAccess - MITRE"})
 
-(def Reference-CAR-2020-09-002:ComponentObjectModelHijacking_MITRE
+(def Reference-CAR-2020-09-002%3AComponentObjectModelHijacking_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-09-002/"},
    :d3f/kb-abstract
@@ -18376,12 +18377,13 @@
    :d3f/kb-reference-of :d3f/UserSessionInitConfigAnalysis,
    :d3f/kb-reference-title "CAR-2020-09-002: Component Object Model Hijacking",
    :d3f/todo "MITRE Analysis was not found",
-   :db/ident :d3f/Reference-CAR-2020-09-002:ComponentObjectModelHijacking_MITRE,
+   :db/ident
+   :d3f/Reference-CAR-2020-09-002%3AComponentObjectModelHijacking_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-002:  Component Object Model Hijacking - MITRE"})
 
-(def Reference-CAR-2020-09-003:IndicatorBlocking-DriverUnloaded_MITRE
+(def Reference-CAR-2020-09-003%3AIndicatorBlocking-DriverUnloaded_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-09-003/"},
    :d3f/kb-abstract
@@ -18393,12 +18395,12 @@
    "CAR-2020-09-003: Indicator Blocking - Driver Unloaded",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2020-09-003:IndicatorBlocking-DriverUnloaded_MITRE,
+   :d3f/Reference-CAR-2020-09-003%3AIndicatorBlocking-DriverUnloaded_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-003: Indicator Blocking - Driver Unloaded - MITRE"})
 
-(def Reference-CAR-2020-09-004:CredentialsInFiles&Registry_MITRE
+(def Reference-CAR-2020-09-004%3ACredentialsInFiles%26Registry_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-09-004/"},
    :d3f/kb-abstract
@@ -18408,12 +18410,13 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-09-004: Credentials in Files & Registry",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-09-004:CredentialsInFiles&Registry_MITRE,
+   :db/ident
+   :d3f/Reference-CAR-2020-09-004%3ACredentialsInFiles%26Registry_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-09-004: Credentials in Files & Registry - MITRE"})
 
-(def Reference-CAR-2020-09-005:AppInitDLLs_MITRE
+(def Reference-CAR-2020-09-005%3AAppInitDLLs_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-09-005/"},
    :d3f/kb-abstract
@@ -18423,11 +18426,11 @@
    :d3f/kb-reference-of :d3f/SystemInitConfigAnalysis,
    :d3f/kb-reference-title "CAR-2020-09-005: AppInit DLLs",
    :d3f/todo "MITRE Analysis was not found",
-   :db/ident :d3f/Reference-CAR-2020-09-005:AppInitDLLs_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-09-005%3AAppInitDLLs_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-09-005: AppInit DLLs - MITRE"})
 
-(def Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE
+(def Reference-CAR-2020-11-001%3ABootOrLogonInitializationScripts_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-001/"},
    :d3f/kb-abstract
@@ -18439,12 +18442,12 @@
    "CAR-2020-11-001: Boot or Logon Initialization Scripts",
    :d3f/todo "MITRE Analysis was not found",
    :db/ident
-   :d3f/Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE,
+   :d3f/Reference-CAR-2020-11-001%3ABootOrLogonInitializationScripts_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-001: Boot or Logon Initialization Scripts - MITRE"})
 
-(def Reference-CAR-2020-11-002:LocalNetworkSniffing_MITRE
+(def Reference-CAR-2020-11-002%3ALocalNetworkSniffing_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-002/"},
    :d3f/kb-abstract
@@ -18454,11 +18457,11 @@
    :d3f/kb-reference-of :d3f/ProcessLineageAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-002: Local Network Sniffing",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-002:LocalNetworkSniffing_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-11-002%3ALocalNetworkSniffing_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-002: Local Network Sniffing - MITRE"})
 
-(def Reference-CAR-2020-11-003:DLLInjectionWithMavinject_MITRE
+(def Reference-CAR-2020-11-003%3ADLLInjectionWithMavinject_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-003/"},
    :d3f/kb-abstract
@@ -18468,12 +18471,12 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-003: DLL Injection with Mavinject",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-003:DLLInjectionWithMavinject_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-11-003%3ADLLInjectionWithMavinject_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-003: DLL Injection with Mavinject - MITRE"})
 
-(def Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE
+(def Reference-CAR-2020-11-004%3AProcessesStartedFromIrregularParent_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-004/"},
    :d3f/kb-abstract
@@ -18485,12 +18488,12 @@
    "CAR-2020-11-004: Processes Started From Irregular Parent",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2020-11-004:ProcessesStartedFromIrregularParent_MITRE,
+   :d3f/Reference-CAR-2020-11-004%3AProcessesStartedFromIrregularParent_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-004: Processes Started From Irregular Parent - MITRE"})
 
-(def Reference-CAR-2020-11-005:ClearPowershellConsoleCommandHistory_MITRE
+(def Reference-CAR-2020-11-005%3AClearPowershellConsoleCommandHistory_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-005/"},
    :d3f/kb-abstract
@@ -18502,12 +18505,12 @@
    "CAR-2020-11-005: Clear Powershell Console Command History",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2020-11-005:ClearPowershellConsoleCommandHistory_MITRE,
+   :d3f/Reference-CAR-2020-11-005%3AClearPowershellConsoleCommandHistory_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-005: Clear Powershell Console Command History - MITRE"})
 
-(def Reference-CAR-2020-11-006:LocalPermissionGroupDiscovery_MITRE
+(def Reference-CAR-2020-11-006%3ALocalPermissionGroupDiscovery_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-006/"},
    :d3f/kb-abstract
@@ -18517,12 +18520,13 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-006: Local Permission Group Discovery",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-006:LocalPermissionGroupDiscovery_MITRE,
+   :db/ident
+   :d3f/Reference-CAR-2020-11-006%3ALocalPermissionGroupDiscovery_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-006: Local Permission Group Discovery - MITRE"})
 
-(def Reference-CAR-2020-11-007:NetworkShareConnectionRemoval_MITRE
+(def Reference-CAR-2020-11-007%3ANetworkShareConnectionRemoval_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-007/"},
    :d3f/kb-abstract
@@ -18532,12 +18536,13 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-007: Network Share Connection Removal",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-007:NetworkShareConnectionRemoval_MITRE,
+   :db/ident
+   :d3f/Reference-CAR-2020-11-007%3ANetworkShareConnectionRemoval_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2020-11-007: Network Share Connection Removal - MITRE"})
 
-(def Reference-CAR-2020-11-008:MSBuildAndMsxsl_MITRE
+(def Reference-CAR-2020-11-008%3AMSBuildAndMsxsl_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-008/"},
    :d3f/kb-abstract
@@ -18547,11 +18552,11 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-008: MSBuild and msxsl",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-008:MSBuildAndMsxsl_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-11-008%3AMSBuildAndMsxsl_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-008: MSBuild and msxsl - MITRE"})
 
-(def Reference-CAR-2020-11-009:CompiledHTMLAccess_MITRE
+(def Reference-CAR-2020-11-009%3ACompiledHTMLAccess_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-009/"},
    :d3f/kb-abstract
@@ -18561,11 +18566,11 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-009: Compiled HTML Access",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-009:CompiledHTMLAccess_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-11-009%3ACompiledHTMLAccess_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-009: Compiled HTML Access - MITRE"})
 
-(def Reference-CAR-2020-11-010:CMSTP_MITRE
+(def Reference-CAR-2020-11-010%3ACMSTP_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-010/"},
    :d3f/kb-abstract
@@ -18575,11 +18580,11 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-010: CMSTP",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2020-11-010:CMSTP_MITRE,
+   :db/ident :d3f/Reference-CAR-2020-11-010%3ACMSTP_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-010: CMSTP - MITRE"})
 
-(def Reference-CAR-2020-11-011:RegistryEditFromScreensaver
+(def Reference-CAR-2020-11-011%3ARegistryEditFromScreensaver
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2020-11-011/"},
    :d3f/kb-abstract
@@ -18589,11 +18594,11 @@
    :d3f/kb-reference-of :d3f/UserSessionInitConfigAnalysis,
    :d3f/kb-reference-title "CAR-2020-11-011: Registry Edit from Screensaver",
    :d3f/todo "MITRE Analysis was not found",
-   :db/ident :d3f/Reference-CAR-2020-11-011:RegistryEditFromScreensaver,
+   :db/ident :d3f/Reference-CAR-2020-11-011%3ARegistryEditFromScreensaver,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2020-11-011: Registry Edit from Screensaver"})
 
-(def Reference-CAR-2021-01-002:UnusuallyLongCommandLineStrings_MITRE
+(def Reference-CAR-2021-01-002%3AUnusuallyLongCommandLineStrings_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-002/"},
    :d3f/kb-abstract
@@ -18605,12 +18610,12 @@
    "CAR-2021-01-002: Unusually Long Command Line Strings",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-01-002:UnusuallyLongCommandLineStrings_MITRE,
+   :d3f/Reference-CAR-2021-01-002%3AUnusuallyLongCommandLineStrings_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-002: Unusually Long Command Line Strings - MITRE"})
 
-(def Reference-CAR-2021-01-003:ClearingWindowsLogsWithWevtutil_MITRE
+(def Reference-CAR-2021-01-003%3AClearingWindowsLogsWithWevtutil_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-003/"},
    :d3f/kb-abstract
@@ -18621,13 +18626,13 @@
    "CAR-2021-01-003: Clearing Windows Logs with Wevtutil",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-01-003:ClearingWindowsLogsWithWevtutil_MITRE,
+   :d3f/Reference-CAR-2021-01-003%3AClearingWindowsLogsWithWevtutil_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-003: Clearing Windows Logs with Wevtutil - MITRE"})
 
 (def
-  Reference-CAR-2021-01-004:UnusualChildProcessForSpoolsv_ExeOrConnhost_Exe_MITRE
+  Reference-CAR-2021-01-004%3AUnusualChildProcessForSpoolsv_ExeOrConnhost_Exe_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-004/"},
    :d3f/kb-abstract
@@ -18639,12 +18644,12 @@
    "CAR-2021-01-004: Unusual Child Process for Spoolsv.Exe or Connhost.Exe",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-01-004:UnusualChildProcessForSpoolsv.ExeOrConnhost.Exe_MITRE,
+   :d3f/Reference-CAR-2021-01-004%3AUnusualChildProcessForSpoolsv.ExeOrConnhost.Exe_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-004: Unusual Child Process for Spoolsv.Exe or Connhost.Exe - MITRE"})
 
-(def Reference-CAR-2021-01-006:UnusualChildProcessSpawnedUsingDDEExploit_MITRE
+(def Reference-CAR-2021-01-006%3AUnusualChildProcessSpawnedUsingDDEExploit_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-006/"},
    :d3f/kb-abstract
@@ -18656,13 +18661,13 @@
    "CAR-2021-01-006: Unusual Child Process spawned using DDE exploit",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-01-006:UnusualChildProcessSpawnedUsingDDEExploit_MITRE,
+   :d3f/Reference-CAR-2021-01-006%3AUnusualChildProcessSpawnedUsingDDEExploit_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-006: Unusual Child Process spawned using DDE exploit - MITRE"})
 
 (def
-  Reference-CAR-2021-01-007:DetectingTamperingOfWindowsDefenderCommandPrompt_MITRE
+  Reference-CAR-2021-01-007%3ADetectingTamperingOfWindowsDefenderCommandPrompt_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-007/"},
    :d3f/kb-abstract
@@ -18675,12 +18680,12 @@
    "CAR-2021-01-007: Detecting Tampering of Windows Defender Command Prompt",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-01-007:DetectingTamperingOfWindowsDefenderCommandPrompt_MITRE,
+   :d3f/Reference-CAR-2021-01-007%3ADetectingTamperingOfWindowsDefenderCommandPrompt_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-007: Detecting Tampering of Windows Defender Command Prompt - MITRE"})
 
-(def Reference-CAR-2021-01-008:DisableUAC_MITRE
+(def Reference-CAR-2021-01-008%3ADisableUAC_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-008/"},
    :d3f/kb-abstract
@@ -18690,11 +18695,12 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2021-01-008: Disable UAC",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-01-008:DisableUAC_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-01-008%3ADisableUAC_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-01-008: Disable UAC - MITRE"})
 
-(def Reference-CAR-2021-01-009:DetectingShadowCopyDeletionViaVssadmin_exe_MITRE
+(def
+  Reference-CAR-2021-01-009%3ADetectingShadowCopyDeletionViaVssadmin_exe_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-01-009/"},
    :d3f/kb-abstract
@@ -18706,12 +18712,12 @@
    "CAR-2021-01-009: Detecting Shadow Copy Deletion via Vssadmin.exe",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-01-009:DetectingShadowCopyDeletionViaVssadmin.exe_MITRE,
+   :d3f/Reference-CAR-2021-01-009%3ADetectingShadowCopyDeletionViaVssadmin.exe_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-01-009: Detecting Shadow Copy Deletion via Vssadmin.exe - MITRE"})
 
-(def Reference-CAR-2021-02-001:Webshell-IndicativeProcessTree_MITRE
+(def Reference-CAR-2021-02-001%3AWebshell-IndicativeProcessTree_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-02-001/"},
    :d3f/kb-abstract
@@ -18722,12 +18728,12 @@
    :d3f/kb-reference-title "CAR-2021-02-001: Webshell-Indicative Process Tree",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-02-001:Webshell-IndicativeProcessTree_MITRE,
+   :d3f/Reference-CAR-2021-02-001%3AWebshell-IndicativeProcessTree_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-02-001: Webshell-Indicative Process Tree - MITRE"})
 
-(def Reference-CAR-2021-02-002:GetSystemElevation_MITRE
+(def Reference-CAR-2021-02-002%3AGetSystemElevation_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-02-002/"},
    :d3f/kb-abstract
@@ -18737,11 +18743,11 @@
    :d3f/kb-reference-of :d3f/ProcessLineageAnalysis,
    :d3f/kb-reference-title "CAR-2021-02-002: Get System Elevation",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-02-002:GetSystemElevation_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-02-002%3AGetSystemElevation_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-02-002: Get System Elevation - MITRE"})
 
-(def Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE
+(def Reference-CAR-2021-04-001%3ACommonWindowsProcessMasquerading_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-04-001/"},
    :d3f/kb-abstract
@@ -18753,12 +18759,12 @@
    "CAR-2021-04-001: Common Windows Process Masquerading",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-04-001:CommonWindowsProcessMasquerading_MITRE,
+   :d3f/Reference-CAR-2021-04-001%3ACommonWindowsProcessMasquerading_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-04-001: Common Windows Process Masquerading - MITRE"})
 
-(def Reference-CAR-2021-05-001:AttemptToAddCertificateToUntrustedStore_MITRE
+(def Reference-CAR-2021-05-001%3AAttemptToAddCertificateToUntrustedStore_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-001/"},
    :d3f/kb-abstract
@@ -18770,12 +18776,12 @@
    "CAR-2021-05-001: Attempt To Add Certificate To Untrusted Store",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-05-001:AttemptToAddCertificateToUntrustedStore_MITRE,
+   :d3f/Reference-CAR-2021-05-001%3AAttemptToAddCertificateToUntrustedStore_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-001: Attempt To Add Certificate To Untrusted Store - MITRE"})
 
-(def Reference-CAR-2021-05-002:BatchFileWriteToSystem32_MITRE
+(def Reference-CAR-2021-05-002%3ABatchFileWriteToSystem32_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-002/"},
    :d3f/kb-abstract
@@ -18785,12 +18791,12 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2021-05-002: Batch File Write to System32",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-05-002:BatchFileWriteToSystem32_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-05-002%3ABatchFileWriteToSystem32_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-002: Batch File Write to System32 - MITRE"})
 
-(def Reference-CAR-2021-05-003:BCDEditFailureRecoveryModification_MITRE
+(def Reference-CAR-2021-05-003%3ABCDEditFailureRecoveryModification_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-003/"},
    :d3f/kb-abstract
@@ -18802,12 +18808,12 @@
    "CAR-2021-05-003: BCDEdit Failure Recovery Modification",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-05-003:BCDEditFailureRecoveryModification_MITRE,
+   :d3f/Reference-CAR-2021-05-003%3ABCDEditFailureRecoveryModification_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-003: BCDEdit Failure Recovery Modification - MITRE"})
 
-(def Reference-CAR-2021-05-004:BITSJobPersistence_MITRE
+(def Reference-CAR-2021-05-004%3ABITSJobPersistence_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-004/"},
    :d3f/kb-abstract
@@ -18817,11 +18823,11 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2021-05-004: BITS Job Persistence",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-05-004:BITSJobPersistence_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-05-004%3ABITSJobPersistence_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-05-004: BITS Job Persistence - MITRE"})
 
-(def Reference-CAR-2021-05-005:BITSAdminDownloadFile_MITRE
+(def Reference-CAR-2021-05-005%3ABITSAdminDownloadFile_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-005/"},
    :d3f/kb-abstract
@@ -18831,12 +18837,12 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2021-05-005: BITSAdmin Download File",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-05-005:BITSAdminDownloadFile_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-05-005%3ABITSAdminDownloadFile_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2021-05-005: BITSAdmin Download File - MITRE"})
 
 (def
-  Reference-CAR-2021-05-006:CertUtilDownloadWithURLCacheAndSplitArguments_MITRE
+  Reference-CAR-2021-05-006%3ACertUtilDownloadWithURLCacheAndSplitArguments_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-006/"},
    :d3f/kb-abstract
@@ -18848,13 +18854,13 @@
    "CAR-2021-05-006: CertUtil Download With URLCache and Split Arguments",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-05-006:CertUtilDownloadWithURLCacheAndSplitArguments_MITRE,
+   :d3f/Reference-CAR-2021-05-006%3ACertUtilDownloadWithURLCacheAndSplitArguments_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-006: CertUtil Download With URLCache and Split Arguments - MITRE"})
 
 (def
-  Reference-CAR-2021-05-007:CertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE
+  Reference-CAR-2021-05-007%3ACertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-007/"},
    :d3f/kb-abstract
@@ -18863,12 +18869,12 @@
    :d3f/kb-reference-title
    "CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments",
    :db/ident
-   :d3f/Reference-CAR-2021-05-007:CertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE,
+   :d3f/Reference-CAR-2021-05-007%3ACertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments - MITRE"})
 
-(def Reference-CAR-2021-05-008:CertutilExeCertificateExtraction_MITRE
+(def Reference-CAR-2021-05-008%3ACertutilExeCertificateExtraction_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-008/"},
    :d3f/kb-abstract
@@ -18880,12 +18886,12 @@
    "CAR-2021-05-008: Certutil exe certificate extraction",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-05-008:CertutilExeCertificateExtraction_MITRE,
+   :d3f/Reference-CAR-2021-05-008%3ACertutilExeCertificateExtraction_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-008: Certutil exe certificate extraction - MITRE"})
 
-(def Reference-CAR-2021-05-009:CertUtilWithDecodeArgument_MITRE
+(def Reference-CAR-2021-05-009%3ACertUtilWithDecodeArgument_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-009/"},
    :d3f/kb-abstract
@@ -18895,12 +18901,12 @@
    :d3f/kb-reference-of :d3f/ProcessSpawnAnalysis,
    :d3f/kb-reference-title "CAR-2021-05-009: CertUtil With Decode Argument",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-05-009:CertUtilWithDecodeArgument_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-05-009%3ACertUtilWithDecodeArgument_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-009: CertUtil With Decode Argument - MITRE"})
 
-(def Reference-CAR-2021-05-010:CreateLocalAdminAccountsUsingNetExe_MITRE
+(def Reference-CAR-2021-05-010%3ACreateLocalAdminAccountsUsingNetExe_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-010/"},
    :d3f/kb-abstract
@@ -18912,12 +18918,12 @@
    "CAR-2021-05-010: Create local admin accounts using net exe",
    :d3f/todo "MITRE Analysis was not found.",
    :db/ident
-   :d3f/Reference-CAR-2021-05-010:CreateLocalAdminAccountsUsingNetExe_MITRE,
+   :d3f/Reference-CAR-2021-05-010%3ACreateLocalAdminAccountsUsingNetExe_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-010: Create local admin accounts using net exe - MITRE"})
 
-(def Reference-CAR-2021-05-011:CreateRemoteThreadIntoLSASS_MITRE
+(def Reference-CAR-2021-05-011%3ACreateRemoteThreadIntoLSASS_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2021-05-011/"},
    :d3f/kb-abstract
@@ -18927,7 +18933,7 @@
    :d3f/kb-reference-of :d3f/SystemCallAnalysis,
    :d3f/kb-reference-title "CAR-2021-05-011: Create Remote Thread into LSASS",
    :d3f/todo "MITRE Analysis was not found.",
-   :db/ident :d3f/Reference-CAR-2021-05-011:CreateRemoteThreadIntoLSASS_MITRE,
+   :db/ident :d3f/Reference-CAR-2021-05-011%3ACreateRemoteThreadIntoLSASS_MITRE,
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label
    "Reference - CAR-2021-05-011: Create Remote Thread into LSASS - MITRE"})
@@ -25028,10 +25034,10 @@
    :d3f/kb-reference
    #{:d3f/Reference-DeterministicMethodForDetectingAndBlockingOfExploitsOnInterpretedCode_K2CyberSecurityInc
      :d3f/Reference-MalwareDetectionInEventLoops_CrowdstrikeInc
-     :d3f/Reference-CAR-2020-05-001:MiniDumpOfLSASS_MITRE
+     :d3f/Reference-CAR-2021-05-011%3ACreateRemoteThreadIntoLSASS_MITRE
+     :d3f/Reference-CAR-2020-05-001%3AMiniDumpOfLSASS_MITRE
      :d3f/Reference-Hardware-assistedSystemAndMethodForDetectingAndAnalyzingSystemCallsMadeToAnOpertingSystemKernel_EndgameInc
      :d3f/Reference-PostSandboxMethodsAndSystemsForDetectingAndBlockingZero-dayExploitsViaApiCallValidation_K2CyberSecurityInc
-     :d3f/Reference-CAR-2021-05-011:CreateRemoteThreadIntoLSASS_MITRE
      :d3f/Reference-CredentialDumpingViaWindowsTaskManager_MITRE
      :d3f/Reference-DLLInjectionViaLoadLibrary_MITRE},
    :db/ident :d3f/SystemCallAnalysis,
@@ -25236,9 +25242,9 @@
    :d3f/d3fend-id "D3-SICA",
    :d3f/definition "Analysis of any system process startup configuration.",
    :d3f/kb-reference
-   #{:d3f/Reference-AutorunDifferences_MITRE
-     :d3f/Reference-CAR-2020-11-001:BootOrLogonInitializationScripts_MITRE
-     :d3f/Reference-CAR-2020-09-005:AppInitDLLs_MITRE},
+   #{:d3f/Reference-CAR-2020-11-001%3ABootOrLogonInitializationScripts_MITRE
+     :d3f/Reference-AutorunDifferences_MITRE
+     :d3f/Reference-CAR-2020-09-005%3AAppInitDLLs_MITRE},
    :d3f/synonym #{"Autorun Analysis" "Startup Analysis"},
    :db/ident :d3f/SystemInitConfigAnalysis,
    :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
@@ -32983,8 +32989,8 @@
    :d3f/kb-reference
    #{:d3f/Reference-IdentificationAndExtractionOfKeyForensicsIndicatorsOfCompromiseUsingSubject-specificFilesystemViews
      :d3f/Reference-RegistryKeySecurityAndAccessRights
-     :d3f/Reference-CAR-2020-11-011:RegistryEditFromScreensaver
-     :d3f/Reference-CAR-2020-09-002:ComponentObjectModelHijacking_MITRE},
+     :d3f/Reference-CAR-2020-09-002%3AComponentObjectModelHijacking_MITRE
+     :d3f/Reference-CAR-2020-11-011%3ARegistryEditFromScreensaver},
    :d3f/synonym "User Startup Config Analysis",
    :db/ident :d3f/UserSessionInitConfigAnalysis,
    :rdf/type #{:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class},
@@ -34264,7 +34270,7 @@
    "Will port rdfs:comment entries that have been definitions to d3f:definition to free up comments for non-definitional expansions and commentary.",
    :db/ident :d3f/definition,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.obolibrary.org/obo/IAO_0000115"},
+   :rdfs/isDefinedBy :obo/IAO_0000115,
    :rdfs/label #{"definition" "comment"},
    :rdfs/subPropertyOf :d3f/d3fend-annotation})
 

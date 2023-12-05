@@ -723,16 +723,7 @@
       (re-find #"[\s\(\)!,@\"\\~`^;/]" (java.net.URLDecoder/decode (name k) +utf-8+))
       k
 
-      :else (keyword (namespace k)
-                     (try
-                       (let [n (java.net.URLDecoder/decode (name k) +utf-8+)]
-                         (if (or (re-find #"/" n)
-                                 (re-find #"[\(\)\"]" n)
-                                 (re-find #"::" n))
-                           (name k)
-                           n))
-                       (catch Throwable ex
-                         (name k)))))))
+      :else k)))
 
 (extend-protocol arachne.aristotle.graph/AsNode
   clojure.lang.BigInt
@@ -810,14 +801,10 @@
   "returns IRI for ident using aristotle's registry"
   [ident]  
   (reg/iri (keyword (namespace ident)
-                    (let [n (-> (name ident)
-                                (str/replace #"^\|" "")
-                                (str/replace #"\|$" "")
-                                (str/replace #"_SLASH_" "/"))]
-                      (try
-                        (java.net.URLDecoder/decode n +utf-8+)
-                        (catch Throwable ex
-                          n))))))
+                    (-> (name ident)
+                        (str/replace #"^\|" "")
+                        (str/replace #"\|$" "")
+                        (str/replace #"_SLASH_" "/")))))
 
 ;;  The function extracts some values from the md map and uses them to
 ;;  construct a Jena graph, which is a data structure used to
