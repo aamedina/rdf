@@ -240,6 +240,8 @@
   [_]
   nil)
 
+(defmethod rdf/infer-datomic-cardinality :owl/FunctionalProperty [_] :db.cardinality/one)
+
 (defmethod rdf/infer-datomic-type :rdfa/uri [_] :db.type/string)
 (defmethod rdf/infer-datomic-cardinality :rdfa/uri [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-unique :rdfa/uri [_] :db.unique/identity)
@@ -256,22 +258,6 @@
 
 (defmethod rdf/infer-datomic-type :rdf/language [_] :db.type/string)
 (defmethod rdf/infer-datomic-cardinality :rdf/language [_] :db.cardinality/one)
-
-(defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMinimum [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/exclusiveMaximum [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/propertyName [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/minimum [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/maximum [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/minItems [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/maxItems [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/minLength [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/maxLength [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/multipleOf [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/readOnly [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/uniqueItems [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/writeOnly [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/nullable [_] :db.cardinality/one)
-(defmethod rdf/infer-datomic-cardinality :jsonschema/additionalProperties [_] :db.cardinality/one)
 
 (defmethod rdf/infer-datomic-cardinality :owl/propertyChainAxiom [_] :db.cardinality/one)
 
@@ -306,7 +292,7 @@
     (when unionOf
       (some rdf/infer-datomic-type unionOf))))
 
-#_(defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
+(defmethod rdf/infer-datomic-type :rdfs/Literal [_] :db.type/string)
 
 (prefer-method rdf/infer-datomic-type :rdfs/Literal :rdfs/Datatype)
 (defmethod rdf/infer-datomic-type :rdfs/seeAlso [_] :db.type/ref)

@@ -102,7 +102,7 @@
 
 (def additionalProperties
   {:db/ident :jsonschema/additionalProperties,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -135,7 +135,7 @@
 
 (def const
   {:db/ident     :jsonschema/const,
-   :rdf/type     :owl/DatatypeProperty,
+   :rdf/type     #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment {:rdf/language "en",
                   :rdf/value    "Provides a constant value."},
    :rdfs/label   "const",
@@ -143,7 +143,7 @@
 
 (def contentEncoding
   {:db/ident :jsonschema/contentEncoding,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -154,7 +154,7 @@
 
 (def contentMediaType
   {:db/ident :jsonschema/contentMediaType,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -165,7 +165,7 @@
 
 (def default
   {:db/ident :jsonschema/default,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -183,7 +183,7 @@
 
 (def exclusiveMaximum
   {:db/ident :jsonschema/exclusiveMaximum,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -196,7 +196,7 @@
 
 (def exclusiveMinimum
   {:db/ident :jsonschema/exclusiveMinimum,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -209,7 +209,7 @@
 
 (def format
   {:db/ident :jsonschema/format,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -230,7 +230,7 @@
 
 (def maxItems
   {:db/ident :jsonschema/maxItems,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -241,7 +241,7 @@
 
 (def maxLength
   {:db/ident :jsonschema/maxLength,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -252,7 +252,7 @@
 
 (def maximum
   {:db/ident :jsonschema/maximum,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -265,7 +265,7 @@
 
 (def minItems
   {:db/ident :jsonschema/minItems,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -276,7 +276,7 @@
 
 (def minLength
   {:db/ident :jsonschema/minLength,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -287,7 +287,7 @@
 
 (def minimum
   {:db/ident :jsonschema/minimum,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -300,7 +300,7 @@
 
 (def multipleOf
   {:db/ident :jsonschema/multipleOf,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -312,7 +312,7 @@
 
 (def nullable
   {:db/ident :jsonschema/nullable,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -334,13 +334,13 @@
 
 (def pattern
   {:db/ident :jsonschema/pattern,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "Provides a regular expression to express constraints of the string value. The regular expression must follow the ECMA 262 dialect."},
    :rdfs/label "pattern",
-   :rdfs/range :xsd/nonNegativeInteger,
+   :rdfs/range :xsd/string,
    :schema/domainIncludes :jsonschema/StringSchema})
 
 (def properties
@@ -354,7 +354,7 @@
 
 (def propertyName
   {:db/ident :jsonschema/propertyName,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -365,7 +365,7 @@
 
 (def readOnly
   {:db/ident :jsonschema/readOnly,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -387,7 +387,7 @@
 
 (def uniqueItems
   {:db/ident :jsonschema/uniqueItems,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -398,7 +398,7 @@
 
 (def writeOnly
   {:db/ident :jsonschema/writeOnly,
-   :rdf/type :owl/DatatypeProperty,
+   :rdf/type #{:owl/DatatypeProperty :owl/FunctionalProperty},
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value

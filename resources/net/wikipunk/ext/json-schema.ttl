@@ -114,7 +114,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#const
 
-<https://www.w3.org/2019/wot/json-schema#const> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#const> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "const" ;
   
@@ -125,7 +125,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#default
 
-<https://www.w3.org/2019/wot/json-schema#default> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#default> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "default" ;
   
@@ -148,7 +148,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#maxItems
 
-<https://www.w3.org/2019/wot/json-schema#maxItems> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#maxItems> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "maxItems" ;
   
@@ -161,7 +161,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#maximum
 
-<https://www.w3.org/2019/wot/json-schema#maximum> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#maximum> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "maximum" ;
   
@@ -175,7 +175,7 @@
   
 ###  https://www.w3.org/2019/wot/json-schema#exclusiveMaximum
 
-<https://www.w3.org/2019/wot/json-schema#exclusiveMaximum> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#exclusiveMaximum> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "exclusiveMaximum" ;
   
@@ -189,7 +189,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#minItems
 
-<https://www.w3.org/2019/wot/json-schema#minItems> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#minItems> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "minItems" ;
   
@@ -200,7 +200,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#multipleOf
 
-<https://www.w3.org/2019/wot/json-schema#multipleOf> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#multipleOf> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "multipleOf" ;
   
@@ -211,7 +211,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#minimum
 
-<https://www.w3.org/2019/wot/json-schema#minimum> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#minimum> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "minimum" ;
   
@@ -224,7 +224,7 @@
   
 ###  https://www.w3.org/2019/wot/json-schema#exclusiveMinimum
 
-<https://www.w3.org/2019/wot/json-schema#exclusiveMinimum> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#exclusiveMinimum> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "exclusiveMinimum" ;
   
@@ -237,7 +237,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#maxLength
 
-<https://www.w3.org/2019/wot/json-schema#maxLength> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#maxLength> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "maxLength" ;
   
@@ -248,7 +248,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#minLength
 
-<https://www.w3.org/2019/wot/json-schema#minLength> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#minLength> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "minLength" ;
   
@@ -259,14 +259,14 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#pattern
 
-<https://www.w3.org/2019/wot/json-schema#pattern> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#pattern> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "pattern" ;
   
   rdfs:comment "Provides a regular expression to express constraints of the string value. The regular expression must follow the ECMA 262 dialect."@en ;
   
   schema:domainIncludes :StringSchema ;
-  rdfs:range xsd:nonNegativeInteger .
+  rdfs:range xsd:string .
 
 
 ###  https://www.w3.org/2019/wot/json-schema#required
@@ -283,7 +283,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#readOnly
 
-<https://www.w3.org/2019/wot/json-schema#readOnly> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#readOnly> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "readOnly" ;
   
@@ -292,7 +292,7 @@
   schema:domainIncludes :DataSchema ;
   rdfs:range xsd:boolean .
 
-<https://www.w3.org/2019/wot/json-schema#format> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#format> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "format" ;
   
@@ -302,7 +302,7 @@
   rdfs:range xsd:string .
 
 
-<https://www.w3.org/2019/wot/json-schema#contentEncoding> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#contentEncoding> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "contentEncoding" ;
   
@@ -311,7 +311,7 @@
   schema:domainIncludes :StringSchema ;
   rdfs:range xsd:string .
   
-<https://www.w3.org/2019/wot/json-schema#contentMediaType> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#contentMediaType> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "contentMediaType" ;
   
@@ -323,7 +323,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#writeOnly
 
-<https://www.w3.org/2019/wot/json-schema#writeOnly> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#writeOnly> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "writeOnly" ;
   
@@ -335,7 +335,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#description
 
-<https://www.w3.org/2019/wot/json-schema#propertyName> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#propertyName> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "propertyName" ;
   
@@ -429,7 +429,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#uniqueItems
 
-<https://www.w3.org/2019/wot/json-schema#uniqueItems> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#uniqueItems> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "uniqueItems" ;
   
@@ -440,7 +440,7 @@
 
 ###  https://www.w3.org/2019/wot/json-schema#additionalProperties
 
-<https://www.w3.org/2019/wot/json-schema#additionalProperties> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#additionalProperties> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "additionalProperties" ;
   
@@ -451,7 +451,7 @@
 
 ### https://www.w3.org/2019/wot/json-schema#nullable
 
-<https://www.w3.org/2019/wot/json-schema#nullable> rdf:type owl:DatatypeProperty ;
+<https://www.w3.org/2019/wot/json-schema#nullable> rdf:type owl:DatatypeProperty, owl:FunctionalProperty ;
 
   rdfs:label "nullable" ;
   
