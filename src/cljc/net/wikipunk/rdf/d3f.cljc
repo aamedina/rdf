@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.d3f
-  {:d3f/release-date #inst "2023-10-30T00:00:00.000-00:00",
+  {:d3f/release-date #inst "2024-01-26T00:00:00.000-00:00",
    :dcat/downloadURL "net/wikipunk/ext/d3fend.owl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
@@ -14,9 +14,8 @@
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
-   :owl/versionInfo "0.13.0-BETA-1",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.14.0/d3fend.owl"},
+   :owl/versionInfo "0.14.0",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
    :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
@@ -8468,8 +8467,6 @@
   {:d3f/d3fend-id "D3-CBAN",
    :d3f/definition
    "Requiring a digital certificate in order to authenticate a user.",
-   :d3f/kb-reference
-   :d3f/Reference-TokenlessBiometricTransactionAuthorizationMethodAndSystem,
    :db/ident :d3f/Certificate-basedAuthentication,
    :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Certificate-based Authentication",
@@ -8508,11 +8505,12 @@
   {:d3f/authenticates :d3f/PublicKey,
    :d3f/d3fend-id "D3-CP",
    :d3f/definition
-   "Persisting either a server's X509 certificate or their public key and comparing that to server's presented identity to allow for greater client confidence in the remote server's identity for SSL connections.",
+   "Persisting either a server's X.509 certificate or their public key and comparing that to server's presented identity to allow for greater client confidence in the remote server's identity for SSL connections.",
    :d3f/kb-article
-   "## How it works\nPinning allows for a trusted copy of a certificate or public key to be associated with a server and thus reducing the likelihood of frequently visited sites being subjected to man-in-the-middle attacks. Certificates or public keys can be pinned after a trusted connection has been established or the pinning can be preloaded in an application, which is the preferred method for mobile applications.\n\nPinning can take the form of certificate pinning or public key pinning.\n\n## Forms of Pinning\n* Certificate Pinning\nCertificate Pinning (CP) allows for the client to verify the X509 certificate with a preloaded certificate. Typically, this is involves storing a hash of the certificate and using the stored hash for comparison to the hash of the certificate submitted during the SSL handshake.\n\n* Public Key Pinning\nPublic Key Pinning (PKP) requires the extraction of a public key from server's certificate. The stored public key is compared to the server's presented public key. A public key is expected to rotate less frequently than an X509 certificate and is generally favored over certificate pinning.\n\nAn extension of PKP is Subject Public Key Information Pinning (SPKI) includes public key pinning plus additional information for SSL connections. The additional information can include preferred algorithms.\n\n## Considerations\n\n* With pinned certificates whenever a server updates its certificate, the pinned certificates will also need to be updated\n* With pinned public keys the extracted key may be subject to key refresh policies but much less frequently\n* Servers can become unavailable if pinned objects are set and not updated with the rotated identities. This may require a pinning strategy to be developed.\n* The application of this technique within web browser applications has been [deprecated](https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning) by  popular web browser developers. They now favor certificate analysis via public certificate transparency logs, and the EXPECT-CT HTTP header.",
+   "## How it works\nPinning allows for a trusted copy of a certificate or public key to be associated with a server and thus reducing the likelihood of frequently visited sites being subjected to man-in-the-middle attacks. Certificates or public keys can be pinned after a trusted connection has been established or the pinning can be preloaded in an application, which is the preferred method for mobile applications.\n\nPinning can take the form of certificate pinning or public key pinning.\n\n## Forms of Pinning\n* Certificate Pinning (CP) allows for the client to verify the X.509 certificate with a preloaded certificate. Typically, this is involves storing a hash of the certificate and using the stored hash for comparison to the hash of the certificate submitted during the SSL handshake.\n\n* Public Key Pinning (PKP) requires the extraction of a public key from server's certificate. The stored public key is compared to the server's presented public key. A public key is expected to rotate less frequently than an X.509 certificate and is generally favored over certificate pinning.\n\nAn extension of PKP is Subject Public Key Information Pinning (SPKI) includes public key pinning plus additional information for SSL connections. The additional information can include preferred algorithms.\n\n## Considerations\n\n* With pinned certificates whenever a server updates its certificate, the pinned certificates will also need to be updated\n* With pinned public keys the extracted key may be subject to key refresh policies but much less frequently\n* Servers can become unavailable if pinned objects are set and not updated with the rotated identities. This may require a pinning strategy to be developed.\n* The application of this technique within web browser applications has been [deprecated](https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning) by  popular web browser developers. They now favor certificate analysis via public certificate transparency logs, and the EXPECT-CT HTTP header.",
    :d3f/kb-reference #{:d3f/Reference-End-to-endCertificatePinning
-                       :d3f/Reference-CertificateAndPublicKeyPinning},
+                       :d3f/Reference-CertificateAndPublicKeyPinning
+                       :d3f/Reference-PublicKeyPinningExtensionForHTTP},
    :db/ident :d3f/CertificatePinning,
    :rdf/type #{:d3f/CredentialHardening :owl/NamedIndividual :owl/Class},
    :rdfs/label "Certificate Pinning",
@@ -9045,6 +9043,24 @@
    :rdfs/label "Container Image",
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/image"},
    :rdfs/subClassOf #{:d3f/SoftwarePackage :d3f/File}})
+
+(def ContainerImageAnalysis
+  {:d3f/analyzes :d3f/ContainerImage,
+   :d3f/d3fend-id "D3-CIA",
+   :d3f/definition
+   "Analyzing a Container Image with respect to a set of policies.",
+   :d3f/kb-article
+   "## How it works\n\nContainer images are standalone collections of the executable code and\ncontent that are used to populate a container environment.\nThey are usually created by either building a container from scratch or by\nbuilding on top of an existing image pulled from a repository.\n\nThroughout the container build workflow,\nimages should be scanned to identify:\n\n- outdated libraries,\n- known vulnerabilities,\n- or misconfigurations, such as insecure ports or permissions.\n\nScanning should also provide the flexibility to disregard false positives\nfor vulnerability detection where knowledgeable\ncybersecurity professionals have deemed alerts to be inaccurate.\n\nOne approach to implementing image scanning is to use an admission controller\nto block deployments if the image does not comply with the organization's\nsecurity policies.\n\nAn admission controller is a Container Orchestration feature that can intercept and\nprocess requests to the Container Orchestration API prior to persistence of the object,\nbut after the request is authenticated and authorized.\nA webhook can be implemented to scan any image before it is deployed in the orchestrator.\nThis admission controller\n\n## Considerations\n\n* Image scanning is key to ensuring deployed containers are secure.\n* Using trusted repositories to build containers is a critical part of the container build workflow.\n* This technique does not necessarly prevent the build process to add insecure or unsecured\n  files to the Image.\n",
+   :d3f/kb-reference :d3f/Reference-ContainerImageAnalysis,
+   :d3f/synonym "Container Image Scanning",
+   :db/ident :d3f/ContainerImageAnalysis,
+   :rdf/type #{:d3f/AssetVulnerabilityEnumeration :owl/NamedIndividual
+               :owl/Class},
+   :rdfs/label "Container Image Analysis",
+   :rdfs/subClassOf #{:d3f/AssetVulnerabilityEnumeration
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/ContainerImage,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ContainerOrchestrationSoftware
   {:d3f/definition
@@ -15305,7 +15321,7 @@
    "Network node inventorying identifies and records all the network nodes (hosts, routers, switches, firewalls, etc.) in the organization's architecture.",
    :d3f/inventories :d3f/NetworkNode,
    :d3f/kb-article
-   "## How it works\nAdministrators collect information on network nodes in their architecture using a variety of administrative and management tools that query network devices and nodes for information.  In some cases, where such queries are not supported or provide specific information of interest, an administrator may also collect this information through network enumeration methods to include host discovery and scanning for active ports and services.\n\n## Considerations\n* Scanning and probing techniques using mapping tools can result in side effects to information technology (IT) and operational technology (OT) systems.\n* An adversary conducting network enumeration may engage in activities that parallel normal hardware inventorying activities, but would require escalating to admin privileges for most of the operations requiting administrative tools\n\n## Examples\n* Link-layer discovery\n   * Link-layer Discovery Protocol (LLDP)\n   * Cisco Discovery Protocol (CDP)\n* Application-layer discovery\n   * Simple Network Management Protocol (SNMP) collects MIB information\n   * Web-based Enterprise Management (WBEM) collects CIM information\n      * Windows Management Instrumentation (WMI)\n      * Windows Management Infrastructure (MI)",
+   "## How it works\nAdministrators collect information on network nodes in their architecture using a variety of administrative and management tools that query network devices and nodes for information.  In some cases, where such queries are not supported or provide specific information of interest, an administrator may also collect this information through network enumeration methods to include host discovery and scanning for active ports and services.\n\n## Considerations\n* Scanning and probing techniques using mapping tools can result in side effects to information technology (IT) and operational technology (OT) systems.\n* An adversary conducting network enumeration may engage in activities that parallel normal network node inventorying activities, but would require escalating to admin privileges for most of the operations requiting administrative tools\n\n## Examples\n* Link-layer discovery\n   * Link-layer Discovery Protocol (LLDP)\n   * Cisco Discovery Protocol (CDP)\n* Application-layer discovery\n   * Simple Network Management Protocol (SNMP) collects MIB information\n   * Web-based Enterprise Management (WBEM) collects CIM information\n      * Windows Management Instrumentation (WMI)\n      * Windows Management Infrastructure (MI)",
    :d3f/kb-reference
    #{:d3f/Reference-IEEE-802_1AB-2016
      :d3f/Reference-Windows-Management-Instrumentation
@@ -19135,6 +19151,19 @@
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Configure User Access Control and Permissions"})
 
+(def Reference-ContainerImageAnalysis
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/0/CTR_Kubernetes_Hardening_Guidance_1.1_20220315.PDF"},
+   :d3f/kb-abstract
+   "Container Images can contain unneeded, unsecured or insecure files.\n        By analyzing the container image, we can identify whether it respects\n        a specific set of predefined policies.",
+   :d3f/kb-author "National Security Agency",
+   :d3f/kb-reference-of :d3f/ContainerImageAnalysis,
+   :d3f/kb-reference-title "Kubernetes Hardening Guide",
+   :db/ident :d3f/Reference-ContainerImageAnalysis,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Container Image Analysis"})
+
 (def Reference-ContentExtractorAndAnalysisSystem_Bit9Inc%2CCarbonBlackInc
   {:d3f/has-link {:xsd/anyURI
                   "https://patents.google.com/patent/US20070028110A1"},
@@ -21356,6 +21385,18 @@
    :db/ident :d3f/Reference-PsSuspend,
    :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - PsSuspend - Microsoft"})
+
+(def Reference-PublicKeyPinningExtensionForHTTP
+  {:d3f/has-link {:xsd/anyURI "https://datatracker.ietf.org/doc/html/rfc7469"},
+   :d3f/kb-abstract
+   "RFC 7469 describes an HTTP extension that allows web host operators to instruct user agents to remember ('pin') the hosts' cryptographic identities over a period of time. This decreases the risk of MITM attacks due to compromised Certificate Authorities.",
+   :d3f/kb-author "C. Evans, C. Palmer, R. Sleevi",
+   :d3f/kb-organization "Internet Engineering Task Force (IETF)",
+   :d3f/kb-reference-of :d3f/CertificatePinning,
+   :d3f/kb-reference-title "Public Key Pinning Extension for HTTP",
+   :db/ident :d3f/Reference-PublicKeyPinningExtensionForHTTP,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Public Key Pinning Extension for HTTP"})
 
 (def Reference-QualysNetworkPassiveSensorGettingStartedGuide
   {:d3f/has-link {:xsd/anyURI
@@ -24093,7 +24134,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Server_(computing)"},
    :rdfs/label "Server",
-   :rdfs/subClassOf #{:d3f/Host :d3f/NetworkResource
+   :rdfs/subClassOf #{:d3f/Host
                       {:owl/onProperty     :d3f/manages,
                        :owl/someValuesFrom :d3f/ServiceApplicationProcess,
                        :rdf/type           :owl/Restriction}
@@ -32537,7 +32578,7 @@
    :d3f/definition
    "Validating that server components of a messaging infrastructure are authorized to send a particular message.",
    :d3f/kb-article
-   "## How it works\nTransfer Agent Authentication can be accomplished in different ways for depending on the protocol. In Email,  Sender Policy Framework (SPF), Domain Key Identified Email (DKIM) or Domain-based Message Authentication Reporting and Conformance (DMARC) to validate sender domain ownership.\n\n### SPF\nSPF protocol allows for mail domain owners to specify the mail servers they use when sending email. SPF requires the use of SPF records published in the Domain Name System (DNS). The records record the authorized IPs for email senders. SPF uses the return-path address for domain IP identification. Email that is forwarded may cause the return-path validation problems.\n### DKIM\nDKIM also uses a record entry in DNS for authentication but does not rely on the simple return-path for validation. A signature header is added to email and encryption is used for security. This adds an additional layer of complexity and requires that DKIM servers be configured identified cryptographic signatures. The additional complexity results in a validation process that can survive complex routing of emails.\n\n### DMARC\nDMARC is an email policy and authentication protocol that seeks to ensure that the \"From\" field of emails is not spoofed. DMARC makes use of both SPF records and DKIM published key validation. DMARC also has a decision policy framework, contained in a DMARC record, for handling of rejected email. The DMARC framework also updates DMARC domains with authentication statues for allowed senders of that domain.\n\n## Considerations\n- Additional work is required to ensure that all SPF, DKIM and DMARC records are current and up to date.\n- Maintenance of DKIM signing keys is needed.\n- Using SPF without DKIM and DMARC verifies the Return-Path domain however does not prevent spoofing of the displayed From: address.\n- Parts of an email that are not signed or verified by email authentication methods, such as the message body or the header To: and Subject: fields, can be altered or modified.\n- Email message authentication does not replace the need to do email content analysis since executables, attachments, or links or other parts of the email beyond the sender domain are not verified.",
+   "## How it works\nTransfer Agent Authentication can be accomplished in different ways for depending on the protocol. In Email, Sender Policy Framework (SPF), Domain Key Identified Email (DKIM) or Domain-based Message Authentication Reporting and Conformance (DMARC) are used to validate sender domain ownership.\n\n### SPF\nSPF protocol allows for mail domain owners to specify the mail servers they use when sending email. SPF requires the use of SPF records published in the Domain Name System (DNS). The records record the authorized IPs for email senders. SPF uses the return-path address for domain IP identification. Email that is forwarded may cause the return-path validation problems.\n### DKIM\nDKIM also uses a record entry in DNS for authentication but does not rely on the simple return-path for validation. A signature header is added to email and encryption is used for security. This adds an additional layer of complexity and requires that DKIM servers be configured identified cryptographic signatures. The additional complexity results in a validation process that can survive complex routing of emails.\n\n### DMARC\nDMARC is an email policy and authentication protocol that seeks to ensure that the \"From\" field of emails is not spoofed. DMARC makes use of both SPF records and DKIM published key validation. DMARC also has a decision policy framework, contained in a DMARC record, for handling of rejected email. The DMARC framework also updates DMARC domains with authentication statues for allowed senders of that domain.\n\n## Considerations\n- Additional work is required to ensure that all SPF, DKIM and DMARC records are current and up to date.\n- Maintenance of DKIM signing keys is needed.\n- Using SPF without DKIM and DMARC verifies the Return-Path domain however does not prevent spoofing of the displayed From: address.\n- Parts of an email that are not signed or verified by email authentication methods, such as the message body or the header To: and Subject: fields, can be altered or modified.\n- Email message authentication does not replace the need to do email content analysis since executables, attachments, or links or other parts of the email beyond the sender domain are not verified.",
    :d3f/kb-reference
    #{:d3f/Reference-RFC7489-Domain-basedMessageAuthentication-Reporting-AndConformance-DMARC
      :d3f/Reference-DomainKeysIdentifiedMail-Signatures-IETF
@@ -33222,6 +33263,14 @@
    :rdfs/label "Weakness",
    :rdfs/subClassOf :d3f/D3FENDThing})
 
+(def WebAPIResource
+  {:d3f/definition
+   "A web API resource is an API resource identified by a Uniform Resource Identifier (URI) and made available from one host to another host via a web protocol and across a network or networks.",
+   :db/ident :d3f/WebAPIResource,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web API Resource",
+   :rdfs/subClassOf :d3f/WebResource})
+
 (def WebApplicationFirewall
   {:d3f/definition
    "A web application firewall (or WAF) filters, monitors, and blocks HTTP traffic to and from a web application. A WAF is differentiated from a regular firewall in that a WAF is able to filter the content of specific web applications while regular firewalls serve as a safety gate between servers. By inspecting HTTP traffic, it can prevent attacks stemming from web application security flaws, such as SQL injection, cross-site scripting (XSS), file inclusion, and security misconfigurations.",
@@ -33258,16 +33307,14 @@
 (def WebFileResource
   {:d3f/addressed-by :d3f/URL,
    :d3f/definition
-   "A web resource is a resource identified by a Uniform Resource Identifier (URI) and made available from one host to another host via a web protocol and across a network or networks.",
+   "A web file resource is a file resource identified by a Uniform Resource Identifier (URI) and made available from one host to another host via a web protocol and across a network or networks.",
    :db/ident :d3f/WebFileResource,
    :rdf/type :owl/Class,
    :rdfs/label "Web File Resource",
-   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Web_resource"},
    :rdfs/subClassOf #{:d3f/NetworkFileResource
                       {:owl/onProperty     :d3f/addressed-by,
                        :owl/someValuesFrom :d3f/URL,
-                       :rdf/type           :owl/Restriction}},
-   :skos/altLabel "Web Resource"})
+                       :rdf/type           :owl/Restriction} :d3f/WebResource}})
 
 (def WebNetworkTraffic
   {:d3f/definition
@@ -33276,6 +33323,15 @@
    :rdf/type :owl/Class,
    :rdfs/label "Web Network Traffic",
    :rdfs/subClassOf :d3f/NetworkTraffic})
+
+(def WebResource
+  {:d3f/definition
+   "A web resource is a resource identified by a Uniform Resource Identifier (URI) and made available from one host to another host via a web protocol and across a network or networks.",
+   :db/ident :d3f/WebResource,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web Resource",
+   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Web_resource"},
+   :rdfs/subClassOf :d3f/NetworkResource})
 
 (def WebResourceAccess
   {:d3f/definition
@@ -36006,16 +36062,15 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
-  {:d3f/release-date #inst "2023-10-30T00:00:00.000-00:00",
+  {:d3f/release-date #inst "2024-01-26T00:00:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
-   :owl/versionInfo "0.13.0-BETA-1",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.14.0/d3fend.owl"},
+   :owl/versionInfo "0.14.0",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
