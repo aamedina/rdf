@@ -753,7 +753,9 @@
 
 (defmethod rdf-literal :xsd/string
   [^Node_Literal node]
-  (.getLiteralValue node))
+  (if (instance? BaseDatatype$TypedValue (.getLiteralValue node))
+    (.-lexicalValue ^BaseDatatype$TypedValue (.getLiteralValue node))
+    (.getLiteralValue node)))
 
 (defmethod rdf-literal :xsd/dateTime
   [^Node_Literal node]

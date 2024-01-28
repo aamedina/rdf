@@ -820,3 +820,43 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.w3.org/ns/ssn/systems/"
    :rdfa/prefix "ssn-system"})
+
+(def qudt
+  {:rdfa/uri         "http://qudt.org/schema/qudt/"
+   :rdfa/prefix      "qudt"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def constant
+  {:rdfa/uri         "http://qudt.org/vocab/constant/"
+   :rdfa/prefix      "constant"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def unit
+  {:rdfa/uri         "http://qudt.org/vocab/unit/"
+   :rdfa/prefix      "unit"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def quantitykind
+  {:rdfa/uri         "http://qudt.org/vocab/quantitykind/"
+   :rdfa/prefix      "quantitykind"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def prefix
+  {:rdfa/uri         "http://qudt.org/vocab/prefix/"
+   :rdfa/prefix      "prefix"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def qkdv
+  {:rdfa/uri         "http://qudt.org/vocab/dimensionvector/"
+   :rdfa/prefix      "qkdv"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def soqk
+  {:rdfa/uri         "http://qudt.org/vocab/soqk/"
+   :rdfa/prefix      "soqk"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def sou
+  {:rdfa/uri         "http://qudt.org/vocab/sou/"
+   :rdfa/prefix      "sou"
+   :rdf/type         :rdfa/PrefixMapping})
