@@ -815,3 +815,8 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.geneontology.org/formats/oboInOwl#"
    :rdfa/prefix "oboInOwl"})
+
+(def ssn-system
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/ssn/systems/"
+   :rdfa/prefix "ssn-system"})
