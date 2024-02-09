@@ -20,25 +20,19 @@
   io.github.arachne-framework/aristotle
   {:sha     "15f0cb61d6a7ad2b579266b3fa78397004ae7e25"
    :git/url "https://github.com/arachne-framework/aristotle.git"}
-  org.clojars.quoll/donatello
-  {:mvn/version "1.3.4"}
-  org.clojars.quoll/michelangelo
-  {:mvn/version "0.1.8"}
   luposlip/json-schema
   {:mvn/version "0.4.2"}
   ont-app/vocabulary
   {:mvn/version "0.4.2"}
   org.apache.jena/apache-jena-libs
-  {:mvn/version "4.10.0"
+  {:mvn/version "4.9.0"
    :extension   "pom"}
   org.apache.commons/commons-compress
   {:mvn/version "1.25.0"}
   org.clojars.quoll/asami
   {:mvn/version "2.3.4"}
-  org.clojars.quoll/raphael
-  {:mvn/version "0.3.4"}
   org.clojure/clojure
-  {:mvn/version "1.12.0-alpha5"}
+  {:mvn/version "1.12.0-alpha7"}
   org.clojure/core.async
   {:mvn/version "1.6.681"}
   org.clojure/data.csv

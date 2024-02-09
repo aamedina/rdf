@@ -12,8 +12,6 @@
    [asami.core :as asami]
    [asami.storage]
    [clj-uuid :as uuid]
-   [quoll.raphael.core :as raphael]
-   [donatello.ttl :as ttl]
    [clojure.tools.logging :as log]
    [clojure.core.memoize :as memo]
    [clojure.core.protocols :refer [coll-reduce]]

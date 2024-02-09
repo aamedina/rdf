@@ -43,11 +43,7 @@
    [net.wikipunk.datomic :as datomic]
    [net.wikipunk.datomic.boot :as db]
    [net.wikipunk.datomic.rl :as rl]
-   [asami.core :as asami]
-   [quoll.raphael.core :as raphael]
-   [donatello.ttl :as ttl]
-   [michelangelo.core :as ma]
-   [tiara.data :refer [ordered-map ordered-set]]))
+   [asami.core :as asami]))
 
 (set-init
   (fn [_]
@@ -260,14 +256,12 @@
 
 (comment
   (with-open [r (org.apache.jena.sparql.exec.http.QueryExecutionHTTP/service "https://dbpedia.org/sparql"
-                                                                              "select distinct ?e where {?e a yago:WikicatAmericanFilmDirectors} LIMIT 100")]
-    (.toString (.execSelect r)))
+                                                                              "prefix yago: <http://yago-knowledge.org/resource/>
+
+select distinct ?e where {?e a yago:WikicatAmericanFilmDirectors} LIMIT 100")]
+    (.execSelect r))
 
   (http/get "https://dbpedia.org/sparql"
             {:query-params {"query" "select distinct ?e where {?e a <http://dbpedia.org/class/yago/WikicatAmericanpFilmDirectors>} LIMIT 100"}
              :accept       "application/sparql-results+json"
              :as           :json}))
-
-(comment
-  (org.apache.jena.riot.out.NodeFmtLib/decodeBNodeLabel "Bda53edfdf1f55184b2c9baffc3b38d9b")
-  (org.apache.jena.riot.out.NodeFmtLib/encodeBNodeLabel "da53edfdf1f55184b2c9baffc3b38d9b"))
