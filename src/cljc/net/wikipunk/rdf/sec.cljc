@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.sec
   {:dcat/downloadURL "net/wikipunk/ext/sec.ttl",
-   :dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
+   :dcterms/date #inst "2024-02-11T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -541,6 +541,21 @@
    :rdfs/label       "Delegator",
    :vs/term_status   "reserved"})
 
+(def digestMultibase
+  {:db/ident :sec/digestMultibase,
+   :rdf/type #{:owl/DatatypeProperty :rdf/Property},
+   :rdfs/comment
+   {:rdf/type :rdf/HTML,
+    :rdf/value
+    "<div><b><i>(Feature at Risk)</i></b> The Working Group is currently attempting to determine whether cryptographic hash expression formats can be unified across all of the VCWG core specifications. Candidates for this mechanism include `digestSRI` and `digestMultibase`.</div>"},
+   :rdfs/isDefinedBy
+   #{{:xsd/anyURI
+      "https://www.w3.org/TR/vc-data-integrity/#dfn-digestmultibase"}
+     {:xsd/anyURI "https://w3id.org/security#"}},
+   :rdfs/label "Digest multibase",
+   :rdfs/range :sec/multibase,
+   :vs/term_status "stable"})
+
 (def domain
   {:db/ident         :sec/domain,
    :rdf/type         #{:owl/DatatypeProperty :rdf/Property},
@@ -566,9 +581,13 @@
                     "https://ethereum.github.io/yellowpaper/paper.pdf"}},
    :vs/term_status "deprecated"})
 
-(def expires
-  {:db/ident :sec/expires,
+(def expiration
+  {:db/ident :sec/expiration,
    :rdf/type #{:owl/DatatypeProperty :rdf/Property},
+   :rdfs/comment
+   {:rdf/type :rdf/HTML,
+    :rdf/value
+    "<div>Historically, this property has often been expressed using `expires` as a shortened term in JSON-LD. Since this shortened term and its mapping to this property are in significant use in the ecosystem, the inconsistency between the short term name (`expires`) and the property identifier (`...#expiration`) is expected and should not trigger an error.</div>"},
    :rdfs/domain {:owl/unionOf [:sec/Proof :sec/VerificationMethod]},
    :rdfs/isDefinedBy
    #{{:xsd/anyURI "https://www.w3.org/TR/vc-data-integrity/#defn-proof-expires"}
@@ -802,8 +821,40 @@
                   "https://www.w3.org/TR/did-core/#verification-methods"},
    :vs/term_status "stable"})
 
+(def urn:uuid:846b2b09-595e-50d4-9414-280d081d61c5
+  {:rdf/type :jsonld/Context,
+   :schema/mentions
+   #{:sec/proof :sec/keyAgreement :sec/authentication
+     :sec/EcdsaSecp256k1RecoverySignature2020 :sec/verificationMethod
+     :sec/challenge :sec/Multikey :sec/Ed25519VerificationKey2018
+     :sec/capabilityAction :sec/INVALID_CONTROLLER_DOCUMENT
+     :sec/capabilityDelegation :sec/secretKeyMultibase
+     :sec/INVALID_VERIFICATION_METHOD :sec/proofValue :sec/MALFORMED_PROOF_ERROR
+     :sec/publicKeyJwk :sec/capabilityChain :sec/publicKeyHex :sec/delegator
+     :sec/Ed25519Signature2020 :sec/domain :sec/VerificationMethod
+     :sec/EcdsaSecp256k1Signature2020 :sec/nonce :sec/cryptosuiteString
+     :sec/ProcessingError :sec/cryptosuite :sec/jws :sec/digestMultibase
+     :sec/invoker :sec/secretKeyJwk :sec/invocationTarget :sec/ethereumAddress
+     :sec/Bls12381G2Key2020 :sec/MISMATCHED_PROOF_PURPOSE_ERROR
+     :sec/allowedAction :sec/EcdsaSecp256k1VerificationKey2019
+     :sec/capabilityInvocation :sec/controller
+     :sec/EcdsaSecp256k1RecoveryMethod2020 :sec/assertionMethod
+     :sec/publicKeyMultibase :sec/publicKeyBase58 :sec/Key
+     :sec/PROOF_GENERATION_ERROR :sec/DataIntegrityProof
+     :sec/blockchainAccountId :sec/INVALID_CONTROLLER_DOCUMENT_ID :sec/Proof
+     :sec/JsonWebSignature2020 :sec/proofPurpose :sec/Ed25519VerificationKey2020
+     :sec/caveat :sec/created :sec/INVALID_PROOF_PURPOSE_FOR_VERIFICATION_METHOD
+     :sec/JsonWebKey :sec/MerkleProof2019 :sec/previousProof
+     :sec/Bls12381G1Key2020 :sec/EcdsaSecp256k1Signature2019
+     :sec/BbsBlsSignature2020 :sec/BbsBlsSignatureProof2020 :sec/expiration
+     :sec/publicKeyPem :sec/X25519KeyAgreementKey2019
+     :sec/INVALID_CHALLENGE_ERROR :sec/JsonWebKey2020 :sec/ProofGraph
+     :sec/multibase :sec/INVALID_VERIFICATION_METHOD_URL :sec/revoked
+     :sec/INVALID_DOMAIN_ERROR},
+   :xsd/anyURI "urn:uuid:da628d7f-95a4-5a36-adb9-dfe4f79012bf"})
+
 (def urn:uuid:a2b9860c-cd32-559a-880b-ce2e60f5e541
-  {:dcterms/date #inst "2023-09-02T00:00:00.000-00:00",
+  {:dcterms/date #inst "2024-02-11T00:00:00.000-00:00",
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

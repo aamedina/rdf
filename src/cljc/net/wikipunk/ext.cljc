@@ -706,6 +706,12 @@
    :rdfa/uri    "https://www.w3.org/2019/wot/td#"
    :rdf/type    :rdfa/PrefixMapping})
 
+(def tm
+  {:rdfa/prefix      "tm"
+   :rdfa/uri         "https://www.w3.org/2019/wot/tm#"
+   :rdf/type         :rdfa/PrefixMapping
+   :dcat/downloadURL "https://github.com/w3c/wot-thing-description/raw/main/ontology/tm.ttl"})
+
 (def wotsec
   {:dcat/downloadURL "net/wikipunk/ext/security.ttl"
    :rdfa/prefix      "wotsec"

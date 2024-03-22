@@ -6,7 +6,9 @@
    [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf :as rdf]
    [net.wikipunk.rdf.d3f]
-   [net.wikipunk.rdf.schema]))
+   [net.wikipunk.rdf.schema]
+   [net.wikipunk.datomic.boot :as db]
+   [datomic.client.api :as d]))
 
 (use-fixtures :once
               (fn [f]
@@ -276,3 +278,13 @@
             :d3f/Technique
             :d3f/D3FENDThing
             :owl/Class]))))
+
+(deftest test-bootstrap
+  (let [boot-db (is (db/test-bootstrap (:db system))
+                    "The test-bootstrap function must return a Datomic database.")]
+    (is (isa? (:db/ident (d/pull boot-db '[:db/ident] :schema/Movie))
+              :schema/CreativeWork)
+        "The test-bootstrap function must return a Datomic database with the :schema/Movie entity which is a subclass of :schema/CreativeWork.")
+    (is (isa? (:db/ident (d/pull boot-db '[:db/ident] :d3f/DigitalArtifact))
+              :d3f/Artifact)
+        "The test-bootstrap function must return a Datomic database with the :d3f/DigitalArtifact entity which is a subclass of :d3f/Artifact.")))

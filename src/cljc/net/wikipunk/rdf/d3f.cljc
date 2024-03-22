@@ -34326,7 +34326,7 @@
    "Will port rdfs:comment entries that have been definitions to d3f:definition to free up comments for non-definitional expansions and commentary.",
    :db/ident :d3f/definition,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/isDefinedBy :obo/IAO_0000115,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.obolibrary.org/obo/IAO_0000115"},
    :rdfs/label #{"definition" "comment"},
    :rdfs/subPropertyOf :d3f/d3fend-annotation})
 

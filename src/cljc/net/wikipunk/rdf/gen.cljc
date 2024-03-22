@@ -2,7 +2,7 @@
   {:dcat/downloadURL "net/wikipunk/ext/gen.rdf",
    :namespaces       {"dc11" "http://purl.org/dc/elements/1.1/",
                       "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
-                      "gen"  "http://www.w3.org/2000/01/rdf-schema#",
+                      "gen"  "http://www.w3.org/2006/gen/ont#",
                       "owl"  "http://www.w3.org/2002/07/owl#",
                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
@@ -156,4 +156,4 @@
    :rdfs/comment
    "\n    This ontology implements concepts discussed in the Generic URIs 'DesignIsues' note.\n    It is also the topic of the W3C TAG issue and a related TAG finding.\n    This ontology does not model the fact that representations of a resource can be\n    customised as a function of things like user agent, target media,\n    the geographical position of the user,\n    the preferences of the user, etc.  These could be and can be added.\n    The FixedResource class is defined to be specific to ANY variation,\n    as is the fixedResource property.\n    ",
    :rdfs/seeAlso {:xsd/anyURI "http://www.w3.org/DesignIssues/Generic"},
-   :xsd/anyURI "file:///home/adrian/src/wikipunk/rdf/net/wikipunk/ext/gen.rdf"})
+   :xsd/anyURI "urn:uuid:9132cae4-f2b7-5cf8-9787-20c7bac7dbfa"})

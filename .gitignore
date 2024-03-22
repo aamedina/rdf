@@ -12,3 +12,5 @@ pom.xml.asc
 .cpcache/
 .vocab/
 .eastwood
+.clj-kondo/
+.lsp/
