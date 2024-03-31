@@ -247,6 +247,32 @@
    :schema/source   {:xsd/anyURI
                      "https://github.com/schemaorg/schemaorg/issues/2989"}})
 
+(def AlgorithmicMediaDigitalSource
+  {:db/ident :schema/AlgorithmicMediaDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/algorithmicMedia\">algorithmic media</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "AlgorithmicMediaDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/algorithmicMedia"}})
+
+(def AlgorithmicallyEnhancedDigitalSource
+  {:db/ident :schema/AlgorithmicallyEnhancedDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/algorithmicallyEnhanced\">algorithmically enhanced</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "AlgorithmicallyEnhancedDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/algorithmicallyEnhanced"}})
+
 (def AlignmentObject
   {:db/ident :schema/AlignmentObject,
    :rdf/type :rdfs/Class,
@@ -1476,6 +1502,47 @@
    :rdfs/label      "Cemetery",
    :rdfs/subClassOf :schema/CivicStructure})
 
+(def Certification
+  {:db/ident :schema/Certification,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   "A Certification is an official and authoritative statement about a subject, for example a product, service, person, or organization. A certification is typically issued by an indendent certification body, for example a professional organization or government. It formally attests certain characteristics about the subject, for example Organizations can be ISO certified, Food products can be certified Organic or Vegan, a Person can be a certified professional, a Place can be certified for food processing. There are certifications for many domains: regulatory, organizational, recycling, food, efficiency, educational, ecological, etc. A certification is a form of credential, as are accreditations and licenses. Mapped from the [gs1:CertificationDetails](https://www.gs1.org/voc/CertificationDetails) class in the GS1 Web Vocabulary.",
+   :rdfs/label "Certification",
+   :rdfs/subClassOf :schema/CreativeWork,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
+(def CertificationActive
+  {:db/ident        :schema/CertificationActive,
+   :rdf/type        :schema/CertificationStatusEnumeration,
+   :rdfs/comment    "Specifies that a certification is active.",
+   :rdfs/label      "CertificationActive",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source   {:xsd/anyURI
+                     "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
+(def CertificationInactive
+  {:db/ident :schema/CertificationInactive,
+   :rdf/type :schema/CertificationStatusEnumeration,
+   :rdfs/comment
+   "Specifies that a certification is inactive (no longer in effect).",
+   :rdfs/label "CertificationInactive",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
+(def CertificationStatusEnumeration
+  {:db/ident :schema/CertificationStatusEnumeration,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   "Enumerates the different statuses of a Certification (Active and Inactive).",
+   :rdfs/label "CertificationStatusEnumeration",
+   :rdfs/subClassOf :schema/Enumeration,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
 (def Chapter
   {:db/ident :schema/Chapter,
    :rdf/type :rdfs/Class,
@@ -1823,6 +1890,45 @@
    :rdf/type     :schema/ActionStatusType,
    :rdfs/comment "An action that has already taken place.",
    :rdfs/label   "CompletedActionStatus"})
+
+(def CompositeCaptureDigitalSource
+  {:db/ident :schema/CompositeCaptureDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/compositeCapture\">composite capture</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "CompositeCaptureDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/compositeCapture"}})
+
+(def CompositeSyntheticDigitalSource
+  {:db/ident :schema/CompositeSyntheticDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/compositeSynthetic\">composite synthetic</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "CompositeSyntheticDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/compositeSynthetic"}})
+
+(def CompositeWithTrainedAlgorithmicMediaDigitalSource
+  {:db/ident :schema/CompositeWithTrainedAlgorithmicMediaDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia\">composite with trained algorithmic media</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "CompositeWithTrainedAlgorithmicMediaDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia"}})
 
 (def CompoundPriceSpecification
   {:db/ident :schema/CompoundPriceSpecification,
@@ -2183,6 +2289,19 @@
    :schema/contributor  {:xsd/anyURI
                          "http://schema.org/docs/collab/DatasetClass"}})
 
+(def DataDrivenMediaDigitalSource
+  {:db/ident :schema/DataDrivenMediaDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/dataDrivenMedia\">data driven media</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "DataDrivenMediaDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/dataDrivenMedia"}})
+
 (def DataFeed
   {:db/ident :schema/DataFeed,
    :rdf/type :rdfs/Class,
@@ -2523,12 +2642,37 @@
    :rdfs/subClassOf #{:schema/Product :schema/Substance},
    :schema/isPartOf {:xsd/anyURI "http://health-lifesci.schema.org"}})
 
+(def DigitalArtDigitalSource
+  {:db/ident :schema/DigitalArtDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/digitalArt\">digital art</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "DigitalArtDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI "http://cv.iptc.org/newscodes/digitalsourcetype/digitalArt"}})
+
 (def DigitalAudioTapeFormat
   {:db/ident           :schema/DigitalAudioTapeFormat,
    :rdf/type           :schema/MusicReleaseFormatType,
    :rdfs/comment       "DigitalAudioTapeFormat.",
    :rdfs/label         "DigitalAudioTapeFormat",
    :schema/contributor {:xsd/anyURI "http://schema.org/docs/collab/MBZ"}})
+
+(def DigitalCaptureDigitalSource
+  {:db/ident :schema/DigitalCaptureDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture\">digital capture</a></a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "DigitalCaptureDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture"}})
 
 (def DigitalDocument
   {:db/ident        :schema/DigitalDocument,
@@ -4417,6 +4561,17 @@
    :schema/source {:xsd/anyURI
                    "https://github.com/schemaorg/schemaorg/issues/3057"}})
 
+(def IPTCDigitalSourceEnumeration
+  {:db/ident :schema/IPTCDigitalSourceEnumeration,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   "<a href=\"https://www.iptc.org/\">IPTC</a> \"Digital Source\" codes for use with the [[digitalSourceType]] property, providing information about the source for a digital media object. \nIn general these codes are not declared here to be mutually exclusive, although some combinations would be contradictory if applied simultaneously, or might be considered mutually incompatible by upstream maintainers of the definitions. See the IPTC <a href=\"https://www.iptc.org/std/photometadata/documentation/userguide/\">documentation</a> \n for <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">detailed definitions</a> of all terms.",
+   :rdfs/label "IPTCDigitalSourceEnumeration",
+   :rdfs/subClassOf :schema/MediaEnumeration,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"}})
+
 (def IceCreamShop
   {:db/ident        :schema/IceCreamShop,
    :rdf/type        :rdfs/Class,
@@ -4491,6 +4646,14 @@
    :rdfs/comment
    "Indicates that the item is available only at physical locations.",
    :rdfs/label "InStoreOnly"})
+
+(def IndividualPhysician
+  {:db/ident :schema/IndividualPhysician,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   "An individual medical practitioner. For their official address use [[address]], for affiliations to hospitals use [[hospitalAffiliation]]. \nThe [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hospitals, clinics, pharmacies etc. where this physician practices.",
+   :rdfs/label "IndividualPhysician",
+   :rdfs/subClassOf :schema/Physician})
 
 (def IndividualProduct
   {:db/ident :schema/IndividualProduct,
@@ -4747,6 +4910,16 @@
    :rdfs/label "Joint",
    :rdfs/subClassOf :schema/AnatomicalStructure,
    :schema/isPartOf {:xsd/anyURI "http://health-lifesci.schema.org"}})
+
+(def KeepProduct
+  {:db/ident :schema/KeepProduct,
+   :rdf/type :schema/ReturnMethodEnumeration,
+   :rdfs/comment
+   "Specifies that the consumer can keep the product, even when receiving a refund or store credit.",
+   :rdfs/label "KeepProduct",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/2880"}})
 
 (def KosherDiet
   {:db/ident     :schema/KosherDiet,
@@ -5275,6 +5448,17 @@
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source {:xsd/anyURI
                    "https://github.com/schemaorg/schemaorg/issues/2811"}})
+
+(def MediaEnumeration
+  {:db/ident :schema/MediaEnumeration,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   "MediaEnumeration enumerations are lists of codes, labels etc. useful for describing media objects. They may be reflections of externally developed lists, or created at schema.org, or a combination.",
+   :rdfs/label "MediaEnumeration",
+   :rdfs/subClassOf :schema/Enumeration,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"}})
 
 (def MediaGallery
   {:db/ident :schema/MediaGallery,
@@ -5867,6 +6051,19 @@
    :schema/source {:xsd/anyURI
                    "https://github.com/schemaorg/schemaorg/issues/2712"}})
 
+(def MinorHumanEditsDigitalSource
+  {:db/ident :schema/MinorHumanEditsDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/minorHumanEdits\">minor human edits</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "MinorHumanEditsDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/minorHumanEdits"}})
+
 (def MisconceptionsHealthAspect
   {:db/ident :schema/MisconceptionsHealthAspect,
    :rdf/type :schema/HealthAspectEnumeration,
@@ -6294,6 +6491,18 @@
    :rdfs/comment    "Neck assessment with clinical examination.",
    :rdfs/label      "Neck",
    :schema/isPartOf {:xsd/anyURI "http://health-lifesci.schema.org"}})
+
+(def NegativeFilmDigitalSource
+  {:db/ident :schema/NegativeFilmDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm\">negative film</a></a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "NegativeFilmDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI "http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm"}})
 
 (def Nerve
   {:db/ident :schema/Nerve,
@@ -7711,11 +7920,19 @@
    :schema/isPartOf {:xsd/anyURI "http://health-lifesci.schema.org"}})
 
 (def Physician
-  {:db/ident        :schema/Physician,
-   :rdf/type        :rdfs/Class,
-   :rdfs/comment    "A doctor's office.",
-   :rdfs/label      "Physician",
+  {:db/ident :schema/Physician,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   "An individual physician or a physician's office considered as a [[MedicalOrganization]].",
+   :rdfs/label "Physician",
    :rdfs/subClassOf #{:schema/MedicalBusiness :schema/MedicalOrganization}})
+
+(def PhysiciansOffice
+  {:db/ident        :schema/PhysiciansOffice,
+   :rdf/type        :rdfs/Class,
+   :rdfs/comment    "A doctor's office or clinic.",
+   :rdfs/label      "PhysiciansOffice",
+   :rdfs/subClassOf :schema/Physician})
 
 (def Physiotherapy
   {:db/ident :schema/Physiotherapy,
@@ -7870,6 +8087,18 @@
    :rdfs/comment    "A pond.",
    :rdfs/label      "Pond",
    :rdfs/subClassOf :schema/BodyOfWater})
+
+(def PositiveFilmDigitalSource
+  {:db/ident :schema/PositiveFilmDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/positiveFilm\">positive film</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "PositiveFilmDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI "http://cv.iptc.org/newscodes/digitalsourcetype/positiveFilm"}})
 
 (def PostOffice
   {:db/ident        :schema/PostOffice,
@@ -8034,6 +8263,18 @@
    :rdfs/label "PrimaryCare",
    :rdfs/subClassOf :schema/MedicalBusiness,
    :schema/isPartOf {:xsd/anyURI "http://health-lifesci.schema.org"}})
+
+(def PrintDigitalSource
+  {:db/ident :schema/PrintDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/print\">print</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "PrintDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch {:xsd/anyURI
+                     "http://cv.iptc.org/newscodes/digitalsourcetype/print"}})
 
 (def Prion
   {:db/ident :schema/Prion,
@@ -10379,6 +10620,19 @@
    :rdfs/label      "TrainTrip",
    :rdfs/subClassOf :schema/Trip})
 
+(def TrainedAlgorithmicMediaDigitalSource
+  {:db/ident :schema/TrainedAlgorithmicMediaDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia\">trained algorithmic media</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "TrainedAlgorithmicMediaDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"}})
+
 (def TransferAction
   {:db/ident :schema/TransferAction,
    :rdf/type :rdfs/Class,
@@ -10872,6 +11126,19 @@
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/source {:xsd/anyURI
                    "https://github.com/schemaorg/schemaorg/issues/1842"}})
+
+(def VirtualRecordingDigitalSource
+  {:db/ident :schema/VirtualRecordingDigitalSource,
+   :rdf/type :schema/IPTCDigitalSourceEnumeration,
+   :rdfs/comment
+   "Content coded as '<a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/virtualRecording\">virtual recording</a>' using the IPTC <a href=\"https://cv.iptc.org/newscodes/digitalsourcetype/\">digital source type</a> vocabulary.",
+   :rdfs/label "VirtualRecordingDigitalSource",
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"},
+   :skos/exactMatch
+   {:xsd/anyURI
+    "http://cv.iptc.org/newscodes/digitalsourcetype/virtualRecording"}})
 
 (def Virus
   {:db/ident        :schema/Virus,
@@ -11603,7 +11870,7 @@
    :rdfs/comment "The subject matter of the content.",
    :rdfs/label "about",
    :schema/domainIncludes #{:schema/CreativeWork :schema/Event
-                            :schema/CommunicateAction},
+                            :schema/Certification :schema/CommunicateAction},
    :schema/inverseOf :schema/subjectOf,
    :schema/rangeIncludes :schema/Thing,
    :schema/source {:xsd/anyURI
@@ -12016,9 +12283,9 @@
    :rdfs/comment
    "A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\\n\\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
    :rdfs/label "additionalProperty",
-   :schema/domainIncludes #{:schema/Place :schema/Product
-                            :schema/MerchantReturnPolicy
-                            :schema/QuantitativeValue :schema/QualitativeValue},
+   :schema/domainIncludes
+   #{:schema/Place :schema/Product :schema/MerchantReturnPolicy
+     :schema/QuantitativeValue :schema/QualitativeValue :schema/Offer},
    :schema/rangeIncludes :schema/PropertyValue})
 
 (def additionalType
@@ -12920,6 +13187,17 @@
                            :schema/Clip},
    :schema/source {:xsd/anyURI
                    "https://github.com/schemaorg/schemaorg/issues/2420"}})
+
+(def auditDate
+  {:db/ident :schema/auditDate,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "Date when a certification was last audited. See also  [gs1:certificationAuditDate](https://www.gs1.org/voc/certificationAuditDate).",
+   :rdfs/label "auditDate",
+   :schema/domainIncludes :schema/Certification,
+   :schema/rangeIncludes #{:schema/Date :schema/DateTime},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
 
 (def authenticator
   {:db/ident :schema/authenticator,
@@ -13903,6 +14181,29 @@
    :schema/rangeIncludes #{:schema/ContactPoint :schema/Organization
                            :schema/Person}})
 
+(def certificationIdentification
+  {:db/ident :schema/certificationIdentification,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "Identifier of a certification instance (as registered with an independent certification body). Typically this identifier can be used to consult and verify the certification instance. See also [gs1:certificationIdentification](https://www.gs1.org/voc/certificationIdentification).",
+   :rdfs/label "certificationIdentification",
+   :schema/domainIncludes :schema/Certification,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/rangeIncludes #{:schema/DefinedTerm :schema/Text},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
+(def certificationStatus
+  {:db/ident :schema/certificationStatus,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "Indicates the current status of a certification: active or inactive. See also  [gs1:certificationStatus](https://www.gs1.org/voc/certificationStatus).",
+   :rdfs/label "certificationStatus",
+   :schema/domainIncludes :schema/Certification,
+   :schema/rangeIncludes :schema/CertificationStatusEnumeration,
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
 (def character
   {:db/ident             :schema/character,
    :rdf/type             :rdf/Property,
@@ -14219,6 +14520,19 @@
                         "http://schema.org/docs/collab/GoodRelationsTerms"},
    :schema/domainIncludes :schema/Product,
    :schema/rangeIncludes :schema/Text})
+
+(def colorSwatch
+  {:db/ident :schema/colorSwatch,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "A color swatch image, visualizing the color of a [[Product]]. Should match the textual description specified in the [[color]] property. This can be a URL or a fully described ImageObject.",
+   :rdfs/label "colorSwatch",
+   :rdfs/subPropertyOf :schema/image,
+   :schema/domainIncludes :schema/Product,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/rangeIncludes #{:schema/ImageObject :schema/URL},
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3423"}})
 
 (def colorist
   {:db/ident             :schema/colorist,
@@ -15181,11 +15495,12 @@
      {:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/2490"}}})
 
 (def datePublished
-  {:db/ident             :schema/datePublished,
-   :rdf/type             :rdf/Property,
-   :rdfs/comment         "Date of first broadcast/publication.",
-   :rdfs/label           "datePublished",
-   :schema/domainIncludes :schema/CreativeWork,
+  {:db/ident :schema/datePublished,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "Date of first publication or broadcast. For example the date a [[CreativeWork]] was broadcast or a [[Certification]] was issued.",
+   :rdfs/label "datePublished",
+   :schema/domainIncludes #{:schema/CreativeWork :schema/Certification},
    :schema/rangeIncludes #{:schema/Date :schema/DateTime}})
 
 (def dateRead
@@ -15485,6 +15800,18 @@
    :schema/domainIncludes :schema/MedicalCondition,
    :schema/isPartOf {:xsd/anyURI "http://health-lifesci.schema.org"},
    :schema/rangeIncludes :schema/DDxElement})
+
+(def digitalSourceType
+  {:db/ident :schema/digitalSourceType,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "Indicates an IPTCDigitalSourceEnumeration code indicating the nature of the digital source(s) for some [[CreativeWork]].",
+   :rdfs/label "digitalSourceType",
+   :schema/domainIncludes :schema/CreativeWork,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/rangeIncludes :schema/IPTCDigitalSourceEnumeration,
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3392"}})
 
 (def directApply
   {:db/ident :schema/directApply,
@@ -16756,9 +17083,9 @@
   {:db/ident :schema/expires,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "Date the content expires and is no longer useful or available. For example a [[VideoObject]] or [[NewsArticle]] whose availability or relevance is time-limited, or a [[ClaimReview]] fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.",
+   "Date the content expires and is no longer useful or available. For example a [[VideoObject]] or [[NewsArticle]] whose availability or relevance is time-limited, a [[ClaimReview]] fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date, or a [[Certification]] the validity has expired.",
    :rdfs/label "expires",
-   :schema/domainIncludes :schema/CreativeWork,
+   :schema/domainIncludes #{:schema/CreativeWork :schema/Certification},
    :schema/rangeIncludes #{:schema/Date :schema/DateTime}})
 
 (def expressedIn
@@ -17634,6 +17961,18 @@
    :schema/source        {:xsd/anyURI
                           "https://github.com/schemaorg/schemaorg/issues/894"}})
 
+(def hasCertification
+  {:db/ident :schema/hasCertification,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "Certification information about a product, organization, service, place, or person.",
+   :rdfs/label "hasCertification",
+   :schema/domainIncludes #{:schema/Place :schema/Product :schema/Organization
+                            :schema/Service :schema/Person},
+   :schema/rangeIncludes :schema/Certification,
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3230"}})
+
 (def hasCourse
   {:db/ident :schema/hasCourse,
    :rdf/type :rdf/Property,
@@ -17754,10 +18093,10 @@
   {:db/ident :schema/hasMeasurement,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.",
+   "A measurement of an item, For example, the inseam of pants, the wheel size of a bicycle, the gauge of a screw, or the carbon footprint measured for certification by an authority. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.",
    :rdfs/label "hasMeasurement",
    :schema/domainIncludes #{:schema/Product :schema/SizeSpecification
-                            :schema/Offer},
+                            :schema/Offer :schema/Certification},
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/rangeIncludes :schema/QuantitativeValue,
    :schema/source {:xsd/anyURI
@@ -18961,7 +19300,7 @@
   {:db/ident :schema/iso6523Code,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An organization identifier as defined in ISO 6523(-1). Note that many existing organization identifiers such as [leiCode](http://schema.org/leiCode), [duns](http://schema.org/duns) and [vatID](http://schema.org/vatID) can be expressed as an ISO 6523 identifier by setting the ICD part of the ISO 6523 identifier accordingly. ",
+   "An organization identifier as defined in [ISO 6523(-1)](https://en.wikipedia.org/wiki/ISO/IEC_6523). The identifier should be in the `XXXX:YYYYYY:ZZZ` or `XXXX:YYYYYY`format. Where `XXXX` is a 4 digit _ICD_ (International Code Designator), `YYYYYY` is an _OID_ (Organization Identifier) with all formatting characters (dots, dashes, spaces) removed with a maximal length of 35 characters, and `ZZZ` is an optional OPI (Organization Part Identifier) with a maximum length of 35 characters. The various components (ICD, OID, OPI) are joined with a colon character (ASCII `0x3a`). Note that many existing organization identifiers defined as attributes like [leiCode](http://schema.org/leiCode) (`0199`), [duns](http://schema.org/duns) (`0060`) or [GLN](http://schema.org/globalLocationNumber) (`0088`) can be expressed using ISO-6523. If possible, ISO-6523 codes should be preferred to populating [vatID](http://schema.org/vatID) or [taxID](http://schema.org/taxID), as ISO identifiers are less ambiguous.",
    :rdfs/label "iso6523Code",
    :schema/domainIncludes :schema/Organization,
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
@@ -19004,11 +19343,13 @@
    :schema/rangeIncludes #{:schema/Integer :schema/Text}})
 
 (def issuedBy
-  {:db/ident             :schema/issuedBy,
-   :rdf/type             :rdf/Property,
-   :rdfs/comment         "The organization issuing the ticket or permit.",
-   :rdfs/label           "issuedBy",
-   :schema/domainIncludes #{:schema/Permit :schema/Ticket},
+  {:db/ident :schema/issuedBy,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "The organization issuing the item, for example a [[Permit]], [[Ticket]], or [[Certification]].",
+   :rdfs/label "issuedBy",
+   :schema/domainIncludes #{:schema/Permit :schema/Ticket
+                            :schema/Certification},
    :schema/rangeIncludes :schema/Organization})
 
 (def issuedThrough
@@ -19838,7 +20179,8 @@
    :schema/contributor {:xsd/anyURI
                         "http://schema.org/docs/collab/GoodRelationsTerms"},
    :schema/domainIncludes #{:schema/Place :schema/Product :schema/Brand
-                            :schema/Organization :schema/Service},
+                            :schema/Certification :schema/Organization
+                            :schema/Service},
    :schema/rangeIncludes #{:schema/ImageObject :schema/URL}})
 
 (def longitude
@@ -21189,11 +21531,12 @@
    :rdfs/label "occupationalCategory",
    :schema/domainIncludes #{:schema/EducationalOccupationalProgram
                             :schema/Occupation :schema/JobPosting
-                            :schema/WorkBasedProgram},
+                            :schema/WorkBasedProgram :schema/Physician},
    :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
    :schema/rangeIncludes #{:schema/CategoryCode :schema/Text},
    :schema/source
-   #{{:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/2192"}
+   #{{:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/3420"}
+     {:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/2192"}
      {:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/2460"}
      {:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/2289"}
      {:xsd/anyURI "https://github.com/schemaorg/schemaorg/issues/1698"}}})
@@ -22179,6 +22522,18 @@
    :schema/rangeIncludes :schema/DefinedTerm,
    :schema/source        {:xsd/anyURI
                           "http://www.bioschemas.org/ChemicalSubstance"}})
+
+(def practicesAt
+  {:db/ident :schema/practicesAt,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "A [[MedicalOrganization]] where the [[IndividualPhysician]] practices.",
+   :rdfs/label "practicesAt",
+   :schema/domainIncludes :schema/IndividualPhysician,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/rangeIncludes :schema/MedicalOrganization,
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3420"}})
 
 (def preOp
   {:db/ident :schema/preOp,
@@ -25943,6 +26298,19 @@
    :schema/domainIncludes :schema/EntryPoint,
    :schema/rangeIncludes :schema/Text})
 
+(def usNPI
+  {:db/ident :schema/usNPI,
+   :rdf/type :rdf/Property,
+   :rdfs/comment
+   "A <a href=\"https://en.wikipedia.org/wiki/National_Provider_Identifier\">National Provider Identifier</a> (NPI) \n    is a unique 10-digit identification number issued to health care providers in the United States by the Centers for Medicare and Medicaid Services.",
+   :rdfs/label "usNPI",
+   :rdfs/subPropertyOf :schema/identifier,
+   :schema/domainIncludes :schema/Physician,
+   :schema/isPartOf {:xsd/anyURI "http://pending.schema.org"},
+   :schema/rangeIncludes :schema/Text,
+   :schema/source {:xsd/anyURI
+                   "https://github.com/schemaorg/schemaorg/issues/3420"}})
+
 (def usageInfo
   {:db/ident :schema/usageInfo,
    :rdf/type :rdf/Property,
@@ -26027,17 +26395,18 @@
    :schema/domainIncludes
    #{:schema/MonetaryAmount :schema/LocationFeatureSpecification
      :schema/PriceSpecification :schema/Permit :schema/OpeningHoursSpecification
-     :schema/Demand :schema/Offer},
+     :schema/Demand :schema/Offer :schema/Certification},
    :schema/rangeIncludes #{:schema/Date :schema/DateTime}})
 
 (def validIn
   {:db/ident :schema/validIn,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The geographic area where a permit or similar thing is valid.",
+   "The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]]. ",
    :rdfs/label "validIn",
    :schema/domainIncludes #{:schema/Permit
-                            :schema/EducationalOccupationalCredential},
+                            :schema/EducationalOccupationalCredential
+                            :schema/Certification},
    :schema/rangeIncludes :schema/AdministrativeArea,
    :schema/source {:xsd/anyURI
                    "https://github.com/schemaorg/schemaorg/issues/1779"}})
