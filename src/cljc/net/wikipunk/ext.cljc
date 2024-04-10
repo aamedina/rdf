@@ -826,3 +826,9 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.w3.org/ns/ssn/systems/"
    :rdfa/prefix "ssn-system"})
+
+(def n3
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/2004/06/rei#"
+   :rdfa/prefix "n3"
+   :dcat/downloadURL "net/wikipunk/ext/n3.ttl"})
