@@ -425,6 +425,11 @@
 (defmethod rdf/infer-datomic-cardinality :owl/intersectionOf [_] :db.cardinality/one)
 (defmethod rdf/infer-datomic-cardinality :mop/classPrecedenceList [_] :db.cardinality/one)
 
+(defmethod rdf/infer-datomic-cardinality :owl/oneOf [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :owl/onProperty [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-cardinality :owl/InverseFunctionalProperty [_] :db.cardinality/one)
+(defmethod rdf/infer-datomic-unique :owl/InverseFunctionalProperty [_] :db.unique/identity)
+
 (defmethod rdf/infer-datomic-type :default
   [x]
   (cond

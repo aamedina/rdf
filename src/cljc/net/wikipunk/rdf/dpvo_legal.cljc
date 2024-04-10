@@ -7010,7 +7010,7 @@
    :dpvo/hasJurisdiction :dpvo-legal/US-CA,
    :foaf/homepage
    {:xsd/anyURI
-    "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375"},
+    "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375#CPRA"},
    :rdf/type #{:owl/NamedIndividual :dpvo/Law},
    :rdfs/isDefinedBy {:xsd/anyURI "https://w3id.org/dpv/dpv-owl/dpv-legal#"},
    :rdfs/label {:rdf/language "en",
