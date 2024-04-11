@@ -832,3 +832,29 @@
    :rdfa/uri    "http://www.w3.org/2004/06/rei#"
    :rdfa/prefix "n3"
    :dcat/downloadURL "net/wikipunk/ext/n3.ttl"})
+
+(def log
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/2000/10/swap/log#"
+   :rdfa/prefix "log"
+   :dcat/downloadURL "net/wikipunk/ext/log.n3"})
+
+(def doc
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/2000/10/swap/pim/doc#"
+   :rdfa/prefix "doc"
+   :namespaces
+   {"doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
+    "con"  "http://www.w3.org/2000/10/swap/pim/contact#",
+    "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl"  "http://www.w3.org/2002/07/owl#",
+    "rdfs" "http://www.w3.org/2000/01/rdf-schema#"}
+   :emit false})
+
+(def contact
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/2000/10/swap/pim/contact#"
+   :rdfa/prefix "con"
+   :emit false})
+
+
