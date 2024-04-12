@@ -851,10 +851,50 @@
     "rdfs" "http://www.w3.org/2000/01/rdf-schema#"}
    :emit false})
 
-(def contact
+(def con
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.w3.org/2000/10/swap/pim/contact#"
    :rdfa/prefix "con"
    :emit false})
+
+(def solid
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/solid/terms#"
+   :rdfa/prefix "solid"})
+
+(def stat
+  {:rdf/type     :rdfa/PrefixMapping
+   :rdfa/uri     "http://www.w3.org/ns/posix/stat#"
+   :rdfa/prefix  "stat"
+   :rdfs/comment "POSIX File Status"})
+
+(def pim
+  {:rdf/type     :rdfa/PrefixMapping
+   :rdfa/uri     "http://www.w3.org/ns/pim/space#"
+   :rdfa/prefix  "pim"
+   :rdfs/comment "Workspace Ontology"
+   :namespaces
+   {"dc11" "http://purl.org/dc/elements/1.1/",
+    "doc"  "http://www.w3.org/2000/10/swap/pim/doc#",
+    "foaf" "http://xmlns.com/foaf/0.1/",
+    "gen"  "http://www.w3.org/2006/gen/ont#",
+    "owl"  "http://www.w3.org/2002/07/owl#",
+    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ui"   "http://www.w3.org/ns/ui#",
+    "pim"  "http://www.w3.org/ns/pim/space#"}})
+
+(def ui
+  {:rdf/type     :rdfa/PrefixMapping
+   :rdfa/uri     "http://www.w3.org/ns/ui#"
+   :rdfa/prefix  "ui"
+   :dcat/downloadURL "net/wikipunk/ext/ui.n3"
+   :namespaces
+   {"dc11" "http://purl.org/dc/elements/1.1/",
+    "owl"  "http://www.w3.org/2002/07/owl#",
+    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ui"   "http://www.w3.org/ns/ui#",
+    "xsd" "http://www.w3.org/2001/XMLSchema#",}})
 
 

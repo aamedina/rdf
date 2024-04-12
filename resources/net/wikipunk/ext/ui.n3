@@ -1,0 +1,503 @@
+#  Ontology for user interface hints and forms
+#
+#  See also related: the Fresnel language
+#
+@prefix con: <http://www.w3.org/2000/10/swap/pim/contact#>.
+@prefix dcterms:  <http://purl.org/dc/terms/>.
+@prefix doc: <http://www.w3.org/2000/10/swap/pim/doc#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix tt: <http://dig.csail.mit.edu/2010/issues/track#>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix wf: <http://www.w3.org/2005/01/wf/flow#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+ui: a owl:Ontology ;
+  dcterms:title "An ontology for User Interface description, Hints and Forms.";
+  dcterms:description """The User Interface ontology allows the definition
+	of forms for processing RDF model data, and include a bootstrap form for
+	editing forms. It allows user interface hints such as background colors,
+	can be associated with objects and classes.""";
+  dcterms:created "2010-08-07"^^xsd:date;
+  dcterms:license <httprdfs://creativecommons.org/publicdomain/zero/1.0/>;
+  dcterms:modified "2021-03-04T18:29:49"^^xsd:dateTime;
+  dcterms:author <httprdfs://www.w3.org/People/Berners-Lee/card#i>.
+
+ui:style a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "style";
+        ui:prompt "CSS style";
+	rdfs:comment """Must be a valid CSS style string such as one could put in
+        an HTML style attribute.  Depending on the user interface system, this can
+        by given to individuals, classes or properties. It is up to a user interface
+        which wants to draw on them to pick how it uses styles from which parts
+        of the data it has.  For example, the style of a class may be picked
+        to distinguish information about things in that class.""".
+
+ui:backgroundColor a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "background color"@en;
+        rdfs:range ui:Color.
+
+ui:backgroundImage a rdf:Property, owl:DatatypeProperty;
+		rdfs:label "background image"@en;
+		rdfs:comment """URI or base64 representation of an image""".
+
+ui:color a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "color"@en;
+    rdfs:range ui:Color .
+
+ui:ColorValuespaceRestriction a owl:Restriction ;
+  xsd:pattern "#[0-9a-z]{6}" .
+
+ui:Color a rdfs:Datatype; rdfs:label "hex color"@en;
+	 	owl:onDatatype xsd:string ;
+
+		rdfs:comment """Must be a valid CSS color string such as one could put in
+			an HTML style attribute.  This must be in the #xxxxxx form,
+			(with 6 digits of lowercase hex) so that it
+			can work eg with Graphviz.
+			As this is just an encoded array of RGB values,
+			you can do math with these, such as blending, complement, etc.""";
+
+	  owl:withRestrictions ( ui:ColorValuespaceRestriction ).
+
+
+# See https://gitter.im/linkeddata/chat?at=6040cee9a3a2f04f1fd22527
+
+ui:sortPriority a rdf:Property, owl:DatatypeProperty;
+        rdfs:label "sort priority";
+        rdfs:range xsd:integer;
+        rdfs:comment """When individuals or classes must be sorted, then
+        if they are given different values of sortPriority a user agent can
+        use this as a hint to how to present information.""".
+
+ui:sortBy a rdf:Property;
+        rdfs:label "sort by";
+        rdfs:domain rdfs:Class;
+        rdfs:range rdf:Property;
+        rdfs:comment """A property which typically is used to sort
+        members of a given class.""".
+
+ui:sequence a rdf:Property;
+	rdfs:label "sequence number";
+	rdfs:range xsd:integer;
+	rdfs:comment """The sequence in which this item is arranged with repect to other parts.""".
+
+ui:initialProperties a rdf:Property;
+  rdfs:label "initial properties";
+  rdfs:domain rdfs:Class;
+  rdfs:range rdf:List; # List of rdf:Property
+  rdfs:comment """A really simple way of enabling user interfaces to
+            create new information about a class of things is to make a define of properties
+            to be specified when a information about a new item
+            ("New item" here means an item which the system
+            does not have prvious information about yet,
+            not an items which has just been created,
+            like new friend as opposed to new baby)""";
+  ui:prompt "Properties to be specified for new ones".
+
+ui:tableProperties a rdf:Property;
+  rdfs:domain rdfs:Class;
+  rdfs:label "table properties";
+  rdfs:range rdf:List; # List of rdf:Property
+  rdfs:comment """This  is a crude way of specifying a table-based
+            view for objects of this class.""";
+  ui:prompt "Properties to be given in a default table view".
+
+ui:prompt  a rdf:Property;
+  rdfs:label "user prompt";
+  rdfs:comment """A string for the UI to use if the user needs a longer
+        prompts than just a field name, the rdfs:label. """;
+  rdfs:range xsd:string .
+
+############################
+#
+# Terms that seemed to be missing from the original UI vocbaulary.
+#
+ui:label a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Label"@en, "Etiqueta"@es .
+
+ui:pattern a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Pattern"@en, "Modelo"@es .
+
+ui:value a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Value"@en, "Valor"@es .
+
+ui:values a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Values"@en, "Valores"@es .
+
+ui:contents a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Contents"@en, "Contenido"@es .
+
+#
+# Added by the JD team, as they deemed these to be "missing"!
+#
+ui:minDateOffset a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Minimum date offset"@en, "Fecha mínima compensada"@es .
+
+ui:maxDateOffset a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Maximum date offset"@en, "Fecha máxima de desplazamiento"@es .
+
+ui:minDatetimeOffset a rdf:Property ;
+	 rdfs:isDefinedBy ui: ;
+	 rdfs:label "Minimum datetime offset"@en, "Desplazamiento mínimo de fecha y hora"@es .
+
+ui:maxDatetimeOffset a rdf:Property ;
+	 rdfs:isDefinedBy ui: ;
+	 rdfs:label "Maximum datetime offset"@en, "Desplazamiento máximo de fecha y hora"@es .
+
+ui:name a rdf:Property ;
+	 rdfs:isDefinedBy ui: ;
+	 rdfs:label "Name"@en, "Nombre"@es .
+
+ui:TimeField a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Time field"@en, "Campo de tiempo"@es .
+
+
+ui:oldValue a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Old value"@en, "Valor antiguo"@es .
+
+ui:base a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Base"@en, "Base"@es .
+
+ui:parentProperty a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Parent property"@en, "Propiedad principal"@es .
+
+ui:reference a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Reference"@en, "Referencia"@es .
+
+ui:valid a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Valid"@en, "Válida"@es .
+
+ui:defaultError a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Default error"@en, "Error predeterminado"@es .
+
+ui:partsClone a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Parts clone"@en, "Clon de piezas"@es .
+
+ui:maxLength a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Max length"@en, "Longitud máxima"@es .
+
+ui:minLength a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Min length"@en, "Longitud mínima"@es .
+
+ui:validationError a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Validation error"@en, "Error de validacion"@es .
+
+ui:required a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Required"@en, "Requerido"@es .
+
+ui:requiredError a rdf:Property ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Required error"@en, "Error requerido"@es .
+
+ui:Comment a rdfs:Class ;
+	rdfs:isDefinedBy ui: ;
+	rdfs:label "Comment"@en, "Comentario"@es .
+############################
+#  A Taxonomy of Field types
+
+ui:Form owl:disjointUnionOf ( ui:ValueField  ui:Group ui:Choice ui:Classifier ui:Options ui:Multiple ui:Heading ui:Comment);
+    rdfs:comment """A form can be any type of single field, or typically a Group of several fields,
+    including interspersed headings and comments.  """.
+ui:Single owl:disjointUnionOf ( ui:ValueField  ui:Group ui:Choice ui:Classifier ui:Options ui:Heading ui:Comment).
+ui:ValueField owl:disjointUnionOf ( ui:TextField ui:NumericField ui:ColorField ui:DateField ui:DateTimeField ui:PhoneField ui:EmailField).
+ui:NumericField owl:disjointUnionOf (ui:BooleanField ui:TriStateField ui:IntegerField ui:DecimalField ui:FloatField).
+# ui:Multiple owl:disjointUnionOf ( ui:ZeroOrMore ui:OneOrMore ).
+ui:TextField owl:disjointUnionOf (ui:SingleLineTextField ui:MultiLineTextField ui:NamedNodeURIField).
+
+ui:Form a rdfs:Class .
+
+ui:Single a rdfs:Class .
+  
+ui:ValueField a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:NumericField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:TextField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:SingleLineTextField a rdfs:Class ;
+  rdfs:subClassOf ui:TextField .
+
+ui:MultiLineTextField a rdfs:Class ;
+  rdfs:subClassOf ui:TextField .
+
+ui:NamedNodeURIField rdfs:subClassOf ui:TextField .
+
+ui:ColorField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:DateField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:DateTimeField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:PhoneField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:EmailField a rdfs:Class ;
+  rdfs:subClassOf ui:ValueField .
+
+ui:BooleanField a rdfs:Class ;
+  rdfs:subClassOf ui:NumericField .
+
+ui:TriStateField a rdfs:Class ;
+  rdfs:subClassOf ui:NumericField .
+
+ui:IntegerField a rdfs:Class ;
+  rdfs:subClassOf ui:NumericField .
+
+ui:DecimalField a rdfs:Class ;
+  rdfs:subClassOf ui:NumericField .
+
+ui:FloatField a rdfs:Class ;
+  rdfs:subClassOf ui:NumericField .
+
+ui:Group a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:Choice a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:Heading a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:Comment a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:Classifier a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:Options a rdfs:Class ;
+  rdfs:subClassOf ui:Form, ui:Single .
+
+ui:Multiple a rdfs:Class ;
+  rdfs:subClassOf ui:Form .
+
+ui:Classifier a rdfs:Class; rdfs:label "classifier";
+    rdfs:comment """A classifier allows the user to select the type of an object.
+    The possible types must be subclasses of some overall class, the "category".
+    (Ideally, the superclass is also set up as the disjoint union of the subclasses,
+    if they are disjoint.)
+
+    The form normally stores the resulting classes using an rdf:type triple,
+    but a different predicate can be used if required, so the classifier field
+    needs is 'property' defined too.
+
+    If the subclass selected itself is has subclasses defined, the user can
+    recursively select from them in turn, as many levels as needed.""".
+
+ui:NamedNodeURIField a rdfs:Class; rdfs:label "Something by its URI";
+    rdfs:comment """A NamedNodeURIField is like a SingleLineTextField, except
+		that the value it generates is not a literal string but an RDF node with the given URI.
+		Normally users should not see URIs. When they do, this a way to do it.
+		""".
+
+######## Properties
+
+ui:property a rdf:Property; rdfs:domain ui:Form; rdfs:range rdf:Property;
+    rdfs:label "property to be stored"@en;
+    rdfs:comment """Many fields prompt for information about a given property of the subject.
+    When field is filled in, this gives which property is written into the data.""".
+
+ui:category  a rdf:Property; rdfs:domain ui:Classifier; rdfs:range rdfs:Class;
+    rdfs:label "overall superclass"@en;
+    rdfs:comment """The superclass subclasses of which will be selected.""".
+
+ui:dependingOn a rdf:Property; rdfs:domain ui:Options; rdfs:range rdf:Property;
+    rdfs:label "depending on"@en;
+    rdfs:comment """Many fields prompt for information about a given property of the subject""".
+
+ui:for a rdf:Property; rdfs:label "for"@en; rdfs:comment "The value for which this case is selected.".
+ui:use a rdf:Property; rdfs:range ui:Form.
+
+ui:part a rdf:Property; rdfs:label "part"@en ; rdfs:domain ui:Form; rdfs:range ui:Form. # Used for Multiple field - the subform for each item
+ui:parts a rdf:Property; rdfs:label "parts"@en ; rdfs:domain ui:Form; rdfs:range rdf:List. # (of Forms) The ordered set of fields in a group
+ui:ordered a rdf:Property; rdfs:label "ordered"; rdfs:range xsd:boolean . # Could be useful for all kinds of things in future so not restricted to Multiple
+
+ui:from a rdf:Property; rdfs:domain ui:Choice; rdfs:range rdfs:Class;
+    rdfs:label "from"; ui:prompt "from what class".
+
+ui:size a rdf:Property; rdfs:domain ui:ValueField; rdfs:range xsd:integer;
+    rdfs:label "size of field";
+    ui:prompt "size of field in characters".
+
+ui:maxLength a rdf:Property; rdfs:domain ui:TextField; rdfs:range xsd:integer;
+    rdfs:label "max length of value".
+
+ui:minValue a rdf:Property; rdfs:domain ui:ValueField; rdfs:label "min".  # @@ range?
+ui:maxValue a rdf:Property; rdfs:domain ui:ValueField; rdfs:label "max".
+
+ ui:creationForm a rdf:Property; rdfs:domain rdfs:Class; rdfs:range ui:Form;
+    rdfs:label "creation form";
+    rdfs:comment """A form which may be used to collect information about a
+    hitherto locally undocumented instance instance of this class.""".
+
+ ui:annotationForm a rdf:Property; rdfs:domain rdfs:Class; rdfs:range ui:Form;
+    rdfs:label "annotation form";
+    rdfs:comment """A form which may be used to add more infromation to an
+instance of this class which we know something about.  Anything from
+adding just add one more fact, to adding a whole lot of information about a specific
+facet of the thing.
+""".
+
+
+#############################################
+#
+# Form for editing Forms
+#
+
+ui:FormForm a ui:Form, ui:Group;
+  dcterms:title "Form for editing Forms";
+  ui:creationForm ui:Form;
+  ui:parts (ui:FF1 ui:FF2 ui:FF3 ui:FieldList) .
+
+ui:FF1 ui:sequence 1; a ui:Heading;  ui:contents "Edit Form"@en .
+ui:FF2 ui:sequence 2; a ui:SingleLineTextField; ui:property dcterms:title; ui:size 60 .
+ui:FF3 ui:sequence 3; a ui:Comment;  
+  ui:contents
+  """To add a field to the form, press the plus at the bottom,
+        and then select what sort of field you want."""@en; ui:style "background-colordf: #ffe;" .
+
+ui:FieldList  ui:sequence 10; a ui:Multiple; ui:ordered true; ui:property ui:parts; ui:part ui:FieldForm .
+
+ui:min a rdf:Property; rdfs:label "min"; rdfs:domain ui:ValueField.
+ui:max a rdf:Property; rdfs:label "max"; rdfs:domain ui:ValueField.
+
+ui:FieldForm a ui:Group;
+    dcterms:title "Form for selecting a type of field";
+    ui:parts (
+
+        [ ui:sequence 1; a ui:Classifier; ui:property rdf:type; ui:category ui:Form]
+
+        [ a ui:Options; ui:sequence 2; ui:dependingOn rdf:type;
+
+            ui:case [ ui:for ui:TextField; ui:use [a ui:Group; ui:parts (
+                [ a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty]  # @@@ Needs inference on current web
+                [ a ui:IntegerField; ui:property ui:size; ui:label "field size"; ui:min 1; ui:max 4096]
+                [ a ui:IntegerField; ui:property ui:maxLength; ui:label "Max. length of string"; ui:min 1]
+            )]];
+
+            ui:case [ ui:for ui:IntegerField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty]
+                [ ui:sequence 2; a ui:IntegerField; ui:property ui:min; ui:label "minimum value"]
+                [ ui:sequence 3; a ui:IntegerField; ui:property ui:max; ui:label "maximum value"] ) ]];
+
+            ui:case [ ui:for ui:DecimalField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty]
+                [ ui:sequence 2; a ui:DecimalField; ui:property ui:min; ui:label "minimum value"]
+                [ ui:sequence 3; a ui:DecimalField; ui:property ui:max; ui:label "maximum value"] )  ]];
+
+            ui:case [ ui:for ui:FloatField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty]
+                [ ui:sequence 2; a ui:FloatField; ui:property ui:min; ui:label "minimum value"]
+                [ ui:sequence 3; a ui:FloatField; ui:property ui:max; ui:label "maximum value"] ) ]];
+
+            ui:case [ ui:for ui:ColorField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty] )
+            ]];
+
+            ui:case [ ui:for ui:DateField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty]
+                [ ui:sequence 2; a ui:DateField; ui:property ui:min; ui:label "min"]
+                [ ui:sequence 3; a ui:DateField; ui:property ui:max ; ui:label "max"]
+            ) ]];
+
+            ui:case [ ui:for ui:DateTimeField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:DatatypeProperty]
+                [ ui:sequence 2; a ui:DateTimeField; ui:property ui:min; ui:label "min"]
+                [ ui:sequence 3; a ui:DateTimeField; ui:property ui:max ; ui:label "max"]
+            ) ]];
+
+            ui:case [ ui:for ui:EmailField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:ObjectProperty]
+            ) ]];
+
+            ui:case [ ui:for ui:PhoneField; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from owl:ObjectProperty]
+            )]];
+
+            ui:case [ ui:for ui:Group; ui:use ui:FieldList];
+
+            ui:case [ ui:for ui:Options; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:dependingOn; ui:label "depending on"; ui:from rdf:Property; ui:default rdf:type]
+                [ ui:sequence 2; a ui:Multiple; ui:property ui:case; ui:part ui:CaseForm]
+								) ]];
+
+            ui:case [ ui:for ui:Choice; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property";
+                    ui:canMintNew true; ui:from owl:ObjectProperty]
+                [ ui:sequence 2; a ui:Choice;  ui:canMintNew true; ui:property ui:from; ui:label "destination class";
+                                    ui:from rdfs:Class; ui:canMintNew true; ]
+                [ ui:sequence 3; a ui:BooleanField; ui:property ui:canMintNew; # No class form yet
+                            ui:label "user can add new"]
+                [ ui:sequence 4; a ui:Choice;  ui:canMintNew true; ui:property ui:use; ui:label "Nested Form (if any)";
+                            ui:from ui:Form; ui:optional true; ui:use ui:FormForm] # @@ optional
+
+            ) ]];
+
+            ui:case [ ui:for ui:Classifier; ui:use [a ui:Group; ui:parts (
+                [ ui:sequence 2; a ui:Comment; ui:contents """A classifier allows the user to which classes the item belongs to, given a common superclass of the allowed classes.  Give the superclass here:""" ]
+
+                [ ui:sequence 4; a ui:Choice;  ui:canMintNew true; ui:property ui:category; ui:label "superclass"; ui:from rdfs:Class]
+
+                [ ui:sequence 6; a ui:Comment; ui:contents """(When the choice is made normally the item is given a rdf:type. Set this to rdf:type unless you want the form to set a different property.)""" ]
+
+                [ ui:sequence 8; a ui:Choice;  ui:canMintNew true; ui:property ui:property;
+                        ui:label "property"; ui:from owl:ObjectProperty; ui:default rdf:type] # @@ restriction
+
+            ) ]];
+
+            ui:case [ ui:for ui:Multiple; ui:use [a ui:Group; ui:parts (
+						[ui:sequence 0; a ui:BooleanField;  ui:property ui:ordered; ui:label "ordered"] # If this an ordered array or an unordered set?
+						[ui:sequence 0; a ui:IntegerField;  ui:property ui:min; ui:label "minimum number"] # If this an ordered array or an unordered set?
+						[ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:property; ui:label "property"; ui:from rdf:Property]
+                [ui:sequence 2; a ui:Choice;  ui:canMintNew true; ui:property ui:part; ui:from ui:Form; ui:use ui:FieldForm]   # Form for details of the field part of the multiple
+            ) ]];
+
+            ui:case [ ui:for ui:Heading; ui:use [a ui:SingleLineTextField; ui:property ui:contents]];
+
+            ui:case [ ui:for ui:Comment; ui:use [a ui:MultiLineTextField; ui:property ui:contents]]
+        ]).
+
+
+ui:CaseForm a ui:Group;
+   dcterms:title "Form for a conditional case in a form";
+   ui:parts (
+        [ ui:sequence 1; a ui:Choice;  ui:canMintNew true; ui:property ui:for; ui:label "when it is"; ui:canMintNew true; ui:from rdfs:Class]
+        [ui:sequence 2; a ui:Choice;  ui:canMintNew true; ui:property ui:use; ui:from ui:Form; ui:canMintNew true; ui:use ui:FieldForm] ). # Form for details of the field part of the multiple
+
+ui:case a rdf:Property; rdfs:label "case"; rdfs:domain ui:Options; rdfs:range ui:CaseForm;
+    rdfs:comment """A case in an Options field.""".
+
+ui:canMintNew a rdf:Property; rdfs:label "can mint new"; rdfs:domain ui:Choice; rdfs:range xsd:boolean; rdfs:comment "Whether the user can add a new item to the list".
+
+ui:optional a rdf:Property; rdfs:label "optional"; rdfs:domain ui:Choice; rdfs:range xsd:boolean; rdfs:comment "Whether the user can leave the field blank".
+
+ui:default a rdf:Property; rdfs:label "default"; rdfs:domain ui:Options; rdfs:range rdfs:Resource; rdfs:comment "The default value for the field".
+
+# ENDS
