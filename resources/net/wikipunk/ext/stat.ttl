@@ -1,0 +1,60 @@
+@prefix stat: <http://www.w3.org/ns/posix/stat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+stat: a owl:Ontology ;
+  rdfs:comment "POSIX File Status" .
+
+stat:dev a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "ID of device containing file" ;
+  rdfs:range xsd:int .
+
+stat:ino a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "inode number" ;
+  rdfs:range xsd:long .
+
+stat:mode a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "protection" ;
+  rdfs:range xsd:short .
+
+stat:nlink a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "number of hard links" ;
+  rdfs:range xsd:int .
+
+stat:uid a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "user ID of owner" ;
+  rdfs:range xsd:int .
+
+stat:gid a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "group ID of owner" ;
+  rdfs:range xsd:int .
+
+stat:rdev a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "device ID (if special file)" ;
+  rdfs:range xsd:int .
+
+stat:size a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "total size, in bytes" ;
+  rdfs:range xsd:long .
+
+stat:blksize a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "blocksize for file system I/O" ;
+  rdfs:range xsd:int .
+
+stat:blocks a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "number of 512B blocks allocated" ;
+  rdfs:range xsd:long .
+
+stat:atime a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "time of last access" ;
+  rdfs:range xsd:dateTime .
+
+stat:mtime a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "time of last modification" ;
+  rdfs:range xsd:dateTime .
+
+stat:ctime a rdf:Property, owl:FunctionalProperty ;
+  rdfs:comment "time of last status change" ;
+  rdfs:range xsd:dateTime .  

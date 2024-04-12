@@ -866,7 +866,8 @@
   {:rdf/type     :rdfa/PrefixMapping
    :rdfa/uri     "http://www.w3.org/ns/posix/stat#"
    :rdfa/prefix  "stat"
-   :rdfs/comment "POSIX File Status"})
+   :rdfs/comment "POSIX File Status"
+   :dcat/downloadURL "net/wikipunk/ext/stat.ttl"})
 
 (def pim
   {:rdf/type     :rdfa/PrefixMapping
@@ -898,3 +899,8 @@
     "xsd" "http://www.w3.org/2001/XMLSchema#",}})
 
 
+(def notify
+  {:rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/ns/solid/notifications#"
+   :rdfa/prefix      "notify"
+   :dcat/downloadURL "net/wikipunk/ext/notifications.ttl"})
