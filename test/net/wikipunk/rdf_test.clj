@@ -61,6 +61,8 @@
             :d3f/D3FENDCatalogThing
             :d3f/Technique
             :d3f/D3FENDThing
+            :d3f/Action
+            :d3f/D3FENDCore
             :owl/Class]))))
 
 (deftest test-bootstrap
