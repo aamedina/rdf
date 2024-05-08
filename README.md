@@ -1,37 +1,50 @@
 # rdf
-RDF models as Clojure(script) namespaces
+**RDF models as Clojure(script) namespaces**
 
-### Schematic
+![The Game](https://github.com/aamedina/rdf/assets/1291511/5f6f5455-6c4d-4871-ad92-9eddd017f2aa)
 
-``` clojure
+## Overview
+This project provides tools for managing RDF data using Apache Jena and Aristotle within Clojure(script), allowing easy manipulation and querying of RDF terms organized into multimethod hierarchies.
+
+## Configuration
+Below is a configuration example for setting up the Universal Translator, which facilitates RDF model management through a structured namespace.
+
+```clojure
 {:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
           :uri          "asami:mem://.vocab"}
  :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
           ;; add components that require RDF vocabulary and optionally
           ;; provide asami or datomic as an environment
-          :sc/refs {:env :asami}
+          :sc/refs      {:env :asami}
           ;; the string to prefix the namespace generated for your rdf models
-          :ns-prefix    "net.wikipunk.rdf." 
+          :ns-prefix    "net.wikipunk.rdf."
           ;; the project relative path to output the namespaces
           :output-to    "src/cljc/net/wikipunk/rdf/"
-          ;; used to declare what namespaces should be in the boot JSON-LD context
-          ;; see below for more information
           :context      []
-          ;; set to true to materialize MOP slots in classes
+          ;; set to true to materialize MOP inferences in classes
           :finalize?    true
           ;; (optional) import private vars from one namespace as
-		  ;; public ones in another before starting the system
-	      :import-from  {net.wikipunk.rdf.aio net.wikipunk.rdf.obo}}}
+          ;; public ones in another before starting the system
+          :import-from  {net.wikipunk.rdf.aio net.wikipunk.rdf.obo}}}
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)
 configuration map which is assembled and started using
 [component](https://github.com/stuartsierra/component).
 
+### Boot namespace
+The convention is to place a file containing the JSON-LD context for
+your project organized into a Clojure namespace called boot.cljc. 
+
+For example, for this project it is located at
+`src/cljc/net/wikipunk/boot.cljc`.
+
 ### :context
-Provide a list of namespaces (tagged with :rdf/type :jsonld/Context in
-their metadata) where its vars are `:rdfa/PrefixMapping` instances
-which can be emitted (via `net.wikipunk.rdf/emit`). 
+
+Provide a list of namespaces that are tagged with :rdf/type :jsonld/Context in
+their metadata. These namespaces contain defs of `:rdfa/PrefixMapping` instances
+which can be emitted (via `net.wikipunk.rdf/emit`) to 
+generate the Clojure namespaces from the provided metadata.
 
 For an example see the `net.wikipunk.boot` namespace which corresponds
 to the RDFa 1.1 initial context;
@@ -66,16 +79,8 @@ you know what you're doing and want to override other definitions
 `:namespaces` should be provided if you want to manually override the
 prefix mappings declared in the RDF model
 
-### Boot namespace
-The convention is to place a file containing the JSON-LD context for
-your project organized into a Clojure namespace called boot.cljc. 
-
-For example, for this project it is located at
-src/cljc/net/wikipunk/boot.cljc.
-
-### :dev
-
-#### Requirements
+## :dev
+#### Requirement
 * [Clojure CLI](https://clojure.org/guides/install_clojure)
 * [Datomic local](https://docs.datomic.com/cloud/datomic-local.html)
 
@@ -144,20 +149,27 @@ associated with them when the system is started.
 ;;      :rdfs/Class
 ```
 
-Most methods in the metaobject protocol dispatch on the :rdf/type of
-the object.
+### Metaobject Protocol
+Most methods within the system dispatch based on the :rdf/type of the
+object sorted by class precedence. This allows for dynamic method
+resolution typical in object-oriented systems but implemented through
+Clojure's multimethods.
 
 The following describes an anonymous :owl/Class with no properties:
 ``` clojure
 {:rdf/type :owl/Class}
+
+;; Define a method that dispatches on the most specific :rdf/type of the object
+(defmethod your-multimethod :your/Thing [args] ...)
 ```
 
 #### datafy
-Use clojure.datafy/datafy to find out what a metaobject means by
+Use `clojure.datafy/datafy` to find out what a metaobject means by
 providing a namespace qualified keyword to retrieve it from the
-currently bound environment.
+currently bound environment (`net.wikipunk.mop/*env*`).
 
 #### net.wikipunk.mop/*env*
+
 The *env* variable holds the current environment in which metaobjects
 are resolved. It can be one of three values:
 
@@ -173,14 +185,16 @@ are resolved. It can be one of three values:
 
 
 ### credits
-https://github.com/arachne-framework/aristotle
+[Aristotle](https://github.com/arachne-framework/aristotle)
 
-https://www.w3.org/DesignIssues/
+[Semantic Web](https://www.w3.org/DesignIssues/)
 
-https://wikipunk.net/
+### rdfs:seeAlso
+
+[wikipunk.net](https://wikipunk.net/)
 
 ### License
-Copyright 2023 Adrian Medina
+Copyright 2024 Adrian Medina
 
 Permission to use, copy, modify, and/or distribute this software for
 any purpose with or without fee is hereby granted, provided that the
