@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.d3f
-  {:d3f/release-date #inst "2024-04-26T00:00:00.000-00:00",
+  {:d3f/release-date #inst "2024-07-10T00:00:00.000-00:00",
    :dcat/downloadURL
-   "https://d3fend.mitre.org/ontologies/d3fend/0.15.0/d3fend.owl",
+   "https://d3fend.mitre.org/ontologies/d3fend/0.16.0/d3fend.owl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
@@ -15,8 +15,8 @@
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.15.0/d3fend.owl"},
-   :owl/versionInfo "0.15.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.16.0/d3fend.owl"},
+   :owl/versionInfo "0.16.0",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
    :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
@@ -315,7 +315,7 @@
    :d3f/may-query :d3f/CollectorAgent,
    :d3f/synonym "Active Physical Layer Mapping",
    :db/ident :d3f/ActivePhysicalLinkMapping,
-   :owl/disjointWith :d3f/PassivePhysicalLinkMapping,
+   :owl/disjointWith :d3f/DirectPhysicalLinkMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Active Physical Link Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-query,
@@ -702,9 +702,9 @@
    :db/ident :d3f/ApplicationShim,
    :rdf/type :owl/Class,
    :rdfs/label "Application Shim",
-   :rdfs/seeAlso #{{:rdf/value "d3f:Shim"}
-                   {:xsd/anyURI
-                    "http://dbpedia.org/resource/Shim_(computing)#Examples"}},
+   :rdfs/seeAlso #{{:xsd/anyURI
+                    "http://dbpedia.org/resource/Shim_(computing)#Examples"}
+                   :d3f/Shim},
    :rdfs/subClassOf :d3f/Shim})
 
 (def ApproximateStringMatching
@@ -741,8 +741,7 @@
    :db/ident :d3f/Artifact,
    :rdf/type :owl/Class,
    :rdfs/label "Artifact",
-   :rdfs/seeAlso #{{:rdf/value "Asset"}
-                   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"}
+   :rdfs/seeAlso #{{:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"}
                    {:xsd/anyURI
                     "http://wordnet-rdf.princeton.edu/id/00022119-n"}},
    :rdfs/subClassOf :d3f/D3FENDThing})
@@ -1169,9 +1168,7 @@
    :db/ident :d3f/BayesianLinearRegressionLearning,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Bayesian Linear Regression Learning",
-   :rdfs/seeAlso
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend.owl#BayesianLinearRegression"},
+   :rdfs/seeAlso :d3f/BayesianLinearRegression,
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def BayesianMethod
@@ -11993,13 +11990,24 @@
    :skos/altLabel "Public Key Certificate"})
 
 (def Certificate-basedAuthentication
-  {:d3f/d3fend-id "D3-CBAN",
+  {:d3f/authenticates :d3f/User,
+   :d3f/d3fend-id "D3-CBAN",
    :d3f/definition
    "Requiring a digital certificate in order to authenticate a user.",
+   :d3f/kb-article
+   "## How it works\n\nCertificate-based authentication is a security mechanism that uses digital certificates to verify the identity of a user, device, or server before granting access to a network or system. This method relies on a pair of cryptographic keys: a public key and a private key.\n\n## Considerations\n\n* Private Key Protection: Ensure that private keys are securely stored and protected against unauthorized access.\n* Certificate Revocation: Implement a robust process for revoking certificates if they are compromised or no longer needed.\n* Man-in-the Middle Attacks: Use mutual authentication to mitigate the risk of these attacks.",
+   :d3f/kb-reference :d3f/Reference-FederalPublicKeyInfrastructure101,
+   :d3f/reads :d3f/Certificate,
    :db/ident :d3f/Certificate-basedAuthentication,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Certificate-based Authentication",
-   :rdfs/subClassOf :d3f/CredentialHardening})
+   :rdfs/subClassOf #{:d3f/CredentialHardening
+                      {:owl/onProperty     :d3f/authenticates,
+                       :owl/someValuesFrom :d3f/User,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/reads,
+                       :owl/someValuesFrom :d3f/Certificate,
+                       :rdf/type           :owl/Restriction}}})
 
 (def CertificateAnalysis
   {:d3f/analyzes :d3f/CertificateFile,
@@ -12124,9 +12132,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Client_(computing)"},
    :rdfs/label "Client Application",
-   :rdfs/seeAlso
-   {:xsd/anyURI
-    "http://attackguidev.mitre.org/techniques/T1554/ \"Compromise Client Software Binary\""},
+   :rdfs/seeAlso :d3f/T1554,
    :rdfs/subClassOf :d3f/Application})
 
 (def ClientComputer
@@ -12326,7 +12332,7 @@
    :db/ident        :d3f/CommandHistoryLog,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Command History Log",
-   :rdfs/seeAlso    #{{:rdf/value "d3f:CommandLineInterface"}
+   :rdfs/seeAlso    #{:d3f/CommandLineInterface
                       {:xsd/anyURI
                        "http://dbpedia.org/resource/Command_history"}},
    :rdfs/subClassOf :d3f/EventLog})
@@ -13834,6 +13840,21 @@
    :rdfs/label "Dimension Reduction",
    :rdfs/subClassOf :d3f/UnsupervisedLearning})
 
+(def DirectPhysicalLinkMapping
+  {:d3f/d3fend-id "D3-DPLM",
+   :d3f/definition
+   "Direct physical link mapping creates a physical link map by direct observation and recording of the physical network links.",
+   :d3f/kb-article
+   "## How it works\n\nDirect Physical Link Mapping involves a manual process where a network engineer or administrator physically observes and documents the physical connections within the network infrastructure.\n\n## Considerations\n\n* Constructing and maintaining physical topologies for extensive networks can be challenging and time-consuming using manual methods. Therefore, where feasible, automated methods like active physical link mapping should be considered as a partial or complete solution for physical link mapping processes.\n\n* In scenarios where active physical link mapping is not an option, physical inspection of networks is necessary to accomplish physical link mapping. This is due to the lack of reliable techniques to accurately map physical links solely through passive network traffic monitoring.",
+   :d3f/kb-reference :d3f/Reference-NetworkMapping,
+   :d3f/synonym "Manual Physical Link Mapping",
+   :db/ident :d3f/DirectPhysicalLinkMapping,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Direct Physical Link Mapping",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://en.wikipedia.org/wiki/Transmission_medium"},
+   :rdfs/subClassOf :d3f/PhysicalLinkMapping})
+
 (def Directory
   {:d3f/definition
    "In computing, a directory is a file system cataloging structure which contains references to other computer files, and possibly other directories. On many computers, directories are known as folders, or drawers to provide some relevancy to a workbench or the traditional office file cabinet.",
@@ -14292,7 +14313,7 @@
    :db/ident :d3f/EndpointSensor,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Endpoint Sensor",
-   :rdfs/seeAlso {:rdf/value "d3f:Platform"},
+   :rdfs/seeAlso :d3f/Platform,
    :rdfs/subClassOf :d3f/CyberSensor})
 
 (def EnsembleLearning
@@ -15371,7 +15392,7 @@
    :db/ident        :d3f/GraphicsCardFirmware,
    :rdf/type        :owl/Class,
    :rdfs/label      "Graphics Card Firmware",
-   :rdfs/seeAlso    {:rdf/value "d3f:Firmware"},
+   :rdfs/seeAlso    :d3f/Firmware,
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel   "Video Card Firmware"})
 
@@ -16003,7 +16024,7 @@
    :db/ident :d3f/ImageCodeSegment,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Image Code Segment",
-   :rdfs/seeAlso #{{:rdf/value "Process Code Segment"}
+   :rdfs/seeAlso #{:d3f/ProcessCodeSegment
                    {:xsd/anyURI "http://dbpedia.org/resource/Code_segment"}},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Subroutine,
@@ -16016,7 +16037,7 @@
    :db/ident :d3f/ImageDataSegment,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Image Data Segment",
-   :rdfs/seeAlso #{{:rdf/value "Process Data Segment"}
+   :rdfs/seeAlso #{:d3f/ProcessDataSegment
                    {:xsd/anyURI "http://dbpedia.org/resource/Data_segment"}},
    :rdfs/subClassOf :d3f/ImageSegment})
 
@@ -16036,8 +16057,8 @@
    :db/ident :d3f/ImageSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Image Segment",
-   :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Object_file"}
-                   {:rdf/value "Object File"}},
+   :rdfs/seeAlso #{:d3f/ObjectFile
+                   {:xsd/anyURI "http://dbpedia.org/resource/Object_file"}},
    :rdfs/subClassOf #{:d3f/FileSection :d3f/BinarySegment}})
 
 (def ImageSynthesisGAN
@@ -16202,8 +16223,7 @@
 (def InformationContentEntity
   {:db/ident         :d3f/InformationContentEntity,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy {:rdf/value
-                      "BFO, Cyc equiv, SUMO equiv, [Ontology Works] equiv"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://purl.obolibrary.org/obo/IAO_0000030"},
    :rdfs/label       "Information Content Entity",
    :rdfs/subClassOf  #{{:owl/onProperty     :d3f/archived-at,
                         :owl/someValuesFrom :xsd/anyURI,
@@ -16615,10 +16635,9 @@
    :db/ident :d3f/JobSchedulerSoftware,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Job Scheduler Software",
-   :rdfs/seeAlso #{{:rdf/value "Scheduled Task"}
-                   {:xsd/anyURI "http://dbpedia.org/resource/Cron"}
-                   {:xsd/anyURI
-                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}},
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "http://dbpedia.org/resource/Cron"} :d3f/ScheduledJob
+     {:xsd/anyURI "http://dbpedia.org/resource/Windows_Task_Scheduler"}},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/JobSchedule,
                        :rdf/type           :owl/Restriction}
@@ -16936,9 +16955,7 @@
    :db/ident :d3f/LinearRegressionLearning,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Linear Regression Learning",
-   :rdfs/seeAlso
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend.owl#LinearRegression"},
+   :rdfs/seeAlso :d3f/LinearRegression,
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def Link
@@ -17007,6 +17024,16 @@
    :rdfs/label "Linux Creat",
    :rdfs/subClassOf :d3f/OSAPICreateFile})
 
+(def LinuxDeleteModule
+  {:d3f/definition
+   "Attempts to remove the unused loadable module entry identified by name. If the module has an exit function, then that function is executed before unloading the module.",
+   :db/ident :d3f/LinuxDeleteModule,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy
+   {:xsd/anyURI "https://man7.org/linux/man-pages/man2/delete_module.2.html"},
+   :rdfs/label "Linux Delete Module",
+   :rdfs/subClassOf :d3f/OSAPIUnloadModule})
+
 (def LinuxELFFile32bit
   {:d3f/definition "test",
    :db/ident       :d3f/LinuxELFFile32bit,
@@ -17047,6 +17074,16 @@
                       "https://man7.org/linux/man-pages/man2/fork.2.html"},
    :rdfs/label "Linux Fork",
    :rdfs/subClassOf :d3f/OSAPICreateProcess})
+
+(def LinuxInitModule
+  {:d3f/definition
+   "Loads an ELF image into kernel space, performs any necessary symbol relocations, initializes module parameters to values provided by the caller, and then runs the module's init function.",
+   :db/ident :d3f/LinuxInitModule,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy
+   {:xsd/anyURI "https://man7.org/linux/man-pages/man2/init_module.2.html"},
+   :rdfs/label "Linux Init Module",
+   :rdfs/subClassOf :d3f/OSAPILoadModule})
 
 (def LinuxKillArgumentSIGKILL
   {:d3f/definition   "Send SIGKILL signal to a process.",
@@ -17389,6 +17426,19 @@
    :rdfs/label       "Linux _Exit",
    :rdfs/subClassOf  :d3f/OSAPITerminateProcess})
 
+(def LoadModule
+  {:d3f/definition
+   "A system call that loads a driver or extension into the kernel.",
+   :d3f/loads #{:d3f/KernelModule :d3f/HardwareDriver},
+   :db/ident :d3f/LoadModule,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/loads,
+                       :owl/someValuesFrom :d3f/HardwareDriver,
+                       :rdf/type           :owl/Restriction} :d3f/SystemCall
+                      {:owl/onProperty     :d3f/loads,
+                       :owl/someValuesFrom :d3f/KernelModule,
+                       :rdf/type           :owl/Restriction}}})
+
 (def LocalAccountMonitoring
   {:d3f/analyzes :d3f/LocalUserAccount,
    :d3f/d3fend-id "D3-LAM",
@@ -17601,9 +17651,7 @@
    :db/ident :d3f/LogististicRegressionLearning,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Logistic Regression Learning",
-   :rdfs/seeAlso
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend.owl#LogisticRegression"},
+   :rdfs/seeAlso :d3f/LogisticRegression,
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def LogonUser
@@ -18627,9 +18675,7 @@
    :db/ident :d3f/MultipleRegressionLearning,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Multiple Regression Learning",
-   :rdfs/seeAlso
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend.owl#MultipleRegression"},
+   :rdfs/seeAlso :d3f/MultipleRegression,
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def MultivariateAnalysis
@@ -19947,6 +19993,7 @@
    :db/ident :d3f/NetworkMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Mapping",
+   :rdfs/seeAlso {:xsd/anyURI "https://en.wikipedia.org/wiki/Network_topology"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Model,
                        :rdf/type           :owl/Restriction}
@@ -20188,6 +20235,21 @@
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
+(def NetworkTrafficSignatureAnalysis
+  {:d3f/analyzes :d3f/NetworkTraffic,
+   :d3f/d3fend-id "D3-NTSA",
+   :d3f/definition
+   "Analyzing network traffic and compares it to known signatures",
+   :d3f/kb-article
+   "## How it works\n\nNetwork signature analysis relies on predefined patterns, or signatures, to identify malicious network activity. These signatures typically match against specific byte sequences, packet header information, or protocol anomalies indicative of known threats.\n\nThe process works as follows:\n\n* Packet Capture: Network traffic is captured on an interface or port, resulting in a stream of raw packets.\n* Preprocessing: The captured packets are preprocessed, cleaning and normalizing the data for efficient analysis.\n* Signature Matching: Each packet is compared against a database of signatures using dedicated engines.\n\n## Considerations\n\n### False Negatives\n\nNetwork signature analysis is susceptible to generating false negatives. These occur when malicious activity evades detection due to limitations in the signature-based approach. Here are some common causes:\n\n* Evolving threats: Attackers frequently modify their tactics, rendering existing signatures ineffective against new variants.\n* Obfuscation: Attackers may disguise malicious content using encryption, encoding, or other techniques to bypass signature detection.\n* Limited visibility: Signatures rely on specific patterns. If crucial information is encrypted or hidden, the signature might miss the threat.\n* Zero-day attacks: By definition, new and unknown attacks lack corresponding signatures, allowing them to pass undetected.\n\n### False Positives\n\nNetwork signature analysis is susceptible to generating false positives. These occur when the signature analysis triggers an alert for benign traffic. Common causes include:\n\n* Overly broad signatures: Rules designed to be too general might match harmless activities, generating false alarms.\n* Network misconfigurations: Improperly configured devices or legitimate network activity can mimic malicious patterns, triggering false positives.\n* Data errors: Corrupted or incomplete network data can lead to misinterpretations and false alerts.\n\n",
+   :db/ident :d3f/NetworkTrafficSignatureAnalysis,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Network Traffic Signature Analysis",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkTrafficAnalysis}})
+
 (def NetworkVulnerabilityAssessment
   {:d3f/d3fend-id "D3-NVA",
    :d3f/definition
@@ -20228,11 +20290,12 @@
    :d3f/synonym "NPE",
    :db/ident :d3f/Non-PersonEntity,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy
-   {:rdf/value
-    "CNSSI 4009 aka \"Committee on National Security Systems (CNSS) Glossary\" (March 2, 2002)"},
+   :rdfs/comment
+   "CNSSI 4009 aka \"Committee on National Security Systems (CNSS) Glossary\" (March 2, 2002)",
    :rdfs/label "Non-Person Entity",
-   :rdfs/seeAlso {:rdf/value "NIST 800-63"},
+   :rdfs/seeAlso #{:d3f/NIST_SP_800-53_R5
+                   {:xsd/anyURI
+                    "https://csrc.nist.gov/glossary/term/non_person_entity"}},
    :rdfs/subClassOf :d3f/Agent})
 
 (def Non-monotonicLogic
@@ -20266,9 +20329,7 @@
    :db/ident :d3f/NonlinearRegressionLearning,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Nonlinear Regression Learning",
-   :rdfs/seeAlso
-   {:xsd/anyURI
-    "http://d3fend.mitre.org/ontologies/d3fend.owl#NonlinearRegression"},
+   :rdfs/seeAlso :d3f/NonlinearRegression,
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def NumericPatternMatching
@@ -20419,6 +20480,16 @@
                        :owl/someValuesFrom :d3f/GetThreadContext,
                        :rdf/type           :owl/Restriction}}})
 
+(def OSAPILoadModule
+  {:d3f/invokes     :d3f/LoadModule,
+   :db/ident        :d3f/OSAPILoadModule,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "OS API Load Module",
+   :rdfs/subClassOf #{:d3f/OSAPISystemFunction
+                      {:owl/onProperty     :d3f/invokes,
+                       :owl/someValuesFrom :d3f/LoadModule,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OSAPIMoveFile
   {:d3f/invokes     :d3f/MoveFile,
    :db/ident        :d3f/OSAPIMoveFile,
@@ -20531,7 +20602,7 @@
 
 (def OSAPISystemFunction
   {:d3f/definition
-   "Indirect System calls are made through OS-specific libraries (like glibc in Linux) that provides a higher-level API for the system calls.",
+   "Indirect System calls are made through an OS-specific library (like glibc in Linux) that provides a higher-level API for the system calls.",
    :d3f/synonym "Indirect System Call",
    :db/ident :d3f/OSAPISystemFunction,
    :rdf/type :owl/Class,
@@ -20567,6 +20638,16 @@
                        :owl/someValuesFrom :d3f/TraceThread,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
+
+(def OSAPIUnloadModule
+  {:d3f/invokes     :d3f/UnloadModule,
+   :db/ident        :d3f/OSAPIUnloadModule,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "OS API Unload Module",
+   :rdfs/subClassOf #{:d3f/OSAPISystemFunction
+                      {:owl/onProperty     :d3f/invokes,
+                       :owl/someValuesFrom :d3f/UnloadModule,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OSAPIWriteFile
   {:d3f/invokes     :d3f/WriteFile,
@@ -20654,7 +20735,7 @@
    :db/ident :d3f/OfficeApplicationFile,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Office Application File",
-   :rdfs/seeAlso {:rdf/value "d3f:OfficeApplication"},
+   :rdfs/seeAlso :d3f/OfficeApplication,
    :rdfs/subClassOf :d3f/DocumentFile})
 
 (def One-timePassword
@@ -20752,10 +20833,9 @@
    :db/ident :d3f/OperatingSystemConfigurationFile,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Operating System Configuration File",
-   :rdfs/seeAlso #{{:rdf/value "Configuration File"}
+   :rdfs/seeAlso #{:d3f/OperatingSystem :d3f/ConfigurationFile
                    {:xsd/anyURI
-                    "http://dbpedia.org/resource/Configuration_file"}
-                   {:rdf/value "Operating System"}},
+                    "http://dbpedia.org/resource/Configuration_file"}},
    :rdfs/subClassOf #{:d3f/ConfigurationFile :d3f/OperatingSystemFile},
    :skos/altLabel "System Configuration File"})
 
@@ -20784,7 +20864,6 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Log_file"},
    :rdfs/label "Operating System Log File",
-   :rdfs/seeAlso {:rdf/value "Log File"},
    :rdfs/subClassOf #{:d3f/LogFile :d3f/OperatingSystemFile}})
 
 (def OperatingSystemMonitoring
@@ -21189,7 +21268,7 @@
    "A page table  is the data structure used by the MMU in a virtual memory computer system  to store the mapping between virtual addresses (virtual pages) and physical addresses (page frames).",
    :db/ident :d3f/PageTable,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/isDefinedBy {:rdf/value "Page table - Wikipedia"},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Page_table"},
    :rdfs/label "Page Table",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/VirtualAddress,
@@ -21295,16 +21374,6 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Passive Logical Link Mapping",
    :rdfs/subClassOf :d3f/LogicalLinkMapping})
-
-(def PassivePhysicalLinkMapping
-  {:d3f/d3fend-id "D3-PPLM",
-   :d3f/definition
-   "Passive physical link mapping only listens to network traffic as a means to map the physical layer.",
-   :d3f/synonym "Passive Physical Layer Mapping",
-   :db/ident :d3f/PassivePhysicalLinkMapping,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Passive Physical Link Mapping",
-   :rdfs/subClassOf :d3f/PhysicalLinkMapping})
 
 (def Password
   {:d3f/definition
@@ -21524,6 +21593,8 @@
    :db/ident :d3f/PhysicalLinkMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Physical Link Mapping",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://en.wikipedia.org/wiki/Network_topology#Links"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/NetworkNode,
                        :rdf/type           :owl/Restriction} :d3f/NetworkMapping
@@ -21967,7 +22038,7 @@
    :db/ident :d3f/ProcessDataSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Process Data Segment",
-   :rdfs/seeAlso #{{:rdf/value "Image Data Segment"}
+   :rdfs/seeAlso #{:d3f/ImageDataSegment
                    {:xsd/anyURI "http://dbpedia.org/resource/Data_segment"}},
    :rdfs/subClassOf :d3f/ProcessSegment})
 
@@ -22204,7 +22275,7 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Process Tree",
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Parent_process"}
-                   {:rdf/value "Process Spawn"}
+                   :d3f/ProcessSpawnAnalysis
                    {:xsd/anyURI "http://dbpedia.org/resource/Child_process"}},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Process,
@@ -22805,7 +22876,6 @@
    :d3f/kb-author "Dean Danko",
    :d3f/kb-mitre-analysis
    "This patent includes the description of a method of blocking email traffic from untrusted domains by analyzing the TCP/IP source IP addresses and blocking traffic for IPs whose reverse lookup response FQDN matches a denylist.",
-   :d3f/kb-reference-of :d3f/ReverseResolutionDomainDenylisting,
    :d3f/kb-reference-title
    "Apparatus for to provide content to and query a reverse domain name system server",
    :db/ident
@@ -24462,6 +24532,16 @@
    :rdf/type #{:d3f/TechniqueReference :owl/NamedIndividual},
    :rdfs/label "Reference - FWTK Documentation - fwtk.org"})
 
+(def Reference-FederalPublicKeyInfrastructure101
+  {:d3f/has-link {:xsd/anyURI "https://www.idmanagement.gov/university/fpki/"},
+   :d3f/kb-author
+   "Identity, Credential, and Access Management Subcommittee (ICAMSC)",
+   :d3f/kb-reference-of :d3f/Certificate-basedAuthentication,
+   :d3f/kb-reference-title "Federal Public Key Infrastructure 101",
+   :db/ident :d3f/Reference-FederalPublicKeyInfrastructure101,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Federal Public Key Infrastructrure 101"})
+
 (def Reference-File-modifyingMalwareDetection_CrowdstrikeInc
   {:d3f/has-link
    {:xsd/anyURI
@@ -25024,6 +25104,18 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Intrusion detection using a heartbeat - Sophos Ltd"})
+
+(def
+  Reference-Intrusion_and_misuse_deterrence_system_employing_a_virtual_network
+  {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/US7240368B1"},
+   :d3f/kb-reference-of :d3f/NetworkTrafficSignatureAnalysis,
+   :d3f/kb-reference-title
+   "Intrusion and misuse deterrence system employing a virtual network",
+   :db/ident
+   :d3f/Reference-Intrusion_and_misuse_deterrence_system_employing_a_virtual_network,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Intrusion and misuse deterrence system employing a virtual network"})
 
 (def Reference-IsolationOfApplicationsWithinAVirtualMachine_Bromium%2CInc_
   {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/US9921860B1"},
@@ -25675,6 +25767,14 @@
    :rdfs/label
    "Reference - Network firewall with proxy - Secure Computing LLC"})
 
+(def Reference-NetworkMapping
+  {:d3f/has-link  {:xsd/anyURI "https://en.wikipedia.org/wiki/Network_mapping"},
+   :d3f/kb-author "https://en.wikipedia.org/",
+   :d3f/kb-reference-title "Network Mapping",
+   :db/ident      :d3f/Reference-NetworkMapping,
+   :rdf/type      #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label    "Reference - Network Mapping"})
+
 (def Reference-OSQueryWindowsUserCollectionCode
   {:d3f/has-link
    {:xsd/anyURI
@@ -26234,19 +26334,6 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Reputation of an entity associated with a content item"})
-
-(def Reference-ReverseDNSBlocking_BarracudaNetworks
-  {:d3f/has-link
-   {:xsd/anyURI
-    "https://campus.barracuda.com/product/emailsecuritygateway/doc/39819732/reverse-dns-blocking/"},
-   :d3f/kb-author "campus.barracuda.com",
-   :d3f/kb-mitre-analysis
-   "Inbound corporate traffic SMTP traffic on port 25 can be routed through Barracuda Email Security Gateway before reaching the corporate mail server, acting as a traffic filter based on reverse DNS lookups and a denylist for blocking domains.",
-   :d3f/kb-reference-of :d3f/ReverseResolutionDomainDenylisting,
-   :d3f/kb-reference-title "Reverse DNS Blocking",
-   :db/ident :d3f/Reference-ReverseDNSBlocking_BarracudaNetworks,
-   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
-   :rdfs/label "Reference - Reverse DNS Blocking - Barracuda Networks"})
 
 (def Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft
   {:d3f/has-link
@@ -27261,7 +27348,7 @@
    "Tenable Nessus® Network Monitor (NNM), a passive monitoring sensor, continuously discovers active assets on the network and assesses them for vulnerabilities. NNM is based on patented network discovery and vulnerability analysis technology that continuously monitors and profiles non-intrusively. It monitors IPv4, IPv6 and mixed network traffic at the packet layer to determine topology, services and vulnerabilities.",
    :d3f/kb-organization "Tenable",
    :d3f/kb-reference-of #{:d3f/PassiveLogicalLinkMapping
-                          :d3f/PassivePhysicalLinkMapping},
+                          :d3f/DirectPhysicalLinkMapping},
    :d3f/kb-reference-title "Tenable Passive Network Monitoring",
    :db/ident :d3f/Reference-TenablePassiveNetworkMonitoring,
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
@@ -28188,23 +28275,6 @@
    :rdfs/label "Reverse Proxy Server",
    :rdfs/subClassOf :d3f/ProxyServer})
 
-(def ReverseResolutionDomainDenylisting
-  {:d3f/blocks :d3f/InboundInternetDNSResponseTraffic,
-   :d3f/d3fend-id "D3-RRDD",
-   :d3f/definition
-   "Blocking a reverse DNS lookup's answer's domain name value.",
-   :d3f/kb-article
-   "## How it works\n\nIn reverse resolution requests, the client sends to a nameserver (such as a DNS server) a query of an IP address, to get a response of the associated domain name(s). This technique drops reverse lookup responses where a domain name matches an entry in the blacklist, either verbatim or as a wildcard subdomain of a higher-level domain on the list. Such domain names might be unwanted because Forward Domain Name Resolution requests to such a blacklisted domain might return an unwanted IP address.\n\nThis technique is useful because relying solely on Forward Resolution Domain Blacklisting will miss instances where the domain in question is forward-resolved in a manner that is not inspected via a subsequent technique (as is likely the case if that resolution is performed with DoH (DNS over HTTPS) or DoT (DNS over TLS)). Additionally, note that responses to forward lookups of that domain are *not* necessarily equal to the original IP in the reverse lookup request, and that future lookups of a string based on this domain may even employ a less-common name resolution protocol, such as NBNS.\n\nThe DNS response can either be blocked by dropping the network traffic with an inline device, or by modifying the value of the response sent by the DNS server.  To prevent client applications from hanging on a request, it is common practice to replace malicious values, either with names like \"localhost.\" or the address of a honeypot maintained by the network administrators.\n\n## Considerations\n\n* This technique does not prevent the client from contacting the blacklisted domain or any IP addresses that it might resolve to, only from learning about this domain name via a nameserver lookup.\n* DNS response traffic can be transmitted over many different protocols, which presents a challenge to implementing methods to extract all DNS answer domain name value(s).\n  * DNS has historically used UDP port 53, with TCP port 53 instead used for responses over 512 bytes or after a lack of response over UDP.\n  * Usage of new protocols to provide confidentiality for DNS traffic, such as DoH (DNS over HTTPS) and DoT (DNS over TLS), complicates collection of the IP address(es) in DNS responses. These protocols have often been enabled in browser settings transparently after a browser update, with DNS requests proxied over one of these cryptographic protocols through a specified host.\n* This technique must be deployed between the application that receives the response and the server which sent the response.\n  * DNS responses sent in an encrypted manner, such as using DoH or DoT, will require interception of the TLS connections in order to determine the domain name(s) in the response.\n* Replacing the response is not effective in the case that the nameserver uses a technique to provide integrity of its responses, such as DNSSEC for DNS responses.",
-   :d3f/synonym "Reverse Resolution Domain Blacklisting",
-   :db/ident :d3f/ReverseResolutionDomainDenylisting,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Reverse Resolution Domain Denylisting",
-   :rdfs/subClassOf #{:d3f/DNSDenylisting
-                      {:owl/onProperty :d3f/blocks,
-                       :owl/someValuesFrom
-                       :d3f/InboundInternetDNSResponseTraffic,
-                       :rdf/type :owl/Restriction}}})
-
 (def ReverseResolutionIPDenylisting
   {:d3f/blocks :d3f/OutboundInternetDNSLookupTraffic,
    :d3f/d3fend-id "D3-RRID",
@@ -29095,10 +29165,16 @@
    :rdfs/subClassOf :d3f/PartialMatching})
 
 (def SourceCode
-  {:db/ident        :d3f/SourceCode,
-   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Source Code",
-   :rdfs/subClassOf :d3f/InformationContentEntity})
+  {:d3f/definition
+   "Source code is written using a programming language and usually stored as encoded text. This source code is often transformed by a compiler, assembler, or interpreter into machine code to be executed by user programs.",
+   :db/ident :d3f/SourceCode,
+   :rdf/type #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "The source code of a work means the preferred form of the work for making modifications to it, per the Free Software Foundation.",
+   :rdfs/label "Source Code",
+   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Source_code"},
+   :rdfs/subClassOf :d3f/InformationContentEntity,
+   :skos/altLabel "Code"})
 
 (def SourceCodeAnalyzerTool
   {:d3f/definition
@@ -29927,57 +30003,74 @@
                       :d3f/SystemMapping}})
 
 (def T1001
-  {:d3f/attack-id   "T1001",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data Obfuscation",
+  {:d3f/attack-id "T1001",
+   :d3f/definition
+   "Adversaries may obfuscate command and control traffic to make it more difficult to detect.(Citation: Bitdefender FunnyDream Campaign November 2020) Command and control (C2) communications are hidden (but not necessarily encrypted) in an attempt to make the content more difficult to discover or decipher and to make the communication less conspicuous and hide commands from being seen. This encompasses many methods, such as adding junk data to protocol traffic, using steganography, or impersonating legitimate protocols.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Obfuscation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1001_001
-  {:d3f/attack-id   "T1001.001",
-   :db/ident        :d3f/T1001.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Junk Data",
+  {:d3f/attack-id "T1001.001",
+   :d3f/definition
+   "Adversaries may add junk data to protocols used for command and control to make detection more difficult.(Citation: FireEye SUNBURST Backdoor December 2020) By adding random or meaningless data to the protocols used for command and control, adversaries can prevent trivial methods for decoding, deciphering, or otherwise analyzing the traffic. Examples may include appending/prepending data with junk characters or writing junk characters between significant characters.",
+   :db/ident :d3f/T1001.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Junk Data",
    :rdfs/subClassOf :d3f/T1001})
 
 (def T1001_002
-  {:d3f/attack-id   "T1001.002",
-   :db/ident        :d3f/T1001.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Steganography",
+  {:d3f/attack-id "T1001.002",
+   :d3f/definition
+   "Adversaries may use steganographic techniques to hide command and control traffic to make detection efforts more difficult. Steganographic techniques can be used to hide data in digital messages that are transferred between systems. This hidden information can be used for command and control of compromised systems. In some cases, the passing of files embedded using steganography, such as image or document files, can be used for command and control.",
+   :db/ident :d3f/T1001.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Steganography",
    :rdfs/subClassOf :d3f/T1001})
 
 (def T1001_003
-  {:d3f/attack-id   "T1001.003",
-   :db/ident        :d3f/T1001.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Protocol Impersonation",
+  {:d3f/attack-id "T1001.003",
+   :d3f/definition
+   "Adversaries may impersonate legitimate protocols or web service traffic to disguise command and control activity and thwart analysis efforts. By impersonating legitimate protocols or web services, adversaries can make their command and control traffic blend in with legitimate network traffic.",
+   :db/ident :d3f/T1001.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Protocol Impersonation",
    :rdfs/subClassOf :d3f/T1001})
 
 (def T1002
-  {:d3f/attack-id   "T1002",
-   :db/ident        :d3f/T1002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Compressed",
+  {:d3f/attack-id "T1002",
+   :d3f/definition
+   "An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network. The compression is done separately from the exfiltration channel and is performed using a custom program or algorithm, or a more common compression library or utility such as 7zip, RAR, ZIP, or zlib.",
+   :db/ident :d3f/T1002,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1560",
+   :rdfs/label "Data Compressed",
+   :rdfs/seeAlso {:rdf/value "T1560"},
    :rdfs/subClassOf :d3f/ExfiltrationTechnique})
 
 (def T1003
-  {:d3f/attack-id   "T1003",
-   :db/ident        :d3f/T1003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OS Credential Dumping",
+  {:d3f/attack-id "T1003",
+   :d3f/definition
+   "Adversaries may attempt to dump credentials to obtain account login and credential material, normally in the form of a hash or a clear text password. Credentials can be obtained from OS caches, memory, or structures.(Citation: Brining MimiKatz to Unix) Credentials can then be used to perform [Lateral Movement](https://attack.mitre.org/tactics/TA0008) and access restricted information.",
+   :db/ident :d3f/T1003,
+   :rdf/type :owl/Class,
+   :rdfs/label "OS Credential Dumping",
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1003_001
-  {:d3f/accesses    #{:d3f/Process :d3f/AuthenticationService},
-   :d3f/attack-id   "T1003.001",
-   :db/ident        :d3f/T1003.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "LSASS Memory",
+  {:d3f/accesses #{:d3f/Process :d3f/AuthenticationService},
+   :d3f/attack-id "T1003.001",
+   :d3f/definition
+   "Adversaries may attempt to access credential material stored in the process memory of the Local Security Authority Subsystem Service (LSASS). After a user logs on, the system generates and stores a variety of credential materials in LSASS process memory. These credential materials can be harvested by an administrative user or SYSTEM and used to conduct [Lateral Movement](https://attack.mitre.org/tactics/TA0008) using [Use Alternate Authentication Material](https://attack.mitre.org/techniques/T1550).",
+   :db/ident :d3f/T1003.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "LSASS Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Process,
                        :rdf/type           :owl/Restriction}
@@ -29986,12 +30079,14 @@
                        :rdf/type           :owl/Restriction} :d3f/T1003}})
 
 (def T1003_002
-  {:d3f/attack-id   "T1003.002",
-   :d3f/may-access  #{:d3f/Process :d3f/SystemPasswordDatabase
-                      :d3f/AuthenticationService},
-   :db/ident        :d3f/T1003.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Security Account Manager",
+  {:d3f/attack-id "T1003.002",
+   :d3f/definition
+   "Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored. The SAM is a database file that contains local accounts for the host, typically those found with the <code>net user</code> command. Enumerating the SAM database requires SYSTEM level access.",
+   :d3f/may-access #{:d3f/Process :d3f/SystemPasswordDatabase
+                     :d3f/AuthenticationService},
+   :db/ident :d3f/T1003.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Security Account Manager",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/SystemPasswordDatabase,
                        :rdf/type           :owl/Restriction}
@@ -30003,21 +30098,25 @@
                        :rdf/type           :owl/Restriction} :d3f/T1003}})
 
 (def T1003_003
-  {:d3f/accesses    :d3f/EncryptedCredential,
-   :d3f/attack-id   "T1003.003",
-   :db/ident        :d3f/T1003.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "NTDS",
+  {:d3f/accesses :d3f/EncryptedCredential,
+   :d3f/attack-id "T1003.003",
+   :d3f/definition
+   "Adversaries may attempt to access or create a copy of the Active Directory domain database in order to steal credential information, as well as obtain other information about domain members such as devices, users, and access rights. By default, the NTDS file (NTDS.dit) is located in <code>%SystemRoot%\\NTDS\\Ntds.dit</code> of a domain controller.(Citation: Wikipedia Active Directory)",
+   :db/ident :d3f/T1003.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "NTDS",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/EncryptedCredential,
                        :rdf/type           :owl/Restriction} :d3f/T1003}})
 
 (def T1003_004
-  {:d3f/attack-id   "T1003.004",
-   :d3f/may-access  #{:d3f/Process :d3f/SystemPasswordDatabase},
-   :db/ident        :d3f/T1003.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "LSA Secrets",
+  {:d3f/attack-id "T1003.004",
+   :d3f/definition
+   "Adversaries with SYSTEM access to a host may attempt to access Local Security Authority (LSA) secrets, which can contain a variety of different credential materials, such as credentials for service accounts.(Citation: Passcape LSA Secrets)(Citation: Microsoft AD Admin Tier Model)(Citation: Tilbury Windows Credentials) LSA secrets are stored in the registry at <code>HKEY_LOCAL_MACHINE\\SECURITY\\Policy\\Secrets</code>. LSA secrets can also be dumped from memory.(Citation: ired Dumping LSA Secrets)",
+   :d3f/may-access #{:d3f/Process :d3f/SystemPasswordDatabase},
+   :db/ident :d3f/T1003.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "LSA Secrets",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/SystemPasswordDatabase,
                        :rdf/type           :owl/Restriction}
@@ -30026,12 +30125,14 @@
                        :rdf/type           :owl/Restriction} :d3f/T1003}})
 
 (def T1003_005
-  {:d3f/accesses    :d3f/EncryptedCredential,
-   :d3f/attack-id   "T1003.005",
-   :d3f/may-modify  :d3f/Log,
-   :db/ident        :d3f/T1003.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cached Domain Credentials",
+  {:d3f/accesses :d3f/EncryptedCredential,
+   :d3f/attack-id "T1003.005",
+   :d3f/definition
+   "Adversaries may attempt to access cached domain credentials used to allow authentication to occur in the event a domain controller is unavailable.(Citation: Microsoft - Cached Creds)",
+   :d3f/may-modify :d3f/Log,
+   :db/ident :d3f/T1003.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cached Domain Credentials",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/EncryptedCredential,
                        :rdf/type           :owl/Restriction} :d3f/T1003
@@ -30040,12 +30141,14 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1003_006
-  {:d3f/attack-id   "T1003.006",
-   :d3f/may-modify  :d3f/EventLog,
-   :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1003.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "DCSync",
+  {:d3f/attack-id "T1003.006",
+   :d3f/definition
+   "Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API)(Citation: Microsoft DRSR Dec 2017) (Citation: Microsoft GetNCCChanges) (Citation: Samba DRSUAPI) (Citation: Wine API samlib.dll) to simulate the replication process from a remote domain controller using a technique called DCSync.",
+   :d3f/may-modify :d3f/EventLog,
+   :d3f/produces :d3f/IntranetAdministrativeNetworkTraffic,
+   :db/ident :d3f/T1003.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DCSync",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction}
@@ -30055,11 +30158,13 @@
                        :rdf/type :owl/Restriction} :d3f/T1003}})
 
 (def T1003_007
-  {:d3f/accesses    #{:d3f/ProcessImage :d3f/OperatingSystemFile},
-   :d3f/attack-id   "T1003.007",
-   :db/ident        :d3f/T1003.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Proc Filesystem",
+  {:d3f/accesses #{:d3f/ProcessImage :d3f/OperatingSystemFile},
+   :d3f/attack-id "T1003.007",
+   :d3f/definition
+   "Adversaries may gather credentials from the proc filesystem or `/proc`. The proc filesystem is a pseudo-filesystem used as an interface to kernel data structures for Linux based systems managing virtual memory. For each process, the `/proc/<PID>/maps` file shows how memory is mapped within the process’s virtual address space. And `/proc/<PID>/mem`, exposed for debugging purposes, provides access to the process’s virtual address space.(Citation: Picus Labs Proc cump 2022)(Citation: baeldung Linux proc map 2022)",
+   :db/ident :d3f/T1003.007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Proc Filesystem",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/ProcessImage,
                        :rdf/type           :owl/Restriction}
@@ -30068,11 +30173,13 @@
                        :rdf/type           :owl/Restriction} :d3f/T1003}})
 
 (def T1003_008
-  {:d3f/accesses    #{:d3f/PasswordFile :d3f/EncryptedCredential},
-   :d3f/attack-id   "T1003.008",
-   :db/ident        :d3f/T1003.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "/etc/passwd and /etc/shadow",
+  {:d3f/accesses #{:d3f/PasswordFile :d3f/EncryptedCredential},
+   :d3f/attack-id "T1003.008",
+   :d3f/definition
+   "Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking. Most modern Linux operating systems use a combination of <code>/etc/passwd</code> and <code>/etc/shadow</code> to store user account information including password hashes in <code>/etc/shadow</code>. By default, <code>/etc/shadow</code> is only readable by the root user.(Citation: Linux Password and Shadow File Formats)",
+   :db/ident :d3f/T1003.008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "/etc/passwd and /etc/shadow",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/PasswordFile,
                        :rdf/type           :owl/Restriction}
@@ -30081,18 +30188,25 @@
                        :rdf/type           :owl/Restriction} :d3f/T1003}})
 
 (def T1004
-  {:d3f/attack-id   "T1004",
-   :db/ident        :d3f/T1004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Winlogon Helper DLL",
+  {:d3f/attack-id "T1004",
+   :d3f/definition
+   "Winlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete. Registry entries in <code>HKLM\\Software\\[Wow6432Node\\]Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\</code> and <code>HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\</code> are used to manage additional helper programs and functionalities that support Winlogon. (Citation: Cylance Reg Persistence Sept 2013)",
+   :db/ident :d3f/T1004,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.004",
+   :rdfs/label "Winlogon Helper DLL",
+   :rdfs/seeAlso {:rdf/value "T1547.004"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1005
-  {:d3f/accesses    #{:d3f/File :d3f/LocalResource},
-   :d3f/attack-id   "T1005",
-   :db/ident        :d3f/T1005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data from Local System",
+  {:d3f/accesses #{:d3f/File :d3f/LocalResource},
+   :d3f/attack-id "T1005",
+   :d3f/definition
+   "Adversaries may search local system sources, such as file systems and configuration files or local databases, to find files of interest and sensitive data prior to Exfiltration.",
+   :db/ident :d3f/T1005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data from Local System",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/LocalResource,
                        :rdf/type           :owl/Restriction}
@@ -30102,22 +30216,26 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1006
-  {:d3f/accesses    :d3f/Volume,
-   :d3f/attack-id   "T1006",
-   :db/ident        :d3f/T1006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Direct Volume Access",
+  {:d3f/accesses :d3f/Volume,
+   :d3f/attack-id "T1006",
+   :d3f/definition
+   "Adversaries may directly access a volume to bypass file access controls and file system monitoring. Windows allows programs to have direct access to logical volumes. Programs with direct access may read and write files directly from the drive by analyzing file system data structures. This technique may bypass Windows file access controls as well as file system monitoring tools. (Citation: Hakobyan 2009)",
+   :db/ident :d3f/T1006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Direct Volume Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Volume,
                        :rdf/type           :owl/Restriction}
                       :d3f/DefenseEvasionTechnique}})
 
 (def T1007
-  {:d3f/attack-id   "T1007",
-   :d3f/may-invoke  #{:d3f/CreateProcess :d3f/GetRunningProcesses},
-   :db/ident        :d3f/T1007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Service Discovery",
+  {:d3f/attack-id "T1007",
+   :d3f/definition
+   "Adversaries may try to gather information about registered local system services. Adversaries may obtain information about services using tools as well as OS utility commands such as <code>sc query</code>, <code>tasklist /svc</code>, <code>systemctl --type=service</code>, and <code>net start</code>.",
+   :d3f/may-invoke #{:d3f/CreateProcess :d3f/GetRunningProcesses},
+   :db/ident :d3f/T1007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Service Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -30127,29 +30245,38 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1008
-  {:d3f/attack-id   "T1008",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Fallback Channels",
+  {:d3f/attack-id "T1008",
+   :d3f/definition
+   "Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control and to avoid data transfer thresholds.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Fallback Channels",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1009
-  {:d3f/attack-id   "T1009",
-   :db/ident        :d3f/T1009,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Binary Padding",
+  {:d3f/attack-id "T1009",
+   :d3f/definition
+   "Adversaries can use binary padding to add junk data and change the on-disk representation of malware without affecting the functionality or behavior of the binary. This will often increase the size of the binary beyond what some security tools are capable of handling due to file size limitations.",
+   :db/ident :d3f/T1009,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1027.001",
+   :rdfs/label "Binary Padding",
+   :rdfs/seeAlso {:rdf/value "T1027.001"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1010
-  {:d3f/attack-id   "T1010",
-   :d3f/may-invoke  #{:d3f/GetOpenWindows :d3f/CreateProcess},
-   :db/ident        :d3f/T1010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Application Window Discovery",
+  {:d3f/attack-id "T1010",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of open application windows. Window listings could convey information about how the system is used.(Citation: Prevailion DarkWatchman 2021) For example, information about application windows could be used identify potential data to collect as well as identifying security tooling ([Security Software Discovery](https://attack.mitre.org/techniques/T1518/001)) to evade.(Citation: ESET Grandoreiro April 2020)",
+   :d3f/may-invoke #{:d3f/GetOpenWindows :d3f/CreateProcess},
+   :db/ident :d3f/T1010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Window Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -30159,30 +30286,36 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1011
-  {:d3f/attack-id   "T1011",
-   :d3f/produces    :d3f/InternetNetworkTraffic,
-   :db/ident        :d3f/T1011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration Over Other Network Medium",
+  {:d3f/attack-id "T1011",
+   :d3f/definition
+   "Adversaries may attempt to exfiltrate data over a different network medium than the command and control channel. If the command and control network is a wired Internet connection, the exfiltration may occur, for example, over a WiFi connection, modem, cellular data connection, Bluetooth, or another radio frequency (RF) channel.",
+   :d3f/produces :d3f/InternetNetworkTraffic,
+   :db/ident :d3f/T1011,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over Other Network Medium",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1011_001
-  {:d3f/attack-id   "T1011.001",
-   :db/ident        :d3f/T1011.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exfiltration Over Bluetooth",
+  {:d3f/attack-id "T1011.001",
+   :d3f/definition
+   "Adversaries may attempt to exfiltrate data over Bluetooth rather than the command and control channel. If the command and control network is a wired Internet connection, an adversary may opt to exfiltrate data using a Bluetooth communication channel.",
+   :db/ident :d3f/T1011.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration Over Bluetooth",
    :rdfs/subClassOf :d3f/T1011})
 
 (def T1012
-  {:d3f/accesses    :d3f/SystemConfigurationDatabase,
-   :d3f/attack-id   "T1012",
-   :d3f/may-invoke  :d3f/GetSystemConfigValue,
-   :db/ident        :d3f/T1012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Query Registry",
+  {:d3f/accesses :d3f/SystemConfigurationDatabase,
+   :d3f/attack-id "T1012",
+   :d3f/definition
+   "Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.",
+   :d3f/may-invoke :d3f/GetSystemConfigValue,
+   :db/ident :d3f/T1012,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Query Registry",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/GetSystemConfigValue,
@@ -30192,20 +30325,27 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1013
-  {:d3f/attack-id   "T1013",
-   :db/ident        :d3f/T1013,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Port Monitors",
+  {:d3f/attack-id "T1013",
+   :d3f/definition
+   "A port monitor can be set through the  (Citation: AddMonitor) API call to set a DLL to be loaded at startup. (Citation: AddMonitor) This DLL can be located in <code>C:\\Windows\\System32</code> and will be loaded by the print spooler service, spoolsv.exe, on boot. The spoolsv.exe process also runs under SYSTEM level permissions. (Citation: Bloxham) Alternatively, an arbitrary DLL can be loaded if permissions allow writing a fully-qualified pathname for that DLL to <code>HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Monitors</code>.",
+   :db/ident :d3f/T1013,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.010",
+   :rdfs/label "Port Monitors",
+   :rdfs/seeAlso {:rdf/value "T1547.010"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1014
-  {:d3f/attack-id   "T1014",
-   :d3f/may-modify  #{:d3f/Firmware :d3f/Kernel :d3f/BootSector
-                      :d3f/KernelModule :d3f/SharedLibraryFile},
-   :db/ident        :d3f/T1014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Rootkit",
+  {:d3f/attack-id "T1014",
+   :d3f/definition
+   "Adversaries may use rootkits to hide the presence of programs, files, network connections, services, drivers, and other system components. Rootkits are programs that hide the existence of malware by intercepting/hooking and modifying operating system API calls that supply system information. (Citation: Symantec Windows Rootkits)",
+   :d3f/may-modify #{:d3f/Firmware :d3f/Kernel :d3f/BootSector :d3f/KernelModule
+                     :d3f/SharedLibraryFile},
+   :db/ident :d3f/T1014,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Rootkit",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/Kernel,
                        :rdf/type           :owl/Restriction}
@@ -30224,20 +30364,27 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1015
-  {:d3f/attack-id   "T1015",
-   :db/ident        :d3f/T1015,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Accessibility Features",
+  {:d3f/attack-id "T1015",
+   :d3f/definition
+   "Windows contains accessibility features that may be launched with a key combination before a user has logged in (for example, when the user is on the Windows logon screen). An adversary can modify the way these programs are launched to get a command prompt or backdoor without logging in to the system.",
+   :db/ident :d3f/T1015,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.008",
+   :rdfs/label "Accessibility Features",
+   :rdfs/seeAlso {:rdf/value "T1546.008"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1016
-  {:d3f/attack-id   "T1016",
+  {:d3f/attack-id "T1016",
+   :d3f/definition
+   "Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include [Arp](https://attack.mitre.org/software/S0099), [ipconfig](https://attack.mitre.org/software/S0100)/[ifconfig](https://attack.mitre.org/software/S0101), [nbtstat](https://attack.mitre.org/software/S0102), and [route](https://attack.mitre.org/software/S0103).",
    :d3f/may-execute :d3f/ExecutableScript,
-   :d3f/may-invoke  #{:d3f/GetSystemNetworkConfigValue :d3f/CreateProcess},
-   :db/ident        :d3f/T1016,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Network Configuration Discovery",
+   :d3f/may-invoke #{:d3f/GetSystemNetworkConfigValue :d3f/CreateProcess},
+   :db/ident :d3f/T1016,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Network Configuration Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-execute,
                        :owl/someValuesFrom :d3f/ExecutableScript,
@@ -30250,27 +30397,45 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1016_001
-  {:d3f/attack-id   "T1016.001",
-   :db/ident        :d3f/T1016.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Internet Connection Discovery",
+  {:d3f/attack-id "T1016.001",
+   :d3f/definition
+   "Adversaries may check for Internet connectivity on compromised systems. This may be performed during automated discovery and can be accomplished in numerous ways such as using [Ping](https://attack.mitre.org/software/S0097), <code>tracert</code>, and GET requests to websites.",
+   :db/ident :d3f/T1016.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Internet Connection Discovery",
+   :rdfs/subClassOf :d3f/T1016})
+
+(def T1016_002
+  {:d3f/attack-id "T1016.002",
+   :d3f/definition
+   "Adversaries may search for information about Wi-Fi networks, such as network names and passwords, on compromised systems. Adversaries may use Wi-Fi information as part of [Account Discovery](https://attack.mitre.org/techniques/T1087), [Remote System Discovery](https://attack.mitre.org/techniques/T1018), and other discovery or [Credential Access](https://attack.mitre.org/tactics/TA0006) activity to support both ongoing and future campaigns.",
+   :db/ident :d3f/T1016.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wi-Fi Discovery",
    :rdfs/subClassOf :d3f/T1016})
 
 (def T1017
-  {:d3f/attack-id   "T1017",
-   :db/ident        :d3f/T1017,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Application Deployment Software",
+  {:d3f/attack-id "T1017",
+   :d3f/definition
+   "Adversaries may deploy malicious software to systems within a network using application deployment systems employed by enterprise administrators. The permissions required for this action vary by system configuration; local credentials may be sufficient with direct access to the deployment server, or specific domain credentials may be required. However, the system may require an administrative account to log in or to perform software deployment.",
+   :db/ident :d3f/T1017,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1072",
+   :rdfs/label "Application Deployment Software",
+   :rdfs/seeAlso {:rdf/value "T1072"},
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1018
-  {:d3f/attack-id   "T1018",
-   :d3f/may-access  :d3f/OperatingSystemConfigurationFile,
-   :d3f/may-invoke  #{:d3f/CreateSocket :d3f/CreateProcess},
-   :d3f/produces    :d3f/NetworkTraffic,
-   :db/ident        :d3f/T1018,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote System Discovery",
+  {:d3f/attack-id "T1018",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network that may be used for Lateral Movement from the current system. Functionality could exist within remote access tools to enable this, but utilities available on the operating system could also be used such as  [Ping](https://attack.mitre.org/software/S0097) or <code>net view</code> using [Net](https://attack.mitre.org/software/S0039).",
+   :d3f/may-access :d3f/OperatingSystemConfigurationFile,
+   :d3f/may-invoke #{:d3f/CreateSocket :d3f/CreateProcess},
+   :d3f/produces :d3f/NetworkTraffic,
+   :db/ident :d3f/T1018,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote System Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateSocket,
@@ -30287,48 +30452,61 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1019
-  {:d3f/attack-id   "T1019",
-   :db/ident        :d3f/T1019,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "System Firmware",
+  {:d3f/attack-id "T1019",
+   :d3f/definition
+   "The BIOS (Basic Input/Output System) and The Unified Extensible Firmware Interface (UEFI) or Extensible Firmware Interface (EFI) are examples of system firmware that operate as the software interface between the operating system and hardware of a computer. (Citation: Wikipedia BIOS) (Citation: Wikipedia UEFI) (Citation: About UEFI)",
+   :db/ident :d3f/T1019,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1542.001",
+   :rdfs/label "System Firmware",
+   :rdfs/seeAlso {:rdf/value "T1542.001"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1020
-  {:d3f/attack-id   "T1020",
-   :d3f/produces    :d3f/InternetNetworkTraffic,
-   :db/ident        :d3f/T1020,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Automated Exfiltration",
+  {:d3f/attack-id "T1020",
+   :d3f/definition
+   "Adversaries may exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection.(Citation: ESET Gamaredon June 2020)",
+   :d3f/produces :d3f/InternetNetworkTraffic,
+   :db/ident :d3f/T1020,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Automated Exfiltration",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1020_001
-  {:d3f/attack-id   "T1020.001",
-   :db/ident        :d3f/T1020.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Traffic Duplication",
+  {:d3f/attack-id "T1020.001",
+   :d3f/definition
+   "Adversaries may leverage traffic mirroring in order to automate data exfiltration over compromised infrastructure. Traffic mirroring is a native feature for some devices, often used for network analysis. For example, devices may be configured to forward network traffic to one or more destinations for analysis by a network analyzer or other monitoring device. (Citation: Cisco Traffic Mirroring)(Citation: Juniper Traffic Mirroring)",
+   :db/ident :d3f/T1020.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Traffic Duplication",
    :rdfs/subClassOf :d3f/T1020})
 
 (def T1021
-  {:d3f/attack-id   "T1021",
-   :d3f/produces    :d3f/IntranetNetworkTraffic,
-   :db/ident        :d3f/T1021,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote Services",
+  {:d3f/attack-id "T1021",
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a service that accepts remote connections, such as telnet, SSH, and VNC. The adversary may then perform actions as the logged-on user.",
+   :d3f/produces :d3f/IntranetNetworkTraffic,
+   :db/ident :d3f/T1021,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Services",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/LateralMovementTechnique}})
 
 (def T1021_001
-  {:d3f/attack-id   "T1021.001",
-   :d3f/creates     :d3f/RDPSession,
-   :d3f/produces    :d3f/AdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1021.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote Desktop Protocol",
+  {:d3f/attack-id "T1021.001",
+   :d3f/creates :d3f/RDPSession,
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user.",
+   :d3f/produces :d3f/AdministrativeNetworkTraffic,
+   :db/ident :d3f/T1021.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Desktop Protocol",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/RDPSession,
                        :rdf/type           :owl/Restriction}
@@ -30337,26 +30515,32 @@
                        :rdf/type           :owl/Restriction} :d3f/T1021}})
 
 (def T1021_002
-  {:d3f/attack-id   "T1021.002",
-   :db/ident        :d3f/T1021.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SMB/Windows Admin Shares",
+  {:d3f/attack-id "T1021.002",
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to interact with a remote network share using Server Message Block (SMB). The adversary may then perform actions as the logged-on user.",
+   :db/ident :d3f/T1021.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "SMB/Windows Admin Shares",
    :rdfs/subClassOf :d3f/T1021})
 
 (def T1021_003
-  {:d3f/attack-id   "T1021.003",
-   :db/ident        :d3f/T1021.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Distributed Component Object Model",
+  {:d3f/attack-id "T1021.003",
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to interact with remote machines by taking advantage of Distributed Component Object Model (DCOM). The adversary may then perform actions as the logged-on user.",
+   :db/ident :d3f/T1021.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Distributed Component Object Model",
    :rdfs/subClassOf :d3f/T1021})
 
 (def T1021_004
-  {:d3f/attack-id   "T1021.004",
-   :d3f/creates     :d3f/SSHSession,
-   :d3f/produces    :d3f/AdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1021.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "SSH",
+  {:d3f/attack-id "T1021.004",
+   :d3f/creates :d3f/SSHSession,
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into remote machines using Secure Shell (SSH). The adversary may then perform actions as the logged-on user.",
+   :d3f/produces :d3f/AdministrativeNetworkTraffic,
+   :db/ident :d3f/T1021.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "SSH",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/SSHSession,
                        :rdf/type           :owl/Restriction}
@@ -30365,110 +30549,175 @@
                        :rdf/type           :owl/Restriction} :d3f/T1021}})
 
 (def T1021_005
-  {:d3f/attack-id   "T1021.005",
-   :db/ident        :d3f/T1021.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "VNC",
+  {:d3f/attack-id "T1021.005",
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to remotely control machines using Virtual Network Computing (VNC).  VNC is a platform-independent desktop sharing system that uses the RFB (“remote framebuffer”) protocol to enable users to remotely control another computer’s display by relaying the screen, mouse, and keyboard inputs over the network.(Citation: The Remote Framebuffer Protocol)",
+   :db/ident :d3f/T1021.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "VNC",
    :rdfs/subClassOf :d3f/T1021})
 
 (def T1021_006
-  {:d3f/attack-id   "T1021.006",
-   :db/ident        :d3f/T1021.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Remote Management",
+  {:d3f/attack-id "T1021.006",
+   :d3f/definition
+   "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to interact with remote systems using Windows Remote Management (WinRM). The adversary may then perform actions as the logged-on user.",
+   :db/ident :d3f/T1021.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows Remote Management",
+   :rdfs/subClassOf :d3f/T1021})
+
+(def T1021_007
+  {:d3f/attack-id "T1021.007",
+   :d3f/definition
+   "Adversaries may log into accessible cloud services within a compromised environment using [Valid Accounts](https://attack.mitre.org/techniques/T1078) that are synchronized with or federated to on-premises user identities. The adversary may then perform management actions or access cloud-hosted resources as the logged-on user.",
+   :db/ident :d3f/T1021.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Services",
+   :rdfs/subClassOf :d3f/T1021})
+
+(def T1021_008
+  {:d3f/attack-id "T1021.008",
+   :d3f/definition
+   "Adversaries may leverage [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log directly into accessible cloud hosted compute infrastructure through cloud native methods. Many cloud providers offer interactive connections to virtual infrastructure that can be accessed through the [Cloud API](https://attack.mitre.org/techniques/T1059/009), such as Azure Serial Console(Citation: Azure Serial Console), AWS EC2 Instance Connect(Citation: EC2 Instance Connect)(Citation: lucr-3: Getting SaaS-y in the cloud), and AWS System Manager.(Citation: AWS System Manager).",
+   :db/ident :d3f/T1021.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Direct Cloud VM Connections",
    :rdfs/subClassOf :d3f/T1021})
 
 (def T1022
-  {:d3f/attack-id   "T1022",
-   :db/ident        :d3f/T1022,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Encrypted",
+  {:d3f/attack-id "T1022",
+   :d3f/definition
+   "Data is encrypted before being exfiltrated in order to hide the information that is being exfiltrated from detection or to make the exfiltration less conspicuous upon inspection by a defender. The encryption is performed by a utility, programming library, or custom algorithm on the data itself and is considered separate from any encryption performed by the command and control or file transfer protocol. Common file archive formats that can encrypt files are RAR and zip.",
+   :db/ident :d3f/T1022,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1560",
+   :rdfs/label "Data Encrypted",
+   :rdfs/seeAlso {:rdf/value "T1560"},
    :rdfs/subClassOf :d3f/ExfiltrationTechnique})
 
 (def T1023
-  {:d3f/attack-id   "T1023",
-   :db/ident        :d3f/T1023,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Shortcut Modification",
+  {:d3f/attack-id "T1023",
+   :d3f/definition
+   "Shortcuts or symbolic links are ways of referencing other files or programs that will be opened or executed when the shortcut is clicked or executed by a system startup process. Adversaries could use shortcuts to execute their tools for persistence. They may create a new shortcut as a means of indirection that may use [Masquerading](https://attack.mitre.org/techniques/T1036) to look like a legitimate program. Adversaries could also edit the target path or entirely replace an existing shortcut so their tools will be executed instead of the intended legitimate program.",
+   :db/ident :d3f/T1023,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.009",
+   :rdfs/label "Shortcut Modification",
+   :rdfs/seeAlso {:rdf/value "T1547.009"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1024
-  {:d3f/attack-id   "T1024",
-   :db/ident        :d3f/T1024,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Custom Cryptographic Protocol",
+  {:d3f/attack-id "T1024",
+   :d3f/definition
+   "Adversaries may use a custom cryptographic protocol or algorithm to hide command and control traffic. A simple scheme, such as XOR-ing the plaintext with a fixed key, will produce a very weak ciphertext.",
+   :db/ident :d3f/T1024,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1573",
+   :rdfs/label "Custom Cryptographic Protocol",
+   :rdfs/seeAlso {:rdf/value "T1573"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1025
-  {:d3f/accesses    :d3f/RemovableMediaDevice,
-   :d3f/attack-id   "T1025",
-   :db/ident        :d3f/T1025,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data from Removable Media",
+  {:d3f/accesses :d3f/RemovableMediaDevice,
+   :d3f/attack-id "T1025",
+   :d3f/definition
+   "Adversaries may search connected removable media on computers they have compromised to find files of interest. Sensitive data can be collected from any removable media (optical disk drive, USB memory, etc.) connected to the compromised system prior to Exfiltration. Interactive command shells may be in use, and common functionality within [cmd](https://attack.mitre.org/software/S0106) may be used to gather information.",
+   :db/ident :d3f/T1025,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data from Removable Media",
    :rdfs/subClassOf #{:d3f/CollectionTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/RemovableMediaDevice,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1026
+  {:d3f/attack-id "T1026",
+   :d3f/definition
+   "**This technique has been deprecated and should no longer be used.**",
+   :db/ident :d3f/T1026,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated and should no longer be used.**",
+   :rdfs/label "Multiband Communication",
+   :rdfs/subClassOf :d3f/CommandAndControlTechnique})
+
 (def T1027
-  {:d3f/attack-id   "T1027",
-   :db/ident        :d3f/T1027,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Obfuscated Files or Information",
+  {:d3f/attack-id "T1027",
+   :d3f/definition
+   "Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit. This is common behavior that can be used across different platforms and the network to evade defenses.",
+   :db/ident :d3f/T1027,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obfuscated Files or Information",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1027_001
-  {:d3f/attack-id   "T1027.001",
-   :d3f/modifies    :d3f/ExecutableBinary,
-   :db/ident        :d3f/T1027.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Binary Padding",
+  {:d3f/attack-id "T1027.001",
+   :d3f/definition
+   "Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This can be done without affecting the functionality or behavior of a binary, but can increase the size of the binary beyond what some security tools are capable of handling due to file size limitations.",
+   :d3f/modifies :d3f/ExecutableBinary,
+   :db/ident :d3f/T1027.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Binary Padding",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
                        :rdf/type           :owl/Restriction} :d3f/T1027}})
 
 (def T1027_002
-  {:d3f/attack-id   "T1027.002",
-   :d3f/obfuscates  :d3f/ExecutableFile,
-   :db/ident        :d3f/T1027.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Software Packing",
+  {:d3f/attack-id "T1027.002",
+   :d3f/definition
+   "Adversaries may perform software packing or virtual machine software protection to conceal their code. Software packing is a method of compressing or encrypting an executable. Packing an executable changes the file signature in an attempt to avoid signature-based detection. Most decompression techniques decompress the executable code in memory. Virtual machine software protection translates an executable's original code into a special format that only a special virtual machine can run. A virtual machine is then called to run this code.(Citation: ESET FinFisher Jan 2018)",
+   :d3f/obfuscates :d3f/ExecutableFile,
+   :db/ident :d3f/T1027.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Software Packing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/obfuscates,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction} :d3f/T1027}})
 
 (def T1027_003
-  {:d3f/attack-id   "T1027.003",
-   :db/ident        :d3f/T1027.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Steganography",
+  {:d3f/attack-id "T1027.003",
+   :d3f/definition
+   "Adversaries may use steganography techniques in order to prevent the detection of hidden information. Steganographic techniques can be used to hide data in digital media such as images, audio tracks, video clips, or text files.",
+   :db/ident :d3f/T1027.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Steganography",
    :rdfs/subClassOf :d3f/T1027})
 
 (def T1027_004
-  {:d3f/attack-id   "T1027.004",
-   :d3f/creates     :d3f/ExecutableFile,
-   :db/ident        :d3f/T1027.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Compile After Delivery",
+  {:d3f/attack-id "T1027.004",
+   :d3f/creates :d3f/ExecutableFile,
+   :d3f/definition
+   "Adversaries may attempt to make payloads difficult to discover and analyze by delivering files to victims as uncompiled code. Text-based source code files may subvert analysis and scrutiny from protections targeting executables/binaries. These payloads will need to be compiled before execution; typically via native utilities such as csc.exe or GCC/MinGW.(Citation: ClearSky MuddyWater Nov 2018)",
+   :db/ident :d3f/T1027.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Compile After Delivery",
    :rdfs/subClassOf #{:d3f/T1027
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1027_005
-  {:d3f/attack-id   "T1027.005",
-   :db/ident        :d3f/T1027.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Indicator Removal from Tools",
+  {:d3f/attack-id "T1027.005",
+   :d3f/definition
+   "Adversaries may remove indicators from tools if they believe their malicious tool was detected, quarantined, or otherwise curtailed. They can modify the tool by removing the indicator and using the updated version that is no longer detected by the target's defensive systems or subsequent targets that may use similar systems.",
+   :db/ident :d3f/T1027.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indicator Removal from Tools",
    :rdfs/subClassOf :d3f/T1027})
 
 (def T1027_006
-  {:d3f/attack-id   "T1027.006",
-   :d3f/creates     :d3f/JavaScriptBlob,
-   :d3f/hides       :d3f/DigitalArtifact,
-   :db/ident        :d3f/T1027.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "HTML Smuggling",
+  {:d3f/attack-id "T1027.006",
+   :d3f/creates :d3f/JavaScriptBlob,
+   :d3f/definition
+   "Adversaries may smuggle data and files past content filters by hiding malicious payloads inside of seemingly benign HTML files. HTML documents can store large binary objects known as JavaScript Blobs (immutable data that represents raw bytes) that can later be constructed into file-like objects. Data may also be stored in Data URLs, which enable embedding media type or MIME files inline of HTML documents. HTML5 also introduced a download attribute that may be used to initiate file downloads.(Citation: HTML Smuggling Menlo Security 2020)(Citation: Outlflank HTML Smuggling 2018)",
+   :d3f/hides :d3f/DigitalArtifact,
+   :db/ident :d3f/T1027.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "HTML Smuggling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/hides,
                        :owl/someValuesFrom :d3f/DigitalArtifact,
                        :rdf/type           :owl/Restriction} :d3f/T1027
@@ -30476,57 +30725,141 @@
                        :owl/someValuesFrom :d3f/JavaScriptBlob,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1027_007
+  {:d3f/attack-id "T1027.007",
+   :d3f/definition
+   "Adversaries may obfuscate then dynamically resolve API functions called by their malware in order to conceal malicious functionalities and impair defensive analysis. Malware commonly uses various [Native API](https://attack.mitre.org/techniques/T1106) functions provided by the OS to perform various tasks such as those involving processes, files, and other system artifacts.",
+   :db/ident :d3f/T1027.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dynamic API Resolution",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_008
+  {:d3f/attack-id "T1027.008",
+   :d3f/definition
+   "Adversaries may attempt to make a payload difficult to analyze by removing symbols, strings, and other human readable information. Scripts and executables may contain variables names and other strings that help developers document code functionality. Symbols are often created by an operating system’s `linker` when executable payloads are compiled. Reverse engineers use these symbols and strings to analyze code and to identify functionality in payloads.(Citation: Mandiant golang stripped binaries explanation)(Citation: intezer stripped binaries elf files 2018)",
+   :db/ident :d3f/T1027.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Stripped Payloads",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_009
+  {:d3f/attack-id "T1027.009",
+   :d3f/definition
+   "Adversaries may embed payloads within other files to conceal malicious content from defenses. Otherwise seemingly benign files (such as scripts and executables) may be abused to carry and obfuscate malicious payloads and content. In some cases, embedded payloads may also enable adversaries to [Subvert Trust Controls](https://attack.mitre.org/techniques/T1553) by not impacting execution controls such as digital signatures and notarization tickets.(Citation: Sentinel Labs)",
+   :db/ident :d3f/T1027.009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Embedded Payloads",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_010
+  {:d3f/attack-id "T1027.010",
+   :d3f/definition
+   "Adversaries may obfuscate content during command execution to impede detection. Command-line obfuscation is a method of making strings and patterns within commands and scripts more difficult to signature and analyze. This type of obfuscation can be included within commands executed by delivered payloads (e.g., [Phishing](https://attack.mitre.org/techniques/T1566) and [Drive-by Compromise](https://attack.mitre.org/techniques/T1189)) or interactively via [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059).(Citation: Akamai JS)(Citation: Malware Monday VBE)",
+   :db/ident :d3f/T1027.010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command Obfuscation",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_011
+  {:d3f/attack-id "T1027.011",
+   :d3f/definition
+   "Adversaries may store data in \"fileless\" formats to conceal malicious activity from defenses. Fileless storage can be broadly defined as any format other than a file. Common examples of non-volatile fileless storage include the Windows Registry, event logs, or WMI repository.(Citation: Microsoft Fileless)(Citation: SecureList Fileless)",
+   :db/ident :d3f/T1027.011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Fileless Storage",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_012
+  {:d3f/attack-id "T1027.012",
+   :d3f/definition
+   "Adversaries may smuggle commands to download malicious payloads past content filters by hiding them within otherwise seemingly benign windows shortcut files. Windows shortcut files (.LNK) include many metadata fields, including an icon location field (also known as the `IconEnvironmentDataBlock`) designed to specify the path to an icon file that is to be displayed for the LNK file within a host directory.",
+   :db/ident :d3f/T1027.012,
+   :rdf/type :owl/Class,
+   :rdfs/label "LNK Icon Smuggling",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_013
+  {:d3f/attack-id "T1027.013",
+   :d3f/definition
+   "Adversaries may encrypt or encode files to obfuscate strings, bytes, and other specific patterns to impede detection. Encrypting and/or encoding file content aims to conceal malicious artifacts within a file used in an intrusion. Many other techniques, such as [Software Packing](https://attack.mitre.org/techniques/T1027/002), [Steganography](https://attack.mitre.org/techniques/T1027/003), and [Embedded Payloads](https://attack.mitre.org/techniques/T1027/009), share this same broad objective. Encrypting and/or encoding files could lead to a lapse in detection of static signatures, only for this malicious content to be revealed (i.e., [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140)) at the time of execution/use.",
+   :db/ident :d3f/T1027.013,
+   :rdf/type :owl/Class,
+   :rdfs/label "Encrypted/Encoded File",
+   :rdfs/subClassOf :d3f/T1027})
+
 (def T1028
-  {:d3f/attack-id   "T1028",
-   :db/ident        :d3f/T1028,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Remote Management",
+  {:d3f/attack-id "T1028",
+   :d3f/definition
+   "Windows Remote Management (WinRM) is the name of both a Windows service and a protocol that allows a user to interact with a remote system (e.g., run an executable, modify the Registry, modify services). (Citation: Microsoft WinRM) It may be called with the <code>winrm</code> command or by any number of programs such as PowerShell. (Citation: Jacobsen 2014)",
+   :db/ident :d3f/T1028,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1021.006",
+   :rdfs/label "Windows Remote Management",
+   :rdfs/seeAlso {:rdf/value "T1021.006"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/LateralMovementTechnique}})
 
 (def T1029
-  {:d3f/attack-id   "T1029",
-   :d3f/produces    :d3f/InternetNetworkTraffic,
-   :db/ident        :d3f/T1029,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Scheduled Transfer",
+  {:d3f/attack-id "T1029",
+   :d3f/definition
+   "Adversaries may schedule data exfiltration to be performed only at certain times of day or at certain intervals. This could be done to blend traffic patterns with normal activity or availability.",
+   :d3f/produces :d3f/InternetNetworkTraffic,
+   :db/ident :d3f/T1029,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Scheduled Transfer",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1030
-  {:d3f/attack-id   "T1030",
-   :d3f/produces    :d3f/InternetNetworkTraffic,
-   :db/ident        :d3f/T1030,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data Transfer Size Limits",
+  {:d3f/attack-id "T1030",
+   :d3f/definition
+   "An adversary may exfiltrate data in fixed size chunks instead of whole files or limit packet sizes below certain thresholds. This approach may be used to avoid triggering network data transfer threshold alerts.",
+   :d3f/produces :d3f/InternetNetworkTraffic,
+   :db/ident :d3f/T1030,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Transfer Size Limits",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1031
-  {:d3f/attack-id   "T1031",
-   :db/ident        :d3f/T1031,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Modify Existing Service",
+  {:d3f/attack-id "T1031",
+   :d3f/definition
+   "Windows service configuration information, including the file path to the service's executable or recovery programs/commands, is stored in the Registry. Service configurations can be modified using utilities such as sc.exe and [Reg](https://attack.mitre.org/software/S0075).",
+   :db/ident :d3f/T1031,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1543.003",
+   :rdfs/label "Modify Existing Service",
+   :rdfs/seeAlso {:rdf/value "T1543.003"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1032
-  {:d3f/attack-id   "T1032",
-   :db/ident        :d3f/T1032,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Standard Cryptographic Protocol",
+  {:d3f/attack-id "T1032",
+   :d3f/definition
+   "Adversaries may explicitly employ a known encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Despite the use of a secure algorithm, these implementations may be vulnerable to reverse engineering if necessary secret keys are encoded and/or generated within malware samples/configuration files.",
+   :db/ident :d3f/T1032,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1573",
+   :rdfs/label "Standard Cryptographic Protocol",
+   :rdfs/seeAlso {:rdf/value "T1573"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1033
-  {:d3f/attack-id   "T1033",
-   :d3f/may-access  #{:d3f/DirectoryService :d3f/PasswordFile
-                      :d3f/ProcessSegment :d3f/GetSystemConfigValue},
-   :d3f/may-invoke  #{:d3f/CopyToken :d3f/CreateProcess},
-   :db/ident        :d3f/T1033,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Owner/User Discovery",
+  {:d3f/attack-id "T1033",
+   :d3f/definition
+   "Adversaries may attempt to identify the primary user, currently logged in user, set of users that commonly uses a system, or whether a user is actively using the system. They may do this, for example, by retrieving account usernames or by using [OS Credential Dumping](https://attack.mitre.org/techniques/T1003). The information may be collected in a number of different ways using other Discovery techniques, because user and username details are prevalent throughout a system and include running process ownership, file/directory ownership, session information, and system logs. Adversaries may use the information from [System Owner/User Discovery](https://attack.mitre.org/techniques/T1033) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :d3f/may-access #{:d3f/DirectoryService :d3f/PasswordFile :d3f/ProcessSegment
+                     :d3f/GetSystemConfigValue},
+   :d3f/may-invoke #{:d3f/CopyToken :d3f/CreateProcess},
+   :db/ident :d3f/T1033,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Owner/User Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/GetSystemConfigValue,
@@ -30547,48 +30880,74 @@
                        :owl/someValuesFrom :d3f/PasswordFile,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1034
+  {:d3f/attack-id "T1034",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Path Interception by PATH Environment Variable](https://attack.mitre.org/techniques/T1574/007), [Path Interception by Search Order Hijacking](https://attack.mitre.org/techniques/T1574/008), and/or [Path Interception by Unquoted Path](https://attack.mitre.org/techniques/T1574/009).**",
+   :db/ident :d3f/T1034,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Path Interception by PATH Environment Variable](https://attack.mitre.org/techniques/T1574/007), [Path Interception by Search Order Hijacking](https://attack.mitre.org/techniques/T1574/008), and/or [Path Interception by Unquoted Path](https://attack.mitre.org/techniques/T1574/009).**",
+   :rdfs/label "Path Interception",
+   :rdfs/subClassOf #{:d3f/PersistenceTechnique
+                      :d3f/PrivilegeEscalationTechnique}})
+
 (def T1035
-  {:d3f/attack-id   "T1035",
-   :db/ident        :d3f/T1035,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Service Execution",
+  {:d3f/attack-id "T1035",
+   :d3f/definition
+   "Adversaries may execute a binary, command, or script via a method that interacts with Windows services, such as the Service Control Manager. This can be done by either creating a new service or modifying an existing service. This technique is the execution used in conjunction with [New Service](https://attack.mitre.org/techniques/T1050) and [Modify Existing Service](https://attack.mitre.org/techniques/T1031) during service persistence or privilege escalation.",
+   :db/ident :d3f/T1035,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1569.002",
+   :rdfs/label "Service Execution",
+   :rdfs/seeAlso {:rdf/value "T1569.002"},
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1036
-  {:d3f/attack-id   "T1036",
-   :db/ident        :d3f/T1036,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Masquerading",
+  {:d3f/attack-id "T1036",
+   :d3f/definition
+   "Adversaries may attempt to manipulate features of their artifacts to make them appear legitimate or benign to users and/or security tools. Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.",
+   :db/ident :d3f/T1036,
+   :rdf/type :owl/Class,
+   :rdfs/label "Masquerading",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1036_001
-  {:d3f/attack-id   "T1036.001",
-   :d3f/creates     :d3f/ExecutableBinary,
-   :db/ident        :d3f/T1036.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Invalid Code Signature",
+  {:d3f/attack-id "T1036.001",
+   :d3f/creates :d3f/ExecutableBinary,
+   :d3f/definition
+   "Adversaries may attempt to mimic features of valid code signatures to increase the chance of deceiving a user, analyst, or tool. Code signing provides a level of authenticity on a binary from the developer and a guarantee that the binary has not been tampered with. Adversaries can copy the metadata and signature information from a signed program, then use it as a template for an unsigned program. Files with invalid code signatures will fail digital signature validation checks, but they may appear more legitimate to users and security tools may improperly handle these files.(Citation: Threatexpress MetaTwin 2017)",
+   :db/ident :d3f/T1036.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Invalid Code Signature",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1036_002
-  {:d3f/attack-id   "T1036.002",
-   :d3f/modifies    :d3f/FileSystemMetadata,
-   :db/ident        :d3f/T1036.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Right-to-Left Override",
+  {:d3f/attack-id "T1036.002",
+   :d3f/definition
+   "Adversaries may abuse the right-to-left override (RTLO or RLO) character (U+202E) to disguise a string and/or file name to make it appear benign. RTLO is a non-printing Unicode character that causes the text that follows it to be displayed in reverse. For example, a Windows screensaver executable named <code>March 25 \\u202Excod.scr</code> will display as <code>March 25 rcs.docx</code>. A JavaScript file named <code>photo_high_re\\u202Egnp.js</code> will be displayed as <code>photo_high_resj.png</code>.(Citation: Infosecinstitute RTLO Technique)",
+   :d3f/modifies :d3f/FileSystemMetadata,
+   :db/ident :d3f/T1036.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Right-to-Left Override",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
                        :rdf/type           :owl/Restriction} :d3f/T1036}})
 
 (def T1036_003
-  {:d3f/attack-id   "T1036.003",
-   :d3f/may-create  :d3f/ExecutableFile,
-   :d3f/may-modify  :d3f/OperatingSystemExecutableFile,
-   :db/ident        :d3f/T1036.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Rename System Utilities",
+  {:d3f/attack-id "T1036.003",
+   :d3f/definition
+   "Adversaries may rename legitimate system utilities to try to evade security mechanisms concerning the usage of those utilities. Security monitoring and control mechanisms may be in place for system utilities adversaries are capable of abusing. (Citation: LOLBAS Main Site) It may be possible to bypass those security mechanisms by renaming the utility prior to utilization (ex: rename <code>rundll32.exe</code>). (Citation: Elastic Masquerade Ball) An alternative case occurs when a legitimate utility is copied or moved to a different directory and renamed to avoid detections based on system utilities executing from non-standard paths. (Citation: F-Secure CozyDuke)",
+   :d3f/may-create :d3f/ExecutableFile,
+   :d3f/may-modify :d3f/OperatingSystemExecutableFile,
+   :db/ident :d3f/T1036.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Rename System Utilities",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/OperatingSystemExecutableFile,
@@ -30598,22 +30957,26 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1036_004
-  {:d3f/attack-id   "T1036.004",
-   :d3f/modifies    :d3f/JobSchedule,
-   :db/ident        :d3f/T1036.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Masquerade Task or Service",
+  {:d3f/attack-id "T1036.004",
+   :d3f/definition
+   "Adversaries may attempt to manipulate the name of a task or service to make it appear legitimate or benign. Tasks/services executed by the Task Scheduler or systemd will typically be given a name and/or description.(Citation: TechNet Schtasks)(Citation: Systemd Service Units) Windows services will have a service name as well as a display name. Many benign tasks and services exist that have commonly associated names. Adversaries may give tasks or services names that are similar or identical to those of legitimate ones.",
+   :d3f/modifies :d3f/JobSchedule,
+   :db/ident :d3f/T1036.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Masquerade Task or Service",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/JobSchedule,
                        :rdf/type           :owl/Restriction} :d3f/T1036}})
 
 (def T1036_005
-  {:d3f/attack-id   "T1036.005",
-   :d3f/invokes     :d3f/MoveFile,
-   :d3f/may-create  :d3f/File,
-   :db/ident        :d3f/T1036.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Match Legitimate Name or Location",
+  {:d3f/attack-id "T1036.005",
+   :d3f/definition
+   "Adversaries may match or approximate the name or location of legitimate files or resources when naming/placing them. This is done for the sake of evading defenses and observation. This may be done by placing an executable in a commonly trusted directory (ex: under System32) or giving it the name of a legitimate, trusted program (ex: svchost.exe). In containerized environments, this may also be done by creating a resource in a namespace that matches the naming convention of a container pod or cluster. Alternatively, a file or container image name given may be a close approximation to legitimate programs/images or something innocuous.",
+   :d3f/invokes :d3f/MoveFile,
+   :d3f/may-create :d3f/File,
+   :db/ident :d3f/T1036.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Match Legitimate Name or Location",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction} :d3f/T1036
@@ -30622,51 +30985,79 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1036_006
-  {:d3f/attack-id   "T1036.006",
-   :d3f/creates     :d3f/File,
-   :db/ident        :d3f/T1036.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Space after Filename",
+  {:d3f/attack-id "T1036.006",
+   :d3f/creates :d3f/File,
+   :d3f/definition
+   "Adversaries can hide a program's true filetype by changing the extension of a file. With certain file types (specifically this does not work with .app extensions), appending a space to the end of a filename will change how the file is processed by the operating system.",
+   :db/ident :d3f/T1036.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Space after Filename",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1036_007
-  {:d3f/attack-id   "T1036.007",
-   :d3f/modifies    :d3f/FileSystemMetadata,
-   :db/ident        :d3f/T1036.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Double File Extension",
+  {:d3f/attack-id "T1036.007",
+   :d3f/definition
+   "Adversaries may abuse a double extension in the filename as a means of masquerading the true file type. A file name may include a secondary file type extension that may cause only the first extension to be displayed (ex: <code>File.txt.exe</code> may render in some views as just <code>File.txt</code>). However, the second extension is the true file type that determines how the file is opened and executed. The real file extension may be hidden by the operating system in the file browser (ex: explorer.exe), as well as in any software configured using or similar to the system’s policies.(Citation: PCMag DoubleExtension)(Citation: SOCPrime DoubleExtension)",
+   :d3f/modifies :d3f/FileSystemMetadata,
+   :db/ident :d3f/T1036.007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Double File Extension",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
                        :rdf/type           :owl/Restriction} :d3f/T1036}})
 
+(def T1036_008
+  {:d3f/attack-id "T1036.008",
+   :d3f/definition
+   "Adversaries may masquerade malicious payloads as legitimate files through changes to the payload's formatting, including the file’s signature, extension, and contents. Various file types have a typical standard format, including how they are encoded and organized. For example, a file’s signature (also known as header or magic bytes) is the beginning bytes of a file and is often used to identify the file’s type. For example, the header of a JPEG file,  is <code> 0xFF 0xD8</code> and the file extension is either `.JPE`, `.JPEG` or `.JPG`.",
+   :db/ident :d3f/T1036.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Masquerade File Type",
+   :rdfs/subClassOf :d3f/T1036})
+
+(def T1036_009
+  {:d3f/attack-id "T1036.009",
+   :d3f/definition
+   "An adversary may attempt to evade process tree-based analysis by modifying executed malware's parent process ID (PPID). If endpoint protection software leverages the “parent-child\" relationship for detection, breaking this relationship could result in the adversary’s behavior not being associated with previous process tree activity. On Unix-based systems breaking this process tree is common practice for administrators to execute software using scripts and programs.(Citation: 3OHA double-fork 2022)",
+   :db/ident :d3f/T1036.009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Break Process Trees",
+   :rdfs/subClassOf :d3f/T1036})
+
 (def T1037
-  {:d3f/attack-id   "T1037",
-   :db/ident        :d3f/T1037,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Boot or Logon Initialization Scripts",
+  {:d3f/attack-id "T1037",
+   :d3f/definition
+   "Adversaries may use scripts automatically executed at boot or logon initialization to establish persistence.(Citation: Mandiant APT29 Eye Spy Email Nov 22)(Citation: Anomali Rocke March 2019) Initialization scripts can be used to perform administrative functions, which may often execute other programs or send information to an internal logging server. These scripts can vary based on operating system and whether applied locally or remotely.",
+   :db/ident :d3f/T1037,
+   :rdf/type :owl/Class,
+   :rdfs/label "Boot or Logon Initialization Scripts",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1037_001
-  {:d3f/attack-id   "T1037.001",
-   :d3f/modifies    :d3f/UserInitScript,
-   :db/ident        :d3f/T1037.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Logon Script (Windows)",
+  {:d3f/attack-id "T1037.001",
+   :d3f/definition
+   "Adversaries may use Windows logon scripts automatically executed at logon initialization to establish persistence. Windows allows logon scripts to be run whenever a specific user or group of users log into a system.(Citation: TechNet Logon Scripts) This is done via adding a path to a script to the <code>HKCU\\Environment\\UserInitMprLogonScript</code> Registry key.(Citation: Hexacorn Logon Scripts)",
+   :d3f/modifies :d3f/UserInitScript,
+   :db/ident :d3f/T1037.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Logon Script (Windows)",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserInitScript,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1037_002
-  {:d3f/attack-id   "T1037.002",
-   :d3f/modifies    :d3f/UserInitScript,
-   :db/ident        :d3f/T1037.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Logon Script (Mac)",
+  {:d3f/attack-id "T1037.002",
+   :d3f/definition
+   "Adversaries may use a Login Hook to establish persistence executed upon user logon. A login hook is a plist file that points to a specific script to execute with root privileges upon user logon. The plist file is located in the <code>/Library/Preferences/com.apple.loginwindow.plist</code> file and can be modified using the <code>defaults</code> command-line utility. This behavior is the same for logout hooks where a script can be executed upon user logout. All hooks require administrator permissions to modify or create hooks.(Citation: Login Scripts Apple Dev)(Citation: LoginWindowScripts Apple Dev)",
+   :d3f/modifies :d3f/UserInitScript,
+   :db/ident :d3f/T1037.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Login Hook",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserInitScript,
@@ -30686,107 +31077,153 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1037_004
-  {:d3f/attack-id   "T1037.004",
-   :d3f/modifies    :d3f/SystemInitScript,
-   :db/ident        :d3f/T1037.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Rc.common",
+  {:d3f/attack-id "T1037.004",
+   :d3f/definition
+   "Adversaries may establish persistence by modifying RC scripts which are executed during a Unix-like system’s startup. These files allow system administrators to map and start custom services at startup for different run levels. RC scripts require root privileges to modify.",
+   :d3f/modifies :d3f/SystemInitScript,
+   :db/ident :d3f/T1037.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "RC Scripts",
    :rdfs/subClassOf #{:d3f/T1037
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemInitScript,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1037_005
-  {:d3f/attack-id   "T1037.005",
-   :d3f/modifies    :d3f/SystemStartupDirectory,
-   :db/ident        :d3f/T1037.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Startup Items",
+  {:d3f/attack-id "T1037.005",
+   :d3f/definition
+   "Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items.(Citation: Startup Items)",
+   :d3f/modifies :d3f/SystemStartupDirectory,
+   :db/ident :d3f/T1037.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Startup Items",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemStartupDirectory,
                        :rdf/type           :owl/Restriction} :d3f/T1037}})
 
 (def T1038
-  {:d3f/attack-id   "T1038",
-   :db/ident        :d3f/T1038,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DLL Search Order Hijacking",
+  {:d3f/attack-id "T1038",
+   :d3f/definition
+   "Windows systems use a common method to look for required DLLs to load into a program. (Citation: Microsoft DLL Search) Adversaries may take advantage of the Windows DLL search order and programs that ambiguously specify DLLs to gain privilege escalation and persistence.",
+   :db/ident :d3f/T1038,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1574.001",
+   :rdfs/label "DLL Search Order Hijacking",
+   :rdfs/seeAlso {:rdf/value "T1574.001"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1039
-  {:d3f/accesses    :d3f/NetworkFileShareResource,
-   :d3f/attack-id   "T1039",
-   :db/ident        :d3f/T1039,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data from Network Shared Drive",
+  {:d3f/accesses :d3f/NetworkFileShareResource,
+   :d3f/attack-id "T1039",
+   :d3f/definition
+   "Adversaries may search network shares on computers they have compromised to find files of interest. Sensitive data can be collected from remote systems via shared network drives (host shared directory, network file server, etc.) that are accessible from the current system prior to Exfiltration. Interactive command shells may be in use, and common functionality within [cmd](https://attack.mitre.org/software/S0106) may be used to gather information.",
+   :db/ident :d3f/T1039,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data from Network Shared Drive",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/NetworkFileShareResource,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1040
-  {:d3f/attack-id   "T1040",
+  {:d3f/attack-id "T1040",
+   :d3f/definition
+   "Adversaries may passively sniff network traffic to capture information about an environment, including authentication material passed over the network. Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection. An adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data.",
    :d3f/may-produce :d3f/DNSLookup,
-   :db/ident        :d3f/T1040,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Network Sniffing",
+   :db/ident :d3f/T1040,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Network Sniffing",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique :d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/DNSLookup,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1041
-  {:d3f/attack-id    "T1041",
+  {:d3f/attack-id "T1041",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.",
    :d3f/may-transfer :d3f/CertificateFile,
-   :d3f/produces     :d3f/InternetNetworkTraffic,
-   :db/ident         :d3f/T1041,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label       "Exfiltration Over C2 Channel",
-   :rdfs/subClassOf  #{:d3f/ExfiltrationTechnique
-                       {:owl/onProperty     :d3f/produces,
-                        :owl/someValuesFrom :d3f/InternetNetworkTraffic,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3f/may-transfer,
-                        :owl/someValuesFrom :d3f/CertificateFile,
-                        :rdf/type           :owl/Restriction}}})
+   :d3f/produces :d3f/InternetNetworkTraffic,
+   :db/ident :d3f/T1041,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over C2 Channel",
+   :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
+                      {:owl/onProperty     :d3f/produces,
+                       :owl/someValuesFrom :d3f/InternetNetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-transfer,
+                       :owl/someValuesFrom :d3f/CertificateFile,
+                       :rdf/type           :owl/Restriction}}})
 
 (def T1042
-  {:d3f/attack-id   "T1042",
-   :db/ident        :d3f/T1042,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Change Default File Association",
+  {:d3f/attack-id "T1042",
+   :d3f/definition
+   "When a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access (Citation: Microsoft Change Default Programs) (Citation: Microsoft File Handlers) or by administrators using the built-in assoc utility. (Citation: Microsoft Assoc Oct 2017) Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened.",
+   :db/ident :d3f/T1042,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.001",
+   :rdfs/label "Change Default File Association",
+   :rdfs/seeAlso {:rdf/value "T1546.001"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
+(def T1043
+  {:d3f/attack-id "T1043",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Non-Standard Port](https://attack.mitre.org/techniques/T1571) where appropriate.**",
+   :db/ident :d3f/T1043,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Non-Standard Port](https://attack.mitre.org/techniques/T1571) where appropriate.**",
+   :rdfs/label "Commonly Used Port",
+   :rdfs/subClassOf :d3f/CommandAndControlTechnique})
+
 (def T1044
-  {:d3f/attack-id   "T1044",
-   :db/ident        :d3f/T1044,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "File System Permissions Weakness",
+  {:d3f/attack-id "T1044",
+   :d3f/definition
+   "Processes may automatically execute specific binaries as part of their functionality or to perform other actions. If the permissions on the file system directory containing a target binary, or permissions on the binary itself, are improperly set, then the target binary may be overwritten with another binary using user-level permissions and executed by the original process. If the original process and thread are running under a higher permissions level, then the replaced binary will also execute under higher-level permissions, which could include SYSTEM.",
+   :db/ident :d3f/T1044,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1574.010",
+   :rdfs/label "File System Permissions Weakness",
+   :rdfs/seeAlso {:rdf/value "T1574.010"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1045
-  {:d3f/attack-id   "T1045",
-   :db/ident        :d3f/T1045,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Software Packing",
+  {:d3f/attack-id "T1045",
+   :d3f/definition
+   "Software packing is a method of compressing or encrypting an executable. Packing an executable changes the file signature in an attempt to avoid signature-based detection. Most decompression techniques decompress the executable code in memory.",
+   :db/ident :d3f/T1045,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1027.002",
+   :rdfs/label "Software Packing",
+   :rdfs/seeAlso {:rdf/value "T1027.002"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1046
-  {:d3f/attack-id   "T1046",
-   :db/ident        :d3f/T1046,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Service Scanning",
+  {:d3f/attack-id "T1046",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of services running on remote hosts and local network infrastructure devices, including those that may be vulnerable to remote software exploitation. Common methods to acquire this information include port and/or vulnerability scans using tools that are brought onto a system.(Citation: CISA AR21-126A FIVEHANDS May 2021)",
+   :db/ident :d3f/T1046,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Service Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1047
-  {:d3f/attack-id   "T1047",
-   :d3f/may-create  :d3f/IntranetAdministrativeNetworkTraffic,
-   :d3f/may-invoke  :d3f/CreateProcess,
-   :db/ident        :d3f/T1047,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows Management Instrumentation Execution",
+  {:d3f/attack-id "T1047",
+   :d3f/definition
+   "Adversaries may abuse Windows Management Instrumentation (WMI) to execute malicious commands and payloads. WMI is designed for programmers and is the infrastructure for management data and operations on Windows systems.(Citation: WMI 1-3) WMI is an administration feature that provides a uniform environment to access Windows system components.",
+   :d3f/may-create :d3f/IntranetAdministrativeNetworkTraffic,
+   :d3f/may-invoke :d3f/CreateProcess,
+   :db/ident :d3f/T1047,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Windows Management Instrumentation",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty :d3f/may-create,
                        :owl/someValuesFrom
@@ -30797,22 +31234,26 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1048
-  {:d3f/attack-id   "T1048",
-   :d3f/produces    :d3f/InternetNetworkTraffic,
-   :db/ident        :d3f/T1048,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration Over Alternative Protocol",
+  {:d3f/attack-id "T1048",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.",
+   :d3f/produces :d3f/InternetNetworkTraffic,
+   :db/ident :d3f/T1048,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over Alternative Protocol",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1048_001
-  {:d3f/attack-id   "T1048.001",
-   :d3f/produces    :d3f/OutboundInternetEncryptedTraffic,
-   :db/ident        :d3f/T1048.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration Over Symmetric Encrypted Non-C2 Protocol",
+  {:d3f/attack-id "T1048.001",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.",
+   :d3f/produces :d3f/OutboundInternetEncryptedTraffic,
+   :db/ident :d3f/T1048.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over Symmetric Encrypted Non-C2 Protocol",
    :rdfs/subClassOf #{:d3f/T1048
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
@@ -30820,63 +31261,90 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1048_002
-  {:d3f/attack-id    "T1048.002",
+  {:d3f/attack-id "T1048.002",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over an asymmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.",
    :d3f/may-transfer :d3f/CertificateFile,
-   :d3f/produces     :d3f/OutboundInternetEncryptedTraffic,
-   :db/ident         :d3f/T1048.002,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label       "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
-   :rdfs/subClassOf  #{:d3f/T1048
-                       {:owl/onProperty :d3f/produces,
-                        :owl/someValuesFrom
-                        :d3f/OutboundInternetEncryptedTraffic,
-                        :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3f/may-transfer,
-                        :owl/someValuesFrom :d3f/CertificateFile,
-                        :rdf/type           :owl/Restriction}}})
+   :d3f/produces :d3f/OutboundInternetEncryptedTraffic,
+   :db/ident :d3f/T1048.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
+   :rdfs/subClassOf #{:d3f/T1048
+                      {:owl/onProperty :d3f/produces,
+                       :owl/someValuesFrom
+                       :d3f/OutboundInternetEncryptedTraffic,
+                       :rdf/type :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-transfer,
+                       :owl/someValuesFrom :d3f/CertificateFile,
+                       :rdf/type           :owl/Restriction}}})
 
 (def T1048_003
-  {:d3f/attack-id   "T1048.003",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1048.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
+  {:d3f/attack-id "T1048.003",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.(Citation: copy_cmd_cisco)",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1048.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over Unencrypted Non-C2 Protocol",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1048}})
 
 (def T1049
-  {:d3f/attack-id   "T1049",
-   :d3f/may-invoke  :d3f/GetOpenSockets,
-   :db/ident        :d3f/T1049,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Network Connections Discovery",
+  {:d3f/attack-id "T1049",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network.",
+   :d3f/may-invoke :d3f/GetOpenSockets,
+   :db/ident :d3f/T1049,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Network Connections Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/GetOpenSockets,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1050
-  {:d3f/attack-id   "T1050",
-   :db/ident        :d3f/T1050,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "New Service",
+  {:d3f/attack-id "T1050",
+   :d3f/definition
+   "When operating systems boot up, they can start programs or applications called services that perform background system functions. (Citation: TechNet Services) A service's configuration information, including the file path to the service's executable, is stored in the Windows Registry.",
+   :db/ident :d3f/T1050,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1543.003",
+   :rdfs/label "New Service",
+   :rdfs/seeAlso {:rdf/value "T1543.003"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
+(def T1051
+  {:d3f/attack-id "T1051",
+   :d3f/definition
+   "**This technique has been deprecated and should no longer be used.**",
+   :db/ident :d3f/T1051,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated and should no longer be used.**",
+   :rdfs/label "Shared Webroot",
+   :rdfs/subClassOf :d3f/LateralMovementTechnique})
+
 (def T1052
-  {:d3f/attack-id   "T1052",
-   :db/ident        :d3f/T1052,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exfiltration Over Physical Medium",
+  {:d3f/attack-id "T1052",
+   :d3f/definition
+   "Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a physical medium or device introduced by a user. Such media could be an external hard drive, USB drive, cellular phone, MP3 player, or other removable storage and processing device. The physical medium or device could be used as the final exfiltration point or to hop between otherwise disconnected systems.",
+   :db/ident :d3f/T1052,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration Over Physical Medium",
    :rdfs/subClassOf :d3f/ExfiltrationTechnique})
 
 (def T1052_001
-  {:d3f/attack-id   "T1052.001",
-   :d3f/modifies    :d3f/RemovableMediaDevice,
-   :db/ident        :d3f/T1052.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration over USB",
+  {:d3f/attack-id "T1052.001",
+   :d3f/definition
+   "Adversaries may attempt to exfiltrate data over a USB connected physical device. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a USB device introduced by a user. The USB device could be used as the final exfiltration point or to hop between otherwise disconnected systems.",
+   :d3f/modifies :d3f/RemovableMediaDevice,
+   :db/ident :d3f/T1052.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration over USB",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/RemovableMediaDevice,
                        :rdf/type           :owl/Restriction} :d3f/T1052}})
@@ -30890,7 +31358,7 @@
    :d3f/modifies :d3f/JobSchedule,
    :db/ident :d3f/T1053,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Scheduled Task/Job Execution",
+   :rdfs/label "Scheduled Task/Job",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/JobSchedule,
@@ -30905,32 +31373,46 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1053_001
-  {:d3f/attack-id   "T1053.001",
-   :db/ident        :d3f/T1053.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "At (Linux) Execution",
+  {:d3f/attack-id "T1053.001",
+   :d3f/definition
+   "Adversaries may abuse the [at](https://attack.mitre.org/software/S0110) utility to perform task scheduling for initial, recurring, or future execution of malicious code. The [at](https://attack.mitre.org/software/S0110) command within Linux operating systems enables administrators to schedule tasks.(Citation: Kifarunix - Task Scheduling in Linux)",
+   :db/ident :d3f/T1053.001,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1053.002",
+   :rdfs/label "At (Linux) Execution",
+   :rdfs/seeAlso {:rdf/value "T1053.002"},
    :rdfs/subClassOf :d3f/T1053})
 
 (def T1053_002
-  {:d3f/attack-id   "T1053.002",
-   :db/ident        :d3f/T1053.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "At (Windows) Execution",
+  {:d3f/attack-id "T1053.002",
+   :d3f/definition
+   "Adversaries may abuse the [at](https://attack.mitre.org/software/S0110) utility to perform task scheduling for initial or recurring execution of malicious code. The [at](https://attack.mitre.org/software/S0110) utility exists as an executable within Windows, Linux, and macOS for scheduling tasks at a specified time and date. Although deprecated in favor of [Scheduled Task](https://attack.mitre.org/techniques/T1053/005)'s [schtasks](https://attack.mitre.org/software/S0111) in Windows environments, using [at](https://attack.mitre.org/software/S0110) requires that the Task Scheduler service be running, and the user to be logged on as a member of the local Administrators group.",
+   :db/ident :d3f/T1053.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "At",
    :rdfs/subClassOf :d3f/T1053})
 
 (def T1053_003
-  {:d3f/attack-id   "T1053.003",
-   :db/ident        :d3f/T1053.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cron Execution",
+  {:d3f/attack-id "T1053.003",
+   :d3f/definition
+   "Adversaries may abuse the <code>cron</code> utility to perform task scheduling for initial or recurring execution of malicious code.(Citation: 20 macOS Common Tools and Techniques) The <code>cron</code> utility is a time-based job scheduler for Unix-like operating systems.  The <code> crontab</code> file contains the schedule of cron entries to be run and the specified times for execution. Any <code>crontab</code> files are stored in operating system-specific file paths.",
+   :db/ident :d3f/T1053.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cron",
    :rdfs/subClassOf :d3f/T1053})
 
 (def T1053_004
-  {:d3f/attack-id   "T1053.004",
-   :d3f/creates     :d3f/PropertyListFile,
-   :db/ident        :d3f/T1053.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Launchd",
+  {:d3f/attack-id "T1053.004",
+   :d3f/creates :d3f/PropertyListFile,
+   :d3f/definition
+   "This technique is deprecated due to the inaccurate usage. The report cited did not provide technical detail as to how the malware interacted directly with launchd rather than going through known services. Other system services are used to interact with launchd rather than launchd being used by itself.",
+   :db/ident :d3f/T1053.004,
+   :owl/deprecated true,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "This technique is deprecated due to the inaccurate usage. The report cited did not provide technical detail as to how the malware interacted directly with launchd rather than going through known services. Other system services are used to interact with launchd rather than launchd being used by itself.",
+   :rdfs/label "Launchd",
    :rdfs/subClassOf #{:d3f/T1053
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/PropertyListFile,
@@ -30943,49 +31425,62 @@
    :d3f/executes :d3f/ScheduledJob,
    :db/ident :d3f/T1053.005,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Schtasks Execution",
+   :rdfs/label "Scheduled Task",
    :rdfs/subClassOf #{:d3f/T1053
                       {:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/ScheduledJob,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1053_006
-  {:d3f/attack-id   "T1053.006",
-   :db/ident        :d3f/T1053.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Systemd Timers",
+  {:d3f/attack-id "T1053.006",
+   :d3f/definition
+   "Adversaries may abuse systemd timers to perform task scheduling for initial or recurring execution of malicious code. Systemd timers are unit files with file extension <code>.timer</code> that control services. Timers can be set to run on a calendar event or after a time span relative to a starting point. They can be used as an alternative to [Cron](https://attack.mitre.org/techniques/T1053/003) in Linux environments.(Citation: archlinux Systemd Timers Aug 2020) Systemd timers may be activated remotely via the <code>systemctl</code> command line utility, which operates over [SSH](https://attack.mitre.org/techniques/T1021/004).(Citation: Systemd Remote Control)",
+   :db/ident :d3f/T1053.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Systemd Timers",
    :rdfs/subClassOf :d3f/T1053})
 
 (def T1053_007
-  {:d3f/attack-id   "T1053.007",
-   :db/ident        :d3f/T1053.007,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Container Orchestration Job",
+  {:d3f/attack-id "T1053.007",
+   :d3f/definition
+   "Adversaries may abuse task scheduling functionality provided by container orchestration tools such as Kubernetes to schedule deployment of containers configured to execute malicious code. Container orchestration jobs run these automated tasks at a specific date and time, similar to cron jobs on a Linux system. Deployments of this type can also be configured to maintain a quantity of containers over time, automating the process of maintaining persistence within a cluster.",
+   :db/ident :d3f/T1053.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Container Orchestration Job",
    :rdfs/subClassOf :d3f/T1053})
 
 (def T1054
-  {:d3f/attack-id   "T1054",
-   :db/ident        :d3f/T1054,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Indicator Blocking",
+  {:d3f/attack-id "T1054",
+   :d3f/definition
+   "An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed. This could include maliciously redirecting (Citation: Microsoft Lamin Sept 2017) or even disabling host-based sensors, such as Event Tracing for Windows (ETW),(Citation: Microsoft About Event Tracing 2018) by tampering settings that control the collection and flow of event telemetry. (Citation: Medium Event Tracing Tampering 2018) These settings may be stored on the system in configuration files and/or in the Registry as well as being accessible via administrative utilities such as [PowerShell](https://attack.mitre.org/techniques/T1086) or [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047).",
+   :db/ident :d3f/T1054,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1562.006",
+   :rdfs/label "Indicator Blocking",
+   :rdfs/seeAlso {:rdf/value "T1562.006"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1055
-  {:d3f/attack-id   "T1055",
-   :db/ident        :d3f/T1055,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Process Injection",
+  {:d3f/attack-id "T1055",
+   :d3f/definition
+   "Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges. Process injection is a method of executing arbitrary code in the address space of a separate live process. Running code in the context of another process may allow access to the process's memory, system/network resources, and possibly elevated privileges. Execution via process injection may also evade detection from security products since the execution is masked under a legitimate process.",
+   :db/ident :d3f/T1055,
+   :rdf/type :owl/Class,
+   :rdfs/label "Process Injection",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1055_001
-  {:d3f/adds        :d3f/SharedLibraryFile,
-   :d3f/attack-id   "T1055.001",
-   :d3f/invokes     :d3f/SystemCall,
-   :d3f/loads       :d3f/SharedLibraryFile,
-   :db/ident        :d3f/T1055.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Dynamic-link Library Injection",
+  {:d3f/adds :d3f/SharedLibraryFile,
+   :d3f/attack-id "T1055.001",
+   :d3f/definition
+   "Adversaries may inject dynamic-link libraries (DLLs) into processes in order to evade process-based defenses as well as possibly elevate privileges. DLL injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/invokes :d3f/SystemCall,
+   :d3f/loads :d3f/SharedLibraryFile,
+   :db/ident :d3f/T1055.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Dynamic-link Library Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/loads,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction}
@@ -30997,22 +31492,26 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_002
-  {:d3f/attack-id   "T1055.002",
-   :d3f/may-add     :d3f/ObjectFile,
-   :db/ident        :d3f/T1055.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Portable Executable Injection",
+  {:d3f/attack-id "T1055.002",
+   :d3f/definition
+   "Adversaries may inject portable executables (PE) into processes in order to evade process-based defenses as well as possibly elevate privileges. PE injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/may-add :d3f/ObjectFile,
+   :db/ident :d3f/T1055.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Portable Executable Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-add,
                        :owl/someValuesFrom :d3f/ObjectFile,
                        :rdf/type           :owl/Restriction} :d3f/T1055}})
 
 (def T1055_003
-  {:d3f/attack-id   "T1055.003",
-   :d3f/invokes     :d3f/SystemCall,
-   :d3f/may-add     :d3f/ExecutableBinary,
-   :db/ident        :d3f/T1055.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Thread Execution Hijacking",
+  {:d3f/attack-id "T1055.003",
+   :d3f/definition
+   "Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/invokes :d3f/SystemCall,
+   :d3f/may-add :d3f/ExecutableBinary,
+   :db/ident :d3f/T1055.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Thread Execution Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-add,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
                        :rdf/type           :owl/Restriction} :d3f/T1055
@@ -31021,44 +31520,52 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_004
-  {:d3f/attack-id   "T1055.004",
-   :d3f/may-invoke  :d3f/CreateProcess,
-   :db/ident        :d3f/T1055.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Asynchronous Procedure Call",
+  {:d3f/attack-id "T1055.004",
+   :d3f/definition
+   "Adversaries may inject malicious code into processes via the asynchronous procedure call (APC) queue in order to evade process-based defenses as well as possibly elevate privileges. APC injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/may-invoke :d3f/CreateProcess,
+   :db/ident :d3f/T1055.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Asynchronous Procedure Call",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
                        :rdf/type           :owl/Restriction} :d3f/T1055}})
 
 (def T1055_005
-  {:d3f/attack-id   "T1055.005",
-   :d3f/invokes     :d3f/SystemCall,
-   :db/ident        :d3f/T1055.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Thread Local Storage",
+  {:d3f/attack-id "T1055.005",
+   :d3f/definition
+   "Adversaries may inject malicious code into processes via thread local storage (TLS) callbacks in order to evade process-based defenses as well as possibly elevate privileges. TLS callback injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/invokes :d3f/SystemCall,
+   :db/ident :d3f/T1055.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Thread Local Storage",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SystemCall,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_008
-  {:d3f/attack-id   "T1055.008",
-   :d3f/invokes     :d3f/SystemCall,
-   :db/ident        :d3f/T1055.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Ptrace System Calls",
+  {:d3f/attack-id "T1055.008",
+   :d3f/definition
+   "Adversaries may inject malicious code into processes via ptrace (process trace) system calls in order to evade process-based defenses as well as possibly elevate privileges. Ptrace system call injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/invokes :d3f/SystemCall,
+   :db/ident :d3f/T1055.008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Ptrace System Calls",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SystemCall,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_009
-  {:d3f/accesses    :d3f/OperatingSystemFile,
-   :d3f/attack-id   "T1055.009",
-   :d3f/may-modify  :d3f/OperatingSystemFile,
-   :db/ident        :d3f/T1055.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Proc Memory",
+  {:d3f/accesses :d3f/OperatingSystemFile,
+   :d3f/attack-id "T1055.009",
+   :d3f/definition
+   "Adversaries may inject malicious code into processes via the /proc filesystem in order to evade process-based defenses as well as possibly elevate privileges. Proc memory injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/may-modify :d3f/OperatingSystemFile,
+   :db/ident :d3f/T1055.009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Proc Memory",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/OperatingSystemFile,
                        :rdf/type           :owl/Restriction}
@@ -31067,41 +31574,49 @@
                        :rdf/type           :owl/Restriction} :d3f/T1055}})
 
 (def T1055_011
-  {:d3f/attack-id   "T1055.011",
-   :db/ident        :d3f/T1055.011,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Extra Window Memory Injection",
+  {:d3f/attack-id "T1055.011",
+   :d3f/definition
+   "Adversaries may inject malicious code into process via Extra Window Memory (EWM) in order to evade process-based defenses as well as possibly elevate privileges. EWM injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :db/ident :d3f/T1055.011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Extra Window Memory Injection",
    :rdfs/subClassOf :d3f/T1055})
 
 (def T1055_012
-  {:d3f/attack-id   "T1055.012",
-   :d3f/modifies    :d3f/ProcessCodeSegment,
-   :db/ident        :d3f/T1055.012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Process Hollowing",
+  {:d3f/attack-id "T1055.012",
+   :d3f/definition
+   "Adversaries may inject malicious code into suspended and hollowed processes in order to evade process-based defenses. Process hollowing is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/modifies :d3f/ProcessCodeSegment,
+   :db/ident :d3f/T1055.012,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Process Hollowing",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ProcessCodeSegment,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_013
-  {:d3f/attack-id   "T1055.013",
-   :d3f/invokes     :d3f/CreateProcess,
-   :db/ident        :d3f/T1055.013,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Process Doppelgänging",
+  {:d3f/attack-id "T1055.013",
+   :d3f/definition
+   "Adversaries may inject malicious code into process via process doppelgänging in order to evade process-based defenses as well as possibly elevate privileges. Process doppelgänging is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/invokes :d3f/CreateProcess,
+   :db/ident :d3f/T1055.013,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Process Doppelgänging",
    :rdfs/subClassOf #{:d3f/T1055
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateProcess,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_014
-  {:d3f/accesses    :d3f/SharedLibraryFile,
-   :d3f/attack-id   "T1055.014",
-   :d3f/invokes     :d3f/SystemCall,
-   :db/ident        :d3f/T1055.014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "VDSO Hijacking",
+  {:d3f/accesses :d3f/SharedLibraryFile,
+   :d3f/attack-id "T1055.014",
+   :d3f/definition
+   "Adversaries may inject malicious code into processes via VDSO hijacking in order to evade process-based defenses as well as possibly elevate privileges. Virtual dynamic shared object (vdso) hijacking is a method of executing arbitrary code in the address space of a separate live process.",
+   :d3f/invokes :d3f/SystemCall,
+   :db/ident :d3f/T1055.014,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "VDSO Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1055
@@ -31110,68 +31625,82 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1055_015
-  {:d3f/attack-id   "T1055.015",
-   :db/ident        :d3f/T1055.015,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ListPlanting",
+  {:d3f/attack-id "T1055.015",
+   :d3f/definition
+   "Adversaries may abuse list-view controls to inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. ListPlanting is a method of executing arbitrary code in the address space of a separate live process. Code executed via ListPlanting may also evade detection from security products since the execution is masked under a legitimate process.",
+   :db/ident :d3f/T1055.015,
+   :rdf/type :owl/Class,
+   :rdfs/label "ListPlanting",
    :rdfs/subClassOf :d3f/T1055})
 
 (def T1056
-  {:d3f/attack-id   "T1056",
-   :db/ident        :d3f/T1056,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Input Capture",
+  {:d3f/attack-id "T1056",
+   :d3f/definition
+   "Adversaries may use methods of capturing user input to obtain credentials or collect information. During normal system usage, users often provide credentials to various different locations, such as login pages/portals or system dialog boxes. Input capture mechanisms may be transparent to the user (e.g. [Credential API Hooking](https://attack.mitre.org/techniques/T1056/004)) or rely on deceiving the user into providing input into what they believe to be a genuine service (e.g. [Web Portal Capture](https://attack.mitre.org/techniques/T1056/003)).",
+   :db/ident :d3f/T1056,
+   :rdf/type :owl/Class,
+   :rdfs/label "Input Capture",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique :d3f/CollectionTechnique}})
 
 (def T1056_001
-  {:d3f/accesses    :d3f/KeyboardInputDevice,
-   :d3f/attack-id   "T1056.001",
-   :db/ident        :d3f/T1056.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Keylogging",
+  {:d3f/accesses :d3f/KeyboardInputDevice,
+   :d3f/attack-id "T1056.001",
+   :d3f/definition
+   "Adversaries may log user keystrokes to intercept credentials as the user types them. Keylogging is likely to be used to acquire credentials for new access opportunities when [OS Credential Dumping](https://attack.mitre.org/techniques/T1003) efforts are not effective, and may require an adversary to intercept keystrokes on a system for a substantial period of time before credentials can be successfully captured. In order to increase the likelihood of capturing credentials quickly, an adversary may also perform actions such as clearing browser cookies to force users to reauthenticate to systems.(Citation: Talos Kimsuky Nov 2021)",
+   :db/ident :d3f/T1056.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Keylogging",
    :rdfs/subClassOf #{:d3f/T1056
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/KeyboardInputDevice,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1056_002
-  {:d3f/accesses    :d3f/GraphicalUserInterface,
-   :d3f/attack-id   "T1056.002",
-   :db/ident        :d3f/T1056.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "GUI Input Capture",
+  {:d3f/accesses :d3f/GraphicalUserInterface,
+   :d3f/attack-id "T1056.002",
+   :d3f/definition
+   "Adversaries may mimic common operating system GUI components to prompt users for credentials with a seemingly legitimate prompt. When programs are executed that need additional privileges than are present in the current user context, it is common for the operating system to prompt the user for proper credentials to authorize the elevated privileges for the task (ex: [Bypass User Account Control](https://attack.mitre.org/techniques/T1548/002)).",
+   :db/ident :d3f/T1056.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "GUI Input Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/GraphicalUserInterface,
                        :rdf/type           :owl/Restriction} :d3f/T1056}})
 
 (def T1056_003
-  {:d3f/attack-id   "T1056.003",
-   :d3f/modifies    :d3f/WebServerApplication,
-   :db/ident        :d3f/T1056.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Web Portal Capture",
+  {:d3f/attack-id "T1056.003",
+   :d3f/definition
+   "Adversaries may install code on externally facing portals, such as a VPN login page, to capture and transmit credentials of users who attempt to log into the service. For example, a compromised login page may log provided user credentials before logging the user in to the service.",
+   :d3f/modifies :d3f/WebServerApplication,
+   :db/ident :d3f/T1056.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Web Portal Capture",
    :rdfs/subClassOf #{:d3f/T1056
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/WebServerApplication,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1056_004
-  {:d3f/attack-id   "T1056.004",
-   :d3f/may-modify  :d3f/ProcessCodeSegment,
-   :db/ident        :d3f/T1056.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Credential API Hooking",
+  {:d3f/attack-id "T1056.004",
+   :d3f/definition
+   "Adversaries may hook into Windows application programming interface (API) functions to collect user credentials. Malicious hooking mechanisms may capture API calls that include parameters that reveal user authentication credentials.(Citation: Microsoft TrojanSpy:Win32/Ursnif.gen!I Sept 2017) Unlike [Keylogging](https://attack.mitre.org/techniques/T1056/001),  this technique focuses specifically on API functions that include parameters that reveal user credentials. Hooking involves redirecting calls to these functions and can be implemented via:",
+   :d3f/may-modify :d3f/ProcessCodeSegment,
+   :db/ident :d3f/T1056.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Credential API Hooking",
    :rdfs/subClassOf #{:d3f/T1056
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ProcessCodeSegment,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1057
-  {:d3f/attack-id   "T1057",
-   :d3f/may-invoke  #{:d3f/CreateProcess :d3f/GetRunningProcesses},
-   :db/ident        :d3f/T1057,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Process Discovery",
+  {:d3f/attack-id "T1057",
+   :d3f/definition
+   "Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network. Administrator or otherwise elevated access may provide better process details. Adversaries may use the information from [Process Discovery](https://attack.mitre.org/techniques/T1057) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :d3f/may-invoke #{:d3f/CreateProcess :d3f/GetRunningProcesses},
+   :db/ident :d3f/T1057,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Process Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -31181,124 +31710,228 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1058
-  {:d3f/attack-id   "T1058",
-   :db/ident        :d3f/T1058,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Service Registry Permissions Weakness",
+  {:d3f/attack-id "T1058",
+   :d3f/definition
+   "Windows stores local service configuration information in the Registry under <code>HKLM\\SYSTEM\\CurrentControlSet\\Services</code>. The information stored under a service's Registry keys can be manipulated to modify a service's execution parameters through tools such as the service controller, sc.exe, [PowerShell](https://attack.mitre.org/techniques/T1086), or [Reg](https://attack.mitre.org/software/S0075). Access to Registry keys is controlled through Access Control Lists and permissions. (Citation: MSDN Registry Key Security)",
+   :db/ident :d3f/T1058,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1574.011",
+   :rdfs/label "Service Registry Permissions Weakness",
+   :rdfs/seeAlso {:rdf/value "T1574.011"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1059
-  {:d3f/attack-id   "T1059",
-   :d3f/executes    :d3f/ExecutableScript,
-   :db/ident        :d3f/T1059,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Command and Scripting Interpreter Execution",
+  {:d3f/attack-id "T1059",
+   :d3f/definition
+   "Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms. Most systems come with some built-in command-line interface and scripting capabilities, for example, macOS and Linux distributions include some flavor of [Unix Shell](https://attack.mitre.org/techniques/T1059/004) while Windows installations include the [Windows Command Shell](https://attack.mitre.org/techniques/T1059/003) and [PowerShell](https://attack.mitre.org/techniques/T1059/001).",
+   :d3f/executes :d3f/ExecutableScript,
+   :db/ident :d3f/T1059,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Command and Scripting Interpreter",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/ExecutableScript,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1059_001
-  {:d3f/attack-id   "T1059.001",
-   :db/ident        :d3f/T1059.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "PowerShell Execution",
+  {:d3f/attack-id "T1059.001",
+   :d3f/definition
+   "Adversaries may abuse PowerShell commands and scripts for execution. PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.(Citation: TechNet PowerShell) Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the <code>Start-Process</code> cmdlet which can be used to run an executable and the <code>Invoke-Command</code> cmdlet which runs a command locally or on a remote computer (though administrator permissions are required to use PowerShell to connect to remote systems).",
+   :db/ident :d3f/T1059.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "PowerShell",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_002
-  {:d3f/attack-id   "T1059.002",
-   :db/ident        :d3f/T1059.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "AppleScript Execution",
+  {:d3f/attack-id "T1059.002",
+   :d3f/definition
+   "Adversaries may abuse AppleScript for execution. AppleScript is a macOS scripting language designed to control applications and parts of the OS via inter-application messages called AppleEvents.(Citation: Apple AppleScript) These AppleEvent messages can be sent independently or easily scripted with AppleScript. These events can locate open windows, send keystrokes, and interact with almost any open application locally or remotely.",
+   :db/ident :d3f/T1059.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "AppleScript",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_003
-  {:d3f/attack-id   "T1059.003",
-   :db/ident        :d3f/T1059.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Command Shell Execution",
+  {:d3f/attack-id "T1059.003",
+   :d3f/definition
+   "Adversaries may abuse the Windows command shell for execution. The Windows command shell ([cmd](https://attack.mitre.org/software/S0106)) is the primary command prompt on Windows systems. The Windows command prompt can be used to control almost any aspect of a system, with various permission levels required for different subsets of commands. The command prompt can be invoked remotely via [Remote Services](https://attack.mitre.org/techniques/T1021) such as [SSH](https://attack.mitre.org/techniques/T1021/004).(Citation: SSH in Windows)",
+   :db/ident :d3f/T1059.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows Command Shell",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_004
-  {:d3f/attack-id   "T1059.004",
-   :db/ident        :d3f/T1059.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unix Shell Execution",
+  {:d3f/attack-id "T1059.004",
+   :d3f/definition
+   "Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the primary command prompt on Linux and macOS systems, though many variations of the Unix shell exist (e.g. sh, bash, zsh, etc.) depending on the specific OS or distribution.(Citation: DieNet Bash)(Citation: Apple ZShell) Unix shells can control every aspect of a system, with certain commands requiring elevated privileges.",
+   :db/ident :d3f/T1059.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unix Shell",
    :rdfs/subClassOf :d3f/T1059,
-   :skos/altLabel   "Bash Execution"})
+   :skos/altLabel "Bash Execution"})
 
 (def T1059_005
-  {:d3f/attack-id   "T1059.005",
-   :db/ident        :d3f/T1059.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "VBScript Execution",
+  {:d3f/attack-id "T1059.005",
+   :d3f/definition
+   "Adversaries may abuse Visual Basic (VB) for execution. VB is a programming language created by Microsoft with interoperability with many Windows technologies such as [Component Object Model](https://attack.mitre.org/techniques/T1559/001) and the [Native API](https://attack.mitre.org/techniques/T1106) through the Windows API. Although tagged as legacy with no planned future evolutions, VB is integrated and supported in the .NET Framework and cross-platform .NET Core.(Citation: VB .NET Mar 2020)(Citation: VB Microsoft)",
+   :db/ident :d3f/T1059.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Visual Basic",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_006
-  {:d3f/attack-id   "T1059.006",
-   :db/ident        :d3f/T1059.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Python Execution",
+  {:d3f/attack-id "T1059.006",
+   :d3f/definition
+   "Adversaries may abuse Python commands and scripts for execution. Python is a very popular scripting/programming language, with capabilities to perform many functions. Python can be executed interactively from the command-line (via the <code>python.exe</code> interpreter) or via scripts (.py) that can be written and distributed to different systems. Python code can also be compiled into binary executables.(Citation: Zscaler APT31 Covid-19 October 2020)",
+   :db/ident :d3f/T1059.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Python",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_007
-  {:d3f/attack-id   "T1059.007",
-   :db/ident        :d3f/T1059.007,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "JavaScript/JScript",
+  {:d3f/attack-id "T1059.007",
+   :d3f/definition
+   "Adversaries may abuse various implementations of JavaScript for execution. JavaScript (JS) is a platform-independent scripting language (compiled just-in-time at runtime) commonly associated with scripts in webpages, though JS can be executed in runtime environments outside the browser.(Citation: NodeJS)",
+   :db/ident :d3f/T1059.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "JavaScript",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_008
-  {:d3f/attack-id   "T1059.008",
-   :db/ident        :d3f/T1059.008,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Device CLI",
+  {:d3f/attack-id "T1059.008",
+   :d3f/definition
+   "Adversaries may abuse scripting or built-in command line interpreters (CLI) on network devices to execute malicious command and payloads. The CLI is the primary means through which users and administrators interact with the device in order to view system information, modify device operations, or perform diagnostic and administrative functions. CLIs typically contain various permission levels required for different commands.",
+   :db/ident :d3f/T1059.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Device CLI",
+   :rdfs/subClassOf :d3f/T1059})
+
+(def T1059_009
+  {:d3f/attack-id "T1059.009",
+   :d3f/definition
+   "Adversaries may abuse cloud APIs to execute malicious commands. APIs available in cloud environments provide various functionalities and are a feature-rich method for programmatic access to nearly all aspects of a tenant. These APIs may be utilized through various methods such as command line interpreters (CLIs), in-browser Cloud Shells, [PowerShell](https://attack.mitre.org/techniques/T1059/001) modules like Azure for PowerShell(Citation: Microsoft - Azure PowerShell), or software developer kits (SDKs) available for languages such as [Python](https://attack.mitre.org/techniques/T1059/006).",
+   :db/ident :d3f/T1059.009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud API",
+   :rdfs/subClassOf :d3f/T1059})
+
+(def T1059_010
+  {:d3f/attack-id "T1059.010",
+   :d3f/definition
+   "Adversaries may execute commands and perform malicious tasks using AutoIT and AutoHotKey automation scripts. AutoIT and AutoHotkey (AHK) are scripting languages that enable users to automate Windows tasks. These automation scripts can be used to perform a wide variety of actions, such as clicking on buttons, entering text, and opening and closing programs.(Citation: AutoIT)(Citation: AutoHotKey)",
+   :db/ident :d3f/T1059.010,
+   :rdf/type :owl/Class,
+   :rdfs/label "AutoHotKey & AutoIT",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1060
-  {:d3f/attack-id   "T1060",
-   :db/ident        :d3f/T1060,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Registry Run Keys / Startup Folder",
+  {:d3f/attack-id "T1060",
+   :d3f/definition
+   "Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key. Adding an entry to the \"run keys\" in the Registry or startup folder will cause the program referenced to be executed when a user logs in. (Citation: Microsoft Run Key) These programs will be executed under the context of the user and will have the account's associated permissions level.",
+   :db/ident :d3f/T1060,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.001",
+   :rdfs/label "Registry Run Keys / Startup Folder",
+   :rdfs/seeAlso {:rdf/value "T1547.001"},
+   :rdfs/subClassOf :d3f/PersistenceTechnique})
+
+(def T1061
+  {:d3f/attack-id "T1061",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Remote Services](https://attack.mitre.org/techniques/T1021) where appropriate.**",
+   :db/ident :d3f/T1061,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Remote Services](https://attack.mitre.org/techniques/T1021) where appropriate.**",
+   :rdfs/label "Graphical User Interface",
+   :rdfs/subClassOf :d3f/ExecutionTechnique})
+
+(def T1062
+  {:d3f/attack-id "T1062",
+   :d3f/definition
+   "**This technique has been deprecated and should no longer be used.**",
+   :db/ident :d3f/T1062,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated and should no longer be used.**",
+   :rdfs/label "Hypervisor",
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1063
-  {:d3f/attack-id   "T1063",
-   :db/ident        :d3f/T1063,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Security Software Discovery",
+  {:d3f/attack-id "T1063",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on the system. This may include things such as local firewall rules and anti-virus. Adversaries may use the information from [Security Software Discovery](https://attack.mitre.org/techniques/T1063) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :db/ident :d3f/T1063,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1518.001",
+   :rdfs/label "Security Software Discovery",
+   :rdfs/seeAlso {:rdf/value "T1518.001"},
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
+(def T1064
+  {:d3f/attack-id "T1064",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059) where appropriate.**",
+   :db/ident :d3f/T1064,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059) where appropriate.**",
+   :rdfs/label "Scripting",
+   :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
+
 (def T1065
-  {:d3f/attack-id   "T1065",
-   :db/ident        :d3f/T1065,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Uncommonly Used Port",
+  {:d3f/attack-id "T1065",
+   :d3f/definition
+   "Adversaries may conduct C2 communications over a non-standard port to bypass proxies and firewalls that have been improperly configured.",
+   :db/ident :d3f/T1065,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1571",
+   :rdfs/label "Uncommonly Used Port",
+   :rdfs/seeAlso {:rdf/value "T1571"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1066
-  {:d3f/attack-id   "T1066",
-   :db/ident        :d3f/T1066,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Indicator Removal from Tools",
+  {:d3f/attack-id "T1066",
+   :d3f/definition
+   "If a malicious tool is detected and quarantined or otherwise curtailed, an adversary may be able to determine why the malicious tool was detected (the indicator), modify the tool by removing the indicator, and use the updated version that is no longer detected by the target's defensive systems or subsequent targets that may use similar systems.",
+   :db/ident :d3f/T1066,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1027.005",
+   :rdfs/label "Indicator Removal from Tools",
+   :rdfs/seeAlso {:rdf/value "T1027.005"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1067
-  {:d3f/attack-id   "T1067",
-   :db/ident        :d3f/T1067,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Bootkit",
+  {:d3f/attack-id "T1067",
+   :d3f/definition
+   "A bootkit is a malware variant that modifies the boot sectors of a hard drive, including the Master Boot Record (MBR) and Volume Boot Record (VBR). (Citation: MTrends 2016)",
+   :db/ident :d3f/T1067,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1542.003",
+   :rdfs/label "Bootkit",
+   :rdfs/seeAlso {:rdf/value "T1542.003"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1068
-  {:d3f/attack-id   "T1068",
-   :d3f/enables     :d3f/TA0004,
-   :d3f/may-modify  :d3f/StackFrame,
-   :d3f/modifies    :d3f/ProcessCodeSegment,
-   :db/ident        :d3f/T1068,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exploitation for Privilege Escalation",
+  {:d3f/attack-id "T1068",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities in an attempt to elevate privileges. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. Security constructs such as permission levels will often hinder access to information and use of certain techniques, so adversaries will likely need to perform privilege escalation to include use of software exploitation to circumvent those restrictions.",
+   :d3f/enables :d3f/TA0004,
+   :d3f/may-modify :d3f/StackFrame,
+   :d3f/modifies :d3f/ProcessCodeSegment,
+   :db/ident :d3f/T1068,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exploitation for Privilege Escalation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
                        :rdf/type           :owl/Restriction}
@@ -31311,77 +31944,95 @@
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1069
-  {:d3f/attack-id   "T1069",
-   :db/ident        :d3f/T1069,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Permission Groups Discovery",
+  {:d3f/attack-id "T1069",
+   :d3f/definition
+   "Adversaries may attempt to discover group and permission settings. This information can help adversaries determine which user accounts and groups are available, the membership of users in particular groups, and which users and groups have elevated permissions.",
+   :db/ident :d3f/T1069,
+   :rdf/type :owl/Class,
+   :rdfs/label "Permission Groups Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1069_001
-  {:d3f/attack-id   "T1069.001",
-   :db/ident        :d3f/T1069.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Local Groups",
+  {:d3f/attack-id "T1069.001",
+   :d3f/definition
+   "Adversaries may attempt to find local system groups and permission settings. The knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group. Adversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group.",
+   :db/ident :d3f/T1069.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Local Groups",
    :rdfs/subClassOf :d3f/T1069})
 
 (def T1069_002
-  {:d3f/attack-id   "T1069.002",
-   :db/ident        :d3f/T1069.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Groups",
+  {:d3f/attack-id "T1069.002",
+   :d3f/definition
+   "Adversaries may attempt to find domain-level groups and permission settings. The knowledge of domain-level permission groups can help adversaries determine which groups exist and which users belong to a particular group. Adversaries may use this information to determine which users have elevated permissions, such as domain administrators.",
+   :db/ident :d3f/T1069.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Groups",
    :rdfs/subClassOf :d3f/T1069})
 
 (def T1069_003
-  {:d3f/attack-id   "T1069.003",
-   :db/ident        :d3f/T1069.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cloud Groups",
+  {:d3f/attack-id "T1069.003",
+   :d3f/definition
+   "Adversaries may attempt to find cloud groups and permission settings. The knowledge of cloud permission groups can help adversaries determine the particular roles of users and groups within an environment, as well as which users are associated with a particular group.",
+   :db/ident :d3f/T1069.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Groups",
    :rdfs/subClassOf :d3f/T1069})
 
 (def T1070
-  {:d3f/attack-id   "T1070",
-   :db/ident        :d3f/T1070,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Indicator Removal on Host",
+  {:d3f/attack-id "T1070",
+   :d3f/definition
+   "Adversaries may delete or modify artifacts generated within systems to remove evidence of their presence or hinder defenses. Various artifacts may be created by an adversary or something that can be attributed to an adversary’s actions. Typically these artifacts are used as defensive indicators related to monitored events, such as strings from downloaded files, logs that are generated from user actions, and other data analyzed by defenders. Location, format, and type of artifact (such as command or login history) are often specific to each platform.",
+   :db/ident :d3f/T1070,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indicator Removal",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1070_001
-  {:d3f/attack-id   "T1070.001",
-   :d3f/modifies    :d3f/EventLog,
-   :db/ident        :d3f/T1070.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Clear Windows Event Logs",
+  {:d3f/attack-id "T1070.001",
+   :d3f/definition
+   "Adversaries may clear Windows Event Logs to hide the activity of an intrusion. Windows Event Logs are a record of a computer's alerts and notifications. There are three system-defined sources of events: System, Application, and Security, with five event types: Error, Warning, Information, Success Audit, and Failure Audit.",
+   :d3f/modifies :d3f/EventLog,
+   :db/ident :d3f/T1070.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Clear Windows Event Logs",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction} :d3f/T1070}})
 
 (def T1070_002
-  {:d3f/attack-id   "T1070.002",
-   :d3f/modifies    :d3f/OperatingSystemLogFile,
-   :db/ident        :d3f/T1070.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Clear Linux or Mac System Logs",
+  {:d3f/attack-id "T1070.002",
+   :d3f/definition
+   "Adversaries may clear system logs to hide evidence of an intrusion. macOS and Linux both keep track of system or user-initiated actions via system logs. The majority of native system logging is stored under the <code>/var/log/</code> directory. Subfolders in this directory categorize logs by their related functions, such as:(Citation: Linux Logs)",
+   :d3f/modifies :d3f/OperatingSystemLogFile,
+   :db/ident :d3f/T1070.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Clear Linux or Mac System Logs",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/OperatingSystemLogFile,
                        :rdf/type           :owl/Restriction} :d3f/T1070}})
 
 (def T1070_003
-  {:d3f/attack-id   "T1070.003",
-   :d3f/modifies    :d3f/CommandHistoryLog,
-   :db/ident        :d3f/T1070.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Clear Command History",
+  {:d3f/attack-id "T1070.003",
+   :d3f/definition
+   "In addition to clearing system logs, an adversary may clear the command history of a compromised account to conceal the actions undertaken during an intrusion. Various command interpreters keep track of the commands users type in their terminal so that users can retrace what they've done.",
+   :d3f/modifies :d3f/CommandHistoryLog,
+   :db/ident :d3f/T1070.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Clear Command History",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/CommandHistoryLog,
                        :rdf/type           :owl/Restriction} :d3f/T1070}})
 
 (def T1070_004
-  {:d3f/attack-id   "T1070.004",
-   :d3f/deletes     :d3f/File,
-   :d3f/may-modify  :d3f/File,
-   :db/ident        :d3f/T1070.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "File Deletion",
+  {:d3f/attack-id "T1070.004",
+   :d3f/definition
+   "Adversaries may delete files left behind by the actions of their intrusion activity. Malware, tools, or other non-native files dropped or created on a system by an adversary (ex: [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105)) may leave traces to indicate to what was done within a network and how. Removal of these files can occur during an intrusion, or as part of a post-intrusion process to minimize the adversary's footprint.",
+   :d3f/deletes :d3f/File,
+   :d3f/may-modify :d3f/File,
+   :db/ident :d3f/T1070.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Deletion",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}
@@ -31390,63 +32041,100 @@
                        :rdf/type           :owl/Restriction} :d3f/T1070}})
 
 (def T1070_005
-  {:d3f/attack-id   "T1070.005",
-   :d3f/unmounts    :d3f/NetworkFileShareResource,
-   :db/ident        :d3f/T1070.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Network Share Connection Removal",
+  {:d3f/attack-id "T1070.005",
+   :d3f/definition
+   "Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation. Windows shared drive and [SMB/Windows Admin Shares](https://attack.mitre.org/techniques/T1021/002) connections can be removed when no longer needed. [Net](https://attack.mitre.org/software/S0039) is an example utility that can be used to remove network share connections with the <code>net use \\\\system\\share /delete</code> command. (Citation: Technet Net Use)",
+   :d3f/unmounts :d3f/NetworkFileShareResource,
+   :db/ident :d3f/T1070.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Network Share Connection Removal",
    :rdfs/subClassOf #{:d3f/T1070
                       {:owl/onProperty     :d3f/unmounts,
                        :owl/someValuesFrom :d3f/NetworkFileShareResource,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1070_006
-  {:d3f/attack-id   "T1070.006",
-   :d3f/forges      :d3f/FileSystemMetadata,
-   :db/ident        :d3f/T1070.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Timestomp",
+  {:d3f/attack-id "T1070.006",
+   :d3f/definition
+   "Adversaries may modify file time attributes to hide new or changes to existing files. Timestomping is a technique that modifies the timestamps of a file (the modify, access, create, and change times), often to mimic files that are in the same folder. This is done, for example, on files that have been modified or created by the adversary so that they do not appear conspicuous to forensic investigators or file analysis tools.",
+   :d3f/forges :d3f/FileSystemMetadata,
+   :db/ident :d3f/T1070.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Timestomp",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/forges,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
                        :rdf/type           :owl/Restriction} :d3f/T1070}})
 
+(def T1070_007
+  {:d3f/attack-id "T1070.007",
+   :d3f/definition
+   "Adversaries may clear or remove evidence of malicious network connections in order to clean up traces of their operations. Configuration settings as well as various artifacts that highlight connection history may be created on a system and/or in application logs from behaviors that require network connections, such as [Remote Services](https://attack.mitre.org/techniques/T1021) or [External Remote Services](https://attack.mitre.org/techniques/T1133). Defenders may use these artifacts to monitor or otherwise analyze network connections created by adversaries.",
+   :db/ident :d3f/T1070.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Clear Network Connection History and Configurations",
+   :rdfs/subClassOf :d3f/T1070})
+
+(def T1070_008
+  {:d3f/attack-id "T1070.008",
+   :d3f/definition
+   "Adversaries may modify mail and mail application data to remove evidence of their activity. Email applications allow users and other programs to export and delete mailbox data via command line tools or use of APIs. Mail application data can be emails, email metadata, or logs generated by the application or operating system, such as export requests.",
+   :db/ident :d3f/T1070.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Clear Mailbox Data",
+   :rdfs/subClassOf :d3f/T1070})
+
+(def T1070_009
+  {:d3f/attack-id "T1070.009",
+   :d3f/definition
+   "Adversaries may clear artifacts associated with previously established persistence on a host system to remove evidence of their activity. This may involve various actions, such as removing services, deleting executables, [Modify Registry](https://attack.mitre.org/techniques/T1112), [Plist File Modification](https://attack.mitre.org/techniques/T1647), or other methods of cleanup to prevent defenders from collecting evidence of their persistent presence.(Citation: Cylance Dust Storm) Adversaries may also delete accounts previously created to maintain persistence (i.e. [Create Account](https://attack.mitre.org/techniques/T1136)).(Citation: Talos - Cisco Attack 2022)",
+   :db/ident :d3f/T1070.009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Clear Persistence",
+   :rdfs/subClassOf :d3f/T1070})
+
 (def T1071
-  {:d3f/attack-id    "T1071",
+  {:d3f/attack-id "T1071",
+   :d3f/definition
+   "Adversaries may communicate using OSI application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.",
    :d3f/may-transfer :d3f/CertificateFile,
-   :d3f/pref-label   "Application Layer Protocol C2",
-   :d3f/produces     :d3f/OutboundInternetNetworkTraffic,
-   :db/ident         :d3f/T1071,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label       "Application Layer Protocol",
-   :rdfs/subClassOf  #{{:owl/onProperty     :d3f/produces,
-                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
-                        :rdf/type           :owl/Restriction}
-                       :d3f/CommandAndControlTechnique
-                       {:owl/onProperty     :d3f/may-transfer,
-                        :owl/someValuesFrom :d3f/CertificateFile,
-                        :rdf/type           :owl/Restriction}}})
+   :d3f/pref-label "Application Layer Protocol C2",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1071,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Layer Protocol",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
+                       :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/CommandAndControlTechnique
+                      {:owl/onProperty     :d3f/may-transfer,
+                       :owl/someValuesFrom :d3f/CertificateFile,
+                       :rdf/type           :owl/Restriction}}})
 
 (def T1071_001
-  {:d3f/attack-id    "T1071.001",
+  {:d3f/attack-id "T1071.001",
+   :d3f/definition
+   "Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.",
    :d3f/may-transfer :d3f/CertificateFile,
-   :d3f/produces     :d3f/OutboundInternetWebTraffic,
-   :db/ident         :d3f/T1071.001,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label       "Web Protocols",
-   :rdfs/subClassOf  #{:d3f/T1071
-                       {:owl/onProperty     :d3f/produces,
-                        :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3f/may-transfer,
-                        :owl/someValuesFrom :d3f/CertificateFile,
-                        :rdf/type           :owl/Restriction}}})
+   :d3f/produces :d3f/OutboundInternetWebTraffic,
+   :db/ident :d3f/T1071.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Web Protocols",
+   :rdfs/subClassOf #{:d3f/T1071
+                      {:owl/onProperty     :d3f/produces,
+                       :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-transfer,
+                       :owl/someValuesFrom :d3f/CertificateFile,
+                       :rdf/type           :owl/Restriction}}})
 
 (def T1071_002
-  {:d3f/attack-id   "T1071.002",
-   :d3f/produces    :d3f/OutboundInternetFileTransferTraffic,
-   :db/ident        :d3f/T1071.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "File Transfer Protocols",
+  {:d3f/attack-id "T1071.002",
+   :d3f/definition
+   "Adversaries may communicate using application layer protocols associated with transferring files to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.",
+   :d3f/produces :d3f/OutboundInternetFileTransferTraffic,
+   :db/ident :d3f/T1071.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Transfer Protocols",
    :rdfs/subClassOf #{:d3f/T1071
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
@@ -31454,21 +32142,25 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1071_003
-  {:d3f/attack-id   "T1071.003",
-   :d3f/produces    :d3f/OutboundInternetMailTraffic,
-   :db/ident        :d3f/T1071.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Mail Protocols",
+  {:d3f/attack-id "T1071.003",
+   :d3f/definition
+   "Adversaries may communicate using application layer protocols associated with electronic mail delivery to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.",
+   :d3f/produces :d3f/OutboundInternetMailTraffic,
+   :db/ident :d3f/T1071.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Mail Protocols",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetMailTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1071}})
 
 (def T1071_004
-  {:d3f/attack-id   "T1071.004",
-   :d3f/produces    :d3f/OutboundInternetDNSLookupTraffic,
-   :db/ident        :d3f/T1071.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "DNS",
+  {:d3f/attack-id "T1071.004",
+   :d3f/definition
+   "Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.",
+   :d3f/produces :d3f/OutboundInternetDNSLookupTraffic,
+   :db/ident :d3f/T1071.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DNS",
    :rdfs/subClassOf #{:d3f/T1071
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
@@ -31476,50 +32168,60 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1072
-  {:d3f/adds        :d3f/File,
-   :d3f/attack-id   "T1072",
-   :d3f/executes    :d3f/SoftwareDeploymentTool,
-   :d3f/installs    :d3f/Software,
-   :db/ident        :d3f/T1072,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Software Deployment Tools Execution",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/installs,
-                       :owl/someValuesFrom :d3f/Software,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/ExecutionTechnique
-                      {:owl/onProperty     :d3f/executes,
-                       :owl/someValuesFrom :d3f/SoftwareDeploymentTool,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/adds,
-                       :owl/someValuesFrom :d3f/File,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/LateralMovementTechnique}})
+  {:d3f/adds :d3f/File,
+   :d3f/attack-id "T1072",
+   :d3f/definition
+   "Adversaries may gain access to and use centralized software suites installed within an enterprise to execute commands and move laterally through the network. Configuration management and software deployment applications may be used in an enterprise network or cloud environment for routine administration purposes. These systems may also be integrated into CI/CD pipelines. Examples of such solutions include: SCCM, HBSS, Altiris, AWS Systems Manager, Microsoft Intune, Azure Arc, and GCP Deployment Manager.",
+   :d3f/executes :d3f/SoftwareDeploymentTool,
+   :d3f/installs :d3f/Software,
+   :db/ident :d3f/T1072,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Software Deployment Tools",
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/installs,
+      :owl/someValuesFrom :d3f/Software,
+      :rdf/type           :owl/Restriction} :d3f/ExecutionTechnique
+     {:owl/onProperty     :d3f/executes,
+      :owl/someValuesFrom :d3f/SoftwareDeploymentTool,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/adds,
+      :owl/someValuesFrom :d3f/File,
+      :rdf/type           :owl/Restriction} :d3f/LateralMovementTechnique}})
 
 (def T1073
-  {:d3f/attack-id   "T1073",
-   :db/ident        :d3f/T1073,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DLL Side-Loading",
+  {:d3f/attack-id "T1073",
+   :d3f/definition
+   "Programs may specify DLLs that are loaded at runtime. Programs that improperly or vaguely specify a required DLL may be open to a vulnerability in which an unintended DLL is loaded. Side-loading vulnerabilities specifically occur when Windows Side-by-Side (WinSxS) manifests (Citation: MSDN Manifests) are not explicit enough about characteristics of the DLL to be loaded. Adversaries may take advantage of a legitimate program that is vulnerable to side-loading to load a malicious DLL. (Citation: Stewart 2014)",
+   :db/ident :d3f/T1073,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1574.002",
+   :rdfs/label "DLL Side-Loading",
+   :rdfs/seeAlso {:rdf/value "T1574.002"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1074
-  {:d3f/attack-id   "T1074",
-   :d3f/reads       :d3f/Resource,
-   :db/ident        :d3f/T1074,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data Staged",
+  {:d3f/attack-id "T1074",
+   :d3f/definition
+   "Adversaries may stage collected data in a central location or directory prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as [Archive Collected Data](https://attack.mitre.org/techniques/T1560). Interactive command shells may be used, and common functionality within [cmd](https://attack.mitre.org/software/S0106) and bash may be used to copy data into a staging location.(Citation: PWC Cloud Hopper April 2017)",
+   :d3f/reads :d3f/Resource,
+   :db/ident :d3f/T1074,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Staged",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/Resource,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1074_001
-  {:d3f/attack-id   "T1074.001",
-   :d3f/may-create  :d3f/File,
-   :d3f/may-invoke  :d3f/CreateFile,
-   :db/ident        :d3f/T1074.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Local Data Staging",
+  {:d3f/attack-id "T1074.001",
+   :d3f/definition
+   "Adversaries may stage collected data in a central location or directory on the local system prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as [Archive Collected Data](https://attack.mitre.org/techniques/T1560). Interactive command shells may be used, and common functionality within [cmd](https://attack.mitre.org/software/S0106) and bash may be used to copy data into a staging location.",
+   :d3f/may-create :d3f/File,
+   :d3f/may-invoke :d3f/CreateFile,
+   :db/ident :d3f/T1074.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Local Data Staging",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateFile,
                        :rdf/type           :owl/Restriction}
@@ -31528,43 +32230,62 @@
                        :rdf/type           :owl/Restriction} :d3f/T1074}})
 
 (def T1074_002
-  {:d3f/attack-id   "T1074.002",
-   :d3f/modifies    :d3f/NetworkResource,
-   :db/ident        :d3f/T1074.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote Data Staging",
+  {:d3f/attack-id "T1074.002",
+   :d3f/definition
+   "Adversaries may stage data collected from multiple systems in a central location or directory on one system prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as [Archive Collected Data](https://attack.mitre.org/techniques/T1560). Interactive command shells may be used, and common functionality within [cmd](https://attack.mitre.org/software/S0106) and bash may be used to copy data into a staging location.",
+   :d3f/modifies :d3f/NetworkResource,
+   :db/ident :d3f/T1074.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Data Staging",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/NetworkResource,
                        :rdf/type           :owl/Restriction} :d3f/T1074}})
 
 (def T1075
-  {:d3f/attack-id   "T1075",
-   :db/ident        :d3f/T1075,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Pass the Hash",
+  {:d3f/attack-id "T1075",
+   :d3f/definition
+   "Pass the hash (PtH) is a method of authenticating as a user without having access to the user's cleartext password. This method bypasses standard authentication steps that require a cleartext password, moving directly into the portion of the authentication that uses the password hash. In this technique, valid password hashes for the account being used are captured using a Credential Access technique. Captured hashes are used with PtH to authenticate as that user. Once authenticated, PtH may be used to perform actions on local or remote systems.",
+   :db/ident :d3f/T1075,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1550.002",
+   :rdfs/label "Pass the Hash",
+   :rdfs/seeAlso {:rdf/value "T1550.002"},
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1076
-  {:d3f/attack-id   "T1076",
-   :db/ident        :d3f/T1076,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Remote Desktop Protocol",
+  {:d3f/attack-id "T1076",
+   :d3f/definition
+   "Remote desktop is a common feature in operating systems. It allows a user to log into an interactive session with a system desktop graphical user interface on a remote system. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS). (Citation: TechNet Remote Desktop Services) There are other implementations and third-party tools that provide graphical access [Remote Services](https://attack.mitre.org/techniques/T1021) similar to RDS.",
+   :db/ident :d3f/T1076,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1021.001",
+   :rdfs/label "Remote Desktop Protocol",
+   :rdfs/seeAlso {:rdf/value "T1021.001"},
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1077
-  {:d3f/attack-id   "T1077",
-   :db/ident        :d3f/T1077,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Admin Shares",
+  {:d3f/attack-id "T1077",
+   :d3f/definition
+   "Windows systems have hidden network shares that are accessible only to administrators and provide the ability for remote file copy and other administrative functions. Example network shares include <code>C$</code>, <code>ADMIN$</code>, and <code>IPC$</code>.",
+   :db/ident :d3f/T1077,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1021.002",
+   :rdfs/label "Windows Admin Shares",
+   :rdfs/seeAlso {:rdf/value "T1021.002"},
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1078
-  {:d3f/attack-id   "T1078",
-   :d3f/produces    #{:d3f/Authorization :d3f/Authentication},
-   :d3f/uses        :d3f/UserAccount,
-   :db/ident        :d3f/T1078,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Valid Accounts",
+  {:d3f/attack-id "T1078",
+   :d3f/definition
+   "Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Compromised credentials may be used to bypass access controls placed on various resources on systems within the network and may even be used for persistent access to remote systems and externally available services, such as VPNs, Outlook Web Access, network devices, and remote desktop.(Citation: volexity_0day_sophos_FW) Compromised credentials may also grant an adversary increased privilege to specific systems or access to restricted areas of the network. Adversaries may choose not to use malware or tools in conjunction with the legitimate access those credentials provide to make it harder to detect their presence.",
+   :d3f/produces #{:d3f/Authorization :d3f/Authentication},
+   :d3f/uses :d3f/UserAccount,
+   :db/ident :d3f/T1078,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Valid Accounts",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/UserAccount,
@@ -31579,54 +32300,68 @@
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1078_001
-  {:d3f/attack-id   "T1078.001",
-   :d3f/uses        :d3f/DefaultUserAccount,
-   :db/ident        :d3f/T1078.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Default Accounts",
+  {:d3f/attack-id "T1078.001",
+   :d3f/definition
+   "Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems. Default accounts also include default factory/provider set accounts on other types of systems, software, or devices, including the root user account in AWS and the default service account in Kubernetes.(Citation: Microsoft Local Accounts Feb 2019)(Citation: AWS Root User)(Citation: Threat Matrix for Kubernetes)",
+   :d3f/uses :d3f/DefaultUserAccount,
+   :db/ident :d3f/T1078.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Default Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/DefaultUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1078}})
 
 (def T1078_002
-  {:d3f/attack-id   "T1078.002",
-   :d3f/uses        :d3f/DomainUserAccount,
-   :db/ident        :d3f/T1078.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Domain Accounts",
+  {:d3f/attack-id "T1078.002",
+   :d3f/definition
+   "Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.(Citation: TechNet Credential Theft) Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover users, administrators, and services.(Citation: Microsoft AD Accounts)",
+   :d3f/uses :d3f/DomainUserAccount,
+   :db/ident :d3f/T1078.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Domain Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/DomainUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1078}})
 
 (def T1078_003
-  {:d3f/attack-id   "T1078.003",
-   :d3f/uses        :d3f/LocalUserAccount,
-   :db/ident        :d3f/T1078.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Local Accounts",
+  {:d3f/attack-id "T1078.003",
+   :d3f/definition
+   "Adversaries may obtain and abuse credentials of a local account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.",
+   :d3f/uses :d3f/LocalUserAccount,
+   :db/ident :d3f/T1078.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Local Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/LocalUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1078}})
 
 (def T1078_004
-  {:d3f/attack-id   "T1078.004",
-   :d3f/uses        :d3f/CloudUserAccount,
-   :db/ident        :d3f/T1078.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cloud Accounts",
+  {:d3f/attack-id "T1078.004",
+   :d3f/definition
+   "Valid accounts in cloud environments may allow adversaries to perform actions to achieve Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Cloud accounts are those created and configured by an organization for use by users, remote support, services, or for administration of resources within a cloud service provider or SaaS application. Cloud Accounts can exist solely in the cloud; alternatively, they may be hybrid-joined between on-premises systems and the cloud through syncing or federation with other identity sources such as Windows Active Directory. (Citation: AWS Identity Federation)(Citation: Google Federating GC)(Citation: Microsoft Deploying AD Federation)",
+   :d3f/uses :d3f/CloudUserAccount,
+   :db/ident :d3f/T1078.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud Accounts",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
                        :owl/someValuesFrom :d3f/CloudUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1078}})
 
 (def T1079
-  {:d3f/attack-id   "T1079",
-   :db/ident        :d3f/T1079,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multilayer Encryption",
+  {:d3f/attack-id "T1079",
+   :d3f/definition
+   "An adversary performs C2 communications using multiple layers of encryption, typically (but not exclusively) tunneling a custom encryption scheme within a protocol encryption scheme such as HTTPS or SMTPS.",
+   :db/ident :d3f/T1079,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1573",
+   :rdfs/label "Multilayer Encryption",
+   :rdfs/seeAlso {:rdf/value "T1573"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1080
   {:d3f/attack-id   "T1080",
+   :d3f/definition  "",
    :d3f/modifies    :d3f/NetworkResource,
    :db/ident        :d3f/T1080,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
@@ -31637,19 +32372,26 @@
                       :d3f/LateralMovementTechnique}})
 
 (def T1081
-  {:d3f/attack-id   "T1081",
-   :db/ident        :d3f/T1081,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Credentials in Files",
+  {:d3f/attack-id "T1081",
+   :d3f/definition
+   "Adversaries may search local file systems and remote file shares for files containing passwords. These can be files created by users to store their own credentials, shared credential stores for a group of individuals, configuration files containing passwords for a system or service, or source code/binary files containing embedded passwords.",
+   :db/ident :d3f/T1081,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1552.001",
+   :rdfs/label "Credentials in Files",
+   :rdfs/seeAlso {:rdf/value "T1552.001"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1082
-  {:d3f/attack-id   "T1082",
-   :d3f/may-access  :d3f/DecoyArtifact,
-   :d3f/may-invoke  :d3f/CreateProcess,
-   :db/ident        :d3f/T1082,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Information Discovery",
+  {:d3f/attack-id "T1082",
+   :d3f/definition
+   "An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture. Adversaries may use the information from [System Information Discovery](https://attack.mitre.org/techniques/T1082) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :d3f/may-access :d3f/DecoyArtifact,
+   :d3f/may-invoke :d3f/CreateProcess,
+   :db/ident :d3f/T1082,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Information Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -31659,11 +32401,13 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1083
-  {:d3f/accesses    #{:d3f/File :d3f/Directory},
-   :d3f/attack-id   "T1083",
-   :db/ident        :d3f/T1083,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "File and Directory Discovery",
+  {:d3f/accesses #{:d3f/File :d3f/Directory},
+   :d3f/attack-id "T1083",
+   :d3f/definition
+   "Adversaries may enumerate files and directories or may search in specific locations of a host or network share for certain information within a file system. Adversaries may use the information from [File and Directory Discovery](https://attack.mitre.org/techniques/T1083) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :db/ident :d3f/T1083,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File and Directory Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Directory,
@@ -31673,132 +32417,177 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1084
-  {:d3f/attack-id   "T1084",
-   :db/ident        :d3f/T1084,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Management Instrumentation Event Subscription",
+  {:d3f/attack-id "T1084",
+   :d3f/definition
+   "Windows Management Instrumentation (WMI) can be used to install event filters, providers, consumers, and bindings that execute code when a defined event occurs. Adversaries may use the capabilities of WMI to subscribe to an event and execute arbitrary code when that event occurs, providing persistence on a system. Adversaries may attempt to evade detection of this technique by compiling WMI scripts into Windows Management Object (MOF) files (.mof extension). (Citation: Dell WMI Persistence) Examples of events that may be subscribed to are the wall clock time or the computer's uptime. (Citation: Kazanciyan 2014) Several threat groups have reportedly used this technique to maintain persistence. (Citation: Mandiant M-Trends 2015)",
+   :db/ident :d3f/T1084,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.003",
+   :rdfs/label "Windows Management Instrumentation Event Subscription",
+   :rdfs/seeAlso {:rdf/value "T1546.003"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1085
-  {:d3f/attack-id   "T1085",
-   :db/ident        :d3f/T1085,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Rundll32",
+  {:d3f/attack-id "T1085",
+   :d3f/definition
+   "The rundll32.exe program can be called to execute an arbitrary binary. Adversaries may take advantage of this functionality to proxy execution of code to avoid triggering security tools that may not monitor execution of the rundll32.exe process because of whitelists or false positives from Windows using rundll32.exe for normal operations.",
+   :db/ident :d3f/T1085,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.011",
+   :rdfs/label "Rundll32",
+   :rdfs/seeAlso {:rdf/value "T1218.011"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1086
-  {:d3f/attack-id   "T1086",
-   :db/ident        :d3f/T1086,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "PowerShell",
+  {:d3f/attack-id "T1086",
+   :d3f/definition
+   "PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system. (Citation: TechNet PowerShell) Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the Start-Process cmdlet which can be used to run an executable and the Invoke-Command cmdlet which runs a command locally or on a remote computer.",
+   :db/ident :d3f/T1086,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1059.001",
+   :rdfs/label "PowerShell",
+   :rdfs/seeAlso {:rdf/value "T1059.001"},
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1087
-  {:d3f/attack-id   "T1087",
-   :db/ident        :d3f/T1087,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Account Discovery",
+  {:d3f/attack-id "T1087",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of valid accounts, usernames, or email addresses on a system or within a compromised environment. This information can help adversaries determine which accounts exist, which can aid in follow-on behavior such as brute-forcing, spear-phishing attacks, or account takeovers (e.g., [Valid Accounts](https://attack.mitre.org/techniques/T1078)).",
+   :db/ident :d3f/T1087,
+   :rdf/type :owl/Class,
+   :rdfs/label "Account Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1087_001
-  {:d3f/attack-id   "T1087.001",
-   :d3f/creates     :d3f/LocalUserAccount,
-   :db/ident        :d3f/T1087.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Local Account",
+  {:d3f/attack-id "T1087.001",
+   :d3f/creates :d3f/LocalUserAccount,
+   :d3f/definition
+   "Adversaries may attempt to get a listing of local system accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.",
+   :db/ident :d3f/T1087.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Local Account",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/LocalUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1136}})
 
 (def T1087_002
-  {:d3f/attack-id   "T1087.002",
-   :d3f/creates     :d3f/DomainUserAccount,
-   :db/ident        :d3f/T1087.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Domain Account",
+  {:d3f/attack-id "T1087.002",
+   :d3f/creates :d3f/DomainUserAccount,
+   :d3f/definition
+   "Adversaries may attempt to get a listing of domain accounts. This information can help adversaries determine which domain accounts exist to aid in follow-on behavior such as targeting specific accounts which possess particular privileges.",
+   :db/ident :d3f/T1087.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Domain Account",
    :rdfs/subClassOf #{:d3f/T1136
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/DomainUserAccount,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1087_003
-  {:d3f/attack-id   "T1087.003",
-   :db/ident        :d3f/T1087.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Email Account",
+  {:d3f/attack-id "T1087.003",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of email addresses and accounts. Adversaries may try to dump Exchange address lists such as global address lists (GALs).(Citation: Microsoft Exchange Address Lists)",
+   :db/ident :d3f/T1087.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Email Account",
    :rdfs/subClassOf :d3f/T1087})
 
 (def T1087_004
-  {:d3f/attack-id   "T1087.004",
-   :d3f/creates     :d3f/CloudUserAccount,
-   :db/ident        :d3f/T1087.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cloud Account",
+  {:d3f/attack-id "T1087.004",
+   :d3f/creates :d3f/CloudUserAccount,
+   :d3f/definition
+   "Adversaries may attempt to get a listing of cloud accounts. Cloud accounts are those created and configured by an organization for use by users, remote support, services, or for administration of resources within a cloud service provider or SaaS application.",
+   :db/ident :d3f/T1087.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud Account",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/CloudUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1136}})
 
 (def T1088
-  {:d3f/attack-id   "T1088",
-   :db/ident        :d3f/T1088,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Bypass User Account Control",
+  {:d3f/attack-id "T1088",
+   :d3f/definition
+   "Windows User Account Control (UAC) allows a program to elevate its privileges to perform a task under administrator-level permissions by prompting the user for confirmation. The impact to the user ranges from denying the operation under high enforcement to allowing the user to perform the action if they are in the local administrators group and click through the prompt or allowing them to enter an administrator password to complete the action. (Citation: TechNet How UAC Works)",
+   :db/ident :d3f/T1088,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1548.002",
+   :rdfs/label "Bypass User Account Control",
+   :rdfs/seeAlso {:rdf/value "T1548.002"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1089
-  {:d3f/attack-id   "T1089",
-   :db/ident        :d3f/T1089,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disabling Security Tools",
+  {:d3f/attack-id "T1089",
+   :d3f/definition
+   "Adversaries may disable security tools to avoid possible detection of their tools and activities. This can take the form of killing security software or event logging processes, deleting Registry keys so that tools do not start at run time, or other methods to interfere with security scanning or event reporting.",
+   :db/ident :d3f/T1089,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1562.001",
+   :rdfs/label "Disabling Security Tools",
+   :rdfs/seeAlso {:rdf/value "T1562.001"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1090
-  {:d3f/attack-id   "T1090",
-   :db/ident        :d3f/T1090,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Proxy",
+  {:d3f/attack-id "T1090",
+   :d3f/definition
+   "Adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure. Many tools exist that enable traffic redirection through proxies or port redirection, including [HTRAN](https://attack.mitre.org/software/S0040), ZXProxy, and ZXPortMap. (Citation: Trend Micro APT Attack Tools) Adversaries use these types of proxies to manage command and control communications, reduce the number of simultaneous outbound network connections, provide resiliency in the face of connection loss, or to ride over existing trusted communications paths between victims to avoid suspicion. Adversaries may chain together multiple proxies to further disguise the source of malicious traffic.",
+   :db/ident :d3f/T1090,
+   :rdf/type :owl/Class,
+   :rdfs/label "Proxy",
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1090_001
-  {:d3f/attack-id   "T1090.001",
-   :d3f/produces    :d3f/IntranetNetworkTraffic,
-   :db/ident        :d3f/T1090.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Internal Proxy",
+  {:d3f/attack-id "T1090.001",
+   :d3f/definition
+   "Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment. Many tools exist that enable traffic redirection through proxies or port redirection, including [HTRAN](https://attack.mitre.org/software/S0040), ZXProxy, and ZXPortMap. (Citation: Trend Micro APT Attack Tools) Adversaries use internal proxies to manage command and control communications inside a compromised environment, to reduce the number of simultaneous outbound network connections, to provide resiliency in the face of connection loss, or to ride over existing trusted communications paths between infected systems to avoid suspicion. Internal proxy connections may use common peer-to-peer (p2p) networking protocols, such as SMB, to better blend in with the environment.",
+   :d3f/produces :d3f/IntranetNetworkTraffic,
+   :db/ident :d3f/T1090.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Internal Proxy",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1090_002
-  {:d3f/attack-id   "T1090.002",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1090.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "External Proxy",
+  {:d3f/attack-id "T1090.002",
+   :d3f/definition
+   "Adversaries may use an external proxy to act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure. Many tools exist that enable traffic redirection through proxies or port redirection, including [HTRAN](https://attack.mitre.org/software/S0040), ZXProxy, and ZXPortMap. (Citation: Trend Micro APT Attack Tools) Adversaries use these types of proxies to manage command and control communications, to provide resiliency in the face of connection loss, or to ride over existing trusted communications paths to avoid suspicion.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1090.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "External Proxy",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1090_003
-  {:d3f/attack-id   "T1090.003",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1090.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Multi-hop Proxy",
+  {:d3f/attack-id "T1090.003",
+   :d3f/definition
+   "Adversaries may chain together multiple proxies to disguise the source of malicious traffic. Typically, a defender will be able to identify the last proxy traffic traversed before it enters their network; the defender may or may not be able to identify any previous proxies before the last-hop proxy. This technique makes identifying the original source of the malicious traffic even more difficult by requiring the defender to trace malicious traffic through several proxies to identify its source.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1090.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Multi-hop Proxy",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1090_004
-  {:d3f/attack-id   "T1090.004",
-   :d3f/produces    :d3f/OutboundInternetEncryptedWebTraffic,
-   :db/ident        :d3f/T1090.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Domain Fronting",
+  {:d3f/attack-id "T1090.004",
+   :d3f/definition
+   "Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through HTTPS. (Citation: Fifield Blocking Resistent Communication through domain fronting 2015) Domain fronting involves using different domain names in the SNI field of the TLS header and the Host field of the HTTP header. If both domains are served from the same CDN, then the CDN may route to the address specified in the HTTP header after unwrapping the TLS header. A variation of the the technique, \"domainless\" fronting, utilizes a SNI field that is left blank; this may allow the fronting to work even when the CDN attempts to validate that the SNI and HTTP Host fields match (if the blank SNI fields are ignored).",
+   :d3f/produces :d3f/OutboundInternetEncryptedWebTraffic,
+   :db/ident :d3f/T1090.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Domain Fronting",
    :rdfs/subClassOf #{:d3f/T1090
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
@@ -31806,11 +32595,13 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1091
-  {:d3f/attack-id   "T1091",
-   :d3f/executes    :d3f/RemovableMediaDevice,
-   :db/ident        :d3f/T1091,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Replication Through Removable Media",
+  {:d3f/attack-id "T1091",
+   :d3f/definition
+   "Adversaries may move onto systems, possibly those on disconnected or air-gapped networks, by copying malware to removable media and taking advantage of Autorun features when the media is inserted into a system and executes. In the case of Lateral Movement, this may occur through modification of executable files stored on removable media or by copying malware and renaming it to look like a legitimate file to trick users into executing it on a separate system. In the case of Initial Access, this may occur through manual manipulation of the media, modification of systems used to initially format the media, or modification to the media's firmware itself.",
+   :d3f/executes :d3f/RemovableMediaDevice,
+   :db/ident :d3f/T1091,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Replication Through Removable Media",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/RemovableMediaDevice,
@@ -31818,73 +32609,101 @@
                       :d3f/LateralMovementTechnique}})
 
 (def T1092
-  {:d3f/attack-id   "T1092",
-   :d3f/modifies    :d3f/RemovableMediaDevice,
-   :db/ident        :d3f/T1092,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Communication Through Removable Media",
+  {:d3f/attack-id "T1092",
+   :d3f/definition
+   "Adversaries can perform command and control between compromised hosts on potentially disconnected networks using removable media to transfer commands from system to system.(Citation: ESET Sednit USBStealer 2014) Both systems would need to be compromised, with the likelihood that an Internet-connected system was compromised first and the second through lateral movement by [Replication Through Removable Media](https://attack.mitre.org/techniques/T1091). Commands and files would be relayed from the disconnected system to the Internet-connected system to which the adversary has direct access.",
+   :d3f/modifies :d3f/RemovableMediaDevice,
+   :db/ident :d3f/T1092,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Communication Through Removable Media",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/RemovableMediaDevice,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1093
-  {:d3f/attack-id   "T1093",
-   :db/ident        :d3f/T1093,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Process Hollowing",
+  {:d3f/attack-id "T1093",
+   :d3f/definition
+   "Process hollowing occurs when a process is created in a suspended state then its memory is unmapped and replaced with malicious code. Similar to [Process Injection](https://attack.mitre.org/techniques/T1055), execution of the malicious code is masked under a legitimate process and may evade defenses and detection analysis. (Citation: Leitch Hollowing) (Citation: Elastic Process Injection July 2017)",
+   :db/ident :d3f/T1093,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1055.012",
+   :rdfs/label "Process Hollowing",
+   :rdfs/seeAlso {:rdf/value "T1055.012"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1094
-  {:d3f/attack-id   "T1094",
-   :db/ident        :d3f/T1094,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Custom Command and Control Protocol",
+  {:d3f/attack-id "T1094",
+   :d3f/definition
+   "Adversaries may communicate using a custom command and control protocol instead of encapsulating commands/data in an existing [Application Layer Protocol](https://attack.mitre.org/techniques/T1071). Implementations include mimicking well-known protocols or developing custom protocols (including raw sockets) on top of fundamental protocols provided by TCP/IP/another standard network stack.",
+   :db/ident :d3f/T1094,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1095",
+   :rdfs/label "Custom Command and Control Protocol",
+   :rdfs/seeAlso {:rdf/value "T1095"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1095
-  {:d3f/attack-id   "T1095",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1095,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Non-Application Layer Protocol",
+  {:d3f/attack-id "T1095",
+   :d3f/definition
+   "Adversaries may use an OSI non-application layer protocol for communication between host and C2 server or among infected hosts within a network. The list of possible protocols is extensive.(Citation: Wikipedia OSI) Specific examples include use of network layer protocols, such as the Internet Control Message Protocol (ICMP), transport layer protocols, such as the User Datagram Protocol (UDP), session layer protocols, such as Socket Secure (SOCKS), as well as redirected/tunneled protocols, such as Serial over LAN (SOL).",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1095,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Non-Application Layer Protocol",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1096
-  {:d3f/attack-id   "T1096",
-   :db/ident        :d3f/T1096,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "NTFS File Attributes",
+  {:d3f/attack-id "T1096",
+   :d3f/definition
+   "Every New Technology File System (NTFS) formatted partition contains a Master File Table (MFT) that maintains a record for every file/directory on the partition. (Citation: SpectorOps Host-Based Jul 2017) Within MFT entries are file attributes, (Citation: Microsoft NTFS File Attributes Aug 2010) such as Extended Attributes (EA) and Data [known as Alternate Data Streams (ADSs) when more than one Data attribute is present], that can be used to store arbitrary data (and even complete files). (Citation: SpectorOps Host-Based Jul 2017) (Citation: Microsoft File Streams) (Citation: MalwareBytes ADS July 2015) (Citation: Microsoft ADS Mar 2014)",
+   :db/ident :d3f/T1096,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1564.004",
+   :rdfs/label "NTFS File Attributes",
+   :rdfs/seeAlso {:rdf/value "T1564.004"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1097
-  {:d3f/attack-id   "T1097",
-   :db/ident        :d3f/T1097,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Pass the Ticket",
+  {:d3f/attack-id "T1097",
+   :d3f/definition
+   "Pass the ticket (PtT) is a method of authenticating to a system using Kerberos tickets without having access to an account's password. Kerberos authentication can be used as the first step to lateral movement to a remote system.",
+   :db/ident :d3f/T1097,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1550.003",
+   :rdfs/label "Pass the Ticket",
+   :rdfs/seeAlso {:rdf/value "T1550.003"},
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1098
-  {:d3f/attack-id   "T1098",
-   :d3f/modifies    :d3f/UserAccount,
-   :db/ident        :d3f/T1098,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Account Manipulation",
+  {:d3f/attack-id "T1098",
+   :d3f/definition
+   "Adversaries may manipulate accounts to maintain and/or elevate access to victim systems. Account manipulation may consist of any action that preserves or modifies adversary access to a compromised account, such as modifying credentials or permission groups.(Citation: FireEye SMOKEDHAM June 2021) These actions could also include account activity designed to subvert security policies, such as performing iterative password updates to bypass password duration policies and preserve the life of compromised credentials.",
+   :d3f/modifies :d3f/UserAccount,
+   :db/ident :d3f/T1098,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Account Manipulation",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1098_001
-  {:d3f/attack-id   "T1098.001",
-   :d3f/creates     :d3f/Credential,
-   :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1098.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Additional Azure Service Principal Credentials",
+  {:d3f/attack-id "T1098.001",
+   :d3f/creates :d3f/Credential,
+   :d3f/definition
+   "Adversaries may add adversary-controlled credentials to a cloud account to maintain persistent access to victim accounts and instances within the environment.",
+   :d3f/produces :d3f/IntranetAdministrativeNetworkTraffic,
+   :db/ident :d3f/T1098.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Additional Cloud Credentials",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
                        :d3f/IntranetAdministrativeNetworkTraffic,
@@ -31894,108 +32713,155 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1098_002
-  {:d3f/attack-id   "T1098.002",
-   :d3f/modifies    :d3f/DomainUserAccount,
-   :db/ident        :d3f/T1098.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exchange Email Delegate Permissions",
+  {:d3f/attack-id "T1098.002",
+   :d3f/definition
+   "Adversaries may grant additional permission levels to maintain persistent access to an adversary-controlled email account.",
+   :d3f/modifies :d3f/DomainUserAccount,
+   :db/ident :d3f/T1098.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Additional Email Delegate Permissions",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/DomainUserAccount,
                        :rdf/type           :owl/Restriction} :d3f/T1098}})
 
 (def T1098_003
-  {:d3f/attack-id   "T1098.003",
-   :d3f/modifies    :d3f/GlobalUserAccount,
-   :db/ident        :d3f/T1098.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Add Office 365 Global Administrator Role",
+  {:d3f/attack-id "T1098.003",
+   :d3f/definition
+   "An adversary may add additional roles or permissions to an adversary-controlled cloud account to maintain persistent access to a tenant. For example, adversaries may update IAM policies in cloud-based environments or add a new global administrator in Office 365 environments.(Citation: AWS IAM Policies and Permissions)(Citation: Google Cloud IAM Policies)(Citation: Microsoft Support O365 Add Another Admin, October 2019)(Citation: Microsoft O365 Admin Roles) With sufficient permissions, a compromised account can gain almost unlimited access to data and settings (including the ability to reset the passwords of other admins).(Citation: Expel AWS Attacker)",
+   :d3f/modifies :d3f/GlobalUserAccount,
+   :db/ident :d3f/T1098.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Additional Cloud Roles",
    :rdfs/subClassOf #{:d3f/T1098
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/GlobalUserAccount,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1098_004
-  {:d3f/attack-id   "T1098.004",
-   :db/ident        :d3f/T1098.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SSH Authorized Keys",
+  {:d3f/attack-id "T1098.004",
+   :d3f/definition
+   "Adversaries may modify the SSH <code>authorized_keys</code> file to maintain persistence on a victim host. Linux distributions and macOS commonly use key-based authentication to secure the authentication process of SSH sessions for remote management. The <code>authorized_keys</code> file in SSH specifies the SSH keys that can be used for logging into the user account for which the file is configured. This file is usually found in the user's home directory under <code>&lt;user-home&gt;/.ssh/authorized_keys</code>.(Citation: SSH Authorized Keys) Users may edit the system’s SSH config file to modify the directives PubkeyAuthentication and RSAAuthentication to the value “yes” to ensure public key and RSA authentication are enabled. The SSH config file is usually located under <code>/etc/ssh/sshd_config</code>.",
+   :db/ident :d3f/T1098.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "SSH Authorized Keys",
    :rdfs/subClassOf :d3f/T1098})
 
 (def T1098_005
-  {:d3f/attack-id   "T1098.005",
-   :db/ident        :d3f/T1098.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Device Registration",
+  {:d3f/attack-id "T1098.005",
+   :d3f/definition
+   "Adversaries may register a device to an adversary-controlled account. Devices may be registered in a multifactor authentication (MFA) system, which handles authentication to the network, or in a device management system, which handles device access and compliance.",
+   :db/ident :d3f/T1098.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Device Registration",
+   :rdfs/subClassOf :d3f/T1098})
+
+(def T1098_006
+  {:d3f/attack-id "T1098.006",
+   :d3f/definition
+   "An adversary may add additional roles or permissions to an adversary-controlled user or service account to maintain persistent access to a container orchestration system. For example, an adversary with sufficient permissions may create a RoleBinding or a ClusterRoleBinding to bind a Role or ClusterRole to a Kubernetes account.(Citation: Kubernetes RBAC)(Citation: Aquasec Kubernetes Attack 2023) Where attribute-based access control (ABAC) is in use, an adversary with sufficient permissions may modify a Kubernetes ABAC policy to give the target account additional permissions.(Citation: Kuberentes ABAC)",
+   :db/ident :d3f/T1098.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Additional Container Cluster Roles",
    :rdfs/subClassOf :d3f/T1098})
 
 (def T1099
-  {:d3f/attack-id   "T1099",
-   :db/ident        :d3f/T1099,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Timestomp",
+  {:d3f/attack-id "T1099",
+   :d3f/definition
+   "Adversaries may take actions to hide the deployment of new, or modification of existing files to obfuscate their activities. Timestomping is a technique that modifies the timestamps of a file (the modify, access, create, and change times), often to mimic files that are in the same folder. This is done, for example, on files that have been modified or created by the adversary so that they do not appear conspicuous to forensic investigators or file analysis tools. Timestomping may be used along with file name [Masquerading](https://attack.mitre.org/techniques/T1036) to hide malware and tools. (Citation: WindowsIR Anti-Forensic Techniques)",
+   :db/ident :d3f/T1099,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1070.006",
+   :rdfs/label "Timestomp",
+   :rdfs/seeAlso {:rdf/value "T1070.006"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1100
-  {:d3f/attack-id   "T1100",
-   :db/ident        :d3f/T1100,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Web Shell",
+  {:d3f/attack-id "T1100",
+   :d3f/definition
+   "A Web shell is a Web script that is placed on an openly accessible Web server to allow an adversary to use the Web server as a gateway into a network. A Web shell may provide a set of functions to execute or a command-line interface on the system that hosts the Web server. In addition to a server-side script, a Web shell may have a client interface program that is used to talk to the Web server (see, for example, China Chopper Web shell client). (Citation: Lee 2013)",
+   :db/ident :d3f/T1100,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1505.003",
+   :rdfs/label "Web Shell",
+   :rdfs/seeAlso {:rdf/value "T1505.003"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1101
-  {:d3f/attack-id   "T1101",
-   :db/ident        :d3f/T1101,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Security Support Provider",
+  {:d3f/attack-id "T1101",
+   :d3f/definition
+   "Windows Security Support Provider (SSP) DLLs are loaded into the Local Security Authority (LSA) process at system start. Once loaded into the LSA, SSP DLLs have access to encrypted and plaintext passwords that are stored in Windows, such as any logged-on user's Domain password or smart card PINs. The SSP configuration is stored in two Registry keys: <code>HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Security Packages</code> and <code>HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig\\Security Packages</code>. An adversary may modify these Registry keys to add new SSPs, which will be loaded the next time the system boots, or when the AddSecurityPackage Windows API function is called.",
+   :db/ident :d3f/T1101,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.005",
+   :rdfs/label "Security Support Provider",
+   :rdfs/seeAlso {:rdf/value "T1547.005"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1102
-  {:d3f/attack-id   "T1102",
-   :d3f/produces    :d3f/OutboundInternetWebTraffic,
-   :db/ident        :d3f/T1102,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Web Service",
+  {:d3f/attack-id "T1102",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service as a means for relaying data to/from a compromised system. Popular websites and social media acting as a mechanism for C2 may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to a compromise. Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise. Web service providers commonly use SSL/TLS encryption, giving adversaries an added level of protection.",
+   :d3f/produces :d3f/OutboundInternetWebTraffic,
+   :db/ident :d3f/T1102,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Web Service",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1102_001
-  {:d3f/attack-id   "T1102.001",
-   :db/ident        :d3f/T1102.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dead Drop Resolver",
+  {:d3f/attack-id "T1102.001",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service to host information that points to additional command and control (C2) infrastructure. Adversaries may post content, known as a dead drop resolver, on Web services with embedded (and often obfuscated/encoded) domains or IP addresses. Once infected, victims will reach out to and be redirected by these resolvers.",
+   :db/ident :d3f/T1102.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dead Drop Resolver",
    :rdfs/subClassOf :d3f/T1102})
 
 (def T1102_002
-  {:d3f/attack-id   "T1102.002",
-   :db/ident        :d3f/T1102.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Bidirectional Communication",
+  {:d3f/attack-id "T1102.002",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service as a means for sending commands to and receiving output from a compromised system over the Web service channel. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions. Those infected systems can then send the output from those commands back over that Web service channel. The return traffic may occur in a variety of ways, depending on the Web service being utilized. For example, the return traffic may take the form of the compromised system posting a comment on a forum, issuing a pull request to development project, updating a document hosted on a Web service, or by sending a Tweet.",
+   :db/ident :d3f/T1102.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Bidirectional Communication",
    :rdfs/subClassOf :d3f/T1102})
 
 (def T1102_003
-  {:d3f/attack-id   "T1102.003",
-   :db/ident        :d3f/T1102.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "One-Way Communication",
+  {:d3f/attack-id "T1102.003",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service as a means for sending commands to a compromised system without receiving return output over the Web service channel. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions. Those infected systems may opt to send the output from those commands back over a different C2 channel, including to another distinct Web service. Alternatively, compromised systems may return no output at all in cases where adversaries want to send instructions to systems and do not want a response.",
+   :db/ident :d3f/T1102.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "One-Way Communication",
    :rdfs/subClassOf :d3f/T1102})
 
 (def T1103
-  {:d3f/attack-id   "T1103",
-   :db/ident        :d3f/T1103,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "AppInit DLLs",
+  {:d3f/attack-id "T1103",
+   :d3f/definition
+   "Dynamic-link libraries (DLLs) that are specified in the AppInit_DLLs value in the Registry keys <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows</code> or <code>HKEY_LOCAL_MACHINE\\Software\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows</code> are loaded by user32.dll into every process that loads user32.dll. In practice this is nearly every program, since user32.dll is a very common library. (Citation: Elastic Process Injection July 2017) Similar to [Process Injection](https://attack.mitre.org/techniques/T1055), these values can be abused to obtain persistence and privilege escalation by causing a malicious DLL to be loaded and run in the context of separate processes on the computer. (Citation: AppInit Registry)",
+   :db/ident :d3f/T1103,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.010",
+   :rdfs/label "AppInit DLLs",
+   :rdfs/seeAlso {:rdf/value "T1546.010"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1104
-  {:d3f/attack-id   "T1104",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1104,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Multi-Stage Channels",
+  {:d3f/attack-id "T1104",
+   :d3f/definition
+   "Adversaries may create multiple stages for command and control that are employed under different conditions or for certain functions. Use of multiple stages may obfuscate the command and control channel to make detection more difficult.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1104,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Multi-Stage Channels",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
@@ -32015,45 +32881,73 @@
                       :d3f/CommandAndControlTechnique}})
 
 (def T1106
-  {:d3f/attack-id   "T1106",
-   :d3f/invokes     :d3f/SystemCall,
-   :db/ident        :d3f/T1106,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Native API Execution",
+  {:d3f/attack-id "T1106",
+   :d3f/definition
+   "Adversaries may interact with the native OS application programming interface (API) to execute behaviors. Native APIs provide a controlled means of calling low-level OS services within the kernel, such as those involving hardware/devices, memory, and processes.(Citation: NT API Windows)(Citation: Linux Kernel API) These native APIs are leveraged by the OS during system boot (when other system components are not yet initialized) as well as carrying out tasks and requests during routine operations.",
+   :d3f/invokes :d3f/SystemCall,
+   :db/ident :d3f/T1106,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Native API",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SystemCall,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1107
-  {:d3f/attack-id   "T1107",
-   :db/ident        :d3f/T1107,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "File Deletion",
+  {:d3f/attack-id "T1107",
+   :d3f/definition
+   "Adversaries may delete files left behind by the actions of their intrusion activity. Malware, tools, or other non-native files dropped or created on a system by an adversary may leave traces to indicate to what was done within a network and how. Removal of these files can occur during an intrusion, or as part of a post-intrusion process to minimize the adversary's footprint.",
+   :db/ident :d3f/T1107,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1070.004",
+   :rdfs/label "File Deletion",
+   :rdfs/seeAlso {:rdf/value "T1070.004"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
+(def T1108
+  {:d3f/attack-id "T1108",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Create Account](https://attack.mitre.org/techniques/T1136), [Web Shell](https://attack.mitre.org/techniques/T1505/003), and [External Remote Services](https://attack.mitre.org/techniques/T1133) where appropriate.**",
+   :db/ident :d3f/T1108,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Create Account](https://attack.mitre.org/techniques/T1136), [Web Shell](https://attack.mitre.org/techniques/T1505/003), and [External Remote Services](https://attack.mitre.org/techniques/T1133) where appropriate.**",
+   :rdfs/label "Redundant Access",
+   :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
+
 (def T1109
-  {:d3f/attack-id   "T1109",
-   :db/ident        :d3f/T1109,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Component Firmware",
+  {:d3f/attack-id "T1109",
+   :d3f/definition
+   "Some adversaries may employ sophisticated means to compromise computer components and install malicious firmware that will execute adversary code outside of the operating system and main system firmware or BIOS. This technique may be similar to [System Firmware](https://attack.mitre.org/techniques/T1019) but conducted upon other system components that may not have the same capability or level of integrity checking. Malicious device firmware could provide both a persistent level of access to systems despite potential typical failures to maintain access and hard disk re-images, as well as a way to evade host software-based defenses and integrity checks.",
+   :db/ident :d3f/T1109,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1542.002",
+   :rdfs/label "Component Firmware",
+   :rdfs/seeAlso {:rdf/value "T1542.002"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1110
-  {:d3f/attack-id   "T1110",
-   :db/ident        :d3f/T1110,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Brute Force",
+  {:d3f/attack-id "T1110",
+   :d3f/definition
+   "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained.(Citation: TrendMicro Pawn Storm Dec 2020) Without knowledge of the password for an account or set of accounts, an adversary may systematically guess the password using a repetitive or iterative mechanism.(Citation: Dragos Crashoverride 2018) Brute forcing passwords can take place via interaction with a service that will check the validity of those credentials or offline against previously acquired credential data, such as password hashes.",
+   :db/ident :d3f/T1110,
+   :rdf/type :owl/Class,
+   :rdfs/label "Brute Force",
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1110_001
-  {:d3f/accesses    :d3f/Password,
-   :d3f/attack-id   "T1110.001",
-   :d3f/modifies    :d3f/AuthenticationLog,
-   :d3f/produces    :d3f/Authentication,
-   :db/ident        :d3f/T1110.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Password Guessing",
+  {:d3f/accesses :d3f/Password,
+   :d3f/attack-id "T1110.001",
+   :d3f/definition
+   "Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts. Without knowledge of the password for an account, an adversary may opt to systematically guess the password using a repetitive or iterative mechanism. An adversary may guess login credentials without prior knowledge of system or environment passwords during an operation by using a list of common passwords. Password guessing may or may not take into account the target's policies on password complexity or use policies that may lock accounts out after a number of failed attempts.",
+   :d3f/modifies :d3f/AuthenticationLog,
+   :d3f/produces :d3f/Authentication,
+   :db/ident :d3f/T1110.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Password Guessing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AuthenticationLog,
                        :rdf/type           :owl/Restriction} :d3f/T1110
@@ -32065,25 +32959,29 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1110_002
-  {:d3f/accesses    :d3f/Password,
-   :d3f/attack-id   "T1110.002",
-   :db/ident        :d3f/T1110.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Password Cracking",
+  {:d3f/accesses :d3f/Password,
+   :d3f/attack-id "T1110.002",
+   :d3f/definition
+   "Adversaries may use password cracking to attempt to recover usable credentials, such as plaintext passwords, when credential material such as password hashes are obtained. [OS Credential Dumping](https://attack.mitre.org/techniques/T1003) can be used to obtain password hashes, this may only get an adversary so far when [Pass the Hash](https://attack.mitre.org/techniques/T1550/002) is not an option. Further,  adversaries may leverage [Data from Configuration Repository](https://attack.mitre.org/techniques/T1602) in order to obtain hashed credentials for network devices.(Citation: US-CERT-TA18-106A)",
+   :db/ident :d3f/T1110.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Password Cracking",
    :rdfs/subClassOf #{:d3f/T1110
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Password,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1110_003
-  {:d3f/accesses    :d3f/Password,
-   :d3f/attack-id   "T1110.003",
-   :d3f/may-create  :d3f/IntranetAdministrativeNetworkTraffic,
-   :d3f/modifies    :d3f/AuthenticationLog,
-   :d3f/produces    :d3f/Authentication,
-   :db/ident        :d3f/T1110.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Password Spraying",
+  {:d3f/accesses :d3f/Password,
+   :d3f/attack-id "T1110.003",
+   :d3f/definition
+   "Adversaries may use a single or small list of commonly used passwords against many different accounts to attempt to acquire valid account credentials. Password spraying uses one password (e.g. 'Password01'), or a small list of commonly used passwords, that may match the complexity policy of the domain. Logins are attempted with that password against many different accounts on a network to avoid account lockouts that would normally occur when brute forcing a single account with many passwords. (Citation: BlackHillsInfosec Password Spraying)",
+   :d3f/may-create :d3f/IntranetAdministrativeNetworkTraffic,
+   :d3f/modifies :d3f/AuthenticationLog,
+   :d3f/produces :d3f/Authentication,
+   :db/ident :d3f/T1110.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Password Spraying",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-create,
                        :owl/someValuesFrom
                        :d3f/IntranetAdministrativeNetworkTraffic,
@@ -32099,13 +32997,15 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1110_004
-  {:d3f/attack-id   "T1110.004",
-   :d3f/may-create  :d3f/IntranetAdministrativeNetworkTraffic,
-   :d3f/modifies    :d3f/AuthenticationLog,
-   :d3f/produces    :d3f/Authentication,
-   :db/ident        :d3f/T1110.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Credential Stuffing",
+  {:d3f/attack-id "T1110.004",
+   :d3f/definition
+   "Adversaries may use credentials obtained from breach dumps of unrelated accounts to gain access to target accounts through credential overlap. Occasionally, large numbers of username and password pairs are dumped online when a website or service is compromised and the user account credentials accessed. The information may be useful to an adversary attempting to compromise accounts by taking advantage of the tendency for users to use the same passwords across personal and business accounts.",
+   :d3f/may-create :d3f/IntranetAdministrativeNetworkTraffic,
+   :d3f/modifies :d3f/AuthenticationLog,
+   :d3f/produces :d3f/Authentication,
+   :db/ident :d3f/T1110.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Credential Stuffing",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-create,
                        :owl/someValuesFrom
                        :d3f/IntranetAdministrativeNetworkTraffic,
@@ -32118,34 +33018,40 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1111
-  {:d3f/attack-id   "T1111",
-   :d3f/may-access  :d3f/SecurityToken,
-   :db/ident        :d3f/T1111,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Two-Factor Authentication Interception",
+  {:d3f/attack-id "T1111",
+   :d3f/definition
+   "Adversaries may target multi-factor authentication (MFA) mechanisms, (i.e., smart cards, token generators, etc.) to gain access to credentials that can be used to access systems, services, and network resources. Use of MFA is recommended and provides a higher level of security than usernames and passwords alone, but organizations should be aware of techniques that could be used to intercept and bypass these security mechanisms.",
+   :d3f/may-access :d3f/SecurityToken,
+   :db/ident :d3f/T1111,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Multi-Factor Authentication Interception",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/SecurityToken,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1112
-  {:d3f/attack-id   "T1112",
-   :d3f/modifies    :d3f/WindowsRegistry,
-   :db/ident        :d3f/T1112,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Modify Registry",
+  {:d3f/attack-id "T1112",
+   :d3f/definition
+   "Adversaries may interact with the Windows Registry to hide configuration information within Registry keys, remove information as part of cleaning up, or as part of other techniques to aid in persistence and execution.",
+   :d3f/modifies :d3f/WindowsRegistry,
+   :db/ident :d3f/T1112,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Modify Registry",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/WindowsRegistry,
                        :rdf/type           :owl/Restriction}
                       :d3f/DefenseEvasionTechnique}})
 
 (def T1113
-  {:d3f/attack-id   "T1113",
-   :d3f/may-access  :d3f/DisplayServer,
-   :d3f/may-invoke  :d3f/GetScreenCapture,
-   :db/ident        :d3f/T1113,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Screen Capture",
+  {:d3f/attack-id "T1113",
+   :d3f/definition
+   "Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation. Screen capturing functionality may be included as a feature of a remote access tool used in post-compromise operations. Taking a screenshot is also typically possible through native utilities or API calls, such as <code>CopyFromScreen</code>, <code>xwd</code>, or <code>screencapture</code>.(Citation: CopyFromScreen .NET)(Citation: Antiquated Mac Malware)",
+   :d3f/may-access :d3f/DisplayServer,
+   :d3f/may-invoke :d3f/GetScreenCapture,
+   :db/ident :d3f/T1113,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Screen Capture",
    :rdfs/subClassOf #{:d3f/CollectionTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/GetScreenCapture,
@@ -32155,127 +33061,170 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1114
-  {:d3f/accesses    :d3f/Resource,
-   :d3f/attack-id   "T1114",
-   :db/ident        :d3f/T1114,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Email Collection",
+  {:d3f/accesses :d3f/Resource,
+   :d3f/attack-id "T1114",
+   :d3f/definition
+   "Adversaries may target user email to collect sensitive information. Emails may contain sensitive data, including trade secrets or personal information, that can prove valuable to adversaries. Adversaries can collect or forward email from mail servers or clients.",
+   :db/ident :d3f/T1114,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Email Collection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1114_001
-  {:d3f/attack-id   "T1114.001",
-   :d3f/reads       :d3f/Email,
-   :db/ident        :d3f/T1114.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Local Email Collection",
+  {:d3f/attack-id "T1114.001",
+   :d3f/definition
+   "Adversaries may target user email on local systems to collect sensitive information. Files containing email data can be acquired from a user’s local system, such as Outlook storage or cache files.",
+   :d3f/reads :d3f/Email,
+   :db/ident :d3f/T1114.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Local Email Collection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/Email,
                        :rdf/type           :owl/Restriction} :d3f/T1114}})
 
 (def T1114_002
-  {:d3f/accesses    :d3f/MailServer,
-   :d3f/attack-id   "T1114.002",
-   :db/ident        :d3f/T1114.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote Email Collection",
+  {:d3f/accesses :d3f/MailServer,
+   :d3f/attack-id "T1114.002",
+   :d3f/definition
+   "Adversaries may target an Exchange server, Office 365, or Google Workspace to collect sensitive information. Adversaries may leverage a user's credentials and interact directly with the Exchange server to acquire information from within a network. Adversaries may also access externally facing Exchange services, Office 365, or Google Workspace to access email using credentials or access tokens. Tools such as [MailSniper](https://attack.mitre.org/software/S0413) can be used to automate searches for specific keywords.",
+   :db/ident :d3f/T1114.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Email Collection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/MailServer,
                        :rdf/type           :owl/Restriction} :d3f/T1114}})
 
 (def T1114_003
-  {:d3f/attack-id   "T1114.003",
-   :d3f/modifies    :d3f/ApplicationConfiguration,
-   :db/ident        :d3f/T1114.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Email Forwarding Rule",
+  {:d3f/attack-id "T1114.003",
+   :d3f/definition
+   "Adversaries may setup email forwarding rules to collect sensitive information. Adversaries may abuse email forwarding rules to monitor the activities of a victim, steal information, and further gain intelligence on the victim or the victim’s organization to use as part of further exploits or operations.(Citation: US-CERT TA18-068A 2018) Furthermore, email forwarding rules can allow adversaries to maintain persistent access to victim's emails even after compromised credentials are reset by administrators.(Citation: Pfammatter - Hidden Inbox Rules) Most email clients allow users to create inbox rules for various email functions, including forwarding to a different recipient. These rules may be created through a local email application, a web interface, or by command-line interface. Messages can be forwarded to internal or external recipients, and there are no restrictions limiting the extent of this rule. Administrators may also create forwarding rules for user accounts with the same considerations and outcomes.(Citation: Microsoft Tim McMichael Exchange Mail Forwarding 2)(Citation: Mac Forwarding Rules)",
+   :d3f/modifies :d3f/ApplicationConfiguration,
+   :db/ident :d3f/T1114.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Email Forwarding Rule",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ApplicationConfiguration,
                        :rdf/type           :owl/Restriction} :d3f/T1114}})
 
 (def T1115
-  {:d3f/attack-id   "T1115",
-   :d3f/reads       :d3f/Clipboard,
-   :db/ident        :d3f/T1115,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Clipboard Data",
+  {:d3f/attack-id "T1115",
+   :d3f/definition
+   "Adversaries may collect data stored in the clipboard from users copying information within or between applications.",
+   :d3f/reads :d3f/Clipboard,
+   :db/ident :d3f/T1115,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Clipboard Data",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/Clipboard,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1116
-  {:d3f/attack-id   "T1116",
-   :db/ident        :d3f/T1116,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Code Signing",
+  {:d3f/attack-id "T1116",
+   :d3f/definition
+   "Code signing provides a level of authenticity on a binary from the developer and a guarantee that the binary has not been tampered with. (Citation: Wikipedia Code Signing) However, adversaries are known to use code signing certificates to masquerade malware and tools as legitimate binaries (Citation: Janicab). The certificates used during an operation may be created, forged, or stolen by the adversary. (Citation: Securelist Digital Certificates) (Citation: Symantec Digital Certificates)",
+   :db/ident :d3f/T1116,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1553.002",
+   :rdfs/label "Code Signing",
+   :rdfs/seeAlso {:rdf/value "T1553.002"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1117
-  {:d3f/attack-id   "T1117",
-   :db/ident        :d3f/T1117,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Regsvr32",
+  {:d3f/attack-id "T1117",
+   :d3f/definition
+   "Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. Regsvr32.exe can be used to execute arbitrary binaries. (Citation: Microsoft Regsvr32)",
+   :db/ident :d3f/T1117,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.010",
+   :rdfs/label "Regsvr32",
+   :rdfs/seeAlso {:rdf/value "T1218.010"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1118
-  {:d3f/attack-id   "T1118",
-   :db/ident        :d3f/T1118,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "InstallUtil",
+  {:d3f/attack-id "T1118",
+   :d3f/definition
+   "InstallUtil is a command-line utility that allows for installation and uninstallation of resources by executing specific installer components specified in .NET binaries. (Citation: MSDN InstallUtil) InstallUtil is located in the .NET directories on a Windows system: <code>C:\\Windows\\Microsoft.NET\\Framework\\v<version>\\InstallUtil.exe</code> and <code>C:\\Windows\\Microsoft.NET\\Framework64\\v<version>\\InstallUtil.exe</code>. InstallUtil.exe is digitally signed by Microsoft.",
+   :db/ident :d3f/T1118,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.004",
+   :rdfs/label "InstallUtil",
+   :rdfs/seeAlso {:rdf/value "T1218.004"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1119
-  {:d3f/accesses    :d3f/File,
-   :d3f/attack-id   "T1119",
-   :db/ident        :d3f/T1119,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Automated Collection",
+  {:d3f/accesses :d3f/File,
+   :d3f/attack-id "T1119",
+   :d3f/definition
+   "Once established within a system or network, an adversary may use automated techniques for collecting internal data. Methods for performing this technique could include use of a [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059) to search for and copy information fitting set criteria such as file type, location, or name at specific time intervals.",
+   :db/ident :d3f/T1119,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Automated Collection",
    :rdfs/subClassOf #{:d3f/CollectionTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1120
-  {:d3f/attack-id   "T1120",
-   :db/ident        :d3f/T1120,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Peripheral Device Discovery",
+  {:d3f/attack-id "T1120",
+   :d3f/definition
+   "Adversaries may attempt to gather information about attached peripheral devices and components connected to a computer system.(Citation: Peripheral Discovery Linux)(Citation: Peripheral Discovery macOS) Peripheral devices could include auxiliary resources that support a variety of functionalities such as keyboards, printers, cameras, smart card readers, or removable storage. The information may be used to enhance their awareness of the system and network environment or may be used for further actions.",
+   :db/ident :d3f/T1120,
+   :rdf/type :owl/Class,
+   :rdfs/label "Peripheral Device Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1121
-  {:d3f/attack-id   "T1121",
-   :db/ident        :d3f/T1121,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Regsvcs/Regasm",
+  {:d3f/attack-id "T1121",
+   :d3f/definition
+   "Regsvcs and Regasm are Windows command-line utilities that are used to register .NET Component Object Model (COM) assemblies. Both are digitally signed by Microsoft. (Citation: MSDN Regsvcs) (Citation: MSDN Regasm)",
+   :db/ident :d3f/T1121,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.009",
+   :rdfs/label "Regsvcs/Regasm",
+   :rdfs/seeAlso {:rdf/value "T1218.009"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1122
-  {:d3f/attack-id   "T1122",
-   :db/ident        :d3f/T1122,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Component Object Model Hijacking",
+  {:d3f/attack-id "T1122",
+   :d3f/definition
+   "The Component Object Model (COM) is a system within Windows to enable interaction between software components through the operating system. (Citation: Microsoft Component Object Model) Adversaries can use this system to insert malicious code that can be executed in place of legitimate software through hijacking the COM references and relationships as a means for persistence. Hijacking a COM object requires a change in the Windows Registry to replace a reference to a legitimate system component which may cause that component to not work when executed. When that system component is executed through normal system operation the adversary's code will be executed instead. (Citation: GDATA COM Hijacking) An adversary is likely to hijack objects that are used frequently enough to maintain a consistent level of persistence, but are unlikely to break noticeable functionality within the system as to avoid system instability that could lead to detection.",
+   :db/ident :d3f/T1122,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.015",
+   :rdfs/label "Component Object Model Hijacking",
+   :rdfs/seeAlso {:rdf/value "T1546.015"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1123
-  {:d3f/accesses    :d3f/AudioInputDevice,
-   :d3f/attack-id   "T1123",
-   :db/ident        :d3f/T1123,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Audio Capture",
+  {:d3f/accesses :d3f/AudioInputDevice,
+   :d3f/attack-id "T1123",
+   :d3f/definition
+   "An adversary can leverage a computer's peripheral devices (e.g., microphones and webcams) or applications (e.g., voice and video call services) to capture audio recordings for the purpose of listening into sensitive conversations to gather information.(Citation: ESET Attor Oct 2019)",
+   :db/ident :d3f/T1123,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Audio Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/AudioInputDevice,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1124
-  {:d3f/attack-id   "T1124",
-   :d3f/may-invoke  #{:d3f/GetSystemTime :d3f/CreateProcess},
-   :db/ident        :d3f/T1124,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Time Discovery",
+  {:d3f/attack-id "T1124",
+   :d3f/definition
+   "An adversary may gather the system time and/or time zone settings from a local or remote system. The system time is set and stored by services, such as the Windows Time Service on Windows or <code>systemsetup</code> on macOS.(Citation: MSDN System Time)(Citation: Technet Windows Time Service)(Citation: systemsetup mac time) These time settings may also be synchronized between systems and services in an enterprise network, typically accomplished with a network time server within a domain.(Citation: Mac Time Sync)(Citation: linux system time)",
+   :d3f/may-invoke #{:d3f/GetSystemTime :d3f/CreateProcess},
+   :db/ident :d3f/T1124,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Time Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/may-invoke,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -32285,37 +33234,48 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1125
-  {:d3f/accesses    :d3f/VideoInputDevice,
-   :d3f/attack-id   "T1125",
-   :db/ident        :d3f/T1125,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Video Capture",
+  {:d3f/accesses :d3f/VideoInputDevice,
+   :d3f/attack-id "T1125",
+   :d3f/definition
+   "An adversary can leverage a computer's peripheral devices (e.g., integrated cameras or webcams) or applications (e.g., video call services) to capture video recordings for the purpose of gathering information. Images may also be captured from devices or applications, potentially in specified intervals, in lieu of video files.",
+   :db/ident :d3f/T1125,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Video Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/VideoInputDevice,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1126
-  {:d3f/attack-id   "T1126",
-   :db/ident        :d3f/T1126,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Share Connection Removal",
+  {:d3f/attack-id "T1126",
+   :d3f/definition
+   "Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation. Windows shared drive and [Windows Admin Shares](https://attack.mitre.org/techniques/T1077) connections can be removed when no longer needed. [Net](https://attack.mitre.org/software/S0039) is an example utility that can be used to remove network share connections with the <code>net use \\\\system\\share /delete</code> command. (Citation: Technet Net Use)",
+   :db/ident :d3f/T1126,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1070.005",
+   :rdfs/label "Network Share Connection Removal",
+   :rdfs/seeAlso {:rdf/value "T1070.005"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1127
-  {:d3f/attack-id   "T1127",
-   :db/ident        :d3f/T1127,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trusted Developer Utilities Proxy Execution",
+  {:d3f/attack-id "T1127",
+   :d3f/definition
+   "Adversaries may take advantage of trusted developer utilities to proxy execution of malicious payloads. There are many utilities used for software development related tasks that can be used to execute code in various forms to assist in development, debugging, and reverse engineering.(Citation: engima0x3 DNX Bypass)(Citation: engima0x3 RCSI Bypass)(Citation: Exploit Monday WinDbg)(Citation: LOLBAS Tracker) These utilities may often be signed with legitimate certificates that allow them to execute on a system and proxy execution of malicious code through a trusted process that effectively bypasses application control solutions.",
+   :db/ident :d3f/T1127,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trusted Developer Utilities Proxy Execution",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1127_001
-  {:d3f/attack-id   "T1127.001",
-   :d3f/modifies    :d3f/CompilerConfigurationFile,
-   :d3f/runs        :d3f/Compiler,
-   :db/ident        :d3f/T1127.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "MSBuild",
+  {:d3f/attack-id "T1127.001",
+   :d3f/definition
+   "Adversaries may use MSBuild to proxy execution of code through a trusted Windows utility. MSBuild.exe (Microsoft Build Engine) is a software build platform used by Visual Studio. It handles XML formatted project files that define requirements for loading and building various platforms and configurations.(Citation: MSDN MSBuild)",
+   :d3f/modifies :d3f/CompilerConfigurationFile,
+   :d3f/runs :d3f/Compiler,
+   :db/ident :d3f/T1127.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "MSBuild",
    :rdfs/subClassOf #{:d3f/T1127
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/CompilerConfigurationFile,
@@ -32325,65 +33285,89 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1128
-  {:d3f/attack-id   "T1128",
-   :db/ident        :d3f/T1128,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Netsh Helper DLL",
+  {:d3f/attack-id "T1128",
+   :d3f/definition
+   "Netsh.exe (also referred to as Netshell) is a command-line scripting utility used to interact with the network configuration of a system. It contains functionality to add helper DLLs for extending functionality of the utility. (Citation: TechNet Netsh) The paths to registered netsh.exe helper DLLs are entered into the Windows Registry at <code>HKLM\\SOFTWARE\\Microsoft\\Netsh</code>.",
+   :db/ident :d3f/T1128,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.007",
+   :rdfs/label "Netsh Helper DLL",
+   :rdfs/seeAlso {:rdf/value "T1546.007"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1129
-  {:d3f/attack-id   "T1129",
-   :db/ident        :d3f/T1129,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Shared Modules Execution",
+  {:d3f/attack-id "T1129",
+   :d3f/definition
+   "Adversaries may execute malicious payloads via loading shared modules. Shared modules are executable files that are loaded into processes to provide access to reusable code, such as specific custom functions or invoking OS API functions (i.e., [Native API](https://attack.mitre.org/techniques/T1106)).",
+   :db/ident :d3f/T1129,
+   :rdf/type :owl/Class,
+   :rdfs/label "Shared Modules",
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1130
-  {:d3f/attack-id   "T1130",
-   :db/ident        :d3f/T1130,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Install Root Certificate",
+  {:d3f/attack-id "T1130",
+   :d3f/definition
+   "Root certificates are used in public key cryptography to identify a root certificate authority (CA). When a root certificate is installed, the system or application will trust certificates in the root's chain of trust that have been signed by the root certificate. (Citation: Wikipedia Root Certificate) Certificates are commonly used for establishing secure TLS/SSL communications within a web browser. When a user attempts to browse a website that presents a certificate that is not trusted an error message will be displayed to warn the user of the security risk. Depending on the security settings, the browser may not allow the user to establish a connection to the website.",
+   :db/ident :d3f/T1130,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1553.004",
+   :rdfs/label "Install Root Certificate",
+   :rdfs/seeAlso {:rdf/value "T1553.004"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1131
-  {:d3f/attack-id   "T1131",
-   :db/ident        :d3f/T1131,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Package",
+  {:d3f/attack-id "T1131",
+   :d3f/definition
+   "Windows Authentication Package DLLs are loaded by the Local Security Authority (LSA) process at system start. They provide support for multiple logon processes and multiple security protocols to the operating system. (Citation: MSDN Authentication Packages)",
+   :db/ident :d3f/T1131,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.002",
+   :rdfs/label "Authentication Package",
+   :rdfs/seeAlso {:rdf/value "T1547.002"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1132
-  {:d3f/attack-id   "T1132",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1132,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data Encoding",
+  {:d3f/attack-id "T1132",
+   :d3f/definition
+   "Adversaries may encode data to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a standard data encoding system. Use of data encoding may adhere to existing protocol specifications and includes use of ASCII, Unicode, Base64, MIME, or other binary-to-text and character encoding systems.(Citation: Wikipedia Binary-to-text Encoding) (Citation: Wikipedia Character Encoding) Some data encoding systems may also result in data compression, such as gzip.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1132,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Encoding",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1132_001
-  {:d3f/attack-id   "T1132.001",
-   :db/ident        :d3f/T1132.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Standard Encoding",
+  {:d3f/attack-id "T1132.001",
+   :d3f/definition
+   "Adversaries may encode data with a standard data encoding system to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a standard data encoding system that adheres to existing protocol specifications. Common data encoding schemes include ASCII, Unicode, hexadecimal, Base64, and MIME.(Citation: Wikipedia Binary-to-text Encoding)(Citation: Wikipedia Character Encoding) Some data encoding systems may also result in data compression, such as gzip.",
+   :db/ident :d3f/T1132.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Standard Encoding",
    :rdfs/subClassOf :d3f/T1132})
 
 (def T1132_002
-  {:d3f/attack-id   "T1132.002",
-   :db/ident        :d3f/T1132.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Non-Standard Encoding",
+  {:d3f/attack-id "T1132.002",
+   :d3f/definition
+   "Adversaries may encode data with a non-standard data encoding system to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a non-standard data encoding system that diverges from existing protocol specifications. Non-standard data encoding schemes may be based on or related to standard data encoding schemes, such as a modified Base64 encoding for the message body of an HTTP request.(Citation: Wikipedia Binary-to-text Encoding) (Citation: Wikipedia Character Encoding)",
+   :db/ident :d3f/T1132.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-Standard Encoding",
    :rdfs/subClassOf :d3f/T1132})
 
 (def T1133
-  {:d3f/attack-id   "T1133",
-   :d3f/produces    #{:d3f/Authorization :d3f/Authentication
-                      :d3f/NetworkSession},
-   :db/ident        :d3f/T1133,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "External Remote Services",
+  {:d3f/attack-id "T1133",
+   :d3f/definition
+   "Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations. There are often remote service gateways that manage connections and credential authentication for these services. Services such as [Windows Remote Management](https://attack.mitre.org/techniques/T1021/006) and [VNC](https://attack.mitre.org/techniques/T1021/005) can also be used externally.(Citation: MacOS VNC software for Remote Desktop)",
+   :d3f/produces #{:d3f/Authorization :d3f/Authentication :d3f/NetworkSession},
+   :db/ident :d3f/T1133,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "External Remote Services",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/Authorization,
@@ -32397,31 +33381,37 @@
                       :d3f/PersistenceTechnique}})
 
 (def T1134
-  {:d3f/attack-id   "T1134",
-   :db/ident        :d3f/T1134,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Access Token Manipulation",
+  {:d3f/attack-id "T1134",
+   :d3f/definition
+   "Adversaries may modify access tokens to operate under a different user or system security context to perform actions and bypass access controls. Windows uses access tokens to determine the ownership of a running process. A user can manipulate access tokens to make a running process appear as though it is the child of a different process or belongs to someone other than the user that started the process. When this occurs, the process also takes on the security context associated with the new token.",
+   :db/ident :d3f/T1134,
+   :rdf/type :owl/Class,
+   :rdfs/label "Access Token Manipulation",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1134_001
-  {:d3f/attack-id   "T1134.001",
-   :d3f/copies      :d3f/AccessToken,
-   :db/ident        :d3f/T1134.001,
-   :rdf/type        #{:d3f/AccessToken :owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Token Impersonation/Theft",
+  {:d3f/attack-id "T1134.001",
+   :d3f/copies :d3f/AccessToken,
+   :d3f/definition
+   "Adversaries may duplicate then impersonate another user's existing token to escalate privileges and bypass access controls. For example, an adversary can duplicate an existing token using `DuplicateToken` or `DuplicateTokenEx`.(Citation: DuplicateToken function) The token can then be used with `ImpersonateLoggedOnUser` to allow the calling thread to impersonate a logged on user's security context, or with `SetThreadToken` to assign the impersonated token to a thread.",
+   :db/ident :d3f/T1134.001,
+   :rdf/type #{:d3f/AccessToken :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Token Impersonation/Theft",
    :rdfs/subClassOf #{:d3f/T1134
                       {:owl/onProperty     :d3f/copies,
                        :owl/someValuesFrom :d3f/AccessToken,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1134_002
-  {:d3f/attack-id   "T1134.002",
-   :d3f/copies      :d3f/AccessToken,
-   :d3f/may-modify  :d3f/EventLog,
-   :db/ident        :d3f/T1134.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Create Process with Token",
+  {:d3f/attack-id "T1134.002",
+   :d3f/copies :d3f/AccessToken,
+   :d3f/definition
+   "Adversaries may create a new process with an existing token to escalate privileges and bypass access controls. Processes can be created with the token and resulting security context of another user using features such as <code>CreateProcessWithTokenW</code> and <code>runas</code>.(Citation: Microsoft RunAs)",
+   :d3f/may-modify :d3f/EventLog,
+   :db/ident :d3f/T1134.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Create Process with Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction} :d3f/T1134
@@ -32430,13 +33420,15 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1134_003
-  {:d3f/attack-id   "T1134.003",
-   :d3f/copies      :d3f/AccessToken,
-   :d3f/creates     :d3f/LoginSession,
-   :d3f/may-modify  :d3f/EventLog,
-   :db/ident        :d3f/T1134.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Make and Impersonate Token",
+  {:d3f/attack-id "T1134.003",
+   :d3f/copies :d3f/AccessToken,
+   :d3f/creates :d3f/LoginSession,
+   :d3f/definition
+   "Adversaries may make new tokens and impersonate users to escalate privileges and bypass access controls. For example, if an adversary has a username and password but the user is not logged onto the system the adversary can then create a logon session for the user using the `LogonUser` function.(Citation: LogonUserW function) The function will return a copy of the new session's access token and the adversary can use `SetThreadToken` to assign the token to a thread.",
+   :d3f/may-modify :d3f/EventLog,
+   :db/ident :d3f/T1134.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Make and Impersonate Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction}
@@ -32448,38 +33440,46 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1134_004
-  {:d3f/attack-id   "T1134.004",
-   :d3f/invokes     :d3f/CreateProcess,
-   :db/ident        :d3f/T1134.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Parent PID Spoofing",
+  {:d3f/attack-id "T1134.004",
+   :d3f/definition
+   "Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges. New processes are typically spawned directly from their parent, or calling, process unless explicitly specified. One way of explicitly assigning the PPID of a new process is via the <code>CreateProcess</code> API call, which supports a parameter that defines the PPID to use.(Citation: DidierStevens SelectMyParent Nov 2009) This functionality is used by Windows features such as User Account Control (UAC) to correctly set the PPID after a requested elevated process is spawned by SYSTEM (typically via <code>svchost.exe</code> or <code>consent.exe</code>) rather than the current user context.(Citation: Microsoft UAC Nov 2018)",
+   :d3f/invokes :d3f/CreateProcess,
+   :db/ident :d3f/T1134.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Parent PID Spoofing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateProcess,
                        :rdf/type           :owl/Restriction} :d3f/T1134}})
 
 (def T1134_005
-  {:d3f/attack-id   "T1134.005",
-   :d3f/modifies    :d3f/AccessControlConfiguration,
-   :db/ident        :d3f/T1134.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "SID-History Injection",
+  {:d3f/attack-id "T1134.005",
+   :d3f/definition
+   "Adversaries may use SID-History Injection to escalate privileges and bypass access controls. The Windows security identifier (SID) is a unique value that identifies a user or group account. SIDs are used by Windows security in both security descriptors and access tokens. (Citation: Microsoft SID) An account can hold additional SIDs in the SID-History Active Directory attribute (Citation: Microsoft SID-History Attribute), allowing inter-operable account migration between domains (e.g., all values in SID-History are included in access tokens).",
+   :d3f/modifies :d3f/AccessControlConfiguration,
+   :db/ident :d3f/T1134.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "SID-History Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
                        :rdf/type           :owl/Restriction} :d3f/T1134}})
 
 (def T1135
-  {:d3f/attack-id   "T1135",
-   :db/ident        :d3f/T1135,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Share Discovery",
+  {:d3f/attack-id "T1135",
+   :d3f/definition
+   "Adversaries may look for folders and drives shared on remote systems as a means of identifying sources of information to gather as a precursor for Collection and to identify potential systems of interest for Lateral Movement. Networks often contain shared network drives and folders that enable users to access file directories on various systems across a network.",
+   :db/ident :d3f/T1135,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Share Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1136
-  {:d3f/attack-id   "T1136",
-   :d3f/creates     :d3f/UserAccount,
-   :db/ident        :d3f/T1136,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Create Account",
+  {:d3f/attack-id "T1136",
+   :d3f/creates :d3f/UserAccount,
+   :d3f/definition
+   "Adversaries may create an account to maintain access to victim systems.(Citation: Symantec WastedLocker June 2020) With a sufficient level of access, creating such accounts may be used to establish secondary credentialed access that do not require persistent remote access tools to be deployed on the system.",
+   :db/ident :d3f/T1136,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Create Account",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique
                       {:owl/onProperty     :d3f/creates,
@@ -32487,41 +33487,51 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1136_001
-  {:d3f/attack-id   "T1136.001",
-   :db/ident        :d3f/T1136.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Local Account",
+  {:d3f/attack-id "T1136.001",
+   :d3f/definition
+   "Adversaries may create a local account to maintain access to victim systems. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.",
+   :db/ident :d3f/T1136.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Local Account",
    :rdfs/subClassOf :d3f/T1136})
 
 (def T1136_002
-  {:d3f/attack-id   "T1136.002",
-   :db/ident        :d3f/T1136.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Account",
+  {:d3f/attack-id "T1136.002",
+   :d3f/definition
+   "Adversaries may create a domain account to maintain access to victim systems. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover user, administrator, and service accounts. With a sufficient level of access, the <code>net user /add /domain</code> command can be used to create a domain account.(Citation: Savill 1999)",
+   :db/ident :d3f/T1136.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Account",
    :rdfs/subClassOf :d3f/T1136})
 
 (def T1136_003
-  {:d3f/attack-id   "T1136.003",
-   :db/ident        :d3f/T1136.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cloud Account",
+  {:d3f/attack-id "T1136.003",
+   :d3f/definition
+   "Adversaries may create a cloud account to maintain access to victim systems. With a sufficient level of access, such accounts may be used to establish secondary credentialed access that does not require persistent remote access tools to be deployed on the system.(Citation: Microsoft O365 Admin Roles)(Citation: Microsoft Support O365 Add Another Admin, October 2019)(Citation: AWS Create IAM User)(Citation: GCP Create Cloud Identity Users)(Citation: Microsoft Azure AD Users)",
+   :db/ident :d3f/T1136.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Account",
    :rdfs/subClassOf :d3f/T1136})
 
 (def T1137
-  {:d3f/attack-id   "T1137",
-   :db/ident        :d3f/T1137,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Office Application Startup",
+  {:d3f/attack-id "T1137",
+   :d3f/definition
+   "Adversaries may leverage Microsoft Office-based applications for persistence between startups. Microsoft Office is a fairly common application suite on Windows-based operating systems within an enterprise network. There are multiple mechanisms that can be used with Office for persistence when an Office-based application is started; this can include the use of Office Template Macros and add-ins.",
+   :db/ident :d3f/T1137,
+   :rdf/type :owl/Class,
+   :rdfs/label "Office Application Startup",
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1137_001
-  {:d3f/attack-id   "T1137.001",
-   :d3f/may-add     :d3f/ExecutableScript,
-   :d3f/may-modify  #{:d3f/ExecutableScript
-                      :d3f/SystemConfigurationDatabaseRecord},
-   :db/ident        :d3f/T1137.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Office Template Macros",
+  {:d3f/attack-id "T1137.001",
+   :d3f/definition
+   "Adversaries may abuse Microsoft Office templates to obtain persistence on a compromised system. Microsoft Office contains templates that are part of common Office applications and are used to customize styles. The base templates within the application are used each time an application starts. (Citation: Microsoft Change Normal Template)",
+   :d3f/may-add :d3f/ExecutableScript,
+   :d3f/may-modify #{:d3f/ExecutableScript
+                     :d3f/SystemConfigurationDatabaseRecord},
+   :db/ident :d3f/T1137.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Office Template Macros",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -32534,33 +33544,39 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1137_002
-  {:d3f/attack-id   "T1137.002",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1137.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Office Test",
+  {:d3f/attack-id "T1137.002",
+   :d3f/definition
+   "Adversaries may abuse the Microsoft Office \"Office Test\" Registry key to obtain persistence on a compromised system. An Office Test Registry location exists that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started. This Registry key is thought to be used by Microsoft to load DLLs for testing and debugging purposes while developing Office applications. This Registry key is not created by default during an Office installation.(Citation: Hexacorn Office Test)(Citation: Palo Alto Office Test Sofacy)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1137.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Office Test",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1137}})
 
 (def T1137_003
-  {:d3f/adds        :d3f/OfficeApplicationFile,
-   :d3f/attack-id   "T1137.003",
-   :db/ident        :d3f/T1137.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Outlook Forms",
+  {:d3f/adds :d3f/OfficeApplicationFile,
+   :d3f/attack-id "T1137.003",
+   :d3f/definition
+   "Adversaries may abuse Microsoft Outlook forms to obtain persistence on a compromised system. Outlook forms are used as templates for presentation and functionality in Outlook messages. Custom Outlook forms can be created that will execute code when a specifically crafted email is sent by an adversary utilizing the same custom Outlook form.(Citation: SensePost Outlook Forms)",
+   :db/ident :d3f/T1137.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Outlook Forms",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty     :d3f/adds,
                        :owl/someValuesFrom :d3f/OfficeApplicationFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1137_004
-  {:d3f/attack-id   "T1137.004",
-   :d3f/modifies    :d3f/ApplicationConfigurationDatabase,
-   :db/ident        :d3f/T1137.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Outlook Home Page",
+  {:d3f/attack-id "T1137.004",
+   :d3f/definition
+   "Adversaries may abuse Microsoft Outlook's Home Page feature to obtain persistence on a compromised system. Outlook Home Page is a legacy feature used to customize the presentation of Outlook folders. This feature allows for an internal or external URL to be loaded and presented whenever a folder is opened. A malicious HTML page can be crafted that will execute code when loaded by Outlook Home Page.(Citation: SensePost Outlook Home Page)",
+   :d3f/modifies :d3f/ApplicationConfigurationDatabase,
+   :db/ident :d3f/T1137.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Outlook Home Page",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -32568,11 +33584,13 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1137_005
-  {:d3f/attack-id   "T1137.005",
-   :d3f/modifies    :d3f/ApplicationConfigurationDatabase,
-   :db/ident        :d3f/T1137.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Outlook Rules",
+  {:d3f/attack-id "T1137.005",
+   :d3f/definition
+   "Adversaries may abuse Microsoft Outlook rules to obtain persistence on a compromised system. Outlook rules allow a user to define automated behavior to manage email messages. A benign rule might, for example, automatically move an email to a particular folder in Outlook if it contains specific words from a specific sender. Malicious Outlook rules can be created that can trigger code execution when an adversary sends a specifically crafted email to that user.(Citation: SilentBreak Outlook Rules)",
+   :d3f/modifies :d3f/ApplicationConfigurationDatabase,
+   :db/ident :d3f/T1137.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Outlook Rules",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -32580,13 +33598,15 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1137_006
-  {:d3f/adds        :d3f/Software,
-   :d3f/attack-id   "T1137.006",
-   :d3f/may-modify  :d3f/SystemConfigurationDatabase,
-   :d3f/modifies    :d3f/OfficeApplication,
-   :db/ident        :d3f/T1137.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Add-ins",
+  {:d3f/adds :d3f/Software,
+   :d3f/attack-id "T1137.006",
+   :d3f/definition
+   "Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system. Office add-ins can be used to add functionality to Office programs. (Citation: Microsoft Office Add-ins) There are different types of add-ins that can be used by the various Office products; including Word/Excel add-in Libraries (WLL/XLL), VBA add-ins, Office Component Object Model (COM) add-ins, automation add-ins, VBA Editor (VBE), Visual Studio Tools for Office (VSTO) add-ins, and Outlook add-ins. (Citation: MRWLabs Office Persistence Add-ins)(Citation: FireEye Mail CDS 2018)",
+   :d3f/may-modify :d3f/SystemConfigurationDatabase,
+   :d3f/modifies :d3f/OfficeApplication,
+   :db/ident :d3f/T1137.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Add-ins",
    :rdfs/subClassOf #{:d3f/T1137
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -32599,28 +33619,40 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1138
-  {:d3f/attack-id   "T1138",
-   :db/ident        :d3f/T1138,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Application Shimming",
+  {:d3f/attack-id "T1138",
+   :d3f/definition
+   "The Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time. For example, the application shimming feature allows developers to apply fixes to applications (without rewriting code) that were created for Windows XP so that it will work with Windows 10. (Citation: Elastic Process Injection July 2017) Within the framework, shims are created to act as a buffer between the program (or more specifically, the Import Address Table) and the Windows OS. When a program is executed, the shim cache is referenced to determine if the program requires the use of the shim database (.sdb). If so, the shim database uses [Hooking](https://attack.mitre.org/techniques/T1179) to redirect the code as necessary in order to communicate with the OS.",
+   :db/ident :d3f/T1138,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.011",
+   :rdfs/label "Application Shimming",
+   :rdfs/seeAlso {:rdf/value "T1546.011"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1139
-  {:d3f/attack-id   "T1139",
-   :db/ident        :d3f/T1139,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Bash History",
+  {:d3f/attack-id "T1139",
+   :d3f/definition
+   "Bash keeps track of the commands users type on the command-line with the \"history\" utility. Once a user logs out, the history is flushed to the user’s <code>.bash_history</code> file. For each user, this file resides at the same location: <code>~/.bash_history</code>. Typically, this file keeps track of the user’s last 500 commands. Users often type usernames and passwords on the command-line as parameters to programs, which then get saved to this file when they log out. Attackers can abuse this by looking through the file for potential credentials. (Citation: External to DA, the OS X Way)",
+   :db/ident :d3f/T1139,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1552.003",
+   :rdfs/label "Bash History",
+   :rdfs/seeAlso {:rdf/value "T1552.003"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1140
-  {:d3f/attack-id   "T1140",
-   :d3f/invokes     :d3f/CreateProcess,
-   :d3f/may-add     :d3f/ExecutableFile,
-   :d3f/may-modify  :d3f/EventLog,
-   :db/ident        :d3f/T1140,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Deobfuscate/Decode Files or Information",
+  {:d3f/attack-id "T1140",
+   :d3f/definition
+   "Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis. They may require separate mechanisms to decode or deobfuscate that information depending on how they intend to use it. Methods for doing that include built-in functionality of malware or by using utilities present on the system.",
+   :d3f/invokes :d3f/CreateProcess,
+   :d3f/may-add :d3f/ExecutableFile,
+   :d3f/may-modify :d3f/EventLog,
+   :db/ident :d3f/T1140,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Deobfuscate/Decode Files or Information",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction}
@@ -32633,336 +33665,583 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1141
-  {:d3f/attack-id   "T1141",
-   :db/ident        :d3f/T1141,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Input Prompt",
+  {:d3f/attack-id "T1141",
+   :d3f/definition
+   "When programs are executed that need additional privileges than are present in the current user context, it is common for the operating system to prompt the user for proper credentials to authorize the elevated privileges for the task (ex: [Bypass User Account Control](https://attack.mitre.org/techniques/T1088)).",
+   :db/ident :d3f/T1141,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1056.002",
+   :rdfs/label "Input Prompt",
+   :rdfs/seeAlso {:rdf/value "T1056.002"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1142
-  {:d3f/accesses    :d3f/EncryptedCredential,
-   :d3f/attack-id   "T1142",
-   :db/ident        :d3f/T1142,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Keychain",
+  {:d3f/accesses :d3f/EncryptedCredential,
+   :d3f/attack-id "T1142",
+   :d3f/definition
+   "Keychains are the built-in way for macOS to keep track of users' passwords and credentials for many services and features such as WiFi passwords, websites, secure notes, certificates, and Kerberos. Keychain files are located in <code>~/Library/Keychains/</code>,<code>/Library/Keychains/</code>, and <code>/Network/Library/Keychains/</code>. (Citation: Wikipedia keychain) The <code>security</code> command-line utility, which is built into macOS by default, provides a useful way to manage these credentials.",
+   :db/ident :d3f/T1142,
+   :owl/deprecated true,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment "This technique has been revoked by T1555.001",
+   :rdfs/label "Keychain",
+   :rdfs/seeAlso {:rdf/value "T1555.001"},
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/EncryptedCredential,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1143
-  {:d3f/attack-id   "T1143",
-   :db/ident        :d3f/T1143,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hidden Window",
+  {:d3f/attack-id "T1143",
+   :d3f/definition
+   "Adversaries may implement hidden windows to conceal malicious activity from the plain sight of users. In some cases, windows that would typically be displayed when an application carries out an operation can be hidden. This may be utilized by system administrators to avoid disrupting user work environments when carrying out administrative tasks. Adversaries may abuse operating system functionality to hide otherwise visible windows from users so as not to alert the user to adversary activity on the system.",
+   :db/ident :d3f/T1143,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1564.003",
+   :rdfs/label "Hidden Window",
+   :rdfs/seeAlso {:rdf/value "T1564.003"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1144
-  {:d3f/attack-id   "T1144",
-   :db/ident        :d3f/T1144,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Gatekeeper Bypass",
+  {:d3f/attack-id "T1144",
+   :d3f/definition
+   "In macOS and OS X, when applications or programs are downloaded from the internet, there is a special attribute set on the file called <code>com.apple.quarantine</code>. This attribute is read by Apple's Gatekeeper defense program at execution time and provides a prompt to the user to allow or deny execution.",
+   :db/ident :d3f/T1144,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1553.001",
+   :rdfs/label "Gatekeeper Bypass",
+   :rdfs/seeAlso {:rdf/value "T1553.001"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1145
-  {:d3f/attack-id   "T1145",
-   :db/ident        :d3f/T1145,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Private Keys",
+  {:d3f/attack-id "T1145",
+   :d3f/definition
+   "Private cryptographic keys and certificates are used for authentication, encryption/decryption, and digital signatures. (Citation: Wikipedia Public Key Crypto)",
+   :db/ident :d3f/T1145,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1552.004",
+   :rdfs/label "Private Keys",
+   :rdfs/seeAlso {:rdf/value "T1552.004"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1146
-  {:d3f/attack-id   "T1146",
-   :db/ident        :d3f/T1146,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Clear Command History",
+  {:d3f/attack-id "T1146",
+   :d3f/definition
+   "In addition to clearing system logs, an adversary may clear the command history of a compromised account to conceal the actions undertaken during an intrusion. macOS and Linux both keep track of the commands users type in their terminal so that users can retrace what they've done. These logs can be accessed in a few different ways. While logged in, this command history is tracked in a file pointed to by the environment variable <code>HISTFILE</code>. When a user logs off a system, this information is flushed to a file in the user's home directory called <code>~/.bash_history</code>. The benefit of this is that it allows users to go back to commands they've used before in different sessions. Since everything typed on the command-line is saved, passwords passed in on the command line are also saved. Adversaries can abuse this by searching these files for cleartext passwords. Additionally, adversaries can use a variety of methods to prevent their own commands from appear in these logs such as <code>unset HISTFILE</code>, <code>export HISTFILESIZE=0</code>, <code>history -c</code>, <code>rm ~/.bash_history</code>.",
+   :db/ident :d3f/T1146,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1070.003",
+   :rdfs/label "Clear Command History",
+   :rdfs/seeAlso {:rdf/value "T1070.003"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1147
-  {:d3f/attack-id   "T1147",
-   :db/ident        :d3f/T1147,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hidden Users",
+  {:d3f/attack-id "T1147",
+   :d3f/definition
+   "Every user account in macOS has a userID associated with it. When creating a user, you can specify the userID for that account. There is a property value in <code>/Library/Preferences/com.apple.loginwindow</code> called <code>Hide500Users</code> that prevents users with userIDs 500 and lower from appearing at the login screen. By using the [Create Account](https://attack.mitre.org/techniques/T1136) technique with a userID under 500 and enabling this property (setting it to Yes), an adversary can hide their user accounts much more easily: <code>sudo dscl . -create /Users/username UniqueID 401</code> (Citation: Cybereason OSX Pirrit).",
+   :db/ident :d3f/T1147,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1564.002",
+   :rdfs/label "Hidden Users",
+   :rdfs/seeAlso {:rdf/value "T1564.002"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1148
-  {:d3f/attack-id   "T1148",
-   :db/ident        :d3f/T1148,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "HISTCONTROL",
+  {:d3f/attack-id "T1148",
+   :d3f/definition
+   "The <code>HISTCONTROL</code> environment variable keeps track of what should be saved by the <code>history</code> command and eventually into the <code>~/.bash_history</code> file when a user logs out. This setting can be configured to ignore commands that start with a space by simply setting it to \"ignorespace\". <code>HISTCONTROL</code> can also be set to ignore duplicate commands by setting it to \"ignoredups\". In some Linux systems, this is set by default to \"ignoreboth\" which covers both of the previous examples. This means that “ ls” will not be saved, but “ls” would be saved by history. <code>HISTCONTROL</code> does not exist by default on macOS, but can be set by the user and will be respected. Adversaries can use this to operate without leaving traces by simply prepending a space to all of their terminal commands.",
+   :db/ident :d3f/T1148,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1562.003",
+   :rdfs/label "HISTCONTROL",
+   :rdfs/seeAlso {:rdf/value "T1562.003"},
+   :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
+
+(def T1149
+  {:d3f/attack-id "T1149",
+   :d3f/definition
+   "**This technique has been deprecated and should no longer be used.**",
+   :db/ident :d3f/T1149,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated and should no longer be used.**",
+   :rdfs/label "LC_MAIN Hijacking",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1150
-  {:d3f/attack-id   "T1150",
-   :db/ident        :d3f/T1150,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Plist Modification",
+  {:d3f/attack-id "T1150",
+   :d3f/definition
+   "Property list (plist) files contain all of the information that macOS and OS X uses to configure applications and services. These files are UTF-8 encoded and formatted like XML documents via a series of keys surrounded by < >. They detail when programs should execute, file paths to the executables, program arguments, required OS permissions, and many others. plists are located in certain locations depending on their purpose such as <code>/Library/Preferences</code> (which execute with elevated privileges) and <code>~/Library/Preferences</code> (which execute with a user's privileges).",
+   :db/ident :d3f/T1150,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.011",
+   :rdfs/label "Plist Modification",
+   :rdfs/seeAlso {:rdf/value "T1547.011"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1151
-  {:d3f/attack-id   "T1151",
-   :db/ident        :d3f/T1151,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Space after Filename",
+  {:d3f/attack-id "T1151",
+   :d3f/definition
+   "Adversaries can hide a program's true filetype by changing the extension of a file. With certain file types (specifically this does not work with .app extensions), appending a space to the end of a filename will change how the file is processed by the operating system. For example, if there is a Mach-O executable file called evil.bin, when it is double clicked by a user, it will launch Terminal.app and execute. If this file is renamed to evil.txt, then when double clicked by a user, it will launch with the default text editing application (not executing the binary). However, if the file is renamed to \"evil.txt \" (note the space at the end), then when double clicked by a user, the true file type is determined by the OS and handled appropriately and the binary will be executed (Citation: Mac Backdoors are back).",
+   :db/ident :d3f/T1151,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1036.006",
+   :rdfs/label "Space after Filename",
+   :rdfs/seeAlso {:rdf/value "T1036.006"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1152
-  {:d3f/attack-id   "T1152",
-   :db/ident        :d3f/T1152,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Launchctl",
+  {:d3f/attack-id "T1152",
+   :d3f/definition
+   "Launchctl controls the macOS launchd process which handles things like launch agents and launch daemons, but can execute other commands or programs itself. Launchctl supports taking subcommands on the command-line, interactively, or even redirected from standard input. By loading or reloading launch agents or launch daemons, adversaries can install persistence or execute changes they made  (Citation: Sofacy Komplex Trojan). Running a command from launchctl is as simple as <code>launchctl submit -l <labelName> -- /Path/to/thing/to/execute \"arg\" \"arg\" \"arg\"</code>. Loading, unloading, or reloading launch agents or launch daemons can require elevated privileges.",
+   :db/ident :d3f/T1152,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1569.001",
+   :rdfs/label "Launchctl",
+   :rdfs/seeAlso {:rdf/value "T1569.001"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique
                       :d3f/PersistenceTechnique}})
 
+(def T1153
+  {:d3f/attack-id "T1153",
+   :d3f/definition
+   "**This technique has been deprecated and should no longer be used.**",
+   :db/ident :d3f/T1153,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated and should no longer be used.**",
+   :rdfs/label "Source",
+   :rdfs/subClassOf :d3f/ExecutionTechnique})
+
 (def T1154
-  {:d3f/attack-id   "T1154",
-   :db/ident        :d3f/T1154,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trap",
+  {:d3f/attack-id "T1154",
+   :d3f/definition
+   "The <code>trap</code> command allows programs and shells to specify commands that will be executed upon receiving interrupt signals. A common situation is a script allowing for graceful termination and handling of common  keyboard interrupts like <code>ctrl+c</code> and <code>ctrl+d</code>. Adversaries can use this to register code to be executed when the shell encounters specific interrupts either to gain execution or as a persistence mechanism. Trap commands are of the following format <code>trap 'command list' signals</code> where \"command list\" will be executed when \"signals\" are received.(Citation: Trap Manual)(Citation: Cyberciti Trap Statements)",
+   :db/ident :d3f/T1154,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.005",
+   :rdfs/label "Trap",
+   :rdfs/seeAlso {:rdf/value "T1546.005"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/PersistenceTechnique}})
 
 (def T1155
-  {:d3f/attack-id   "T1155",
-   :db/ident        :d3f/T1155,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "AppleScript",
+  {:d3f/attack-id "T1155",
+   :d3f/definition
+   "macOS and OS X applications send AppleEvent messages to each other for interprocess communications (IPC). These messages can be easily scripted with AppleScript for local or remote IPC. Osascript executes AppleScript and any other Open Scripting Architecture (OSA) language scripts. A list of OSA languages installed on a system can be found by using the <code>osalang</code> program.",
+   :db/ident :d3f/T1155,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1059.002",
+   :rdfs/label "AppleScript",
+   :rdfs/seeAlso {:rdf/value "T1059.002"},
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1156
-  {:d3f/attack-id   "T1156",
-   :db/ident        :d3f/T1156,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Malicious Shell Modification",
+  {:d3f/attack-id "T1156",
+   :d3f/definition
+   "Adversaries may establish persistence through executing malicious commands triggered by a user’s shell. User shells execute several configuration scripts at different points throughout the session based on events. For example, when a user opens a command line interface or remotely logs in (such as SSH) a login shell is initiated. The login shell executes scripts from the system (/etc) and the user’s home directory (~/) to configure the environment. All login shells on a system use <code>/etc/profile</code> when initiated. These configuration scripts run at the permission level of their directory and are often used to set environment variables, create aliases, and customize the user’s environment. When the shell exits or terminates, additional shell scripts are executed to ensure the shell exits appropriately.",
+   :db/ident :d3f/T1156,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.004",
+   :rdfs/label "Malicious Shell Modification",
+   :rdfs/seeAlso {:rdf/value "T1546.004"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1157
-  {:d3f/attack-id   "T1157",
-   :db/ident        :d3f/T1157,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dylib Hijacking",
+  {:d3f/attack-id "T1157",
+   :d3f/definition
+   "macOS and OS X use a common method to look for required dynamic libraries (dylib) to load into a program based on search paths. Adversaries can take advantage of ambiguous paths to plant dylibs to gain privilege escalation or persistence.",
+   :db/ident :d3f/T1157,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1574.004",
+   :rdfs/label "Dylib Hijacking",
+   :rdfs/seeAlso {:rdf/value "T1574.004"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1158
-  {:d3f/attack-id   "T1158",
-   :db/ident        :d3f/T1158,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hidden Files and Directories",
+  {:d3f/attack-id "T1158",
+   :d3f/definition
+   "To prevent normal users from accidentally changing special files on a system, most operating systems have the concept of a ‘hidden’ file. These files don’t show up when a user browses the file system with a GUI or when using normal commands on the command line. Users must explicitly ask to show the hidden files either via a series of Graphical User Interface (GUI) prompts or with command line switches (<code>dir /a</code> for Windows and <code>ls –a</code> for Linux and macOS).",
+   :db/ident :d3f/T1158,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1564.001",
+   :rdfs/label "Hidden Files and Directories",
+   :rdfs/seeAlso {:rdf/value "T1564.001"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1159
-  {:d3f/attack-id   "T1159",
-   :db/ident        :d3f/T1159,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Launch Agent",
+  {:d3f/attack-id "T1159",
+   :d3f/definition
+   "Per Apple’s developer documentation, when a user logs in, a per-user launchd process is started which loads the parameters for each launch-on-demand user agent from the property list (plist) files found in <code>/System/Library/LaunchAgents</code>, <code>/Library/LaunchAgents</code>, and <code>$HOME/Library/LaunchAgents</code> (Citation: AppleDocs Launch Agent Daemons) (Citation: OSX Keydnap malware) (Citation: Antiquated Mac Malware). These launch agents have property list files which point to the executables that will be launched (Citation: OSX.Dok Malware).",
+   :db/ident :d3f/T1159,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1543.001",
+   :rdfs/label "Launch Agent",
+   :rdfs/seeAlso {:rdf/value "T1543.001"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1160
-  {:d3f/attack-id   "T1160",
-   :db/ident        :d3f/T1160,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Launch Daemon",
+  {:d3f/attack-id "T1160",
+   :d3f/definition
+   "Per Apple’s developer documentation, when macOS and OS X boot up, launchd is run to finish system initialization. This process loads the parameters for each launch-on-demand system-level daemon from the property list (plist) files found in <code>/System/Library/LaunchDaemons</code> and <code>/Library/LaunchDaemons</code> (Citation: AppleDocs Launch Agent Daemons). These LaunchDaemons have property list files which point to the executables that will be launched (Citation: Methods of Mac Malware Persistence).",
+   :db/ident :d3f/T1160,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1543.004",
+   :rdfs/label "Launch Daemon",
+   :rdfs/seeAlso {:rdf/value "T1543.004"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1161
-  {:d3f/attack-id   "T1161",
-   :db/ident        :d3f/T1161,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "LC_LOAD_DYLIB Addition",
+  {:d3f/attack-id "T1161",
+   :d3f/definition
+   "Mach-O binaries have a series of headers that are used to perform certain operations when a binary is loaded. The LC_LOAD_DYLIB header in a Mach-O binary tells macOS and OS X which dynamic libraries (dylibs) to load during execution time. These can be added ad-hoc to the compiled binary as long adjustments are made to the rest of the fields and dependencies (Citation: Writing Bad Malware for OSX). There are tools available to perform these changes. Any changes will invalidate digital signatures on binaries because the binary is being modified. Adversaries can remediate this issue by simply removing the LC_CODE_SIGNATURE command from the binary so that the signature isn’t checked at load time (Citation: Malware Persistence on OS X).",
+   :db/ident :d3f/T1161,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.006",
+   :rdfs/label "LC_LOAD_DYLIB Addition",
+   :rdfs/seeAlso {:rdf/value "T1546.006"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1162
-  {:d3f/attack-id   "T1162",
-   :db/ident        :d3f/T1162,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Login Item",
+  {:d3f/attack-id "T1162",
+   :d3f/definition
+   "MacOS provides the option to list specific applications to run when a user logs in. These applications run under the logged in user's context, and will be started every time the user logs in. Login items installed using the Service Management Framework are not visible in the System Preferences and can only be removed by the application that created them (Citation: Adding Login Items). Users have direct control over login items installed using a shared file list which are also visible in System Preferences (Citation: Adding Login Items). These login items are stored in the user's <code>~/Library/Preferences/</code> directory in a plist file called <code>com.apple.loginitems.plist</code> (Citation: Methods of Mac Malware Persistence). Some of these applications can open visible dialogs to the user, but they don’t all have to since there is an option to ‘Hide’ the window. If an adversary can register their own login item or modified an existing one, then they can use it to execute their code for a persistence mechanism each time the user logs in (Citation: Malware Persistence on OS X) (Citation: OSX.Dok Malware). The API method <code> SMLoginItemSetEnabled </code> can be used to set Login Items, but scripting languages like [AppleScript](https://attack.mitre.org/techniques/T1155) can do this as well  (Citation: Adding Login Items).",
+   :db/ident :d3f/T1162,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.011",
+   :rdfs/label "Login Item",
+   :rdfs/seeAlso {:rdf/value "T1547.011"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1163
-  {:d3f/attack-id   "T1163",
-   :db/ident        :d3f/T1163,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Rc.common",
+  {:d3f/attack-id "T1163",
+   :d3f/definition
+   "During the boot process, macOS executes <code>source /etc/rc.common</code>, which is a shell script containing various utility functions. This file also defines routines for processing command-line arguments and for gathering system settings, and is thus recommended to include in the start of Startup Item Scripts (Citation: Startup Items). In macOS and OS X, this is now a deprecated technique in favor of launch agents and launch daemons, but is currently still used.",
+   :db/ident :d3f/T1163,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1037.004",
+   :rdfs/label "Rc.common",
+   :rdfs/seeAlso {:rdf/value "T1037.004"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1164
-  {:d3f/attack-id   "T1164",
-   :db/ident        :d3f/T1164,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Re-opened Applications",
+  {:d3f/attack-id "T1164",
+   :d3f/definition
+   "Starting in Mac OS X 10.7 (Lion), users can specify certain applications to be re-opened when a user reboots their machine. While this is usually done via a Graphical User Interface (GUI) on an app-by-app basis, there are property list files (plist) that contain this information as well located at <code>~/Library/Preferences/com.apple.loginwindow.plist</code> and <code>~/Library/Preferences/ByHost/com.apple.loginwindow.* .plist</code>.",
+   :db/ident :d3f/T1164,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.007",
+   :rdfs/label "Re-opened Applications",
+   :rdfs/seeAlso {:rdf/value "T1547.007"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1165
-  {:d3f/attack-id   "T1165",
-   :db/ident        :d3f/T1165,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Startup Items",
+  {:d3f/attack-id "T1165",
+   :d3f/definition
+   "Per Apple’s documentation, startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items (Citation: Startup Items). This is technically a deprecated version (superseded by Launch Daemons), and thus the appropriate folder, <code>/Library/StartupItems</code> isn’t guaranteed to exist on the system by default, but does appear to exist by default on macOS Sierra. A startup item is a directory whose executable and configuration property list (plist), <code>StartupParameters.plist</code>, reside in the top-level directory.",
+   :db/ident :d3f/T1165,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1037.005",
+   :rdfs/label "Startup Items",
+   :rdfs/seeAlso {:rdf/value "T1037.005"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1166
-  {:d3f/attack-id   "T1166",
-   :db/ident        :d3f/T1166,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Setuid and Setgid",
+  {:d3f/attack-id "T1166",
+   :d3f/definition
+   "When the setuid or setgid bits are set on Linux or macOS for an application, this means that the application will run with the privileges of the owning user or group respectively  (Citation: setuid man page). Normally an application is run in the current user’s context, regardless of which user or group owns the application. There are instances where programs need to be executed in an elevated context to function properly, but the user running them doesn’t need the elevated privileges. Instead of creating an entry in the sudoers file, which must be done by root, any user can specify the setuid or setgid flag to be set for their own applications. These bits are indicated with an \"s\" instead of an \"x\" when viewing a file's attributes via <code>ls -l</code>. The <code>chmod</code> program can set these bits with via bitmasking, <code>chmod 4777 [file]</code> or via shorthand naming, <code>chmod u+s [file]</code>.",
+   :db/ident :d3f/T1166,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1548.001",
+   :rdfs/label "Setuid and Setgid",
+   :rdfs/seeAlso {:rdf/value "T1548.001"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1167
-  {:d3f/attack-id   "T1167",
-   :db/ident        :d3f/T1167,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Securityd Memory",
+  {:d3f/attack-id "T1167",
+   :d3f/definition
+   "In OS X prior to El Capitan, users with root access can read plaintext keychain passwords of logged-in users because Apple’s keychain implementation allows these credentials to be cached so that users are not repeatedly prompted for passwords. (Citation: OS X Keychain) (Citation: External to DA, the OS X Way) Apple’s securityd utility takes the user’s logon password, encrypts it with PBKDF2, and stores this master key in memory. Apple also uses a set of keys and algorithms to encrypt the user’s password, but once the master key is found, an attacker need only iterate over the other values to unlock the final password. (Citation: OS X Keychain)",
+   :db/ident :d3f/T1167,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1555.002",
+   :rdfs/label "Securityd Memory",
+   :rdfs/seeAlso {:rdf/value "T1555.002"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1168
-  {:d3f/attack-id   "T1168",
-   :db/ident        :d3f/T1168,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Local Job Scheduling",
+  {:d3f/attack-id "T1168",
+   :d3f/definition
+   "On Linux and macOS systems, multiple methods are supported for creating pre-scheduled and periodic background jobs: cron, (Citation: Die.net Linux crontab Man Page) at, (Citation: Die.net Linux at Man Page) and launchd. (Citation: AppleDocs Scheduling Timed Jobs) Unlike [Scheduled Task/Job](https://attack.mitre.org/techniques/T1053) on Windows systems, job scheduling on Linux-based systems cannot be done remotely unless used in conjunction within an established remote session, like secure shell (SSH).",
+   :db/ident :d3f/T1168,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1053",
+   :rdfs/label "Local Job Scheduling",
+   :rdfs/seeAlso {:rdf/value "T1053"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/PersistenceTechnique}})
 
 (def T1169
-  {:d3f/attack-id   "T1169",
-   :db/ident        :d3f/T1169,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Sudo",
+  {:d3f/attack-id "T1169",
+   :d3f/definition
+   "The sudoers file, <code>/etc/sudoers</code>, describes which users can run which commands and from which terminals. This also describes which commands users can run as other users or groups. This provides the idea of least privilege such that users are running in their lowest possible permissions for most of the time and only elevate to other users or permissions as needed, typically by prompting for a password. However, the sudoers file can also specify when to not prompt users for passwords with a line like <code>user1 ALL=(ALL) NOPASSWD: ALL</code> (Citation: OSX.Dok Malware).",
+   :db/ident :d3f/T1169,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1548.003",
+   :rdfs/label "Sudo",
+   :rdfs/seeAlso {:rdf/value "T1548.003"},
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1170
-  {:d3f/attack-id   "T1170",
-   :db/ident        :d3f/T1170,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Mshta",
+  {:d3f/attack-id "T1170",
+   :d3f/definition
+   "Mshta.exe is a utility that executes Microsoft HTML Applications (HTA). HTA files have the file extension <code>.hta</code>. (Citation: Wikipedia HTML Application) HTAs are standalone applications that execute using the same models and technologies of Internet Explorer, but outside of the browser. (Citation: MSDN HTML Applications)",
+   :db/ident :d3f/T1170,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.005",
+   :rdfs/label "Mshta",
+   :rdfs/seeAlso {:rdf/value "T1218.005"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1171
-  {:d3f/attack-id   "T1171",
-   :db/ident        :d3f/T1171,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "LLMNR/NBT-NS Poisoning and Relay",
+  {:d3f/attack-id "T1171",
+   :d3f/definition
+   "Link-Local Multicast Name Resolution (LLMNR) and NetBIOS Name Service (NBT-NS) are Microsoft Windows components that serve as alternate methods of host identification. LLMNR is based upon the Domain Name System (DNS) format and allows hosts on the same local link to perform name resolution for other hosts. NBT-NS identifies systems on a local network by their NetBIOS name. (Citation: Wikipedia LLMNR) (Citation: TechNet NetBIOS)",
+   :db/ident :d3f/T1171,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1557.001",
+   :rdfs/label "LLMNR/NBT-NS Poisoning and Relay",
+   :rdfs/seeAlso {:rdf/value "T1557.001"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1172
-  {:d3f/attack-id   "T1172",
-   :db/ident        :d3f/T1172,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Fronting",
+  {:d3f/attack-id "T1172",
+   :d3f/definition
+   "Domain fronting takes advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through HTTPS. (Citation: Fifield Blocking Resistent Communication through domain fronting 2015) The technique involves using different domain names in the SNI field of the TLS header and the Host field of the HTTP header. If both domains are served from the same CDN, then the CDN may route to the address specified in the HTTP header after unwrapping the TLS header. A variation of the the technique, \"domainless\" fronting, utilizes a SNI field that is left blank; this may allow the fronting to work even when the CDN attempts to validate that the SNI and HTTP Host fields match (if the blank SNI fields are ignored).",
+   :db/ident :d3f/T1172,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1090.004",
+   :rdfs/label "Domain Fronting",
+   :rdfs/seeAlso {:rdf/value "T1090.004"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1173
-  {:d3f/attack-id   "T1173",
-   :db/ident        :d3f/T1173,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dynamic Data Exchange",
+  {:d3f/attack-id "T1173",
+   :d3f/definition
+   "Windows Dynamic Data Exchange (DDE) is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications. Once a link is established, applications can autonomously exchange transactions consisting of strings, warm data links (notifications when a data item changes), hot data links (duplications of changes to a data item), and requests for command execution.",
+   :db/ident :d3f/T1173,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1559.002",
+   :rdfs/label "Dynamic Data Exchange",
+   :rdfs/seeAlso {:rdf/value "T1559.002"},
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1174
-  {:d3f/attack-id   "T1174",
-   :db/ident        :d3f/T1174,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Password Filter DLL",
+  {:d3f/attack-id "T1174",
+   :d3f/definition
+   "Windows password filters are password policy enforcement mechanisms for both domain and local accounts. Filters are implemented as dynamic link libraries (DLLs) containing a method to validate potential passwords against password policies. Filter DLLs can be positioned on local computers for local accounts and/or domain controllers for domain accounts.",
+   :db/ident :d3f/T1174,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1556.002",
+   :rdfs/label "Password Filter DLL",
+   :rdfs/seeAlso {:rdf/value "T1556.002"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
+(def T1175
+  {:d3f/attack-id "T1175",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Distributed Component Object Model](https://attack.mitre.org/techniques/T1021/003) and [Component Object Model](https://attack.mitre.org/techniques/T1559/001).**",
+   :db/ident :d3f/T1175,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Distributed Component Object Model](https://attack.mitre.org/techniques/T1021/003) and [Component Object Model](https://attack.mitre.org/techniques/T1559/001).**",
+   :rdfs/label "Component Object Model and Distributed COM",
+   :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/LateralMovementTechnique}})
+
 (def T1176
-  {:d3f/attack-id   "T1176",
-   :d3f/modifies    :d3f/BrowserExtension,
-   :db/ident        :d3f/T1176,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Browser Extensions",
+  {:d3f/attack-id "T1176",
+   :d3f/definition
+   "Adversaries may abuse Internet browser extensions to establish persistent access to victim systems. Browser extensions or plugins are small programs that can add functionality and customize aspects of Internet browsers. They can be installed directly or through a browser's app store and generally have access and permissions to everything that the browser can access.(Citation: Wikipedia Browser Extension)(Citation: Chrome Extensions Definition)",
+   :d3f/modifies :d3f/BrowserExtension,
+   :db/ident :d3f/T1176,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Browser Extensions",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/BrowserExtension,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1177
-  {:d3f/attack-id   "T1177",
-   :db/ident        :d3f/T1177,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "LSASS Driver",
+  {:d3f/attack-id "T1177",
+   :d3f/definition
+   "The Windows security subsystem is a set of components that manage and enforce the security policy for a computer or domain. The Local Security Authority (LSA) is the main component responsible for local security policy and user authentication. The LSA includes multiple dynamic link libraries (DLLs) associated with various other security functions, all of which run in the context of the LSA Subsystem Service (LSASS) lsass.exe process. (Citation: Microsoft Security Subsystem)",
+   :db/ident :d3f/T1177,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.008",
+   :rdfs/label "LSASS Driver",
+   :rdfs/seeAlso {:rdf/value "T1547.008"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/PersistenceTechnique}})
 
 (def T1178
-  {:d3f/attack-id   "T1178",
-   :db/ident        :d3f/T1178,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SID-History Injection",
+  {:d3f/attack-id "T1178",
+   :d3f/definition
+   "The Windows security identifier (SID) is a unique value that identifies a user or group account. SIDs are used by Windows security in both security descriptors and access tokens. (Citation: Microsoft SID) An account can hold additional SIDs in the SID-History Active Directory attribute (Citation: Microsoft SID-History Attribute), allowing inter-operable account migration between domains (e.g., all values in SID-History are included in access tokens).",
+   :db/ident :d3f/T1178,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1134.005",
+   :rdfs/label "SID-History Injection",
+   :rdfs/seeAlso {:rdf/value "T1134.005"},
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1179
-  {:d3f/attack-id   "T1179",
-   :db/ident        :d3f/T1179,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hooking",
+  {:d3f/attack-id "T1179",
+   :d3f/definition
+   "Windows processes often leverage application programming interface (API) functions to perform tasks that require reusable system resources. Windows API functions are typically stored in dynamic-link libraries (DLLs) as exported functions.",
+   :db/ident :d3f/T1179,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1056.004",
+   :rdfs/label "Hooking",
+   :rdfs/seeAlso {:rdf/value "T1056.004"},
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1180
-  {:d3f/attack-id   "T1180",
-   :db/ident        :d3f/T1180,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Screensaver",
+  {:d3f/attack-id "T1180",
+   :d3f/definition
+   "Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension.(Citation: Wikipedia Screensaver) The Windows screensaver application scrnsave.scr is located in <code>C:\\Windows\\System32\\</code>, and <code>C:\\Windows\\sysWOW64\\</code> on 64-bit Windows systems, along with screensavers included with base Windows installations.",
+   :db/ident :d3f/T1180,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.002",
+   :rdfs/label "Screensaver",
+   :rdfs/seeAlso {:rdf/value "T1546.002"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1181
-  {:d3f/attack-id   "T1181",
-   :db/ident        :d3f/T1181,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Extra Window Memory Injection",
+  {:d3f/attack-id "T1181",
+   :d3f/definition
+   "Before creating a window, graphical Windows-based processes must prescribe to or register a windows class, which stipulate appearance and behavior (via windows procedures, which are functions that handle input/output of data). (Citation: Microsoft Window Classes) Registration of new windows classes can include a request for up to 40 bytes of extra window memory (EWM) to be appended to the allocated memory of each instance of that class. This EWM is intended to store data specific to that window and has specific application programming interface (API) functions to set and get its value. (Citation: Microsoft GetWindowLong function) (Citation: Microsoft SetWindowLong function)",
+   :db/ident :d3f/T1181,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1055.011",
+   :rdfs/label "Extra Window Memory Injection",
+   :rdfs/seeAlso {:rdf/value "T1055.011"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1182
-  {:d3f/attack-id   "T1182",
-   :db/ident        :d3f/T1182,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "AppCert DLLs",
+  {:d3f/attack-id "T1182",
+   :d3f/definition
+   "Dynamic-link libraries (DLLs) that are specified in the AppCertDLLs Registry key under <code>HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager</code> are loaded into every process that calls the ubiquitously used application programming interface (API) functions CreateProcess, CreateProcessAsUser, CreateProcessWithLoginW, CreateProcessWithTokenW, or WinExec. (Citation: Elastic Process Injection July 2017)",
+   :db/ident :d3f/T1182,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.009",
+   :rdfs/label "AppCert DLLs",
+   :rdfs/seeAlso {:rdf/value "T1546.009"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1183
-  {:d3f/attack-id   "T1183",
-   :db/ident        :d3f/T1183,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Image File Execution Options Injection",
+  {:d3f/attack-id "T1183",
+   :d3f/definition
+   "Image File Execution Options (IFEO) enable a developer to attach a debugger to an application. When a process is created, a debugger present in an application’s IFEO will be prepended to the application’s name, effectively launching the new process under the debugger (e.g., “C:\\dbg\\ntsd.exe -g  notepad.exe”). (Citation: Microsoft Dev Blog IFEO Mar 2010)",
+   :db/ident :d3f/T1183,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.012",
+   :rdfs/label "Image File Execution Options Injection",
+   :rdfs/seeAlso {:rdf/value "T1546.012"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1184
-  {:d3f/attack-id   "T1184",
-   :db/ident        :d3f/T1184,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SSH Hijacking",
+  {:d3f/attack-id "T1184",
+   :d3f/definition
+   "Secure Shell (SSH) is a standard means of remote access on Linux and macOS systems. It allows a user to connect to another system via an encrypted tunnel, commonly authenticating through a password, certificate or the use of an asymmetric encryption key pair.",
+   :db/ident :d3f/T1184,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1563.001",
+   :rdfs/label "SSH Hijacking",
+   :rdfs/seeAlso {:rdf/value "T1563.001"},
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1185
-  {:d3f/attack-id   "T1185",
-   :d3f/produces    :d3f/WebNetworkTraffic,
-   :db/ident        :d3f/T1185,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Man in the Browser",
+  {:d3f/attack-id "T1185",
+   :d3f/definition
+   "Adversaries may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking techniques.(Citation: Wikipedia Man in the Browser)",
+   :d3f/produces :d3f/WebNetworkTraffic,
+   :db/ident :d3f/T1185,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Browser Session Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/WebNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1186
-  {:d3f/attack-id   "T1186",
-   :db/ident        :d3f/T1186,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Process Doppelgänging",
+  {:d3f/attack-id "T1186",
+   :d3f/definition
+   "Windows Transactional NTFS (TxF) was introduced in Vista as a method to perform safe file operations. (Citation: Microsoft TxF) To ensure data integrity, TxF enables only one transacted handle to write to a file at a given time. Until the write handle transaction is terminated, all other handles are isolated from the writer and may only read the committed version of the file that existed at the time the handle was opened. (Citation: Microsoft Basic TxF Concepts) To avoid corruption, TxF performs an automatic rollback if the system or application fails during a write transaction. (Citation: Microsoft Where to use TxF)",
+   :db/ident :d3f/T1186,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1055.013",
+   :rdfs/label "Process Doppelgänging",
+   :rdfs/seeAlso {:rdf/value "T1055.013"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1187
-  {:d3f/attack-id   "T1187",
-   :d3f/may-modify  :d3f/WindowsShortcutFile,
-   :d3f/modifies    :d3f/AuthenticationLog,
-   :d3f/produces    :d3f/Authentication,
-   :db/ident        :d3f/T1187,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Forced Authentication",
+  {:d3f/attack-id "T1187",
+   :d3f/definition
+   "Adversaries may gather credential material by invoking or forcing a user to automatically provide authentication information through a mechanism in which they can intercept.",
+   :d3f/may-modify :d3f/WindowsShortcutFile,
+   :d3f/modifies :d3f/AuthenticationLog,
+   :d3f/produces :d3f/Authentication,
+   :db/ident :d3f/T1187,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Forced Authentication",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AuthenticationLog,
                        :rdf/type           :owl/Restriction}
@@ -32975,19 +34254,26 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1188
-  {:d3f/attack-id   "T1188",
-   :db/ident        :d3f/T1188,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multi-hop Proxy",
+  {:d3f/attack-id "T1188",
+   :d3f/definition
+   "To disguise the source of malicious traffic, adversaries may chain together multiple proxies. Typically, a defender will be able to identify the last proxy traffic traversed before it enters their network; the defender may or may not be able to identify any previous proxies before the last-hop proxy. This technique makes identifying the original source of the malicious traffic even more difficult by requiring the defender to trace malicious traffic through several proxies to identify its source.",
+   :db/ident :d3f/T1188,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1090.003",
+   :rdfs/label "Multi-hop Proxy",
+   :rdfs/seeAlso {:rdf/value "T1090.003"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1189
-  {:d3f/attack-id   "T1189",
-   :d3f/modifies    :d3f/ProcessSegment,
-   :d3f/produces    #{:d3f/URL :d3f/OutboundInternetNetworkTraffic},
-   :db/ident        :d3f/T1189,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Drive-by Compromise",
+  {:d3f/attack-id "T1189",
+   :d3f/definition
+   "Adversaries may gain access to a system through a user visiting a website over the normal course of browsing. With this technique, the user's web browser is typically targeted for exploitation, but adversaries may also use compromised websites for non-exploitation behavior such as acquiring [Application Access Token](https://attack.mitre.org/techniques/T1550/001).",
+   :d3f/modifies :d3f/ProcessSegment,
+   :d3f/produces #{:d3f/URL :d3f/OutboundInternetNetworkTraffic},
+   :db/ident :d3f/T1189,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Drive-by Compromise",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
@@ -33000,13 +34286,15 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1190
-  {:d3f/attack-id   "T1190",
-   :d3f/injects     :d3f/DatabaseQuery,
-   :d3f/modifies    :d3f/ProcessSegment,
-   :d3f/produces    :d3f/InboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1190,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exploit Public-Facing Application",
+  {:d3f/attack-id "T1190",
+   :d3f/definition
+   "Adversaries may attempt to exploit a weakness in an Internet-facing host or system to initially access a network. The weakness in the system can be a software bug, a temporary glitch, or a misconfiguration.",
+   :d3f/injects :d3f/DatabaseQuery,
+   :d3f/modifies :d3f/ProcessSegment,
+   :d3f/produces :d3f/InboundInternetNetworkTraffic,
+   :db/ident :d3f/T1190,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exploit Public-Facing Application",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/injects,
                        :owl/someValuesFrom :d3f/DatabaseQuery,
                        :rdf/type           :owl/Restriction}
@@ -33019,91 +34307,126 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1191
-  {:d3f/attack-id   "T1191",
-   :db/ident        :d3f/T1191,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "CMSTP",
+  {:d3f/attack-id "T1191",
+   :d3f/definition
+   "The Microsoft Connection Manager Profile Installer (CMSTP.exe) is a command-line program used to install Connection Manager service profiles. (Citation: Microsoft Connection Manager Oct 2009) CMSTP.exe accepts an installation information file (INF) as a parameter and installs a service profile leveraged for remote access connections.",
+   :db/ident :d3f/T1191,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.003",
+   :rdfs/label "CMSTP",
+   :rdfs/seeAlso {:rdf/value "T1218.003"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1192
-  {:d3f/attack-id   "T1192",
-   :db/ident        :d3f/T1192,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spearphishing Link",
+  {:d3f/attack-id "T1192",
+   :d3f/definition
+   "Spearphishing with a link is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of links to download malware contained in email, instead of attaching malicious files to the email itself, to avoid defenses that may inspect email attachments.",
+   :db/ident :d3f/T1192,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1566.002",
+   :rdfs/label "Spearphishing Link",
+   :rdfs/seeAlso {:rdf/value "T1566.002"},
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1193
-  {:d3f/attack-id   "T1193",
-   :db/ident        :d3f/T1193,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spearphishing Attachment",
+  {:d3f/attack-id "T1193",
+   :d3f/definition
+   "Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon [User Execution](https://attack.mitre.org/techniques/T1204) to gain execution.",
+   :db/ident :d3f/T1193,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1566.001",
+   :rdfs/label "Spearphishing Attachment",
+   :rdfs/seeAlso {:rdf/value "T1566.001"},
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1194
-  {:d3f/attack-id   "T1194",
-   :db/ident        :d3f/T1194,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spearphishing via Service",
+  {:d3f/attack-id "T1194",
+   :d3f/definition
+   "Spearphishing via service is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of third party services rather than directly via enterprise email channels.",
+   :db/ident :d3f/T1194,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1566.003",
+   :rdfs/label "Spearphishing via Service",
+   :rdfs/seeAlso {:rdf/value "T1566.003"},
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1195
-  {:d3f/attack-id   "T1195",
-   :d3f/modifies    :d3f/DigitalArtifact,
-   :db/ident        :d3f/T1195,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Supply Chain Compromise",
+  {:d3f/attack-id "T1195",
+   :d3f/definition
+   "Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.",
+   :d3f/modifies :d3f/DigitalArtifact,
+   :db/ident :d3f/T1195,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Supply Chain Compromise",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/DigitalArtifact,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1195_001
-  {:d3f/attack-id   "T1195.001",
-   :d3f/modifies    :d3f/Software,
-   :db/ident        :d3f/T1195.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Compromise Software Dependencies and Development Tools",
+  {:d3f/attack-id "T1195.001",
+   :d3f/definition
+   "Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise. Applications often depend on external software to function properly. Popular open source projects that are used as dependencies in many applications may be targeted as a means to add malicious code to users of the dependency.(Citation: Trendmicro NPM Compromise)",
+   :d3f/modifies :d3f/Software,
+   :db/ident :d3f/T1195.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Compromise Software Dependencies and Development Tools",
    :rdfs/subClassOf #{:d3f/T1195
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/Software,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1195_002
-  {:d3f/attack-id   "T1195.002",
-   :d3f/modifies    :d3f/Software,
-   :db/ident        :d3f/T1195.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Compromise Software Supply Chain",
+  {:d3f/attack-id "T1195.002",
+   :d3f/definition
+   "Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise. Supply chain compromise of software can take place in a number of ways, including manipulation of the application source code, manipulation of the update/distribution mechanism for that software, or replacing compiled releases with a modified version.",
+   :d3f/modifies :d3f/Software,
+   :db/ident :d3f/T1195.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Compromise Software Supply Chain",
    :rdfs/subClassOf #{:d3f/T1195
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/Software,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1195_003
-  {:d3f/attack-id   "T1195.003",
-   :d3f/modifies    :d3f/HardwareDevice,
-   :db/ident        :d3f/T1195.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Compromise Hardware Supply Chain",
+  {:d3f/attack-id "T1195.003",
+   :d3f/definition
+   "Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise. By modifying hardware or firmware in the supply chain, adversaries can insert a backdoor into consumer networks that may be difficult to detect and give the adversary a high degree of control over the system. Hardware backdoors may be inserted into various devices, such as servers, workstations, network infrastructure, or peripherals.",
+   :d3f/modifies :d3f/HardwareDevice,
+   :db/ident :d3f/T1195.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Compromise Hardware Supply Chain",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/HardwareDevice,
                        :rdf/type           :owl/Restriction} :d3f/T1195}})
 
 (def T1196
-  {:d3f/attack-id   "T1196",
-   :db/ident        :d3f/T1196,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Control Panel Items",
+  {:d3f/attack-id "T1196",
+   :d3f/definition
+   "Windows Control Panel items are utilities that allow users to view and adjust computer settings. Control Panel items are registered executable (.exe) or Control Panel (.cpl) files, the latter are actually renamed dynamic-link library (.dll) files that export a CPlApplet function. (Citation: Microsoft Implementing CPL) (Citation: TrendMicro CPL Malware Jan 2014) Control Panel items can be executed directly from the command line, programmatically via an application programming interface (API) call, or by simply double-clicking the file. (Citation: Microsoft Implementing CPL) (Citation: TrendMicro CPL Malware Jan 2014) (Citation: TrendMicro CPL Malware Dec 2013)",
+   :db/ident :d3f/T1196,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.002",
+   :rdfs/label "Control Panel Items",
+   :rdfs/seeAlso {:rdf/value "T1218.002"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1197
-  {:d3f/attack-id   "T1197",
+  {:d3f/attack-id "T1197",
+   :d3f/definition
+   "Adversaries may abuse BITS jobs to persistently execute code and perform various background tasks. Windows Background Intelligent Transfer Service (BITS) is a low-bandwidth, asynchronous file transfer mechanism exposed through [Component Object Model](https://attack.mitre.org/techniques/T1559/001) (COM).(Citation: Microsoft COM)(Citation: Microsoft BITS) BITS is commonly used by updaters, messengers, and other applications preferred to operate in the background (using available idle bandwidth) without interrupting other networked applications. File transfer tasks are implemented as BITS jobs, which contain a queue of one or more file operations.",
    :d3f/may-produce #{:d3f/IntranetIPCNetworkTraffic
                       :d3f/IntranetWebNetworkTraffic
                       :d3f/OutboundInternetWebTraffic},
-   :db/ident        :d3f/T1197,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "BITS Jobs",
+   :db/ident :d3f/T1197,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "BITS Jobs",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
                        :rdf/type           :owl/Restriction}
@@ -33116,19 +34439,26 @@
                       :d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1198
-  {:d3f/attack-id   "T1198",
-   :db/ident        :d3f/T1198,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SIP and Trust Provider Hijacking",
+  {:d3f/attack-id "T1198",
+   :d3f/definition
+   "In user mode, Windows Authenticode (Citation: Microsoft Authenticode) digital signatures are used to verify a file's origin and integrity, variables that may be used to establish trust in signed code (ex: a driver with a valid Microsoft signature may be handled as safe). The signature validation process is handled via the WinVerifyTrust application programming interface (API) function,  (Citation: Microsoft WinVerifyTrust) which accepts an inquiry and coordinates with the appropriate trust provider, which is responsible for validating parameters of a signature. (Citation: SpectorOps Subverting Trust Sept 2017)",
+   :db/ident :d3f/T1198,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1553.003",
+   :rdfs/label "SIP and Trust Provider Hijacking",
+   :rdfs/seeAlso {:rdf/value "T1553.003"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1199
-  {:d3f/attack-id   "T1199",
-   :d3f/creates     :d3f/LoginSession,
-   :d3f/produces    :d3f/IntranetNetworkTraffic,
-   :db/ident        :d3f/T1199,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Trusted Relationship",
+  {:d3f/attack-id "T1199",
+   :d3f/creates :d3f/LoginSession,
+   :d3f/definition
+   "Adversaries may breach or otherwise leverage organizations who have access to intended victims. Access through trusted third party relationship abuses an existing connection that may not be protected or receives less scrutiny than standard mechanisms of gaining access to a network.",
+   :d3f/produces :d3f/IntranetNetworkTraffic,
+   :db/ident :d3f/T1199,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Trusted Relationship",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
@@ -33138,36 +34468,44 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1200
-  {:d3f/attack-id   "T1200",
-   :d3f/connects    :d3f/HardwareDevice,
-   :db/ident        :d3f/T1200,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Hardware Additions",
+  {:d3f/attack-id "T1200",
+   :d3f/connects :d3f/HardwareDevice,
+   :d3f/definition
+   "Adversaries may introduce computer accessories, networking hardware, or other computing devices into a system or network that can be used as a vector to gain access. Rather than just connecting and distributing payloads via removable storage (i.e. [Replication Through Removable Media](https://attack.mitre.org/techniques/T1091)), more robust hardware additions can be used to introduce new functionalities and/or features into a system that can then be abused.",
+   :db/ident :d3f/T1200,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Hardware Additions",
    :rdfs/subClassOf #{:d3f/InitialAccessTechnique
                       {:owl/onProperty     :d3f/connects,
                        :owl/someValuesFrom :d3f/HardwareDevice,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1201
-  {:d3f/attack-id   "T1201",
-   :db/ident        :d3f/T1201,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Password Policy Discovery",
+  {:d3f/attack-id "T1201",
+   :d3f/definition
+   "Adversaries may attempt to access detailed information about the password policy used within an enterprise network or cloud environment. Password policies are a way to enforce complex passwords that are difficult to guess or crack through [Brute Force](https://attack.mitre.org/techniques/T1110). This information may help the adversary to create a list of common passwords and launch dictionary and/or brute force attacks which adheres to the policy (e.g. if the minimum password length should be 8, then not trying passwords such as 'pass123'; not checking for more than 3-4 passwords per account if the lockout is set to 6 as to not lock out accounts).",
+   :db/ident :d3f/T1201,
+   :rdf/type :owl/Class,
+   :rdfs/label "Password Policy Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1202
-  {:d3f/attack-id   "T1202",
-   :db/ident        :d3f/T1202,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Indirect Command Execution",
+  {:d3f/attack-id "T1202",
+   :d3f/definition
+   "Adversaries may abuse utilities that allow for command execution to bypass security restrictions that limit the use of command-line interpreters. Various Windows utilities may be used to execute commands, possibly without invoking [cmd](https://attack.mitre.org/software/S0106). For example, [Forfiles](https://attack.mitre.org/software/S0193), the Program Compatibility Assistant (pcalua.exe), components of the Windows Subsystem for Linux (WSL), as well as other utilities may invoke the execution of programs and commands from a [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059), Run window, or via scripts. (Citation: VectorSec ForFiles Aug 2017) (Citation: Evi1cg Forfiles Nov 2017)",
+   :db/ident :d3f/T1202,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indirect Command Execution",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1203
-  {:d3f/attack-id   "T1203",
-   :d3f/modifies    #{:d3f/ProcessCodeSegment :d3f/StackFrame},
-   :db/ident        :d3f/T1203,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exploitation for Client Execution",
+  {:d3f/attack-id "T1203",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities in client applications to execute code. Vulnerabilities can exist in software due to unsecure coding practices that can lead to unanticipated behavior. Adversaries can take advantage of certain vulnerabilities through targeted exploitation for the purpose of arbitrary code execution. Oftentimes the most valuable exploits to an offensive toolkit are those that can be used to obtain code execution on a remote system because they can be used to gain access to that system. Users will expect to see files related to the applications they commonly used to do work, so they are a useful target for exploit research and development because of their high utility.",
+   :d3f/modifies #{:d3f/ProcessCodeSegment :d3f/StackFrame},
+   :db/ident :d3f/T1203,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exploitation for Client Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ProcessCodeSegment,
@@ -33177,19 +34515,23 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1204
-  {:d3f/attack-id   "T1204",
-   :db/ident        :d3f/T1204,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "User Execution",
+  {:d3f/attack-id "T1204",
+   :d3f/definition
+   "An adversary may rely upon specific actions by a user in order to gain execution. Users may be subjected to social engineering to get them to execute malicious code by, for example, opening a malicious document file or link. These user actions will typically be observed as follow-on behavior from forms of [Phishing](https://attack.mitre.org/techniques/T1566).",
+   :db/ident :d3f/T1204,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Execution",
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1204_001
-  {:d3f/accesses    :d3f/URL,
-   :d3f/attack-id   "T1204.001",
-   :d3f/produces    :d3f/OutboundInternetWebTraffic,
-   :db/ident        :d3f/T1204.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Malicious Link Execution",
+  {:d3f/accesses :d3f/URL,
+   :d3f/attack-id "T1204.001",
+   :d3f/definition
+   "An adversary may rely upon a user clicking a malicious link in order to gain execution. Users may be subjected to social engineering to get them to click on a link that will lead to code execution. This user action will typically be observed as follow-on behavior from [Spearphishing Link](https://attack.mitre.org/techniques/T1566/002). Clicking on a link may also lead to other execution techniques such as exploitation of a browser or application vulnerability via [Exploitation for Client Execution](https://attack.mitre.org/techniques/T1203). Links may also lead users to download files that require execution via [Malicious File](https://attack.mitre.org/techniques/T1204/002).",
+   :d3f/produces :d3f/OutboundInternetWebTraffic,
+   :db/ident :d3f/T1204.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Malicious Link",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/URL,
                        :rdf/type           :owl/Restriction}
@@ -33198,20 +34540,24 @@
                        :rdf/type           :owl/Restriction} :d3f/T1204}})
 
 (def T1204_002
-  {:d3f/attack-id   "T1204.002",
-   :d3f/executes    :d3f/ExecutableFile,
-   :db/ident        :d3f/T1204.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Malicious File Execution",
+  {:d3f/attack-id "T1204.002",
+   :d3f/definition
+   "An adversary may rely upon a user opening a malicious file in order to gain execution. Users may be subjected to social engineering to get them to open a file that will lead to code execution. This user action will typically be observed as follow-on behavior from [Spearphishing Attachment](https://attack.mitre.org/techniques/T1566/001). Adversaries may use several types of files that require a user to execute them, including .doc, .pdf, .xls, .rtf, .scr, .exe, .lnk, .pif, and .cpl.",
+   :d3f/executes :d3f/ExecutableFile,
+   :db/ident :d3f/T1204.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Malicious File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction} :d3f/T1204}})
 
 (def T1204_003
-  {:d3f/attack-id   "T1204.003",
-   :db/ident        :d3f/T1204.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Malicious Image",
+  {:d3f/attack-id "T1204.003",
+   :d3f/definition
+   "Adversaries may rely on a user running a malicious image to facilitate execution. Amazon Web Services (AWS) Amazon Machine Images (AMIs), Google Cloud Platform (GCP) Images, and Azure Images as well as popular container runtimes such as Docker can be backdoored. Backdoored images may be uploaded to a public repository via [Upload Malware](https://attack.mitre.org/techniques/T1608/001), and users may then download and deploy an instance or container from the image without realizing the image is malicious, thus bypassing techniques that specifically achieve Initial Access. This can lead to the execution of malicious code, such as code that executes cryptocurrency mining, in the instance or container.(Citation: Summit Route Malicious AMIs)",
+   :db/ident :d3f/T1204.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malicious Image",
    :rdfs/subClassOf :d3f/T1204})
 
 (def T1205
@@ -33228,61 +34574,90 @@
                       :d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1205_001
-  {:d3f/attack-id   "T1205.001",
-   :d3f/produces    :d3f/NetworkTraffic,
-   :db/ident        :d3f/T1205.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Port Knocking",
+  {:d3f/attack-id "T1205.001",
+   :d3f/definition
+   "Adversaries may use port knocking to hide open ports used for persistence or command and control. To enable a port, an adversary sends a series of attempted connections to a predefined sequence of closed ports. After the sequence is completed, opening a port is often accomplished by the host based firewall, but could also be implemented by custom software.",
+   :d3f/produces :d3f/NetworkTraffic,
+   :db/ident :d3f/T1205.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Port Knocking",
    :rdfs/subClassOf #{:d3f/T1205
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1205_002
+  {:d3f/attack-id "T1205.002",
+   :d3f/definition
+   "Adversaries may attach filters to a network socket to monitor then activate backdoors used for persistence or command and control. With elevated permissions, adversaries can use features such as the `libpcap` library to open sockets and install filters to allow or disallow certain types of data to come through the socket. The filter may apply to all traffic passing through the specified network interface (or every interface if not specified). When the network interface receives a packet matching the filter criteria, additional actions can be triggered on the host, such as activation of a reverse shell.",
+   :db/ident :d3f/T1205.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Socket Filters",
+   :rdfs/subClassOf :d3f/T1205})
+
 (def T1206
-  {:d3f/attack-id   "T1206",
-   :db/ident        :d3f/T1206,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Sudo Caching",
+  {:d3f/attack-id "T1206",
+   :d3f/definition
+   "The <code>sudo</code> command \"allows a system administrator to delegate authority to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while providing an audit trail of the commands and their arguments.\" (Citation: sudo man page 2018) Since sudo was made for the system administrator, it has some useful configuration features such as a <code>timestamp_timeout</code> that is the amount of time in minutes between instances of <code>sudo</code> before it will re-prompt for a password. This is because <code>sudo</code> has the ability to cache credentials for a period of time. Sudo creates (or touches) a file at <code>/var/db/sudo</code> with a timestamp of when sudo was last run to determine this timeout. Additionally, there is a <code>tty_tickets</code> variable that treats each new tty (terminal session) in isolation. This means that, for example, the sudo timeout of one tty will not affect another tty (you will have to type the password again).",
+   :db/ident :d3f/T1206,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1548.003",
+   :rdfs/label "Sudo Caching",
+   :rdfs/seeAlso {:rdf/value "T1548.003"},
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1207
-  {:d3f/attack-id   "T1207",
-   :d3f/modifies    :d3f/SystemConfigurationDatabase,
-   :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1207,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Rogue Domain Controller",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty :d3f/produces,
-                       :owl/someValuesFrom
-                       :d3f/IntranetAdministrativeNetworkTraffic,
-                       :rdf/type :owl/Restriction}
-                      :d3f/DefenseEvasionTechnique}})
+  {:d3f/attack-id "T1207",
+   :d3f/definition
+   "Adversaries may register a rogue Domain Controller to enable manipulation of Active Directory data. DCShadow may be used to create a rogue Domain Controller (DC). DCShadow is a method of manipulating Active Directory (AD) data, including objects and schemas, by registering (or reusing an inactive registration) and simulating the behavior of a DC. (Citation: DCShadow Blog) Once registered, a rogue DC may be able to inject and replicate changes into AD infrastructure for any domain object, including credentials and keys.",
+   :d3f/modifies :d3f/SystemConfigurationDatabase,
+   :d3f/produces :d3f/IntranetAdministrativeNetworkTraffic,
+   :db/ident :d3f/T1207,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Rogue Domain Controller",
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/modifies,
+      :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/produces,
+      :owl/someValuesFrom :d3f/IntranetAdministrativeNetworkTraffic,
+      :rdf/type           :owl/Restriction} :d3f/DefenseEvasionTechnique}})
 
 (def T1208
-  {:d3f/attack-id   "T1208",
-   :db/ident        :d3f/T1208,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Kerberoasting",
+  {:d3f/attack-id "T1208",
+   :d3f/definition
+   "Service principal names (SPNs) are used to uniquely identify each instance of a Windows service. To enable authentication, Kerberos requires that SPNs be associated with at least one service logon account (an account specifically tasked with running a service (Citation: Microsoft Detecting Kerberoasting Feb 2018)). (Citation: Microsoft SPN) (Citation: Microsoft SetSPN) (Citation: SANS Attacking Kerberos Nov 2014) (Citation: Harmj0y Kerberoast Nov 2016)",
+   :db/ident :d3f/T1208,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1558.003",
+   :rdfs/label "Kerberoasting",
+   :rdfs/seeAlso {:rdf/value "T1558.003"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1209
-  {:d3f/attack-id   "T1209",
-   :db/ident        :d3f/T1209,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Time Providers",
+  {:d3f/attack-id "T1209",
+   :d3f/definition
+   "The Windows Time service (W32Time) enables time synchronization across and within domains. (Citation: Microsoft W32Time Feb 2018) W32Time time providers are responsible for retrieving time stamps from hardware/network resources and outputting these values to other network clients. (Citation: Microsoft TimeProvider)",
+   :db/ident :d3f/T1209,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.003",
+   :rdfs/label "Time Providers",
+   :rdfs/seeAlso {:rdf/value "T1547.003"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1210
-  {:d3f/attack-id   "T1210",
-   :d3f/may-modify  #{:d3f/ProcessCodeSegment :d3f/StackFrame
-                      :d3f/ProcessSegment},
-   :d3f/produces    :d3f/IntranetNetworkTraffic,
-   :db/ident        :d3f/T1210,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exploitation of Remote Services",
+  {:d3f/attack-id "T1210",
+   :d3f/definition
+   "Adversaries may exploit remote services to gain unauthorized access to internal systems once inside of a network. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. A common goal for post-compromise exploitation of remote services is for lateral movement to enable access to a remote system.",
+   :d3f/may-modify #{:d3f/ProcessCodeSegment :d3f/StackFrame
+                     :d3f/ProcessSegment},
+   :d3f/produces :d3f/IntranetNetworkTraffic,
+   :db/ident :d3f/T1210,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exploitation of Remote Services",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
                        :rdf/type           :owl/Restriction}
@@ -33298,11 +34673,13 @@
                       :d3f/LateralMovementTechnique}})
 
 (def T1211
-  {:d3f/attack-id   "T1211",
-   :d3f/may-modify  #{:d3f/ProcessCodeSegment :d3f/StackFrame},
-   :db/ident        :d3f/T1211,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exploitation for Defense Evasion",
+  {:d3f/attack-id "T1211",
+   :d3f/definition
+   "Adversaries may exploit a system or application vulnerability to bypass security features. Exploitation of a vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. Vulnerabilities may exist in defensive security software that can be used to disable or circumvent them.",
+   :d3f/may-modify #{:d3f/ProcessCodeSegment :d3f/StackFrame},
+   :db/ident :d3f/T1211,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exploitation for Defense Evasion",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
                        :rdf/type           :owl/Restriction}
@@ -33312,13 +34689,15 @@
                       :d3f/DefenseEvasionTechnique}})
 
 (def T1212
-  {:d3f/attack-id   "T1212",
-   :d3f/may-access  #{:d3f/AuthenticationService
-                      :d3f/CredentialManagementSystem},
-   :d3f/may-modify  #{:d3f/ProcessCodeSegment :d3f/StackFrame},
-   :db/ident        :d3f/T1212,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exploitation for Credential Access",
+  {:d3f/attack-id "T1212",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities in an attempt to collect credentials. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. ",
+   :d3f/may-access #{:d3f/AuthenticationService
+                     :d3f/CredentialManagementSystem},
+   :d3f/may-modify #{:d3f/ProcessCodeSegment :d3f/StackFrame},
+   :db/ident :d3f/T1212,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exploitation for Credential Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/StackFrame,
                        :rdf/type           :owl/Restriction}
@@ -33334,11 +34713,13 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1213
-  {:d3f/accesses    :d3f/Resource,
-   :d3f/attack-id   "T1213",
-   :db/ident        :d3f/T1213,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data from Information Repositories",
+  {:d3f/accesses :d3f/Resource,
+   :d3f/attack-id "T1213",
+   :d3f/definition
+   "Adversaries may leverage information repositories to mine valuable information. Information repositories are tools that allow for storage of information, typically to facilitate collaboration or information sharing between users, and can store a wide variety of data that may aid adversaries in further objectives, or direct access to the target information. Adversaries may also abuse external sharing features to share sensitive documents with recipients outside of the organization.",
+   :db/ident :d3f/T1213,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data from Information Repositories",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
@@ -33348,6 +34729,7 @@
 (def T1213_001
   {:d3f/accesses    :d3f/WebFileResource,
    :d3f/attack-id   "T1213.001",
+   :d3f/definition  "",
    :db/ident        :d3f/T1213.001,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Confluence",
@@ -33357,74 +34739,107 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1213_002
-  {:d3f/accesses    :d3f/WebFileResource,
-   :d3f/attack-id   "T1213.002",
-   :db/ident        :d3f/T1213.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Sharepoint",
+  {:d3f/accesses :d3f/WebFileResource,
+   :d3f/attack-id "T1213.002",
+   :d3f/definition
+   "Adversaries may leverage the SharePoint repository as a source to mine valuable information. SharePoint will often contain useful information for an adversary to learn about the structure and functionality of the internal network and systems. For example, the following is a list of example information that may hold potential value to an adversary and may also be found on SharePoint:",
+   :db/ident :d3f/T1213.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Sharepoint",
    :rdfs/subClassOf #{:d3f/T1213
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/WebFileResource,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1213_003
-  {:d3f/attack-id   "T1213.003",
-   :d3f/reads       :d3f/CodeRepository,
-   :db/ident        :d3f/T1213.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Code Repositories",
+  {:d3f/attack-id "T1213.003",
+   :d3f/definition
+   "Adversaries may leverage code repositories to collect valuable information. Code repositories are tools/services that store source code and automate software builds. They may be hosted internally or privately on third party sites such as Github, GitLab, SourceForge, and BitBucket. Users typically interact with code repositories through a web application or command-line utilities such as git.",
+   :d3f/reads :d3f/CodeRepository,
+   :db/ident :d3f/T1213.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Code Repositories",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/CodeRepository,
                        :rdf/type           :owl/Restriction} :d3f/T1213}})
 
 (def T1214
-  {:d3f/attack-id   "T1214",
-   :db/ident        :d3f/T1214,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Credentials in Registry",
+  {:d3f/attack-id "T1214",
+   :d3f/definition
+   "The Windows Registry stores configuration information that can be used by the system or other programs. Adversaries may query the Registry looking for credentials and passwords that have been stored for use by other programs or services. Sometimes these credentials are used for automatic logons.",
+   :db/ident :d3f/T1214,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1552.002",
+   :rdfs/label "Credentials in Registry",
+   :rdfs/seeAlso {:rdf/value "T1552.002"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1215
-  {:d3f/attack-id   "T1215",
-   :db/ident        :d3f/T1215,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Kernel Modules and Extensions",
+  {:d3f/attack-id "T1215",
+   :d3f/definition
+   "Loadable Kernel Modules (or LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system. For example, one type of module is the device driver, which allows the kernel to access hardware connected to the system. (Citation: Linux Kernel Programming) When used maliciously, Loadable Kernel Modules (LKMs) can be a type of kernel-mode [Rootkit](https://attack.mitre.org/techniques/T1014) that run with the highest operating system privilege (Ring 0). (Citation: Linux Kernel Module Programming Guide) Adversaries can use loadable kernel modules to covertly persist on a system and evade defenses. Examples have been found in the wild and there are some open source projects. (Citation: Volatility Phalanx2) (Citation: CrowdStrike Linux Rootkit) (Citation: GitHub Reptile) (Citation: GitHub Diamorphine)",
+   :db/ident :d3f/T1215,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1547.006",
+   :rdfs/label "Kernel Modules and Extensions",
+   :rdfs/seeAlso {:rdf/value "T1547.006"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1216
-  {:d3f/attack-id   "T1216",
-   :db/ident        :d3f/T1216,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Signed Script Proxy Execution",
+  {:d3f/attack-id "T1216",
+   :d3f/definition
+   "Adversaries may use trusted scripts, often signed with certificates, to proxy the execution of malicious files. Several Microsoft signed scripts that have been downloaded from Microsoft or are default on Windows installations can be used to proxy execution of other files.(Citation: LOLBAS Project) This behavior may be abused by adversaries to execute malicious files that could bypass application control and signature validation on systems.(Citation: GitHub Ultimate AppLocker Bypass List)",
+   :db/ident :d3f/T1216,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Script Proxy Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1216_001
-  {:d3f/attack-id   "T1216.001",
-   :db/ident        :d3f/T1216.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "PubPrn Execution",
+  {:d3f/attack-id "T1216.001",
+   :d3f/definition
+   "Adversaries may use PubPrn to proxy execution of malicious remote files. PubPrn.vbs is a [Visual Basic](https://attack.mitre.org/techniques/T1059/005) script that publishes a printer to Active Directory Domain Services. The script may be signed by Microsoft and is commonly executed through the [Windows Command Shell](https://attack.mitre.org/techniques/T1059/003) via <code>Cscript.exe</code>. For example, the following code publishes a printer within the specified domain: <code>cscript pubprn Printer1 LDAP://CN=Container1,DC=Domain1,DC=Com</code>.(Citation: pubprn)",
+   :db/ident :d3f/T1216.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "PubPrn",
+   :rdfs/subClassOf :d3f/T1216})
+
+(def T1216_002
+  {:d3f/attack-id "T1216.002",
+   :d3f/definition
+   "Adversaries may abuse SyncAppvPublishingServer.vbs to proxy execution of malicious [PowerShell](https://attack.mitre.org/techniques/T1059/001) commands. SyncAppvPublishingServer.vbs is a Visual Basic script associated with how Windows virtualizes applications (Microsoft Application Virtualization, or App-V).(Citation: 1 - appv) For example, Windows may render Win32 applications to users as virtual applications, allowing users to launch and interact with them as if they were installed locally.(Citation: 2 - appv)(Citation: 3 - appv)",
+   :db/ident :d3f/T1216.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "SyncAppvPublishingServer",
    :rdfs/subClassOf :d3f/T1216})
 
 (def T1217
-  {:d3f/attack-id   "T1217",
-   :db/ident        :d3f/T1217,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Browser Bookmark Discovery",
+  {:d3f/attack-id "T1217",
+   :d3f/definition
+   "Adversaries may enumerate information about browsers to learn more about compromised environments. Data saved by browsers (such as bookmarks, accounts, and browsing history) may reveal a variety of personal information about users (e.g., banking sites, relationships/interests, social media, etc.) as well as details about internal network resources such as servers, tools/dashboards, or other related infrastructure.(Citation: Kaspersky Autofill)",
+   :db/ident :d3f/T1217,
+   :rdf/type :owl/Class,
+   :rdfs/label "Browser Information Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1218
-  {:d3f/attack-id   "T1218",
-   :db/ident        :d3f/T1218,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Signed Binary Proxy Execution",
+  {:d3f/attack-id "T1218",
+   :d3f/definition
+   "Adversaries may bypass process and/or signature-based defenses by proxying execution of malicious content with signed, or otherwise trusted, binaries. Binaries used in this technique are often Microsoft-signed files, indicating that they have been either downloaded from Microsoft or are already native in the operating system.(Citation: LOLBAS Project) Binaries signed with trusted digital certificates can typically execute on Windows systems protected by digital signature validation. Several Microsoft signed binaries that are default on Windows installations can be used to proxy execution of other files or commands.",
+   :db/ident :d3f/T1218,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Binary Proxy Execution",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1218_001
-  {:d3f/attack-id   "T1218.001",
-   :d3f/invokes     #{:d3f/CreateFile :d3f/CreateProcess},
-   :db/ident        :d3f/T1218.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Compiled HTML File",
+  {:d3f/attack-id "T1218.001",
+   :d3f/definition
+   "Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code. CHM files are commonly distributed as part of the Microsoft HTML Help system. CHM files are compressed compilations of various content such as HTML documents, images, and scripting/web related programming languages such VBA, JScript, Java, and ActiveX. (Citation: Microsoft HTML Help May 2018) CHM content is displayed using underlying components of the Internet Explorer browser (Citation: Microsoft HTML Help ActiveX) loaded by the HTML Help executable program (hh.exe). (Citation: Microsoft HTML Help Executable Program)",
+   :d3f/invokes #{:d3f/CreateFile :d3f/CreateProcess},
+   :db/ident :d3f/T1218.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Compiled HTML File",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateFile,
                        :rdf/type           :owl/Restriction} :d3f/T1218
@@ -33433,12 +34848,14 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1218_002
-  {:d3f/attack-id   "T1218.002",
-   :d3f/invokes     :d3f/CreateProcess,
-   :d3f/may-modify  :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1218.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Control Panel Execution",
+  {:d3f/attack-id "T1218.002",
+   :d3f/definition
+   "Adversaries may abuse control.exe to proxy execution of malicious payloads. The Windows Control Panel process binary (control.exe) handles execution of Control Panel items, which are utilities that allow users to view and adjust computer settings.",
+   :d3f/invokes :d3f/CreateProcess,
+   :d3f/may-modify :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1218.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Control Panel",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -33448,12 +34865,14 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1218_003
-  {:d3f/attack-id   "T1218.003",
-   :d3f/invokes     :d3f/CreateProcess,
+  {:d3f/attack-id "T1218.003",
+   :d3f/definition
+   "Adversaries may abuse CMSTP to proxy execution of malicious code. The Microsoft Connection Manager Profile Installer (CMSTP.exe) is a command-line program used to install Connection Manager service profiles. (Citation: Microsoft Connection Manager Oct 2009) CMSTP.exe accepts an installation information file (INF) as a parameter and installs a service profile leveraged for remote access connections.",
+   :d3f/invokes :d3f/CreateProcess,
    :d3f/may-produce :d3f/NetworkTraffic,
-   :db/ident        :d3f/T1218.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "CMSTP",
+   :db/ident :d3f/T1218.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "CMSTP",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1218
@@ -33462,19 +34881,23 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1218_004
-  {:d3f/attack-id   "T1218.004",
-   :db/ident        :d3f/T1218.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "InstallUtil Execution",
+  {:d3f/attack-id "T1218.004",
+   :d3f/definition
+   "Adversaries may use InstallUtil to proxy execution of code through a trusted Windows utility. InstallUtil is a command-line utility that allows for installation and uninstallation of resources by executing specific installer components specified in .NET binaries. (Citation: MSDN InstallUtil) The InstallUtil binary may also be digitally signed by Microsoft and located in the .NET directories on a Windows system: <code>C:\\Windows\\Microsoft.NET\\Framework\\v<version>\\InstallUtil.exe</code> and <code>C:\\Windows\\Microsoft.NET\\Framework64\\v<version>\\InstallUtil.exe</code>.",
+   :db/ident :d3f/T1218.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "InstallUtil",
    :rdfs/subClassOf :d3f/T1218})
 
 (def T1218_005
-  {:d3f/attack-id   "T1218.005",
-   :d3f/interprets  :d3f/MicrosoftHTMLApplication,
-   :d3f/invokes     :d3f/CreateProcess,
-   :db/ident        :d3f/T1218.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Mshta Execution",
+  {:d3f/attack-id "T1218.005",
+   :d3f/definition
+   "Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility. There are several examples of different types of threats leveraging mshta.exe during initial compromise and for execution of code (Citation: Cylance Dust Storm) (Citation: Red Canary HTA Abuse Part Deux) (Citation: FireEye Attacks Leveraging HTA) (Citation: Airbus Security Kovter Analysis) (Citation: FireEye FIN7 April 2017)",
+   :d3f/interprets :d3f/MicrosoftHTMLApplication,
+   :d3f/invokes :d3f/CreateProcess,
+   :db/ident :d3f/T1218.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Mshta",
    :rdfs/subClassOf #{:d3f/T1218
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateProcess,
@@ -33484,40 +34907,50 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1218_007
-  {:d3f/attack-id   "T1218.007",
-   :db/ident        :d3f/T1218.007,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Msiexec Execution",
+  {:d3f/attack-id "T1218.007",
+   :d3f/definition
+   "Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi).(Citation: Microsoft msiexec) The Msiexec.exe binary may also be digitally signed by Microsoft.",
+   :db/ident :d3f/T1218.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Msiexec",
    :rdfs/subClassOf :d3f/T1218})
 
 (def T1218_008
-  {:d3f/attack-id   "T1218.008",
-   :db/ident        :d3f/T1218.008,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Odbcconf Execution",
+  {:d3f/attack-id "T1218.008",
+   :d3f/definition
+   "Adversaries may abuse odbcconf.exe to proxy execution of malicious payloads. Odbcconf.exe is a Windows utility that allows you to configure Open Database Connectivity (ODBC) drivers and data source names.(Citation: Microsoft odbcconf.exe) The Odbcconf.exe binary may be digitally signed by Microsoft.",
+   :db/ident :d3f/T1218.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Odbcconf",
    :rdfs/subClassOf :d3f/T1218})
 
 (def T1218_009
-  {:d3f/attack-id   "T1218.009",
-   :db/ident        :d3f/T1218.009,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Regsvcs/Regasm Execution",
+  {:d3f/attack-id "T1218.009",
+   :d3f/definition
+   "Adversaries may abuse Regsvcs and Regasm to proxy execution of code through a trusted Windows utility. Regsvcs and Regasm are Windows command-line utilities that are used to register .NET [Component Object Model](https://attack.mitre.org/techniques/T1559/001) (COM) assemblies. Both are binaries that may be digitally signed by Microsoft. (Citation: MSDN Regsvcs) (Citation: MSDN Regasm)",
+   :db/ident :d3f/T1218.009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Regsvcs/Regasm",
    :rdfs/subClassOf :d3f/T1218})
 
 (def T1218_010
-  {:d3f/attack-id   "T1218.010",
-   :db/ident        :d3f/T1218.010,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Regsvr32 Execution",
+  {:d3f/attack-id "T1218.010",
+   :d3f/definition
+   "Adversaries may abuse Regsvr32.exe to proxy execution of malicious code. Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. The Regsvr32.exe binary may also be signed by Microsoft. (Citation: Microsoft Regsvr32)",
+   :db/ident :d3f/T1218.010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Regsvr32",
    :rdfs/subClassOf :d3f/T1218})
 
 (def T1218_011
-  {:d3f/attack-id   "T1218.011",
-   :d3f/invokes     :d3f/CreateProcess,
-   :d3f/loads       :d3f/SharedLibraryFile,
-   :db/ident        :d3f/T1218.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Rundll32 Execution",
+  {:d3f/attack-id "T1218.011",
+   :d3f/definition
+   "Adversaries may abuse rundll32.exe to proxy execution of malicious code. Using rundll32.exe, vice executing directly (i.e. [Shared Modules](https://attack.mitre.org/techniques/T1129)), may avoid triggering security tools that may not monitor execution of the rundll32.exe process because of allowlists or false positives from normal operations. Rundll32.exe is commonly associated with executing DLL payloads (ex: <code>rundll32.exe {DLLname, DLLfunction}</code>).",
+   :d3f/invokes :d3f/CreateProcess,
+   :d3f/loads :d3f/SharedLibraryFile,
+   :db/ident :d3f/T1218.011,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Rundll32",
    :rdfs/subClassOf #{:d3f/T1218
                       {:owl/onProperty     :d3f/loads,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
@@ -33527,14 +34960,18 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1218_012
-  {:d3f/attack-id   "T1218.012",
-   :db/ident        :d3f/T1218.012,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Verclsid",
+  {:d3f/attack-id "T1218.012",
+   :d3f/definition
+   "Adversaries may abuse verclsid.exe to proxy execution of malicious code. Verclsid.exe is known as the Extension CLSID Verification Host and is responsible for verifying each shell extension before they are used by Windows Explorer or the Windows Shell.(Citation: WinOSBite verclsid.exe)",
+   :db/ident :d3f/T1218.012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Verclsid",
    :rdfs/subClassOf :d3f/T1218})
 
 (def T1218_013
   {:d3f/attack-id "T1218.013",
+   :d3f/definition
+   "Adversaries may abuse mavinject.exe to proxy execution of malicious code. Mavinject.exe is the Microsoft Application Virtualization Injector, a Windows utility that can inject code into external processes as part of Microsoft Application Virtualization (App-V).(Citation: LOLBAS Mavinject)",
    :d3f/invokes :d3f/CreateThread,
    :d3f/modifies :d3f/ProcessSegment,
    :db/ident :d3f/T1218.013,
@@ -33551,13 +34988,15 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1218_014
-  {:d3f/attack-id   "T1218.014",
-   :d3f/executes    :d3f/Command,
-   :d3f/may-add     :d3f/Software,
-   :d3f/may-modify  :d3f/SystemConfigurationDatabase,
-   :db/ident        :d3f/T1218.014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "MMC",
+  {:d3f/attack-id "T1218.014",
+   :d3f/definition
+   "Adversaries may abuse mmc.exe to proxy execution of malicious .msc files. Microsoft Management Console (MMC) is a binary that may be signed by Microsoft and is used in several ways in either its GUI or in a command prompt.(Citation: win_mmc)(Citation: what_is_mmc) MMC can be used to create, open, and save custom consoles that contain administrative tools created by Microsoft, called snap-ins. These snap-ins may be used to manage Windows systems locally or remotely. MMC can also be used to open Microsoft created .msc files to manage system configuration.(Citation: win_msc_files_overview)",
+   :d3f/executes :d3f/Command,
+   :d3f/may-add :d3f/Software,
+   :d3f/may-modify :d3f/SystemConfigurationDatabase,
+   :db/ident :d3f/T1218.014,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "MMC",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}
@@ -33568,25 +35007,38 @@
                        :owl/someValuesFrom :d3f/Command,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1218_015
+  {:d3f/attack-id "T1218.015",
+   :d3f/definition
+   "Adversaries may abuse components of the Electron framework to execute malicious code. The Electron framework hosts many common applications such as Signal, Slack, and Microsoft Teams.(Citation: Electron 2) Originally developed by GitHub, Electron is a cross-platform desktop application development framework that employs web technologies like JavaScript, HTML, and CSS.(Citation: Electron 3) The Chromium engine is used to display web content and Node.js runs the backend code.(Citation: Electron 1)",
+   :db/ident :d3f/T1218.015,
+   :rdf/type :owl/Class,
+   :rdfs/label "Electron Applications",
+   :rdfs/subClassOf :d3f/T1218})
+
 (def T1219
-  {:d3f/attack-id   "T1219",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1219,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote Access Software",
+  {:d3f/attack-id "T1219",
+   :d3f/definition
+   "An adversary may use legitimate desktop support and remote access software to establish an interactive command and control channel to target systems within networks. These services, such as `VNC`, `Team Viewer`, `AnyDesk`, `ScreenConnect`, `LogMein`, `AmmyyAdmin`, and other remote monitoring and management (RMM) tools, are commonly used as legitimate technical support software and may be allowed by application control within a target environment.(Citation: Symantec Living off the Land)(Citation: CrowdStrike 2015 Global Threat Report)(Citation: CrySyS Blog TeamSpy)",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1219,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Access Software",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1220
-  {:d3f/adds        :d3f/File,
-   :d3f/attack-id   "T1220",
-   :d3f/interprets  :d3f/ExecutableScript,
-   :d3f/invokes     :d3f/CreateProcess,
-   :db/ident        :d3f/T1220,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "XSL Script Processing",
+  {:d3f/adds :d3f/File,
+   :d3f/attack-id "T1220",
+   :d3f/definition
+   "Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files. Extensible Stylesheet Language (XSL) files are commonly used to describe the processing and rendering of data within XML files. To support complex operations, the XSL standard includes support for embedded scripting in various languages. (Citation: Microsoft XSLT Script Mar 2017)",
+   :d3f/interprets :d3f/ExecutableScript,
+   :d3f/invokes :d3f/CreateProcess,
+   :db/ident :d3f/T1220,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "XSL Script Processing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/interprets,
                        :owl/someValuesFrom :d3f/ExecutableScript,
                        :rdf/type           :owl/Restriction}
@@ -33599,78 +35051,104 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1221
-  {:d3f/attack-id   "T1221",
-   :db/ident        :d3f/T1221,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Template Injection",
+  {:d3f/attack-id "T1221",
+   :d3f/definition
+   "Adversaries may create or modify references in user document templates to conceal malicious code or force authentication attempts. For example, Microsoft’s Office Open XML (OOXML) specification defines an XML-based format for Office documents (.docx, xlsx, .pptx) to replace older binary formats (.doc, .xls, .ppt). OOXML files are packed together ZIP archives compromised of various XML files, referred to as parts, containing properties that collectively define how a document is rendered.(Citation: Microsoft Open XML July 2017)",
+   :db/ident :d3f/T1221,
+   :rdf/type :owl/Class,
+   :rdfs/label "Template Injection",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1222
-  {:d3f/attack-id   "T1222",
-   :d3f/modifies    :d3f/AccessControlConfiguration,
-   :db/ident        :d3f/T1222,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "File and Directory Permissions Modification",
+  {:d3f/attack-id "T1222",
+   :d3f/definition
+   "Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files.(Citation: Hybrid Analysis Icacls1 June 2018)(Citation: Hybrid Analysis Icacls2 May 2018) File and directory permissions are commonly managed by ACLs configured by the file or directory owner, or users with the appropriate permissions. File and directory ACL implementations vary by platform, but generally explicitly designate which users or groups can perform which actions (read, write, execute, etc.).",
+   :d3f/modifies :d3f/AccessControlConfiguration,
+   :db/ident :d3f/T1222,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File and Directory Permissions Modification",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1222_001
-  {:d3f/attack-id   "T1222.001",
-   :db/ident        :d3f/T1222.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows File and Directory Permissions Modification",
+  {:d3f/attack-id "T1222.001",
+   :d3f/definition
+   "Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files.(Citation: Hybrid Analysis Icacls1 June 2018)(Citation: Hybrid Analysis Icacls2 May 2018) File and directory permissions are commonly managed by ACLs configured by the file or directory owner, or users with the appropriate permissions. File and directory ACL implementations vary by platform, but generally explicitly designate which users or groups can perform which actions (read, write, execute, etc.).",
+   :db/ident :d3f/T1222.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows File and Directory Permissions Modification",
    :rdfs/subClassOf :d3f/T1222})
 
 (def T1222_002
-  {:d3f/attack-id   "T1222.002",
-   :db/ident        :d3f/T1222.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Linux and Mac File and Directory Permissions Modification",
+  {:d3f/attack-id "T1222.002",
+   :d3f/definition
+   "Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files.(Citation: Hybrid Analysis Icacls1 June 2018)(Citation: Hybrid Analysis Icacls2 May 2018) File and directory permissions are commonly managed by ACLs configured by the file or directory owner, or users with the appropriate permissions. File and directory ACL implementations vary by platform, but generally explicitly designate which users or groups can perform which actions (read, write, execute, etc.).",
+   :db/ident :d3f/T1222.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Linux and Mac File and Directory Permissions Modification",
    :rdfs/subClassOf :d3f/T1222})
 
 (def T1223
-  {:d3f/attack-id   "T1223",
-   :db/ident        :d3f/T1223,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Compiled HTML File",
+  {:d3f/attack-id "T1223",
+   :d3f/definition
+   "Compiled HTML files (.chm) are commonly distributed as part of the Microsoft HTML Help system. CHM files are compressed compilations of various content such as HTML documents, images, and scripting/web related programming languages such VBA, JScript, Java, and ActiveX. (Citation: Microsoft HTML Help May 2018) CHM content is displayed using underlying components of the Internet Explorer browser (Citation: Microsoft HTML Help ActiveX) loaded by the HTML Help executable program (hh.exe). (Citation: Microsoft HTML Help Executable Program)",
+   :db/ident :d3f/T1223,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1218.001",
+   :rdfs/label "Compiled HTML File",
+   :rdfs/seeAlso {:rdf/value "T1218.001"},
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1480
-  {:d3f/attack-id   "T1480",
-   :db/ident        :d3f/T1480,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Execution Guardrails",
+  {:d3f/attack-id "T1480",
+   :d3f/definition
+   "Adversaries may use execution guardrails to constrain execution or actions based on adversary supplied and environment specific conditions that are expected to be present on the target. Guardrails ensure that a payload only executes against an intended target and reduces collateral damage from an adversary’s campaign.(Citation: FireEye Kevin Mandia Guardrails) Values an adversary can provide about a target system or environment to use as guardrails may include specific network share names, attached physical devices, files, joined Active Directory (AD) domains, and local/external IP addresses.(Citation: FireEye Outlook Dec 2019)",
+   :db/ident :d3f/T1480,
+   :rdf/type :owl/Class,
+   :rdfs/label "Execution Guardrails",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1480_001
-  {:d3f/attack-id   "T1480.001",
-   :db/ident        :d3f/T1480.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Environmental Keying",
+  {:d3f/attack-id "T1480.001",
+   :d3f/definition
+   "Adversaries may environmentally key payloads or other features of malware to evade defenses and constraint execution to a specific target environment. Environmental keying uses cryptography to constrain execution or actions based on adversary supplied environment specific conditions that are expected to be present on the target. Environmental keying is an implementation of [Execution Guardrails](https://attack.mitre.org/techniques/T1480) that utilizes cryptographic techniques for deriving encryption/decryption keys from specific types of values in a given computing environment.(Citation: EK Clueless Agents)",
+   :db/ident :d3f/T1480.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Environmental Keying",
    :rdfs/subClassOf :d3f/T1480})
 
 (def T1482
-  {:d3f/attack-id   "T1482",
-   :db/ident        :d3f/T1482,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Trust Discovery",
+  {:d3f/attack-id "T1482",
+   :d3f/definition
+   "Adversaries may attempt to gather information on domain trust relationships that may be used to identify lateral movement opportunities in Windows multi-domain/forest environments. Domain trusts provide a mechanism for a domain to allow access to resources based on the authentication procedures of another domain.(Citation: Microsoft Trusts) Domain trusts allow the users of the trusted domain to access resources in the trusting domain. The information discovered may help the adversary conduct [SID-History Injection](https://attack.mitre.org/techniques/T1134/005), [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003), and [Kerberoasting](https://attack.mitre.org/techniques/T1558/003).(Citation: AdSecurity Forging Trust Tickets)(Citation: Harmj0y Domain Trusts) Domain trusts can be enumerated using the `DSEnumerateDomainTrusts()` Win32 API call, .NET methods, and LDAP.(Citation: Harmj0y Domain Trusts) The Windows utility [Nltest](https://attack.mitre.org/software/S0359) is known to be used by adversaries to enumerate domain trusts.(Citation: Microsoft Operation Wilysupply)",
+   :db/ident :d3f/T1482,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Trust Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1483
-  {:d3f/attack-id   "T1483",
-   :db/ident        :d3f/T1483,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Generation Algorithms",
+  {:d3f/attack-id "T1483",
+   :d3f/definition
+   "Adversaries may make use of Domain Generation Algorithms (DGAs) to dynamically identify a destination for command and control traffic rather than relying on a list of static IP addresses or domains. This has the advantage of making it much harder for defenders block, track, or take over the command and control channel, as there potentially could be thousands of domains that malware can check for instructions.(Citation: Cybereason Dissecting DGAs)(Citation: Cisco Umbrella DGA)(Citation: Unit 42 DGA Feb 2019)",
+   :db/ident :d3f/T1483,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1568.002",
+   :rdfs/label "Domain Generation Algorithms",
+   :rdfs/seeAlso {:rdf/value "T1568.002"},
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1484
-  {:d3f/attack-id   "T1484",
-   :d3f/modifies    :d3f/GroupPolicy,
-   :db/ident        :d3f/T1484,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Group Policy Modification",
+  {:d3f/attack-id "T1484",
+   :d3f/definition
+   "Adversaries may modify the configuration settings of a domain or identity tenant to evade defenses and/or escalate privileges in centrally managed environments. Such services provide a centralized means of managing identity resources such as devices and accounts, and often include configuration settings that may apply between domains or tenants such as trust relationships, identity syncing, or identity federation.",
+   :d3f/modifies :d3f/GroupPolicy,
+   :db/ident :d3f/T1484,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Domain or Tenant Policy Modification",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/GroupPolicy,
@@ -33678,152 +35156,207 @@
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1484_001
-  {:d3f/attack-id   "T1484.001",
-   :db/ident        :d3f/T1484.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Group Policy Modification",
+  {:d3f/attack-id "T1484.001",
+   :d3f/definition
+   "Adversaries may modify Group Policy Objects (GPOs) to subvert the intended discretionary access controls for a domain, usually with the intention of escalating privileges on the domain. Group policy allows for centralized management of user and computer settings in Active Directory (AD). GPOs are containers for group policy settings made up of files stored within a predictable network path `\\<DOMAIN>\\SYSVOL\\<DOMAIN>\\Policies\\`.(Citation: TechNet Group Policy Basics)(Citation: ADSecurity GPO Persistence 2016)",
+   :db/ident :d3f/T1484.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Group Policy Modification",
    :rdfs/subClassOf :d3f/T1484})
 
 (def T1484_002
-  {:d3f/attack-id   "T1484.002",
-   :db/ident        :d3f/T1484.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Trust Modification",
+  {:d3f/attack-id "T1484.002",
+   :d3f/definition
+   "Adversaries may add new domain trusts, modify the properties of existing domain trusts, or otherwise change the configuration of trust relationships between domains and tenants to evade defenses and/or elevate privileges.Trust details, such as whether or not user identities are federated, allow authentication and authorization properties to apply between domains or tenants for the purpose of accessing shared resources.(Citation: Microsoft - Azure AD Federation) These trust objects may include accounts, credentials, and other authentication material applied to servers, tokens, and domains.",
+   :db/ident :d3f/T1484.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trust Modification",
    :rdfs/subClassOf :d3f/T1484})
 
 (def T1485
-  {:d3f/attack-id   "T1485",
-   :db/ident        :d3f/T1485,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Destruction",
+  {:d3f/attack-id "T1485",
+   :d3f/definition
+   "Adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. Data destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives.(Citation: Symantec Shamoon 2012)(Citation: FireEye Shamoon Nov 2016)(Citation: Palo Alto Shamoon Nov 2016)(Citation: Kaspersky StoneDrill 2017)(Citation: Unit 42 Shamoon3 2018)(Citation: Talos Olympic Destroyer 2018) Common operating system file deletion commands such as <code>del</code> and <code>rm</code> often only remove pointers to files without wiping the contents of the files themselves, making the files recoverable by proper forensic methodology. This behavior is distinct from [Disk Content Wipe](https://attack.mitre.org/techniques/T1561/001) and [Disk Structure Wipe](https://attack.mitre.org/techniques/T1561/002) because individual files are destroyed rather than sections of a storage disk or the disk's logical structure.",
+   :db/ident :d3f/T1485,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Destruction",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1486
-  {:d3f/attack-id   "T1486",
-   :db/ident        :d3f/T1486,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Encrypted for Impact",
+  {:d3f/attack-id "T1486",
+   :d3f/definition
+   "Adversaries may encrypt data on target systems or on large numbers of systems in a network to interrupt availability to system and network resources. They can attempt to render stored data inaccessible by encrypting files or data on local and remote drives and withholding access to a decryption key. This may be done in order to extract monetary compensation from a victim in exchange for decryption or a decryption key (ransomware) or to render data permanently inaccessible in cases where the key is not saved or transmitted.(Citation: US-CERT Ransomware 2016)(Citation: FireEye WannaCry 2017)(Citation: US-CERT NotPetya 2017)(Citation: US-CERT SamSam 2018)",
+   :db/ident :d3f/T1486,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Encrypted for Impact",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1487
-  {:d3f/attack-id   "T1487",
-   :db/ident        :d3f/T1487,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disk Structure Wipe",
+  {:d3f/attack-id "T1487",
+   :d3f/definition
+   "Adversaries may corrupt or wipe the disk data structures on hard drive necessary to boot systems; targeting specific critical systems as well as a large number of systems in a network to interrupt availability to system and network resources.",
+   :db/ident :d3f/T1487,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1561.002",
+   :rdfs/label "Disk Structure Wipe",
+   :rdfs/seeAlso {:rdf/value "T1561.002"},
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1488
-  {:d3f/attack-id   "T1488",
-   :db/ident        :d3f/T1488,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disk Content Wipe",
+  {:d3f/attack-id "T1488",
+   :d3f/definition
+   "Adversaries may erase the contents of storage devices on specific systems as well as large numbers of systems in a network to interrupt availability to system and network resources.",
+   :db/ident :d3f/T1488,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1561.001",
+   :rdfs/label "Disk Content Wipe",
+   :rdfs/seeAlso {:rdf/value "T1561.001"},
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1489
-  {:d3f/attack-id   "T1489",
-   :db/ident        :d3f/T1489,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Service Stop",
+  {:d3f/attack-id "T1489",
+   :d3f/definition
+   "Adversaries may stop or disable services on a system to render those services unavailable to legitimate users. Stopping critical services or processes can inhibit or stop response to an incident or aid in the adversary's overall objectives to cause damage to the environment.(Citation: Talos Olympic Destroyer 2018)(Citation: Novetta Blockbuster)",
+   :db/ident :d3f/T1489,
+   :rdf/type :owl/Class,
+   :rdfs/label "Service Stop",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1490
-  {:d3f/attack-id   "T1490",
-   :db/ident        :d3f/T1490,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inhibit System Recovery",
+  {:d3f/attack-id "T1490",
+   :d3f/definition
+   "Adversaries may delete or remove built-in data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery.(Citation: Talos Olympic Destroyer 2018)(Citation: FireEye WannaCry 2017) This may deny access to available backups and recovery options.",
+   :db/ident :d3f/T1490,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inhibit System Recovery",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1491
-  {:d3f/attack-id   "T1491",
-   :db/ident        :d3f/T1491,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Defacement",
+  {:d3f/attack-id "T1491",
+   :d3f/definition
+   "Adversaries may modify visual content available internally or externally to an enterprise network, thus affecting the integrity of the original content. Reasons for [Defacement](https://attack.mitre.org/techniques/T1491) include delivering messaging, intimidation, or claiming (possibly false) credit for an intrusion. Disturbing or offensive images may be used as a part of [Defacement](https://attack.mitre.org/techniques/T1491) in order to cause user discomfort, or to pressure compliance with accompanying messages.",
+   :db/ident :d3f/T1491,
+   :rdf/type :owl/Class,
+   :rdfs/label "Defacement",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1491_001
-  {:d3f/attack-id   "T1491.001",
-   :d3f/modifies    :d3f/Resource,
-   :db/ident        :d3f/T1491.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Internal Defacement",
+  {:d3f/attack-id "T1491.001",
+   :d3f/definition
+   "An adversary may deface systems internal to an organization in an attempt to intimidate or mislead users, thus discrediting the integrity of the systems. This may take the form of modifications to internal websites, or directly to user systems with the replacement of the desktop wallpaper.(Citation: Novetta Blockbuster) Disturbing or offensive images may be used as a part of [Internal Defacement](https://attack.mitre.org/techniques/T1491/001) in order to cause user discomfort, or to pressure compliance with accompanying messages. Since internally defacing systems exposes an adversary's presence, it often takes place after other intrusion goals have been accomplished.(Citation: Novetta Blockbuster Destructive Malware)",
+   :d3f/modifies :d3f/Resource,
+   :db/ident :d3f/T1491.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Internal Defacement",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/Resource,
                        :rdf/type           :owl/Restriction} :d3f/T1491}})
 
 (def T1491_002
-  {:d3f/attack-id   "T1491.002",
-   :d3f/modifies    :d3f/NetworkResource,
-   :db/ident        :d3f/T1491.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "External Defacement",
+  {:d3f/attack-id "T1491.002",
+   :d3f/definition
+   "An adversary may deface systems external to an organization in an attempt to deliver messaging, intimidate, or otherwise mislead an organization or users. [External Defacement](https://attack.mitre.org/techniques/T1491/002) may ultimately cause users to distrust the systems and to question/discredit the system’s integrity. Externally-facing websites are a common victim of defacement; often targeted by adversary and hacktivist groups in order to push a political message or spread propaganda.(Citation: FireEye Cyber Threats to Media Industries)(Citation: Kevin Mandia Statement to US Senate Committee on Intelligence)(Citation: Anonymous Hackers Deface Russian Govt Site) [External Defacement](https://attack.mitre.org/techniques/T1491/002) may be used as a catalyst to trigger events, or as a response to actions taken by an organization or government. Similarly, website defacement may also be used as setup, or a precursor, for future attacks such as [Drive-by Compromise](https://attack.mitre.org/techniques/T1189).(Citation: Trend Micro Deep Dive Into Defacement)",
+   :d3f/modifies :d3f/NetworkResource,
+   :db/ident :d3f/T1491.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "External Defacement",
    :rdfs/subClassOf #{:d3f/T1491
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/NetworkResource,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1492
-  {:d3f/attack-id   "T1492",
-   :db/ident        :d3f/T1492,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Stored Data Manipulation",
+  {:d3f/attack-id "T1492",
+   :d3f/definition
+   "Adversaries may insert, delete, or manipulate data at rest in order to manipulate external outcomes or hide activity.(Citation: FireEye APT38 Oct 2018)(Citation: DOJ Lazarus Sony 2018) By manipulating stored data, adversaries may attempt to affect a business process, organizational understanding, and decision making.",
+   :db/ident :d3f/T1492,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1565.001",
+   :rdfs/label "Stored Data Manipulation",
+   :rdfs/seeAlso {:rdf/value "T1565.001"},
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1493
-  {:d3f/attack-id   "T1493",
-   :db/ident        :d3f/T1493,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Transmitted Data Manipulation",
+  {:d3f/attack-id "T1493",
+   :d3f/definition
+   "Adversaries may alter data en route to storage or other systems in order to manipulate external outcomes or hide activity.(Citation: FireEye APT38 Oct 2018)(Citation: DOJ Lazarus Sony 2018) By manipulating transmitted data, adversaries may attempt to affect a business process, organizational understanding, and decision making.",
+   :db/ident :d3f/T1493,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1565.002",
+   :rdfs/label "Transmitted Data Manipulation",
+   :rdfs/seeAlso {:rdf/value "T1565.002"},
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1494
-  {:d3f/attack-id   "T1494",
-   :db/ident        :d3f/T1494,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Runtime Data Manipulation",
+  {:d3f/attack-id "T1494",
+   :d3f/definition
+   "Adversaries may modify systems in order to manipulate the data as it is accessed and displayed to an end user.(Citation: FireEye APT38 Oct 2018)(Citation: DOJ Lazarus Sony 2018) By manipulating runtime data, adversaries may attempt to affect a business process, organizational understanding, and decision making.",
+   :db/ident :d3f/T1494,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1565.003",
+   :rdfs/label "Runtime Data Manipulation",
+   :rdfs/seeAlso {:rdf/value "T1565.003"},
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1495
-  {:d3f/attack-id   "T1495",
-   :db/ident        :d3f/T1495,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Firmware Corruption",
+  {:d3f/attack-id "T1495",
+   :d3f/definition
+   "Adversaries may overwrite or corrupt the flash memory contents of system BIOS or other firmware in devices attached to a system in order to render them inoperable or unable to boot, thus denying the availability to use the devices and/or the system.(Citation: Symantec Chernobyl W95.CIH) Firmware is software that is loaded and executed from non-volatile memory on hardware devices in order to initialize and manage device functionality. These devices may include the motherboard, hard drive, or video cards.",
+   :db/ident :d3f/T1495,
+   :rdf/type :owl/Class,
+   :rdfs/label "Firmware Corruption",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1496
-  {:d3f/attack-id   "T1496",
-   :db/ident        :d3f/T1496,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Resource Hijacking",
+  {:d3f/attack-id "T1496",
+   :d3f/definition
+   "Adversaries may leverage the resources of co-opted systems to complete resource-intensive tasks, which may impact system and/or hosted service availability.",
+   :db/ident :d3f/T1496,
+   :rdf/type :owl/Class,
+   :rdfs/label "Resource Hijacking",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1497
-  {:d3f/attack-id   "T1497",
-   :db/ident        :d3f/T1497,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Virtualization/Sandbox Evasion",
+  {:d3f/attack-id "T1497",
+   :d3f/definition
+   "Adversaries may employ various means to detect and avoid virtualization and analysis environments. This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox. If the adversary detects a VME, they may alter their malware to disengage from the victim or conceal the core functions of the implant. They may also search for VME artifacts before dropping secondary or additional payloads. Adversaries may use the information learned from [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1497) during automated discovery to shape follow-on behaviors.(Citation: Deloitte Environment Awareness)",
+   :db/ident :d3f/T1497,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtualization/Sandbox Evasion",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1497_001
-  {:d3f/attack-id   "T1497.001",
-   :db/ident        :d3f/T1497.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "System Checks",
+  {:d3f/attack-id "T1497.001",
+   :d3f/definition
+   "Adversaries may employ various system checks to detect and avoid virtualization and analysis environments. This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox. If the adversary detects a VME, they may alter their malware to disengage from the victim or conceal the core functions of the implant. They may also search for VME artifacts before dropping secondary or additional payloads. Adversaries may use the information learned from [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1497) during automated discovery to shape follow-on behaviors.(Citation: Deloitte Environment Awareness)",
+   :db/ident :d3f/T1497.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Checks",
    :rdfs/subClassOf :d3f/T1497})
 
 (def T1497_002
-  {:d3f/attack-id   "T1497.002",
-   :db/ident        :d3f/T1497.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "User Activity Based Checks",
+  {:d3f/attack-id "T1497.002",
+   :d3f/definition
+   "Adversaries may employ various user activity checks to detect and avoid virtualization and analysis environments. This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox. If the adversary detects a VME, they may alter their malware to disengage from the victim or conceal the core functions of the implant. They may also search for VME artifacts before dropping secondary or additional payloads. Adversaries may use the information learned from [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1497) during automated discovery to shape follow-on behaviors.(Citation: Deloitte Environment Awareness)",
+   :db/ident :d3f/T1497.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Activity Based Checks",
    :rdfs/subClassOf :d3f/T1497})
 
 (def T1497_003
-  {:d3f/attack-id   "T1497.003",
-   :d3f/may-invoke  :d3f/GetSystemTime,
-   :d3f/may-run     :d3f/SystemTimeApplication,
-   :db/ident        :d3f/T1497.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Time Based Evasion",
+  {:d3f/attack-id "T1497.003",
+   :d3f/definition
+   "Adversaries may employ various time-based methods to detect and avoid virtualization and analysis environments. This may include enumerating time-based properties, such as uptime or the system clock, as well as the use of timers or other triggers to avoid a virtual machine environment (VME) or sandbox, specifically those that are automated or only operate for a limited amount of time.",
+   :d3f/may-invoke :d3f/GetSystemTime,
+   :d3f/may-run :d3f/SystemTimeApplication,
+   :db/ident :d3f/T1497.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Time Based Evasion",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-run,
                        :owl/someValuesFrom :d3f/SystemTimeApplication,
                        :rdf/type           :owl/Restriction}
@@ -33832,121 +35365,166 @@
                        :rdf/type           :owl/Restriction} :d3f/T1497}})
 
 (def T1498
-  {:d3f/attack-id   "T1498",
-   :db/ident        :d3f/T1498,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Denial of Service",
+  {:d3f/attack-id "T1498",
+   :d3f/definition
+   "Adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources to users. Network DoS can be performed by exhausting the network bandwidth services rely on. Example resources include specific websites, email services, DNS, and web-based applications. Adversaries have been observed conducting network DoS attacks for political purposes(Citation: FireEye OpPoisonedHandover February 2016) and to support other malicious activities, including distraction(Citation: FSISAC FraudNetDoS September 2012), hacktivism, and extortion.(Citation: Symantec DDoS October 2014)",
+   :db/ident :d3f/T1498,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Denial of Service",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1498_001
-  {:d3f/attack-id   "T1498.001",
-   :d3f/creates     :d3f/InboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1498.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Direct Network Flood",
+  {:d3f/attack-id "T1498.001",
+   :d3f/creates :d3f/InboundInternetNetworkTraffic,
+   :d3f/definition
+   "Adversaries may attempt to cause a denial of service (DoS) by directly sending a high-volume of network traffic to a target. This DoS attack may also reduce the availability and functionality of the targeted system(s) and network. [Direct Network Flood](https://attack.mitre.org/techniques/T1498/001)s are when one or more systems are used to send a high-volume of network packets towards the targeted service's network. Almost any network protocol may be used for flooding. Stateless protocols such as UDP or ICMP are commonly used but stateful protocols such as TCP can be used as well.",
+   :db/ident :d3f/T1498.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Direct Network Flood",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1498}})
 
 (def T1498_002
-  {:d3f/attack-id   "T1498.002",
-   :d3f/produces    :d3f/InboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1498.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Reflection Amplification",
+  {:d3f/attack-id "T1498.002",
+   :d3f/definition
+   "Adversaries may attempt to cause a denial of service (DoS) by reflecting a high-volume of network traffic to a target. This type of Network DoS takes advantage of a third-party server intermediary that hosts and will respond to a given spoofed source IP address. This third-party server is commonly termed a reflector. An adversary accomplishes a reflection attack by sending packets to reflectors with the spoofed address of the victim. Similar to Direct Network Floods, more than one system may be used to conduct the attack, or a botnet may be used. Likewise, one or more reflectors may be used to focus traffic on the target.(Citation: Cloudflare ReflectionDoS May 2017) This Network DoS attack may also reduce the availability and functionality of the targeted system(s) and network.",
+   :d3f/produces :d3f/InboundInternetNetworkTraffic,
+   :db/ident :d3f/T1498.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Reflection Amplification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1498}})
 
 (def T1499
-  {:d3f/attack-id   "T1499",
-   :db/ident        :d3f/T1499,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Endpoint Denial of Service",
+  {:d3f/attack-id "T1499",
+   :d3f/definition
+   "Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to users. Endpoint DoS can be performed by exhausting the system resources those services are hosted on or exploiting the system to cause a persistent crash condition. Example services include websites, email services, DNS, and web-based applications. Adversaries have been observed conducting DoS attacks for political purposes(Citation: FireEye OpPoisonedHandover February 2016) and to support other malicious activities, including distraction(Citation: FSISAC FraudNetDoS September 2012), hacktivism, and extortion.(Citation: Symantec DDoS October 2014)",
+   :db/ident :d3f/T1499,
+   :rdf/type :owl/Class,
+   :rdfs/label "Endpoint Denial of Service",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1499_001
-  {:d3f/attack-id   "T1499.001",
-   :db/ident        :d3f/T1499.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OS Exhaustion Flood",
+  {:d3f/attack-id "T1499.001",
+   :d3f/definition
+   "Adversaries may launch a denial of service (DoS) attack targeting an endpoint's operating system (OS). A system's OS is responsible for managing the finite resources as well as preventing the entire system from being overwhelmed by excessive demands on its capacity. These attacks do not need to exhaust the actual resources on a system; the attacks may simply exhaust the limits and available resources that an OS self-imposes.",
+   :db/ident :d3f/T1499.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "OS Exhaustion Flood",
    :rdfs/subClassOf :d3f/T1499})
 
 (def T1499_002
-  {:d3f/attack-id   "T1499.002",
-   :d3f/produces    :d3f/InboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1499.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Service Exhaustion Flood",
+  {:d3f/attack-id "T1499.002",
+   :d3f/definition
+   "Adversaries may target the different network services provided by systems to conduct a denial of service (DoS). Adversaries often target the availability of DNS and web services, however others have been targeted as well.(Citation: Arbor AnnualDoSreport Jan 2018) Web server software can be attacked through a variety of means, some of which apply generally while others are specific to the software being used to provide the service.",
+   :d3f/produces :d3f/InboundInternetNetworkTraffic,
+   :db/ident :d3f/T1499.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Service Exhaustion Flood",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1498}})
 
 (def T1499_003
-  {:d3f/attack-id   "T1499.003",
-   :db/ident        :d3f/T1499.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Application Exhaustion Flood",
+  {:d3f/attack-id "T1499.003",
+   :d3f/definition
+   "Adversaries may target resource intensive features of applications to cause a denial of service (DoS), denying availability to those applications. For example, specific features in web applications may be highly resource intensive. Repeated requests to those features may be able to exhaust system resources and deny access to the application or the server itself.(Citation: Arbor AnnualDoSreport Jan 2018)",
+   :db/ident :d3f/T1499.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Exhaustion Flood",
    :rdfs/subClassOf :d3f/T1499})
 
 (def T1499_004
-  {:d3f/attack-id   "T1499.004",
-   :db/ident        :d3f/T1499.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Application or System Exploitation",
+  {:d3f/attack-id "T1499.004",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities that can cause an application or system to crash and deny availability to users. (Citation: Sucuri BIND9 August 2015) Some systems may automatically restart critical applications and services when crashes occur, but they can likely be re-exploited to cause a persistent denial of service (DoS) condition.",
+   :db/ident :d3f/T1499.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application or System Exploitation",
    :rdfs/subClassOf :d3f/T1499})
 
 (def T1500
-  {:d3f/attack-id   "T1500",
-   :db/ident        :d3f/T1500,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Compile After Delivery",
+  {:d3f/attack-id "T1500",
+   :d3f/definition
+   "Adversaries may attempt to make payloads difficult to discover and analyze by delivering files to victims as uncompiled code. Similar to [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027), text-based source code files may subvert analysis and scrutiny from protections targeting executables/binaries. These payloads will need to be compiled before execution; typically via native utilities such as csc.exe or GCC/MinGW.(Citation: ClearSky MuddyWater Nov 2018)",
+   :db/ident :d3f/T1500,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1027.004",
+   :rdfs/label "Compile After Delivery",
+   :rdfs/seeAlso {:rdf/value "T1027.004"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1501
-  {:d3f/attack-id   "T1501",
-   :db/ident        :d3f/T1501,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Systemd Service",
+  {:d3f/attack-id "T1501",
+   :d3f/definition
+   "Systemd services can be used to establish persistence on a Linux system. The systemd service manager is commonly used for managing background daemon processes (also known as services) and other system resources.(Citation: Linux man-pages: systemd January 2014)(Citation: Freedesktop.org Linux systemd 29SEP2018) Systemd is the default initialization (init) system on many Linux distributions starting with Debian 8, Ubuntu 15.04, CentOS 7, RHEL 7, Fedora 15, and replaces legacy init systems including SysVinit and Upstart while remaining backwards compatible with the aforementioned init systems.",
+   :db/ident :d3f/T1501,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1543.002",
+   :rdfs/label "Systemd Service",
+   :rdfs/seeAlso {:rdf/value "T1543.002"},
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1502
-  {:d3f/attack-id   "T1502",
-   :db/ident        :d3f/T1502,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Parent PID Spoofing",
+  {:d3f/attack-id "T1502",
+   :d3f/definition
+   "Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges. New processes are typically spawned directly from their parent, or calling, process unless explicitly specified. One way of explicitly assigning the PPID of a new process is via the <code>CreateProcess</code> API call, which supports a parameter that defines the PPID to use.(Citation: DidierStevens SelectMyParent Nov 2009) This functionality is used by Windows features such as User Account Control (UAC) to correctly set the PPID after a requested elevated process is spawned by SYSTEM (typically via <code>svchost.exe</code> or <code>consent.exe</code>) rather than the current user context.(Citation: Microsoft UAC Nov 2018)",
+   :db/ident :d3f/T1502,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1134.004",
+   :rdfs/label "Parent PID Spoofing",
+   :rdfs/seeAlso {:rdf/value "T1134.004"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1503
-  {:d3f/attack-id   "T1503",
-   :db/ident        :d3f/T1503,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Credentials from Web Browsers",
+  {:d3f/attack-id "T1503",
+   :d3f/definition
+   "Adversaries may acquire credentials from web browsers by reading files specific to the target browser.  (Citation: Talos Olympic Destroyer 2018)",
+   :db/ident :d3f/T1503,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1555.003",
+   :rdfs/label "Credentials from Web Browsers",
+   :rdfs/seeAlso {:rdf/value "T1555.003"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1504
-  {:d3f/attack-id   "T1504",
-   :db/ident        :d3f/T1504,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "PowerShell Profile",
+  {:d3f/attack-id "T1504",
+   :d3f/definition
+   "Adversaries may gain persistence and elevate privileges in certain situations by abusing [PowerShell](https://attack.mitre.org/techniques/T1086) profiles. A PowerShell profile  (<code>profile.ps1</code>) is a script that runs when PowerShell starts and can be used as a logon script to customize user environments. PowerShell supports several profiles depending on the user or host program. For example, there can be different profiles for PowerShell host programs such as the PowerShell console, PowerShell ISE or Visual Studio Code. An administrator can also configure a profile that applies to all users and host programs on the local computer. (Citation: Microsoft About Profiles)",
+   :db/ident :d3f/T1504,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.013",
+   :rdfs/label "PowerShell Profile",
+   :rdfs/seeAlso {:rdf/value "T1546.013"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1505
-  {:d3f/attack-id   "T1505",
-   :db/ident        :d3f/T1505,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Server Software Component",
+  {:d3f/attack-id "T1505",
+   :d3f/definition
+   "Adversaries may abuse legitimate extensible development features of servers to establish persistent access to systems. Enterprise server applications may include features that allow developers to write and install software or scripts to extend the functionality of the main application. Adversaries may install malicious components to extend and abuse server applications.(Citation: volexity_0day_sophos_FW)",
+   :db/ident :d3f/T1505,
+   :rdf/type :owl/Class,
+   :rdfs/label "Server Software Component",
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1505_001
-  {:d3f/attack-id   "T1505.001",
-   :d3f/creates     :d3f/StoredProcedure,
-   :d3f/invokes     :d3f/CreateProcess,
-   :db/ident        :d3f/T1505.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "SQL Stored Procedures",
+  {:d3f/attack-id "T1505.001",
+   :d3f/creates :d3f/StoredProcedure,
+   :d3f/definition
+   "Adversaries may abuse SQL stored procedures to establish persistent access to systems. SQL Stored Procedures are code that can be saved and reused so that database users do not waste time rewriting frequently used SQL queries. Stored procedures can be invoked via SQL statements to the database using the procedure name or via defined events (e.g. when a SQL server application is started/restarted).",
+   :d3f/invokes :d3f/CreateProcess,
+   :db/ident :d3f/T1505.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "SQL Stored Procedures",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/StoredProcedure,
                        :rdf/type           :owl/Restriction} :d3f/T1505
@@ -33955,12 +35533,14 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1505_002
-  {:d3f/adds        :d3f/MessageTransferAgent,
-   :d3f/attack-id   "T1505.002",
-   :d3f/modifies    :d3f/MailServer,
-   :db/ident        :d3f/T1505.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Transport Agent",
+  {:d3f/adds :d3f/MessageTransferAgent,
+   :d3f/attack-id "T1505.002",
+   :d3f/definition
+   "Adversaries may abuse Microsoft transport agents to establish persistent access to systems. Microsoft Exchange transport agents can operate on email messages passing through the transport pipeline to perform various tasks such as filtering spam, filtering malicious attachments, journaling, or adding a corporate signature to the end of all outgoing emails.(Citation: Microsoft TransportAgent Jun 2016)(Citation: ESET LightNeuron May 2019) Transport agents can be written by application developers and then compiled to .NET assemblies that are subsequently registered with the Exchange server. Transport agents will be invoked during a specified stage of email processing and carry out developer defined tasks.",
+   :d3f/modifies :d3f/MailServer,
+   :db/ident :d3f/T1505.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Transport Agent",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/MailServer,
                        :rdf/type           :owl/Restriction} :d3f/T1505
@@ -33969,13 +35549,15 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1505_003
-  {:d3f/adds        :d3f/WebScriptFile,
-   :d3f/attack-id   "T1505.003",
-   :d3f/modifies    :d3f/WebServer,
-   :d3f/produces    :d3f/Process,
-   :db/ident        :d3f/T1505.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Web Shell",
+  {:d3f/adds :d3f/WebScriptFile,
+   :d3f/attack-id "T1505.003",
+   :d3f/definition
+   "Adversaries may backdoor web servers with web shells to establish persistent access to systems. A Web shell is a Web script that is placed on an openly accessible Web server to allow an adversary to access the Web server as a gateway into a network. A Web shell may provide a set of functions to execute or a command-line interface on the system that hosts the Web server.(Citation: volexity_0day_sophos_FW)",
+   :d3f/modifies :d3f/WebServer,
+   :d3f/produces :d3f/Process,
+   :db/ident :d3f/T1505.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Web Shell",
    :rdfs/subClassOf #{:d3f/T1505
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/Process,
@@ -33988,54 +35570,72 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1505_004
-  {:d3f/adds        :d3f/Software,
-   :d3f/attack-id   "T1505.004",
-   :db/ident        :d3f/T1505.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "IIS Components",
+  {:d3f/adds :d3f/Software,
+   :d3f/attack-id "T1505.004",
+   :d3f/definition
+   "Adversaries may install malicious components that run on Internet Information Services (IIS) web servers to establish persistence. IIS provides several mechanisms to extend the functionality of the web servers. For example, Internet Server Application Programming Interface (ISAPI) extensions and filters can be installed to examine and/or modify incoming and outgoing IIS web requests. Extensions and filters are deployed as DLL files that export three functions: <code>Get{Extension/Filter}Version</code>, <code>Http{Extension/Filter}Proc</code>, and (optionally) <code>Terminate{Extension/Filter}</code>. IIS modules may also be installed to extend IIS web servers.(Citation: Microsoft ISAPI Extension Overview 2017)(Citation: Microsoft ISAPI Filter Overview 2017)(Citation: IIS Backdoor 2011)(Citation: Trustwave IIS Module 2013)",
+   :db/ident :d3f/T1505.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "IIS Components",
    :rdfs/subClassOf #{:d3f/T1505
                       {:owl/onProperty     :d3f/adds,
                        :owl/someValuesFrom :d3f/Software,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1505_005
-  {:d3f/attack-id   "T1505.005",
-   :db/ident        :d3f/T1505.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Terminal Services DLL",
+  {:d3f/attack-id "T1505.005",
+   :d3f/definition
+   "Adversaries may abuse components of Terminal Services to enable persistent access to systems. Microsoft Terminal Services, renamed to Remote Desktop Services in some Windows Server OSs as of 2022, enable remote terminal connections to hosts. Terminal Services allows servers to transmit a full, interactive, graphical user interface to clients via RDP.(Citation: Microsoft Remote Desktop Services)",
+   :db/ident :d3f/T1505.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Terminal Services DLL",
    :rdfs/subClassOf :d3f/T1505})
 
 (def T1506
-  {:d3f/attack-id   "T1506",
-   :db/ident        :d3f/T1506,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Web Session Cookie",
+  {:d3f/attack-id "T1506",
+   :d3f/definition
+   "Adversaries can use stolen session cookies to authenticate to web applications and services. This technique bypasses some multi-factor authentication protocols since the session is already authenticated.(Citation: Pass The Cookie)",
+   :db/ident :d3f/T1506,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1550.004",
+   :rdfs/label "Web Session Cookie",
+   :rdfs/seeAlso {:rdf/value "T1550.004"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/LateralMovementTechnique}})
 
 (def T1514
-  {:d3f/attack-id   "T1514",
-   :db/ident        :d3f/T1514,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Elevated Execution with Prompt",
+  {:d3f/attack-id "T1514",
+   :d3f/definition
+   "Adversaries may leverage the AuthorizationExecuteWithPrivileges API to escalate privileges by prompting the user for credentials.(Citation: AppleDocs AuthorizationExecuteWithPrivileges) The purpose of this API is to give application developers an easy way to perform operations with root privileges, such as for application installation or updating.  This API does not validate that the program requesting root privileges comes from a reputable source or has been maliciously modified. Although this API is deprecated, it still fully functions in the latest releases of macOS. When calling this API, the user will be prompted to enter their credentials but no checks on the origin or integrity of the program are made. The program calling the API may also load world writable files which can be modified to perform malicious behavior with elevated privileges.",
+   :db/ident :d3f/T1514,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1548.004",
+   :rdfs/label "Elevated Execution with Prompt",
+   :rdfs/seeAlso {:rdf/value "T1548.004"},
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1518
-  {:d3f/attack-id   "T1518",
-   :db/ident        :d3f/T1518,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Software Discovery",
+  {:d3f/attack-id "T1518",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of software and software versions that are installed on a system or in a cloud environment. Adversaries may use the information from [Software Discovery](https://attack.mitre.org/techniques/T1518) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :db/ident :d3f/T1518,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1518_001
-  {:d3f/attack-id   "T1518.001",
-   :d3f/may-access  #{:d3f/KernelProcessTable :d3f/SystemFirewallConfiguration
-                      :d3f/SystemConfigurationDatabaseRecord
-                      :d3f/FileSystemMetadata},
-   :d3f/may-invoke  :d3f/GetRunningProcesses,
-   :db/ident        :d3f/T1518.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Security Software Discovery",
+  {:d3f/attack-id "T1518.001",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. This may include things such as cloud monitoring agents and anti-virus. Adversaries may use the information from [Security Software Discovery](https://attack.mitre.org/techniques/T1518/001) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :d3f/may-access #{:d3f/KernelProcessTable :d3f/SystemFirewallConfiguration
+                     :d3f/SystemConfigurationDatabaseRecord
+                     :d3f/FileSystemMetadata},
+   :d3f/may-invoke :d3f/GetRunningProcesses,
+   :db/ident :d3f/T1518.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Security Software Discovery",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/KernelProcessTable,
                        :rdf/type           :owl/Restriction}
@@ -34054,175 +35654,224 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1519
-  {:d3f/attack-id   "T1519",
-   :db/ident        :d3f/T1519,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Emond",
+  {:d3f/attack-id "T1519",
+   :d3f/definition
+   "Adversaries may use Event Monitor Daemon (emond) to establish persistence by scheduling malicious commands to run on predictable event triggers. Emond is a [Launch Daemon](https://attack.mitre.org/techniques/T1160) that accepts events from various services, runs them through a simple rules engine, and takes action. The emond binary at <code>/sbin/emond</code> will load any rules from the <code>/etc/emond.d/rules/</code> directory and take action once an explicitly defined event takes place. The rule files are in the plist format and define the name, event type, and action to take. Some examples of event types include system startup and user authentication. Examples of actions are to run a system command or send an email. The emond service will not launch if there is no file present in the QueueDirectories path <code>/private/var/db/emondClients</code>, specified in the [Launch Daemon](https://attack.mitre.org/techniques/T1160) configuration file at<code>/System/Library/LaunchDaemons/com.apple.emond.plist</code>.(Citation: xorrior emond Jan 2018)(Citation: magnusviri emond Apr 2016)(Citation: sentinelone macos persist Jun 2019)",
+   :db/ident :d3f/T1519,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1546.014",
+   :rdfs/label "Emond",
+   :rdfs/seeAlso {:rdf/value "T1546.014"},
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1522
-  {:d3f/attack-id   "T1522",
-   :db/ident        :d3f/T1522,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cloud Instance Metadata API",
+  {:d3f/attack-id "T1522",
+   :d3f/definition
+   "Adversaries may attempt to access the Cloud Instance Metadata API to collect credentials and other sensitive data.",
+   :db/ident :d3f/T1522,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1552.005",
+   :rdfs/label "Cloud Instance Metadata API",
+   :rdfs/seeAlso {:rdf/value "T1552.005"},
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1525
-  {:d3f/adds        :d3f/ContainerImage,
-   :d3f/attack-id   "T1525",
-   :db/ident        :d3f/T1525,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Implant Container Image",
+  {:d3f/adds :d3f/ContainerImage,
+   :d3f/attack-id "T1525",
+   :d3f/definition
+   "Adversaries may implant cloud or container images with malicious code to establish persistence after gaining access to an environment. Amazon Web Services (AWS) Amazon Machine Images (AMIs), Google Cloud Platform (GCP) Images, and Azure Images as well as popular container runtimes such as Docker can be implanted or backdoored. Unlike [Upload Malware](https://attack.mitre.org/techniques/T1608/001), this technique focuses on adversaries implanting an image in a registry within a victim’s environment. Depending on how the infrastructure is provisioned, this could provide persistent access if the infrastructure provisioning tool is instructed to always use the latest image.(Citation: Rhino Labs Cloud Image Backdoor Technique Sept 2019)",
+   :db/ident :d3f/T1525,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Implant Internal Image",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/adds,
                        :owl/someValuesFrom :d3f/ContainerImage,
                        :rdf/type           :owl/Restriction}
                       :d3f/PersistenceTechnique}})
 
 (def T1526
-  {:d3f/attack-id   "T1526",
-   :d3f/reads       :d3f/CloudConfiguration,
-   :db/ident        :d3f/T1526,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cloud Service Discovery",
+  {:d3f/attack-id "T1526",
+   :d3f/definition
+   "An adversary may attempt to enumerate the cloud services running on a system after gaining access. These methods can differ from platform-as-a-service (PaaS), to infrastructure-as-a-service (IaaS), or software-as-a-service (SaaS). Many services exist throughout the various cloud providers and can include Continuous Integration and Continuous Delivery (CI/CD), Lambda Functions, Azure AD, etc. They may also include security services, such as AWS GuardDuty and Microsoft Defender for Cloud, and logging services, such as AWS CloudTrail and Google Cloud Audit Logs.",
+   :d3f/reads :d3f/CloudConfiguration,
+   :db/ident :d3f/T1526,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud Service Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/CloudConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1527
-  {:d3f/attack-id   "T1527",
-   :db/ident        :d3f/T1527,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Application Access Token",
+  {:d3f/attack-id "T1527",
+   :d3f/definition
+   "Adversaries may use application access tokens to bypass the typical authentication process and access restricted accounts, information, or services on remote systems. These tokens are typically stolen from users and used in lieu of login credentials.",
+   :db/ident :d3f/T1527,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1550.001",
+   :rdfs/label "Application Access Token",
+   :rdfs/seeAlso {:rdf/value "T1550.001"},
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/LateralMovementTechnique}})
 
 (def T1528
-  {:d3f/accesses    :d3f/AccessToken,
-   :d3f/attack-id   "T1528",
-   :db/ident        :d3f/T1528,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Steal Application Access Token",
+  {:d3f/accesses :d3f/AccessToken,
+   :d3f/attack-id "T1528",
+   :d3f/definition
+   "Adversaries can steal application access tokens as a means of acquiring credentials to access remote systems and resources.",
+   :db/ident :d3f/T1528,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Steal Application Access Token",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/AccessToken,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1529
-  {:d3f/attack-id   "T1529",
-   :db/ident        :d3f/T1529,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "System Shutdown/Reboot",
+  {:d3f/attack-id "T1529",
+   :d3f/definition
+   "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. Operating systems may contain commands to initiate a shutdown/reboot of a machine or network device. In some cases, these commands may also be used to initiate a shutdown/reboot of a remote computer or network device via [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) (e.g. <code>reload</code>).(Citation: Microsoft Shutdown Oct 2017)(Citation: alert_TA18_106A)",
+   :db/ident :d3f/T1529,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Shutdown/Reboot",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1530
   {:d3f/attack-id   "T1530",
+   :d3f/definition  "Adversaries may access data from cloud storage.",
    :db/ident        :d3f/T1530,
    :rdf/type        :owl/Class,
-   :rdfs/label      "Data from Cloud Storage Object",
+   :rdfs/label      "Data from Cloud Storage",
    :rdfs/subClassOf :d3f/CollectionTechnique})
 
 (def T1531
-  {:d3f/attack-id   "T1531",
-   :d3f/modifies    :d3f/UserAccount,
-   :db/ident        :d3f/T1531,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Account Access Removal",
+  {:d3f/attack-id "T1531",
+   :d3f/definition
+   "Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts. Adversaries may also subsequently log off and/or perform a [System Shutdown/Reboot](https://attack.mitre.org/techniques/T1529) to set malicious changes into place.(Citation: CarbonBlack LockerGoga 2019)(Citation: Unit42 LockerGoga 2019)",
+   :d3f/modifies :d3f/UserAccount,
+   :db/ident :d3f/T1531,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Account Access Removal",
    :rdfs/subClassOf #{:d3f/ImpactTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1534
-  {:d3f/attack-id   "T1534",
-   :d3f/produces    :d3f/Email,
-   :db/ident        :d3f/T1534,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Internal Spearphishing",
+  {:d3f/attack-id "T1534",
+   :d3f/definition
+   "After they already have access to accounts or systems within the environment, adversaries may use internal spearphishing to gain access to additional information or compromise other users within the same organization. Internal spearphishing is multi-staged campaign where a legitimate account is initially compromised either by controlling the user's device or by compromising the account credentials of the user. Adversaries may then attempt to take advantage of the trusted internal account to increase the likelihood of tricking more victims into falling for phish attempts, often incorporating [Impersonation](https://attack.mitre.org/techniques/T1656).(Citation: Trend Micro - Int SP)",
+   :d3f/produces :d3f/Email,
+   :db/ident :d3f/T1534,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Internal Spearphishing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/Email,
                        :rdf/type           :owl/Restriction}
                       :d3f/LateralMovementTechnique}})
 
 (def T1535
-  {:d3f/attack-id   "T1535",
-   :db/ident        :d3f/T1535,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unused/Unsupported Cloud Regions",
+  {:d3f/attack-id "T1535",
+   :d3f/definition
+   "Adversaries may create cloud instances in unused geographic service regions in order to evade detection. Access is usually obtained through compromising accounts used to manage cloud infrastructure.",
+   :db/ident :d3f/T1535,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unused/Unsupported Cloud Regions",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1536
-  {:d3f/attack-id   "T1536",
-   :db/ident        :d3f/T1536,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Revert Cloud Instance",
+  {:d3f/attack-id "T1536",
+   :d3f/definition
+   "An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence. In highly virtualized environments, such as cloud-based infrastructure, this may be accomplished by restoring virtual machine (VM) or data storage snapshots through the cloud management dashboard or cloud APIs.",
+   :db/ident :d3f/T1536,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1578.004",
+   :rdfs/label "Revert Cloud Instance",
+   :rdfs/seeAlso {:rdf/value "T1578.004"},
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1537
-  {:d3f/attack-id   "T1537",
-   :db/ident        :d3f/T1537,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Transfer Data to Cloud Account",
+  {:d3f/attack-id "T1537",
+   :d3f/definition
+   "Adversaries may exfiltrate data by transferring the data, including through sharing/syncing and creating backups of cloud environments, to another cloud account they control on the same service.",
+   :db/ident :d3f/T1537,
+   :rdf/type :owl/Class,
+   :rdfs/label "Transfer Data to Cloud Account",
    :rdfs/subClassOf :d3f/ExfiltrationTechnique})
 
 (def T1538
-  {:d3f/accesses    :d3f/CloudConfiguration,
-   :d3f/attack-id   "T1538",
-   :db/ident        :d3f/T1538,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cloud Service Dashboard",
+  {:d3f/accesses :d3f/CloudConfiguration,
+   :d3f/attack-id "T1538",
+   :d3f/definition
+   "An adversary may use a cloud service dashboard GUI with stolen credentials to gain useful information from an operational cloud environment, such as specific services, resources, and features. For example, the GCP Command Center can be used to view all assets, findings of potential security risks, and to run additional queries, such as finding public IP addresses and open ports.(Citation: Google Command Center Dashboard)",
+   :db/ident :d3f/T1538,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud Service Dashboard",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/CloudConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1539
-  {:d3f/accesses    :d3f/SessionCookie,
-   :d3f/attack-id   "T1539",
-   :db/ident        :d3f/T1539,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Steal Web Session Cookie",
+  {:d3f/accesses :d3f/SessionCookie,
+   :d3f/attack-id "T1539",
+   :d3f/definition
+   "An adversary may steal web application or service session cookies and use them to gain access to web applications or Internet services as an authenticated user without needing credentials. Web applications and services often use session cookies as an authentication token after a user has authenticated to a website.",
+   :db/ident :d3f/T1539,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Steal Web Session Cookie",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/SessionCookie,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1542
-  {:d3f/attack-id   "T1542",
-   :db/ident        :d3f/T1542,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Pre-OS Boot",
+  {:d3f/attack-id "T1542",
+   :d3f/definition
+   "Adversaries may abuse Pre-OS Boot mechanisms as a way to establish persistence on a system. During the booting process of a computer, firmware and various startup services are loaded before the operating system. These programs control flow of execution before the operating system takes control.(Citation: Wikipedia Booting)",
+   :db/ident :d3f/T1542,
+   :rdf/type :owl/Class,
+   :rdfs/label "Pre-OS Boot",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1542_001
-  {:d3f/attack-id   "T1542.001",
-   :d3f/modifies    :d3f/SystemFirmware,
-   :db/ident        :d3f/T1542.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Firmware",
+  {:d3f/attack-id "T1542.001",
+   :d3f/definition
+   "Adversaries may modify system firmware to persist on systems.The BIOS (Basic Input/Output System) and The Unified Extensible Firmware Interface (UEFI) or Extensible Firmware Interface (EFI) are examples of system firmware that operate as the software interface between the operating system and hardware of a computer.(Citation: Wikipedia BIOS)(Citation: Wikipedia UEFI)(Citation: About UEFI)",
+   :d3f/modifies :d3f/SystemFirmware,
+   :db/ident :d3f/T1542.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Firmware",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemFirmware,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1542_002
-  {:d3f/attack-id   "T1542.002",
-   :d3f/modifies    :d3f/Firmware,
-   :db/ident        :d3f/T1542.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Component Firmware",
+  {:d3f/attack-id "T1542.002",
+   :d3f/definition
+   "Adversaries may modify component firmware to persist on systems. Some adversaries may employ sophisticated means to compromise computer components and install malicious firmware that will execute adversary code outside of the operating system and main system firmware or BIOS. This technique may be similar to [System Firmware](https://attack.mitre.org/techniques/T1542/001) but conducted upon other system components/devices that may not have the same capability or level of integrity checking.",
+   :d3f/modifies :d3f/Firmware,
+   :db/ident :d3f/T1542.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Component Firmware",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/Firmware,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1542_003
-  {:d3f/attack-id   "T1542.003",
-   :d3f/may-modify  #{:d3f/BootSector :d3f/BootLoader :d3f/VolumeBootRecord},
-   :db/ident        :d3f/T1542.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Bootkit",
+  {:d3f/attack-id "T1542.003",
+   :d3f/definition
+   "Adversaries may use bootkits to persist on systems. Bootkits reside at a layer below the operating system and may make it difficult to perform full remediation unless an organization suspects one was used and can act accordingly.",
+   :d3f/may-modify #{:d3f/BootSector :d3f/BootLoader :d3f/VolumeBootRecord},
+   :db/ident :d3f/T1542.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bootkit",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/BootLoader,
@@ -34235,111 +35884,139 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1542_004
-  {:d3f/attack-id   "T1542.004",
-   :d3f/modifies    :d3f/SystemFirmware,
-   :db/ident        :d3f/T1542.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "ROMMONkit",
+  {:d3f/attack-id "T1542.004",
+   :d3f/definition
+   "Adversaries may abuse the ROM Monitor (ROMMON) by loading an unauthorized firmware with adversary code to provide persistent access and manipulate device behavior that is difficult to detect. (Citation: Cisco Synful Knock Evolution)(Citation: Cisco Blog Legacy Device Attacks)",
+   :d3f/modifies :d3f/SystemFirmware,
+   :db/ident :d3f/T1542.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "ROMMONkit",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemFirmware,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1542_005
-  {:d3f/attack-id   "T1542.005",
-   :d3f/creates     :d3f/TFTPNetworkTraffic,
-   :db/ident        :d3f/T1542.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "TFTP Boot",
+  {:d3f/attack-id "T1542.005",
+   :d3f/creates :d3f/TFTPNetworkTraffic,
+   :d3f/definition
+   "Adversaries may abuse netbooting to load an unauthorized network device operating system from a Trivial File Transfer Protocol (TFTP) server. TFTP boot (netbooting) is commonly used by network administrators to load configuration-controlled network device images from a centralized management server. Netbooting is one option in the boot sequence and can be used to centralize, manage, and control device images.",
+   :db/ident :d3f/T1542.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "TFTP Boot",
    :rdfs/subClassOf #{:d3f/T1542
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/TFTPNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1543
-  {:d3f/attack-id   "T1543",
-   :db/ident        :d3f/T1543,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Create or Modify System Process",
+  {:d3f/attack-id "T1543",
+   :d3f/definition
+   "Adversaries may create or modify system-level processes to repeatedly execute malicious payloads as part of persistence. When operating systems boot up, they can start processes that perform background system functions. On Windows and Linux, these system processes are referred to as services.(Citation: TechNet Services) On macOS, launchd processes known as [Launch Daemon](https://attack.mitre.org/techniques/T1543/004) and [Launch Agent](https://attack.mitre.org/techniques/T1543/001) are run to finish system initialization and load user specific parameters.(Citation: AppleDocs Launch Agent Daemons)",
+   :db/ident :d3f/T1543,
+   :rdf/type :owl/Class,
+   :rdfs/label "Create or Modify System Process",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1543_001
-  {:d3f/attack-id   "T1543.001",
-   :d3f/creates     :d3f/PropertyListFile,
-   :db/ident        :d3f/T1543.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Launch Agent",
+  {:d3f/attack-id "T1543.001",
+   :d3f/creates :d3f/PropertyListFile,
+   :d3f/definition
+   "Adversaries may create or modify launch agents to repeatedly execute malicious payloads as part of persistence. When a user logs in, a per-user launchd process is started which loads the parameters for each launch-on-demand user agent from the property list (.plist) file found in <code>/System/Library/LaunchAgents</code>, <code>/Library/LaunchAgents</code>, and <code>~/Library/LaunchAgents</code>.(Citation: AppleDocs Launch Agent Daemons)(Citation: OSX Keydnap malware) (Citation: Antiquated Mac Malware) Property list files use the <code>Label</code>, <code>ProgramArguments </code>, and <code>RunAtLoad</code> keys to identify the Launch Agent's name, executable location, and execution time.(Citation: OSX.Dok Malware) Launch Agents are often installed to perform updates to programs, launch user specified programs at login, or to conduct other developer tasks.",
+   :db/ident :d3f/T1543.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Launch Agent",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/PropertyListFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1543_002
-  {:d3f/attack-id   "T1543.002",
-   :d3f/may-create  :d3f/OperatingSystemConfigurationFile,
-   :d3f/may-modify  :d3f/OperatingSystemConfigurationFile,
-   :db/ident        :d3f/T1543.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Systemd Service",
-   :rdfs/subClassOf #{:d3f/T1543
-                      {:owl/onProperty :d3f/may-create,
-                       :owl/someValuesFrom
-                       :d3f/OperatingSystemConfigurationFile,
-                       :rdf/type :owl/Restriction}
-                      {:owl/onProperty :d3f/may-modify,
-                       :owl/someValuesFrom
-                       :d3f/OperatingSystemConfigurationFile,
-                       :rdf/type :owl/Restriction}}})
+  {:d3f/attack-id "T1543.002",
+   :d3f/definition
+   "Adversaries may create or modify systemd services to repeatedly execute malicious payloads as part of persistence. Systemd is a system and service manager commonly used for managing background daemon processes (also known as services) and other system resources.(Citation: Linux man-pages: systemd January 2014) Systemd is the default initialization (init) system on many Linux distributions replacing legacy init systems, including SysVinit and Upstart, while remaining backwards compatible.",
+   :d3f/may-create :d3f/OperatingSystemConfigurationFile,
+   :d3f/may-modify :d3f/OperatingSystemConfigurationFile,
+   :db/ident :d3f/T1543.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Systemd Service",
+   :rdfs/subClassOf
+   #{:d3f/T1543
+     {:owl/onProperty     :d3f/may-create,
+      :owl/someValuesFrom :d3f/OperatingSystemConfigurationFile,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/may-modify,
+      :owl/someValuesFrom :d3f/OperatingSystemConfigurationFile,
+      :rdf/type           :owl/Restriction}}})
 
 (def T1543_003
-  {:d3f/attack-id   "T1543.003",
-   :d3f/modifies    :d3f/SystemConfigurationDatabase,
-   :db/ident        :d3f/T1543.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows Service",
+  {:d3f/attack-id "T1543.003",
+   :d3f/definition
+   "Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence. When Windows boots up, it starts programs or applications called services that perform background system functions.(Citation: TechNet Services) Windows service configuration information, including the file path to the service's executable or recovery programs/commands, is stored in the Windows Registry.",
+   :d3f/modifies :d3f/SystemConfigurationDatabase,
+   :db/ident :d3f/T1543.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Windows Service",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1543_004
-  {:d3f/attack-id   "T1543.004",
-   :d3f/modifies    :d3f/PropertyListFile,
-   :db/ident        :d3f/T1543.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Launch Daemon",
+  {:d3f/attack-id "T1543.004",
+   :d3f/definition
+   "Adversaries may create or modify Launch Daemons to execute malicious payloads as part of persistence. Launch Daemons are plist files used to interact with Launchd, the service management framework used by macOS. Launch Daemons require elevated privileges to install, are executed for every user on a system prior to login, and run in the background without the need for user interaction. During the macOS initialization startup, the launchd process loads the parameters for launch-on-demand system-level daemons from plist files found in <code>/System/Library/LaunchDaemons/</code> and <code>/Library/LaunchDaemons/</code>. Required Launch Daemons parameters include a <code>Label</code> to identify the task, <code>Program</code> to provide a path to the executable, and <code>RunAtLoad</code> to specify when the task is run. Launch Daemons are often used to provide access to shared resources, updates to software, or conduct automation tasks.(Citation: AppleDocs Launch Agent Daemons)(Citation: Methods of Mac Malware Persistence)(Citation: launchd Keywords for plists)",
+   :d3f/modifies :d3f/PropertyListFile,
+   :db/ident :d3f/T1543.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Launch Daemon",
    :rdfs/subClassOf #{:d3f/T1543
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/PropertyListFile,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1543_005
+  {:d3f/attack-id "T1543.005",
+   :d3f/definition
+   "Adversaries may create or modify container or container cluster management tools that run as daemons, agents, or services on individual hosts. These include software for creating and managing individual containers, such as Docker and Podman, as well as container cluster node-level agents such as kubelet. By modifying these services, an adversary may be able to achieve persistence or escalate their privileges on a host.",
+   :db/ident :d3f/T1543.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Container Service",
+   :rdfs/subClassOf :d3f/T1543})
+
 (def T1546
-  {:d3f/attack-id   "T1546",
-   :db/ident        :d3f/T1546,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Event Triggered Execution",
+  {:d3f/attack-id "T1546",
+   :d3f/definition
+   "Adversaries may establish persistence and/or elevate privileges using system mechanisms that trigger execution based on specific events. Various operating systems have means to monitor and subscribe to events such as logons or other user activity such as running specific applications/binaries. Cloud environments may also support various functions and services that monitor and can be invoked in response to specific cloud events.(Citation: Backdooring an AWS account)(Citation: Varonis Power Automate Data Exfiltration)(Citation: Microsoft DART Case Report 001)",
+   :db/ident :d3f/T1546,
+   :rdf/type :owl/Class,
+   :rdfs/label "Event Triggered Execution",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1546_001
-  {:d3f/attack-id   "T1546.001",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1546.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Change Default File Association",
+  {:d3f/attack-id "T1546.001",
+   :d3f/definition
+   "Adversaries may establish persistence by executing malicious content triggered by a file type association. When a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access or by administrators using the built-in assoc utility.(Citation: Microsoft Change Default Programs)(Citation: Microsoft File Handlers)(Citation: Microsoft Assoc Oct 2017) Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened.",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1546.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Change Default File Association",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1546}})
 
 (def T1546_002
-  {:d3f/attack-id   "T1546.002",
-   :d3f/creates     :d3f/ExecutableFile,
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1546.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Screensaver",
+  {:d3f/attack-id "T1546.002",
+   :d3f/creates :d3f/ExecutableFile,
+   :d3f/definition
+   "Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension.(Citation: Wikipedia Screensaver) The Windows screensaver application scrnsave.scr is located in <code>C:\\Windows\\System32\\</code>, and <code>C:\\Windows\\sysWOW64\\</code>  on 64-bit Windows systems, along with screensavers included with base Windows installations.",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1546.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Screensaver",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -34349,12 +36026,14 @@
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_003
-  {:d3f/attack-id   "T1546.003",
-   :d3f/modifies    :d3f/EventLog,
-   :d3f/produces    :d3f/IntranetAdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1546.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows Management Instrumentation Event Subscription",
+  {:d3f/attack-id "T1546.003",
+   :d3f/definition
+   "Adversaries may establish persistence and elevate privileges by executing malicious content triggered by a Windows Management Instrumentation (WMI) event subscription. WMI can be used to install event filters, providers, consumers, and bindings that execute code when a defined event occurs. Examples of events that may be subscribed to are the wall clock time, user login, or the computer's uptime.(Citation: Mandiant M-Trends 2015)",
+   :d3f/modifies :d3f/EventLog,
+   :d3f/produces :d3f/IntranetAdministrativeNetworkTraffic,
+   :db/ident :d3f/T1546.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Windows Management Instrumentation Event Subscription",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction}
@@ -34364,24 +36043,28 @@
                        :rdf/type :owl/Restriction} :d3f/T1546}})
 
 (def T1546_004
-  {:d3f/attack-id   "T1546.004",
-   :d3f/modifies    :d3f/UserInitConfigurationFile,
-   :db/ident        :d3f/T1546.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      ".bash_profile and .bashrc",
+  {:d3f/attack-id "T1546.004",
+   :d3f/definition
+   "Adversaries may establish persistence through executing malicious commands triggered by a user’s shell. User [Unix Shell](https://attack.mitre.org/techniques/T1059/004)s execute several configuration scripts at different points throughout the session based on events. For example, when a user opens a command-line interface or remotely logs in (such as via SSH) a login shell is initiated. The login shell executes scripts from the system (<code>/etc</code>) and the user’s home directory (<code>~/</code>) to configure the environment. All login shells on a system use /etc/profile when initiated. These configuration scripts run at the permission level of their directory and are often used to set environment variables, create aliases, and customize the user’s environment. When the shell exits or terminates, additional shell scripts are executed to ensure the shell exits appropriately.",
+   :d3f/modifies :d3f/UserInitConfigurationFile,
+   :db/ident :d3f/T1546.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Unix Shell Configuration Modification",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserInitConfigurationFile,
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_005
-  {:d3f/attack-id   "T1546.005",
-   :d3f/executes    :d3f/Command,
-   :d3f/may-create  :d3f/ExecutableScript,
-   :d3f/may-modify  :d3f/ExecutableScript,
-   :d3f/modifies    :d3f/EventLog,
-   :db/ident        :d3f/T1546.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Trap",
+  {:d3f/attack-id "T1546.005",
+   :d3f/definition
+   "Adversaries may establish persistence by executing malicious content triggered by an interrupt signal. The <code>trap</code> command allows programs and shells to specify commands that will be executed upon receiving interrupt signals. A common situation is a script allowing for graceful termination and handling of common keyboard interrupts like <code>ctrl+c</code> and <code>ctrl+d</code>.",
+   :d3f/executes :d3f/Command,
+   :d3f/may-create :d3f/ExecutableScript,
+   :d3f/may-modify :d3f/ExecutableScript,
+   :d3f/modifies :d3f/EventLog,
+   :db/ident :d3f/T1546.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Trap",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ExecutableScript,
                        :rdf/type           :owl/Restriction}
@@ -34396,22 +36079,26 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1546_006
-  {:d3f/attack-id   "T1546.006",
-   :d3f/modifies    :d3f/ExecutableBinary,
-   :db/ident        :d3f/T1546.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "LC_LOAD_DYLIB Addition",
+  {:d3f/attack-id "T1546.006",
+   :d3f/definition
+   "Adversaries may establish persistence by executing malicious content triggered by the execution of tainted binaries. Mach-O binaries have a series of headers that are used to perform certain operations when a binary is loaded. The LC_LOAD_DYLIB header in a Mach-O binary tells macOS and OS X which dynamic libraries (dylibs) to load during execution time. These can be added ad-hoc to the compiled binary as long as adjustments are made to the rest of the fields and dependencies.(Citation: Writing Bad Malware for OSX) There are tools available to perform these changes.",
+   :d3f/modifies :d3f/ExecutableBinary,
+   :db/ident :d3f/T1546.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "LC_LOAD_DYLIB Addition",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_007
-  {:d3f/attack-id   "T1546.007",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :d3f/produces    :d3f/Process,
-   :db/ident        :d3f/T1546.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Netsh Helper DLL",
+  {:d3f/attack-id "T1546.007",
+   :d3f/definition
+   "Adversaries may establish persistence by executing malicious content triggered by Netsh Helper DLLs. Netsh.exe (also referred to as Netshell) is a command-line scripting utility used to interact with the network configuration of a system. It contains functionality to add helper DLLs for extending functionality of the utility.(Citation: TechNet Netsh) The paths to registered netsh.exe helper DLLs are entered into the Windows Registry at <code>HKLM\\SOFTWARE\\Microsoft\\Netsh</code>.",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :d3f/produces :d3f/Process,
+   :db/ident :d3f/T1546.007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Netsh Helper DLL",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -34421,33 +36108,36 @@
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_008
-  {:d3f/attack-id   "T1546.008",
-   :d3f/may-create  :d3f/IntranetAdministrativeNetworkTraffic,
-   :d3f/may-modify  #{:d3f/ExecutableBinary
-                      :d3f/SystemConfigurationDatabaseRecord},
-   :db/ident        :d3f/T1546.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Accessibility Features",
-   :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
-                       :owl/someValuesFrom
-                       :d3f/SystemConfigurationDatabaseRecord,
-                       :rdf/type :owl/Restriction}
-                      {:owl/onProperty :d3f/may-create,
-                       :owl/someValuesFrom
-                       :d3f/IntranetAdministrativeNetworkTraffic,
-                       :rdf/type :owl/Restriction}
-                      {:owl/onProperty     :d3f/may-modify,
-                       :owl/someValuesFrom :d3f/ExecutableBinary,
-                       :rdf/type           :owl/Restriction} :d3f/T1546}})
+  {:d3f/attack-id "T1546.008",
+   :d3f/definition
+   "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by accessibility features. Windows contains accessibility features that may be launched with a key combination before a user has logged in (ex: when the user is on the Windows logon screen). An adversary can modify the way these programs are launched to get a command prompt or backdoor without logging in to the system.",
+   :d3f/may-create :d3f/IntranetAdministrativeNetworkTraffic,
+   :d3f/may-modify #{:d3f/ExecutableBinary
+                     :d3f/SystemConfigurationDatabaseRecord},
+   :db/ident :d3f/T1546.008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Accessibility Features",
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/may-modify,
+      :owl/someValuesFrom :d3f/SystemConfigurationDatabaseRecord,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/may-create,
+      :owl/someValuesFrom :d3f/IntranetAdministrativeNetworkTraffic,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/may-modify,
+      :owl/someValuesFrom :d3f/ExecutableBinary,
+      :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_009
-  {:d3f/attack-id   "T1546.009",
-   :d3f/invokes     :d3f/CreateProcess,
-   :d3f/loads       :d3f/SharedLibraryFile,
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1546.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "AppCert DLLs",
+  {:d3f/attack-id "T1546.009",
+   :d3f/definition
+   "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppCert DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the <code>AppCertDLLs</code> Registry key under <code>HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\</code> are loaded into every process that calls the ubiquitously used application programming interface (API) functions <code>CreateProcess</code>, <code>CreateProcessAsUser</code>, <code>CreateProcessWithLoginW</code>, <code>CreateProcessWithTokenW</code>, or <code>WinExec</code>. (Citation: Elastic Process Injection July 2017)",
+   :d3f/invokes :d3f/CreateProcess,
+   :d3f/loads :d3f/SharedLibraryFile,
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1546.009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "AppCert DLLs",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -34460,13 +36150,15 @@
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_010
-  {:d3f/attack-id   "T1546.010",
-   :d3f/invokes     :d3f/CreateProcess,
-   :d3f/loads       :d3f/SharedLibraryFile,
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1546.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "AppInit DLLs",
+  {:d3f/attack-id "T1546.010",
+   :d3f/definition
+   "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the <code>AppInit_DLLs</code> value in the Registry keys <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows</code> or <code>HKEY_LOCAL_MACHINE\\Software\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows</code> are loaded by user32.dll into every process that loads user32.dll. In practice this is nearly every program, since user32.dll is a very common library. (Citation: Elastic Process Injection July 2017)",
+   :d3f/invokes :d3f/CreateProcess,
+   :d3f/loads :d3f/SharedLibraryFile,
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1546.010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "AppInit DLLs",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -34479,12 +36171,14 @@
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_011
-  {:d3f/attack-id   "T1546.011",
-   :d3f/creates     :d3f/Shim,
-   :d3f/modifies    :d3f/ShimDatabase,
-   :db/ident        :d3f/T1546.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Application Shimming",
+  {:d3f/attack-id "T1546.011",
+   :d3f/creates :d3f/Shim,
+   :d3f/definition
+   "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims. The Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time. For example, the application shimming feature allows developers to apply fixes to applications (without rewriting code) that were created for Windows XP so that it will work with Windows 10. (Citation: Elastic Process Injection July 2017)",
+   :d3f/modifies :d3f/ShimDatabase,
+   :db/ident :d3f/T1546.011,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Shimming",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/Shim,
                        :rdf/type           :owl/Restriction}
@@ -34493,33 +36187,39 @@
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_012
-  {:d3f/attack-id   "T1546.012",
-   :d3f/modifies    :d3f/SystemConfigurationDatabase,
-   :db/ident        :d3f/T1546.012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Image File Execution Options Injection",
+  {:d3f/attack-id "T1546.012",
+   :d3f/definition
+   "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers. IFEOs enable a developer to attach a debugger to an application. When a process is created, a debugger present in an application’s IFEO will be prepended to the application’s name, effectively launching the new process under the debugger (e.g., <code>C:\\dbg\\ntsd.exe -g  notepad.exe</code>). (Citation: Microsoft Dev Blog IFEO Mar 2010)",
+   :d3f/modifies :d3f/SystemConfigurationDatabase,
+   :db/ident :d3f/T1546.012,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Image File Execution Options Injection",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_013
-  {:d3f/attack-id   "T1546.013",
-   :d3f/modifies    :d3f/PowerShellProfileScript,
-   :db/ident        :d3f/T1546.013,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "PowerShell Profile",
+  {:d3f/attack-id "T1546.013",
+   :d3f/definition
+   "Adversaries may gain persistence and elevate privileges by executing malicious content triggered by PowerShell profiles. A PowerShell profile  (<code>profile.ps1</code>) is a script that runs when [PowerShell](https://attack.mitre.org/techniques/T1059/001) starts and can be used as a logon script to customize user environments.",
+   :d3f/modifies :d3f/PowerShellProfileScript,
+   :db/ident :d3f/T1546.013,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "PowerShell Profile",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/PowerShellProfileScript,
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_014
-  {:d3f/attack-id   "T1546.014",
-   :d3f/may-create  :d3f/PropertyListFile,
-   :d3f/may-modify  :d3f/PropertyListFile,
-   :d3f/modifies    :d3f/ConfigurationResource,
-   :db/ident        :d3f/T1546.014,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Emond",
+  {:d3f/attack-id "T1546.014",
+   :d3f/definition
+   "Adversaries may gain persistence and elevate privileges by executing malicious content triggered by the Event Monitor Daemon (emond). Emond is a [Launch Daemon](https://attack.mitre.org/techniques/T1543/004) that accepts events from various services, runs them through a simple rules engine, and takes action. The emond binary at <code>/sbin/emond</code> will load any rules from the <code>/etc/emond.d/rules/</code> directory and take action once an explicitly defined event takes place.",
+   :d3f/may-create :d3f/PropertyListFile,
+   :d3f/may-modify :d3f/PropertyListFile,
+   :d3f/modifies :d3f/ConfigurationResource,
+   :db/ident :d3f/T1546.014,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Emond",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/PropertyListFile,
                        :rdf/type           :owl/Restriction}
@@ -34531,14 +36231,16 @@
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_015
-  {:d3f/attack-id   "T1546.015",
-   :d3f/loads       :d3f/ExecutableBinary,
-   :d3f/modifies    :d3f/SystemConfigurationDatabase,
-   :db/ident        :d3f/T1546.015,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Component Object Model Hijacking",
-   :rdfs/seeAlso    {:xsd/anyURI
-                     "http://dbpedia.org/resource/Component_Object_Model"},
+  {:d3f/attack-id "T1546.015",
+   :d3f/definition
+   "Adversaries may establish persistence by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. COM is a system within Windows to enable interaction between software components through the operating system.(Citation: Microsoft Component Object Model)  References to various COM objects are stored in the Registry.",
+   :d3f/loads :d3f/ExecutableBinary,
+   :d3f/modifies :d3f/SystemConfigurationDatabase,
+   :db/ident :d3f/T1546.015,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Component Object Model Hijacking",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "http://dbpedia.org/resource/Component_Object_Model"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/loads,
                        :owl/someValuesFrom :d3f/ExecutableBinary,
                        :rdf/type           :owl/Restriction}
@@ -34546,21 +36248,34 @@
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction} :d3f/T1546}})
 
+(def T1546_016
+  {:d3f/attack-id "T1546.016",
+   :d3f/definition
+   "Adversaries may establish persistence and elevate privileges by using an installer to trigger the execution of malicious content. Installer packages are OS specific and contain the resources an operating system needs to install applications on a system. Installer packages can include scripts that run prior to installation as well as after installation is complete. Installer scripts may inherit elevated permissions when executed. Developers often use these scripts to prepare the environment for installation, check requirements, download dependencies, and remove files after installation.(Citation: Installer Package Scripting Rich Trouton)",
+   :db/ident :d3f/T1546.016,
+   :rdf/type :owl/Class,
+   :rdfs/label "Installer Packages",
+   :rdfs/subClassOf :d3f/T1546})
+
 (def T1547
-  {:d3f/attack-id   "T1547",
-   :db/ident        :d3f/T1547,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Boot or Logon Autostart Execution",
+  {:d3f/attack-id "T1547",
+   :d3f/definition
+   "Adversaries may configure system settings to automatically execute a program during system boot or logon to maintain persistence or gain higher-level privileges on compromised systems. Operating systems may have mechanisms for automatically running a program on system boot or account logon.(Citation: Microsoft Run Key)(Citation: MSDN Authentication Packages)(Citation: Microsoft TimeProvider)(Citation: Cylance Reg Persistence Sept 2013)(Citation: Linux Kernel Programming) These mechanisms may include automatically executing programs that are placed in specially designated directories or are referenced by repositories that store configuration information, such as the Windows Registry. An adversary may achieve the same goal by modifying or extending features of the kernel.",
+   :db/ident :d3f/T1547,
+   :rdf/type :owl/Class,
+   :rdfs/label "Boot or Logon Autostart Execution",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1547_001
-  {:d3f/attack-id   "T1547.001",
-   :d3f/may-modify  #{:d3f/UserStartupScriptFile
-                      :d3f/SystemConfigurationInitDatabaseRecord},
-   :db/ident        :d3f/T1547.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Registry Run Keys / Startup Folder",
+  {:d3f/attack-id "T1547.001",
+   :d3f/definition
+   "Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key. Adding an entry to the \"run keys\" in the Registry or startup folder will cause the program referenced to be executed when a user logs in.(Citation: Microsoft Run Key) These programs will be executed under the context of the user and will have the account's associated permissions level.",
+   :d3f/may-modify #{:d3f/UserStartupScriptFile
+                     :d3f/SystemConfigurationInitDatabaseRecord},
+   :db/ident :d3f/T1547.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Registry Run Keys / Startup Folder",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
@@ -34571,78 +36286,92 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1547_002
-  {:d3f/attack-id   "T1547.002",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1547.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Authentication Package",
+  {:d3f/attack-id "T1547.002",
+   :d3f/definition
+   "Adversaries may abuse authentication packages to execute DLLs when the system boots. Windows authentication package DLLs are loaded by the Local Security Authority (LSA) process at system start. They provide support for multiple logon processes and multiple security protocols to the operating system.(Citation: MSDN Authentication Packages)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1547.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Authentication Package",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1547}})
 
 (def T1547_003
-  {:d3f/attack-id   "T1547.003",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1547.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Time Providers",
+  {:d3f/attack-id "T1547.003",
+   :d3f/definition
+   "Adversaries may abuse time providers to execute DLLs when the system boots. The Windows Time service (W32Time) enables time synchronization across and within domains.(Citation: Microsoft W32Time Feb 2018) W32Time time providers are responsible for retrieving time stamps from hardware/network resources and outputting these values to other network clients.(Citation: Microsoft TimeProvider)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1547.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Time Providers",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1547}})
 
 (def T1547_004
-  {:d3f/attack-id   "T1547.004",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1547.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Winlogon Helper DLL",
+  {:d3f/attack-id "T1547.004",
+   :d3f/definition
+   "Adversaries may abuse features of Winlogon to execute DLLs and/or executables when a user logs in. Winlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete. Registry entries in <code>HKLM\\Software[\\\\Wow6432Node\\\\]\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\</code> and <code>HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\</code> are used to manage additional helper programs and functionalities that support Winlogon.(Citation: Cylance Reg Persistence Sept 2013)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1547.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Winlogon Helper DLL",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1547}})
 
 (def T1547_005
-  {:d3f/attack-id   "T1547.005",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1547.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Security Support Provider",
+  {:d3f/attack-id "T1547.005",
+   :d3f/definition
+   "Adversaries may abuse security support providers (SSPs) to execute DLLs when the system boots. Windows SSP DLLs are loaded into the Local Security Authority (LSA) process at system start. Once loaded into the LSA, SSP DLLs have access to encrypted and plaintext passwords that are stored in Windows, such as any logged-on user's Domain password or smart card PINs.",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1547.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Security Support Provider",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1547}})
 
 (def T1547_006
-  {:d3f/attack-id   "T1547.006",
-   :d3f/modifies    :d3f/KernelModule,
-   :db/ident        :d3f/T1547.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Kernel Modules and Extensions",
+  {:d3f/attack-id "T1547.006",
+   :d3f/definition
+   "Adversaries may modify the kernel to automatically execute programs on system boot. Loadable Kernel Modules (LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system. For example, one type of module is the device driver, which allows the kernel to access hardware connected to the system.(Citation: Linux Kernel Programming) ",
+   :d3f/modifies :d3f/KernelModule,
+   :db/ident :d3f/T1547.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Kernel Modules and Extensions",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/KernelModule,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1547_007
-  {:d3f/attack-id   "T1547.007",
-   :d3f/modifies    :d3f/ApplicationConfigurationFile,
-   :db/ident        :d3f/T1547.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Re-opened Applications",
+  {:d3f/attack-id "T1547.007",
+   :d3f/definition
+   "Adversaries may modify plist files to automatically run an application when a user logs in. When a user logs out or restarts via the macOS Graphical User Interface (GUI), a prompt is provided to the user with a checkbox to \"Reopen windows when logging back in\".(Citation: Re-Open windows on Mac) When selected, all applications currently open are added to a property list file named <code>com.apple.loginwindow.[UUID].plist</code> within the <code>~/Library/Preferences/ByHost</code> directory.(Citation: Methods of Mac Malware Persistence)(Citation: Wardle Persistence Chapter) Applications listed in this file are automatically reopened upon the user’s next logon.",
+   :d3f/modifies :d3f/ApplicationConfigurationFile,
+   :db/ident :d3f/T1547.007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Re-opened Applications",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ApplicationConfigurationFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1547_008
-  {:d3f/attack-id   "T1547.008",
-   :d3f/may-create  :d3f/SharedLibraryFile,
-   :d3f/modifies    :d3f/SystemServiceSoftware,
-   :db/ident        :d3f/T1547.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "LSASS Driver",
+  {:d3f/attack-id "T1547.008",
+   :d3f/definition
+   "Adversaries may modify or add LSASS drivers to obtain persistence on compromised systems. The Windows security subsystem is a set of components that manage and enforce the security policy for a computer or domain. The Local Security Authority (LSA) is the main component responsible for local security policy and user authentication. The LSA includes multiple dynamic link libraries (DLLs) associated with various other security functions, all of which run in the context of the LSA Subsystem Service (LSASS) lsass.exe process.(Citation: Microsoft Security Subsystem)",
+   :d3f/may-create :d3f/SharedLibraryFile,
+   :d3f/modifies :d3f/SystemServiceSoftware,
+   :db/ident :d3f/T1547.008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "LSASS Driver",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1547
@@ -34651,11 +36380,13 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1547_009
-  {:d3f/attack-id   "T1547.009",
-   :d3f/may-modify  #{:d3f/UserStartupScriptFile :d3f/SymbolicLink},
-   :db/ident        :d3f/T1547.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Shortcut Modification",
+  {:d3f/attack-id "T1547.009",
+   :d3f/definition
+   "Adversaries may create or modify shortcuts that can execute a program during system boot or user login. Shortcuts or symbolic links are used to reference other files or programs that will be opened or executed when the shortcut is clicked or executed by a system startup process.",
+   :d3f/may-modify #{:d3f/UserStartupScriptFile :d3f/SymbolicLink},
+   :db/ident :d3f/T1547.009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Shortcut Modification",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SymbolicLink,
@@ -34665,86 +36396,107 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1547_010
-  {:d3f/attack-id   "T1547.010",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1547.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Port Monitors",
+  {:d3f/attack-id "T1547.010",
+   :d3f/definition
+   "Adversaries may use port monitors to run an adversary supplied DLL during system boot for persistence or privilege escalation. A port monitor can be set through the <code>AddMonitor</code> API call to set a DLL to be loaded at startup.(Citation: AddMonitor) This DLL can be located in <code>C:\\Windows\\System32</code> and will be loaded and run by the print spooler service, `spoolsv.exe`, under SYSTEM level permissions on boot.(Citation: Bloxham)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1547.010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Port Monitors",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1547}})
 
 (def T1547_011
-  {:d3f/attack-id   "T1547.011",
-   :d3f/modifies    :d3f/ApplicationConfigurationFile,
-   :db/ident        :d3f/T1547.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Plist Modification",
+  {:d3f/attack-id "T1547.011",
+   :d3f/definition
+   "Adversaries can modify property list files (plist files) to execute their code as part of establishing persistence. Plist files are used by macOS applications to store properties and configuration settings for applications and services. Applications use information plist files, <code>Info.plist</code>, to tell the operating system how to handle the application at runtime using structured metadata in the form of keys and values. Plist files are formatted in XML and based on Apple's Core Foundation DTD and can be saved in text or binary format.(Citation: fileinfo plist file description)",
+   :d3f/modifies :d3f/ApplicationConfigurationFile,
+   :db/ident :d3f/T1547.011,
+   :owl/deprecated true,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment "This technique has been revoked by T1647",
+   :rdfs/label "Plist Modification",
+   :rdfs/seeAlso {:rdf/value "T1647"},
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ApplicationConfigurationFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1547_012
-  {:d3f/attack-id   "T1547.012",
-   :db/ident        :d3f/T1547.012,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Print Processors",
+  {:d3f/attack-id "T1547.012",
+   :d3f/definition
+   "Adversaries may abuse print processors to run malicious DLLs during system boot for persistence and/or privilege escalation. Print processors are DLLs that are loaded by the print spooler service, `spoolsv.exe`, during boot.(Citation: Microsoft Intro Print Processors)",
+   :db/ident :d3f/T1547.012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Print Processors",
    :rdfs/subClassOf :d3f/T1547})
 
 (def T1547_013
-  {:d3f/attack-id   "T1547.013",
-   :db/ident        :d3f/T1547.013,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "XDG Autostart Entries",
+  {:d3f/attack-id "T1547.013",
+   :d3f/definition
+   "Adversaries may add or modify XDG Autostart Entries to execute malicious programs or commands when a user’s desktop environment is loaded at login. XDG Autostart entries are available for any XDG-compliant Linux system. XDG Autostart entries use Desktop Entry files (`.desktop`) to configure the user’s desktop environment upon user login. These configuration files determine what applications launch upon user login, define associated applications to open specific file types, and define applications used to open removable media.(Citation: Free Desktop Application Autostart Feb 2006)(Citation: Free Desktop Entry Keys)",
+   :db/ident :d3f/T1547.013,
+   :rdf/type :owl/Class,
+   :rdfs/label "XDG Autostart Entries",
    :rdfs/subClassOf :d3f/T1547})
 
 (def T1547_014
-  {:d3f/attack-id   "T1547.014",
-   :db/ident        :d3f/T1547.014,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Active Setup",
+  {:d3f/attack-id "T1547.014",
+   :d3f/definition
+   "Adversaries may achieve persistence by adding a Registry key to the Active Setup of the local machine. Active Setup is a Windows mechanism that is used to execute programs when a user logs in. The value stored in the Registry key will be executed after a user logs into the computer.(Citation: Klein Active Setup 2010) These programs will be executed under the context of the user and will have the account's associated permissions level.",
+   :db/ident :d3f/T1547.014,
+   :rdf/type :owl/Class,
+   :rdfs/label "Active Setup",
    :rdfs/subClassOf :d3f/T1547})
 
 (def T1547_015
-  {:d3f/attack-id   "T1547.015",
-   :d3f/modifies    :d3f/UserLogonInitResource,
-   :db/ident        :d3f/T1547.015,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Login Items",
+  {:d3f/attack-id "T1547.015",
+   :d3f/definition
+   "Adversaries may add login items to execute upon user login to gain persistence or escalate privileges. Login items are applications, documents, folders, or server connections that are automatically launched when a user logs in.(Citation: Open Login Items Apple) Login items can be added via a shared file list or Service Management Framework.(Citation: Adding Login Items) Shared file list login items can be set using scripting languages such as [AppleScript](https://attack.mitre.org/techniques/T1059/002), whereas the Service Management Framework uses the API call <code>SMLoginItemSetEnabled</code>.",
+   :d3f/modifies :d3f/UserLogonInitResource,
+   :db/ident :d3f/T1547.015,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Login Items",
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserLogonInitResource,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1548
-  {:d3f/attack-id   "T1548",
-   :db/ident        :d3f/T1548,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Abuse Elevation Control Mechanism",
+  {:d3f/attack-id "T1548",
+   :d3f/definition
+   "Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can perform on a machine. Authorization has to be granted to specific users in order to perform tasks that can be considered of higher risk.(Citation: TechNet How UAC Works)(Citation: sudo man page 2018) An adversary can perform several methods to take advantage of built-in control mechanisms in order to escalate privileges on a system.(Citation: OSX Keydnap malware)(Citation: Fortinet Fareit)",
+   :db/ident :d3f/T1548,
+   :rdf/type :owl/Class,
+   :rdfs/label "Abuse Elevation Control Mechanism",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1548_001
-  {:d3f/attack-id   "T1548.001",
-   :d3f/modifies    :d3f/AccessControlConfiguration,
-   :db/ident        :d3f/T1548.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Setuid and Setgid",
+  {:d3f/attack-id "T1548.001",
+   :d3f/definition
+   "An adversary may abuse configurations where an application has the setuid or setgid bits set in order to get code running in a different (and possibly more privileged) user’s context. On Linux or macOS, when the setuid or setgid bits are set for an application binary, the application will run with the privileges of the owning user or group respectively.(Citation: setuid man page) Normally an application is run in the current user’s context, regardless of which user or group owns the application. However, there are instances where programs need to be executed in an elevated context to function properly, but the user running them may not have the specific required privileges.",
+   :d3f/modifies :d3f/AccessControlConfiguration,
+   :db/ident :d3f/T1548.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Setuid and Setgid",
    :rdfs/subClassOf #{:d3f/T1548
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1548_002
-  {:d3f/attack-id   "T1548.002",
-   :d3f/executes    :d3f/ExecutableFile,
-   :d3f/invokes     :d3f/CreateProcess,
-   :d3f/may-modify  :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1548.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Bypass User Access Control",
+  {:d3f/attack-id "T1548.002",
+   :d3f/definition
+   "Adversaries may bypass UAC mechanisms to elevate process privileges on system. Windows User Account Control (UAC) allows a program to elevate its privileges (tracked as integrity levels ranging from low to high) to perform a task under administrator-level permissions, possibly by prompting the user for confirmation. The impact to the user ranges from denying the operation under high enforcement to allowing the user to perform the action if they are in the local administrators group and click through the prompt or allowing them to enter an administrator password to complete the action.(Citation: TechNet How UAC Works)",
+   :d3f/executes :d3f/ExecutableFile,
+   :d3f/invokes :d3f/CreateProcess,
+   :d3f/may-modify :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1548.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bypass User Account Control",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -34757,12 +36509,14 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1548_003
-  {:d3f/attack-id   "T1548.003",
-   :d3f/may-modify  :d3f/EventLog,
-   :d3f/modifies    :d3f/OperatingSystemConfigurationFile,
-   :db/ident        :d3f/T1548.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Sudo and Sudo Caching",
+  {:d3f/attack-id "T1548.003",
+   :d3f/definition
+   "Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges. Adversaries may do this to execute commands as other users or spawn processes with higher privileges.",
+   :d3f/may-modify :d3f/EventLog,
+   :d3f/modifies :d3f/OperatingSystemConfigurationFile,
+   :db/ident :d3f/T1548.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Sudo and Sudo Caching",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction} :d3f/T1548
@@ -34772,12 +36526,14 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1548_004
-  {:d3f/attack-id   "T1548.004",
-   :d3f/creates     :d3f/SystemConfigurationDatabase,
-   :d3f/invokes     :d3f/SystemCall,
-   :db/ident        :d3f/T1548.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Elevated Execution with Prompt",
+  {:d3f/attack-id "T1548.004",
+   :d3f/creates :d3f/SystemConfigurationDatabase,
+   :d3f/definition
+   "Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API to escalate privileges by prompting the user for credentials.(Citation: AppleDocs AuthorizationExecuteWithPrivileges) The purpose of this API is to give application developers an easy way to perform operations with root privileges, such as for application installation or updating. This API does not validate that the program requesting root privileges comes from a reputable source or has been maliciously modified.",
+   :d3f/invokes :d3f/SystemCall,
+   :db/ident :d3f/T1548.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Elevated Execution with Prompt",
    :rdfs/subClassOf #{:d3f/T1548
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
@@ -34786,12 +36542,32 @@
                        :owl/someValuesFrom :d3f/SystemCall,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1548_005
+  {:d3f/attack-id "T1548.005",
+   :d3f/definition
+   "Adversaries may abuse permission configurations that allow them to gain temporarily elevated access to cloud resources. Many cloud environments allow administrators to grant user or service accounts permission to request just-in-time access to roles, impersonate other accounts, pass roles onto resources and services, or otherwise gain short-term access to a set of privileges that may be distinct from their own.",
+   :db/ident :d3f/T1548.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Temporary Elevated Cloud Access",
+   :rdfs/subClassOf :d3f/T1548})
+
+(def T1548_006
+  {:d3f/attack-id "T1548.006",
+   :d3f/definition
+   "Adversaries can manipulate or abuse the Transparency, Consent, & Control (TCC) service or database to execute malicious applications with elevated permissions. TCC is a Privacy & Security macOS control mechanism used to determine if the running process has permission to access the data or services protected by TCC, such as screen sharing, camera, microphone, or Full Disk Access (FDA).",
+   :db/ident :d3f/T1548.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "TCC Manipulation",
+   :rdfs/subClassOf :d3f/T1548})
+
 (def T1550
-  {:d3f/accesses    :d3f/AuthenticationService,
-   :d3f/attack-id   "T1550",
-   :db/ident        :d3f/T1550,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Use Alternate Authentication Material",
+  {:d3f/accesses :d3f/AuthenticationService,
+   :d3f/attack-id "T1550",
+   :d3f/definition
+   "Adversaries may use alternate authentication material, such as password hashes, Kerberos tickets, and application access tokens, in order to move laterally within an environment and bypass normal system access controls.",
+   :db/ident :d3f/T1550,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Use Alternate Authentication Material",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/AuthenticationService,
                        :rdf/type           :owl/Restriction}
@@ -34799,12 +36575,14 @@
                       :d3f/LateralMovementTechnique}})
 
 (def T1550_001
-  {:d3f/attack-id   "T1550.001",
+  {:d3f/attack-id "T1550.001",
+   :d3f/definition
+   "Adversaries may use stolen application access tokens to bypass the typical authentication process and access restricted accounts, information, or services on remote systems. These tokens are typically stolen from users or services and used in lieu of login credentials.",
    :d3f/may-produce :d3f/NetworkTraffic,
-   :d3f/uses        :d3f/AccessToken,
-   :db/ident        :d3f/T1550.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Application Access Token",
+   :d3f/uses :d3f/AccessToken,
+   :db/ident :d3f/T1550.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Access Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-produce,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1550
@@ -34813,34 +36591,40 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1550_002
-  {:d3f/attack-id   "T1550.002",
-   :d3f/creates     :d3f/Authentication,
-   :db/ident        :d3f/T1550.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Pass The Hash",
+  {:d3f/attack-id "T1550.002",
+   :d3f/creates :d3f/Authentication,
+   :d3f/definition
+   "Adversaries may “pass the hash” using stolen password hashes to move laterally within an environment, bypassing normal system access controls. Pass the hash (PtH) is a method of authenticating as a user without having access to the user's cleartext password. This method bypasses standard authentication steps that require a cleartext password, moving directly into the portion of the authentication that uses the password hash.",
+   :db/ident :d3f/T1550.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Pass the Hash",
    :rdfs/subClassOf #{:d3f/T1550
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/Authentication,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1550_003
-  {:d3f/attack-id   "T1550.003",
-   :d3f/creates     :d3f/Authentication,
-   :db/ident        :d3f/T1550.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Pass The Ticket",
+  {:d3f/attack-id "T1550.003",
+   :d3f/creates :d3f/Authentication,
+   :d3f/definition
+   "Adversaries may “pass the ticket” using stolen Kerberos tickets to move laterally within an environment, bypassing normal system access controls. Pass the ticket (PtT) is a method of authenticating to a system using Kerberos tickets without having access to an account's password. Kerberos authentication can be used as the first step to lateral movement to a remote system.",
+   :db/ident :d3f/T1550.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Pass the Ticket",
    :rdfs/subClassOf #{:d3f/T1550
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/Authentication,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1550_004
-  {:d3f/adds        :d3f/SessionCookie,
-   :d3f/attack-id   "T1550.004",
-   :d3f/produces    :d3f/WebNetworkTraffic,
-   :db/ident        :d3f/T1550.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Web Session Cookie",
+  {:d3f/adds :d3f/SessionCookie,
+   :d3f/attack-id "T1550.004",
+   :d3f/definition
+   "Adversaries can use stolen session cookies to authenticate to web applications and services. This technique bypasses some multi-factor authentication protocols since the session is already authenticated.(Citation: Pass The Cookie)",
+   :d3f/produces :d3f/WebNetworkTraffic,
+   :db/ident :d3f/T1550.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Web Session Cookie",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/adds,
                        :owl/someValuesFrom :d3f/SessionCookie,
                        :rdf/type           :owl/Restriction} :d3f/T1550
@@ -34849,169 +36633,212 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1552
-  {:d3f/accesses    :d3f/Credential,
-   :d3f/attack-id   "T1552",
-   :db/ident        :d3f/T1552,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Unsecured Credentials",
+  {:d3f/accesses :d3f/Credential,
+   :d3f/attack-id "T1552",
+   :d3f/definition
+   "Adversaries may search compromised systems to find and obtain insecurely stored credentials. These credentials can be stored and/or misplaced in many locations on a system, including plaintext files (e.g. [Bash History](https://attack.mitre.org/techniques/T1552/003)), operating system or application-specific repositories (e.g. [Credentials in Registry](https://attack.mitre.org/techniques/T1552/002)),  or other specialized files/artifacts (e.g. [Private Keys](https://attack.mitre.org/techniques/T1552/004)).(Citation: Brining MimiKatz to Unix)",
+   :db/ident :d3f/T1552,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Unsecured Credentials",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Credential,
                        :rdf/type           :owl/Restriction}
                       :d3f/CredentialAccessTechnique}})
 
 (def T1552_001
-  {:d3f/accesses    :d3f/File,
-   :d3f/attack-id   "T1552.001",
-   :db/ident        :d3f/T1552.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Credentials in Files",
+  {:d3f/accesses :d3f/File,
+   :d3f/attack-id "T1552.001",
+   :d3f/definition
+   "Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials. These can be files created by users to store their own credentials, shared credential stores for a group of individuals, configuration files containing passwords for a system or service, or source code/binary files containing embedded passwords.",
+   :db/ident :d3f/T1552.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Credentials In Files",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1552_002
-  {:d3f/accesses    :d3f/SystemConfigurationDatabase,
-   :d3f/attack-id   "T1552.002",
-   :db/ident        :d3f/T1552.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Credentials in Registry",
+  {:d3f/accesses :d3f/SystemConfigurationDatabase,
+   :d3f/attack-id "T1552.002",
+   :d3f/definition
+   "Adversaries may search the Registry on compromised systems for insecurely stored credentials. The Windows Registry stores configuration information that can be used by the system or other programs. Adversaries may query the Registry looking for credentials and passwords that have been stored for use by other programs or services. Sometimes these credentials are used for automatic logons.",
+   :db/ident :d3f/T1552.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Credentials in Registry",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1552_003
-  {:d3f/accesses    :d3f/CommandHistoryLogFile,
-   :d3f/attack-id   "T1552.003",
-   :db/ident        :d3f/T1552.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Bash History",
+  {:d3f/accesses :d3f/CommandHistoryLogFile,
+   :d3f/attack-id "T1552.003",
+   :d3f/definition
+   "Adversaries may search the bash command history on compromised systems for insecurely stored credentials. Bash keeps track of the commands users type on the command-line with the \"history\" utility. Once a user logs out, the history is flushed to the user’s <code>.bash_history</code> file. For each user, this file resides at the same location: <code>~/.bash_history</code>. Typically, this file keeps track of the user’s last 500 commands. Users often type usernames and passwords on the command-line as parameters to programs, which then get saved to this file when they log out. Adversaries can abuse this by looking through the file for potential credentials. (Citation: External to DA, the OS X Way)",
+   :db/ident :d3f/T1552.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bash History",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/CommandHistoryLogFile,
                        :rdf/type           :owl/Restriction} :d3f/T1552}})
 
 (def T1552_004
-  {:d3f/accesses    :d3f/PrivateKey,
-   :d3f/attack-id   "T1552.004",
-   :db/ident        :d3f/T1552.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Private Keys",
+  {:d3f/accesses :d3f/PrivateKey,
+   :d3f/attack-id "T1552.004",
+   :d3f/definition
+   "Adversaries may search for private key certificate files on compromised systems for insecurely stored credentials. Private cryptographic keys and certificates are used for authentication, encryption/decryption, and digital signatures.(Citation: Wikipedia Public Key Crypto) Common key and certificate file extensions include: .key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc.",
+   :db/ident :d3f/T1552.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Private Keys",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/PrivateKey,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1552_005
-  {:d3f/accesses    :d3f/CloudInstanceMetadata,
-   :d3f/attack-id   "T1552.005",
-   :db/ident        :d3f/T1552.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cloud Instance Metadata  API",
+  {:d3f/accesses :d3f/CloudInstanceMetadata,
+   :d3f/attack-id "T1552.005",
+   :d3f/definition
+   "Adversaries may attempt to access the Cloud Instance Metadata API to collect credentials and other sensitive data.",
+   :db/ident :d3f/T1552.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud Instance Metadata API",
    :rdfs/subClassOf #{:d3f/T1552
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/CloudInstanceMetadata,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1552_006
-  {:d3f/accesses    :d3f/GroupPolicy,
-   :d3f/attack-id   "T1552.006",
-   :db/ident        :d3f/T1552.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Group Policy Preferences",
+  {:d3f/accesses :d3f/GroupPolicy,
+   :d3f/attack-id "T1552.006",
+   :d3f/definition
+   "Adversaries may attempt to find unsecured credentials in Group Policy Preferences (GPP). GPP are tools that allow administrators to create domain policies with embedded credentials. These policies allow administrators to set local accounts.(Citation: Microsoft GPP 2016)",
+   :db/ident :d3f/T1552.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Group Policy Preferences",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/GroupPolicy,
                        :rdf/type           :owl/Restriction} :d3f/T1552}})
 
 (def T1552_007
-  {:d3f/attack-id   "T1552.007",
-   :db/ident        :d3f/T1552.007,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Container API",
+  {:d3f/attack-id "T1552.007",
+   :d3f/definition
+   "Adversaries may gather credentials via APIs within a containers environment. APIs in these environments, such as the Docker API and Kubernetes APIs, allow a user to remotely manage their container resources and cluster components.(Citation: Docker API)(Citation: Kubernetes API)",
+   :db/ident :d3f/T1552.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Container API",
+   :rdfs/subClassOf :d3f/T1552})
+
+(def T1552_008
+  {:d3f/attack-id "T1552.008",
+   :d3f/definition
+   "Adversaries may directly collect unsecured credentials stored or passed through user communication services. Credentials may be sent and stored in user chat communication applications such as email, chat services like Slack or Teams, collaboration tools like Jira or Trello, and any other services that support user communication. Users may share various forms of credentials (such as usernames and passwords, API keys, or authentication tokens) on private or public corporate internal communications channels.",
+   :db/ident :d3f/T1552.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Chat Messages",
    :rdfs/subClassOf :d3f/T1552})
 
 (def T1553
-  {:d3f/attack-id   "T1553",
-   :db/ident        :d3f/T1553,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Subvert Trust Controls",
+  {:d3f/attack-id "T1553",
+   :d3f/definition
+   "Adversaries may undermine security controls that will either warn users of untrusted activity or prevent execution of untrusted programs. Operating systems and security products may contain mechanisms to identify programs or websites as possessing some level of trust. Examples of such features would include a program being allowed to run because it is signed by a valid code signing certificate, a program prompting the user with a warning because it has an attribute set from being downloaded from the Internet, or getting an indication that you are about to connect to an untrusted site.",
+   :db/ident :d3f/T1553,
+   :rdf/type :owl/Class,
+   :rdfs/label "Subvert Trust Controls",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1553_001
-  {:d3f/attack-id   "T1553.001",
-   :d3f/modifies    :d3f/FileSystemMetadata,
-   :db/ident        :d3f/T1553.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Gatekeeper Bypass",
+  {:d3f/attack-id "T1553.001",
+   :d3f/definition
+   "Adversaries may modify file attributes and subvert Gatekeeper functionality to evade user prompts and execute untrusted programs. Gatekeeper is a set of technologies that act as layer of Apple’s security model to ensure only trusted applications are executed on a host. Gatekeeper was built on top of File Quarantine in Snow Leopard (10.6, 2009) and has grown to include Code Signing, security policy compliance, Notarization, and more. Gatekeeper also treats applications running for the first time differently than reopened applications.(Citation: TheEclecticLightCompany Quarantine and the flag)(Citation: TheEclecticLightCompany apple notarization )",
+   :d3f/modifies :d3f/FileSystemMetadata,
+   :db/ident :d3f/T1553.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Gatekeeper Bypass",
    :rdfs/subClassOf #{:d3f/T1553
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1553_002
-  {:d3f/attack-id   "T1553.002",
-   :d3f/enables     :d3f/TA0005,
-   :db/ident        :d3f/T1553.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Code Signing",
+  {:d3f/attack-id "T1553.002",
+   :d3f/definition
+   "Adversaries may create, acquire, or steal code signing materials to sign their malware or tools. Code signing provides a level of authenticity on a binary from the developer and a guarantee that the binary has not been tampered with. (Citation: Wikipedia Code Signing) The certificates used during an operation may be created, acquired, or stolen by the adversary. (Citation: Securelist Digital Certificates) (Citation: Symantec Digital Certificates) Unlike [Invalid Code Signature](https://attack.mitre.org/techniques/T1036/001), this activity will result in a valid signature.",
+   :d3f/enables :d3f/TA0005,
+   :db/ident :d3f/T1553.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Code Signing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/TA0005,
                        :rdf/type           :owl/Restriction} :d3f/T1553}})
 
 (def T1553_003
-  {:d3f/attack-id   "T1553.003",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1553.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "SIP and Trust Provider Hijacking",
+  {:d3f/attack-id "T1553.003",
+   :d3f/definition
+   "Adversaries may tamper with SIP and trust provider components to mislead the operating system and application control tools when conducting signature validation checks. In user mode, Windows Authenticode (Citation: Microsoft Authenticode) digital signatures are used to verify a file's origin and integrity, variables that may be used to establish trust in signed code (ex: a driver with a valid Microsoft signature may be handled as safe). The signature validation process is handled via the WinVerifyTrust application programming interface (API) function,  (Citation: Microsoft WinVerifyTrust) which accepts an inquiry and coordinates with the appropriate trust provider, which is responsible for validating parameters of a signature. (Citation: SpectorOps Subverting Trust Sept 2017)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1553.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "SIP and Trust Provider Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction} :d3f/T1553}})
 
 (def T1553_004
-  {:d3f/attack-id   "T1553.004",
-   :d3f/modifies    :d3f/CertificateTrustStore,
-   :db/ident        :d3f/T1553.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Install Root Certificate",
+  {:d3f/attack-id "T1553.004",
+   :d3f/definition
+   "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. Root certificates are used in public key cryptography to identify a root certificate authority (CA). When a root certificate is installed, the system or application will trust certificates in the root's chain of trust that have been signed by the root certificate.(Citation: Wikipedia Root Certificate) Certificates are commonly used for establishing secure TLS/SSL communications within a web browser. When a user attempts to browse a website that presents a certificate that is not trusted an error message will be displayed to warn the user of the security risk. Depending on the security settings, the browser may not allow the user to establish a connection to the website.",
+   :d3f/modifies :d3f/CertificateTrustStore,
+   :db/ident :d3f/T1553.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Install Root Certificate",
    :rdfs/subClassOf #{:d3f/T1553
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/CertificateTrustStore,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1553_005
-  {:d3f/attack-id   "T1553.005",
-   :db/ident        :d3f/T1553.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Mark-of-the-Web Bypass",
+  {:d3f/attack-id "T1553.005",
+   :d3f/definition
+   "Adversaries may abuse specific file formats to subvert Mark-of-the-Web (MOTW) controls. In Windows, when files are downloaded from the Internet, they are tagged with a hidden NTFS Alternate Data Stream (ADS) named <code>Zone.Identifier</code> with a specific value known as the MOTW.(Citation: Microsoft Zone.Identifier 2020) Files that are tagged with MOTW are protected and cannot perform certain actions. For example, starting in MS Office 10, if a MS Office file has the MOTW, it will open in Protected View. Executables tagged with the MOTW will be processed by Windows Defender SmartScreen that compares files with an allowlist of well-known executables. If the file is not known/trusted, SmartScreen will prevent the execution and warn the user not to run it.(Citation: Beek Use of VHD Dec 2020)(Citation: Outflank MotW 2020)(Citation: Intezer Russian APT Dec 2020)",
+   :db/ident :d3f/T1553.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mark-of-the-Web Bypass",
    :rdfs/subClassOf :d3f/T1553})
 
 (def T1553_006
-  {:d3f/attack-id   "T1553.006",
-   :db/ident        :d3f/T1553.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Code Signing Policy Modification",
+  {:d3f/attack-id "T1553.006",
+   :d3f/definition
+   "Adversaries may modify code signing policies to enable execution of unsigned or self-signed code. Code signing provides a level of authenticity on a program from a developer and a guarantee that the program has not been tampered with. Security controls can include enforcement mechanisms to ensure that only valid, signed code can be run on an operating system.",
+   :db/ident :d3f/T1553.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Code Signing Policy Modification",
    :rdfs/subClassOf :d3f/T1553})
 
 (def T1554
-  {:d3f/attack-id   "T1554",
-   :d3f/modifies    :d3f/ClientApplication,
-   :db/ident        :d3f/T1554,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Compromise Client Software Binary",
+  {:d3f/attack-id "T1554",
+   :d3f/definition
+   "Adversaries may modify host software binaries to establish persistent access to systems. Software binaries/executables provide a wide range of system commands or services, programs, and libraries. Common software binaries are SSH clients, FTP clients, email clients, web browsers, and many other user or server applications.",
+   :d3f/modifies :d3f/ClientApplication,
+   :db/ident :d3f/T1554,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Compromise Host Software Binary",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ClientApplication,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1555
-  {:d3f/accesses    :d3f/PasswordStore,
-   :d3f/attack-id   "T1555",
-   :d3f/may-access  :d3f/DatabaseFile,
-   :db/ident        :d3f/T1555,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Credentials from Password Stores",
+  {:d3f/accesses :d3f/PasswordStore,
+   :d3f/attack-id "T1555",
+   :d3f/definition
+   "Adversaries may search for common password storage locations to obtain user credentials.(Citation: F-Secure The Dukes) Passwords are stored in several places on a system, depending on the operating system or application holding the credentials. There are also specific applications and services that store passwords to make them easier for users to manage and maintain, such as password managers and cloud secrets vaults. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.",
+   :d3f/may-access :d3f/DatabaseFile,
+   :db/ident :d3f/T1555,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Credentials from Password Stores",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/PasswordStore,
                        :rdf/type           :owl/Restriction}
@@ -35021,35 +36848,41 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1555_001
-  {:d3f/accesses    :d3f/MacOSKeychain,
-   :d3f/attack-id   "T1555.001",
-   :db/ident        :d3f/T1555.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Keychain",
+  {:d3f/accesses :d3f/MacOSKeychain,
+   :d3f/attack-id "T1555.001",
+   :d3f/definition
+   "Adversaries may acquire credentials from Keychain. Keychain (or Keychain Services) is the macOS credential management system that stores account names, passwords, private keys, certificates, sensitive application data, payment data, and secure notes. There are three types of Keychains: Login Keychain, System Keychain, and Local Items (iCloud) Keychain. The default Keychain is the Login Keychain, which stores user passwords and information. The System Keychain stores items accessed by the operating system, such as items shared among users on a host. The Local Items (iCloud) Keychain is used for items synced with Apple’s iCloud service.",
+   :db/ident :d3f/T1555.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Keychain",
    :rdfs/subClassOf #{:d3f/T1555
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/MacOSKeychain,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1555_002
-  {:d3f/accesses    :d3f/In-memoryPasswordStore,
-   :d3f/attack-id   "T1555.002",
-   :db/ident        :d3f/T1555.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Securityd Memory",
+  {:d3f/accesses :d3f/In-memoryPasswordStore,
+   :d3f/attack-id "T1555.002",
+   :d3f/definition
+   "An adversary with root access may gather credentials by reading `securityd`’s memory. `securityd` is a service/daemon responsible for implementing security protocols such as encryption and authorization.(Citation: Apple Dev SecurityD) A privileged adversary may be able to scan through `securityd`'s memory to find the correct sequence of keys to decrypt the user’s logon keychain. This may provide the adversary with various plaintext passwords, such as those for users, WiFi, mail, browsers, certificates, secure notes, etc.(Citation: OS X Keychain)(Citation: OSX Keydnap malware)",
+   :db/ident :d3f/T1555.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Securityd Memory",
    :rdfs/subClassOf #{:d3f/T1555
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/In-memoryPasswordStore,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1555_003
-  {:d3f/accesses    :d3f/DatabaseFile,
-   :d3f/attack-id   "T1555.003",
-   :d3f/may-access  :d3f/In-memoryPasswordStore,
-   :d3f/may-invoke  :d3f/ReadFile,
-   :db/ident        :d3f/T1555.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Credentials from Web Browsers",
+  {:d3f/accesses :d3f/DatabaseFile,
+   :d3f/attack-id "T1555.003",
+   :d3f/definition
+   "Adversaries may acquire credentials from web browsers by reading files specific to the target browser.(Citation: Talos Olympic Destroyer 2018) Web browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future. Web browsers typically store the credentials in an encrypted format within a credential store; however, methods exist to extract plaintext credentials from web browsers.",
+   :d3f/may-access :d3f/In-memoryPasswordStore,
+   :d3f/may-invoke :d3f/ReadFile,
+   :db/ident :d3f/T1555.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Credentials from Web Browsers",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/In-memoryPasswordStore,
                        :rdf/type           :owl/Restriction} :d3f/T1555
@@ -35061,25 +36894,40 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1555_004
-  {:d3f/attack-id   "T1555.004",
-   :db/ident        :d3f/T1555.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Credential Manager",
+  {:d3f/attack-id "T1555.004",
+   :d3f/definition
+   "Adversaries may acquire credentials from the Windows Credential Manager. The Credential Manager stores credentials for signing into websites, applications, and/or devices that request authentication through NTLM or Kerberos in Credential Lockers (previously known as Windows Vaults).(Citation: Microsoft Credential Manager store)(Citation: Microsoft Credential Locker)",
+   :db/ident :d3f/T1555.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows Credential Manager",
    :rdfs/subClassOf :d3f/T1555})
 
 (def T1555_005
-  {:d3f/attack-id   "T1555.005",
-   :db/ident        :d3f/T1555.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Password Managers",
+  {:d3f/attack-id "T1555.005",
+   :d3f/definition
+   "Adversaries may acquire user credentials from third-party password managers.(Citation: ise Password Manager February 2019) Password managers are applications designed to store user credentials, normally in an encrypted database. Credentials are typically accessible after a user provides a master password that unlocks the database. After the database is unlocked, these credentials may be copied to memory. These databases can be stored as files on disk.(Citation: ise Password Manager February 2019)",
+   :db/ident :d3f/T1555.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Password Managers",
+   :rdfs/subClassOf :d3f/T1555})
+
+(def T1555_006
+  {:d3f/attack-id "T1555.006",
+   :d3f/definition
+   "Adversaries may acquire credentials from cloud-native secret management solutions such as AWS Secrets Manager, GCP Secret Manager, Azure Key Vault, and Terraform Vault.",
+   :db/ident :d3f/T1555.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Secrets Management Stores",
    :rdfs/subClassOf :d3f/T1555})
 
 (def T1556
-  {:d3f/attack-id   "T1556",
-   :d3f/modifies    :d3f/AuthenticationService,
-   :db/ident        :d3f/T1556,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Modify Authentication Process",
+  {:d3f/attack-id "T1556",
+   :d3f/definition
+   "Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts. The authentication process is handled by mechanisms, such as the Local Security Authentication Server (LSASS) process and the Security Accounts Manager (SAM) on Windows, pluggable authentication modules (PAM) on Unix-based systems, and authorization plugins on MacOS systems, responsible for gathering, storing, and validating credentials. By modifying an authentication process, an adversary may be able to authenticate to a service or system without using [Valid Accounts](https://attack.mitre.org/techniques/T1078).",
+   :d3f/modifies :d3f/AuthenticationService,
+   :db/ident :d3f/T1556,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Modify Authentication Process",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       :d3f/DefenseEvasionTechnique
                       {:owl/onProperty     :d3f/modifies,
@@ -35087,19 +36935,23 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1556_001
-  {:d3f/attack-id   "T1556.001",
-   :db/ident        :d3f/T1556.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Controller Authentication",
+  {:d3f/attack-id "T1556.001",
+   :d3f/definition
+   "Adversaries may patch the authentication process on a domain controller to bypass the typical authentication mechanisms and enable access to accounts.",
+   :db/ident :d3f/T1556.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Controller Authentication",
    :rdfs/subClassOf :d3f/T1556})
 
 (def T1556_002
-  {:d3f/attack-id   "T1556.002",
-   :d3f/creates     :d3f/SharedLibraryFile,
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1556.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Password Filter DLL",
+  {:d3f/attack-id "T1556.002",
+   :d3f/creates :d3f/SharedLibraryFile,
+   :d3f/definition
+   "Adversaries may register malicious password filter dynamic link libraries (DLLs) into the authentication process to acquire user credentials as they are validated.",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1556.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Password Filter DLL",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -35109,42 +36961,85 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1556_003
-  {:d3f/attack-id   "T1556.003",
-   :d3f/may-modify  #{:d3f/OperatingSystemSharedLibraryFile
-                      :d3f/OperatingSystemConfigurationFile},
-   :db/ident        :d3f/T1556.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Pluggable Authentication Modules",
-   :rdfs/subClassOf #{:d3f/T1556
-                      {:owl/onProperty :d3f/may-modify,
-                       :owl/someValuesFrom
-                       :d3f/OperatingSystemSharedLibraryFile,
-                       :rdf/type :owl/Restriction}
-                      {:owl/onProperty :d3f/may-modify,
-                       :owl/someValuesFrom
-                       :d3f/OperatingSystemConfigurationFile,
-                       :rdf/type :owl/Restriction}}})
+  {:d3f/attack-id "T1556.003",
+   :d3f/definition
+   "Adversaries may modify pluggable authentication modules (PAM) to access user credentials or enable otherwise unwarranted access to accounts. PAM is a modular system of configuration files, libraries, and executable files which guide authentication for many services. The most common authentication module is <code>pam_unix.so</code>, which retrieves, sets, and verifies account authentication information in <code>/etc/passwd</code> and <code>/etc/shadow</code>.(Citation: Apple PAM)(Citation: Man Pam_Unix)(Citation: Red Hat PAM)",
+   :d3f/may-modify #{:d3f/OperatingSystemSharedLibraryFile
+                     :d3f/OperatingSystemConfigurationFile},
+   :db/ident :d3f/T1556.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Pluggable Authentication Modules",
+   :rdfs/subClassOf
+   #{:d3f/T1556
+     {:owl/onProperty     :d3f/may-modify,
+      :owl/someValuesFrom :d3f/OperatingSystemSharedLibraryFile,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/may-modify,
+      :owl/someValuesFrom :d3f/OperatingSystemConfigurationFile,
+      :rdf/type           :owl/Restriction}}})
 
 (def T1556_004
-  {:d3f/attack-id   "T1556.004",
-   :db/ident        :d3f/T1556.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Device Authentication",
+  {:d3f/attack-id "T1556.004",
+   :d3f/definition
+   "Adversaries may use [Patch System Image](https://attack.mitre.org/techniques/T1601/001) to hard code a password in the operating system, thus bypassing of native authentication mechanisms for local accounts on network devices.",
+   :db/ident :d3f/T1556.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Device Authentication",
    :rdfs/subClassOf :d3f/T1556})
 
 (def T1556_005
-  {:d3f/attack-id   "T1556.005",
-   :db/ident        :d3f/T1556.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reversible Encryption",
+  {:d3f/attack-id "T1556.005",
+   :d3f/definition
+   "An adversary may abuse Active Directory authentication encryption properties to gain access to credentials on Windows systems. The <code>AllowReversiblePasswordEncryption</code> property specifies whether reversible password encryption for an account is enabled or disabled. By default this property is disabled (instead storing user credentials as the output of one-way hashing functions) and should not be enabled unless legacy or other software require it.(Citation: store_pwd_rev_enc)",
+   :db/ident :d3f/T1556.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reversible Encryption",
+   :rdfs/subClassOf :d3f/T1556})
+
+(def T1556_006
+  {:d3f/attack-id "T1556.006",
+   :d3f/definition
+   "Adversaries may disable or modify multi-factor authentication (MFA) mechanisms to enable persistent access to compromised accounts.",
+   :db/ident :d3f/T1556.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multi-Factor Authentication",
+   :rdfs/subClassOf :d3f/T1556})
+
+(def T1556_007
+  {:d3f/attack-id "T1556.007",
+   :d3f/definition
+   "Adversaries may patch, modify, or otherwise backdoor cloud authentication processes that are tied to on-premises user identities in order to bypass typical authentication mechanisms, access credentials, and enable persistent access to accounts.",
+   :db/ident :d3f/T1556.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hybrid Identity",
+   :rdfs/subClassOf :d3f/T1556})
+
+(def T1556_008
+  {:d3f/attack-id "T1556.008",
+   :d3f/definition
+   "Adversaries may register malicious network provider dynamic link libraries (DLLs) to capture cleartext user credentials during the authentication process. Network provider DLLs allow Windows to interface with specific network protocols and can also support add-on credential management functions.(Citation: Network Provider API) During the logon process, Winlogon (the interactive logon module) sends credentials to the local `mpnotify.exe` process via RPC. The `mpnotify.exe` process then shares the credentials in cleartext with registered credential managers when notifying that a logon event is happening.(Citation: NPPSPY - Huntress)(Citation: NPPSPY Video)(Citation: NPLogonNotify)",
+   :db/ident :d3f/T1556.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Provider DLL",
+   :rdfs/subClassOf :d3f/T1556})
+
+(def T1556_009
+  {:d3f/attack-id "T1556.009",
+   :d3f/definition
+   "Adversaries may disable or modify conditional access policies to enable persistent access to compromised accounts. Conditional access policies are additional verifications used by identity providers and identity and access management systems to determine whether a user should be granted access to a resource.",
+   :db/ident :d3f/T1556.009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Conditional Access Policies",
    :rdfs/subClassOf :d3f/T1556})
 
 (def T1557
-  {:d3f/attack-id   "T1557",
-   :d3f/produces    :d3f/NetworkTraffic,
-   :db/ident        :d3f/T1557,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Man-in-the-Middle",
+  {:d3f/attack-id "T1557",
+   :d3f/definition
+   "Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle (AiTM) technique to support follow-on behaviors such as [Network Sniffing](https://attack.mitre.org/techniques/T1040), [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002), or replay attacks ([Exploitation for Credential Access](https://attack.mitre.org/techniques/T1212)). By abusing features of common networking protocols that can determine the flow of network traffic (e.g. ARP, DNS, LLMNR, etc.), adversaries may force a device to communicate through an adversary controlled system so they can collect information or perform additional actions.(Citation: Rapid7 MiTM Basics)",
+   :d3f/produces :d3f/NetworkTraffic,
+   :db/ident :d3f/T1557,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Adversary-in-the-Middle",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -35152,39 +37047,47 @@
                       :d3f/CollectionTechnique}})
 
 (def T1557_001
-  {:d3f/attack-id   "T1557.001",
-   :d3f/produces    :d3f/IntranetMulticastNetworkTraffic,
-   :db/ident        :d3f/T1557.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "LLMNR/NBT-NS Poisoning and SMB Relay",
+  {:d3f/attack-id "T1557.001",
+   :d3f/definition
+   "By responding to LLMNR/NBT-NS network traffic, adversaries may spoof an authoritative source for name resolution to force communication with an adversary controlled system. This activity may be used to collect or relay authentication materials.",
+   :d3f/produces :d3f/IntranetMulticastNetworkTraffic,
+   :db/ident :d3f/T1557.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "LLMNR/NBT-NS Poisoning and SMB Relay",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetMulticastNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1557}})
 
 (def T1557_002
-  {:d3f/attack-id   "T1557.002",
-   :db/ident        :d3f/T1557.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ARP Cache Poisoning",
+  {:d3f/attack-id "T1557.002",
+   :d3f/definition
+   "Adversaries may poison Address Resolution Protocol (ARP) caches to position themselves between the communication of two or more networked devices. This activity may be used to enable follow-on behaviors such as [Network Sniffing](https://attack.mitre.org/techniques/T1040) or [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002).",
+   :db/ident :d3f/T1557.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "ARP Cache Poisoning",
    :rdfs/subClassOf :d3f/T1557})
 
 (def T1557_003
-  {:d3f/attack-id   "T1557.003",
-   :d3f/creates     :d3f/DHCPNetworkTraffic,
-   :db/ident        :d3f/T1557.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "DHCP Spoofing",
+  {:d3f/attack-id "T1557.003",
+   :d3f/creates :d3f/DHCPNetworkTraffic,
+   :d3f/definition
+   "Adversaries may redirect network traffic to adversary-owned systems by spoofing Dynamic Host Configuration Protocol (DHCP) traffic and acting as a malicious DHCP server on the victim network. By achieving the adversary-in-the-middle (AiTM) position, adversaries may collect network communications, including passed credentials, especially those sent over insecure, unencrypted protocols. This may also enable follow-on behaviors such as [Network Sniffing](https://attack.mitre.org/techniques/T1040) or [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002).",
+   :db/ident :d3f/T1557.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DHCP Spoofing",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/DHCPNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1557}})
 
 (def T1558
-  {:d3f/attack-id   "T1558",
-   :d3f/may-access  :d3f/KerberosTicket,
-   :d3f/may-create  :d3f/KerberosTicket,
-   :db/ident        :d3f/T1558,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Steal or Forge Kerberos Tickets",
+  {:d3f/attack-id "T1558",
+   :d3f/definition
+   "Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003). Kerberos is an authentication protocol widely used in modern Windows domain environments. In Kerberos environments, referred to as “realms”, there are three basic participants: client, service, and Key Distribution Center (KDC).(Citation: ADSecurity Kerberos Ring Decoder) Clients request access to a service and through the exchange of Kerberos tickets, originating from KDC, they are granted access after having successfully authenticated. The KDC is responsible for both authentication and ticket granting.  Adversaries may attempt to abuse Kerberos by stealing tickets or forging tickets to enable unauthorized access.",
+   :d3f/may-access :d3f/KerberosTicket,
+   :d3f/may-create :d3f/KerberosTicket,
+   :db/ident :d3f/T1558,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Steal or Forge Kerberos Tickets",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/KerberosTicket,
                        :rdf/type           :owl/Restriction}
@@ -35194,20 +37097,24 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1558_001
-  {:d3f/attack-id   "T1558.001",
-   :d3f/forges      :d3f/KerberosTicketGrantingTicket,
-   :db/ident        :d3f/T1558.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Golden Ticket",
+  {:d3f/attack-id "T1558.001",
+   :d3f/definition
+   "Adversaries who have the KRBTGT account password hash may forge Kerberos ticket-granting tickets (TGT), also known as a golden ticket.(Citation: AdSecurity Kerberos GT Aug 2015) Golden tickets enable adversaries to generate authentication material for any account in Active Directory.(Citation: CERT-EU Golden Ticket Protection)",
+   :d3f/forges :d3f/KerberosTicketGrantingTicket,
+   :db/ident :d3f/T1558.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Golden Ticket",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/forges,
                        :owl/someValuesFrom :d3f/KerberosTicketGrantingTicket,
                        :rdf/type           :owl/Restriction} :d3f/T1558}})
 
 (def T1558_002
-  {:d3f/attack-id   "T1558.002",
-   :db/ident        :d3f/T1558.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Silver Ticket",
+  {:d3f/attack-id "T1558.002",
+   :d3f/definition
+   "Adversaries who have the password hash of a target service account (e.g. SharePoint, MSSQL) may forge Kerberos ticket granting service (TGS) tickets, also known as silver tickets. Kerberos TGS tickets are also known as service tickets.(Citation: ADSecurity Silver Tickets)",
+   :db/ident :d3f/T1558.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Silver Ticket",
    :rdfs/subClassOf :d3f/T1558})
 
 (def T1558_003
@@ -35227,103 +37134,125 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1558_004
-  {:d3f/attack-id   "T1558.004",
-   :db/ident        :d3f/T1558.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "AS-REP Roasting",
+  {:d3f/attack-id "T1558.004",
+   :d3f/definition
+   "Adversaries may reveal credentials of accounts that have disabled Kerberos preauthentication by [Password Cracking](https://attack.mitre.org/techniques/T1110/002) Kerberos messages.(Citation: Harmj0y Roasting AS-REPs Jan 2017)",
+   :db/ident :d3f/T1558.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "AS-REP Roasting",
    :rdfs/subClassOf :d3f/T1558})
 
 (def T1559
-  {:d3f/attack-id   "T1559",
-   :d3f/injects     :d3f/InterprocessCommunication,
-   :db/ident        :d3f/T1559,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Inter-Process Communication Execution",
+  {:d3f/attack-id "T1559",
+   :d3f/definition
+   "Adversaries may abuse inter-process communication (IPC) mechanisms for local code or command execution. IPC is typically used by processes to share data, communicate with each other, or synchronize execution. IPC is also commonly used to avoid situations such as deadlocks, which occurs when processes are stuck in a cyclic waiting pattern.",
+   :d3f/injects :d3f/InterprocessCommunication,
+   :db/ident :d3f/T1559,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Inter-Process Communication",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique
                       {:owl/onProperty     :d3f/injects,
                        :owl/someValuesFrom :d3f/InterprocessCommunication,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1559_001
-  {:d3f/attack-id   "T1559.001",
-   :db/ident        :d3f/T1559.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Component Object Model Execution",
+  {:d3f/attack-id "T1559.001",
+   :d3f/definition
+   "Adversaries may use the Windows Component Object Model (COM) for local code execution. COM is an inter-process communication (IPC) component of the native Windows application programming interface (API) that enables interaction between software objects, or executable code that implements one or more interfaces.(Citation: Fireeye Hunting COM June 2019) Through COM, a client object can call methods of server objects, which are typically binary Dynamic Link Libraries (DLL) or executables (EXE).(Citation: Microsoft COM) Remote COM execution is facilitated by [Remote Services](https://attack.mitre.org/techniques/T1021) such as  [Distributed Component Object Model](https://attack.mitre.org/techniques/T1021/003) (DCOM).(Citation: Fireeye Hunting COM June 2019)",
+   :db/ident :d3f/T1559.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Component Object Model",
    :rdfs/subClassOf :d3f/T1559})
 
 (def T1559_002
-  {:d3f/attack-id   "T1559.002",
-   :db/ident        :d3f/T1559.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dynamic Data Exchange Execution",
+  {:d3f/attack-id "T1559.002",
+   :d3f/definition
+   "Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands. DDE is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications. Once a link is established, applications can autonomously exchange transactions consisting of strings, warm data links (notifications when a data item changes), hot data links (duplications of changes to a data item), and requests for command execution.",
+   :db/ident :d3f/T1559.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dynamic Data Exchange",
    :rdfs/subClassOf :d3f/T1559})
 
 (def T1559_003
-  {:d3f/attack-id   "T1559.003",
-   :db/ident        :d3f/T1559.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "XPC Services",
+  {:d3f/attack-id "T1559.003",
+   :d3f/definition
+   "Adversaries can provide malicious content to an XPC service daemon for local code execution. macOS uses XPC services for basic inter-process communication between various processes, such as between the XPC Service daemon and third-party application privileged helper tools. Applications can send messages to the XPC Service daemon, which runs as root, using the low-level XPC Service <code>C API</code> or the high level <code>NSXPCConnection API</code> in order to handle tasks that require elevated privileges (such as network connections). Applications are responsible for providing the protocol definition which serves as a blueprint of the XPC services. Developers typically use XPC Services to provide applications stability and privilege separation between the application client and the daemon.(Citation: creatingXPCservices)(Citation: Designing Daemons Apple Dev)",
+   :db/ident :d3f/T1559.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "XPC Services",
    :rdfs/subClassOf :d3f/T1559})
 
 (def T1560
-  {:d3f/attack-id   "T1560",
-   :d3f/creates     :d3f/ArchiveFile,
-   :db/ident        :d3f/T1560,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Archive Collected Data",
+  {:d3f/attack-id "T1560",
+   :d3f/creates :d3f/ArchiveFile,
+   :d3f/definition
+   "An adversary may compress and/or encrypt data that is collected prior to exfiltration. Compressing the data can help to obfuscate the collected data and minimize the amount of data sent over the network.(Citation: DOJ GRU Indictment Jul 2018) Encryption can be used to hide information that is being exfiltrated from detection or make exfiltration less conspicuous upon inspection by a defender.",
+   :db/ident :d3f/T1560,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Archive Collected Data",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ArchiveFile,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1560_001
-  {:d3f/attack-id   "T1560.001",
-   :d3f/creates     :d3f/ArchiveFile,
-   :db/ident        :d3f/T1560.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Archive via Utility",
+  {:d3f/attack-id "T1560.001",
+   :d3f/creates :d3f/ArchiveFile,
+   :d3f/definition
+   "Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration. Many utilities include functionalities to compress, encrypt, or otherwise package data into a format that is easier/more secure to transport.",
+   :db/ident :d3f/T1560.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Archive via Utility",
    :rdfs/subClassOf #{:d3f/T1560
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ArchiveFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1560_002
-  {:d3f/attack-id   "T1560.002",
-   :d3f/creates     :d3f/ArchiveFile,
-   :db/ident        :d3f/T1560.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Archive via Library",
+  {:d3f/attack-id "T1560.002",
+   :d3f/creates :d3f/ArchiveFile,
+   :d3f/definition
+   "An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party libraries. Many libraries exist that can archive data, including [Python](https://attack.mitre.org/techniques/T1059/006) rarfile (Citation: PyPI RAR), libzip (Citation: libzip), and zlib (Citation: Zlib Github). Most libraries include functionality to encrypt and/or compress data.",
+   :db/ident :d3f/T1560.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Archive via Library",
    :rdfs/subClassOf #{:d3f/T1560
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ArchiveFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1560_003
-  {:d3f/attack-id   "T1560.003",
-   :d3f/creates     :d3f/CustomArchiveFile,
-   :db/ident        :d3f/T1560.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Archive via Custom Method",
+  {:d3f/attack-id "T1560.003",
+   :d3f/creates :d3f/CustomArchiveFile,
+   :d3f/definition
+   "An adversary may compress or encrypt data that is collected prior to exfiltration using a custom method. Adversaries may choose to use custom archival methods, such as encryption with XOR or stream ciphers implemented with no external library or utility references. Custom implementations of well-known compression algorithms have also been used.(Citation: ESET Sednit Part 2)",
+   :db/ident :d3f/T1560.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Archive via Custom Method",
    :rdfs/subClassOf #{:d3f/T1560
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/CustomArchiveFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1561
-  {:d3f/attack-id   "T1561",
-   :db/ident        :d3f/T1561,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disk Wipe",
+  {:d3f/attack-id "T1561",
+   :d3f/definition
+   "Adversaries may wipe or corrupt raw disk data on specific systems or in large numbers in a network to interrupt availability to system and network resources. With direct write access to a disk, adversaries may attempt to overwrite portions of disk data. Adversaries may opt to wipe arbitrary portions of disk data and/or wipe disk structures like the master boot record (MBR). A complete wipe of all disk sectors may be attempted.",
+   :db/ident :d3f/T1561,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disk Wipe",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1561_001
-  {:d3f/attack-id   "T1561.001",
-   :d3f/may-modify  #{:d3f/BootSector :d3f/Volume :d3f/Partition
-                      :d3f/PartitionTable},
-   :d3f/modifies    :d3f/BlockDevice,
-   :db/ident        :d3f/T1561.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Disk Content Wipe",
+  {:d3f/attack-id "T1561.001",
+   :d3f/definition
+   "Adversaries may erase the contents of storage devices on specific systems or in large numbers in a network to interrupt availability to system and network resources.",
+   :d3f/may-modify #{:d3f/BootSector :d3f/Volume :d3f/Partition
+                     :d3f/PartitionTable},
+   :d3f/modifies :d3f/BlockDevice,
+   :db/ident :d3f/T1561.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disk Content Wipe",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/Partition,
                        :rdf/type           :owl/Restriction}
@@ -35341,11 +37270,13 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1561_002
-  {:d3f/attack-id   "T1561.002",
-   :d3f/may-modify  #{:d3f/BootSector :d3f/PartitionTable},
-   :db/ident        :d3f/T1561.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Disk Structure Wipe",
+  {:d3f/attack-id "T1561.002",
+   :d3f/definition
+   "Adversaries may corrupt or wipe the disk data structures on a hard drive necessary to boot a system; targeting specific critical systems or in large numbers in a network to interrupt availability to system and network resources.",
+   :d3f/may-modify #{:d3f/BootSector :d3f/PartitionTable},
+   :db/ident :d3f/T1561.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disk Structure Wipe",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/PartitionTable,
                        :rdf/type           :owl/Restriction} :d3f/T1561
@@ -35354,29 +37285,35 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1562
-  {:d3f/attack-id   "T1562",
-   :db/ident        :d3f/T1562,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Impair Defenses",
+  {:d3f/attack-id "T1562",
+   :d3f/definition
+   "Adversaries may maliciously modify components of a victim environment in order to hinder or disable defensive mechanisms. This not only involves impairing preventative defenses, such as firewalls and anti-virus, but also detection capabilities that defenders can use to audit activity and identify malicious behavior. This may also span both native defenses as well as supplemental capabilities installed by users and administrators.",
+   :db/ident :d3f/T1562,
+   :rdf/type :owl/Class,
+   :rdfs/label "Impair Defenses",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1562_001
-  {:d3f/attack-id   "T1562.001",
-   :d3f/disables    :d3f/OperatingSystemProcess,
-   :db/ident        :d3f/T1562.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Disable or Modify Tools",
+  {:d3f/attack-id "T1562.001",
+   :d3f/definition
+   "Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities. This may take many forms, such as killing security software processes or services, modifying / deleting Registry keys or configuration files so that tools do not operate properly, or other methods to interfere with security tools scanning or reporting information. Adversaries may also disable updates to prevent the latest security patches from reaching tools on victim systems.(Citation: SCADAfence_ransomware)",
+   :d3f/disables :d3f/OperatingSystemProcess,
+   :db/ident :d3f/T1562.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disable or Modify Tools",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/disables,
                        :owl/someValuesFrom :d3f/OperatingSystemProcess,
                        :rdf/type           :owl/Restriction} :d3f/T1562}})
 
 (def T1562_002
-  {:d3f/attack-id   "T1562.002",
-   :d3f/may-modify  #{:d3f/ApplicationConfiguration
-                      :d3f/OperatingSystemConfigurationComponent},
-   :db/ident        :d3f/T1562.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Disable Windows Event Logging",
+  {:d3f/attack-id "T1562.002",
+   :d3f/definition
+   "Adversaries may disable Windows event logging to limit data that can be leveraged for detections and audits. Windows event logs record user and system activity such as login attempts, process creation, and much more.(Citation: Windows Log Events) This data is used by security tools and analysts to generate detections.",
+   :d3f/may-modify #{:d3f/ApplicationConfiguration
+                     :d3f/OperatingSystemConfigurationComponent},
+   :db/ident :d3f/T1562.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disable Windows Event Logging",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/may-modify,
                        :owl/someValuesFrom
                        :d3f/OperatingSystemConfigurationComponent,
@@ -35386,12 +37323,14 @@
                        :rdf/type           :owl/Restriction} :d3f/T1562}})
 
 (def T1562_003
-  {:d3f/attack-id   "T1562.003",
-   :d3f/may-modify  #{:d3f/UserInitScript :d3f/WindowsRegistryKey},
-   :d3f/modifies    :d3f/ProcessEnvironmentVariable,
-   :db/ident        :d3f/T1562.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Impair Command History Logging",
+  {:d3f/attack-id "T1562.003",
+   :d3f/definition
+   "Adversaries may impair command history logging to hide commands they run on a compromised system. Various command interpreters keep track of the commands users type in their terminal so that users can retrace what they've done.",
+   :d3f/may-modify #{:d3f/UserInitScript :d3f/WindowsRegistryKey},
+   :d3f/modifies :d3f/ProcessEnvironmentVariable,
+   :db/ident :d3f/T1562.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Impair Command History Logging",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/WindowsRegistryKey,
                        :rdf/type           :owl/Restriction}
@@ -35403,45 +37342,55 @@
                        :rdf/type           :owl/Restriction} :d3f/T1562}})
 
 (def T1562_004
-  {:d3f/attack-id   "T1562.004",
-   :d3f/modifies    :d3f/SystemFirewallConfiguration,
-   :db/ident        :d3f/T1562.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Disable or Modify System Firewall",
+  {:d3f/attack-id "T1562.004",
+   :d3f/definition
+   "Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage. Changes could be disabling the entire mechanism as well as adding, deleting, or modifying particular rules. This can be done numerous ways depending on the operating system, including via command-line, editing Windows Registry keys, and Windows Control Panel.",
+   :d3f/modifies :d3f/SystemFirewallConfiguration,
+   :db/ident :d3f/T1562.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disable or Modify System Firewall",
    :rdfs/subClassOf #{:d3f/T1562
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/SystemFirewallConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1562_006
-  {:d3f/attack-id   "T1562.006",
-   :db/ident        :d3f/T1562.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Indicator Blocking",
+  {:d3f/attack-id "T1562.006",
+   :d3f/definition
+   "An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed. This could include maliciously redirecting(Citation: Microsoft Lamin Sept 2017) or even disabling host-based sensors, such as Event Tracing for Windows (ETW)(Citation: Microsoft About Event Tracing 2018), by tampering settings that control the collection and flow of event telemetry.(Citation: Medium Event Tracing Tampering 2018) These settings may be stored on the system in configuration files and/or in the Registry as well as being accessible via administrative utilities such as [PowerShell](https://attack.mitre.org/techniques/T1059/001) or [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047).",
+   :db/ident :d3f/T1562.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indicator Blocking",
    :rdfs/subClassOf :d3f/T1562})
 
 (def T1562_007
-  {:d3f/attack-id   "T1562.007",
-   :db/ident        :d3f/T1562.007,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disable or Modify Cloud Firewall",
+  {:d3f/attack-id "T1562.007",
+   :d3f/definition
+   "Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources. Cloud firewalls are separate from system firewalls that are described in [Disable or Modify System Firewall](https://attack.mitre.org/techniques/T1562/004).",
+   :db/ident :d3f/T1562.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable or Modify Cloud Firewall",
    :rdfs/subClassOf :d3f/T1562})
 
 (def T1562_008
-  {:d3f/attack-id   "T1562.008",
-   :db/ident        :d3f/T1562.008,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disable Cloud Logs",
+  {:d3f/attack-id "T1562.008",
+   :d3f/definition
+   "An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection. Cloud environments allow for collection and analysis of audit and application logs that provide insight into what activities a user does within the environment. If an adversary has sufficient permissions, they can disable or modify logging to avoid detection of their activities.",
+   :db/ident :d3f/T1562.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable or Modify Cloud Logs",
    :rdfs/subClassOf :d3f/T1562})
 
 (def T1562_009
-  {:d3f/attack-id   "T1562.009",
-   :d3f/disables    #{:d3f/SystemConfigurationInitDatabaseRecord
-                      :d3f/EndpointSensor},
-   :d3f/may-modify  :d3f/EndpointHealthBeacon,
-   :db/ident        :d3f/T1562.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Safe Mode Boot",
+  {:d3f/attack-id "T1562.009",
+   :d3f/definition
+   "Adversaries may abuse Windows safe mode to disable endpoint defenses. Safe mode starts up the Windows operating system with a limited set of drivers and services. Third-party security software such as endpoint detection and response (EDR) tools may not start after booting Windows in safe mode. There are two versions of safe mode: Safe Mode and Safe Mode with Networking. It is possible to start additional services after a safe mode boot.(Citation: Microsoft Safe Mode)(Citation: Sophos Snatch Ransomware 2019)",
+   :d3f/disables #{:d3f/SystemConfigurationInitDatabaseRecord
+                   :d3f/EndpointSensor},
+   :d3f/may-modify :d3f/EndpointHealthBeacon,
+   :db/ident :d3f/T1562.009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Safe Mode Boot",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/disables,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationInitDatabaseRecord,
@@ -35454,22 +37403,44 @@
                        :rdf/type           :owl/Restriction} :d3f/T1562}})
 
 (def T1562_010
-  {:d3f/accesses    :d3f/LegacySystem,
-   :d3f/attack-id   "T1562.010",
-   :db/ident        :d3f/T1562.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Downgrade Attack",
+  {:d3f/accesses :d3f/LegacySystem,
+   :d3f/attack-id "T1562.010",
+   :d3f/definition
+   "Adversaries may downgrade or use a version of system features that may be outdated, vulnerable, and/or does not support updated security controls. Downgrade attacks typically take advantage of a system’s backward compatibility to force it into less secure modes of operation.",
+   :db/ident :d3f/T1562.010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Downgrade Attack",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/LegacySystem,
                        :rdf/type           :owl/Restriction} :d3f/T1562}})
 
+(def T1562_011
+  {:d3f/attack-id "T1562.011",
+   :d3f/definition
+   "Adversaries may spoof security alerting from tools, presenting false evidence to impair defenders’ awareness of malicious activity.(Citation: BlackBasta) Messages produced by defensive tools contain information about potential security events as well as the functioning status of security software and the system. Security reporting messages are important for monitoring the normal operation of a system and identifying important events that can signal a security incident.",
+   :db/ident :d3f/T1562.011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spoof Security Alerting",
+   :rdfs/subClassOf :d3f/T1562})
+
+(def T1562_012
+  {:d3f/attack-id "T1562.012",
+   :d3f/definition
+   "Adversaries may disable or modify the Linux audit system to hide malicious activity and avoid detection. Linux admins use the Linux Audit system to track security-relevant information on a system. The Linux Audit system operates at the kernel-level and maintains event logs on application and system activity such as process, network, file, and login events based on pre-configured rules.",
+   :db/ident :d3f/T1562.012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable or Modify Linux Audit System",
+   :rdfs/subClassOf :d3f/T1562})
+
 (def T1563
-  {:d3f/accesses    :d3f/RemoteSession,
-   :d3f/attack-id   "T1563",
-   :d3f/produces    :d3f/AdministrativeNetworkTraffic,
-   :db/ident        :d3f/T1563,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Remote Service Session Hijacking",
+  {:d3f/accesses :d3f/RemoteSession,
+   :d3f/attack-id "T1563",
+   :d3f/definition
+   "Adversaries may take control of preexisting sessions with remote services to move laterally in an environment. Users may use valid credentials to log into a service specifically designed to accept remote connections, such as telnet, SSH, and RDP. When a user logs into a service, a session will be established that will allow them to maintain a continuous interaction with that service.",
+   :d3f/produces :d3f/AdministrativeNetworkTraffic,
+   :db/ident :d3f/T1563,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Service Session Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/AdministrativeNetworkTraffic,
                        :rdf/type           :owl/Restriction}
@@ -35479,59 +37450,71 @@
                       :d3f/LateralMovementTechnique}})
 
 (def T1563_001
-  {:d3f/accesses    :d3f/SSHSession,
-   :d3f/attack-id   "T1563.001",
-   :db/ident        :d3f/T1563.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "SSH Hijacking",
+  {:d3f/accesses :d3f/SSHSession,
+   :d3f/attack-id "T1563.001",
+   :d3f/definition
+   "Adversaries may hijack a legitimate user's SSH session to move laterally within an environment. Secure Shell (SSH) is a standard means of remote access on Linux and macOS systems. It allows a user to connect to another system via an encrypted tunnel, commonly authenticating through a password, certificate or the use of an asymmetric encryption key pair.",
+   :db/ident :d3f/T1563.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "SSH Hijacking",
    :rdfs/subClassOf #{:d3f/T1563
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/SSHSession,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1563_002
-  {:d3f/accesses    :d3f/RDPSession,
-   :d3f/attack-id   "T1563.002",
-   :db/ident        :d3f/T1563.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "RDP Hijacking",
+  {:d3f/accesses :d3f/RDPSession,
+   :d3f/attack-id "T1563.002",
+   :d3f/definition
+   "Adversaries may hijack a legitimate user’s remote desktop session to move laterally within an environment. Remote desktop is a common feature in operating systems. It allows a user to log into an interactive session with a system desktop graphical user interface on a remote system. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS).(Citation: TechNet Remote Desktop Services)",
+   :db/ident :d3f/T1563.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "RDP Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/RDPSession,
                        :rdf/type           :owl/Restriction} :d3f/T1563}})
 
 (def T1564
-  {:d3f/attack-id   "T1564",
-   :db/ident        :d3f/T1564,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hide Artifacts",
+  {:d3f/attack-id "T1564",
+   :d3f/definition
+   "Adversaries may attempt to hide artifacts associated with their behaviors to evade detection. Operating systems may have features to hide various artifacts, such as important system files and administrative task execution, to avoid disrupting user work environments and prevent users from changing files or features on the system. Adversaries may abuse these features to hide artifacts such as files, directories, user accounts, or other system activity to evade detection.(Citation: Sofacy Komplex Trojan)(Citation: Cybereason OSX Pirrit)(Citation: MalwareBytes ADS July 2015)",
+   :db/ident :d3f/T1564,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hide Artifacts",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1564_001
-  {:d3f/attack-id   "T1564.001",
-   :d3f/modifies    :d3f/FileSystemMetadata,
-   :db/ident        :d3f/T1564.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Hidden Files and Directories",
+  {:d3f/attack-id "T1564.001",
+   :d3f/definition
+   "Adversaries may set files and directories to be hidden to evade detection mechanisms. To prevent normal users from accidentally changing special files on a system, most operating systems have the concept of a ‘hidden’ file. These files don’t show up when a user browses the file system with a GUI or when using normal commands on the command line. Users must explicitly ask to show the hidden files either via a series of Graphical User Interface (GUI) prompts or with command line switches (<code>dir /a</code> for Windows and <code>ls –a</code> for Linux and macOS).",
+   :d3f/modifies :d3f/FileSystemMetadata,
+   :db/ident :d3f/T1564.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Hidden Files and Directories",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_002
-  {:d3f/attack-id   "T1564.002",
-   :d3f/modifies    :d3f/UserInitConfigurationFile,
-   :db/ident        :d3f/T1564.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Hidden Users",
+  {:d3f/attack-id "T1564.002",
+   :d3f/definition
+   "Adversaries may use hidden users to hide the presence of user accounts they create or modify. Administrators may want to hide users when there are many user accounts on a given system or if they want to hide their administrative or other management accounts from other users.",
+   :d3f/modifies :d3f/UserInitConfigurationFile,
+   :db/ident :d3f/T1564.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Hidden Users",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserInitConfigurationFile,
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_003
-  {:d3f/attack-id   "T1564.003",
-   :d3f/may-modify  #{:d3f/PropertyListFile :d3f/SystemConfigurationDatabase},
-   :db/ident        :d3f/T1564.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Hidden Window",
+  {:d3f/attack-id "T1564.003",
+   :d3f/definition
+   "Adversaries may use hidden windows to conceal malicious activity from the plain sight of users. In some cases, windows that would typically be displayed when an application carries out an operation can be hidden. This may be utilized by system administrators to avoid disrupting user work environments when carrying out administrative tasks.",
+   :d3f/may-modify #{:d3f/PropertyListFile :d3f/SystemConfigurationDatabase},
+   :db/ident :d3f/T1564.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Hidden Window",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}
@@ -35540,22 +37523,26 @@
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_004
-  {:d3f/attack-id   "T1564.004",
-   :d3f/modifies    :d3f/FileSystemMetadata,
-   :db/ident        :d3f/T1564.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "NTFS File Attributes",
+  {:d3f/attack-id "T1564.004",
+   :d3f/definition
+   "Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection. Every New Technology File System (NTFS) formatted partition contains a Master File Table (MFT) that maintains a record for every file/directory on the partition. (Citation: SpectorOps Host-Based Jul 2017) Within MFT entries are file attributes, (Citation: Microsoft NTFS File Attributes Aug 2010) such as Extended Attributes (EA) and Data [known as Alternate Data Streams (ADSs) when more than one Data attribute is present], that can be used to store arbitrary data (and even complete files). (Citation: SpectorOps Host-Based Jul 2017) (Citation: Microsoft File Streams) (Citation: MalwareBytes ADS July 2015) (Citation: Microsoft ADS Mar 2014)",
+   :d3f/modifies :d3f/FileSystemMetadata,
+   :db/ident :d3f/T1564.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "NTFS File Attributes",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/FileSystemMetadata,
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_005
-  {:d3f/attack-id   "T1564.005",
-   :d3f/may-modify  :d3f/SystemConfigurationDatabase,
-   :d3f/modifies    :d3f/Storage,
-   :db/ident        :d3f/T1564.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Hidden File System",
+  {:d3f/attack-id "T1564.005",
+   :d3f/definition
+   "Adversaries may use a hidden file system to conceal malicious activity from users and security tools. File systems provide a structure to store and access data from physical storage. Typically, a user engages with a file system through applications that allow them to access files and directories, which are an abstraction from their physical location (ex: disk sector). Standard file systems include FAT, NTFS, ext4, and APFS. File systems can also contain other structures, such as the Volume Boot Record (VBR) and Master File Table (MFT) in NTFS.(Citation: MalwareTech VFS Nov 2014)",
+   :d3f/may-modify :d3f/SystemConfigurationDatabase,
+   :d3f/modifies :d3f/Storage,
+   :db/ident :d3f/T1564.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Hidden File System",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}
@@ -35564,14 +37551,16 @@
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_006
-  {:d3f/attack-id   "T1564.006",
-   :d3f/creates     :d3f/File,
-   :d3f/executes    :d3f/VirtualizationSoftware,
-   :d3f/may-add     :d3f/VirtualizationSoftware,
-   :d3f/may-create  :d3f/Directory,
-   :db/ident        :d3f/T1564.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Run Virtual Instance",
+  {:d3f/attack-id "T1564.006",
+   :d3f/creates :d3f/File,
+   :d3f/definition
+   "Adversaries may carry out malicious operations using a virtual instance to avoid detection. A wide variety of virtualization technologies exist that allow for the emulation of a computer or computing environment. By running malicious code inside of a virtual instance, adversaries can hide artifacts associated with their behavior from security tools that are unable to monitor activity inside the virtual instance. Additionally, depending on the virtual networking implementation (ex: bridged adapter), network traffic generated by the virtual instance can be difficult to trace back to the compromised host as the IP address and hostname might not match known values.(Citation: SingHealth Breach Jan 2019)",
+   :d3f/executes :d3f/VirtualizationSoftware,
+   :d3f/may-add :d3f/VirtualizationSoftware,
+   :d3f/may-create :d3f/Directory,
+   :db/ident :d3f/T1564.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Run Virtual Instance",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/executes,
                        :owl/someValuesFrom :d3f/VirtualizationSoftware,
                        :rdf/type           :owl/Restriction}
@@ -35586,24 +37575,28 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1564_007
-  {:d3f/attack-id   "T1564.007",
-   :d3f/modifies    :d3f/OfficeApplicationFile,
-   :db/ident        :d3f/T1564.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "VBA Stomping",
+  {:d3f/attack-id "T1564.007",
+   :d3f/definition
+   "Adversaries may hide malicious Visual Basic for Applications (VBA) payloads embedded within MS Office documents by replacing the VBA source code with benign data.(Citation: FireEye VBA stomp Feb 2020)",
+   :d3f/modifies :d3f/OfficeApplicationFile,
+   :db/ident :d3f/T1564.007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "VBA Stomping",
    :rdfs/subClassOf #{:d3f/T1564
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/OfficeApplicationFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1564_008
-  {:d3f/attack-id   "T1564.008",
-   :d3f/may-create  :d3f/EmailRule,
-   :d3f/may-modify  :d3f/EmailRule,
-   :d3f/modifies    :d3f/ApplicationConfiguration,
-   :db/ident        :d3f/T1564.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Email Hiding Rules",
+  {:d3f/attack-id "T1564.008",
+   :d3f/definition
+   "Adversaries may use email rules to hide inbound emails in a compromised user's mailbox. Many email clients allow users to create inbox rules for various email functions, including moving emails to other folders, marking emails as read, or deleting emails. Rules may be created or modified within email clients or through external features such as the <code>New-InboxRule</code> or <code>Set-InboxRule</code> [PowerShell](https://attack.mitre.org/techniques/T1059/001) cmdlets on Windows systems.(Citation: Microsoft Inbox Rules)(Citation: MacOS Email Rules)(Citation: Microsoft New-InboxRule)(Citation: Microsoft Set-InboxRule)",
+   :d3f/may-create :d3f/EmailRule,
+   :d3f/may-modify :d3f/EmailRule,
+   :d3f/modifies :d3f/ApplicationConfiguration,
+   :db/ident :d3f/T1564.008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Email Hiding Rules",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/EmailRule,
                        :rdf/type           :owl/Restriction}
@@ -35615,12 +37608,14 @@
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_009
-  {:d3f/attack-id   "T1564.009",
-   :d3f/may-create  :d3f/ResourceFork,
-   :d3f/may-modify  :d3f/ResourceFork,
-   :db/ident        :d3f/T1564.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Resource Forking",
+  {:d3f/attack-id "T1564.009",
+   :d3f/definition
+   "Adversaries may abuse resource forks to hide malicious code or executables to evade detection and bypass security applications. A resource fork provides applications a structured way to store resources such as thumbnail images, menu definitions, icons, dialog boxes, and code.(Citation: macOS Hierarchical File System Overview) Usage of a resource fork is identifiable when displaying a file’s extended attributes, using <code>ls -l@</code> or <code>xattr -l</code> commands. Resource forks have been deprecated and replaced with the application bundle structure. Non-localized resources are placed at the top level directory of an application bundle, while localized resources are placed in the <code>/Resources</code> folder.(Citation: Resource and Data Forks)(Citation: ELC Extended Attributes)",
+   :d3f/may-create :d3f/ResourceFork,
+   :d3f/may-modify :d3f/ResourceFork,
+   :db/ident :d3f/T1564.009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Resource Forking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ResourceFork,
                        :rdf/type           :owl/Restriction}
@@ -35629,65 +37624,97 @@
                        :rdf/type           :owl/Restriction} :d3f/T1564}})
 
 (def T1564_010
-  {:d3f/attack-id   "T1564.010",
-   :db/ident        :d3f/T1564.010,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Process Argument Spoofing",
+  {:d3f/attack-id "T1564.010",
+   :d3f/definition
+   "Adversaries may attempt to hide process command-line arguments by overwriting process memory. Process command-line arguments are stored in the process environment block (PEB), a data structure used by Windows to store various information about/used by a process. The PEB includes the process command-line arguments that are referenced when executing the process. When a process is created, defensive tools/sensors that monitor process creations may retrieve the process arguments from the PEB.(Citation: Microsoft PEB 2021)(Citation: Xpn Argue Like Cobalt 2019)",
+   :db/ident :d3f/T1564.010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Process Argument Spoofing",
+   :rdfs/subClassOf :d3f/T1564})
+
+(def T1564_011
+  {:d3f/attack-id "T1564.011",
+   :d3f/definition
+   "Adversaries may evade defensive mechanisms by executing commands that hide from process interrupt signals. Many operating systems use signals to deliver messages to control process behavior. Command interpreters often include specific commands/flags that ignore errors and other hangups, such as when the user of the active session logs off.(Citation: Linux Signal Man)  These interrupt signals may also be used by defensive tools and/or analysts to pause or terminate specified running processes.",
+   :db/ident :d3f/T1564.011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ignore Process Interrupts",
+   :rdfs/subClassOf :d3f/T1564})
+
+(def T1564_012
+  {:d3f/attack-id "T1564.012",
+   :d3f/definition
+   "Adversaries may attempt to hide their file-based artifacts by writing them to specific folders or file names excluded from antivirus (AV) scanning and other defensive capabilities. AV and other file-based scanners often include exclusions to optimize performance as well as ease installation and legitimate use of applications. These exclusions may be contextual (e.g., scans are only initiated in response to specific triggering events/alerts), but are also often hardcoded strings referencing specific folders and/or files assumed to be trusted and legitimate.(Citation: Microsoft File Folder Exclusions)",
+   :db/ident :d3f/T1564.012,
+   :rdf/type :owl/Class,
+   :rdfs/label "File/Path Exclusions",
    :rdfs/subClassOf :d3f/T1564})
 
 (def T1565
-  {:d3f/attack-id   "T1565",
-   :db/ident        :d3f/T1565,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Manipulation",
+  {:d3f/attack-id "T1565",
+   :d3f/definition
+   "Adversaries may insert, delete, or manipulate data in order to influence external outcomes or hide activity, thus threatening the integrity of the data.(Citation: Sygnia Elephant Beetle Jan 2022) By manipulating data, adversaries may attempt to affect a business process, organizational understanding, or decision making.",
+   :db/ident :d3f/T1565,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Manipulation",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1565_001
-  {:d3f/attack-id   "T1565.001",
-   :d3f/modifies    :d3f/File,
-   :db/ident        :d3f/T1565.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Stored Data Manipulation",
+  {:d3f/attack-id "T1565.001",
+   :d3f/definition
+   "Adversaries may insert, delete, or manipulate data at rest in order to influence external outcomes or hide activity, thus threatening the integrity of the data.(Citation: FireEye APT38 Oct 2018)(Citation: DOJ Lazarus Sony 2018) By manipulating stored data, adversaries may attempt to affect a business process, organizational understanding, and decision making.",
+   :d3f/modifies :d3f/File,
+   :db/ident :d3f/T1565.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Stored Data Manipulation",
    :rdfs/subClassOf #{:d3f/T1565
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1565_002
-  {:d3f/attack-id   "T1565.002",
-   :d3f/may-modify  :d3f/NetworkTraffic,
-   :db/ident        :d3f/T1565.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Transmitted Data Manipulation",
+  {:d3f/attack-id "T1565.002",
+   :d3f/definition
+   "Adversaries may alter data en route to storage or other systems in order to manipulate external outcomes or hide activity, thus threatening the integrity of the data.(Citation: FireEye APT38 Oct 2018)(Citation: DOJ Lazarus Sony 2018) By manipulating transmitted data, adversaries may attempt to affect a business process, organizational understanding, and decision making.",
+   :d3f/may-modify :d3f/NetworkTraffic,
+   :db/ident :d3f/T1565.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Transmitted Data Manipulation",
    :rdfs/subClassOf #{:d3f/T1565
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1565_003
-  {:d3f/attack-id   "T1565.003",
-   :d3f/may-modify  :d3f/ExecutableFile,
-   :db/ident        :d3f/T1565.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Runtime Data Manipulation",
+  {:d3f/attack-id "T1565.003",
+   :d3f/definition
+   "Adversaries may modify systems in order to manipulate the data as it is accessed and displayed to an end user, thus threatening the integrity of the data.(Citation: FireEye APT38 Oct 2018)(Citation: DOJ Lazarus Sony 2018) By manipulating runtime data, adversaries may attempt to affect a business process, organizational understanding, and decision making.",
+   :d3f/may-modify :d3f/ExecutableFile,
+   :db/ident :d3f/T1565.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Runtime Data Manipulation",
    :rdfs/subClassOf #{:d3f/T1565
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1566
-  {:d3f/attack-id   "T1566",
-   :db/ident        :d3f/T1566,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Phishing",
+  {:d3f/attack-id "T1566",
+   :d3f/definition
+   "Adversaries may send phishing messages to gain access to victim systems. All forms of phishing are electronically delivered social engineering. Phishing can be targeted, known as spearphishing. In spearphishing, a specific individual, company, or industry will be targeted by the adversary. More generally, adversaries can conduct non-targeted phishing, such as in mass malware spam campaigns.",
+   :db/ident :d3f/T1566,
+   :rdf/type :owl/Class,
+   :rdfs/label "Phishing",
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1566_001
-  {:d3f/attack-id   "T1566.001",
-   :d3f/produces    #{:d3f/Email :d3f/InboundInternetMailTraffic},
-   :db/ident        :d3f/T1566.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Spearphishing Attachment",
+  {:d3f/attack-id "T1566.001",
+   :d3f/definition
+   "Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems. Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon [User Execution](https://attack.mitre.org/techniques/T1204) to gain execution.(Citation: Unit 42 DarkHydrus July 2018) Spearphishing may also involve social engineering techniques, such as posing as a trusted source.",
+   :d3f/produces #{:d3f/Email :d3f/InboundInternetMailTraffic},
+   :db/ident :d3f/T1566.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Spearphishing Attachment",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
                        :rdf/type           :owl/Restriction}
@@ -35696,11 +37723,13 @@
                        :rdf/type           :owl/Restriction} :d3f/T1566}})
 
 (def T1566_002
-  {:d3f/attack-id   "T1566.002",
-   :d3f/produces    #{:d3f/Email :d3f/InboundInternetMailTraffic :d3f/URL},
-   :db/ident        :d3f/T1566.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Spearphishing Link",
+  {:d3f/attack-id "T1566.002",
+   :d3f/definition
+   "Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems. Spearphishing with a link is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of links to download malware contained in email, instead of attaching malicious files to the email itself, to avoid defenses that may inspect email attachments. Spearphishing may also involve social engineering techniques, such as posing as a trusted source.",
+   :d3f/produces #{:d3f/Email :d3f/InboundInternetMailTraffic :d3f/URL},
+   :db/ident :d3f/T1566.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Spearphishing Link",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
                        :rdf/type           :owl/Restriction}
@@ -35712,11 +37741,13 @@
                        :rdf/type           :owl/Restriction} :d3f/T1566}})
 
 (def T1566_003
-  {:d3f/attack-id   "T1566.003",
-   :d3f/produces    #{:d3f/URL :d3f/File},
-   :db/ident        :d3f/T1566.003,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Spearphishing Via Service",
+  {:d3f/attack-id "T1566.003",
+   :d3f/definition
+   "Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems. Spearphishing via service is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of third party services rather than directly via enterprise email channels.",
+   :d3f/produces #{:d3f/URL :d3f/File},
+   :db/ident :d3f/T1566.003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Spearphishing via Service",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/URL,
                        :rdf/type           :owl/Restriction}
@@ -35724,51 +37755,85 @@
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction} :d3f/T1566}})
 
+(def T1566_004
+  {:d3f/attack-id "T1566.004",
+   :d3f/definition
+   "Adversaries may use voice communications to ultimately gain access to victim systems. Spearphishing voice is a specific variant of spearphishing. It is different from other forms of spearphishing in that is employs the use of manipulating a user into providing access to systems through a phone call or other forms of voice communications. Spearphishing frequently involves social engineering techniques, such as posing as a trusted source (ex: [Impersonation](https://attack.mitre.org/techniques/T1656)) and/or creating a sense of urgency or alarm for the recipient.",
+   :db/ident :d3f/T1566.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing Voice",
+   :rdfs/subClassOf :d3f/T1566})
+
 (def T1567
-  {:d3f/attack-id   "T1567",
-   :d3f/produces    :d3f/OutboundInternetWebTraffic,
-   :db/ident        :d3f/T1567,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration Over Web Service",
+  {:d3f/attack-id "T1567",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. Popular Web services acting as an exfiltration mechanism may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to compromise. Firewall rules may also already exist to permit traffic to these services.",
+   :d3f/produces :d3f/OutboundInternetWebTraffic,
+   :db/ident :d3f/T1567,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration Over Web Service",
    :rdfs/subClassOf #{:d3f/ExfiltrationTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1567_001
-  {:d3f/attack-id   "T1567.001",
+  {:d3f/attack-id "T1567.001",
+   :d3f/definition
+   "Adversaries may exfiltrate data to a code repository rather than over their primary command and control channel. Code repositories are often accessible via an API (ex: https://api.github.com). Access to these APIs are often over HTTPS, which gives the adversary an additional level of protection.",
    :d3f/may-produce #{:d3f/OutboundInternetEncryptedRemoteTerminalTraffic
                       :d3f/OutboundInternetEncryptedWebTraffic},
-   :db/ident        :d3f/T1567.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration to Code Repository",
-   :rdfs/subClassOf #{{:owl/onProperty :d3f/may-produce,
-                       :owl/someValuesFrom
-                       :d3f/OutboundInternetEncryptedWebTraffic,
-                       :rdf/type :owl/Restriction}
-                      {:owl/onProperty :d3f/may-produce,
-                       :owl/someValuesFrom
-                       :d3f/OutboundInternetEncryptedRemoteTerminalTraffic,
-                       :rdf/type :owl/Restriction} :d3f/T1567}})
+   :db/ident :d3f/T1567.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration to Code Repository",
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/may-produce,
+      :owl/someValuesFrom :d3f/OutboundInternetEncryptedWebTraffic,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/may-produce,
+      :owl/someValuesFrom :d3f/OutboundInternetEncryptedRemoteTerminalTraffic,
+      :rdf/type           :owl/Restriction} :d3f/T1567}})
 
 (def T1567_002
-  {:d3f/attack-id   "T1567.002",
-   :d3f/produces    :d3f/OutboundInternetEncryptedWebTraffic,
-   :db/ident        :d3f/T1567.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Exfiltration to Cloud Storage",
+  {:d3f/attack-id "T1567.002",
+   :d3f/definition
+   "Adversaries may exfiltrate data to a cloud storage service rather than over their primary command and control channel. Cloud storage services allow for the storage, edit, and retrieval of data from a remote cloud storage server over the Internet.",
+   :d3f/produces :d3f/OutboundInternetEncryptedWebTraffic,
+   :db/ident :d3f/T1567.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Exfiltration to Cloud Storage",
    :rdfs/subClassOf #{:d3f/T1567
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
                        :d3f/OutboundInternetEncryptedWebTraffic,
                        :rdf/type :owl/Restriction}}})
 
+(def T1567_003
+  {:d3f/attack-id "T1567.003",
+   :d3f/definition
+   "Adversaries may exfiltrate data to text storage sites instead of their primary command and control channel. Text storage sites, such as <code>pastebin[.]com</code>, are commonly used by developers to share code and other information.",
+   :db/ident :d3f/T1567.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration to Text Storage Sites",
+   :rdfs/subClassOf :d3f/T1567})
+
+(def T1567_004
+  {:d3f/attack-id "T1567.004",
+   :d3f/definition
+   "Adversaries may exfiltrate data to a webhook endpoint rather than over their primary command and control channel. Webhooks are simple mechanisms for allowing a server to push data over HTTP/S to a client without the need for the client to continuously poll the server.(Citation: RedHat Webhooks) Many public and commercial services, such as Discord, Slack, and `webhook.site`, support the creation of webhook endpoints that can be used by other services, such as Github, Jira, or Trello.(Citation: Discord Intro to Webhooks) When changes happen in the linked services (such as pushing a repository update or modifying a ticket), these services will automatically post the data to the webhook endpoint for use by the consuming application.",
+   :db/ident :d3f/T1567.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration Over Webhook",
+   :rdfs/subClassOf :d3f/T1567})
+
 (def T1568
-  {:d3f/attack-id   "T1568",
-   :d3f/produces    :d3f/OutboundInternetDNSLookupTraffic,
-   :db/ident        :d3f/T1568,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Dynamic Resolution",
+  {:d3f/attack-id "T1568",
+   :d3f/definition
+   "Adversaries may dynamically establish connections to command and control infrastructure to evade common detections and remediations. This may be achieved by using malware that shares a common algorithm with the infrastructure the adversary uses to receive the malware's communications. These calculations can be used to dynamically adjust parameters such as the domain name, IP address, or port number the malware uses for command and control.",
+   :d3f/produces :d3f/OutboundInternetDNSLookupTraffic,
+   :db/ident :d3f/T1568,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Dynamic Resolution",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
@@ -35776,24 +37841,30 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1568_001
-  {:d3f/attack-id   "T1568.001",
-   :db/ident        :d3f/T1568.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Fast Flux DNS",
+  {:d3f/attack-id "T1568.001",
+   :d3f/definition
+   "Adversaries may use Fast Flux DNS to hide a command and control channel behind an array of rapidly changing IP addresses linked to a single domain resolution. This technique uses a fully qualified domain name, with multiple IP addresses assigned to it which are swapped with high frequency, using a combination of round robin IP addressing and short Time-To-Live (TTL) for a DNS resource record.(Citation: MehtaFastFluxPt1)(Citation: MehtaFastFluxPt2)(Citation: Fast Flux - Welivesecurity)",
+   :db/ident :d3f/T1568.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Fast Flux DNS",
    :rdfs/subClassOf :d3f/T1568})
 
 (def T1568_002
-  {:d3f/attack-id   "T1568.002",
-   :db/ident        :d3f/T1568.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Generation Algorithms",
+  {:d3f/attack-id "T1568.002",
+   :d3f/definition
+   "Adversaries may make use of Domain Generation Algorithms (DGAs) to dynamically identify a destination domain for command and control traffic rather than relying on a list of static IP addresses or domains. This has the advantage of making it much harder for defenders to block, track, or take over the command and control channel, as there potentially could be thousands of domains that malware can check for instructions.(Citation: Cybereason Dissecting DGAs)(Citation: Cisco Umbrella DGA)(Citation: Unit 42 DGA Feb 2019)",
+   :db/ident :d3f/T1568.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Generation Algorithms",
    :rdfs/subClassOf :d3f/T1568})
 
 (def T1568_003
-  {:d3f/attack-id   "T1568.003",
-   :db/ident        :d3f/T1568.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DNS Calculation",
+  {:d3f/attack-id "T1568.003",
+   :d3f/definition
+   "Adversaries may perform calculations on addresses returned in DNS results to determine which port and IP address to use for command and control, rather than relying on a predetermined port number or the actual returned IP address. A IP and/or port number calculation can be used to bypass egress filtering on a C2 channel.(Citation: Meyers Numbered Panda)",
+   :db/ident :d3f/T1568.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "DNS Calculation",
    :rdfs/subClassOf :d3f/T1568})
 
 (def T1569
@@ -35805,72 +37876,86 @@
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1569_001
-  {:d3f/attack-id   "T1569.001",
-   :db/ident        :d3f/T1569.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Launchctl",
+  {:d3f/attack-id "T1569.001",
+   :d3f/definition
+   "Adversaries may abuse launchctl to execute commands or programs. Launchctl interfaces with launchd, the service management framework for macOS. Launchctl supports taking subcommands on the command-line, interactively, or even redirected from standard input.(Citation: Launchctl Man)",
+   :db/ident :d3f/T1569.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Launchctl",
    :rdfs/subClassOf :d3f/T1569})
 
 (def T1569_002
-  {:d3f/attack-id   "T1569.002",
-   :db/ident        :d3f/T1569.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Service Execution",
+  {:d3f/attack-id "T1569.002",
+   :d3f/definition
+   "Adversaries may abuse the Windows service control manager to execute malicious commands or payloads. The Windows service control manager (<code>services.exe</code>) is an interface to manage and manipulate services.(Citation: Microsoft Service Control Manager) The service control manager is accessible to users via GUI components as well as system utilities such as <code>sc.exe</code> and [Net](https://attack.mitre.org/software/S0039).",
+   :db/ident :d3f/T1569.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Service Execution",
    :rdfs/subClassOf :d3f/T1569})
 
 (def T1570
-  {:d3f/attack-id   "T1570",
-   :d3f/produces    :d3f/IntranetFileTransferTraffic,
-   :db/ident        :d3f/T1570,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Lateral Tool Transfer",
+  {:d3f/attack-id "T1570",
+   :d3f/definition
+   "Adversaries may transfer tools or other files between systems in a compromised environment. Once brought into the victim environment (i.e., [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105)) files may then be copied from one system to another to stage adversary tools or other files over the course of an operation.",
+   :d3f/produces :d3f/IntranetFileTransferTraffic,
+   :db/ident :d3f/T1570,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Lateral Tool Transfer",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/IntranetFileTransferTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/LateralMovementTechnique}})
 
 (def T1571
-  {:d3f/attack-id   "T1571",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1571,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Non-Standard Port",
+  {:d3f/attack-id "T1571",
+   :d3f/definition
+   "Adversaries may communicate using a protocol and port pairing that are typically not associated. For example, HTTPS over port 8088(Citation: Symantec Elfin Mar 2019) or port 587(Citation: Fortinet Agent Tesla April 2018) as opposed to the traditional port 443. Adversaries may make changes to the standard port used by a protocol to bypass filtering or muddle analysis/parsing of network data.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1571,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Non-Standard Port",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1572
-  {:d3f/attack-id   "T1572",
-   :d3f/produces    :d3f/OutboundInternetNetworkTraffic,
-   :db/ident        :d3f/T1572,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Protocol Tunneling",
+  {:d3f/attack-id "T1572",
+   :d3f/definition
+   "Adversaries may tunnel network communications to and from a victim system within a separate protocol to avoid detection/network filtering and/or enable access to otherwise unreachable systems. Tunneling involves explicitly encapsulating a protocol within another. This behavior may conceal malicious traffic by blending in with existing traffic and/or provide an outer layer of encryption (similar to a VPN). Tunneling could also enable routing of network packets that would otherwise not reach their intended destination, such as SMB, RDP, or other traffic that would be filtered by network appliances or not routed over the Internet.",
+   :d3f/produces :d3f/OutboundInternetNetworkTraffic,
+   :db/ident :d3f/T1572,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Protocol Tunneling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
 
 (def T1573
-  {:d3f/attack-id   "T1573",
-   :d3f/produces    :d3f/OutboundInternetEncryptedTraffic,
-   :db/ident        :d3f/T1573,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Encrypted Channel",
+  {:d3f/attack-id "T1573",
+   :d3f/definition
+   "Adversaries may employ an encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Despite the use of a secure algorithm, these implementations may be vulnerable to reverse engineering if secret keys are encoded and/or generated within malware samples/configuration files.",
+   :d3f/produces :d3f/OutboundInternetEncryptedTraffic,
+   :db/ident :d3f/T1573,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Encrypted Channel",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty :d3f/produces,
                        :owl/someValuesFrom
                        :d3f/OutboundInternetEncryptedTraffic,
                        :rdf/type :owl/Restriction}},
-   :skos/altLabel   #{"Custom Command and Control Protocol"
-                      "Multilayer Encryption" "Custom Cryptographic Protocol"}})
+   :skos/altLabel #{"Custom Command and Control Protocol"
+                    "Multilayer Encryption" "Custom Cryptographic Protocol"}})
 
 (def T1573_001
-  {:d3f/attack-id   "T1573.001",
-   :d3f/creates     :d3f/OutboundInternetEncryptedTraffic,
-   :db/ident        :d3f/T1573.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Symmetric Cryptography",
+  {:d3f/attack-id "T1573.001",
+   :d3f/creates :d3f/OutboundInternetEncryptedTraffic,
+   :d3f/definition
+   "Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Symmetric encryption algorithms use the same key for plaintext encryption and ciphertext decryption. Common symmetric encryption algorithms include AES, DES, 3DES, Blowfish, and RC4.",
+   :db/ident :d3f/T1573.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Symmetric Cryptography",
    :rdfs/subClassOf #{:d3f/T1573
                       {:owl/onProperty :d3f/creates,
                        :owl/someValuesFrom
@@ -35878,46 +37963,54 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1573_002
-  {:d3f/attack-id    "T1573.002",
-   :d3f/creates      :d3f/OutboundInternetEncryptedTraffic,
+  {:d3f/attack-id "T1573.002",
+   :d3f/creates :d3f/OutboundInternetEncryptedTraffic,
+   :d3f/definition
+   "Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Asymmetric cryptography, also known as public key cryptography, uses a keypair per party: one public that can be freely distributed, and one private. Due to how the keys are generated, the sender encrypts data with the receiver’s public key and the receiver decrypts the data with their private key. This ensures that only the intended recipient can read the encrypted data. Common public key encryption algorithms include RSA and ElGamal.",
    :d3f/may-transfer :d3f/CertificateFile,
-   :db/ident         :d3f/T1573.002,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label       "Asymmetric Cryptography",
-   :rdfs/subClassOf  #{:d3f/T1573
-                       {:owl/onProperty :d3f/creates,
-                        :owl/someValuesFrom
-                        :d3f/OutboundInternetEncryptedTraffic,
-                        :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3f/may-transfer,
-                        :owl/someValuesFrom :d3f/CertificateFile,
-                        :rdf/type           :owl/Restriction}}})
+   :db/ident :d3f/T1573.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Asymmetric Cryptography",
+   :rdfs/subClassOf #{:d3f/T1573
+                      {:owl/onProperty :d3f/creates,
+                       :owl/someValuesFrom
+                       :d3f/OutboundInternetEncryptedTraffic,
+                       :rdf/type :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-transfer,
+                       :owl/someValuesFrom :d3f/CertificateFile,
+                       :rdf/type           :owl/Restriction}}})
 
 (def T1574
-  {:d3f/attack-id   "T1574",
-   :db/ident        :d3f/T1574,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hijack Execution Flow",
+  {:d3f/attack-id "T1574",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the way operating systems run programs. Hijacking execution flow can be for the purposes of persistence, since this hijacked execution may reoccur over time. Adversaries may also use these mechanisms to elevate privileges or evade defenses, such as application control or other restrictions on execution.",
+   :db/ident :d3f/T1574,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hijack Execution Flow",
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
 (def T1574_001
-  {:d3f/attack-id   "T1574.001",
-   :d3f/may-create  :d3f/SharedLibraryFile,
-   :db/ident        :d3f/T1574.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "DLL Search Order Hijacking",
+  {:d3f/attack-id "T1574.001",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the search order used to load DLLs. Windows systems use a common method to look for required DLLs to load into a program. (Citation: Microsoft Dynamic Link Library Search Order)(Citation: FireEye Hijacking July 2010) Hijacking DLL loads may be for the purpose of establishing persistence as well as elevating privileges and/or evading restrictions on file execution.",
+   :d3f/may-create :d3f/SharedLibraryFile,
+   :db/ident :d3f/T1574.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DLL Search Order Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1574}})
 
 (def T1574_002
-  {:d3f/attack-id   "T1574.002",
-   :d3f/may-create  :d3f/SharedLibraryFile,
-   :d3f/may-modify  :d3f/SharedLibraryFile,
-   :db/ident        :d3f/T1574.002,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "DLL Side-Loading",
+  {:d3f/attack-id "T1574.002",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by side-loading DLLs. Similar to [DLL Search Order Hijacking](https://attack.mitre.org/techniques/T1574/001), side-loading involves hijacking which DLL a program loads. But rather than just planting the DLL within the search order of a program then waiting for the victim application to be invoked, adversaries may directly side-load their payloads by planting then invoking a legitimate application that executes their payload(s).",
+   :d3f/may-create :d3f/SharedLibraryFile,
+   :d3f/may-modify :d3f/SharedLibraryFile,
+   :db/ident :d3f/T1574.002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DLL Side-Loading",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1574
@@ -35926,12 +38019,14 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_004
-  {:d3f/attack-id   "T1574.004",
-   :d3f/may-create  :d3f/SharedLibraryFile,
-   :d3f/may-modify  :d3f/SharedLibraryFile,
-   :db/ident        :d3f/T1574.004,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Dylib Hijacking",
+  {:d3f/attack-id "T1574.004",
+   :d3f/definition
+   "Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime. The dynamic loader will try to find the dylibs based on the sequential order of the search paths. Paths to dylibs may be prefixed with <code>@rpath</code>, which allows developers to use relative paths to specify an array of search paths used at runtime based on the location of the executable.  Additionally, if weak linking is used, such as the <code>LC_LOAD_WEAK_DYLIB</code> function, an application will still execute even if an expected dylib is not present. Weak linking enables developers to run an application on multiple macOS versions as new APIs are added.",
+   :d3f/may-create :d3f/SharedLibraryFile,
+   :d3f/may-modify :d3f/SharedLibraryFile,
+   :db/ident :d3f/T1574.004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Dylib Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1574
@@ -35940,78 +38035,92 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_005
-  {:d3f/attack-id   "T1574.005",
-   :d3f/modifies    :d3f/ServiceApplication,
-   :db/ident        :d3f/T1574.005,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Executable Installer File Permissions Weakness",
+  {:d3f/attack-id "T1574.005",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the binaries used by an installer. These processes may automatically execute specific binaries as part of their functionality or to perform other actions. If the permissions on the file system directory containing a target binary, or permissions on the binary itself, are improperly set, then the target binary may be overwritten with another binary using user-level permissions and executed by the original process. If the original process and thread are running under a higher permissions level, then the replaced binary will also execute under higher-level permissions, which could include SYSTEM.",
+   :d3f/modifies :d3f/ServiceApplication,
+   :db/ident :d3f/T1574.005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Executable Installer File Permissions Weakness",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ServiceApplication,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_006
-  {:d3f/attack-id   "T1574.006",
-   :d3f/modifies    :d3f/OperatingSystemConfigurationFile,
-   :db/ident        :d3f/T1574.006,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "LD_PRELOAD",
+  {:d3f/attack-id "T1574.006",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries. During the execution preparation phase of a program, the dynamic linker loads specified absolute paths of shared libraries from environment variables and files, such as <code>LD_PRELOAD</code> on Linux or <code>DYLD_INSERT_LIBRARIES</code> on macOS. Libraries specified in environment variables are loaded first, taking precedence over system libraries with the same function name.(Citation: Man LD.SO)(Citation: TLDP Shared Libraries)(Citation: Apple Doco Archive Dynamic Libraries) These variables are often used by developers to debug binaries without needing to recompile, deconflict mapped symbols, and implement custom functions without changing the original library.(Citation: Baeldung LD_PRELOAD)",
+   :d3f/modifies :d3f/OperatingSystemConfigurationFile,
+   :db/ident :d3f/T1574.006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Dynamic Linker Hijacking",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/OperatingSystemConfigurationFile,
                        :rdf/type :owl/Restriction} :d3f/T1574}})
 
 (def T1574_007
-  {:d3f/attack-id   "T1574.007",
-   :d3f/creates     :d3f/ExecutableFile,
-   :db/ident        :d3f/T1574.007,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Path Interception by PATH Environment Variable",
+  {:d3f/attack-id "T1574.007",
+   :d3f/creates :d3f/ExecutableFile,
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries. The PATH environment variable contains a list of directories (User and System) that the OS searches sequentially through in search of the binary that was called from a script or the command line.",
+   :db/ident :d3f/T1574.007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Path Interception by PATH Environment Variable",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_008
-  {:d3f/attack-id   "T1574.008",
-   :d3f/creates     :d3f/ExecutableFile,
-   :db/ident        :d3f/T1574.008,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Path Interception by Search Order Hijacking",
+  {:d3f/attack-id "T1574.008",
+   :d3f/creates :d3f/ExecutableFile,
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs. Because some programs do not call other programs using the full path, adversaries may place their own file in the directory where the calling program is located, causing the operating system to launch their malicious software at the request of the calling program.",
+   :db/ident :d3f/T1574.008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Path Interception by Search Order Hijacking",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_009
-  {:d3f/attack-id   "T1574.009",
-   :d3f/creates     :d3f/ExecutableFile,
-   :db/ident        :d3f/T1574.009,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Path Interception by Unquoted Path",
+  {:d3f/attack-id "T1574.009",
+   :d3f/creates :d3f/ExecutableFile,
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary's executable to launch.",
+   :db/ident :d3f/T1574.009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Path Interception by Unquoted Path",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/creates,
                        :owl/someValuesFrom :d3f/ExecutableFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_010
-  {:d3f/attack-id   "T1574.010",
-   :d3f/modifies    :d3f/ServiceApplication,
-   :db/ident        :d3f/T1574.010,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Services File Permissions Weakness",
+  {:d3f/attack-id "T1574.010",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the binaries used by services. Adversaries may use flaws in the permissions of Windows services to replace the binary that is executed upon service start. These service processes may automatically execute specific binaries as part of their functionality or to perform other actions. If the permissions on the file system directory containing a target binary, or permissions on the binary itself are improperly set, then the target binary may be overwritten with another binary using user-level permissions and executed by the original process. If the original process and thread are running under a higher permissions level, then the replaced binary will also execute under higher-level permissions, which could include SYSTEM.",
+   :d3f/modifies :d3f/ServiceApplication,
+   :db/ident :d3f/T1574.010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Services File Permissions Weakness",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ServiceApplication,
                        :rdf/type           :owl/Restriction}},
-   :skos/altLabel   "Service Registry Permissions Weakness"})
+   :skos/altLabel "Service Registry Permissions Weakness"})
 
 (def T1574_011
-  {:d3f/attack-id   "T1574.011",
-   :d3f/modifies    :d3f/SystemConfigurationInitDatabaseRecord,
-   :db/ident        :d3f/T1574.011,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Services Registry Permissions Weakness",
+  {:d3f/attack-id "T1574.011",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services. Adversaries may use flaws in the permissions for Registry keys related to services to redirect from the originally specified executable to one that they control, in order to launch their own code when a service starts. Windows stores local service configuration information in the Registry under <code>HKLM\\SYSTEM\\CurrentControlSet\\Services</code>. The information stored under a service's Registry keys can be manipulated to modify a service's execution parameters through tools such as the service controller, sc.exe,  [PowerShell](https://attack.mitre.org/techniques/T1059/001), or [Reg](https://attack.mitre.org/software/S0075). Access to Registry keys is controlled through access control lists and user permissions. (Citation: Registry Key Security)(Citation: malware_hides_service)",
+   :d3f/modifies :d3f/SystemConfigurationInitDatabaseRecord,
+   :db/ident :d3f/T1574.011,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Services Registry Permissions Weakness",
    :rdfs/subClassOf #{:d3f/T1574
                       {:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
@@ -36019,12 +38128,14 @@
                        :rdf/type :owl/Restriction}}})
 
 (def T1574_012
-  {:d3f/adds        :d3f/SharedLibraryFile,
-   :d3f/attack-id   "T1574.012",
-   :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
-   :db/ident        :d3f/T1574.012,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "COR_PROFILER",
+  {:d3f/adds :d3f/SharedLibraryFile,
+   :d3f/attack-id "T1574.012",
+   :d3f/definition
+   "Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR. The COR_PROFILER is a .NET Framework feature which allows developers to specify an unmanaged (or external of .NET) profiling DLL to be loaded into each .NET process that loads the Common Language Runtime (CLR). These profilers are designed to monitor, troubleshoot, and debug managed code executed by the .NET CLR.(Citation: Microsoft Profiling Mar 2017)(Citation: Microsoft COR_PROFILER Feb 2013)",
+   :d3f/modifies :d3f/SystemConfigurationDatabaseRecord,
+   :db/ident :d3f/T1574.012,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "COR_PROFILER",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/modifies,
                        :owl/someValuesFrom
                        :d3f/SystemConfigurationDatabaseRecord,
@@ -36034,750 +38145,1071 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1574_013
-  {:d3f/attack-id   "T1574.013",
-   :db/ident        :d3f/T1574.013,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "KernelCallbackTable",
+  {:d3f/attack-id "T1574.013",
+   :d3f/definition
+   "Adversaries may abuse the <code>KernelCallbackTable</code> of a process to hijack its execution flow in order to run their own payloads.(Citation: Lazarus APT January 2022)(Citation: FinFisher exposed ) The <code>KernelCallbackTable</code> can be found in the Process Environment Block (PEB) and is initialized to an array of graphic functions available to a GUI process once <code>user32.dll</code> is loaded.(Citation: Windows Process Injection KernelCallbackTable)",
+   :db/ident :d3f/T1574.013,
+   :rdf/type :owl/Class,
+   :rdfs/label "KernelCallbackTable",
+   :rdfs/subClassOf :d3f/T1574})
+
+(def T1574_014
+  {:d3f/attack-id "T1574.014",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking how the .NET `AppDomainManager` loads assemblies. The .NET framework uses the `AppDomainManager` class to create and manage one or more isolated runtime environments (called application domains) inside a process to host the execution of .NET applications. Assemblies (`.exe` or `.dll` binaries compiled to run as .NET code) may be loaded into an application domain as executable code.(Citation: Microsoft App Domains)",
+   :db/ident :d3f/T1574.014,
+   :rdf/type :owl/Class,
+   :rdfs/label "AppDomainManager",
    :rdfs/subClassOf :d3f/T1574})
 
 (def T1578
-  {:d3f/attack-id   "T1578",
-   :db/ident        :d3f/T1578,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Modify Cloud Compute Infrastructure",
+  {:d3f/attack-id "T1578",
+   :d3f/definition
+   "An adversary may attempt to modify a cloud account's compute service infrastructure to evade defenses. A modification to the compute service infrastructure can include the creation, deletion, or modification of one or more components such as compute instances, virtual machines, and snapshots.",
+   :db/ident :d3f/T1578,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Cloud Compute Infrastructure",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1578_001
-  {:d3f/attack-id   "T1578.001",
-   :db/ident        :d3f/T1578.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Create Snapshot",
+  {:d3f/attack-id "T1578.001",
+   :d3f/definition
+   "An adversary may create a snapshot or data backup within a cloud account to evade defenses. A snapshot is a point-in-time copy of an existing cloud compute component such as a virtual machine (VM), virtual hard drive, or volume. An adversary may leverage permissions to create a snapshot in order to bypass restrictions that prevent access to existing compute service infrastructure, unlike in [Revert Cloud Instance](https://attack.mitre.org/techniques/T1578/004) where an adversary may revert to a snapshot to evade detection and remove evidence of their presence.",
+   :db/ident :d3f/T1578.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Create Snapshot",
    :rdfs/subClassOf :d3f/T1578})
 
 (def T1578_002
-  {:d3f/attack-id   "T1578.002",
-   :db/ident        :d3f/T1578.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Create Cloud Instance",
+  {:d3f/attack-id "T1578.002",
+   :d3f/definition
+   "An adversary may create a new instance or virtual machine (VM) within the compute service of a cloud account to evade defenses. Creating a new instance may allow an adversary to bypass firewall rules and permissions that exist on instances currently residing within an account. An adversary may [Create Snapshot](https://attack.mitre.org/techniques/T1578/001) of one or more volumes in an account, create a new instance, mount the snapshots, and then apply a less restrictive security policy to collect [Data from Local System](https://attack.mitre.org/techniques/T1005) or for [Remote Data Staging](https://attack.mitre.org/techniques/T1074/002).(Citation: Mandiant M-Trends 2020)",
+   :db/ident :d3f/T1578.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Create Cloud Instance",
    :rdfs/subClassOf :d3f/T1578})
 
 (def T1578_003
-  {:d3f/attack-id   "T1578.003",
-   :db/ident        :d3f/T1578.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Delete Cloud Instance",
+  {:d3f/attack-id "T1578.003",
+   :d3f/definition
+   "An adversary may delete a cloud instance after they have performed malicious activities in an attempt to evade detection and remove evidence of their presence.  Deleting an instance or virtual machine can remove valuable forensic artifacts and other evidence of suspicious behavior if the instance is not recoverable.",
+   :db/ident :d3f/T1578.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Delete Cloud Instance",
    :rdfs/subClassOf :d3f/T1578})
 
 (def T1578_004
-  {:d3f/attack-id   "T1578.004",
-   :db/ident        :d3f/T1578.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Revert Cloud Instance",
+  {:d3f/attack-id "T1578.004",
+   :d3f/definition
+   "An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence. In highly virtualized environments, such as cloud-based infrastructure, this may be accomplished by restoring virtual machine (VM) or data storage snapshots through the cloud management dashboard or cloud APIs.",
+   :db/ident :d3f/T1578.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Revert Cloud Instance",
+   :rdfs/subClassOf :d3f/T1578})
+
+(def T1578_005
+  {:d3f/attack-id "T1578.005",
+   :d3f/definition
+   "Adversaries may modify settings that directly affect the size, locations, and resources available to cloud compute infrastructure in order to evade defenses. These settings may include service quotas, subscription associations, tenant-wide policies, or other configurations that impact available compute. Such modifications may allow adversaries to abuse the victim’s compute resources to achieve their goals, potentially without affecting the execution of running instances and/or revealing their activities to the victim.",
+   :db/ident :d3f/T1578.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Cloud Compute Configurations",
    :rdfs/subClassOf :d3f/T1578})
 
 (def T1580
-  {:d3f/attack-id   "T1580",
-   :db/ident        :d3f/T1580,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cloud Infrastructure Discovery",
+  {:d3f/attack-id "T1580",
+   :d3f/definition
+   "An adversary may attempt to discover infrastructure and resources that are available within an infrastructure-as-a-service (IaaS) environment. This includes compute service resources such as instances, virtual machines, and snapshots as well as resources of other services including the storage and database services.",
+   :db/ident :d3f/T1580,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Infrastructure Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1583
-  {:d3f/attack-id   "T1583",
-   :db/ident        :d3f/T1583,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Acquire Infrastructure",
+  {:d3f/attack-id "T1583",
+   :d3f/definition
+   "Adversaries may buy, lease, rent, or obtain infrastructure that can be used during targeting. A wide variety of infrastructure exists for hosting and orchestrating adversary operations. Infrastructure solutions include physical or cloud servers, domains, and third-party web services.(Citation: TrendmicroHideoutsLease) Some infrastructure providers offer free trial periods, enabling infrastructure acquisition at limited to no cost.(Citation: Free Trial PurpleUrchin) Additionally, botnets are available for rent or purchase.",
+   :db/ident :d3f/T1583,
+   :rdf/type :owl/Class,
+   :rdfs/label "Acquire Infrastructure",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1583_001
-  {:d3f/attack-id   "T1583.001",
-   :db/ident        :d3f/T1583.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domains",
+  {:d3f/attack-id "T1583.001",
+   :d3f/definition
+   "Adversaries may acquire domains that can be used during targeting. Domain names are the human readable names used to represent one or more IP addresses. They can be purchased or, in some cases, acquired for free.",
+   :db/ident :d3f/T1583.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domains",
    :rdfs/subClassOf :d3f/T1583})
 
 (def T1583_002
-  {:d3f/attack-id   "T1583.002",
-   :db/ident        :d3f/T1583.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DNS Server",
+  {:d3f/attack-id "T1583.002",
+   :d3f/definition
+   "Adversaries may set up their own Domain Name System (DNS) servers that can be used during targeting. During post-compromise activity, adversaries may utilize DNS traffic for various tasks, including for Command and Control (ex: [Application Layer Protocol](https://attack.mitre.org/techniques/T1071)). Instead of hijacking existing DNS servers, adversaries may opt to configure and run their own DNS servers in support of operations.",
+   :db/ident :d3f/T1583.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "DNS Server",
    :rdfs/subClassOf :d3f/T1583})
 
 (def T1583_003
-  {:d3f/attack-id   "T1583.003",
-   :db/ident        :d3f/T1583.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Virtual Private Server",
+  {:d3f/attack-id "T1583.003",
+   :d3f/definition
+   "Adversaries may rent Virtual Private Servers (VPSs) that can be used during targeting. There exist a variety of cloud service providers that will sell virtual machines/containers as a service. By utilizing a VPS, adversaries can make it difficult to physically tie back operations to them. The use of cloud infrastructure can also make it easier for adversaries to rapidly provision, modify, and shut down their infrastructure.",
+   :db/ident :d3f/T1583.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtual Private Server",
    :rdfs/subClassOf :d3f/T1583})
 
 (def T1583_004
-  {:d3f/attack-id   "T1583.004",
-   :db/ident        :d3f/T1583.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Server",
+  {:d3f/attack-id "T1583.004",
+   :d3f/definition
+   "Adversaries may buy, lease, rent, or obtain physical servers that can be used during targeting. Use of servers allows an adversary to stage, launch, and execute an operation. During post-compromise activity, adversaries may utilize servers for various tasks, such as watering hole operations in [Drive-by Compromise](https://attack.mitre.org/techniques/T1189), enabling [Phishing](https://attack.mitre.org/techniques/T1566) operations, or facilitating [Command and Control](https://attack.mitre.org/tactics/TA0011). Instead of compromising a third-party [Server](https://attack.mitre.org/techniques/T1584/004) or renting a [Virtual Private Server](https://attack.mitre.org/techniques/T1583/003), adversaries may opt to configure and run their own servers in support of operations. Free trial periods of cloud servers may also be abused.(Citation: Free Trial PurpleUrchin)(Citation: Freejacked)",
+   :db/ident :d3f/T1583.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Server",
    :rdfs/subClassOf :d3f/T1583})
 
 (def T1583_005
-  {:d3f/attack-id   "T1583.005",
-   :db/ident        :d3f/T1583.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Botnet",
+  {:d3f/attack-id "T1583.005",
+   :d3f/definition
+   "Adversaries may buy, lease, or rent a network of compromised systems that can be used during targeting. A botnet is a network of compromised systems that can be instructed to perform coordinated tasks.(Citation: Norton Botnet) Adversaries may purchase a subscription to use an existing botnet from a booter/stresser service. With a botnet at their disposal, adversaries may perform follow-on activity such as large-scale [Phishing](https://attack.mitre.org/techniques/T1566) or Distributed Denial of Service (DDoS).(Citation: Imperva DDoS for Hire)(Citation: Krebs-Anna)(Citation: Krebs-Bazaar)(Citation: Krebs-Booter)",
+   :db/ident :d3f/T1583.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Botnet",
    :rdfs/subClassOf :d3f/T1583})
 
 (def T1583_006
-  {:d3f/attack-id   "T1583.006",
-   :db/ident        :d3f/T1583.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Web Services",
+  {:d3f/attack-id "T1583.006",
+   :d3f/definition
+   "Adversaries may register for web services that can be used during targeting. A variety of popular websites exist for adversaries to register for a web-based service that can be abused during later stages of the adversary lifecycle, such as during Command and Control ([Web Service](https://attack.mitre.org/techniques/T1102)), [Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567), or [Phishing](https://attack.mitre.org/techniques/T1566). Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise.(Citation: FireEye APT29) By utilizing a web service, adversaries can make it difficult to physically tie back operations to them.",
+   :db/ident :d3f/T1583.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web Services",
+   :rdfs/subClassOf :d3f/T1583})
+
+(def T1583_007
+  {:d3f/attack-id "T1583.007",
+   :d3f/definition
+   "Adversaries may purchase and configure serverless cloud infrastructure, such as Cloudflare Workers or AWS Lambda functions, that can be used during targeting. By utilizing serverless infrastructure, adversaries can make it more difficult to attribute infrastructure used during operations back to them.",
+   :db/ident :d3f/T1583.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Serverless",
+   :rdfs/subClassOf :d3f/T1583})
+
+(def T1583_008
+  {:d3f/attack-id "T1583.008",
+   :d3f/definition
+   "Adversaries may purchase online advertisements that can be abused to distribute malware to victims. Ads can be purchased to plant as well as favorably position artifacts in specific locations  online, such as prominently placed within search engine results. These ads may make it more difficult for users to distinguish between actual search results and advertisements.(Citation: spamhaus-malvertising) Purchased ads may also target specific audiences using the advertising network’s capabilities, potentially further taking advantage of the trust inherently given to search engines and popular websites.",
+   :db/ident :d3f/T1583.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malvertising",
    :rdfs/subClassOf :d3f/T1583})
 
 (def T1584
-  {:d3f/attack-id   "T1584",
-   :db/ident        :d3f/T1584,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Compromise Infrastructure",
+  {:d3f/attack-id "T1584",
+   :d3f/definition
+   "Adversaries may compromise third-party infrastructure that can be used during targeting. Infrastructure solutions include physical or cloud servers, domains, network devices, and third-party web and DNS services. Instead of buying, leasing, or renting infrastructure an adversary may compromise infrastructure and use it during other phases of the adversary lifecycle.(Citation: Mandiant APT1)(Citation: ICANNDomainNameHijacking)(Citation: Talos DNSpionage Nov 2018)(Citation: FireEye EPS Awakens Part 2) Additionally, adversaries may compromise numerous machines to form a botnet they can leverage.",
+   :db/ident :d3f/T1584,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Infrastructure",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1584_001
-  {:d3f/attack-id   "T1584.001",
-   :db/ident        :d3f/T1584.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domains",
+  {:d3f/attack-id "T1584.001",
+   :d3f/definition
+   "Adversaries may hijack domains and/or subdomains that can be used during targeting. Domain registration hijacking is the act of changing the registration of a domain name without the permission of the original registrant.(Citation: ICANNDomainNameHijacking) Adversaries may gain access to an email account for the person listed as the owner of the domain. The adversary can then claim that they forgot their password in order to make changes to the domain registration. Other possibilities include social engineering a domain registration help desk to gain access to an account or taking advantage of renewal process gaps.(Citation: Krebs DNS Hijack 2019)",
+   :db/ident :d3f/T1584.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domains",
    :rdfs/subClassOf :d3f/T1584})
 
 (def T1584_002
-  {:d3f/attack-id   "T1584.002",
-   :db/ident        :d3f/T1584.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DNS Server",
+  {:d3f/attack-id "T1584.002",
+   :d3f/definition
+   "Adversaries may compromise third-party DNS servers that can be used during targeting. During post-compromise activity, adversaries may utilize DNS traffic for various tasks, including for Command and Control (ex: [Application Layer Protocol](https://attack.mitre.org/techniques/T1071)). Instead of setting up their own DNS servers, adversaries may compromise third-party DNS servers in support of operations.",
+   :db/ident :d3f/T1584.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "DNS Server",
    :rdfs/subClassOf :d3f/T1584})
 
 (def T1584_003
-  {:d3f/attack-id   "T1584.003",
-   :db/ident        :d3f/T1584.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Virtual Private Server",
+  {:d3f/attack-id "T1584.003",
+   :d3f/definition
+   "Adversaries may compromise third-party Virtual Private Servers (VPSs) that can be used during targeting. There exist a variety of cloud service providers that will sell virtual machines/containers as a service. Adversaries may compromise VPSs purchased by third-party entities. By compromising a VPS to use as infrastructure, adversaries can make it difficult to physically tie back operations to themselves.(Citation: NSA NCSC Turla OilRig)",
+   :db/ident :d3f/T1584.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtual Private Server",
    :rdfs/subClassOf :d3f/T1584})
 
 (def T1584_004
-  {:d3f/attack-id   "T1584.004",
-   :db/ident        :d3f/T1584.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Server",
+  {:d3f/attack-id "T1584.004",
+   :d3f/definition
+   "Adversaries may compromise third-party servers that can be used during targeting. Use of servers allows an adversary to stage, launch, and execute an operation. During post-compromise activity, adversaries may utilize servers for various tasks, including for Command and Control.(Citation: TrendMicro EarthLusca 2022) Instead of purchasing a [Server](https://attack.mitre.org/techniques/T1583/004) or [Virtual Private Server](https://attack.mitre.org/techniques/T1583/003), adversaries may compromise third-party servers in support of operations.",
+   :db/ident :d3f/T1584.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Server",
    :rdfs/subClassOf :d3f/T1584})
 
 (def T1584_005
-  {:d3f/attack-id   "T1584.005",
-   :db/ident        :d3f/T1584.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Botnet",
+  {:d3f/attack-id "T1584.005",
+   :d3f/definition
+   "Adversaries may compromise numerous third-party systems to form a botnet that can be used during targeting. A botnet is a network of compromised systems that can be instructed to perform coordinated tasks.(Citation: Norton Botnet) Instead of purchasing/renting a botnet from a booter/stresser service, adversaries may build their own botnet by compromising numerous third-party systems.(Citation: Imperva DDoS for Hire) Adversaries may also conduct a takeover of an existing botnet, such as redirecting bots to adversary-controlled C2 servers.(Citation: Dell Dridex Oct 2015) With a botnet at their disposal, adversaries may perform follow-on activity such as large-scale [Phishing](https://attack.mitre.org/techniques/T1566) or Distributed Denial of Service (DDoS).",
+   :db/ident :d3f/T1584.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Botnet",
    :rdfs/subClassOf :d3f/T1584})
 
 (def T1584_006
-  {:d3f/attack-id   "T1584.006",
-   :db/ident        :d3f/T1584.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Web Services",
+  {:d3f/attack-id "T1584.006",
+   :d3f/definition
+   "Adversaries may compromise access to third-party web services that can be used during targeting. A variety of popular websites exist for legitimate users to register for web-based services, such as GitHub, Twitter, Dropbox, Google, SendGrid, etc. Adversaries may try to take ownership of a legitimate user's access to a web service and use that web service as infrastructure in support of cyber operations. Such web services can be abused during later stages of the adversary lifecycle, such as during Command and Control ([Web Service](https://attack.mitre.org/techniques/T1102)), [Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567), or [Phishing](https://attack.mitre.org/techniques/T1566).(Citation: Recorded Future Turla Infra 2020) Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise. By utilizing a web service, particularly when access is stolen from legitimate users, adversaries can make it difficult to physically tie back operations to them. Additionally, leveraging compromised web-based email services may allow adversaries to leverage the trust associated with legitimate domains.",
+   :db/ident :d3f/T1584.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web Services",
+   :rdfs/subClassOf :d3f/T1584})
+
+(def T1584_007
+  {:d3f/attack-id "T1584.007",
+   :d3f/definition
+   "Adversaries may compromise serverless cloud infrastructure, such as Cloudflare Workers or AWS Lambda functions, that can be used during targeting. By utilizing serverless infrastructure, adversaries can make it more difficult to attribute infrastructure used during operations back to them.",
+   :db/ident :d3f/T1584.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Serverless",
+   :rdfs/subClassOf :d3f/T1584})
+
+(def T1584_008
+  {:d3f/attack-id "T1584.008",
+   :d3f/definition
+   "Adversaries may compromise third-party network devices that can be used during targeting. Network devices, such as small office/home office (SOHO) routers, may be compromised where the adversary's ultimate goal is not [Initial Access](https://attack.mitre.org/tactics/TA0001) to that environment -- instead leveraging these devices to support additional targeting.",
+   :db/ident :d3f/T1584.008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Devices",
    :rdfs/subClassOf :d3f/T1584})
 
 (def T1585
-  {:d3f/attack-id   "T1585",
-   :db/ident        :d3f/T1585,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Establish Accounts",
+  {:d3f/attack-id "T1585",
+   :d3f/definition
+   "Adversaries may create and cultivate accounts with services that can be used during targeting. Adversaries can create accounts that can be used to build a persona to further operations. Persona development consists of the development of public information, presence, history and appropriate affiliations. This development could be applied to social media, website, or other publicly available information that could be referenced and scrutinized for legitimacy over the course of an operation using that persona or identity.(Citation: NEWSCASTER2014)(Citation: BlackHatRobinSage)",
+   :db/ident :d3f/T1585,
+   :rdf/type :owl/Class,
+   :rdfs/label "Establish Accounts",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1585_001
-  {:d3f/attack-id   "T1585.001",
-   :db/ident        :d3f/T1585.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Social Media Accounts",
+  {:d3f/attack-id "T1585.001",
+   :d3f/definition
+   "Adversaries may create and cultivate social media accounts that can be used during targeting. Adversaries can create social media accounts that can be used to build a persona to further operations. Persona development consists of the development of public information, presence, history and appropriate affiliations.(Citation: NEWSCASTER2014)(Citation: BlackHatRobinSage)",
+   :db/ident :d3f/T1585.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Social Media Accounts",
    :rdfs/subClassOf :d3f/T1585})
 
 (def T1585_002
-  {:d3f/attack-id   "T1585.002",
-   :db/ident        :d3f/T1585.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Email Accounts",
+  {:d3f/attack-id "T1585.002",
+   :d3f/definition
+   "Adversaries may create email accounts that can be used during targeting. Adversaries can use accounts created with email providers to further their operations, such as leveraging them to conduct [Phishing for Information](https://attack.mitre.org/techniques/T1598) or [Phishing](https://attack.mitre.org/techniques/T1566).(Citation: Mandiant APT1) Establishing email accounts may also allow adversaries to abuse free services – such as trial periods – to [Acquire Infrastructure](https://attack.mitre.org/techniques/T1583) for follow-on purposes.(Citation: Free Trial PurpleUrchin)",
+   :db/ident :d3f/T1585.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Email Accounts",
+   :rdfs/subClassOf :d3f/T1585})
+
+(def T1585_003
+  {:d3f/attack-id "T1585.003",
+   :d3f/definition
+   "Adversaries may create accounts with cloud providers that can be used during targeting. Adversaries can use cloud accounts to further their operations, including leveraging cloud storage services such as Dropbox, MEGA, Microsoft OneDrive, or AWS S3 buckets for [Exfiltration to Cloud Storage](https://attack.mitre.org/techniques/T1567/002) or to [Upload Tool](https://attack.mitre.org/techniques/T1608/002)s. Cloud accounts can also be used in the acquisition of infrastructure, such as [Virtual Private Server](https://attack.mitre.org/techniques/T1583/003)s or [Serverless](https://attack.mitre.org/techniques/T1583/007) infrastructure. Establishing cloud accounts may allow adversaries to develop sophisticated capabilities without managing their own servers.(Citation: Awake Security C2 Cloud)",
+   :db/ident :d3f/T1585.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Accounts",
    :rdfs/subClassOf :d3f/T1585})
 
 (def T1586
-  {:d3f/attack-id   "T1586",
-   :db/ident        :d3f/T1586,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Compromise Accounts",
+  {:d3f/attack-id "T1586",
+   :d3f/definition
+   "Adversaries may compromise accounts with services that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating accounts (i.e. [Establish Accounts](https://attack.mitre.org/techniques/T1585)), adversaries may compromise existing accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.",
+   :db/ident :d3f/T1586,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Accounts",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1586_001
-  {:d3f/attack-id   "T1586.001",
-   :db/ident        :d3f/T1586.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Social Media Accounts",
+  {:d3f/attack-id "T1586.001",
+   :d3f/definition
+   "Adversaries may compromise social media accounts that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating social media profiles (i.e. [Social Media Accounts](https://attack.mitre.org/techniques/T1585/001)), adversaries may compromise existing social media accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.",
+   :db/ident :d3f/T1586.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Social Media Accounts",
    :rdfs/subClassOf :d3f/T1586})
 
 (def T1586_002
-  {:d3f/attack-id   "T1586.002",
-   :db/ident        :d3f/T1586.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Email Accounts",
+  {:d3f/attack-id "T1586.002",
+   :d3f/definition
+   "Adversaries may compromise email accounts that can be used during targeting. Adversaries can use compromised email accounts to further their operations, such as leveraging them to conduct [Phishing for Information](https://attack.mitre.org/techniques/T1598), [Phishing](https://attack.mitre.org/techniques/T1566), or large-scale spam email campaigns. Utilizing an existing persona with a compromised email account may engender a level of trust in a potential victim if they have a relationship with, or knowledge of, the compromised persona. Compromised email accounts can also be used in the acquisition of infrastructure (ex: [Domains](https://attack.mitre.org/techniques/T1583/001)).",
+   :db/ident :d3f/T1586.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Email Accounts",
+   :rdfs/subClassOf :d3f/T1586})
+
+(def T1586_003
+  {:d3f/attack-id "T1586.003",
+   :d3f/definition
+   "Adversaries may compromise cloud accounts that can be used during targeting. Adversaries can use compromised cloud accounts to further their operations, including leveraging cloud storage services such as Dropbox, Microsoft OneDrive, or AWS S3 buckets for [Exfiltration to Cloud Storage](https://attack.mitre.org/techniques/T1567/002) or to [Upload Tool](https://attack.mitre.org/techniques/T1608/002)s. Cloud accounts can also be used in the acquisition of infrastructure, such as [Virtual Private Server](https://attack.mitre.org/techniques/T1583/003)s or [Serverless](https://attack.mitre.org/techniques/T1583/007) infrastructure. Compromising cloud accounts may allow adversaries to develop sophisticated capabilities without managing their own servers.(Citation: Awake Security C2 Cloud)",
+   :db/ident :d3f/T1586.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Accounts",
    :rdfs/subClassOf :d3f/T1586})
 
 (def T1587
-  {:d3f/attack-id   "T1587",
-   :db/ident        :d3f/T1587,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Develop Capabilities",
+  {:d3f/attack-id "T1587",
+   :d3f/definition
+   "Adversaries may build capabilities that can be used during targeting. Rather than purchasing, freely downloading, or stealing capabilities, adversaries may develop their own capabilities in-house. This is the process of identifying development requirements and building solutions such as malware, exploits, and self-signed certificates. Adversaries may develop capabilities to support their operations throughout numerous phases of the adversary lifecycle.(Citation: Mandiant APT1)(Citation: Kaspersky Sofacy)(Citation: Bitdefender StrongPity June 2020)(Citation: Talos Promethium June 2020)",
+   :db/ident :d3f/T1587,
+   :rdf/type :owl/Class,
+   :rdfs/label "Develop Capabilities",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1587_001
-  {:d3f/attack-id   "T1587.001",
-   :db/ident        :d3f/T1587.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Malware",
+  {:d3f/attack-id "T1587.001",
+   :d3f/definition
+   "Adversaries may develop malware and malware components that can be used during targeting. Building malicious software can include the development of payloads, droppers, post-compromise tools, backdoors (including backdoored images), packers, C2 protocols, and the creation of infected removable media. Adversaries may develop malware to support their operations, creating a means for maintaining control of remote machines, evading defenses, and executing post-compromise behaviors.(Citation: Mandiant APT1)(Citation: Kaspersky Sofacy)(Citation: ActiveMalwareEnergy)(Citation: FBI Flash FIN7 USB)",
+   :db/ident :d3f/T1587.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malware",
    :rdfs/subClassOf :d3f/T1587})
 
 (def T1587_002
-  {:d3f/attack-id   "T1587.002",
-   :db/ident        :d3f/T1587.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Code Signing Certificates",
+  {:d3f/attack-id "T1587.002",
+   :d3f/definition
+   "Adversaries may create self-signed code signing certificates that can be used during targeting. Code signing is the process of digitally signing executables and scripts to confirm the software author and guarantee that the code has not been altered or corrupted. Code signing provides a level of authenticity for a program from the developer and a guarantee that the program has not been tampered with.(Citation: Wikipedia Code Signing) Users and/or security tools may trust a signed piece of code more than an unsigned piece of code even if they don't know who issued the certificate or who the author is.",
+   :db/ident :d3f/T1587.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Code Signing Certificates",
    :rdfs/subClassOf :d3f/T1587})
 
 (def T1587_003
-  {:d3f/attack-id   "T1587.003",
-   :db/ident        :d3f/T1587.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Digital Certificates",
+  {:d3f/attack-id "T1587.003",
+   :d3f/definition
+   "Adversaries may create self-signed SSL/TLS certificates that can be used during targeting. SSL/TLS certificates are designed to instill trust. They include information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct. If the signature is valid, and the person examining the certificate trusts the signer, then they know they can use that key to communicate with its owner. In the case of self-signing, digital certificates will lack the element of trust associated with the signature of a third-party certificate authority (CA).",
+   :db/ident :d3f/T1587.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Digital Certificates",
    :rdfs/subClassOf :d3f/T1587})
 
 (def T1587_004
-  {:d3f/attack-id   "T1587.004",
-   :db/ident        :d3f/T1587.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exploits",
+  {:d3f/attack-id "T1587.004",
+   :d3f/definition
+   "Adversaries may develop exploits that can be used during targeting. An exploit takes advantage of a bug or vulnerability in order to cause unintended or unanticipated behavior to occur on computer hardware or software. Rather than finding/modifying exploits from online or purchasing them from exploit vendors, an adversary may develop their own exploits.(Citation: NYTStuxnet) Adversaries may use information acquired via [Vulnerabilities](https://attack.mitre.org/techniques/T1588/006) to focus exploit development efforts. As part of the exploit development process, adversaries may uncover exploitable vulnerabilities through methods such as fuzzing and patch analysis.(Citation: Irongeek Sims BSides 2017)",
+   :db/ident :d3f/T1587.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploits",
    :rdfs/subClassOf :d3f/T1587})
 
 (def T1588
-  {:d3f/attack-id   "T1588",
-   :db/ident        :d3f/T1588,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Obtain Capabilities",
+  {:d3f/attack-id "T1588",
+   :d3f/definition
+   "Adversaries may buy and/or steal capabilities that can be used during targeting. Rather than developing their own capabilities in-house, adversaries may purchase, freely download, or steal them. Activities may include the acquisition of malware, software (including licenses), exploits, certificates, and information relating to vulnerabilities. Adversaries may obtain capabilities to support their operations throughout numerous phases of the adversary lifecycle.",
+   :db/ident :d3f/T1588,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obtain Capabilities",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1588_001
-  {:d3f/attack-id   "T1588.001",
-   :db/ident        :d3f/T1588.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Malware",
+  {:d3f/attack-id "T1588.001",
+   :d3f/definition
+   "Adversaries may buy, steal, or download malware that can be used during targeting. Malicious software can include payloads, droppers, post-compromise tools, backdoors, packers, and C2 protocols. Adversaries may acquire malware to support their operations, obtaining a means for maintaining control of remote machines, evading defenses, and executing post-compromise behaviors.",
+   :db/ident :d3f/T1588.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malware",
    :rdfs/subClassOf :d3f/T1588})
 
 (def T1588_002
-  {:d3f/attack-id   "T1588.002",
-   :db/ident        :d3f/T1588.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Tool",
+  {:d3f/attack-id "T1588.002",
+   :d3f/definition
+   "Adversaries may buy, steal, or download software tools that can be used during targeting. Tools can be open or closed source, free or commercial. A tool can be used for malicious purposes by an adversary, but (unlike malware) were not intended to be used for those purposes (ex: [PsExec](https://attack.mitre.org/software/S0029)). Tool acquisition can involve the procurement of commercial software licenses, including for red teaming tools such as [Cobalt Strike](https://attack.mitre.org/software/S0154). Commercial software may be obtained through purchase, stealing licenses (or licensed copies of the software), or cracking trial versions.(Citation: Recorded Future Beacon 2019)",
+   :db/ident :d3f/T1588.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Tool",
    :rdfs/subClassOf :d3f/T1588})
 
 (def T1588_003
-  {:d3f/attack-id   "T1588.003",
-   :db/ident        :d3f/T1588.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Code Signing Certificates",
+  {:d3f/attack-id "T1588.003",
+   :d3f/definition
+   "Adversaries may buy and/or steal code signing certificates that can be used during targeting. Code signing is the process of digitally signing executables and scripts to confirm the software author and guarantee that the code has not been altered or corrupted. Code signing provides a level of authenticity for a program from the developer and a guarantee that the program has not been tampered with.(Citation: Wikipedia Code Signing) Users and/or security tools may trust a signed piece of code more than an unsigned piece of code even if they don't know who issued the certificate or who the author is.",
+   :db/ident :d3f/T1588.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Code Signing Certificates",
    :rdfs/subClassOf :d3f/T1588})
 
 (def T1588_004
-  {:d3f/attack-id   "T1588.004",
-   :db/ident        :d3f/T1588.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Digital Certificates",
+  {:d3f/attack-id "T1588.004",
+   :d3f/definition
+   "Adversaries may buy and/or steal SSL/TLS certificates that can be used during targeting. SSL/TLS certificates are designed to instill trust. They include information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct. If the signature is valid, and the person examining the certificate trusts the signer, then they know they can use that key to communicate with its owner.",
+   :db/ident :d3f/T1588.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Digital Certificates",
    :rdfs/subClassOf :d3f/T1588})
 
 (def T1588_005
-  {:d3f/attack-id   "T1588.005",
-   :db/ident        :d3f/T1588.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exploits",
+  {:d3f/attack-id "T1588.005",
+   :d3f/definition
+   "Adversaries may buy, steal, or download exploits that can be used during targeting. An exploit takes advantage of a bug or vulnerability in order to cause unintended or unanticipated behavior to occur on computer hardware or software. Rather than developing their own exploits, an adversary may find/modify exploits from online or purchase them from exploit vendors.(Citation: Exploit Database)(Citation: TempertonDarkHotel)(Citation: NationsBuying)",
+   :db/ident :d3f/T1588.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploits",
    :rdfs/subClassOf :d3f/T1588})
 
 (def T1588_006
-  {:d3f/attack-id   "T1588.006",
-   :db/ident        :d3f/T1588.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Vulnerabilities",
+  {:d3f/attack-id "T1588.006",
+   :d3f/definition
+   "Adversaries may acquire information about vulnerabilities that can be used during targeting. A vulnerability is a weakness in computer hardware or software that can, potentially, be exploited by an adversary to cause unintended or unanticipated behavior to occur. Adversaries may find vulnerability information by searching open databases or gaining access to closed vulnerability databases.(Citation: National Vulnerability Database)",
+   :db/ident :d3f/T1588.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Vulnerabilities",
+   :rdfs/subClassOf :d3f/T1588})
+
+(def T1588_007
+  {:d3f/attack-id "T1588.007",
+   :d3f/definition
+   "Adversaries may obtain access to generative artificial intelligence tools, such as large language models (LLMs), to aid various techniques during targeting. These tools may be used to inform, bolster, and enable a variety of malicious tasks including conducting [Reconnaissance](https://attack.mitre.org/tactics/TA0043), creating basic scripts, assisting social engineering, and even developing payloads.(Citation: MSFT-AI)",
+   :db/ident :d3f/T1588.007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Artificial Intelligence",
    :rdfs/subClassOf :d3f/T1588})
 
 (def T1589
-  {:d3f/attack-id   "T1589",
-   :db/ident        :d3f/T1589,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Gather Victim Identity Information",
+  {:d3f/attack-id "T1589",
+   :d3f/definition
+   "Adversaries may gather information about the victim's identity that can be used during targeting. Information about identities may include a variety of details, including personal data (ex: employee names, email addresses, security question responses, etc.) as well as sensitive details such as credentials or multi-factor authentication (MFA) configurations.",
+   :db/ident :d3f/T1589,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Victim Identity Information",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1589_001
-  {:d3f/attack-id   "T1589.001",
-   :db/ident        :d3f/T1589.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Credentials",
+  {:d3f/attack-id "T1589.001",
+   :d3f/definition
+   "Adversaries may gather credentials that can be used during targeting. Account credentials gathered by adversaries may be those directly associated with the target victim organization or attempt to take advantage of the tendency for users to use the same passwords across personal and business accounts.",
+   :db/ident :d3f/T1589.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Credentials",
    :rdfs/subClassOf :d3f/T1589})
 
 (def T1589_002
-  {:d3f/attack-id   "T1589.002",
-   :db/ident        :d3f/T1589.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Email Addresses",
+  {:d3f/attack-id "T1589.002",
+   :d3f/definition
+   "Adversaries may gather email addresses that can be used during targeting. Even if internal instances exist, organizations may have public-facing email infrastructure and addresses for employees.",
+   :db/ident :d3f/T1589.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Email Addresses",
    :rdfs/subClassOf :d3f/T1589})
 
 (def T1589_003
-  {:d3f/attack-id   "T1589.003",
-   :db/ident        :d3f/T1589.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Employee Names",
+  {:d3f/attack-id "T1589.003",
+   :d3f/definition
+   "Adversaries may gather employee names that can be used during targeting. Employee names be used to derive email addresses as well as to help guide other reconnaissance efforts and/or craft more-believable lures.",
+   :db/ident :d3f/T1589.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Employee Names",
    :rdfs/subClassOf :d3f/T1589})
 
 (def T1590
-  {:d3f/attack-id   "T1590",
-   :db/ident        :d3f/T1590,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Gather Victim Network Information",
+  {:d3f/attack-id "T1590",
+   :d3f/definition
+   "Adversaries may gather information about the victim's networks that can be used during targeting. Information about networks may include a variety of details, including administrative data (ex: IP ranges, domain names, etc.) as well as specifics regarding its topology and operations.",
+   :db/ident :d3f/T1590,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Victim Network Information",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1590_001
-  {:d3f/attack-id   "T1590.001",
-   :db/ident        :d3f/T1590.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Domain Properties",
+  {:d3f/attack-id "T1590.001",
+   :d3f/definition
+   "Adversaries may gather information about the victim's network domain(s) that can be used during targeting. Information about domains and their properties may include a variety of details, including what domain(s) the victim owns as well as administrative data (ex: name, registrar, etc.) and more directly actionable information such as contacts (email addresses and phone numbers), business addresses, and name servers.",
+   :db/ident :d3f/T1590.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Properties",
    :rdfs/subClassOf :d3f/T1590})
 
 (def T1590_002
-  {:d3f/attack-id   "T1590.002",
-   :db/ident        :d3f/T1590.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DNS",
+  {:d3f/attack-id "T1590.002",
+   :d3f/definition
+   "Adversaries may gather information about the victim's DNS that can be used during targeting. DNS information may include a variety of details, including registered name servers as well as records that outline addressing for a target’s subdomains, mail servers, and other hosts. DNS, MX, TXT, and SPF records may also reveal the use of third party cloud and SaaS providers, such as Office 365, G Suite, Salesforce, or Zendesk.(Citation: Sean Metcalf Twitter DNS Records)",
+   :db/ident :d3f/T1590.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "DNS",
    :rdfs/subClassOf :d3f/T1590})
 
 (def T1590_003
-  {:d3f/attack-id   "T1590.003",
-   :db/ident        :d3f/T1590.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Trust Dependencies",
+  {:d3f/attack-id "T1590.003",
+   :d3f/definition
+   "Adversaries may gather information about the victim's network trust dependencies that can be used during targeting. Information about network trusts may include a variety of details, including second or third-party organizations/domains (ex: managed service providers, contractors, etc.) that have connected (and potentially elevated) network access.",
+   :db/ident :d3f/T1590.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Trust Dependencies",
    :rdfs/subClassOf :d3f/T1590})
 
 (def T1590_004
-  {:d3f/attack-id   "T1590.004",
-   :db/ident        :d3f/T1590.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Topology",
+  {:d3f/attack-id "T1590.004",
+   :d3f/definition
+   "Adversaries may gather information about the victim's network topology that can be used during targeting. Information about network topologies may include a variety of details, including the physical and/or logical arrangement of both external-facing and internal network environments. This information may also include specifics regarding network devices (gateways, routers, etc.) and other infrastructure.",
+   :db/ident :d3f/T1590.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Topology",
    :rdfs/subClassOf :d3f/T1590})
 
 (def T1590_005
-  {:d3f/attack-id   "T1590.005",
-   :db/ident        :d3f/T1590.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "IP Addresses",
+  {:d3f/attack-id "T1590.005",
+   :d3f/definition
+   "Adversaries may gather the victim's IP addresses that can be used during targeting. Public IP addresses may be allocated to organizations by block, or a range of sequential addresses. Information about assigned IP addresses may include a variety of details, such as which IP addresses are in use. IP addresses may also enable an adversary to derive other details about a victim, such as organizational size, physical location(s), Internet service provider, and or where/how their publicly-facing infrastructure is hosted.",
+   :db/ident :d3f/T1590.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "IP Addresses",
    :rdfs/subClassOf :d3f/T1590})
 
 (def T1590_006
-  {:d3f/attack-id   "T1590.006",
-   :db/ident        :d3f/T1590.006,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Security Appliances",
+  {:d3f/attack-id "T1590.006",
+   :d3f/definition
+   "Adversaries may gather information about the victim's network security appliances that can be used during targeting. Information about network security appliances may include a variety of details, such as the existence and specifics of deployed firewalls, content filters, and proxies/bastion hosts. Adversaries may also target information about victim network-based intrusion detection systems (NIDS) or other appliances related to defensive cybersecurity operations.",
+   :db/ident :d3f/T1590.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Security Appliances",
    :rdfs/subClassOf :d3f/T1590})
 
 (def T1591
-  {:d3f/attack-id   "T1591",
-   :db/ident        :d3f/T1591,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Gather Victim Org Information",
+  {:d3f/attack-id "T1591",
+   :d3f/definition
+   "Adversaries may gather information about the victim's organization that can be used during targeting. Information about an organization may include a variety of details, including the names of divisions/departments, specifics of business operations, as well as the roles and responsibilities of key employees.",
+   :db/ident :d3f/T1591,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Victim Org Information",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1591_001
-  {:d3f/attack-id   "T1591.001",
-   :db/ident        :d3f/T1591.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Determine Physical Locations",
+  {:d3f/attack-id "T1591.001",
+   :d3f/definition
+   "Adversaries may gather the victim's physical location(s) that can be used during targeting. Information about physical locations of a target organization may include a variety of details, including where key resources and infrastructure are housed. Physical locations may also indicate what legal jurisdiction and/or authorities the victim operates within.",
+   :db/ident :d3f/T1591.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Determine Physical Locations",
    :rdfs/subClassOf :d3f/T1591})
 
 (def T1591_002
-  {:d3f/attack-id   "T1591.002",
-   :db/ident        :d3f/T1591.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Business Relationships",
+  {:d3f/attack-id "T1591.002",
+   :d3f/definition
+   "Adversaries may gather information about the victim's business relationships that can be used during targeting. Information about an organization’s business relationships may include a variety of details, including second or third-party organizations/domains (ex: managed service providers, contractors, etc.) that have connected (and potentially elevated) network access. This information may also reveal supply chains and shipment paths for the victim’s hardware and software resources.",
+   :db/ident :d3f/T1591.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Business Relationships",
    :rdfs/subClassOf :d3f/T1591})
 
 (def T1591_003
-  {:d3f/attack-id   "T1591.003",
-   :db/ident        :d3f/T1591.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Identify Business Tempo",
+  {:d3f/attack-id "T1591.003",
+   :d3f/definition
+   "Adversaries may gather information about the victim's business tempo that can be used during targeting. Information about an organization’s business tempo may include a variety of details, including operational hours/days of the week. This information may also reveal times/dates of purchases and shipments of the victim’s hardware and software resources.",
+   :db/ident :d3f/T1591.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Identify Business Tempo",
    :rdfs/subClassOf :d3f/T1591})
 
 (def T1591_004
-  {:d3f/attack-id   "T1591.004",
-   :db/ident        :d3f/T1591.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Identify Roles",
+  {:d3f/attack-id "T1591.004",
+   :d3f/definition
+   "Adversaries may gather information about identities and roles within the victim organization that can be used during targeting. Information about business roles may reveal a variety of targetable details, including identifiable information for key personnel as well as what data/resources they have access to.",
+   :db/ident :d3f/T1591.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Identify Roles",
    :rdfs/subClassOf :d3f/T1591})
 
 (def T1592
-  {:d3f/attack-id   "T1592",
-   :db/ident        :d3f/T1592,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Gather Victim Host Information",
+  {:d3f/attack-id "T1592",
+   :d3f/definition
+   "Adversaries may gather information about the victim's hosts that can be used during targeting. Information about hosts may include a variety of details, including administrative data (ex: name, assigned IP, functionality, etc.) as well as specifics regarding its configuration (ex: operating system, language, etc.).",
+   :db/ident :d3f/T1592,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Victim Host Information",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1592_001
-  {:d3f/attack-id   "T1592.001",
-   :db/ident        :d3f/T1592.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hardware",
+  {:d3f/attack-id "T1592.001",
+   :d3f/definition
+   "Adversaries may gather information about the victim's host hardware that can be used during targeting. Information about hardware infrastructure may include a variety of details such as types and versions on specific hosts, as well as the presence of additional components that might be indicative of added defensive protections (ex: card/biometric readers, dedicated encryption hardware, etc.).",
+   :db/ident :d3f/T1592.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware",
    :rdfs/subClassOf :d3f/T1592})
 
 (def T1592_002
-  {:d3f/attack-id   "T1592.002",
-   :db/ident        :d3f/T1592.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Software",
+  {:d3f/attack-id "T1592.002",
+   :d3f/definition
+   "Adversaries may gather information about the victim's host software that can be used during targeting. Information about installed software may include a variety of details such as types and versions on specific hosts, as well as the presence of additional components that might be indicative of added defensive protections (ex: antivirus, SIEMs, etc.).",
+   :db/ident :d3f/T1592.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software",
    :rdfs/subClassOf :d3f/T1592})
 
 (def T1592_003
-  {:d3f/attack-id   "T1592.003",
-   :db/ident        :d3f/T1592.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Firmware",
+  {:d3f/attack-id "T1592.003",
+   :d3f/definition
+   "Adversaries may gather information about the victim's host firmware that can be used during targeting. Information about host firmware may include a variety of details such as type and versions on specific hosts, which may be used to infer more information about hosts in the environment (ex: configuration, purpose, age/patch level, etc.).",
+   :db/ident :d3f/T1592.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Firmware",
    :rdfs/subClassOf :d3f/T1592})
 
 (def T1592_004
-  {:d3f/attack-id   "T1592.004",
-   :db/ident        :d3f/T1592.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Client Configurations",
+  {:d3f/attack-id "T1592.004",
+   :d3f/definition
+   "Adversaries may gather information about the victim's client configurations that can be used during targeting. Information about client configurations may include a variety of details and settings, including operating system/version, virtualization, architecture (ex: 32 or 64 bit), language, and/or time zone.",
+   :db/ident :d3f/T1592.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Client Configurations",
    :rdfs/subClassOf :d3f/T1592})
 
 (def T1593
-  {:d3f/attack-id   "T1593",
-   :db/ident        :d3f/T1593,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Search Open Websites/Domains",
+  {:d3f/attack-id "T1593",
+   :d3f/definition
+   "Adversaries may search freely available websites and/or domains for information about victims that can be used during targeting. Information about victims may be available in various online sites, such as social media, new sites, or those hosting information about business operations such as hiring or requested/rewarded contracts.(Citation: Cyware Social Media)(Citation: SecurityTrails Google Hacking)(Citation: ExploitDB GoogleHacking)",
+   :db/ident :d3f/T1593,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Open Websites/Domains",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1593_001
-  {:d3f/attack-id   "T1593.001",
-   :db/ident        :d3f/T1593.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Social Media",
+  {:d3f/attack-id "T1593.001",
+   :d3f/definition
+   "Adversaries may search social media for information about victims that can be used during targeting. Social media sites may contain various information about a victim organization, such as business announcements as well as information about the roles, locations, and interests of staff.",
+   :db/ident :d3f/T1593.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Social Media",
    :rdfs/subClassOf :d3f/T1593})
 
 (def T1593_002
-  {:d3f/attack-id   "T1593.002",
-   :db/ident        :d3f/T1593.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Search Engines",
+  {:d3f/attack-id "T1593.002",
+   :d3f/definition
+   "Adversaries may use search engines to collect information about victims that can be used during targeting. Search engine services typical crawl online sites to index context and may provide users with specialized syntax to search for specific keywords or specific types of content (i.e. filetypes).(Citation: SecurityTrails Google Hacking)(Citation: ExploitDB GoogleHacking)",
+   :db/ident :d3f/T1593.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Engines",
+   :rdfs/subClassOf :d3f/T1593})
+
+(def T1593_003
+  {:d3f/attack-id "T1593.003",
+   :d3f/definition
+   "Adversaries may search public code repositories for information about victims that can be used during targeting. Victims may store code in repositories on various third-party websites such as GitHub, GitLab, SourceForge, and BitBucket. Users typically interact with code repositories through a web application or command-line utilities such as git.",
+   :db/ident :d3f/T1593.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Code Repositories",
    :rdfs/subClassOf :d3f/T1593})
 
 (def T1594
-  {:d3f/attack-id   "T1594",
-   :db/ident        :d3f/T1594,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Search Victim-Owned Websites",
+  {:d3f/attack-id "T1594",
+   :d3f/definition
+   "Adversaries may search websites owned by the victim for information that can be used during targeting. Victim-owned websites may contain a variety of details, including names of departments/divisions, physical locations, and data about key employees such as names, roles, and contact info (ex: [Email Addresses](https://attack.mitre.org/techniques/T1589/002)). These sites may also have details highlighting business operations and relationships.(Citation: Comparitech Leak)",
+   :db/ident :d3f/T1594,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Victim-Owned Websites",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1595
-  {:d3f/attack-id   "T1595",
-   :db/ident        :d3f/T1595,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Active Scanning",
+  {:d3f/attack-id "T1595",
+   :d3f/definition
+   "Adversaries may execute active reconnaissance scans to gather information that can be used during targeting. Active scans are those where the adversary probes victim infrastructure via network traffic, as opposed to other forms of reconnaissance that do not involve direct interaction.",
+   :db/ident :d3f/T1595,
+   :rdf/type :owl/Class,
+   :rdfs/label "Active Scanning",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1595_001
-  {:d3f/attack-id   "T1595.001",
-   :db/ident        :d3f/T1595.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Scanning IP Blocks",
+  {:d3f/attack-id "T1595.001",
+   :d3f/definition
+   "Adversaries may scan victim IP blocks to gather information that can be used during targeting. Public IP addresses may be allocated to organizations by block, or a range of sequential addresses.",
+   :db/ident :d3f/T1595.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Scanning IP Blocks",
    :rdfs/subClassOf :d3f/T1595})
 
 (def T1595_002
-  {:d3f/attack-id   "T1595.002",
-   :db/ident        :d3f/T1595.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Vulnerability Scanning",
+  {:d3f/attack-id "T1595.002",
+   :d3f/definition
+   "Adversaries may scan victims for vulnerabilities that can be used during targeting. Vulnerability scans typically check if the configuration of a target host/application (ex: software and version) potentially aligns with the target of a specific exploit the adversary may seek to use.",
+   :db/ident :d3f/T1595.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Vulnerability Scanning",
    :rdfs/subClassOf :d3f/T1595})
 
 (def T1595_003
-  {:d3f/attack-id   "T1595.003",
-   :db/ident        :d3f/T1595.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Wordlist Scanning",
+  {:d3f/attack-id "T1595.003",
+   :d3f/definition
+   "Adversaries may iteratively probe infrastructure using brute-forcing and crawling techniques. While this technique employs similar methods to [Brute Force](https://attack.mitre.org/techniques/T1110), its goal is the identification of content and infrastructure rather than the discovery of valid credentials. Wordlists used in these scans may contain generic, commonly used names and file extensions or terms specific to a particular software. Adversaries may also create custom, target-specific wordlists using data gathered from other Reconnaissance techniques (ex: [Gather Victim Org Information](https://attack.mitre.org/techniques/T1591), or [Search Victim-Owned Websites](https://attack.mitre.org/techniques/T1594)).",
+   :db/ident :d3f/T1595.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wordlist Scanning",
    :rdfs/subClassOf :d3f/T1595})
 
 (def T1596
-  {:d3f/attack-id   "T1596",
-   :db/ident        :d3f/T1596,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Search Open Technical Databases",
+  {:d3f/attack-id "T1596",
+   :d3f/definition
+   "Adversaries may search freely available technical databases for information about victims that can be used during targeting. Information about victims may be available in online databases and repositories, such as registrations of domains/certificates as well as public collections of network data/artifacts gathered from traffic and/or scans.(Citation: WHOIS)(Citation: DNS Dumpster)(Citation: Circl Passive DNS)(Citation: Medium SSL Cert)(Citation: SSLShopper Lookup)(Citation: DigitalShadows CDN)(Citation: Shodan)",
+   :db/ident :d3f/T1596,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Open Technical Databases",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1596_001
-  {:d3f/attack-id   "T1596.001",
-   :db/ident        :d3f/T1596.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DNS/Passive DNS",
+  {:d3f/attack-id "T1596.001",
+   :d3f/definition
+   "Adversaries may search DNS data for information about victims that can be used during targeting. DNS information may include a variety of details, including registered name servers as well as records that outline addressing for a target’s subdomains, mail servers, and other hosts.",
+   :db/ident :d3f/T1596.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "DNS/Passive DNS",
    :rdfs/subClassOf :d3f/T1596})
 
 (def T1596_002
-  {:d3f/attack-id   "T1596.002",
-   :db/ident        :d3f/T1596.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "WHOIS",
+  {:d3f/attack-id "T1596.002",
+   :d3f/definition
+   "Adversaries may search public WHOIS data for information about victims that can be used during targeting. WHOIS data is stored by regional Internet registries (RIR) responsible for allocating and assigning Internet resources such as domain names. Anyone can query WHOIS servers for information about a registered domain, such as assigned IP blocks, contact information, and DNS nameservers.(Citation: WHOIS)",
+   :db/ident :d3f/T1596.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "WHOIS",
    :rdfs/subClassOf :d3f/T1596})
 
 (def T1596_003
-  {:d3f/attack-id   "T1596.003",
-   :db/ident        :d3f/T1596.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Digital Certificates",
+  {:d3f/attack-id "T1596.003",
+   :d3f/definition
+   "Adversaries may search public digital certificate data for information about victims that can be used during targeting. Digital certificates are issued by a certificate authority (CA) in order to cryptographically verify the origin of signed content. These certificates, such as those used for encrypted web traffic (HTTPS SSL/TLS communications), contain information about the registered organization such as name and location.",
+   :db/ident :d3f/T1596.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Digital Certificates",
    :rdfs/subClassOf :d3f/T1596})
 
 (def T1596_004
-  {:d3f/attack-id   "T1596.004",
-   :db/ident        :d3f/T1596.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "CDNs",
+  {:d3f/attack-id "T1596.004",
+   :d3f/definition
+   "Adversaries may search content delivery network (CDN) data about victims that can be used during targeting. CDNs allow an organization to host content from a distributed, load balanced array of servers. CDNs may also allow organizations to customize content delivery based on the requestor’s geographical region.",
+   :db/ident :d3f/T1596.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "CDNs",
    :rdfs/subClassOf :d3f/T1596})
 
 (def T1596_005
-  {:d3f/attack-id   "T1596.005",
-   :db/ident        :d3f/T1596.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Scan Databases",
+  {:d3f/attack-id "T1596.005",
+   :d3f/definition
+   "Adversaries may search within public scan databases for information about victims that can be used during targeting. Various online services continuously publish the results of Internet scans/surveys, often harvesting information such as active IP addresses, hostnames, open ports, certificates, and even server banners.(Citation: Shodan)",
+   :db/ident :d3f/T1596.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Scan Databases",
    :rdfs/subClassOf :d3f/T1596})
 
 (def T1597
-  {:d3f/attack-id   "T1597",
-   :db/ident        :d3f/T1597,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Search Closed Sources",
+  {:d3f/attack-id "T1597",
+   :d3f/definition
+   "Adversaries may search and gather information about victims from closed sources that can be used during targeting. Information about victims may be available for purchase from reputable private sources and databases, such as paid subscriptions to feeds of technical/threat intelligence data.(Citation: D3Secutrity CTI Feeds) Adversaries may also purchase information from less-reputable sources such as dark web or cybercrime blackmarkets.(Citation: ZDNET Selling Data)",
+   :db/ident :d3f/T1597,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Closed Sources",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1597_001
-  {:d3f/attack-id   "T1597.001",
-   :db/ident        :d3f/T1597.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Threat Intel Vendors",
+  {:d3f/attack-id "T1597.001",
+   :d3f/definition
+   "Adversaries may search private data from threat intelligence vendors for information that can be used during targeting. Threat intelligence vendors may offer paid feeds or portals that offer more data than what is publicly reported. Although sensitive details (such as customer names and other identifiers) may be redacted, this information may contain trends regarding breaches such as target industries, attribution claims, and successful TTPs/countermeasures.(Citation: D3Secutrity CTI Feeds)",
+   :db/ident :d3f/T1597.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Threat Intel Vendors",
    :rdfs/subClassOf :d3f/T1597})
 
 (def T1597_002
-  {:d3f/attack-id   "T1597.002",
-   :db/ident        :d3f/T1597.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Purchase Technical Data",
+  {:d3f/attack-id "T1597.002",
+   :d3f/definition
+   "Adversaries may purchase technical information about victims that can be used during targeting. Information about victims may be available for purchase within reputable private sources and databases, such as paid subscriptions to feeds of scan databases or other data aggregation services. Adversaries may also purchase information from less-reputable sources such as dark web or cybercrime blackmarkets.",
+   :db/ident :d3f/T1597.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Purchase Technical Data",
    :rdfs/subClassOf :d3f/T1597})
 
 (def T1598
-  {:d3f/attack-id   "T1598",
-   :db/ident        :d3f/T1598,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Phishing for Information",
+  {:d3f/attack-id "T1598",
+   :d3f/definition
+   "Adversaries may send phishing messages to elicit sensitive information that can be used during targeting. Phishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Phishing for information is different from [Phishing](https://attack.mitre.org/techniques/T1566) in that the objective is gathering data from the victim rather than executing malicious code.",
+   :db/ident :d3f/T1598,
+   :rdf/type :owl/Class,
+   :rdfs/label "Phishing for Information",
    :rdfs/subClassOf :d3f/ReconnaissanceTechnique})
 
 (def T1598_001
-  {:d3f/attack-id   "T1598.001",
-   :db/ident        :d3f/T1598.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spearphishing Service",
+  {:d3f/attack-id "T1598.001",
+   :d3f/definition
+   "Adversaries may send spearphishing messages via third-party services to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Spearphishing for information frequently involves social engineering techniques, such as posing as a source with a reason to collect information (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)) and/or sending multiple, seemingly urgent messages.",
+   :db/ident :d3f/T1598.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing Service",
    :rdfs/subClassOf :d3f/T1598})
 
 (def T1598_002
-  {:d3f/attack-id   "T1598.002",
-   :db/ident        :d3f/T1598.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spearphishing Attachment",
+  {:d3f/attack-id "T1598.002",
+   :d3f/definition
+   "Adversaries may send spearphishing messages with a malicious attachment to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Spearphishing for information frequently involves social engineering techniques, such as posing as a source with a reason to collect information (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)) and/or sending multiple, seemingly urgent messages.",
+   :db/ident :d3f/T1598.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing Attachment",
    :rdfs/subClassOf :d3f/T1598})
 
 (def T1598_003
-  {:d3f/attack-id   "T1598.003",
-   :db/ident        :d3f/T1598.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spearphishing Link",
+  {:d3f/attack-id "T1598.003",
+   :d3f/definition
+   "Adversaries may send spearphishing messages with a malicious link to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Spearphishing for information frequently involves social engineering techniques, such as posing as a source with a reason to collect information (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)) and/or sending multiple, seemingly urgent messages.",
+   :db/ident :d3f/T1598.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing Link",
+   :rdfs/subClassOf :d3f/T1598})
+
+(def T1598_004
+  {:d3f/attack-id "T1598.004",
+   :d3f/definition
+   "Adversaries may use voice communications to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Spearphishing for information frequently involves social engineering techniques, such as posing as a source with a reason to collect information (ex: [Impersonation](https://attack.mitre.org/techniques/T1656)) and/or creating a sense of urgency or alarm for the recipient.",
+   :db/ident :d3f/T1598.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing Voice",
    :rdfs/subClassOf :d3f/T1598})
 
 (def T1599
-  {:d3f/attack-id   "T1599",
-   :db/ident        :d3f/T1599,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Boundary Bridging",
+  {:d3f/attack-id "T1599",
+   :d3f/definition
+   "Adversaries may bridge network boundaries by compromising perimeter network devices or internal devices responsible for network segmentation. Breaching these devices may enable an adversary to bypass restrictions on traffic routing that otherwise separate trusted and untrusted networks.",
+   :db/ident :d3f/T1599,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Boundary Bridging",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1599_001
-  {:d3f/attack-id   "T1599.001",
-   :db/ident        :d3f/T1599.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Address Translation Traversal",
+  {:d3f/attack-id "T1599.001",
+   :d3f/definition
+   "Adversaries may bridge network boundaries by modifying a network device’s Network Address Translation (NAT) configuration. Malicious modifications to NAT may enable an adversary to bypass restrictions on traffic routing that otherwise separate trusted and untrusted networks.",
+   :db/ident :d3f/T1599.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Address Translation Traversal",
    :rdfs/subClassOf :d3f/T1599})
 
 (def T1600
-  {:d3f/attack-id   "T1600",
-   :db/ident        :d3f/T1600,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Weaken Encryption",
+  {:d3f/attack-id "T1600",
+   :d3f/definition
+   "Adversaries may compromise a network device’s encryption capability in order to bypass encryption that would otherwise protect data communications. (Citation: Cisco Synful Knock Evolution)",
+   :db/ident :d3f/T1600,
+   :rdf/type :owl/Class,
+   :rdfs/label "Weaken Encryption",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1600_001
-  {:d3f/attack-id   "T1600.001",
-   :db/ident        :d3f/T1600.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reduce Key Space",
+  {:d3f/attack-id "T1600.001",
+   :d3f/definition
+   "Adversaries may reduce the level of effort required to decrypt data transmitted over the network by reducing the cipher strength of encrypted communications.(Citation: Cisco Synful Knock Evolution)",
+   :db/ident :d3f/T1600.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reduce Key Space",
    :rdfs/subClassOf :d3f/T1600})
 
 (def T1600_002
-  {:d3f/attack-id   "T1600.002",
-   :db/ident        :d3f/T1600.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Disable Crypto Hardware",
+  {:d3f/attack-id "T1600.002",
+   :d3f/definition
+   "Adversaries disable a network device’s dedicated hardware encryption, which may enable them to leverage weaknesses in software encryption in order to reduce the effort involved in collecting, manipulating, and exfiltrating transmitted data.",
+   :db/ident :d3f/T1600.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable Crypto Hardware",
    :rdfs/subClassOf :d3f/T1600})
 
 (def T1601
-  {:d3f/attack-id   "T1601",
-   :db/ident        :d3f/T1601,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Modify System Image",
+  {:d3f/attack-id "T1601",
+   :d3f/definition
+   "Adversaries may make changes to the operating system of embedded network devices to weaken defenses and provide new capabilities for themselves.  On such devices, the operating systems are typically monolithic and most of the device functionality and capabilities are contained within a single file.",
+   :db/ident :d3f/T1601,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify System Image",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1601_001
-  {:d3f/attack-id   "T1601.001",
-   :db/ident        :d3f/T1601.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Patch System Image",
+  {:d3f/attack-id "T1601.001",
+   :d3f/definition
+   "Adversaries may modify the operating system of a network device to introduce new capabilities or weaken existing defenses.(Citation: Killing the myth of Cisco IOS rootkits) (Citation: Killing IOS diversity myth) (Citation: Cisco IOS Shellcode) (Citation: Cisco IOS Forensics Developments) (Citation: Juniper Netscreen of the Dead) Some network devices are built with a monolithic architecture, where the entire operating system and most of the functionality of the device is contained within a single file.  Adversaries may change this file in storage, to be loaded in a future boot, or in memory during runtime.",
+   :db/ident :d3f/T1601.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Patch System Image",
    :rdfs/subClassOf :d3f/T1601})
 
 (def T1601_002
-  {:d3f/attack-id   "T1601.002",
-   :db/ident        :d3f/T1601.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Downgrade System Image",
+  {:d3f/attack-id "T1601.002",
+   :d3f/definition
+   "Adversaries may install an older version of the operating system of a network device to weaken security.  Older operating system versions on network devices often have weaker encryption ciphers and, in general, fewer/less updated defensive features. (Citation: Cisco Synful Knock Evolution)",
+   :db/ident :d3f/T1601.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Downgrade System Image",
    :rdfs/subClassOf :d3f/T1601})
 
 (def T1602
-  {:d3f/attack-id   "T1602",
-   :db/ident        :d3f/T1602,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data from Configuration Repository",
+  {:d3f/attack-id "T1602",
+   :d3f/definition
+   "Adversaries may collect data related to managed devices from configuration repositories. Configuration repositories are used by management systems in order to configure, manage, and control data on remote systems. Configuration repositories may also facilitate remote access and administration of devices.",
+   :db/ident :d3f/T1602,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from Configuration Repository",
    :rdfs/subClassOf :d3f/CollectionTechnique})
 
 (def T1602_001
-  {:d3f/attack-id   "T1602.001",
-   :db/ident        :d3f/T1602.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SNMP (MIB Dump)",
+  {:d3f/attack-id "T1602.001",
+   :d3f/definition
+   "Adversaries may target the Management Information Base (MIB) to collect and/or mine valuable information in a network managed using Simple Network Management Protocol (SNMP).",
+   :db/ident :d3f/T1602.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "SNMP (MIB Dump)",
    :rdfs/subClassOf :d3f/T1602})
 
 (def T1602_002
-  {:d3f/attack-id   "T1602.002",
-   :db/ident        :d3f/T1602.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Device Configuration Dump",
+  {:d3f/attack-id "T1602.002",
+   :d3f/definition
+   "Adversaries may access network configuration files to collect sensitive data about the device and the network. The network configuration is a file containing parameters that determine the operation of the device. The device typically stores an in-memory copy of the configuration while operating, and a separate configuration on non-volatile storage to load after device reset. Adversaries can inspect the configuration files to reveal information about the target network and its layout, the network device and its software, or identifying legitimate accounts and credentials for later use.",
+   :db/ident :d3f/T1602.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Device Configuration Dump",
    :rdfs/subClassOf :d3f/T1602})
 
 (def T1606
-  {:d3f/attack-id   "T1606",
-   :db/ident        :d3f/T1606,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Forge Web Credentials",
+  {:d3f/attack-id "T1606",
+   :d3f/definition
+   "Adversaries may forge credential materials that can be used to gain access to web applications or Internet services. Web applications and services (hosted in cloud SaaS environments or on-premise servers) often use session cookies, tokens, or other materials to authenticate and authorize user access.",
+   :db/ident :d3f/T1606,
+   :rdf/type :owl/Class,
+   :rdfs/label "Forge Web Credentials",
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1606_001
-  {:d3f/attack-id   "T1606.001",
-   :db/ident        :d3f/T1606.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Web Cookies",
+  {:d3f/attack-id "T1606.001",
+   :d3f/definition
+   "Adversaries may forge web cookies that can be used to gain access to web applications or Internet services. Web applications and services (hosted in cloud SaaS environments or on-premise servers) often use session cookies to authenticate and authorize user access.",
+   :db/ident :d3f/T1606.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web Cookies",
    :rdfs/subClassOf :d3f/T1606})
 
 (def T1606_002
-  {:d3f/attack-id   "T1606.002",
-   :db/ident        :d3f/T1606.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SAML Tokens",
+  {:d3f/attack-id "T1606.002",
+   :d3f/definition
+   "An adversary may forge SAML tokens with any permissions claims and lifetimes if they possess a valid SAML token-signing certificate.(Citation: Microsoft SolarWinds Steps) The default lifetime of a SAML token is one hour, but the validity period can be specified in the <code>NotOnOrAfter</code> value of the <code>conditions ...</code> element in a token. This value can be changed using the <code>AccessTokenLifetime</code> in a <code>LifetimeTokenPolicy</code>.(Citation: Microsoft SAML Token Lifetimes) Forged SAML tokens enable adversaries to authenticate across services that use SAML 2.0 as an SSO (single sign-on) mechanism.(Citation: Cyberark Golden SAML)",
+   :db/ident :d3f/T1606.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "SAML Tokens",
    :rdfs/subClassOf :d3f/T1606})
 
 (def T1608
-  {:d3f/attack-id   "T1608",
-   :db/ident        :d3f/T1608,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Stage Capabilities",
+  {:d3f/attack-id "T1608",
+   :d3f/definition
+   "Adversaries may upload, install, or otherwise set up capabilities that can be used during targeting. To support their operations, an adversary may need to take capabilities they developed ([Develop Capabilities](https://attack.mitre.org/techniques/T1587)) or obtained ([Obtain Capabilities](https://attack.mitre.org/techniques/T1588)) and stage them on infrastructure under their control. These capabilities may be staged on infrastructure that was previously purchased/rented by the adversary ([Acquire Infrastructure](https://attack.mitre.org/techniques/T1583)) or was otherwise compromised by them ([Compromise Infrastructure](https://attack.mitre.org/techniques/T1584)). Capabilities may also be staged on web services, such as GitHub or Pastebin, or on Platform-as-a-Service (PaaS) offerings that enable users to easily provision applications.(Citation: Volexity Ocean Lotus November 2020)(Citation: Dragos Heroku Watering Hole)(Citation: Malwarebytes Heroku Skimmers)(Citation: Netskope GCP Redirection)(Citation: Netskope Cloud Phishing)",
+   :db/ident :d3f/T1608,
+   :rdf/type :owl/Class,
+   :rdfs/label "Stage Capabilities",
    :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
 
 (def T1608_001
-  {:d3f/attack-id   "T1608.001",
-   :db/ident        :d3f/T1608.001,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Upload Malware",
+  {:d3f/attack-id "T1608.001",
+   :d3f/definition
+   "Adversaries may upload malware to third-party or adversary controlled infrastructure to make it accessible during targeting. Malicious software can include payloads, droppers, post-compromise tools, backdoors, and a variety of other malicious content. Adversaries may upload malware to support their operations, such as making a payload available to a victim network to enable [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105) by placing it on an Internet accessible web server.",
+   :db/ident :d3f/T1608.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Upload Malware",
    :rdfs/subClassOf :d3f/T1608})
 
 (def T1608_002
-  {:d3f/attack-id   "T1608.002",
-   :db/ident        :d3f/T1608.002,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Upload Tool",
+  {:d3f/attack-id "T1608.002",
+   :d3f/definition
+   "Adversaries may upload tools to third-party or adversary controlled infrastructure to make it accessible during targeting. Tools can be open or closed source, free or commercial. Tools can be used for malicious purposes by an adversary, but (unlike malware) were not intended to be used for those purposes (ex: [PsExec](https://attack.mitre.org/software/S0029)). Adversaries may upload tools to support their operations, such as making a tool available to a victim network to enable [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105) by placing it on an Internet accessible web server.",
+   :db/ident :d3f/T1608.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Upload Tool",
    :rdfs/subClassOf :d3f/T1608})
 
 (def T1608_003
-  {:d3f/attack-id   "T1608.003",
-   :db/ident        :d3f/T1608.003,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Install Digital Certificate",
+  {:d3f/attack-id "T1608.003",
+   :d3f/definition
+   "Adversaries may install SSL/TLS certificates that can be used during targeting. SSL/TLS certificates are files that can be installed on servers to enable secure communications between systems. Digital certificates include information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct. If the signature is valid, and the person examining the certificate trusts the signer, then they know they can use that key to communicate securely with its owner. Certificates can be uploaded to a server, then the server can be configured to use the certificate to enable encrypted communication with it.(Citation: DigiCert Install SSL Cert)",
+   :db/ident :d3f/T1608.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Install Digital Certificate",
    :rdfs/subClassOf :d3f/T1608})
 
 (def T1608_004
-  {:d3f/attack-id   "T1608.004",
-   :db/ident        :d3f/T1608.004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Drive-by Target",
+  {:d3f/attack-id "T1608.004",
+   :d3f/definition
+   "Adversaries may prepare an operational environment to infect systems that visit a website over the normal course of browsing. Endpoint systems may be compromised through browsing to adversary controlled sites, as in [Drive-by Compromise](https://attack.mitre.org/techniques/T1189). In such cases, the user's web browser is typically targeted for exploitation (often not requiring any extra user interaction once landing on the site), but adversaries may also set up websites for non-exploitation behavior such as [Application Access Token](https://attack.mitre.org/techniques/T1550/001). Prior to [Drive-by Compromise](https://attack.mitre.org/techniques/T1189), adversaries must stage resources needed to deliver that exploit to users who browse to an adversary controlled site. Drive-by content can be staged on adversary controlled infrastructure that has been acquired ([Acquire Infrastructure](https://attack.mitre.org/techniques/T1583)) or previously compromised ([Compromise Infrastructure](https://attack.mitre.org/techniques/T1584)).",
+   :db/ident :d3f/T1608.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Drive-by Target",
    :rdfs/subClassOf :d3f/T1608})
 
 (def T1608_005
-  {:d3f/attack-id   "T1608.005",
-   :db/ident        :d3f/T1608.005,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Link Target",
+  {:d3f/attack-id "T1608.005",
+   :d3f/definition
+   "Adversaries may put in place resources that are referenced by a link that can be used during targeting. An adversary may rely upon a user clicking a malicious link in order to divulge information (including credentials) or to gain execution, as in [Malicious Link](https://attack.mitre.org/techniques/T1204/001). Links can be used for spearphishing, such as sending an email accompanied by social engineering text to coax the user to actively click or copy and paste a URL into a browser. Prior to a phish for information (as in [Spearphishing Link](https://attack.mitre.org/techniques/T1598/003)) or a phish to gain initial access to a system (as in [Spearphishing Link](https://attack.mitre.org/techniques/T1566/002)), an adversary must set up the resources for a link target for the spearphishing link.",
+   :db/ident :d3f/T1608.005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Link Target",
+   :rdfs/subClassOf :d3f/T1608})
+
+(def T1608_006
+  {:d3f/attack-id "T1608.006",
+   :d3f/definition
+   "Adversaries may poison mechanisms that influence search engine optimization (SEO) to further lure staged capabilities towards potential victims. Search engines typically display results to users based on purchased ads as well as the site’s ranking/score/reputation calculated by their web crawlers and algorithms.(Citation: Atlas SEO)(Citation: MalwareBytes SEO)",
+   :db/ident :d3f/T1608.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "SEO Poisoning",
    :rdfs/subClassOf :d3f/T1608})
 
 (def T1609
-  {:d3f/attack-id   "T1609",
-   :db/ident        :d3f/T1609,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Container Administration Command",
+  {:d3f/attack-id "T1609",
+   :d3f/definition
+   "Adversaries may abuse a container administration service to execute commands within a container. A container administration service such as the Docker daemon, the Kubernetes API server, or the kubelet may allow remote management of containers within an environment.(Citation: Docker Daemon CLI)(Citation: Kubernetes API)(Citation: Kubernetes Kubelet)",
+   :db/ident :d3f/T1609,
+   :rdf/type :owl/Class,
+   :rdfs/label "Container Administration Command",
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1610
-  {:d3f/attack-id   "T1610",
-   :db/ident        :d3f/T1610,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Deploy Container",
+  {:d3f/attack-id "T1610",
+   :d3f/definition
+   "Adversaries may deploy a container into an environment to facilitate execution or evade defenses. In some cases, adversaries may deploy a new container to execute processes associated with a particular image or deployment, such as processes that execute or download malware. In others, an adversary may deploy a new container configured without network rules, user limitations, etc. to bypass existing defenses within the environment. In Kubernetes environments, an adversary may attempt to deploy a privileged or vulnerable container into a specific node in order to [Escape to Host](https://attack.mitre.org/techniques/T1611) and access other containers running on the node. (Citation: AppSecco Kubernetes Namespace Breakout 2020)",
+   :db/ident :d3f/T1610,
+   :rdf/type :owl/Class,
+   :rdfs/label "Deploy Container",
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1611
-  {:d3f/attack-id   "T1611",
-   :db/ident        :d3f/T1611,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Escape to Host",
+  {:d3f/attack-id "T1611",
+   :d3f/definition
+   "Adversaries may break out of a container to gain access to the underlying host. This can allow an adversary access to other containerized resources from the host level or to the host itself. In principle, containerized resources should provide a clear separation of application functionality and be isolated from the host environment.(Citation: Docker Overview)",
+   :db/ident :d3f/T1611,
+   :rdf/type :owl/Class,
+   :rdfs/label "Escape to Host",
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1612
-  {:d3f/attack-id   "T1612",
-   :db/ident        :d3f/T1612,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Build Image on Host",
+  {:d3f/attack-id "T1612",
+   :d3f/definition
+   "Adversaries may build a container image directly on a host to bypass defenses that monitor for the retrieval of malicious images from a public registry. A remote <code>build</code> request may be sent to the Docker API that includes a Dockerfile that pulls a vanilla base image, such as alpine, from a public or local registry and then builds a custom image upon it.(Citation: Docker Build Image)",
+   :db/ident :d3f/T1612,
+   :rdf/type :owl/Class,
+   :rdfs/label "Build Image on Host",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1613
-  {:d3f/attack-id   "T1613",
-   :db/ident        :d3f/T1613,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Container and Resource Discovery",
+  {:d3f/attack-id "T1613",
+   :d3f/definition
+   "Adversaries may attempt to discover containers and other resources that are available within a containers environment. Other resources may include images, deployments, pods, nodes, and other information such as the status of a cluster.",
+   :db/ident :d3f/T1613,
+   :rdf/type :owl/Class,
+   :rdfs/label "Container and Resource Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1614
   {:d3f/accesses    :d3f/ConfigurationResource,
    :d3f/attack-id   "T1614",
+   :d3f/definition  "",
    :db/ident        :d3f/T1614,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "System Location Discovery",
@@ -36787,69 +39219,183 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1614_001
-  {:d3f/attack-id   "T1614.001",
-   :d3f/queries     :d3f/SystemConfigurationDatabase,
-   :db/ident        :d3f/T1614.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Language Discovery",
+  {:d3f/attack-id "T1614.001",
+   :d3f/definition
+   "Adversaries may attempt to gather information about the system language of a victim in order to infer the geographical location of that host. This information may be used to shape follow-on behaviors, including whether the adversary infects the target and/or attempts specific actions. This decision may be employed by malware developers and operators to reduce their risk of attracting the attention of specific law enforcement agencies or prosecution/scrutiny from other entities.(Citation: Malware System Language Check)",
+   :d3f/queries :d3f/SystemConfigurationDatabase,
+   :db/ident :d3f/T1614.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Language Discovery",
    :rdfs/subClassOf #{:d3f/T1614
                       {:owl/onProperty     :d3f/queries,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1615
-  {:d3f/attack-id   "T1615",
-   :d3f/reads       :d3f/GroupPolicy,
-   :db/ident        :d3f/T1615,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Group Policy Discovery",
+  {:d3f/attack-id "T1615",
+   :d3f/definition
+   "Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment. Group Policy allows for centralized management of user and computer settings in Active Directory (AD). Group policy objects (GPOs) are containers for group policy settings made up of files stored within a predictable network path `\\<DOMAIN>\\SYSVOL\\<DOMAIN>\\Policies\\`.(Citation: TechNet Group Policy Basics)(Citation: ADSecurity GPO Persistence 2016)",
+   :d3f/reads :d3f/GroupPolicy,
+   :db/ident :d3f/T1615,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Group Policy Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/GroupPolicy,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1619
-  {:d3f/accesses    :d3f/CloudStorage,
-   :d3f/attack-id   "T1619",
-   :db/ident        :d3f/T1619,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cloud Storage Object Discovery",
+  {:d3f/accesses :d3f/CloudStorage,
+   :d3f/attack-id "T1619",
+   :d3f/definition
+   "Adversaries may enumerate objects in cloud storage infrastructure. Adversaries may use this information during automated discovery to shape follow-on behaviors, including requesting all or specific objects from cloud storage.  Similar to [File and Directory Discovery](https://attack.mitre.org/techniques/T1083) on a local host, after identifying available storage services (i.e. [Cloud Infrastructure Discovery](https://attack.mitre.org/techniques/T1580)) adversaries may access the contents/objects stored in cloud infrastructure.",
+   :db/ident :d3f/T1619,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud Storage Object Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/CloudStorage,
                        :rdf/type           :owl/Restriction}}})
 
 (def T1620
-  {:d3f/attack-id   "T1620",
-   :d3f/modifies    :d3f/ProcessSegment,
-   :db/ident        :d3f/T1620,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Reflective Code Loading",
+  {:d3f/attack-id "T1620",
+   :d3f/definition
+   "Adversaries may reflectively load code into a process in order to conceal the execution of malicious payloads. Reflective loading involves allocating then executing payloads directly within the memory of the process, vice creating a thread or process backed by a file path on disk (e.g., [Shared Modules](https://attack.mitre.org/techniques/T1129)).",
+   :d3f/modifies :d3f/ProcessSegment,
+   :db/ident :d3f/T1620,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Reflective Code Loading",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ProcessSegment,
                        :rdf/type           :owl/Restriction}
                       :d3f/DefenseEvasionTechnique}})
 
 (def T1621
-  {:d3f/attack-id   "T1621",
-   :db/ident        :d3f/T1621,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multi-Factor Authentication Request Generation",
+  {:d3f/attack-id "T1621",
+   :d3f/definition
+   "Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.",
+   :db/ident :d3f/T1621,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multi-Factor Authentication Request Generation",
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1622
-  {:d3f/attack-id   "T1622",
-   :db/ident        :d3f/T1622,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Debugger Evasion",
+  {:d3f/attack-id "T1622",
+   :d3f/definition
+   "Adversaries may employ various means to detect and avoid debuggers. Debuggers are typically used by defenders to trace and/or analyze the execution of potential malware payloads.(Citation: ProcessHacker Github)",
+   :db/ident :d3f/T1622,
+   :rdf/type :owl/Class,
+   :rdfs/label "Debugger Evasion",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1647
-  {:d3f/attack-id   "T1647",
-   :db/ident        :d3f/T1647,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Plist File Modification",
+  {:d3f/attack-id "T1647",
+   :d3f/definition
+   "Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evading and bypassing system defenses. macOS applications use plist files, such as the <code>info.plist</code> file, to store properties and configuration settings that inform the operating system how to handle the application at runtime. Plist files are structured metadata in key-value pairs formatted in XML based on Apple's Core Foundation DTD. Plist files can be saved in text or binary format.(Citation: fileinfo plist file description)",
+   :db/ident :d3f/T1647,
+   :rdf/type :owl/Class,
+   :rdfs/label "Plist File Modification",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
+
+(def T1648
+  {:d3f/attack-id "T1648",
+   :d3f/definition
+   "Adversaries may abuse serverless computing, integration, and automation services to execute arbitrary code in cloud environments. Many cloud providers offer a variety of serverless resources, including compute engines, application integration services, and web servers.",
+   :db/ident :d3f/T1648,
+   :rdf/type :owl/Class,
+   :rdfs/label "Serverless Execution",
+   :rdfs/subClassOf :d3f/ExecutionTechnique})
+
+(def T1649
+  {:d3f/attack-id "T1649",
+   :d3f/definition
+   "Adversaries may steal or forge certificates used for authentication to access remote systems or resources. Digital certificates are often used to sign and encrypt messages and/or files. Certificates are also used as authentication material. For example, Azure AD device certificates and Active Directory Certificate Services (AD CS) certificates bind to an identity and can be used as credentials for domain accounts.(Citation: O365 Blog Azure AD Device IDs)(Citation: Microsoft AD CS Overview)",
+   :db/ident :d3f/T1649,
+   :rdf/type :owl/Class,
+   :rdfs/label "Steal or Forge Authentication Certificates",
+   :rdfs/subClassOf :d3f/CredentialAccessTechnique})
+
+(def T1650
+  {:d3f/attack-id "T1650",
+   :d3f/definition
+   "Adversaries may purchase or otherwise acquire an existing access to a target system or network. A variety of online services and initial access broker networks are available to sell access to previously compromised systems.(Citation: Microsoft Ransomware as a Service)(Citation: CrowdStrike Access Brokers)(Citation: Krebs Access Brokers Fortune 500) In some cases, adversary groups may form partnerships to share compromised systems with each other.(Citation: CISA Karakurt 2022)",
+   :db/ident :d3f/T1650,
+   :rdf/type :owl/Class,
+   :rdfs/label "Acquire Access",
+   :rdfs/subClassOf :d3f/ResourceDevelopmentTechnique})
+
+(def T1651
+  {:d3f/attack-id "T1651",
+   :d3f/definition
+   "Adversaries may abuse cloud management services to execute commands within virtual machines. Resources such as AWS Systems Manager, Azure RunCommand, and Runbooks allow users to remotely run scripts in virtual machines by leveraging installed virtual machine agents. (Citation: AWS Systems Manager Run Command)(Citation: Microsoft Run Command)",
+   :db/ident :d3f/T1651,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Administration Command",
+   :rdfs/subClassOf :d3f/ExecutionTechnique})
+
+(def T1652
+  {:d3f/attack-id "T1652",
+   :d3f/definition
+   "Adversaries may attempt to enumerate local device drivers on a victim host. Information about device drivers may highlight various insights that shape follow-on behaviors, such as the function/purpose of the host, present security tools (i.e. [Security Software Discovery](https://attack.mitre.org/techniques/T1518/001)) or other defenses (e.g., [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1497)), as well as potential exploitable vulnerabilities (e.g., [Exploitation for Privilege Escalation](https://attack.mitre.org/techniques/T1068)).",
+   :db/ident :d3f/T1652,
+   :rdf/type :owl/Class,
+   :rdfs/label "Device Driver Discovery",
+   :rdfs/subClassOf :d3f/DiscoveryTechnique})
+
+(def T1653
+  {:d3f/attack-id "T1653",
+   :d3f/definition
+   "Adversaries may impair a system's ability to hibernate, reboot, or shut down in order to extend access to infected machines. When a computer enters a dormant state, some or all software and hardware may cease to operate which can disrupt malicious activity.(Citation: Sleep, shut down, hibernate)",
+   :db/ident :d3f/T1653,
+   :rdf/type :owl/Class,
+   :rdfs/label "Power Settings",
+   :rdfs/subClassOf :d3f/PersistenceTechnique})
+
+(def T1654
+  {:d3f/attack-id "T1654",
+   :d3f/definition
+   "Adversaries may enumerate system and service logs to find useful data. These logs may highlight various types of valuable insights for an adversary, such as user authentication records ([Account Discovery](https://attack.mitre.org/techniques/T1087)), security or vulnerable software ([Software Discovery](https://attack.mitre.org/techniques/T1518)), or hosts within a compromised network ([Remote System Discovery](https://attack.mitre.org/techniques/T1018)).",
+   :db/ident :d3f/T1654,
+   :rdf/type :owl/Class,
+   :rdfs/label "Log Enumeration",
+   :rdfs/subClassOf :d3f/DiscoveryTechnique})
+
+(def T1656
+  {:d3f/attack-id "T1656",
+   :d3f/definition
+   "Adversaries may impersonate a trusted person or organization in order to persuade and trick a target into performing some action on their behalf. For example, adversaries may communicate with victims (via [Phishing for Information](https://attack.mitre.org/techniques/T1598), [Phishing](https://attack.mitre.org/techniques/T1566), or [Internal Spearphishing](https://attack.mitre.org/techniques/T1534)) while impersonating a known sender such as an executive, colleague, or third-party vendor. Established trust can then be leveraged to accomplish an adversary’s ultimate goals, possibly against multiple victims.",
+   :db/ident :d3f/T1656,
+   :rdf/type :owl/Class,
+   :rdfs/label "Impersonation",
+   :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
+
+(def T1657
+  {:d3f/attack-id "T1657",
+   :d3f/definition
+   "Adversaries may steal monetary resources from targets through extortion, social engineering, technical theft, or other methods aimed at their own financial gain at the expense of the availability of these resources for victims. Financial theft is the ultimate objective of several popular campaign types including extortion by ransomware,(Citation: FBI-ransomware) business email compromise (BEC) and fraud,(Citation: FBI-BEC) \"pig butchering,\"(Citation: wired-pig butchering) bank hacking,(Citation: DOJ-DPRK Heist) and exploiting cryptocurrency networks.(Citation: BBC-Ronin)",
+   :db/ident :d3f/T1657,
+   :rdf/type :owl/Class,
+   :rdfs/label "Financial Theft",
+   :rdfs/subClassOf :d3f/ImpactTechnique})
+
+(def T1659
+  {:d3f/attack-id "T1659",
+   :d3f/definition
+   "Adversaries may gain access and continuously communicate with victims by injecting malicious content into systems through online network traffic. Rather than luring victims to malicious payloads hosted on a compromised website (i.e., [Drive-by Target](https://attack.mitre.org/techniques/T1608/004) followed by [Drive-by Compromise](https://attack.mitre.org/techniques/T1189)), adversaries may initially access victims through compromised data-transfer channels where they can manipulate traffic and/or inject their own content. These compromised online network channels may also be used to deliver additional payloads (i.e., [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105)) and other data to already compromised systems.(Citation: ESET MoustachedBouncer)",
+   :db/ident :d3f/T1659,
+   :rdf/type :owl/Class,
+   :rdfs/label "Content Injection",
+   :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
+                      :d3f/InitialAccessTechnique}})
+
+(def T1665
+  {:d3f/attack-id "T1665",
+   :d3f/definition
+   "Adversaries may manipulate network traffic in order to hide and evade detection of their C2 infrastructure. This can be accomplished in various ways including by identifying and filtering traffic from defensive tools,(Citation: TA571) masking malicious domains to obfuscate the true destination from both automated scanning tools and security researchers,(Citation: Schema-abuse)(Citation: Facad1ng)(Citation: Browser-updates) and otherwise hiding malicious artifacts to delay discovery and prolong the effectiveness of adversary infrastructure that could otherwise be identified, blocked, or taken down entirely.",
+   :db/ident :d3f/T1665,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hide Infrastructure",
+   :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def TA0001
   {:d3f/display-order 1,
@@ -37343,6 +39889,19 @@
    :rdfs/label      "Unix Link",
    :rdfs/subClassOf :d3f/FileSystemLink})
 
+(def UnloadModule
+  {:d3f/definition
+   "A system call that unloads a driver or extension from the kernel.",
+   :d3f/unloads #{:d3f/KernelModule :d3f/HardwareDriver},
+   :db/ident :d3f/UnloadModule,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/unloads,
+                       :owl/someValuesFrom :d3f/HardwareDriver,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/unloads,
+                       :owl/someValuesFrom :d3f/KernelModule,
+                       :rdf/type           :owl/Restriction} :d3f/SystemCall}})
+
 (def UnlockAccount
   {:d3f/d3fend-id "D3-ULA",
    :d3f/definition
@@ -37416,7 +39975,7 @@
    :rdfs/label "User",
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://wordnet-rdf.princeton.edu/id/10761247-n"}
-                   {:rdf/value "UserAccount"}},
+                   :d3f/UserAccount},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricted-by,
                        :owl/someValuesFrom :d3f/AccessControlList,
                        :rdf/type           :owl/Restriction}
@@ -38685,7 +41244,6 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Wireless_router"},
    :rdfs/label "Wireless Router",
-   :rdfs/seeAlso {:rdf/value "Wireless Access Point"},
    :rdfs/subClassOf #{:d3f/WirelessAccessPoint :d3f/Router}})
 
 (def WriteFile
@@ -38844,7 +41402,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://wordnet-rdf.princeton.edu/id/01980375-s"},
    :rdfs/label "attached-to",
-   :rdfs/seeAlso {:rdf/value "d3f:connects"},
+   :rdfs/seeAlso :d3f/connects,
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def attack-id
@@ -39081,7 +41639,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://wordnet-rdf.princeton.edu/id/01630392-v"},
    :rdfs/label "creates",
-   :rdfs/seeAlso {:rdf/value "produces"},
+   :rdfs/seeAlso :d3f/produces,
    :rdfs/subPropertyOf #{:d3f/may-create :d3f/associated-with}})
 
 (def creator
@@ -39107,8 +41665,7 @@
    "x d3fend-annotation y: The d3fend object x has the annotation y.",
    :db/ident :d3f/d3fend-annotation,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "d3fend-annotation",
-   :rdfs/subPropertyOf :owl/versionInfo})
+   :rdfs/label "d3fend-annotation"})
 
 (def d3fend-artifact-data-property
   {:d3f/definition
@@ -39301,13 +41858,13 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def dependsOn
-  {:db/ident :d3f/dependsOn,
+  {:d3f/definition
+   "x depends-on y: The entity x is contingent on y being available; x relies on y.",
+   :db/ident :d3f/dependsOn,
    :owl/inverseOf :d3f/has-dependent,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy
-   #{{:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00729216-a"}
-     {:rdf/value
-      "x depends-on y: The entity x is contingent on y being available; x relies on y."}},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://wordnet-rdf.princeton.edu/id/00729216-a"},
    :rdfs/label "depends-on",
    :rdfs/seeAlso {:xsd/anyURI "https://www.cisa.gov/what-are-dependencies"},
    :rdfs/subPropertyOf :d3f/associated-with})
@@ -40552,7 +43109,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://wordnet-rdf.princeton.edu/id/01625832-v"},
    :rdfs/label "produces",
-   :rdfs/seeAlso {:rdf/value "creates"},
+   :rdfs/seeAlso :d3f/creates,
    :rdfs/subPropertyOf #{:d3f/may-produce :d3f/associated-with
                          :d3f/d3fend-catalog-object-property},
    :skos/altLabel "outputs"})
@@ -40860,6 +43417,14 @@
    :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-catalog-data-property})
 
+(def unloads
+  {:d3f/definition
+   "x unloads y: The technique or artifact performs the action of unloading some artifact (applications, kernel modules, or hardware drivers, etc.) from a computer's memory.",
+   :db/ident :d3f/unloads,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "unloads",
+   :rdfs/subPropertyOf :d3f/evicts})
+
 (def unmounts
   {:d3f/definition
    "x unmounts y: An operation x removes the access via computer system's file system the availability of files and directories on a storage artifact y.  Unmounts reverse or undo prior mount operations.",
@@ -40997,15 +43562,15 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
-  {:d3f/release-date #inst "2024-04-26T00:00:00.000-00:00",
+  {:d3f/release-date #inst "2024-07-10T00:00:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.15.0/d3fend.owl"},
-   :owl/versionInfo "0.15.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.16.0/d3fend.owl"},
+   :owl/versionInfo "0.16.0",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
