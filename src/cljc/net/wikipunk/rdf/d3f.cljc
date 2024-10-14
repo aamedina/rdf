@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.d3f
-  {:d3f/release-date #inst "2024-07-10T00:00:00.000-00:00",
+  {:d3f/release-date #inst "2024-10-11T00:00:00.000-00:00",
    :dcat/downloadURL
-   "https://d3fend.mitre.org/ontologies/d3fend/0.16.0/d3fend.owl",
+   "https://d3fend.mitre.org/ontologies/d3fend/0.17.0/d3fend.owl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
@@ -15,8 +15,8 @@
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.16.0/d3fend.owl"},
-   :owl/versionInfo "0.16.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.17.0/d3fend.owl"},
+   :owl/versionInfo "0.17.0",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
    :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
@@ -141,7 +141,7 @@
    :rdfs/label      "Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
-                       :rdf/type           :owl/Restriction} :d3f/Action
+                       :rdf/type           :owl/Restriction} :d3f/DigitalEvent
                       {:owl/onProperty     :d3f/has-mediator,
                        :owl/someValuesFrom :d3f/AccessMediator,
                        :rdf/type           :owl/Restriction}}})
@@ -261,7 +261,7 @@
    :rdfs/label      "Action",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-agent,
                        :owl/someValuesFrom :d3f/Agent,
-                       :rdf/type           :owl/Restriction} :d3f/D3FENDCore}})
+                       :rdf/type           :owl/Restriction} :d3f/Event}})
 
 (def ActiveCertificateAnalysis
   {:d3f/created #inst "2020-08-05T00:00:00.000-00:00",
@@ -322,21 +322,6 @@
                        :owl/someValuesFrom :d3f/CollectorAgent,
                        :rdf/type           :owl/Restriction}
                       :d3f/PhysicalLinkMapping}})
-
-(def Activity
-  {:d3f/definition
-   "An activity is a specific behavior representing a set of actions that may be accomplished by an agent.",
-   :db/ident :d3f/Activity,
-   :rdf/type :owl/Class,
-   :rdfs/label "Activity",
-   :rdfs/seeAlso
-   #{{:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00408356-n"}
-     {:xsd/anyURI "https://en.wikipedia.org/wiki/IDEF0"}
-     {:xsd/anyURI
-      "https://enterpriseintegrationlab.github.io/icity/Activity/doc/index-en.html"}
-     {:xsd/anyURI
-      "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"}},
-   :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def ActivityDependency
   {:d3f/definition
@@ -448,7 +433,16 @@
   {:db/ident        :d3f/Agent,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Agent",
-   :rdfs/subClassOf #{:d3f/D3FENDCatalogThing :d3f/D3FENDCore}})
+   :rdfs/subClassOf :d3f/D3FENDCore})
+
+(def AgentGroup
+  {:db/ident        :d3f/AgentGroup,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Agent Group",
+   :rdfs/subClassOf #{:d3f/Group
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/Agent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def AgglomerativeClustering
   {:d3f/d3fend-id "D3A-AC",
@@ -502,12 +496,6 @@
                        :owl/someValuesFrom :d3f/PortfolioAssessment,
                        :rdf/type           :owl/Restriction}}})
 
-(def AnalyticLatency
-  {:db/ident        :d3f/AnalyticLatency,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Analytic Latency",
-   :rdfs/subClassOf :d3f/Latency})
-
 (def AnalyticTechnique
   {:d3f/definition
    "A process in which a computer examines information using mathematical methods in order to find useful patterns.",
@@ -517,13 +505,13 @@
    {:xsd/anyURI
     "https://dictionary.cambridge.org/us/dictionary/english/analytics"},
    :rdfs/label "Analytic Technique",
-   :rdfs/subClassOf :d3f/D3FENDThing})
+   :rdfs/subClassOf :d3f/Technique})
 
 (def AnalyticalPurpose
   {:db/ident        :d3f/AnalyticalPurpose,
    :rdf/type        :owl/Class,
    :rdfs/label      "Analytical Purpose",
-   :rdfs/subClassOf :d3f/D3FENDThing})
+   :rdfs/subClassOf :d3f/Goal})
 
 (def AnswerSetProgramming
   {:d3f/d3fend-id "D3A-ASP",
@@ -744,7 +732,7 @@
    :rdfs/seeAlso #{{:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl"}
                    {:xsd/anyURI
                     "http://wordnet-rdf.princeton.edu/id/00022119-n"}},
-   :rdfs/subClassOf :d3f/D3FENDThing})
+   :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def ArtifactServer
   {:d3f/definition
@@ -1272,11 +1260,6 @@
                       :d3f/DigitalInformationBearer},
    :skos/altLabel "Block Special File"})
 
-(def Book
-  {:db/ident   :d3f/Book,
-   :rdf/type   #{:d3f/ReferenceType :owl/NamedIndividual},
-   :rdfs/label "Book"})
-
 (def BookReference
   {:d3f/pref-label  "Book",
    :db/ident        :d3f/BookReference,
@@ -1320,7 +1303,7 @@
   {:d3f/definition
    "A d3f:Record which is an essential component of the early boot (system initialization) process.",
    :db/ident :d3f/BootRecord,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Boot Record",
    :rdfs/subClassOf :d3f/Record})
 
@@ -11838,13 +11821,13 @@
    :rdfs/seeAlso
    {:xsd/anyURI
     "https://web.archive.org/web/20081123014953/http://www.dtic.mil/doctrine/jel/new_pubs/jp1_02.pdf"},
-   :rdfs/subClassOf #{:d3f/D3FENDThing
-                      {:owl/onProperty     :d3f/assessed-by,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/assessed-by,
                        :owl/someValuesFrom :d3f/CapabilityAssessment,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-feature,
                        :owl/someValuesFrom :d3f/CapabilityFeature,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ExternalThing}})
 
 (def CapabilityAssessment
   {:db/ident        :d3f/CapabilityAssessment,
@@ -11899,29 +11882,19 @@
   {:db/ident        :d3f/CapabilityImplementation,
    :rdf/type        :owl/Class,
    :rdfs/label      "Capability Implementation",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/latency,
-                       :owl/someValuesFrom :d3f/D3FENDCatalogThing,
+   :rdfs/subClassOf #{:d3f/D3FENDCatalogThing
+                      {:owl/onProperty     :d3f/assessed-by,
+                       :owl/someValuesFrom :d3f/CapabilityAssessment,
                        :rdf/type           :owl/Restriction}
-                      :d3f/D3FENDCatalogThing
                       {:owl/onProperty     :d3f/operating-system,
                        :owl/someValuesFrom :xsd/string,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/features,
-                       :owl/someValuesFrom :d3f/AdministrativeFeature,
+                       :owl/someValuesFrom :d3f/CapabilityFeature,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/version,
                        :owl/someValuesFrom :xsd/string,
                        :rdf/type           :owl/Restriction}}})
-
-(def Catalog
-  {:d3f/definition
-   "A catalog is a complete list of things; usually arranged systematically.",
-   :db/ident :d3f/Catalog,
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://wordnet-rdf.princeton.edu/id/06499734-n"},
-   :rdfs/label "Catalog",
-   :rdfs/subClassOf :d3f/InformationContentEntity})
 
 (def CentralProcessingUnit
   {:d3f/contains :d3f/ProcessorRegister,
@@ -12388,13 +12361,33 @@
    :rdfs/label "Compiler Configuration File",
    :rdfs/subClassOf :d3f/ApplicationConfigurationFile})
 
-(def CompositeTechnique
-  {:d3f/definition
-   "A commonly applied series of techniques which induce a greater effect than each individual technique. The techniques are applied in a strict sequence.",
-   :db/ident :d3f/CompositeTechnique,
-   :rdf/type :owl/Class,
-   :rdfs/label "Composite Technique",
-   :rdfs/subClassOf :d3f/D3FENDThing})
+(def ComputerNetworkNode
+  {:d3f/definition  "A network node running on a computer platform.",
+   :db/ident        :d3f/ComputerNetworkNode,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Computer Network Node",
+   :rdfs/subClassOf #{:d3f/NetworkNode :d3f/ComputerPlatform}})
+
+(def ComputerPlatform
+  {:d3f/contains #{:d3f/Firmware :d3f/OperatingSystem :d3f/HardwareDevice},
+   :d3f/definition
+   "Platform includes the hardware and OS. The term computing platform can refer to different abstraction levels, including a certain hardware architecture, an operating system (OS), and runtime libraries. In total it can be said to be the stage on which computer programs can run.",
+   :d3f/synonym "Computing Platform",
+   :db/ident :d3f/ComputerPlatform,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Computer Platform",
+   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Computing_platform"},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/Firmware,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OperatingSystem,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/HardwareDevice,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DigitalInformationBearer},
+   :skos/altLabel "Computer Platform"})
 
 (def ComputingServer
   {:d3f/definition
@@ -12406,6 +12399,17 @@
     "https://www.encyclopedia.com/computing/dictionaries-thesauruses-pictures-and-press-releases/compute-server"},
    :rdfs/label "Computing Server",
    :rdfs/subClassOf :d3f/Server})
+
+(def Condition
+  {:d3f/definition
+   "An assumption on which rests the validity or effect of something else.",
+   :db/ident :d3f/Condition,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "Less common usage versus state, meant to superclass precondition, postcondition, and effect.",
+   :rdfs/isDefinedBy {:rdf/value "n-06768279"},
+   :rdfs/label "Condition",
+   :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def ConferencePaper
   {:db/ident        :d3f/ConferencePaper,
@@ -12608,32 +12612,21 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/ServiceApplication}})
 
-(def Contribution
-  {:db/ident        :d3f/Contribution,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf #{:d3f/D3FENDThing
-                      {:owl/onProperty     :d3f/created,
-                       :owl/someValuesFrom :xsd/dateTime,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/has-contributor,
-                       :owl/someValuesFrom :d3f/Agent,
-                       :rdf/type           :owl/Restriction}}})
-
 (def ControlCatalog
   {:d3f/definition
    "A control catalog is a complete list of protective measures for systems, organizations, or individuals for subject domains (e.g., security and privacy.)",
    :db/ident :d3f/ControlCatalog,
    :rdf/type :owl/Class,
    :rdfs/label "Control Catalog",
-   :rdfs/subClassOf #{:d3f/Catalog
-                      {:owl/onProperty     :d3f/has-member,
-                       :owl/someValuesFrom :d3f/ExternalControl,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/version,
-                       :owl/someValuesFrom {:owl/unionOf [:xsd/integer
-                                                          :xsd/string],
-                                            :rdf/type    :rdfs/Datatype},
-                       :rdf/type           :owl/Restriction}}})
+   :rdfs/seeAlso {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/06499734-n"},
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/has-member,
+      :owl/someValuesFrom :d3f/ExternalControl,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/version,
+      :owl/someValuesFrom {:owl/unionOf [:xsd/integer :xsd/string],
+                           :rdf/type    :rdfs/Datatype},
+      :rdf/type           :owl/Restriction} :d3f/ExternalControlThing}})
 
 (def ControlCorrelationIdentifierCatalog
   {:d3f/definition
@@ -12845,6 +12838,7 @@
    :d3f/definition
    "Credential Eviction techniques disable or remove compromised credentials from a computer network.",
    :d3f/enables :d3f/Evict,
+   :d3f/kb-reference :d3f/Reference-AccountMonitoring_ForescoutTechnologies,
    :db/ident :d3f/CredentialEviction,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Credential Eviction",
@@ -12876,7 +12870,7 @@
    :rdfs/label "Credential Management System",
    :rdfs/subClassOf :d3f/ServiceApplication})
 
-(def CredentialRevoking
+(def CredentialRevocation
   {:d3f/d3fend-id "D3-CR",
    :d3f/definition
    "Deleting a set of credentials permanently to prevent them from being used to authenticate.",
@@ -12885,9 +12879,9 @@
    "## How it works\n\nManagement servers with enterprise policies for account management provide the ability remove permissions, accounts, or credentials. Compromised credentials should be revoked to prevent further malicious activity.",
    :d3f/kb-reference
    :d3f/Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft,
-   :db/ident :d3f/CredentialRevoking,
+   :db/ident :d3f/CredentialRevocation,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Credential Revoking",
+   :rdfs/label "Credential Revocation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/Credential,
                        :rdf/type           :owl/Restriction}
@@ -12954,6 +12948,14 @@
    :rdfs/label      "Cyber Sensor",
    :rdfs/subClassOf :d3f/Sensor})
 
+(def CyberTechnique
+  {:db/ident        :d3f/CyberTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Cyber Technique",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/implemented-by,
+                       :owl/someValuesFrom :d3f/Procedure,
+                       :rdf/type           :owl/Restriction} :d3f/Technique}})
+
 (def CycleGAN
   {:d3f/d3fend-id "D3A-CYC",
    :d3f/definition
@@ -12969,27 +12971,24 @@
   {:db/ident        :d3f/D3FENDCatalogThing,
    :rdf/type        :owl/Class,
    :rdfs/label      "D3FEND Catalog Thing",
-   :rdfs/subClassOf :d3f/D3FENDThing,
+   :rdfs/subClassOf :d3f/D3FENDKBThing,
    :skos/altLabel   "D3FEND Vendor Registry Thing"})
 
 (def D3FENDCore
   {:db/ident   :d3f/D3FENDCore,
-   :rdf/type   :owl/Class,
+   :rdf/type   #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "D3FEND Core"})
 
-(def D3FENDThing
-  {:d3f/definition
-   "D3FEND things are concepts defined in the core D3FEND Framework.",
-   :db/ident :d3f/D3FENDThing,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "D3FEND Thing"})
+(def D3FENDKBThing
+  {:db/ident   :d3f/D3FENDKBThing,
+   :rdf/type   :owl/Class,
+   :rdfs/label "D3FEND KB Thing"})
 
 (def D3FENDUseCase
   {:db/ident        :d3f/D3FENDUseCase,
    :rdf/type        :owl/Class,
    :rdfs/label      "D3FEND Use Case",
-   :rdfs/subClassOf #{:d3f/D3FENDUseCaseThing
-                      {:owl/onProperty     :d3f/has-goal,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-goal,
                        :owl/someValuesFrom :d3f/UseCaseGoal,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-prerequisite,
@@ -12997,16 +12996,10 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-procedure,
                        :owl/someValuesFrom :d3f/UseCaseProcedure,
-                       :rdf/type           :owl/Restriction}
+                       :rdf/type           :owl/Restriction} :d3f/UseCase
                       {:owl/onProperty     :d3f/has-audience,
                        :owl/someValuesFrom :d3f/TargetAudience,
                        :rdf/type           :owl/Restriction}}})
-
-(def D3FENDUseCaseThing
-  {:db/ident        :d3f/D3FENDUseCaseThing,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "D3FEND Use Case Thing",
-   :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def DBSCAN
   {:d3f/d3fend-id "D3A-DBS",
@@ -13073,6 +13066,24 @@
                        :d3f/OutboundInternetDNSLookupTraffic,
                        :rdf/type :owl/Restriction}}})
 
+(def DNSCacheEviction
+  {:d3f/d3fend-id "D3-DNSCE",
+   :d3f/definition
+   "Flushing DNS to clear any IP addresses or other DNS records from the cache.",
+   :d3f/deletes :d3f/DNSRecord,
+   :d3f/kb-article
+   "# How it works\n\nFlushing the DNS Cache will clear the IP addresses of websites you have visited recently. This can help remediate DNS Cache Poisoning attacks, which is a type of cyber attack where corrupted DNS data is inserted into the cache, causing redirects to malicious websites.\n\nOn windows, the DNS cache can be wiped by issuing the command `ipconfig /flushdns`.",
+   :d3f/kb-reference
+   :d3f/Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA,
+   :d3f/synonym "Flush DNS Cache",
+   :db/ident :d3f/DNSCacheEviction,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DNS Cache Eviction",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
+                       :owl/someValuesFrom :d3f/DNSRecord,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ObjectEviction}})
+
 (def DNSDenylisting
   {:d3f/blocks :d3f/DNSNetworkTraffic,
    :d3f/d3fend-id "D3-DNSDL",
@@ -13114,7 +13125,7 @@
   {:d3f/definition
    "A Domain Name System (DNS) record is a record of information returned to clients seeking to find computers, services, and other resources connected to the Internet or a private network.  Record information is stored on a domain name server so it can respond to DNS queries from clients.There are a variety of record types, depending on the client's information needs. Common types include Start of Authority, IP addresses, SMTP mail exchangers, name servers, reverse DNS lookup pointers, etc.",
    :db/ident :d3f/DNSRecord,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "DNS Record",
    :rdfs/seeAlso
    #{{:xsd/anyURI "http://dbpedia.org/resource/List_of_DNS_record_types"}
@@ -13543,6 +13554,11 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/ATTACKEnterpriseTechnique :d3f/OffensiveTechnique}})
 
+(def DefensiveAction
+  {:db/ident        :d3f/DefensiveAction,
+   :rdf/type        :owl/Class,
+   :rdfs/subClassOf :d3f/Action})
+
 (def DefensiveTactic
   {:d3f/definition   "a plan for attaining a particular goal",
    :db/ident         :d3f/DefensiveTactic,
@@ -13550,10 +13566,9 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://wordnet-rdf.princeton.edu/id/05913746-n"},
    :rdfs/label       "Defensive Tactic",
-   :rdfs/subClassOf  #{:d3f/D3FENDThing
-                       {:owl/onProperty     :d3f/enabled-by,
+   :rdfs/subClassOf  #{{:owl/onProperty     :d3f/enabled-by,
                         :owl/someValuesFrom :d3f/DefensiveTechnique,
-                        :rdf/type           :owl/Restriction}}})
+                        :rdf/type           :owl/Restriction} :d3f/Goal}})
 
 (def DefensiveTechnique
   {:d3f/definition
@@ -13566,14 +13581,13 @@
    :rdfs/label "Defensive Technique",
    :rdfs/seeAlso {:xsd/anyURI
                   "https://csrc.nist.gov/glossary/term/security_control"},
-   :rdfs/subClassOf #{:d3f/D3FENDThing :d3f/CapabilityFeature
+   :rdfs/subClassOf #{:d3f/CapabilityFeature :d3f/CyberTechnique
                       {:owl/onProperty     :d3f/date,
                        :owl/someValuesFrom :xsd/dateTime,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/DefensiveTactic,
-                       :rdf/type           :owl/Restriction} :d3f/Action
-                      :d3f/Technique
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/kb-reference,
                        :owl/someValuesFrom :d3f/TechniqueReference,
                        :rdf/type           :owl/Restriction}
@@ -13679,19 +13693,19 @@
 (def Dependency
   {:d3f/definition
    "A dependency is the relationship of relying on or being controlled by someone or something else.  This class reifies dependencies that correspond to the object property depends-on.",
-   :d3f/dependent :d3f/D3FENDThing,
-   :d3f/provider :d3f/D3FENDThing,
+   :d3f/dependent :d3f/D3FENDCore,
+   :d3f/provider :d3f/D3FENDCore,
    :db/ident :d3f/Dependency,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Dependency",
    :rdfs/seeAlso #{{:xsd/anyURI
                     "http://wordnet-rdf.princeton.edu/id/14024833-n"}
                    {:xsd/anyURI "https://www.cisa.gov/what-are-dependencies"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/provider,
-                       :owl/someValuesFrom :d3f/D3FENDThing,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/dependent,
+                       :owl/someValuesFrom :d3f/D3FENDCore,
                        :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/dependent,
-                       :owl/someValuesFrom :d3f/D3FENDThing,
+                      {:owl/onProperty     :d3f/provider,
+                       :owl/someValuesFrom :d3f/D3FENDCore,
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformationBearer}})
 
@@ -13778,13 +13792,13 @@
      {:xsd/anyURI "http://dbpedia.org/resource/Digital_artifactual_value"}
      {:xsd/anyURI
       "https://www.iso.org/obp/ui/#iso:std:iso-iec:19770:-1:ed-3:v1:en"}},
-   :rdfs/subClassOf #{:d3f/DigitalObject :d3f/Artifact :d3f/D3FENDCore}})
+   :rdfs/subClassOf :d3f/Artifact})
 
 (def DigitalEvent
   {:db/ident        :d3f/DigitalEvent,
    :rdf/type        :owl/Class,
    :rdfs/label      "Digital Event",
-   :rdfs/subClassOf :d3f/D3FENDThing})
+   :rdfs/subClassOf :d3f/Event})
 
 (def DigitalFingerprint
   {:d3f/definition
@@ -13808,17 +13822,6 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Digital Information Bearer",
    :rdfs/subClassOf :d3f/DigitalArtifact})
-
-(def DigitalObject
-  {:d3f/definition
-   "A digital object is the top-level class for an object that exists in a digital environment. The digital object may be virtual or physical.",
-   :db/ident :d3f/DigitalObject,
-   :rdf/type :owl/Class,
-   :rdfs/label "Digital Object",
-   :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Virtual_artifact"}
-                   {:xsd/anyURI
-                    "http://dbpedia.org/resource/Digital_artifactual_value"}},
-   :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def DigitalSystem
   {:d3f/definition
@@ -13914,6 +13917,57 @@
                        :owl/someValuesFrom :d3f/Storage,
                        :rdf/type           :owl/Restriction}
                       :d3f/PlatformHardening}})
+
+(def DiskErasure
+  {:d3f/d3fend-id "D3-DKE",
+   :d3f/definition
+   "Disk Erasure is the process of securely deleting all data on a disk to ensure that it cannot be recovered by any means.",
+   :d3f/erases :d3f/SecondaryStorage,
+   :d3f/kb-article
+   "### How it works\n\nDisk Erasure involves overwriting the existing data with random or specific patterns multiple times. Disk erasure is crucial for data sanitization, ensuring that sensitive information is completely removed from storage devices before they are repurposed, disposed of, or transferred to another party.",
+   :d3f/kb-reference
+   :d3f/Reference-Remembranceofdatapassed:Astudyofdisksanitizationpractices,
+   :db/ident :d3f/DiskErasure,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disk Erasure",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/erases,
+                       :owl/someValuesFrom :d3f/SecondaryStorage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DiskFormatting}})
+
+(def DiskFormatting
+  {:d3f/d3fend-id "D3-DKF",
+   :d3f/definition
+   "Disk Formatting is the process of preparing a data storage device, such as a hard drive, solid-state drive, or USB flash drive, for initial use.",
+   :d3f/kb-article
+   "### How it works\n\nThis process involves setting up an empty file system on the disk, which includes creating a directory structure and initializing metadata structures. In cybersecurity, disk formatting can be used to remove all existing data on a disk, making it a clean slate for new data storage or to prevent unauthorized access to previously stored data.",
+   :d3f/kb-reference
+   :d3f/Reference-Remembranceofdatapassed:Astudyofdisksanitizationpractices,
+   :d3f/modifies :d3f/SecondaryStorage,
+   :db/ident :d3f/DiskFormatting,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disk Formatting",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/SecondaryStorage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ObjectEviction}})
+
+(def DiskPartitioning
+  {:d3f/creates :d3f/PartitionTable,
+   :d3f/d3fend-id "D3-DKP",
+   :d3f/definition
+   "Disk Partitioning is the process of dividing a disk into multiple distinct sections, known as partitions.",
+   :d3f/kb-article
+   "### How it works\n\nEach partition can be managed separately and can have its own file system. Disk partitioning can be used to segregate sensitive data from less critical data, improve system performance, and enhance data management and recovery processes. It can also help in isolating different operating systems or environments on the same physical disk.",
+   :d3f/kb-reference
+   :d3f/Reference-Remembranceofdatapassed:Astudyofdisksanitizationpractices,
+   :db/ident :d3f/DiskPartitioning,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disk Partitioning",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/creates,
+                       :owl/someValuesFrom :d3f/PartitionTable,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DiskFormatting}})
 
 (def DisplayAdapter
   {:d3f/definition
@@ -14057,6 +14111,23 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformation},
    :skos/altLabel "Domain Name Registration Data"})
+
+(def DomainRegistrationTakedown
+  {:d3f/d3fend-id "D3-DRT",
+   :d3f/definition
+   "The process of performing a takedown of the attacker's domain registration infrastructure.",
+   :d3f/deletes :d3f/DomainRegistration,
+   :d3f/kb-article
+   "## How it works\n\nMost nameserver hosts and domain name registrars comply with internationally recognised standards and supply their services based on terms and conditions that provide users and organisations protection from abuse and trademark infringement. Performing a WHOIS query on the attacker's domain will provide a contact that can be notified in the case of abuse. Formal takedown processes should be initiated to suspend or disable the normal function of the domain name.\n\n## Considerations\n\n- Takedown notifications should clearly demonstrate (with evidence) that the nameserver or registrars Terms and Conditions have been breached.\n- Takedown processes are notoriously slow and sometimes unsuccessful.\n- Many government organisations will have takedown processes that should also be followed. They may use this for intelligence to assist other organisations suffering an attack.\n- Top level domain registrars will have takedown processes that can be followed, as an escalation path, when the nameserver host and/or registrar have not responded or complied timeously or inline with the TLD expectations.\n\n## Examples of Domain Registration Abuse\n\nAttackers will create infrastructure from which to carry out their operations and this may include registering domain names to be used in the various attacks. Known misuse cases include:\n\n- Registering domain names that are similar to the victim's. This is known as typosquatting or URL hijacking. Legitimate looking mails or URLs could be sent using this domain in phishing campaigns.\n- Registring domain names that are used in C2 beacons.",
+   :d3f/kb-reference
+   :d3f/Reference-UnderstandingtheDomainRegistrationBehaviorofSpammers,
+   :db/ident :d3f/DomainRegistrationTakedown,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Domain Registration Takedown",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
+                       :owl/someValuesFrom :d3f/DomainRegistration,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ObjectEviction}})
 
 (def DomainTrustPolicy
   {:d3f/d3fend-id "D3-DTP",
@@ -14206,9 +14277,10 @@
    :db/ident :d3f/EmailRemoval,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Email Removal",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
+   :rdfs/subClassOf #{:d3f/FileEviction
+                      {:owl/onProperty     :d3f/deletes,
                        :owl/someValuesFrom :d3f/Email,
-                       :rdf/type           :owl/Restriction} :d3f/FileRemoval
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-access,
                        :owl/someValuesFrom :d3f/MailServer,
                        :rdf/type           :owl/Restriction}}})
@@ -14313,7 +14385,7 @@
    :db/ident :d3f/EndpointSensor,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Endpoint Sensor",
-   :rdfs/seeAlso :d3f/Platform,
+   :rdfs/seeAlso :d3f/ComputerPlatform,
    :rdfs/subClassOf :d3f/CyberSensor})
 
 (def EnsembleLearning
@@ -14373,6 +14445,12 @@
                        :owl/someValuesFrom :d3f/Subroutine,
                        :rdf/type           :owl/Restriction}}})
 
+(def Event
+  {:db/ident        :d3f/Event,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Event",
+   :rdfs/subClassOf :d3f/D3FENDCore})
+
 (def EventLog
   {:d3f/definition
    "Event logs record events taking place in the execution of a system in order to provide an audit trail that can be used to understand the activity of the system and to diagnose problems. They are essential to understand the activities of complex systems, particularly in the case of applications with little user interaction (such as server applications).",
@@ -14392,12 +14470,6 @@
    :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Evict",
    :rdfs/subClassOf :d3f/DefensiveTactic})
-
-(def EvictionLatency
-  {:db/ident        :d3f/EvictionLatency,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Eviction Latency",
-   :rdfs/subClassOf :d3f/Latency})
 
 (def ExactMatching
   {:d3f/d3fend-id "D3A-EM",
@@ -14616,25 +14688,37 @@
   {:db/ident        :d3f/ExternalControl,
    :rdf/type        :owl/Class,
    :rdfs/label      "External Control",
-   :rdfs/subClassOf #{:d3f/D3FENDThing
-                      {:owl/onProperty     :d3f/semantic-relation,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/semantic-relation,
                        :owl/someValuesFrom :d3f/DefensiveTechnique,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/member-of,
                        :owl/someValuesFrom :d3f/ControlCatalog,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ExternalControlThing}})
+
+(def ExternalControlThing
+  {:db/ident        :d3f/ExternalControlThing,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "External Control Thing",
+   :rdfs/subClassOf :d3f/ExternalThing})
 
 (def ExternalKnowledgeBase
   {:d3f/pref-label  "External Knowledge Base",
    :db/ident        :d3f/ExternalKnowledgeBase,
    :rdf/type        :owl/Class,
    :rdfs/label      "External Knowledge Base",
-   :rdfs/subClassOf #{:d3f/TechniqueReference :d3f/InformationContentEntity}})
+   :rdfs/subClassOf :d3f/TechniqueReference})
+
+(def ExternalThing
+  {:db/ident   :d3f/ExternalThing,
+   :rdf/type   :owl/Class,
+   :rdfs/label "External Thing"})
 
 (def ExternalThreatModelThing
-  {:db/ident   :d3f/ExternalThreatModelThing,
-   :rdf/type   :owl/Class,
-   :rdfs/label "External Threat Model Thing"})
+  {:db/ident        :d3f/ExternalThreatModelThing,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "External Threat Model Thing",
+   :rdfs/subClassOf :d3f/ExternalThing})
 
 (def FQDNDomainName
   {:db/ident   :d3f/FQDNDomainName,
@@ -14797,16 +14881,20 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def FileEviction
-  {:d3f/d3fend-id   "D3-FEV",
-   :d3f/definition  "File eviction techniques evict files from system storage.",
-   :d3f/enables     :d3f/Evict,
-   :db/ident        :d3f/FileEviction,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "File Eviction",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
-                       :owl/someValuesFrom :d3f/Evict,
+  {:d3f/d3fend-id "D3-FEV",
+   :d3f/definition "File eviction techniques delete files from system storage.",
+   :d3f/deletes :d3f/File,
+   :d3f/kb-article
+   "## How it works\n\nAdversaries may place files or programs into a computer's file system to perform malicious actions. As part of the eviction process, these files and programs should be removed to prevent further compromise or reinfection. Examples of malicious types of files are malware which is directly harmful and content files with the intent to deceive users (e.g., phishing.)\n\nOn Windows systems, antivirus (AV) software should be used to safely and permanently remove malicious files. AV software may first quarantine a suspected malicious file, which is the process of moving a file from its original location to a new location and makes changes so that it cannot be executed. Users can then verify that the file is not benign and then permanently delete it.\n\n## Considerations\n\nWhen it is determined that a file should be removed for security purposes, the organization--or systems implementing an organization's policies--may determine that the file should not simply be deleted from the enterprise's mission systems, but be quarantined to a secure system by an approved mechanism, so as to allow follow-up investigation by security staff.\n\nOn Windows systems, deleting a file in File Explorer does not permanently delete a file - it sends it to the Recycle Bin instead. The Recycle Bin must be emptied, or alternative steps must be performed to remove files completely. Even then, in some cases the data may persist in disk, so data shredder tools may be needed to completely wipe a file. Thus, AV tools are recommended.",
+   :d3f/kb-reference
+   :d3f/Reference-HowDoesAntivirusQuarantineWork-SafetyDetectives,
+   :db/ident :d3f/FileEviction,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Eviction",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
+                       :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}
-                      :d3f/DefensiveTechnique}})
+                      :d3f/ObjectEviction}})
 
 (def FileHash
   {:d3f/identifies  :d3f/File,
@@ -14877,28 +14965,6 @@
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
-(def FileRemoval
-  {:d3f/d3fend-id "D3-FR",
-   :d3f/definition
-   "The file removal technique deletes malicious artifacts or programs from a computer system.",
-   :d3f/deletes :d3f/File,
-   :d3f/kb-article
-   "## How it works\n\nAdversaries may place files or programs into a computer's file system to perform malicious actions. As part of the eviction process, these files and programs should be removed to prevent further compromise or reinfection. Examples of malicious types of files are malware which is directly harmful and content files with the intent to deceive users (e.g., phishing.)\n\nOn Windows systems, antivirus (AV) software should be used to safely and permanently remove malicious files. AV software may first quarantine a suspected malicious file, which is the process of moving a file from its original location to a new location and makes changes so that it cannot be executed. Users can then verify that the file is not benign and then permanently delete it.\n\n## Considerations\n\nWhen it is determined that a file should be removed for security purposes, the organization--or systems implementing an organization's policies--may determine that the file should not simply be deleted from the enterprise's mission systems, but be quarantined to a secure system by an approved mechanism, so as to allow follow-up investigation by security staff.\n\nOn Windows systems, deleting a file in File Explorer does not permanently delete a file - it sends it to the Recycle Bin instead. The Recycle Bin must be emptied, or alternative steps must be performed to remove files completely. Even then, in some cases the data may persist in disk, so data shredder tools may be needed to completely wipe a file. Thus, AV tools are recommended.",
-   :d3f/kb-reference
-   :d3f/Reference-HowDoesAntivirusQuarantineWork-SafetyDetectives,
-   :d3f/may-access :d3f/FileServer,
-   :d3f/synonym "File Deletion",
-   :db/ident :d3f/FileRemoval,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "File Removal",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-access,
-                       :owl/someValuesFrom :d3f/FileServer,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/deletes,
-                       :owl/someValuesFrom :d3f/File,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/FileEviction}})
-
 (def FileSection
   {:d3f/definition
    "A file section is one of the portions of a file in which the file is regarded as divided and where together the file sections constitute the whole file.",
@@ -14913,7 +14979,7 @@
   {:d3f/definition
    "The term server highlights the role of the machine in the traditional client-server scheme, where the clients are the workstations using the storage. A file server does not normally perform computational tasks or run programs on behalf of its client workstations. File servers are commonly found in schools and offices, where users use a local area network to connect their client computers.",
    :db/ident :d3f/FileServer,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/File_server"},
    :rdfs/label "File Server",
    :rdfs/subClassOf :d3f/Server})
@@ -15007,7 +15073,7 @@
    :rdfs/label "Firewall",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Firewall_(computing)"},
-   :rdfs/subClassOf :d3f/NetworkNode,
+   :rdfs/subClassOf :d3f/ComputerNetworkNode,
    :skos/altLabel "Network Firewall"})
 
 (def Firmware
@@ -15425,6 +15491,11 @@
    :rdfs/label "Grid-based Clustering",
    :rdfs/subClassOf :d3f/High-dimensionClustering})
 
+(def Group
+  {:db/ident        :d3f/Group,
+   :rdf/type        :owl/Class,
+   :rdfs/subClassOf :d3f/D3FENDCore})
+
 (def GroupPolicy
   {:d3f/definition
    "Group Policy is a feature of the Microsoft Windows NT family of operating systems that controls the working environment of user accounts and computer accounts. Group Policy provides the centralized management and configuration of operating systems, applications, and users' settings in an Active Directory environment. A version of Group Policy called Local Group Policy (\"LGPO\" or \"LocalGPO\") also allows Group Policy Object management on standalone and non-domain computers.",
@@ -15720,24 +15791,17 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Host
-  {:d3f/contains #{:d3f/Application :d3f/OperatingSystem},
+  {:d3f/contains :d3f/Application,
    :d3f/definition
    "A host is a computer or other device, typically connected to a computer network. A network host may offer information resources, services, and applications to users or other nodes on the network. A network host is a network node that is assigned a network layer host address. Network hosts that participate in applications that use the client-server model of computing, are classified as server or client systems. Network hosts may also function as nodes in peer-to-peer applications, in which all nodes share and consume resources in an equipotent manner.",
-   :d3f/runs :d3f/OperatingSystem,
    :db/ident :d3f/Host,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Host_(network)"},
    :rdfs/label "Host",
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/device"},
-   :rdfs/subClassOf #{:d3f/NetworkNode
+   :rdfs/subClassOf #{:d3f/ComputerNetworkNode
                       {:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Application,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/OperatingSystem,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/runs,
-                       :owl/someValuesFrom :d3f/OperatingSystem,
                        :rdf/type           :owl/Restriction}},
    :skos/altLabel "Network Host"})
 
@@ -16342,8 +16406,7 @@
 
 (def InternetArticle
   {:db/ident        :d3f/InternetArticle,
-   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Internet Article",
+   :rdf/type        :owl/Class,
    :rdfs/subClassOf :d3f/NewsArticle})
 
 (def InternetArticleReference
@@ -16739,6 +16802,22 @@
                   "http://dbpedia.org/resource/Ticket_Granting_Ticket"},
    :rdfs/subClassOf #{:d3f/TicketGrantingTicket :d3f/KerberosTicket}})
 
+(def KerberosTicketGrantingTicketAccount
+  {:d3f/creates :d3f/KerberosTicketGrantingTicket,
+   :d3f/definition
+   "KRBTGT is an account used by Key Distribution Center (KDC) service to issue Ticket Granting Tickets (TGTs) as part of the Kerberos authentication protocol.",
+   :d3f/synonym "krbtgt",
+   :db/ident :d3f/KerberosTicketGrantingTicketAccount,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Kerberos Ticket Granting Ticket Account",
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://blog.quest.com/what-is-krbtgt-and-why-should-you-change-the-password/"},
+   :rdfs/subClassOf #{:d3f/ServiceAccount
+                      {:owl/onProperty     :d3f/creates,
+                       :owl/someValuesFrom :d3f/KerberosTicketGrantingTicket,
+                       :rdf/type           :owl/Restriction}}})
+
 (def Kernel
   {:d3f/contains :d3f/KernelProcessTable,
    :d3f/definition
@@ -16866,12 +16945,6 @@
    :rdfs/subClassOf :d3f/PersonalComputer,
    :skos/altLabel #{"Laptop" "Notebook"}})
 
-(def Latency
-  {:db/ident        :d3f/Latency,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Latency",
-   :rdfs/subClassOf :d3f/D3FENDThing})
-
 (def LateralMovementTechnique
   {:d3f/enables     :d3f/TA0008,
    :db/ident        :d3f/LateralMovementTechnique,
@@ -16963,7 +17036,7 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Link",
    :rdfs/seeAlso    {:xsd/anyURI "https://dbpedia.org/resource/Link"},
-   :rdfs/subClassOf :d3f/DigitalInformationBearer})
+   :rdfs/subClassOf #{:d3f/D3FENDCore :d3f/DigitalInformationBearer}})
 
 (def LinuxClone
   {:d3f/definition
@@ -17432,6 +17505,7 @@
    :d3f/loads #{:d3f/KernelModule :d3f/HardwareDriver},
    :db/ident :d3f/LoadModule,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Load Module",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/loads,
                        :owl/someValuesFrom :d3f/HardwareDriver,
                        :rdf/type           :owl/Restriction} :d3f/SystemCall
@@ -17982,6 +18056,10 @@
    :rdf/type    #{:d3f/ATTACKEnterpriseMitigation :owl/NamedIndividual},
    :rdfs/label  "Pre-compromise"})
 
+(def MFATokenRevocation
+  {:db/ident :d3f/MFATokenRevocation,
+   :rdf/type :owl/NamedIndividual})
+
 (def MSGEmailFile
   {:db/ident   :d3f/MSGEmailFile,
    :rdf/type   #{:d3f/Email :owl/NamedIndividual},
@@ -18069,11 +18147,6 @@
                       {:owl/onProperty     :d3f/isolates,
                        :owl/someValuesFrom :d3f/Process,
                        :rdf/type           :owl/Restriction}}})
-
-(def MarketingMaterial
-  {:db/ident   :d3f/MarketingMaterial,
-   :rdf/type   #{:d3f/ReferenceType :owl/NamedIndividual},
-   :rdfs/label "Marketing Material"})
 
 (def Matching
   {:db/ident        :d3f/Matching,
@@ -18552,7 +18625,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Modem"},
    :rdfs/label "Modem",
-   :rdfs/subClassOf :d3f/NetworkNode})
+   :rdfs/subClassOf :d3f/ComputerNetworkNode})
 
 (def Moments
   {:d3f/d3fend-id "D3A-MOM",
@@ -18564,16 +18637,6 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Moments",
    :rdfs/subClassOf :d3f/DistributionProperties})
-
-(def Monitoring
-  {:d3f/definition
-   "the act of observing something (and sometimes keeping a record of it)",
-   :db/ident :d3f/Monitoring,
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://wordnet-rdf.princeton.edu/id/00881724-n"},
-   :rdfs/label "Monitoring",
-   :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def MouseInputDevice
   {:d3f/definition
@@ -20002,16 +20065,12 @@
 (def NetworkNode
   {:d3f/definition
    "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node.",
-   :d3f/runs :d3f/OperatingSystem,
    :db/ident :d3f/NetworkNode,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Node_(networking)"},
    :rdfs/label "Network Node",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
-                       :owl/someValuesFrom :d3f/OperatingSystem,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DigitalInformationBearer}})
+   :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
 (def NetworkNodeInventory
   {:d3f/d3fend-id "D3-NNI",
@@ -20043,7 +20102,7 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Network_packet"},
    :rdfs/label "Network Packet",
-   :rdfs/subClassOf :d3f/NetworkTraffic})
+   :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
 (def NetworkPrinter
   {:d3f/definition
@@ -20108,9 +20167,9 @@
    :rdfs/subClassOf :d3f/ServiceApplicationProcess})
 
 (def NetworkSession
-  {:d3f/contains :d3f/NetworkPackets,
-   :d3f/definition
+  {:d3f/definition
    "A network session is a temporary and interactive information interchange between two or more devices communicating over a network. A session is established at a certain point in time, and then 'torn down' - brought to an end - at some later point. An established communication session may involve more than one message in each direction. A session is typically stateful, meaning that at least one of the communicating parties needs to hold current state information and save information about the session history in order to be able to communicate, as opposed to stateless communication, where the communication consists of independent requests with responses. Network sessions may be established and implemented as part of protocols and services at the application, session, or transport layers of the OSI model.",
+   :d3f/produces :d3f/NetworkTraffic,
    :db/ident :d3f/NetworkSession,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Session",
@@ -20118,9 +20177,9 @@
    #{{:xsd/anyURI "https://schema.ocsf.io/objects/network_connection_info"}
      {:xsd/anyURI "http://dbpedia.org/resource/OSI_model"}
      {:xsd/anyURI "http://dbpedia.org/resource/Session_(computer_science)"}},
-   :rdfs/subClassOf #{:d3f/NetworkTraffic
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/NetworkPackets,
+   :rdfs/subClassOf #{:d3f/Session
+                      {:owl/onProperty     :d3f/produces,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def NetworkTimeServer
@@ -20133,7 +20192,8 @@
    :rdfs/subClassOf :d3f/Server})
 
 (def NetworkTraffic
-  {:d3f/definition
+  {:d3f/contains :d3f/NetworkPackets,
+   :d3f/definition
    "Network traffic or data traffic is the data, or alternatively the amount of data, moving across a network at a given point of time.  Network data in computer networks is mostly encapsulated in network packets, which provide the load in the network.",
    :d3f/may-contain :d3f/DomainName,
    :d3f/originates-from :d3f/PhysicalLocation,
@@ -20143,7 +20203,10 @@
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Network_traffic"}
                    {:xsd/anyURI
                     "https://schema.ocsf.io/objects/network_traffic"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/NetworkPackets,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-contain,
                        :owl/someValuesFrom :d3f/DomainName,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/originates-from,
@@ -20681,6 +20744,19 @@
    :rdfs/label "OWL",
    :rdfs/subClassOf :d3f/DescriptionLogic})
 
+(def ObjectEviction
+  {:d3f/d3fend-id "D3-OE",
+   :d3f/definition
+   "Terminate or remove an object from a host machine. This is the broadest class for object eviction.",
+   :d3f/enables :d3f/Evict,
+   :db/ident :d3f/ObjectEviction,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Object Eviction",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/Evict,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DefensiveTechnique}})
+
 (def ObjectFile
   {:d3f/definition
    "An object file is a file that contains relocatable machine code.",
@@ -20689,6 +20765,11 @@
    :rdfs/label "Object File",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Object_file"},
    :rdfs/subClassOf :d3f/File})
+
+(def OffensiveAction
+  {:db/ident        :d3f/OffensiveAction,
+   :rdf/type        :owl/Class,
+   :rdfs/subClassOf :d3f/Action})
 
 (def OffensiveTactic
   {:d3f/definition
@@ -20713,10 +20794,10 @@
    {:xsd/anyURI
     "https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf"},
    :rdfs/label "Offensive Technique",
-   :rdfs/subClassOf #{:d3f/Action
+   :rdfs/subClassOf #{:d3f/CyberTechnique
                       {:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/OffensiveTactic,
-                       :rdf/type           :owl/Restriction} :d3f/Technique
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/initiates,
                        :owl/someValuesFrom :d3f/Access,
                        :rdf/type           :owl/Restriction}}})
@@ -21064,10 +21145,21 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def OrganizationalActivity
-  {:db/ident        :d3f/OrganizationalActivity,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Organizational Activity",
-   :rdfs/subClassOf :d3f/Activity})
+  {:d3f/definition
+   "An activity is a specific behavior representing a set of actions that may be accomplished by an agent.",
+   :d3f/synonym #{"Business Process" "Mission Function"},
+   :db/ident :d3f/OrganizationalActivity,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Organizational Activity",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00408356-n"}
+     {:xsd/anyURI "https://en.wikipedia.org/wiki/IDEF0"}
+     {:xsd/anyURI
+      "https://enterpriseintegrationlab.github.io/icity/Activity/doc/index-en.html"}
+     {:rdf/value "Mission Critical Function"}
+     {:xsd/anyURI
+      "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"}},
+   :rdfs/subClassOf :d3f/Plan})
 
 (def OutboundInternetDNSLookupTraffic
   {:d3f/definition
@@ -21341,6 +21433,7 @@
   {:d3f/addresses :d3f/Partition,
    :d3f/definition
    "A partition is a fixed-size subset of a storage device which is treated as a unit by the operating system. A partition table is a table maintained on the storage device by the operating system describing the partitions on that device. The terms partition table and partition map are most commonly associated with the MBR partition table of a Master Boot Record (MBR) in IBM PC compatibles, but it may be used generically to refer to other \"formats\" that divide a disk drive into partitions, such as: GUID Partition Table (GPT), Apple partition map (APM), or BSD disklabel.",
+   :d3f/may-contain :d3f/BootRecord,
    :db/ident :d3f/PartitionTable,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -21348,6 +21441,9 @@
    :rdfs/label "Partition Table",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/addresses,
                        :owl/someValuesFrom :d3f/Partition,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/BootRecord,
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformationBearer}})
 
@@ -21422,8 +21518,7 @@
 
 (def Patent
   {:db/ident        :d3f/Patent,
-   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Patent",
+   :rdf/type        :owl/Class,
    :rdfs/subClassOf :d3f/Document})
 
 (def PatentReference
@@ -21571,7 +21666,10 @@
   {:db/ident        :d3f/PhysicalArtifact,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Physical Artifact",
-   :rdfs/subClassOf #{:d3f/PhysicalObject :d3f/Artifact}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-location,
+                       :owl/someValuesFrom :d3f/PhysicalLocation,
+                       :rdf/type           :owl/Restriction} :d3f/Artifact},
+   :skos/altLabel   "Physical Object"})
 
 (def PhysicalLink
   {:d3f/definition
@@ -21611,15 +21709,7 @@
                       "http://dbpedia.org/resource/Location_(geography)"},
    :rdfs/label "Physical Location",
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/location"},
-   :rdfs/subClassOf :d3f/DigitalInformation})
-
-(def PhysicalObject
-  {:db/ident        :d3f/PhysicalObject,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Physical Object",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-location,
-                       :owl/someValuesFrom :d3f/PhysicalLocation,
-                       :rdf/type           :owl/Restriction} :d3f/D3FENDThing}})
+   :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def Pipe
   {:d3f/definition
@@ -21643,31 +21733,17 @@
    :rdfs/label "Pix2Pix",
    :rdfs/subClassOf :d3f/Image-to-ImageTranslationGAN})
 
+(def Plan
+  {:db/ident        :d3f/Plan,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Plan",
+   :rdfs/subClassOf :d3f/D3FENDCore})
+
 (def Planning
   {:db/ident        :d3f/Planning,
    :rdf/type        :owl/Class,
    :rdfs/label      "Planning",
    :rdfs/subClassOf :d3f/AnalyticalPurpose})
-
-(def Platform
-  {:d3f/contains #{:d3f/Firmware :d3f/OperatingSystem :d3f/HardwareDevice},
-   :d3f/definition
-   "Platform includes the hardware and OS. The term computing platform can refer to different abstraction levels, including a certain hardware architecture, an operating system (OS), and runtime libraries. In total it can be said to be the stage on which computer programs can run.",
-   :db/ident :d3f/Platform,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Platform",
-   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Computing_platform"},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/Firmware,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/OperatingSystem,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/HardwareDevice,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DigitalInformationBearer},
-   :skos/altLabel "Computer Platform"})
 
 (def PlatformHardening
   {:d3f/d3fend-id "D3-PH",
@@ -21923,13 +21999,13 @@
 (def Procedure
   {:db/ident        :d3f/Procedure,
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf #{:d3f/D3FENDThing
-                      {:owl/onProperty     :d3f/start,
-                       :owl/someValuesFrom :d3f/Step,
-                       :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf #{:d3f/Plan
                       {:owl/onProperty     :d3f/implements,
                        :owl/someValuesFrom :d3f/Technique,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :d3f/Step,
+                       :owl/onProperty    :d3f/start,
+                       :rdf/type          :owl/Restriction}}})
 
 (def ProcessClass
   {:d3f/contains :d3f/ProcessImage,
@@ -22058,6 +22134,8 @@
    :d3f/definition
    "Process eviction techniques terminate or remove running process.",
    :d3f/enables :d3f/Evict,
+   :d3f/kb-reference
+   :d3f/Reference-MalwareDetectionUsingLocalComputationalModels_CrowdstrikeInc,
    :db/ident :d3f/ProcessEviction,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Process Eviction",
@@ -22442,7 +22520,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Proxy_server"},
    :rdfs/label "Proxy Server",
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/network_proxy"},
-   :rdfs/subClassOf #{:d3f/NetworkNode :d3f/Server}})
+   :rdfs/subClassOf #{:d3f/ComputerNetworkNode :d3f/Server}})
 
 (def PublicKey
   {:d3f/definition
@@ -22546,7 +22624,7 @@
 
 (def RFTransmitter
   {:db/ident        :d3f/RFTransmitter,
-   :rdf/type        :owl/Class,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "RF Transmitter",
    :rdfs/subClassOf :d3f/RFNode})
 
@@ -22719,12 +22797,6 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Recurrent Neural Network",
    :rdfs/subClassOf :d3f/DeepNeuralNetClassification})
-
-(def Reference
-  {:db/ident        :d3f/Reference,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reference",
-   :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def Reference-AccessPermissionModification_MITRE
   {:d3f/has-link {:xsd/anyURI
@@ -24012,6 +24084,7 @@
    :d3f/kb-author "Cybersecurity and Infrastructure Security Agency",
    :d3f/kb-mitre-analysis "",
    :d3f/kb-organization "Cybersecurity and Infrastructure Security Agency",
+   :d3f/kb-reference-of :d3f/RegistryKeyDeletion,
    :d3f/kb-reference-title
    "Cybersecurity Incident & Vulnerability Response Playbooks",
    :db/ident
@@ -24468,7 +24541,7 @@
   {:d3f/has-link
    {:xsd/anyURI "https://www.cisa.gov/news-events/analysis-reports/ar21-134a"},
    :d3f/kb-organization "CISA",
-   :d3f/kb-reference-of :d3f/CredentialRotation,
+   :d3f/kb-reference-of #{:d3f/CredentialRotation :d3f/DNSCacheEviction},
    :d3f/kb-reference-title
    "Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise",
    :db/ident
@@ -24904,7 +24977,6 @@
    :d3f/kb-abstract
    "Your antivirus has just finished a regular scan and it’s asking whether you want to quarantine the virus it’s found. You click ‘yes’ without putting much thought into what’s actually happening. But what does quarantining actually mean, what does it do and is it safe for your computer? It’s important to understand the details so that you know what’s happening when you send infected files into quarantine.",
    :d3f/kb-author "Katarina Glamoslija",
-   :d3f/kb-reference-of :d3f/FileRemoval,
    :d3f/kb-reference-title "How Does Antivirus Quarantine Work?",
    :db/ident :d3f/Reference-HowDoesAntivirusQuarantineWork-SafetyDetectives,
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
@@ -26246,6 +26318,21 @@
    :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - Registry Key Security and Access Rights"})
 
+(def Reference-Remembranceofdatapassed:Astudyofdisksanitizationpractices
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.researchgate.net/profile/Simson-Garfinkel/publication/3437324_Remembrance_of_data_passed_A_study_of_disk_sanitization_practices/links/550de6d40cf2128741677d9f/Remembrance-of-data-passed-A-study-of-disk-sanitization-practices.pdf"},
+   :d3f/kb-author "Simson L Garfinkel, Abhi Shelat",
+   :d3f/kb-reference-of #{:d3f/DiskErasure :d3f/DiskPartitioning
+                          :d3f/DiskFormatting},
+   :d3f/kb-reference-title
+   "Remembrance of Data Passed: A Study of Disk Sanitization Practices",
+   :db/ident
+   :d3f/Reference-Remembranceofdatapassed:Astudyofdisksanitizationpractices,
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Remembrance of data passed: A study of disk sanitization practices"})
+
 (def Reference-RemoteDesktopLogon_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2016-04-005/"},
@@ -26322,6 +26409,17 @@
    :rdfs/label
    "Reference - CAR-2015-04-002: Remotely Scheduled Tasks via Schtasks - MITRE"})
 
+(def Reference-RemotelyTriggeredBlackHoleFiltering-Cisco
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.cisco.com/c/dam/en_us/about/security/intelligence/blackhole.pdf"},
+   :d3f/kb-organization "Cisco",
+   :d3f/kb-reference-title
+   "Remotely Triggered Black Hole Filtering - Destination Based and Source Based",
+   :db/ident :d3f/Reference-RemotelyTriggeredBlackHoleFiltering-Cisco,
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Remotely Triggered Black Hole FIltering - Cisco"})
+
 (def Reference-Reputation_of_an_entity_associated_with_a_content_item
   {:d3f/has-link {:xsd/anyURI
                   "https://patents.google.com/patent/US20060253584A1"},
@@ -26342,7 +26440,7 @@
    :d3f/kb-author
    "Barclay Neira, Christer Ljung, Juan Camilo Ruiz, John Flores",
    :d3f/kb-organization "Microsoft",
-   :d3f/kb-reference-of :d3f/CredentialRevoking,
+   :d3f/kb-reference-of :d3f/CredentialRevocation,
    :d3f/kb-reference-title "Revoke a previously issued verifiable credential",
    :db/ident
    :d3f/Reference-RevokingaPreviouslyIssuedVerifiableCredential-Microsoft,
@@ -27525,6 +27623,23 @@
    :rdfs/label
    "Reference - USB filter for hub malicious code prevention system"})
 
+(def Reference-UnderstandingtheDomainRegistrationBehaviorofSpammers
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=bf4d34a6f9d0168bb07433e84c1567bbe1ba8188"},
+   :d3f/kb-abstract
+   "Spammers register a tremendous number of domains to evade blacklisting and takedown efforts. Current techniques to detect such domains rely on crawling spam URLs or monitoring lookup traffic. Such detection techniques are only effective after the spammers have already launched their campaigns, and thus these countermeasures may only come into play after the spammer has already reaped significant benefits from the dissemination of large volumes of spam. In this paper we examine the registration process of such domains, with a particular eye towards features that might indicate that a given domain likely has a malicious purpose at registration time, before it is ever used for an attack. Our assessment includes exploring the characteristics of registrars, domain life cycles, registration bursts, and naming patterns. By investigating zone changes from the .com TLD over a 5-month period, we discover that spammers employ bulk registration, that they often re-use domains previously registered by others, and that they tend to register and host their domains over a small set of registrars. Our findings suggest steps that registries or registrars could use to frustrate the efforts of miscreants to acquire domains in bulk, ultimately reducing their agility for mounting large-scale attacks.",
+   :d3f/kb-author
+   "Hao S, Thomas M, Paxson V, Feamster N, Kreibich C, Grier C, Hollenbeck S",
+   :d3f/kb-reference-of :d3f/DomainRegistrationTakedown,
+   :d3f/kb-reference-title
+   "Understanding the Domain Registration Behavior of Spammers",
+   :db/ident
+   :d3f/Reference-UnderstandingtheDomainRegistrationBehaviorofSpammers,
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Understanding the Domain Registration Behavior of Spammers"})
+
 (def Reference-UnifiedArchitectureFrameworkUAF
   {:d3f/has-link {:xsd/anyURI "https://www.omg.org/spec/UAF/"},
    :d3f/kb-abstract
@@ -27775,12 +27890,6 @@
    :rdfs/label
    "Reference - http://www.biometric-solutions.com/keystroke-dynamics.html - biometric-solutions.com"})
 
-(def ReferenceType
-  {:db/ident        :d3f/ReferenceType,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reference Type",
-   :rdfs/subClassOf :d3f/D3FENDThing})
-
 (def RegOpenKeyA
   {:db/ident :d3f/RegOpenKeyA,
    :rdf/type #{:owl/NamedIndividual :d3f/GetSystemConfigValue}})
@@ -27841,6 +27950,20 @@
    :rdfs/label "Regex Matching",
    :rdfs/subClassOf :d3f/PartialMatching})
 
+(def RegistryKeyDeletion
+  {:d3f/d3fend-id "D3-RKD",
+   :d3f/definition "Delete a registry key.",
+   :d3f/deletes :d3f/WindowsRegistryKey,
+   :d3f/kb-reference
+   :d3f/Reference-CybersecurityIncidentandVulnerabilityResponsePlaybooks,
+   :db/ident :d3f/RegistryKeyDeletion,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Registry Key Deletion",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/deletes,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ObjectEviction}})
+
 (def RegressionAnalysis
   {:d3f/d3fend-id "D3A-RA",
    :d3f/definition
@@ -27884,7 +28007,7 @@
    :db/ident :d3f/ReissueCredential,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Reissue Credential",
-   :rdfs/subClassOf #{:d3f/RestoreObject
+   :rdfs/subClassOf #{:d3f/RestoreAccess
                       {:owl/onProperty     :d3f/restores,
                        :owl/someValuesFrom :d3f/Credential,
                        :rdf/type           :owl/Restriction}}})
@@ -27940,7 +28063,7 @@
    :db/ident :d3f/RemoteCommand,
    :rdf/type :owl/Class,
    :rdfs/label "Remote Command",
-   :rdfs/subClassOf #{:d3f/NetworkSession :d3f/Command}})
+   :rdfs/subClassOf :d3f/Command})
 
 (def RemoteDatabaseQuery
   {:d3f/definition
@@ -27976,7 +28099,7 @@
    :db/ident :d3f/RemoteSession,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Remote Session",
-   :rdfs/subClassOf :d3f/LoginSession})
+   :rdfs/subClassOf :d3f/NetworkSession})
 
 (def RemoteTerminalSession
   {:d3f/definition
@@ -28106,7 +28229,7 @@
    :d3f/display-order 5,
    :d3f/display-priority 0,
    :db/ident :d3f/Restore,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type #{:d3f/DefensiveTactic :owl/NamedIndividual :owl/Class},
    :rdfs/label "Restore",
    :rdfs/subClassOf :d3f/DefensiveTactic})
 
@@ -28301,7 +28424,7 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Router_(computing)"},
    :rdfs/label "Router",
-   :rdfs/subClassOf :d3f/NetworkNode})
+   :rdfs/subClassOf :d3f/ComputerNetworkNode})
 
 (def RubyScriptFile
   {:db/ident   :d3f/RubyScriptFile,
@@ -28449,7 +28572,7 @@
   {:d3f/definition
    "Secondary memory (storage, hard disk) is the computer component holding information that does not need to be accessed quickly and that needs to be retained long-term.",
    :db/ident :d3f/SecondaryStorage,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://whatis.techtarget.com/definition/memory"},
    :rdfs/label "Secondary Storage",
@@ -28457,6 +28580,10 @@
    {:xsd/anyURI
     "https://en.wikipedia.org/wiki/Computer_data_storage#Secondary_storage"},
    :rdfs/subClassOf #{:d3f/HardwareDevice :d3f/Storage}})
+
+(def SecurityArchitects
+  {:db/ident :d3f/SecurityArchitects,
+   :rdf/type #{:d3f/TargetAudience :owl/NamedIndividual}})
 
 (def SecurityToken
   {:d3f/contains :d3f/AccessToken,
@@ -28721,6 +28848,15 @@
    :rdfs/label      "Service",
    :rdfs/subClassOf :d3f/CapabilityImplementation})
 
+(def ServiceAccount
+  {:d3f/definition
+   "A service account is a type of account used by an application or service to interact with the operating system.",
+   :d3f/synonym "System Account",
+   :db/ident :d3f/ServiceAccount,
+   :rdf/type :owl/Class,
+   :rdfs/label "Service Account",
+   :rdfs/subClassOf :d3f/UserAccount})
+
 (def ServiceApplication
   {:d3f/definition
    "An application that provides a set of software functionalities so that multiple clients who can reuse the functionality, provided they are authorized for use of the service.",
@@ -28795,7 +28931,7 @@
   {:d3f/definition
    "In computer science, in particular networking, a session is a semi-permanent interactive information interchange, also known as a dialogue, a conversation or a meeting, between two or more communicating devices, or between a computer and user (see Login session). A session is set up or established at a certain point in time, and then torn down at some later point. An established communication session may involve more than one message in each direction. A session is typically, but not always, stateful, meaning that at least one of the communicating parts needs to save information about the session history in order to be able to communicate, as opposed to stateless communication, where the communication consists of independent requests with responses.",
    :db/ident :d3f/Session,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Session_(computer_science)"},
    :rdfs/label "Session",
@@ -28834,6 +28970,21 @@
                       :d3f/UserBehaviorAnalysis
                       {:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/Authentication,
+                       :rdf/type           :owl/Restriction}}})
+
+(def SessionTermination
+  {:d3f/d3fend-id "D3-ST",
+   :d3f/definition
+   "Forcefully end all active sessions associated with compromised accounts or devices.",
+   :d3f/deletes :d3f/Session,
+   :d3f/kb-article "Defined in NIST 800-53 as AC-12.",
+   :d3f/kb-reference :d3f/Reference-NIST-Special-Publication-800-53A-Revision-5,
+   :db/ident :d3f/SessionTermination,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Session Termination",
+   :rdfs/subClassOf #{:d3f/ProcessEviction
+                      {:owl/onProperty     :d3f/deletes,
+                       :owl/someValuesFrom :d3f/Session,
                        :rdf/type           :owl/Restriction}}})
 
 (def SetRegisters
@@ -29165,16 +29316,9 @@
    :rdfs/subClassOf :d3f/PartialMatching})
 
 (def SourceCode
-  {:d3f/definition
-   "Source code is written using a programming language and usually stored as encoded text. This source code is often transformed by a compiler, assembler, or interpreter into machine code to be executed by user programs.",
-   :db/ident :d3f/SourceCode,
-   :rdf/type #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
-   :rdfs/comment
-   "The source code of a work means the preferred form of the work for making modifications to it, per the Free Software Foundation.",
-   :rdfs/label "Source Code",
-   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Source_code"},
-   :rdfs/subClassOf :d3f/InformationContentEntity,
-   :skos/altLabel "Code"})
+  {:db/ident        :d3f/SourceCode,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/subClassOf :d3f/InformationContentEntity})
 
 (def SourceCodeAnalyzerTool
   {:d3f/definition
@@ -29383,13 +29527,12 @@
 (def Step
   {:db/ident        :d3f/Step,
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf #{:d3f/D3FENDThing
-                      {:owl/onProperty     :d3f/may-be-associated-with,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-be-associated-with,
                        :owl/someValuesFrom :d3f/Artifact,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/end,
                        :owl/someValuesFrom :d3f/Step,
-                       :rdf/type           :owl/Restriction}
+                       :rdf/type           :owl/Restriction} :d3f/Plan
                       {:owl/onProperty     :d3f/next,
                        :owl/someValuesFrom :d3f/Step,
                        :rdf/type           :owl/Restriction}
@@ -29575,7 +29718,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Network_switch"},
    :rdfs/label "Switch",
-   :rdfs/subClassOf :d3f/NetworkNode,
+   :rdfs/subClassOf :d3f/ComputerNetworkNode,
    :skos/altLabel #{"Bridging Hub" "Network Switch" "Switching Hub"
                     "MAC Bridge"}})
 
@@ -34561,12 +34704,13 @@
    :rdfs/subClassOf :d3f/T1204})
 
 (def T1205
-  {:d3f/attack-id   "T1205",
-   :d3f/definition  "used all over so its not just internet traffic",
-   :d3f/produces    :d3f/NetworkTraffic,
-   :db/ident        :d3f/T1205,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Traffic Signaling",
+  {:d3f/attack-id "T1205",
+   :d3f/definition
+   "Adversaries use traffic signaling techniques, such as sending specific network sequences or magic packets, to covertly trigger actions like opening ports, activating backdoors, or installing filters, facilitating command and control, persistence, and defense evasion.",
+   :d3f/produces :d3f/NetworkTraffic,
+   :db/ident :d3f/T1205,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Traffic Signaling",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
@@ -39544,15 +39688,13 @@
   {:db/ident        :d3f/TargetAudience,
    :rdf/type        :owl/Class,
    :rdfs/label      "Target Audience",
-   :rdfs/subClassOf :d3f/D3FENDUseCaseThing})
+   :rdfs/subClassOf :d3f/AgentGroup})
 
 (def Technique
   {:db/ident        :d3f/Technique,
    :rdf/type        :owl/Class,
    :rdfs/label      "Technique",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/implemented-by,
-                       :owl/someValuesFrom :d3f/Procedure,
-                       :rdf/type           :owl/Restriction} :d3f/D3FENDThing}})
+   :rdfs/subClassOf :d3f/Plan})
 
 (def TechniqueReference
   {:d3f/definition  "A reference used to develop KB articles.",
@@ -39560,7 +39702,7 @@
    :db/ident        :d3f/TechniqueReference,
    :rdf/type        :owl/Class,
    :rdfs/label      "Technique Reference",
-   :rdfs/subClassOf #{:d3f/D3FENDThing
+   :rdfs/subClassOf #{:d3f/D3FENDKBThing
                       {:owl/onProperty     :d3f/has-link,
                        :owl/someValuesFrom :xsd/anyURI,
                        :rdf/type           :owl/Restriction}
@@ -39939,29 +40081,35 @@
    :rdfs/label "Unsupervised Preprocessing",
    :rdfs/subClassOf :d3f/Semi-SupervisedLearning})
 
+(def UseCase
+  {:db/ident        :d3f/UseCase,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Use Case",
+   :rdfs/subClassOf :d3f/D3FENDKBThing})
+
 (def UseCaseGoal
   {:db/ident        :d3f/UseCaseGoal,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Goal",
-   :rdfs/subClassOf :d3f/D3FENDUseCaseThing})
+   :rdfs/subClassOf :d3f/Goal})
 
 (def UseCasePrerequisite
   {:db/ident        :d3f/UseCasePrerequisite,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Prerequisite",
-   :rdfs/subClassOf :d3f/D3FENDUseCaseThing})
+   :rdfs/subClassOf :d3f/Condition})
 
 (def UseCaseProcedure
   {:db/ident        :d3f/UseCaseProcedure,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Procedure",
-   :rdfs/subClassOf #{:d3f/D3FENDUseCaseThing :d3f/Procedure}})
+   :rdfs/subClassOf :d3f/Procedure})
 
 (def UseCaseStep
   {:db/ident        :d3f/UseCaseStep,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Step",
-   :rdfs/subClassOf #{:d3f/D3FENDUseCaseThing :d3f/Step}})
+   :rdfs/subClassOf :d3f/Step})
 
 (def User
   {:d3f/definition
@@ -39995,6 +40143,10 @@
    :rdfs/seeAlso #{{:xsd/anyURI "https://schema.ocsf.io/objects/user"}
                    {:xsd/anyURI "http://dbpedia.org/resource/User_account"}},
    :rdfs/subClassOf :d3f/DigitalInformationBearer})
+
+(def UserAccountDeletion
+  {:db/ident :d3f/UserAccountDeletion,
+   :rdf/type :owl/NamedIndividual})
 
 (def UserAccountPermissions
   {:d3f/d3fend-id    "D3-UAP",
@@ -40153,8 +40305,7 @@
 
 (def UserManual
   {:db/ident        :d3f/UserManual,
-   :rdf/type        #{:d3f/ReferenceType :owl/NamedIndividual :owl/Class},
-   :rdfs/label      "User Manual",
+   :rdf/type        :owl/Class,
    :rdfs/subClassOf :d3f/Document})
 
 (def UserManualReference
@@ -40391,7 +40542,7 @@
 (def Vulnerability
   {:db/ident        :d3f/Vulnerability,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/subClassOf :d3f/D3FENDThing})
+   :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def WHOISCompatibleDomainRegistration
   {:db/ident   :d3f/WHOISCompatibleDomainRegistration,
@@ -40404,7 +40555,7 @@
    :db/ident :d3f/Weakness,
    :rdf/type :owl/Class,
    :rdfs/label "Weakness",
-   :rdfs/subClassOf #{:d3f/D3FENDThing :d3f/D3FENDCore}})
+   :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def WebAPIResource
   {:d3f/definition
@@ -41226,14 +41377,18 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def WirelessAccessPoint
-  {:d3f/definition
+  {:d3f/contains :d3f/RFTransmitter,
+   :d3f/definition
    "In computer networking, a wireless access point (WAP), or more generally just access point (AP), is a networking hardware device that allows other Wi-Fi devices to connect to a wired network. The AP usually connects to a router (via a wired network) as a standalone device, but it can also be an integral component of the router itself. An AP is differentiated from a hotspot which is a physical location where Wi-Fi access is available.",
    :db/ident :d3f/WirelessAccessPoint,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Wireless_access_point"},
    :rdfs/label "Wireless Access Point",
-   :rdfs/subClassOf #{:d3f/NetworkNode :d3f/RFTransceiver},
+   :rdfs/subClassOf #{:d3f/ComputerNetworkNode
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/RFTransmitter,
+                       :rdf/type           :owl/Restriction}},
    :skos/altLabel "WAP"})
 
 (def WirelessRouter
@@ -41775,7 +41930,7 @@
    "x d3fend-kb-data-property y: The reference x has the data property y.",
    :db/ident :d3f/d3fend-kb-reference-annotation,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/domain :d3f/Reference,
+   :rdfs/domain :d3f/TechniqueReference,
    :rdfs/label "d3fend-kb-reference-annotation",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
@@ -41990,6 +42145,14 @@
    :rdfs/label "enumerates",
    :rdfs/subPropertyOf :d3f/reads})
 
+(def erases
+  {:d3f/description
+   "x erases y: A technique x removes recorded data from storage device y creating space for new data.",
+   :db/ident :d3f/erases,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "erases",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def evaluated-by
   {:db/ident           :d3f/evaluated-by,
    :owl/inverseOf      :d3f/evaluates,
@@ -42043,15 +42206,6 @@
   {:db/ident :d3f/expectation-rating,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/subPropertyOf :d3f/d3fend-catalog-data-property})
-
-(def expected-latency
-  {:db/ident           :d3f/expected-latency,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "expected-latency",
-   :rdfs/range         {:owl/onProperty     :d3f/latency,
-                        :owl/someValuesFrom :d3f/Latency,
-                        :rdf/type           :owl/Restriction},
-   :rdfs/subPropertyOf :d3f/latency})
 
 (def extends
   {:d3f/definition
@@ -42416,7 +42570,7 @@
   {:d3f/definition     "x kb-abstract y: The reference x has the abstract y.",
    :db/ident           :d3f/kb-abstract,
    :rdf/type           :owl/AnnotationProperty,
-   :rdfs/domain        :d3f/Reference,
+   :rdfs/domain        :d3f/TechniqueReference,
    :rdfs/label         "kb-abstract",
    :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-kb-reference-annotation})
@@ -42435,7 +42589,7 @@
   {:d3f/definition     "x kb-author y: The reference x has some author y.",
    :db/ident           :d3f/kb-author,
    :rdf/type           :owl/AnnotationProperty,
-   :rdfs/domain        :d3f/Reference,
+   :rdfs/domain        :d3f/TechniqueReference,
    :rdfs/label         "kb-author",
    :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-kb-reference-annotation})
@@ -42445,7 +42599,7 @@
    "x kb-mitre-analysis y: The reference x has the mitre d3fend analysis y.",
    :db/ident :d3f/kb-mitre-analysis,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/domain :d3f/Reference,
+   :rdfs/domain :d3f/TechniqueReference,
    :rdfs/label "kb-mitre-analysis",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
@@ -42471,9 +42625,8 @@
    "x kb-is-example-of y: The reference x is an example of technique y.",
    :db/ident :d3f/kb-reference-of,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :d3f/Reference,
    :rdfs/label "kb-reference-of",
-   :rdfs/range :d3f/Technique,
+   :rdfs/range :d3f/CyberTechnique,
    :rdfs/subPropertyOf :d3f/d3fend-kb-object-property,
    :skos/altLabel "kb-is-example-of"})
 
@@ -42482,7 +42635,6 @@
    "x kb-reference-title y: The d3fend knowledge base reference x has the reference title string y.",
    :db/ident :d3f/kb-reference-title,
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/domain :d3f/Reference,
    :rdfs/label "kb-reference-title",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-kb-data-property})
@@ -42493,15 +42645,6 @@
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "label"},
    :rdfs/subPropertyOf :rdfs/label})
-
-(def latency
-  {:db/ident           :d3f/latency,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "latency",
-   :rdfs/range         {:owl/onProperty     :d3f/latency,
-                        :owl/someValuesFrom :d3f/Latency,
-                        :rdf/type           :owl/Restriction},
-   :rdfs/subPropertyOf :d3f/d3fend-catalog-object-property})
 
 (def license
   {:db/ident           :d3f/license,
@@ -42932,16 +43075,6 @@
    :rdfs/label         "next",
    :rdfs/subPropertyOf :d3f/d3fend-process-object-property})
 
-(def non-real-time-analytic
-  {:db/ident   :d3f/non-real-time-analytic,
-   :rdf/type   #{:d3f/AnalyticLatency :owl/NamedIndividual},
-   :rdfs/label "non-real-time-analytic"})
-
-(def non-real-time-eviction
-  {:db/ident   :d3f/non-real-time-eviction,
-   :rdf/type   #{:d3f/EvictionLatency :owl/NamedIndividual},
-   :rdfs/label "non-real-time-eviction"})
-
 (def obfuscates
   {:d3f/definition
    "x obfuscates y: The technique x makes the digital artifact y unclear or obscure.  Typically obfuscation is a way to hide a digital artifact from discovery, use, or both.",
@@ -43175,16 +43308,6 @@
    #{{:xsd/anyURI "http://dbpedia.org/resource/Reading_(computer)"}
      {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00629157-v"}},
    :rdfs/subPropertyOf :d3f/accesses})
-
-(def real-time-analytic
-  {:db/ident   :d3f/real-time-analytic,
-   :rdf/type   #{:d3f/AnalyticLatency :owl/NamedIndividual},
-   :rdfs/label "real-time-analytic"})
-
-(def real-time-eviction
-  {:db/ident   :d3f/real-time-eviction,
-   :rdf/type   #{:d3f/EvictionLatency :owl/NamedIndividual},
-   :rdfs/label "real-time-eviction"})
 
 (def recorded-in
   {:db/ident           :d3f/recorded-in,
@@ -43562,15 +43685,15 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
-  {:d3f/release-date #inst "2024-07-10T00:00:00.000-00:00",
+  {:d3f/release-date #inst "2024-10-11T00:00:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.16.0/d3fend.owl"},
-   :owl/versionInfo "0.16.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/0.17.0/d3fend.owl"},
+   :owl/versionInfo "0.17.0",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",

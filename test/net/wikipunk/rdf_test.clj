@@ -59,9 +59,10 @@
             :d3f/DefensiveTechnique
             :d3f/CapabilityFeature
             :d3f/D3FENDCatalogThing
+            :d3f/D3FENDKBThing
+            :d3f/CyberTechnique
             :d3f/Technique
-            :d3f/D3FENDThing
-            :d3f/Action
+            :d3f/Plan
             :d3f/D3FENDCore
             :owl/Class]))))
 
