@@ -57,9 +57,6 @@
     (is (= (mop/compute-class-precedence-list :d3f/ApplicationHardening)
            [:d3f/ApplicationHardening
             :d3f/DefensiveTechnique
-            :d3f/CapabilityFeature
-            :d3f/D3FENDCatalogThing
-            :d3f/D3FENDKBThing
             :d3f/CyberTechnique
             :d3f/Technique
             :d3f/Plan

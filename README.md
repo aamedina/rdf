@@ -194,7 +194,7 @@ are resolved. It can be one of three values:
 [wikipunk.net](https://wikipunk.net/)
 
 ### License
-Copyright 2024 Adrian Medina
+Copyright 2025 Adrian Medina
 
 Permission to use, copy, modify, and/or distribute this software for
 any purpose with or without fee is hereby granted, provided that the
