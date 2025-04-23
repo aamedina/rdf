@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.d3f
-  {:d3f/release-date #inst "2024-12-20T00:42:42.042-00:00",
+  {:d3f/release-date #inst "2025-04-21T00:12:00.000-00:00",
    :dcat/downloadURL
-   "https://d3fend.mitre.org/ontologies/d3fend/1.0.0/d3fend.owl",
+   "https://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
@@ -15,8 +15,8 @@
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.0.0/d3fend.owl"},
-   :owl/versionInfo "1.0.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl"},
+   :owl/versionInfo "1.1.0",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
    :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
@@ -456,7 +456,13 @@
    :db/ident :d3f/AddUserToGroupEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Add User to Group Event",
-   :rdfs/subClassOf :d3f/GroupManagementEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/GroupCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/GroupManagementEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def AddressSpace
   {:d3f/definition
@@ -724,7 +730,10 @@
    :db/ident :d3f/ApplicationDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Deletion Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationInstallationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEvent}})
 
 (def ApplicationDisableEvent
   {:d3f/definition
@@ -732,7 +741,10 @@
    :db/ident :d3f/ApplicationDisableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Disable Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationEnableEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEvent}})
 
 (def ApplicationEnableEvent
   {:d3f/definition
@@ -740,7 +752,10 @@
    :db/ident :d3f/ApplicationEnableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Enable Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationInstallationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEvent}})
 
 (def ApplicationEvent
   {:d3f/definition
@@ -849,7 +864,13 @@
    :db/ident :d3f/ApplicationRestartEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Restart Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/ApplicationStartEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationStopEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ApplicationRule
   {:d3f/definition
@@ -876,7 +897,10 @@
    :db/ident :d3f/ApplicationStartEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Start Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationInstallationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEvent}})
 
 (def ApplicationStopEvent
   {:d3f/definition
@@ -884,7 +908,10 @@
    :db/ident :d3f/ApplicationStopEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Stop Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{:d3f/ApplicationEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationStartEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ApplicationUpdateEvent
   {:d3f/definition
@@ -892,7 +919,10 @@
    :db/ident :d3f/ApplicationUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Update Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ApplicationInstallationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEvent}})
 
 (def ApproximateStringMatching
   {:d3f/d3fend-id "D3A-ASM",
@@ -1003,7 +1033,10 @@
    :db/ident :d3f/AssignPrivilegesToGroupEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Assign Privileges to Group Event",
-   :rdfs/subClassOf :d3f/GroupManagementEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/GroupCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/GroupManagementEvent}})
 
 (def AssociationRuleLearning
   {:d3f/d3fend-id "D3A-ARL",
@@ -1036,6 +1069,14 @@
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Public-key_cryptography"},
    :rdfs/subClassOf :d3f/CryptographicKey})
+
+(def Attacker
+  {:d3f/definition
+   "An agent that attempts to exploit vulnerabilities to gain unauthorized access to data or systems.",
+   :db/ident :d3f/Attacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Attacker",
+   :rdfs/subClassOf :d3f/Agent})
 
 (def AudioInputDevice
   {:d3f/definition
@@ -1453,6 +1494,24 @@
                        :owl/someValuesFrom :d3f/Person,
                        :rdf/type           :owl/Restriction}}})
 
+(def BitmapImage
+  {:d3f/definition  "A graphical image whose data is stored in a grid format.",
+   :db/ident        :d3f/BitmapImage,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "Bitmap Image",
+   :rdfs/subClassOf :d3f/DigitalImage})
+
+(def BitmapImageFile
+  {:d3f/contains :d3f/BitmapImage,
+   :d3f/definition
+   "A file that contains graphics data represented in a bitmap.",
+   :db/ident :d3f/BitmapImageFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bitmap Image File",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/BitmapImage,
+                       :rdf/type           :owl/Restriction} :d3f/ImageFile}})
+
 (def BlockDevice
   {:d3f/contains #{:d3f/BootSector :d3f/Partition :d3f/PartitionTable},
    :d3f/definition
@@ -1630,6 +1689,69 @@
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Build_automation"},
    :rdfs/subClassOf :d3f/DeveloperApplication,
    :skos/altLabel "Build Automation Tool"})
+
+(def BusMessage
+  {:d3f/definition
+   "A digital message potentially containing commands, telemetry, or status signals, encoded in a bus protocol and conveyed over a bus within one or more frames.",
+   :db/ident :d3f/BusMessage,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bus Message",
+   :rdfs/subClassOf :d3f/DigitalMessage})
+
+(def BusNetwork
+  {:d3f/definition
+   "An electronic communication system that links multiple components through one shared transmission medium, together with the interface hardware and link-layer signalling that govern access to that medium.",
+   :db/ident :d3f/BusNetwork,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://dbpedia.org/resource/Bus_(computing)"},
+   :rdfs/label "Bus Network",
+   :rdfs/subClassOf :d3f/Network,
+   :skos/altLabel #{"Bus" "Data Highway"}})
+
+(def BusNetworkFrame
+  {:d3f/contained-by :d3f/BusNetworkTraffic,
+   :d3f/contains :d3f/BusMessage,
+   :d3f/definition
+   "A network frame whose layout and timing follow a bus protocol, allowing data to be exchanged across the shared bus medium.",
+   :db/ident :d3f/BusNetworkFrame,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bus Network Frame",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contained-by,
+                       :owl/someValuesFrom :d3f/BusNetworkTraffic,
+                       :rdf/type           :owl/Restriction} :d3f/NetworkFrame
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/BusMessage,
+                       :rdf/type           :owl/Restriction}},
+   :skos/altLabel "Bus Frame"})
+
+(def BusNetworkNode
+  {:d3f/connected-to :d3f/BusNetwork,
+   :d3f/definition
+   "A device or logical endpoint whose interface is directly connected to a bus and exchanges data over the shared medium using the protocol implemented on that interface.",
+   :d3f/transmits :d3f/BusNetworkTraffic,
+   :db/ident :d3f/BusNetworkNode,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bus Network Node",
+   :rdfs/subClassOf #{:d3f/Host
+                      {:owl/onProperty     :d3f/connected-to,
+                       :owl/someValuesFrom :d3f/BusNetwork,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/transmits,
+                       :owl/someValuesFrom :d3f/BusNetworkTraffic,
+                       :rdf/type           :owl/Restriction}}})
+
+(def BusNetworkTraffic
+  {:d3f/contains :d3f/BusNetworkFrame,
+   :d3f/definition
+   "The ordered flow of frames, structured by a bus protocol, that traverses the shared bus medium during operation.",
+   :db/ident :d3f/BusNetworkTraffic,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Bus Network Traffic",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/BusNetworkFrame,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DigitalInformationBearer}})
 
 (def BusinessCommunicationPlatformClient
   {:d3f/definition
@@ -7131,10 +7253,14 @@
 
 (def CWE-1393
   {:d3f/cwe-id      "CWE-1393",
+   :d3f/weakness-of :d3f/UserAccount,
    :db/ident        :d3f/CWE-1393,
-   :rdf/type        :owl/Class,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Use of Default Password",
-   :rdfs/subClassOf :d3f/CWE-1392})
+   :rdfs/subClassOf #{:d3f/CWE-1392
+                      {:owl/onProperty     :d3f/weakness-of,
+                       :owl/someValuesFrom :d3f/UserAccount,
+                       :rdf/type           :owl/Restriction}}})
 
 (def CWE-1394
   {:d3f/cwe-id      "CWE-1394",
@@ -12222,6 +12348,30 @@
                        :owl/someValuesFrom :d3f/Certificate,
                        :rdf/type           :owl/Restriction} :d3f/TrustStore}})
 
+(def ChangeDefaultPassword
+  {:d3f/definition
+   "Changing the default password means replacing the factory-set credentials with a strong, unique password before the device is deployed, preventing unauthorized access.",
+   :d3f/hardens :d3f/OTController,
+   :d3f/kb-article
+   "## How it works\nChange the default password as soon as a new device is received. The default credentials are normally documented in an instruction manual that is either packaged with the device, published online through official means, or published online through unofficial means.\n\n## Considerations\n* These should be changed before a device is brought online so that an adversary cannot take advantage of these default credentials.\n* Strong and complex passwords are preferred if the technology allows.",
+   :d3f/kb-reference #{:d3f/Reference-CPGChecklist
+                       :d3f/Reference-MITREATTACKPasswordPolicies
+                       :d3f/Reference-GuidetoOTSecurity},
+   :d3f/strengthens #{:d3f/UserAccount :d3f/Password},
+   :db/ident :d3f/ChangeDefaultPassword,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Change Default Password",
+   :rdfs/subClassOf #{:d3f/StrongPasswordPolicy
+                      {:owl/onProperty     :d3f/strengthens,
+                       :owl/someValuesFrom :d3f/Password,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/hardens,
+                       :owl/someValuesFrom :d3f/OTController,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/strengthens,
+                       :owl/someValuesFrom :d3f/UserAccount,
+                       :rdf/type           :owl/Restriction}}})
+
 (def ChatroomClient
   {:d3f/definition
    "Client software used to describe conduct any form of synchronous conferencing, occasionally even asynchronous conferencing. The term can thus mean any technology ranging from real-time online chat and online interaction with strangers (e.g., online forums) to fully immersive graphical social environments.",
@@ -12291,7 +12441,7 @@
   {:d3f/definition
    "A client computer is a host that accesses a service made available by a server. The server is often (but not always) on another computer system, in which case the client accesses the service by way of a network.",
    :db/ident :d3f/ClientComputer,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Client_(computing)"},
    :rdfs/label "Client Computer",
@@ -12421,6 +12571,25 @@
    :rdfs/label "Code Repository",
    :rdfs/subClassOf :d3f/Database,
    :skos/altLabel #{"Repository" "Version Control Repository"}})
+
+(def CodecApplication
+  {:d3f/contains    :d3f/CodecLibrary,
+   :d3f/definition  "An application that encodes and decodes digital data.",
+   :db/ident        :d3f/CodecApplication,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "Codec Application",
+   :rdfs/subClassOf #{:d3f/UserApplication
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/CodecLibrary,
+                       :rdf/type           :owl/Restriction}}})
+
+(def CodecLibrary
+  {:d3f/definition
+   "A software component that encodes or decodes a data stream of signal.",
+   :db/ident :d3f/CodecLibrary,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Codec Library",
+   :rdfs/subClassOf :d3f/SoftwareLibrary})
 
 (def CoefficientOfVariation
   {:d3f/d3fend-id "D3A-COV",
@@ -12815,6 +12984,147 @@
                        :owl/someValuesFrom :d3f/ContainerImage,
                        :rdf/type           :owl/Restriction}
                       :d3f/ServiceApplication}})
+
+(def ContentExcision
+  {:d3f/d3fend-id "D3-CNE",
+   :d3f/definition "Removing specific, potentially malicious, parts of content",
+   :d3f/kb-article
+   "## How it works\n\nIf malicious or unecessary elements is discovered within the content, or if a specific embedded portion does not comply with policy, it may be removed to ensure safety.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :db/ident :d3f/ContentExcision,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Excision",
+   :rdfs/subClassOf :d3f/ContentModification})
+
+(def ContentFiltering
+  {:d3f/d3fend-id "D3-CF",
+   :d3f/definition
+   "Content Filtering techniques aid in the process of analyzing an input file for malicious or erroneous content and outputing a sanitized version.",
+   :d3f/enables :d3f/Isolate,
+   :d3f/enforces :d3f/ContentPolicy,
+   :d3f/filters :d3f/File,
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :db/ident :d3f/ContentFiltering,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Filtering",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enforces,
+                       :owl/someValuesFrom :d3f/ContentPolicy,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/Isolate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/File,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DefensiveTechnique}})
+
+(def ContentFormatConversion
+  {:d3f/d3fend-id "D3-CFC",
+   :d3f/definition
+   "Content format conversion is mechanical transformation from one format to another which may be normalization or specifically flattening.",
+   :d3f/kb-article
+   "## How it works\n\nThis technique may enhance security by transforming files into safer or normalized formats.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :db/ident :d3f/ContentFormatConversion,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Format Conversion",
+   :rdfs/subClassOf :d3f/ContentModification})
+
+(def ContentModification
+  {:d3f/d3fend-id "D3-CM",
+   :d3f/definition "Modify content that does not comply with policy.",
+   :d3f/filters #{:d3f/FileMetadata :d3f/DigitalMedia :d3f/FileContentBlock},
+   :d3f/kb-article
+   "## How it works\n\nWhen content is found to not comply with it's content policy, it may be transformed to a safer state by modifying it.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :d3f/modifies :d3f/File,
+   :db/ident :d3f/ContentModification,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Modification",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/File,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ContentFiltering
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/FileMetadata,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/DigitalMedia,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/FileContentBlock,
+                       :rdf/type           :owl/Restriction}}})
+
+(def ContentPolicy
+  {:d3f/definition
+   "A set of rules and guidelines that dictate the acceptable use, distribution, and management of digital content within a system or platform. It defines what content is allowed, restricted, or prohibited, ensuring compliance with legal, ethical, and organizational standards.",
+   :db/ident :d3f/ContentPolicy,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Policy",
+   :rdfs/subClassOf :d3f/DigitalInformationBearer})
+
+(def ContentQuarantine
+  {:d3f/d3fend-id "D3-CQ",
+   :d3f/definition
+   "Transfer content that does not comply with policy to a quarantine zone.",
+   :d3f/kb-article
+   "## How it works\n\nQuarantining serves as a protective measure to isolate potentially harmful files or elements until they can be safely analyzed or processed.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :d3f/quarantines #{:d3f/DatabaseRecord :d3f/File},
+   :db/ident :d3f/ContentQuarantine,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Quarantine",
+   :rdfs/subClassOf #{:d3f/ContentFiltering
+                      {:owl/onProperty     :d3f/quarantines,
+                       :owl/someValuesFrom :d3f/File,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/quarantines,
+                       :owl/someValuesFrom :d3f/DatabaseRecord,
+                       :rdf/type           :owl/Restriction}}})
+
+(def ContentRebuild
+  {:d3f/d3fend-id "D3-CNR",
+   :d3f/definition
+   "Rebuild the file according to the spec so any unreferenced components or objects are removed.",
+   :d3f/kb-article
+   "## How it works\n\nIf inputted content is divided up into components for further scrutiny, the components may be combined back afterwards in a safer state.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :d3f/synonym "Content Reconstruction",
+   :db/ident :d3f/ContentRebuild,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Rebuild",
+   :rdfs/subClassOf :d3f/ContentModification})
+
+(def ContentSubstitution
+  {:d3f/d3fend-id "D3-CNS",
+   :d3f/definition
+   "Modifies specific digital content information by replacing it with something else.",
+   :d3f/kb-article
+   "## How it works\n\nIf malicious or unecessary elements is discovered within the content, or if a specific embedded portion does not comply with policy, it may be replaced with alternatives to ensure safety.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :db/ident :d3f/ContentSubstitution,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Substitution",
+   :rdfs/subClassOf :d3f/ContentModification})
+
+(def ContentValidation
+  {:d3f/d3fend-id "D3-CV",
+   :d3f/definition "Verify and validate contents complies with policy",
+   :d3f/kb-article
+   "## How it works\n\nTo ensure that content is safe, it's composition must be validated according to its content policy.",
+   :d3f/kb-reference
+   :d3f/Reference-FileSecurityUsingFileFormatValidation_OPSWATInc,
+   :db/ident :d3f/ContentValidation,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Content Validation",
+   :rdfs/subClassOf :d3f/ContentFiltering})
 
 (def ControlCatalog
   {:d3f/definition
@@ -13230,7 +13540,9 @@
    :db/ident :d3f/DHCPAckEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DHCP Ack Event",
-   :rdfs/subClassOf :d3f/DHCPEvent,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DHCPRequestEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DHCPEvent},
    :skos/altLabel "DHCPACK"})
 
 (def DHCPDiscoverEvent
@@ -13271,7 +13583,9 @@
    :db/ident :d3f/DHCPLeaseExpireEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DHCP Lease Expire Event",
-   :rdfs/subClassOf :d3f/DHCPEvent,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DHCPAckEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DHCPEvent},
    :skos/altLabel "DHCPLEASEEXPIRE"})
 
 (def DHCPNakEvent
@@ -13280,7 +13594,9 @@
    :db/ident :d3f/DHCPNakEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DHCP Nak Event",
-   :rdfs/subClassOf :d3f/DHCPEvent,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DHCPRequestEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DHCPEvent},
    :skos/altLabel "DHCPNAK"})
 
 (def DHCPNetworkTraffic
@@ -13297,7 +13613,9 @@
    :db/ident :d3f/DHCPOfferEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DHCP Offer Event",
-   :rdfs/subClassOf :d3f/DHCPEvent,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DHCPDiscoverEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DHCPEvent},
    :skos/altLabel "DHCPOFFER"})
 
 (def DHCPReleaseEvent
@@ -13306,7 +13624,9 @@
    :db/ident :d3f/DHCPReleaseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DHCP Release Event",
-   :rdfs/subClassOf :d3f/DHCPEvent,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DHCPAckEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DHCPEvent},
    :skos/altLabel "DHCPRELEASE"})
 
 (def DHCPRequestEvent
@@ -13315,7 +13635,9 @@
    :db/ident :d3f/DHCPRequestEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DHCP Request Event",
-   :rdfs/subClassOf :d3f/DHCPEvent,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DHCPOfferEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DHCPEvent},
    :skos/altLabel "DHCPREQUEST"})
 
 (def DHCPServer
@@ -13459,7 +13781,9 @@
    :db/ident :d3f/DNSResponseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "DNS Response Event",
-   :rdfs/subClassOf :d3f/DNSEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/DNSQueryEvent,
+                       :rdf/type           :owl/Restriction} :d3f/DNSEvent}})
 
 (def DNSServer
   {:d3f/definition
@@ -13978,6 +14302,15 @@
                        :owl/someValuesFrom :d3f/DatabaseQuery,
                        :rdf/type           :owl/Restriction}}})
 
+(def DatabaseRecord
+  {:d3f/definition
+   "A single, implicitly structured data item in a table in a database.",
+   :db/ident :d3f/DatabaseRecord,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Database Record",
+   :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/page/Row_(database)"},
+   :rdfs/subClassOf :d3f/Record})
+
 (def DatabaseServer
   {:d3f/contains :d3f/Database,
    :d3f/definition
@@ -14047,6 +14380,13 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Decision Tree Regression",
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
+
+(def DecoderApplication
+  {:d3f/definition  "An application that decodes digital data.",
+   :db/ident        :d3f/DecoderApplication,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Decoder Application",
+   :rdfs/subClassOf :d3f/CodecApplication})
 
 (def DecoyArtifact
   {:d3f/definition
@@ -14472,6 +14812,34 @@
       "https://www.iso.org/obp/ui/#iso:std:iso-iec:19770:-1:ed-3:v1:en"}},
    :rdfs/subClassOf :d3f/Artifact})
 
+(def DigitalAudio
+  {:d3f/definition
+   "Digital audio is a representation of sound recorded in, or converted into, digital form.",
+   :db/ident :d3f/DigitalAudio,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Digital_audio"},
+   :rdfs/label "Digital Audio",
+   :rdfs/subClassOf :d3f/DigitalMedia})
+
+(def DigitalAudioVisualMedia
+  {:d3f/definition
+   "Audiovisual (AV) is electronic media possessing both a sound and a visual component.",
+   :db/ident :d3f/DigitalAudioVisualMedia,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Audiovisual"},
+   :rdfs/label "Digital Audio Visual Media",
+   :rdfs/subClassOf :d3f/DigitalMultimedia})
+
+(def DigitalDocument
+  {:d3f/definition
+   "An digital document is any electronic media content (other than computer programs or system files) that is intended to be used in either an electronic form or as printed output.",
+   :db/ident :d3f/DigitalDocument,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "https://dbpedia.org/page/Electronic_document"},
+   :rdfs/label "Digital Document",
+   :rdfs/subClassOf :d3f/DigitalMedia})
+
 (def DigitalEvent
   {:d3f/definition
    "A digital event represents an observable occurrence, action, or state change within digital systems, networks, or their interactions. These events are characterized by their impact on the confidentiality, integrity, availability, or functionality of digital resources, processes, identities, or communications. Digital events are essential units of information in cybersecurity, serving as the basis for detecting threats, analyzing anomalies, and orchestrating responses in complex, interconnected environments.",
@@ -14506,7 +14874,6 @@
   {:d3f/definition
    "The unique representation of a subject engaged in an online transaction. A digital identity is always unique in the context of a digital service, but does not necessarily need to uniquely identify the subject in all contexts. In other words, accessing a digital service may not mean that the subject's real-life identity is known.  Note: There is no single, widely accepted definition for this term and context is important. This definition is specific to online transactions.",
    :d3f/identified-by :d3f/Identifier,
-   :d3f/kb-reference :d3f/Reference-CNNSI-4009,
    :db/ident :d3f/DigitalIdentity,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -14518,6 +14885,15 @@
                       {:owl/onProperty     :d3f/identified-by,
                        :owl/someValuesFrom :d3f/Identifier,
                        :rdf/type           :owl/Restriction}}})
+
+(def DigitalImage
+  {:d3f/definition
+   "A digital image is a pixel-based visual representation stored in formats like JPEG or PNG, used for various digital applications.",
+   :db/ident :d3f/DigitalImage,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Digital_image"},
+   :rdfs/label "Digital Image",
+   :rdfs/subClassOf :d3f/DigitalMedia})
 
 (def DigitalInformation
   {:db/ident        :d3f/DigitalInformation,
@@ -14531,6 +14907,34 @@
    :rdfs/label      "Digital Information Bearer",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
+(def DigitalMedia
+  {:d3f/definition
+   "Digital media refers to any communication media that operate in conjunction with various encoded machine-readable data formats.",
+   :db/ident :d3f/DigitalMedia,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Digital_media"},
+   :rdfs/label "Digital Media",
+   :rdfs/subClassOf :d3f/DigitalInformation})
+
+(def DigitalMessage
+  {:d3f/definition
+   "A discrete unit of digital communication created by a sender for one or more intended recipients. Encoded in an application-layer format, a digital message conveys semantics such as commands, data, or status and is transported inside lower-layer containers like network frames or packets.",
+   :db/ident :d3f/DigitalMessage,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://dbpedia.org/resource/Message_(computing)"},
+   :rdfs/label "Digital Message",
+   :rdfs/subClassOf :d3f/DigitalInformationBearer})
+
+(def DigitalMultimedia
+  {:d3f/definition
+   "Digital Multimedia refers to content that combines text, audio, images, animations, and video in a digital format for interactive applications",
+   :db/ident :d3f/DigitalMultimedia,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Multimedia"},
+   :rdfs/label "Digital Multimedia",
+   :rdfs/subClassOf :d3f/DigitalMedia})
+
 (def DigitalSystem
   {:d3f/definition
    "A digital system is a group of interacting or interrelated digital artifacts that act according to a set of rules to form a unified whole. A digital system, surrounded and influenced by its environment, is described by its boundaries, structure and purpose and expressed in its functioning. Systems are the subjects of study of systems theory.",
@@ -14539,6 +14943,23 @@
    :rdfs/label "Digital System",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/System"},
    :rdfs/subClassOf #{:d3f/System :d3f/DigitalInformationBearer}})
+
+(def DigitalText
+  {:d3f/definition
+   "Digital text is written content encoded in a digital format, allowing for storage, retrieval, and manipulation by electronic devices.",
+   :db/ident :d3f/DigitalText,
+   :rdf/type :owl/Class,
+   :rdfs/label "Digital Text",
+   :rdfs/subClassOf :d3f/DigitalMedia})
+
+(def DigitalVideo
+  {:d3f/definition
+   "Digital video is an electronic representation of moving visual images (video) in the form of encoded digital data.",
+   :db/ident :d3f/DigitalVideo,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Digital_video"},
+   :rdfs/label "Digital Video",
+   :rdfs/subClassOf :d3f/DigitalMedia})
 
 (def DimensionReduction
   {:d3f/d3fend-id "D3A-DR",
@@ -14992,7 +15413,9 @@
    :db/ident :d3f/EmailReceiveEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Email Receive Event",
-   :rdfs/subClassOf :d3f/EmailEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/EmailSendEvent,
+                       :rdf/type           :owl/Restriction} :d3f/EmailEvent}})
 
 (def EmailRemoval
   {:d3f/d3fend-id "D3-ER",
@@ -15082,6 +15505,13 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformationBearer},
    :skos/altLabel "Network Enclave"})
+
+(def EncoderApplication
+  {:d3f/definition  "An application that encodes digital data.",
+   :db/ident        :d3f/EncoderApplication,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Encoder Application",
+   :rdfs/subClassOf :d3f/CodecApplication})
 
 (def EncryptedCredential
   {:d3f/definition  "A credential that is encrypted.",
@@ -15255,7 +15685,10 @@
    :db/ident :d3f/EventLogDisableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Event Log Disable Event",
-   :rdfs/subClassOf :d3f/EventLogEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/EventLogEnableEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EventLogEvent}})
 
 (def EventLogEnableEvent
   {:d3f/definition
@@ -15291,7 +15724,13 @@
    :db/ident :d3f/EventLogRestartEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Event Log Restart Event",
-   :rdfs/subClassOf :d3f/EventLogEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/EventLogStartEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/EventLogStopEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EventLogEvent}})
 
 (def EventLogRotateEvent
   {:d3f/definition
@@ -15315,7 +15754,10 @@
    :db/ident :d3f/EventLogStopEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Event Log Stop Event",
-   :rdfs/subClassOf :d3f/EventLogEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/EventLogStartEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/EventLogEvent}})
 
 (def Evict
   {:d3f/definition
@@ -15599,7 +16041,10 @@
    :db/ident :d3f/FTPDeleteEvent,
    :rdf/type :owl/Class,
    :rdfs/label "FTP Delete Event",
-   :rdfs/subClassOf :d3f/FTPEvent})
+   :rdfs/subClassOf #{:d3f/FTPEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FTPPutEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FTPEvent
   {:d3f/definition
@@ -15620,7 +16065,10 @@
    :db/ident :d3f/FTPGetEvent,
    :rdf/type :owl/Class,
    :rdfs/label "FTP Get Event",
-   :rdfs/subClassOf :d3f/FTPEvent})
+   :rdfs/subClassOf #{:d3f/FTPEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FTPPutEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FTPListEvent
   {:d3f/definition
@@ -15652,7 +16100,10 @@
    :db/ident :d3f/FTPRenameEvent,
    :rdf/type :owl/Class,
    :rdfs/label "FTP Rename Event",
-   :rdfs/subClassOf :d3f/FTPEvent})
+   :rdfs/subClassOf #{:d3f/FTPEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FTPPutEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FastSymbolicLink
   {:d3f/definition
@@ -15695,7 +16146,10 @@
    :db/ident :d3f/FileAccessEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Access Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{:d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileAccessPatternAnalysis
   {:d3f/analyzes :d3f/LocalResourceAccess,
@@ -15763,6 +16217,48 @@
    :rdfs/label "File Content Analysis",
    :rdfs/subClassOf :d3f/FileAnalysis})
 
+(def FileContentBlock
+  {:d3f/definition
+   "A section within a file that contains the main content or data payload.",
+   :db/ident :d3f/FileContentBlock,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Content Block",
+   :rdfs/subClassOf :d3f/FileSection})
+
+(def FileContentBlockData
+  {:d3f/definition
+   "The actual content or main data within a file or data block.",
+   :db/ident :d3f/FileContentBlockData,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Content Block Data",
+   :rdfs/subClassOf :d3f/DigitalInformation})
+
+(def FileContentBlockMetadata
+  {:d3f/definition
+   "Content Blocks may contain metadata specific to the block's content at the beginning",
+   :db/ident :d3f/FileContentBlockMetadata,
+   :rdf/type :owl/Class,
+   :rdfs/label "File Content Block Metadata",
+   :rdfs/subClassOf :d3f/FileMetadata})
+
+(def FileContentDecompressionChecking
+  {:d3f/analyzes :d3f/FileContentBlockData,
+   :d3f/d3fend-id "D3-FCDC",
+   :d3f/definition
+   "Checking if compressed or encoded data sections can be successfully decompressed or decoded. Can follow with further analysis with semantic knowledge",
+   :d3f/kb-article
+   "## How it works\n\nSome file formats such as JPEGs include encoded or compressed sections. This technique verfies that those expected sections are present and can be properly decoded according to the spec.",
+   :d3f/kb-reference
+   #{:d3f/Reference-CarvingContiguousandFragmentedFilesWithFastObjectValidation
+     :d3f/Reference-GatheringEvidenceModel-DrivenSoftwareEngineeringinAutomatedDigitalForensics},
+   :db/ident :d3f/FileContentDecompressionChecking,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Content Decompression Checking",
+   :rdfs/subClassOf #{:d3f/FileFormatVerification
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileContentBlockData,
+                       :rdf/type           :owl/Restriction}}})
+
 (def FileContentRules
   {:d3f/d3fend-id "D3-FCR",
    :d3f/definition
@@ -15786,7 +16282,10 @@
    :db/ident :d3f/FileCopyEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Copy Event",
-   :rdfs/subClassOf :d3f/FileCreationEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileAccessEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/FileCreationEvent}})
 
 (def FileCreationAnalysis
   {:d3f/analyzes :d3f/CreateFile,
@@ -15818,7 +16317,10 @@
    :db/ident :d3f/FileDecryptionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Decryption Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{:d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileEncryptionEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileDeletionEvent
   {:d3f/definition
@@ -15826,15 +16328,21 @@
    :db/ident :d3f/FileDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Deletion Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{:d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileEncryption
   {:d3f/d3fend-id "D3-FE",
    :d3f/definition "Encrypting a file using a cryptographic key.",
    :d3f/encrypts :d3f/File,
    :d3f/kb-article
-   "## How it Works\nFiles are encrypted using either a single key for both encryption and decryption or separate keys. Single key encryption is symmetric encryption and using two key distinct keys is asymmetric encryption.\n\n### Symmetric Cryptography\nSymmetric encryption uses the same cryptographic key for both the encryption and decryption a file. Managing keys at scale sometimes uses asymmetric key exchange protocols such as Diffie-Hellman can be used to share the symmetric cryptographic key with the others.\n\n### Asymmetric Cryptography\nAsymmetric encryption is typically accomplished using public and private key certificates based on the X.509 standard. Files are encrypted using the public key and decrypted using their private key. Asymmetric encryption is typically slower than symmetric encryption and not widely used for large file encryption, but is popular for key wrapping, key exchanges, and digital signatures.\n\n## Considerations\n- Continuous monitoring to ensure private keys are not compromised and the certificate authority (CA) is trusted.\n- Secure transfer of private keys between multiple devices.",
-   :d3f/kb-reference :d3f/Reference-MethodForFileEncryption,
+   "## How it Works\nFiles are encrypted using either a single key for both encryption and decryption or separate keys. Single key encryption is symmetric encryption and using two key distinct keys is asymmetric encryption.\n\n### Symmetric Cryptography\nSymmetric encryption uses the same cryptographic key for both the encryption and decryption a file. Managing keys at scale sometimes uses asymmetric key exchange. Protocols such as RSA or Diffie-Hellman can be used to share the symmetric cryptographic key with the others.\n\n### Asymmetric Cryptography\nAsymmetric encryption is typically accomplished using public and private key certificates based on the X.509 standard. Files are encrypted using the public key and decrypted using their private key. Asymmetric encryption is typically slower than symmetric encryption and not widely used for large file encryption, but is popular for key wrapping, key exchanges, and digital signatures.\n\n## Considerations\n- Continuous monitoring must be carried out to ensure private keys are not compromised and the certificate authority (CA) is trusted.\n- Transfer of private keys between multiple devices must be performed securely.",
+   :d3f/kb-reference
+   #{:d3f/Reference-FileEncryption101SafeguardingYourSensitiveData
+     :d3f/Reference-SecurityConsiderationsForExchangingFilesOverTheInternet
+     :d3f/Reference-GuideToStorageEncryptionTechnologiesForEndUserDevices},
    :db/ident :d3f/FileEncryption,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "File Encryption",
@@ -15849,7 +16357,10 @@
    :db/ident :d3f/FileEncryptionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Encryption Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{:d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileEvent
   {:d3f/definition
@@ -15880,13 +16391,56 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/ObjectEviction}})
 
+(def FileFooterBlock
+  {:d3f/definition
+   "A section at the end of a file that contains metadata or control information.",
+   :db/ident :d3f/FileFooterBlock,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Footer Block",
+   :rdfs/subClassOf :d3f/FileSection})
+
+(def FileFooterBlockContent
+  {:d3f/definition "The content of a footer block not including the signature.",
+   :db/ident :d3f/FileFooterBlockContent,
+   :rdf/type :owl/Class,
+   :rdfs/label "File Footer Block Content",
+   :rdfs/subClassOf :d3f/FileMetadata})
+
+(def FileFooterBlockSignature
+  {:d3f/definition
+   "A sequence of bytes used to identify and validate the footer section within a file.",
+   :db/ident :d3f/FileFooterBlockSignature,
+   :rdf/type :owl/Class,
+   :rdfs/label "File Footer Block Signature",
+   :rdfs/subClassOf :d3f/FileMetadata})
+
+(def FileFormatVerification
+  {:d3f/analyzes :d3f/FileSection,
+   :d3f/d3fend-id "D3-FFV",
+   :d3f/definition
+   "Verifying that a file conforms to its expected format specifications",
+   :d3f/kb-reference
+   :d3f/Reference-FileSecurityUsingFileFormatValidation_OPSWATInc,
+   :db/ident :d3f/FileFormatVerification,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Format Verification",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileSection,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ContentValidation}})
+
 (def FileGetAttributesEvent
   {:d3f/definition
    "An event where a file's metadata attributes, such as size, creation date, or type, are queried or retrieved without altering its content.",
    :db/ident :d3f/FileGetAttributesEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Get Attributes Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileAccessEvent,
+                       :rdf/type           :owl/Restriction} :d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileGetPermissionsEvent
   {:d3f/definition
@@ -15894,7 +16448,10 @@
    :db/ident :d3f/FileGetPermissionsEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Get Permissions Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{:d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileHash
   {:d3f/identifies  :d3f/File,
@@ -15931,6 +16488,29 @@
    :rdfs/label "File Hashing",
    :rdfs/subClassOf :d3f/FileAnalysis})
 
+(def FileHeaderBlock
+  {:d3f/definition
+   "Headers are sections of a file that organize and provide information about specific sections or components of the file. Typically found at the beginning of a file, they often contain file type identification, version information, and metadata such as size, format, and encoding.",
+   :db/ident :d3f/FileHeaderBlock,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Header Block",
+   :rdfs/subClassOf :d3f/FileSection})
+
+(def FileHeaderBlockContent
+  {:d3f/definition "The content of a header block not including the signature.",
+   :db/ident :d3f/FileHeaderBlockContent,
+   :rdf/type :owl/Class,
+   :rdfs/label "File Header Block Content",
+   :rdfs/subClassOf :d3f/FileMetadata})
+
+(def FileHeaderBlockSignature
+  {:d3f/definition
+   "A sequence of bytes used to identify and validate specific header sections within a file.",
+   :db/ident :d3f/FileHeaderBlockSignature,
+   :rdf/type :owl/Class,
+   :rdfs/label "File Header Block Signature",
+   :rdfs/subClassOf :d3f/FileMetadata})
+
 (def FileIntegrityMonitoring
   {:d3f/analyzes :d3f/File,
    :d3f/d3fend-id "D3-FIM",
@@ -15948,6 +16528,98 @@
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}
                       :d3f/PlatformMonitoring}})
+
+(def FileInternalStructureVerification
+  {:d3f/analyzes :d3f/FileContentBlock,
+   :d3f/d3fend-id "D3-FISV",
+   :d3f/definition
+   "The process of checking specific static values within a file, such as file signatures or magic numbers, to ensure they match the expected values defined by the file format specification.",
+   :d3f/kb-article
+   "## How it works\n\nFile format specifications often define expected values for specific fields. A common example are file signatures, or magic numbers, which are used to quickly identify files. Another example is within the Compound Document Header of Microsoft Office files, the 29th and 30th byte identifies the byte order, specifically 0xFFFE for little-endian. This technique verifies that the file's static values match the values of the declared file format's specification.",
+   :d3f/kb-reference
+   #{:d3f/Reference-CarvingContiguousandFragmentedFilesWithFastObjectValidation
+     :d3f/Reference-GatheringEvidenceModel-DrivenSoftwareEngineeringinAutomatedDigitalForensics},
+   :db/ident :d3f/FileInternalStructureVerification,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Internal Structure Verification",
+   :rdfs/subClassOf #{:d3f/FileFormatVerification
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileContentBlock,
+                       :rdf/type           :owl/Restriction}}})
+
+(def FileMagicByteVerification
+  {:d3f/analyzes :d3f/FileMagicBytes,
+   :d3f/d3fend-id "D3-FMBV",
+   :d3f/definition "Utilizing the magic number to verify the file",
+   :d3f/kb-article
+   "## How it works\n\nMany file formats use magic numbers to identify a file format or protocol. Verifying that the magic number matches the expected value of its declared format is a simple way of verifying the file format.",
+   :d3f/kb-reference
+   #{:d3f/Reference-CarvingContiguousandFragmentedFilesWithFastObjectValidation
+     :d3f/Reference-GatheringEvidenceModel-DrivenSoftwareEngineeringinAutomatedDigitalForensics},
+   :db/ident :d3f/FileMagicByteVerification,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Magic Byte Verification",
+   :rdfs/subClassOf #{:d3f/FileMetadataValueVerification
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileMagicBytes,
+                       :rdf/type           :owl/Restriction}}})
+
+(def FileMagicBytes
+  {:d3f/definition
+   "A specific type of header signature located at the beginning of a file, used to identify the file format.",
+   :db/ident :d3f/FileMagicBytes,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Magic Bytes",
+   :rdfs/subClassOf :d3f/FileHeaderBlockSignature})
+
+(def FileMetadata
+  {:d3f/definition
+   "Information that describes and provides context about a file's content, structure, and attributes.",
+   :db/ident :d3f/FileMetadata,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Metadata",
+   :rdfs/subClassOf :d3f/Metadata})
+
+(def FileMetadataConsistencyValidation
+  {:d3f/analyzes #{:d3f/FileContentBlockData :d3f/FileMetadata},
+   :d3f/d3fend-id "D3-FMCV",
+   :d3f/definition
+   "The process of validating the consistency between a file's metadata and its actual content, ensuring that elements like declared lengths, pointers, and checksums accurately describe the file's content.",
+   :d3f/kb-article
+   "## How it works\n\nThis technique involves validating the consistency between a file's metadata and its actual content. It checks elements like declared lengths, pointers, and checksums to ensure they accurately describe the file's content. For instance, if a header specifies a content block of 50 bytes, this should be verified, and CRC values should be recalculated and compared.",
+   :d3f/kb-reference
+   :d3f/Reference-GatheringEvidenceModel-DrivenSoftwareEngineeringinAutomatedDigitalForensics,
+   :db/ident :d3f/FileMetadataConsistencyValidation,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Metadata Consistency Validation",
+   :rdfs/subClassOf #{:d3f/FileFormatVerification
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileContentBlockData,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileMetadata,
+                       :rdf/type           :owl/Restriction}}})
+
+(def FileMetadataValueVerification
+  {:d3f/analyzes #{:d3f/FileHeaderBlock :d3f/FileFooterBlock},
+   :d3f/d3fend-id "D3-FMVV",
+   :d3f/definition
+   "The process of checking specific static values within a file, such as file signatures or magic numbers, to ensure they match the expected values defined by the file format specification.",
+   :d3f/description
+   "## How it works\n\nFile format specifications often define expected values for specific fields. A common example are file signatures, or magic numbers, which are used to quickly identify files. Another example is within the Compound Document Header of Microsoft Office files, the 29th and 30th byte identifies the byte order, specifically 0xFFFE for little-endian. This technique verifies that the file's static values match the values of the declared file format's specification.",
+   :d3f/kb-reference
+   #{:d3f/Reference-CarvingContiguousandFragmentedFilesWithFastObjectValidation
+     :d3f/Reference-IntroductoryComputerForensics},
+   :db/ident :d3f/FileMetadataValueVerification,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Metadata Value Verification",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileFooterBlock,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/FileFormatVerification
+                      {:owl/onProperty     :d3f/analyzes,
+                       :owl/someValuesFrom :d3f/FileHeaderBlock,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileMountEvent
   {:d3f/definition
@@ -15979,7 +16651,12 @@
    :db/ident :d3f/FileRenamingEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Renaming Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileAccessEvent,
+                       :rdf/type           :owl/Restriction} :d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileSection
   {:d3f/definition
@@ -16006,7 +16683,12 @@
    :db/ident :d3f/FileSetAttributesEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Set Attributes Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileAccessEvent,
+                       :rdf/type           :owl/Restriction} :d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileSetPermissionsEvent
   {:d3f/definition
@@ -16014,7 +16696,10 @@
    :db/ident :d3f/FileSetPermissionsEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Set Permissions Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{:d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FileShareService
   {:d3f/definition
@@ -16092,7 +16777,9 @@
    :db/ident :d3f/FileUnmountEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Unmount Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileMountEvent,
+                       :rdf/type           :owl/Restriction} :d3f/FileEvent}})
 
 (def FileUpdateEvent
   {:d3f/definition
@@ -16100,7 +16787,12 @@
    :db/ident :d3f/FileUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Update Event",
-   :rdfs/subClassOf :d3f/FileEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileAccessEvent,
+                       :rdf/type           :owl/Restriction} :d3f/FileEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def FingerPrintScannerInputDevice
   {:d3f/definition
@@ -16571,7 +17263,10 @@
    :db/ident :d3f/GroupDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Group Deletion Event",
-   :rdfs/subClassOf :d3f/GroupManagementEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/GroupCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/GroupManagementEvent}})
 
 (def GroupManagementEvent
   {:d3f/definition
@@ -16700,7 +17395,10 @@
    :db/ident :d3f/HTTPResponseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "HTTP Response Event",
-   :rdfs/subClassOf :d3f/HTTPEvent})
+   :rdfs/subClassOf #{:d3f/HTTPEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/HTTPRequestEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def HTTPSURL
   {:db/ident   :d3f/HTTPSURL,
@@ -16781,6 +17479,21 @@
                        :owl/someValuesFrom :d3f/Process,
                        :rdf/type           :owl/Restriction}}})
 
+(def Hardware-basedWriteProtection
+  {:d3f/definition
+   "Physical methods of preventing data from being written to computer storage.",
+   :d3f/hardens :d3f/Storage,
+   :d3f/kb-article
+   "## How it works\ncomment\n\n## Considerations\n* considerations",
+   :d3f/kb-reference :d3f/Reference-WhatisHardwareWriteProtect,
+   :db/ident :d3f/Hardware-basedWriteProtection,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Hardware-based Write Protection",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/hardens,
+                       :owl/someValuesFrom :d3f/Storage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PlatformHardening}})
+
 (def HardwareComponentInventory
   {:d3f/d3fend-id "D3-HCI",
    :d3f/definition
@@ -16832,7 +17545,10 @@
    :db/ident :d3f/HardwareDeviceDisabledEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Device Disabled Event",
-   :rdfs/subClassOf :d3f/HardwareDeviceStateEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/HardwareDeviceEnabledEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDeviceStateEvent}})
 
 (def HardwareDeviceDisconnectionEvent
   {:d3f/definition
@@ -16840,7 +17556,10 @@
    :db/ident :d3f/HardwareDeviceDisconnectionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Device Disconnection Event",
-   :rdfs/subClassOf :d3f/HardwareDeviceStateEvent})
+   :rdfs/subClassOf #{:d3f/HardwareDeviceStateEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/HardwareDeviceConnectionEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def HardwareDeviceEnabledEvent
   {:d3f/definition
@@ -16848,7 +17567,10 @@
    :db/ident :d3f/HardwareDeviceEnabledEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Device Enabled Event",
-   :rdfs/subClassOf :d3f/HardwareDeviceStateEvent})
+   :rdfs/subClassOf #{:d3f/HardwareDeviceStateEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/HardwareDeviceConnectionEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def HardwareDeviceEvent
   {:d3f/definition
@@ -16883,7 +17605,10 @@
    :db/ident :d3f/HardwareDeviceUnbindEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Device Unbind Event",
-   :rdfs/subClassOf :d3f/HardwareDeviceStateEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/HardwareDeviceBindEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDeviceStateEvent}})
 
 (def HardwareDeviceUpdateEvent
   {:d3f/definition
@@ -16891,7 +17616,10 @@
    :db/ident :d3f/HardwareDeviceUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Device Update Event",
-   :rdfs/subClassOf :d3f/HardwareDeviceStateEvent})
+   :rdfs/subClassOf #{:d3f/HardwareDeviceStateEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/HardwareDeviceConnectionEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def HardwareDriver
   {:d3f/definition
@@ -17386,6 +18114,13 @@
                    {:xsd/anyURI "http://dbpedia.org/resource/Data_segment"}},
    :rdfs/subClassOf :d3f/ImageSegment})
 
+(def ImageFile
+  {:d3f/definition  "A file that contains graphics data",
+   :db/ident        :d3f/ImageFile,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "Image File",
+   :rdfs/subClassOf :d3f/File})
+
 (def ImageScannerInputDevice
   {:d3f/definition
    "An image scanner -- often abbreviated to just scanner, is a device that optically scans images, printed text, handwriting or an object and converts it to a digital image. Commonly used in offices are variations of the desktop flatbed scanner where the document is placed on a glass window for scanning. Hand-held scanners, where the device is moved by hand, have evolved from text scanning \"wands\" to 3D scanners used for industrial design, reverse engineering, test and measurement, orthotics, gaming and other applications. Mechanically driven scanners that move the document are typically used for large-format documents, where a flatbed design would be impractical.",
@@ -17708,6 +18443,17 @@
    :rdfs/label      "Internet Article Reference",
    :rdfs/subClassOf :d3f/TechniqueReference,
    :skos/altLabel   "Internet Blog Reference"})
+
+(def InternetBasedAttacker
+  {:d3f/definition
+   "A remote attacker who leverages the internet to conduct attacks, such as through phishing, malware, or direct network attacks.",
+   :db/ident :d3f/InternetBasedAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Internet-based Attacker",
+   :rdfs/subClassOf #{:d3f/RemoteAttacker
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/WideAreaNetwork,
+                       :rdf/type           :owl/Restriction}}})
 
 (def InternetDNSLookup
   {:d3f/definition
@@ -18237,7 +18983,10 @@
    :db/ident :d3f/KernelModuleUnloadEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Kernel Module Unload Event",
-   :rdfs/subClassOf :d3f/KernelModuleEvent})
+   :rdfs/subClassOf #{:d3f/KernelModuleEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/KernelModuleLoadEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def KernelProcessTable
   {:d3f/definition
@@ -18875,8 +19624,10 @@
    :rdfs/label "Load Library Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/ProcessEvent}})
+                       :rdf/type           :owl/Restriction} :d3f/ProcessEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ProcessCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def LoadModule
   {:d3f/definition
@@ -18923,6 +19674,18 @@
                        :rdf/type           :owl/Restriction} :d3f/Network},
    :skos/altLabel "LAN"})
 
+(def LocalAreaNetworkAttacker
+  {:d3f/definition
+   "An attacker who exploits vulnerabilities within the same local area network.",
+   :d3f/synonym "LAN Attacker",
+   :db/ident :d3f/LocalAreaNetworkAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Local Area Network Attacker",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/LocalAreaNetwork,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/LocalAttacker}})
+
 (def LocalAreaNetworkTraffic
   {:d3f/definition
    "Intranet local area network (LAN) traffic is network traffic that does not cross a given network's boundaries; where that network is defined as a LAN.",
@@ -18931,6 +19694,14 @@
    :rdfs/label "Local Area Network Traffic",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf :d3f/IntranetNetworkTraffic})
+
+(def LocalAttacker
+  {:d3f/definition
+   "An attacker who is physically near or on the premises of the target network or systems.",
+   :db/ident :d3f/LocalAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Local Attacker",
+   :rdfs/subClassOf :d3f/Attacker})
 
 (def LocalAuthenticationService
   {:d3f/definition
@@ -18951,7 +19722,7 @@
 (def LocalFileAccessMediation
   {:d3f/d3fend-id "D3-LFAM",
    :d3f/definition
-   "Restricting access to a local file by configuring operating system functionality.",
+   "Local file access mediation is the process of an operating system granting or denying a specific access request to a local file.",
    :d3f/filters :d3f/OpenFile,
    :d3f/kb-reference :d3f/Reference-FileAndFolderPermissions,
    :d3f/synonym "Local File Access Control",
@@ -18967,7 +19738,7 @@
 (def LocalFilePermissions
   {:d3f/d3fend-id "D3-LFP",
    :d3f/definition
-   "Restricting access to a local file by configuring operating system functionality.",
+   "Local file permissions is the systematic process of defining, implementing, and managing access control policies that dictate user permissions for accessing files on a local system through the configuration of operating system functionality.",
    :d3f/kb-reference :d3f/Reference-FileAndFolderPermissions,
    :d3f/restricts #{:d3f/File :d3f/Directory},
    :db/ident :d3f/LocalFilePermissions,
@@ -19744,7 +20515,9 @@
    :db/ident :d3f/MemoryDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Memory Deletion Event",
-   :rdfs/subClassOf :d3f/MemoryEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
 (def MemoryDeviceEvent
   {:d3f/definition
@@ -19830,7 +20603,10 @@
    :db/ident :d3f/MemoryMapEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Memory Map Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/VirtualMemorySpace,
                        :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
@@ -19840,7 +20616,9 @@
    :db/ident :d3f/MemoryModificationEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Memory Modification Event",
-   :rdfs/subClassOf :d3f/MemoryEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
 (def MemoryPool
   {:d3f/contains :d3f/MemoryBlock,
@@ -19867,7 +20645,9 @@
    :db/ident :d3f/MemoryReadEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Memory Read Event",
-   :rdfs/subClassOf :d3f/MemoryEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
 (def MemoryWord
   {:d3f/definition
@@ -19885,7 +20665,9 @@
    :db/ident :d3f/MemoryWriteEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Memory Write Event",
-   :rdfs/subClassOf :d3f/MemoryEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
 (def MessageAnalysis
   {:d3f/d3fend-id "D3-MA",
@@ -19964,7 +20746,7 @@
 
 (def Metadata
   {:d3f/definition
-   "Metadata is \"data [information] that provides information about other data\". Three distinct types of metadata exist: structural metadata, descriptive metadata, and administrative metadata. Structural metadata is data about the containers of data. For instance a \"book\" contains data, and data about the book is metadata about that container of data. Descriptive metadata uses individual instances of application data or the data content.",
+   "Metadata is information which describes aspects of other information.",
    :db/ident :d3f/Metadata,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Metadata"},
@@ -20218,6 +21000,16 @@
    :rdfs/label      "Multimedia Document File",
    :rdfs/seeAlso    {:xsd/anyURI "https://dbpedia.org/page/Multimedia"},
    :rdfs/subClassOf :d3f/DocumentFile})
+
+(def MultimediaFile
+  {:d3f/contains    :d3f/DigitalMultimedia,
+   :d3f/definition  "A file that contains digital multimedia.",
+   :db/ident        :d3f/MultimediaFile,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "Multimedia File",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/DigitalMultimedia,
+                       :rdf/type           :owl/Restriction} :d3f/File}})
 
 (def MultipleRegression
   {:d3f/d3fend-id "D3A-MR",
@@ -21461,7 +22253,10 @@
    :db/ident :d3f/NTPServerResponseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "NTP Server Response Event",
-   :rdfs/subClassOf :d3f/NTPEvent})
+   :rdfs/subClassOf #{:d3f/NTPEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/NTPClientSyncEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def NTPSymmetricActiveExchangeEvent
   {:d3f/definition
@@ -21477,7 +22272,9 @@
    :db/ident :d3f/NTPSymmetricPassiveExchangeEvent,
    :rdf/type :owl/Class,
    :rdfs/label "NTP Symmetric Passive Exchange Event",
-   :rdfs/subClassOf :d3f/NTPEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/NTPSymmetricActiveExchangeEvent,
+                       :rdf/type           :owl/Restriction} :d3f/NTPEvent}})
 
 (def NaiveBayesClassifier
   {:d3f/d3fend-id "D3A-NBC",
@@ -21530,6 +22327,22 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/AccessMediation}})
 
+(def NetworkAudioStreamingResource
+  {:d3f/definition
+   "A server that provides digital audio media content to users.",
+   :db/ident :d3f/NetworkAudioStreamingResource,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Audio Streaming Resource",
+   :rdfs/subClassOf :d3f/NetworkMediaStreamingResource})
+
+(def NetworkAudioVisualStreamingResource
+  {:d3f/definition
+   "A server that provides digital audio-visual media content to users.",
+   :db/ident :d3f/NetworkAudioVisualStreamingResource,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Audio Visual Streaming Resource",
+   :rdfs/subClassOf :d3f/NetworkMultimediaStreamingResource})
+
 (def NetworkCardFirmware
   {:d3f/definition
    "Firmware that is installed on a network card (network interface controller).",
@@ -21546,7 +22359,10 @@
    :db/ident        :d3f/NetworkConnectionCloseEvent,
    :rdf/type        :owl/Class,
    :rdfs/label      "Network Connection Close Event",
-   :rdfs/subClassOf :d3f/NetworkConnectionEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/NetworkConnectionOpenEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkConnectionEvent}})
 
 (def NetworkConnectionEvent
   {:d3f/definition
@@ -21597,7 +22413,10 @@
    :db/ident :d3f/NetworkConnectionResetEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Network Connection Reset Event",
-   :rdfs/subClassOf :d3f/NetworkConnectionEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/NetworkConnectionOpenEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkConnectionEvent}})
 
 (def NetworkDeviceEvent
   {:d3f/definition
@@ -21676,6 +22495,17 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/NetworkSensor}})
 
+(def NetworkFrame
+  {:d3f/definition
+   "A finite, self-delimited sequence of bits exchanged as one unit over a single data link. Formed by link-layer encapsulation, a frame typically begins with synchronization and control fields, carries a payload, ends with an integrity check, and is bounded from adjacent frames by explicit timing or delimiter symbols.",
+   :db/ident :d3f/NetworkFrame,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://dbpedia.org/resource/Frame_(networking)"},
+   :rdfs/label "Network Frame",
+   :rdfs/subClassOf :d3f/DigitalInformationBearer,
+   :skos/altLabel "Frame"})
+
 (def NetworkInitScriptFileResource
   {:d3f/definition
    "A computer file resource made available from one host to other hosts on a computer network that is also an initialization script.",
@@ -21736,6 +22566,21 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DefensiveTechnique}})
 
+(def NetworkMediaStreamingResource
+  {:d3f/definition  "A server that provides digital media content to users.",
+   :db/ident        :d3f/NetworkMediaStreamingResource,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Network Media Streaming Resource",
+   :rdfs/subClassOf :d3f/NetworkResource})
+
+(def NetworkMultimediaStreamingResource
+  {:d3f/definition
+   "A server that provides digital multimedia content to users.",
+   :db/ident :d3f/NetworkMultimediaStreamingResource,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Multimedia Streaming Resource",
+   :rdfs/subClassOf :d3f/NetworkMediaStreamingResource})
+
 (def NetworkNode
   {:d3f/definition
    "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node.",
@@ -21769,10 +22614,10 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/AssetInventory}})
 
-(def NetworkPackets
+(def NetworkPacket
   {:d3f/definition
    "A network packet is a formatted unit of data carried by a packet-switched network. Computer communications links that do not support packets, such as traditional point-to-point telecommunications links, simply transmit data as a bit stream. When data is formatted into packets, packet switching is possible and the bandwidth of the communication medium can be better shared among users than with circuit switching.",
-   :db/ident :d3f/NetworkPackets,
+   :db/ident :d3f/NetworkPacket,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Network_packet"},
    :rdfs/label "Network Packet",
@@ -21900,7 +22745,7 @@
    :rdfs/subClassOf :d3f/Server})
 
 (def NetworkTraffic
-  {:d3f/contains :d3f/NetworkPackets,
+  {:d3f/contains :d3f/NetworkPacket,
    :d3f/definition
    "Network traffic or data traffic is the data, or alternatively the amount of data, moving across a network at a given point of time.  Network data in computer networks is mostly encapsulated in network packets, which provide the load in the network.",
    :d3f/may-contain :d3f/DomainName,
@@ -21911,11 +22756,11 @@
    :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Network_traffic"}
                    {:xsd/anyURI
                     "https://schema.ocsf.io/objects/network_traffic"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/NetworkPackets,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
                        :owl/someValuesFrom :d3f/DomainName,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/NetworkPacket,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/originates-from,
                        :owl/someValuesFrom :d3f/PhysicalLocation,
@@ -22020,6 +22865,14 @@
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/NetworkTrafficAnalysis}})
+
+(def NetworkVideoStreamingResource
+  {:d3f/definition
+   "A server that provides digital video media content to users.",
+   :db/ident :d3f/NetworkVideoStreamingResource,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Video Streaming Resource",
+   :rdfs/subClassOf :d3f/NetworkMediaStreamingResource})
 
 (def NetworkVulnerabilityAssessment
   {:d3f/d3fend-id "D3-NVA",
@@ -22453,6 +23306,22 @@
                        :owl/someValuesFrom :d3f/WriteMemory,
                        :rdf/type           :owl/Restriction}}})
 
+(def OTAbortService
+  {:d3f/definition  "Command that tells the device to abort a service/program.",
+   :db/ident        :d3f/OTAbortService,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Abort Service",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+
+(def OTAbortServiceEvent
+  {:db/ident        :d3f/OTAbortServiceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Abort Service Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTAbortService,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTActuator
   {:d3f/definition
    "An OT actuator is an industrial-grade actuator optimized for operational technology (OT) environments, such as SCADA or process-control systems. It tolerates harsher conditions, meets stricter safety and reliability standards, and integrates seamlessly with ICS protocols to enable real-time mechanical motion or adjustments in production lines and critical infrastructure.",
@@ -22463,6 +23332,100 @@
    :rdfs/label "OT Actuator",
    :rdfs/subClassOf :d3f/Actuator})
 
+(def OTChangeData
+  {:d3f/definition "OT command that changes existing data on a remote device.",
+   :db/ident :d3f/OTChangeData,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"BACnet/IP: ATOMIC_WRITE_FILE\nBACnet/IP: WRITE_BROADCAST_TABLE\nBACnet/IP: WRITE_GROUP  "
+     "Modbus/TCP: WRITE_FILE_RECORD" "GEMS: SaveConfig"
+     "DNP3: WRITE\nDNP3: SAVE_CONFIG\nDNP3: ASSIGN_CLASS\nDNP3: RECORD_CURRENT_TIME "},
+   :rdfs/label "OT Change Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+
+(def OTChangeDataEvent
+  {:db/ident        :d3f/OTChangeDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Change Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTChangeData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTChangeDeviceProcessData
+  {:d3f/definition
+   "OT command that changes existing process data on a remote device.",
+   :db/ident :d3f/OTChangeDeviceProcessData,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"BACnet/IP: WRITE_PROPERTY\nBACnet/IP: WRITE_PROPERTY_MULTIPLE\nBACnet/IP: ATOMIC_WRITE_FILE "
+     "Modbus/TCP: WRITE_MULTIPLE_COILS\nModbus/TCP: MASK_WRITE_REGISTER\nModbus/TCP: WRITE_MULTIPLE_REGISTERS\nModbus/TCP: WRITE_SINGLE_COIL\nModbus/TCP: WRITE_SINGLE_REGISTER\nModbus/TCP: WRITE_FILE_RECORD "
+     "GEMS: LoadConfig\nGEMS: SetConfig"
+     "DNP3: INITIALIZE_DATA\nDNP3: ACTIVATE_CONFIG"},
+   :rdfs/label "OT Change Device Process Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
+
+(def OTChangeDeviceProcessDataEvent
+  {:db/ident        :d3f/OTChangeDeviceProcessDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Change Device Process Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTChangeDeviceProcessData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTCommand
+  {:d3f/definition
+   "An operational technology event that captures the occurrence of an OT command being issued, executed, or acknowledged, thereby linking a specific command action to its observable impact within a control system.",
+   :db/ident :d3f/OTCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Command",
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTCommandEvent
+  {:db/ident        :d3f/OTCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTCommand,
+                       :rdf/type           :owl/Restriction} :d3f/OTEvent}})
+
+(def OTControlLogicProcess
+  {:d3f/contains :d3f/OTLogicVariable,
+   :d3f/definition
+   "The instructions and algorithms within an OT Controller defined by user programming to interpret inputs, process information, and determine outputs.",
+   :db/ident :d3f/OTControlLogicProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Control Logic Process",
+   :rdfs/subClassOf #{:d3f/Process
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTControlProgram
+  {:d3f/definition
+   "The file stored in controller memory that is used to operate the controller.",
+   :d3f/instructs :d3f/OTControlLogicProcess,
+   :d3f/synonym "OT Project File",
+   :db/ident :d3f/OTControlProgram,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Control Program",
+   :rdfs/subClassOf #{:d3f/Application
+                      {:owl/onProperty     :d3f/instructs,
+                       :owl/someValuesFrom :d3f/OTControlLogicProcess,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTControlVariable
+  {:d3f/definition
+   "A control variable is the measurement of the physical condition of the device that influences the Process Variables. For example, if the Set Point of a temperature control system for a residential dwelling is 72 degrees, and the Process Variable is 82 degrees, the Control Variable for the air conditioner should be 'on.'",
+   :db/ident :d3f/OTControlVariable,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/Industrial%20Cybersecurity%20Knowledge%20FINAL.pdf?hsLang=en"},
+   :rdfs/label "OT Control Variable",
+   :rdfs/subClassOf :d3f/OTLogicVariable})
+
 (def OTController
   {:d3f/communicates-with :d3f/OTIOModule,
    :d3f/controls :d3f/OTActuator,
@@ -22470,12 +23433,16 @@
    "An OT Controller is an industrial control device that automatically regulates one or more controlled variables in response to command inputs and real-time feedback signals.",
    :d3f/monitors :d3f/OTSensor,
    :d3f/powered-by :d3f/OTPowerSupply,
+   :d3f/runs :d3f/OTControlProgram,
    :db/ident :d3f/OTController,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://csrc.nist.gov/glossary/term/controller"},
    :rdfs/label "OT Controller",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/controls,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/controls,
                        :owl/someValuesFrom :d3f/OTActuator,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/monitors,
@@ -22489,6 +23456,177 @@
                        :owl/someValuesFrom :d3f/OTPowerSupply,
                        :rdf/type           :owl/Restriction}}})
 
+(def OTCreateData
+  {:d3f/definition "OT command that creates data on a remote device.",
+   :db/ident :d3f/OTCreateData,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"DNP3: FREEZE_AT_TIME\nDNP3: FREEZE_CLEAR\nDNP3: IMMED_FREEZE"
+     "BACnet/IP: ADD_LIST_ELEMENT"},
+   :rdfs/label "OT Create Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+
+(def OTCreateDataEvent
+  {:db/ident        :d3f/OTCreateDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Create Data Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTCreateData,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTCreateNewDeviceProcessData
+  {:d3f/definition  "OT command that creates process data on a remote device.",
+   :db/ident        :d3f/OTCreateNewDeviceProcessData,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "BACnet/IP: CREATE_OBJECT",
+   :rdfs/label      "OT Create New Device Process Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
+
+(def OTCreateNewDeviceProcessDataEvent
+  {:db/ident        :d3f/OTCreateNewDeviceProcessDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Create New Device Process Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTCreateNewDeviceProcessData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDeleteData
+  {:d3f/definition "OT command that removes existing data on a remote device.",
+   :db/ident :d3f/OTDeleteData,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"BACnet/IP: REMOVE_LIST_ELEMENT\nBACnet/IP: DELETE_FOREIGN_DEVICE_TABLE_ENTRY "
+     "DNP3: DELETE_FILE"},
+   :rdfs/label "OT Delete Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+
+(def OTDeleteDataEvent
+  {:db/ident        :d3f/OTDeleteDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Delete Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeleteData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDeleteDeviceProcessData
+  {:d3f/definition
+   "OT command that removes existing process data on a remote device.",
+   :db/ident :d3f/OTDeleteDeviceProcessData,
+   :rdf/type :owl/Class,
+   :rdfs/comment "BACnet/IP: DELETE_OBJECT",
+   :rdfs/label "OT Delete Device Process Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
+
+(def OTDeleteDeviceProcessDataEvent
+  {:db/ident        :d3f/OTDeleteDeviceProcessDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Delete Device Process Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeleteDeviceProcessData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDeviceAcknowledge
+  {:d3f/definition
+   "A device's acknowledgment of a message, not being a response.",
+   :db/ident :d3f/OTDeviceAcknowledge,
+   :rdf/type :owl/Class,
+   :rdfs/comment "BACnet/IP: ACKNOWLEDGE_ALARM\nDNP3: ACK\nDNP3: RESPONSE",
+   :rdfs/label "OT Device Acknowledge",
+   :rdfs/subClassOf :d3f/OTInformationalMessage})
+
+(def OTDeviceAcknowledgeEvent
+  {:db/ident        :d3f/OTDeviceAcknowledgeEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Device Acknowledge Event",
+   :rdfs/subClassOf #{:d3f/OTInformationalMessageEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeviceAcknowledge,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDeviceException
+  {:d3f/definition
+   "Response to a message when the incoming message cannot be parsed correctly, or another exception is raised in the message’s execution or request.",
+   :db/ident :d3f/OTDeviceException,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"Modbus/TCP: MASK_WRITE_REGISTER_EXCEPTION\nModbus/TCP: READ_COILS_EXCEPTION\nModbus/TCP: READ_DISCRETE_INPUTS_EXCEPTION\nModbus/TCP: READ_EXCEPTION_STATUS_EXCEPTION\nModbus/TCP: READ_FIFO_QUEUE_EXCEPTION\nModbus/TCP: READ_FILE_RECORD_EXCEPTION\nModbus/TCP: READ_HOLDING_REGISTERS_EXCEPTION\nModbus/TCP: READ_INPUT_REGISTERS_EXCEPTION\nModbus/TCP: READ_WRITE_MULTIPLE_REGISTERS_EXCEPTION\nModbus/TCP: WRITE_FILE_RECORD_EXCEPTION\nModbus/TCP: WRITE_MULTIPLE_COILS_EXCEPTION\nModbus/TCP: WRITE_MULTIPLE_REGISTERS_EXCEPTION\nModbus/TCP: WRITE_SINGLE_COIL_EXCEPTION\nModbus/TCP: WRITE_SINGLE_REGISTER_EXCEPTION "
+     "DNP3: Support for Analog Input Events\nDNP3: Support for Analog Output Events\nDNP3: Support for Binary Input Events\nDNP3: Support for Binary Output Events\nDNP3: Support for Counter Events\nDNP3: Support for Double-Bit Binary Events\nDNP3: Support for Frozen Analog Inputs\nDNP3: Support for Frozen Counter Events\nDNP3: Support for Frozen Counters\nDNP3: Identification of Support for User-Specific Attributes"
+     "GEMS: ErrorResponse"
+     "BACnet/IP: UNCONFIRMED_EVENT_NOTIFICATION\nBACnet/IP: CONFIRMED_EVENT_NOTIFICATION "},
+   :rdfs/label "OT Device Exception",
+   :rdfs/subClassOf :d3f/OTInformationalMessage})
+
+(def OTDeviceExceptionEvent
+  {:db/ident        :d3f/OTDeviceExceptionEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Device Exception Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeviceException,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTInformationalMessageEvent}})
+
+(def OTDeviceStatus
+  {:d3f/definition
+   "A subscribed device status update message containing configuration, or I/O data.",
+   :db/ident :d3f/OTDeviceStatus,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"BACnet/IP: SUBSCRIBE_COV\nBACnet/IP: SUBSCRIBE_COV_PROPERTY\nBACnet/IP: UNCONFIRMED_COV_NOTIFICATION\nBACnet/IP: UNCONFIRMED_COV_NOTIFICATION_MULTIPLE\nBACnet/IP: CONFIRMED_COV_NOTIFICATION\nBACnet/IP: VT_DATA\nBACnet/IP: CONFIRMED_TEXT_MESSAGE\nBACnet/IP: UNCONFIRMED_TEXT_MESSAGE\nBACnet/IP: CONFIRMED_PRIVATE_TRANSFER\nBACnet/IP: UNCONFIRMED_PRIVATE_TRANSFER\nBACnet/IP: UTC_TIME_SYNCHRONIZATION "
+     "DNP3: DISABLE_UNSOLICITED\nDNP3: ENABLE_UNSOLICITED\nDNP3: DELAY_MEASURE\nDNP3: Local Timing Accuracy\nDNP3: DNP3 Subset and Conformance\nDNP3: Duration of Time Accuracy\nDNP3: CONFIRM\nDNP3: CONFIRMED_USER_DATA"
+     "GEMS: PingMessage\nGEMS: AsyncStatus"},
+   :rdfs/label "OT Device Status",
+   :rdfs/subClassOf :d3f/OTInformationalMessage})
+
+(def OTDeviceStatusEvent
+  {:db/ident        :d3f/OTDeviceStatusEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Device Status Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeviceStatus,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTInformationalMessageEvent}})
+
+(def OTDisconnectRemoteConnection
+  {:d3f/definition
+   "The Disconnect Request message is sent to the message receiver to indicate that the transmitter is terminating its TCP socket.",
+   :db/ident :d3f/OTDisconnectRemoteConnection,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"Modbus/TCP: RESET_COMM_LINK" "GEMS: Disconnect"
+     "BACnet/IP: VT_CLOSE\nBACnet/IP: DEVICE_COMMUNICATION_CONTROL "},
+   :rdfs/label "OT Disconnect Remote Connection",
+   :rdfs/subClassOf :d3f/OTManageRemoteConnection})
+
+(def OTDisconnectRemoteConnectionEvent
+  {:db/ident        :d3f/OTDisconnectRemoteConnectionEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Disconnect Remote Connection Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDisconnectRemoteConnection,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTDownloadData
+  {:d3f/definition
+   "Copies a file from one file device to another file device connected to the same PC.",
+   :db/ident :d3f/OTDownloadData,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Download Data",
+   :rdfs/subClassOf :d3f/OTGetData})
+
+(def OTDownloadDataEvent
+  {:db/ident        :d3f/OTDownloadDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Download Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDownloadData,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTEmbeddedComputer
   {:d3f/definition
    "A ruggedized computational device, embedded in industrial control systems, designed to handle real-time tasks and environmental stressors common in OT.",
@@ -22496,6 +23634,96 @@
    :rdf/type :owl/Class,
    :rdfs/label "OT Embedded Computer",
    :rdfs/subClassOf :d3f/EmbeddedComputer})
+
+(def OTEngineeringSoftware
+  {:d3f/definition
+   "Software used in an industrial process to help engineers design, test, and maintain OT. This software enables the programming of OT controllers.",
+   :d3f/produces :d3f/OTControlProgram,
+   :db/ident :d3f/OTEngineeringSoftware,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Engineering Software",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DeveloperApplication}})
+
+(def OTEngineeringWorkstation
+  {:d3f/communicates-with :d3f/OTController,
+   :d3f/definition
+   "An Engineering Workstation (EWS) is used to perform various maintenance, configuration, or diagnostics functions for a control system. The EWS will likely require dedicated application software to interface with various devices (e.g., RTUs, PLCs), and may be used to transfer data or files between the control system devices and other networks.",
+   :d3f/runs :d3f/OTEngineeringSoftware,
+   :d3f/synonym #{"EWS" "Workstation" "Transient Cyber Asset"},
+   :db/ident :d3f/OTEngineeringWorkstation,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://attack.mitre.org/assets/A0001/"},
+   :rdfs/label "OT Engineering Workstation",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
+                       :owl/someValuesFrom :d3f/OTEngineeringSoftware,
+                       :rdf/type           :owl/Restriction} :d3f/ClientComputer
+                      {:owl/onProperty     :d3f/communicates-with,
+                       :owl/someValuesFrom :d3f/OTController,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTEstablishRemoteConnection
+  {:d3f/definition
+   "Used to establish an TCP/IP Connection to the target device.",
+   :db/ident :d3f/OTEstablishRemoteConnection,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"GEMS: ConnectionRequest" "Modbus/TCP: RESET_COMM_LINK:"
+     "BACnet/IP: VT_OPEN\nBACnet/IP: DEVICE_COMMUNICATION_CONTROL\nBACnet/IP: SECURE_BVLL\nBACnet/IP: BVLC_RESULT"},
+   :rdfs/label "OT Establish Remote Connection",
+   :rdfs/subClassOf :d3f/OTManageRemoteConnection})
+
+(def OTEstablishRemoteConnectionEvent
+  {:db/ident        :d3f/OTEstablishRemoteConnectionEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Establish Remote Connection Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTEstablishRemoteConnection,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTEvent
+  {:d3f/definition
+   "A discrete occurrence within an operational technology environment that denotes a significant change in state, execution of a command, or transmission of information.",
+   :db/ident :d3f/OTEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Event",
+   :rdfs/subClassOf :d3f/DigitalEvent})
+
+(def OTGetData
+  {:d3f/definition  "Request data from a remote device.",
+   :db/ident        :d3f/OTGetData,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Get Data",
+   :rdfs/subClassOf :d3f/OTCommand})
+
+(def OTGetDataEvent
+  {:db/ident        :d3f/OTGetDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Get Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTGetData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTHardwareStatus
+  {:d3f/definition
+   "OT command that requests the status of the hardware of a remote device.",
+   :db/ident :d3f/OTHardwareStatus,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Hardware Status",
+   :rdfs/subClassOf :d3f/OTReadDeviceStatus})
+
+(def OTHardwareStatusEvent
+  {:db/ident        :d3f/OTHardwareStatusEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Hardware Status Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTHardwareStatus,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
 
 (def OTIOModule
   {:d3f/communicates-with #{:d3f/OTSensor :d3f/OTActuator},
@@ -22520,6 +23748,223 @@
                        :rdf/type           :owl/Restriction}},
    :skos/example "Rockwell Compact 5000 IO Module"})
 
+(def OTIdentifyDevice
+  {:d3f/definition "Request the identification of a remote device.",
+   :db/ident :d3f/OTIdentifyDevice,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"BACnet/IP: I_AM\nBACnet/IP: WHO_IS\nBACnet/IP: AUTHENTICATE\nBACnet/IP: REQUEST_KEY "
+     "DNP3: LINK_STATUS\nDNP3: REQUEST_LINK_STATUS\nDNP3: RESET_LINK_STATES\nDNP3: TEST_LINK_STATES\nDNP3: AUTHENTICATE_REQ\nDNP3: AUTHENTICATE_RESP"},
+   :rdfs/label "OT Identify Device",
+   :rdfs/subClassOf :d3f/OTManageRemoteConnection})
+
+(def OTIdentifyDeviceEvent
+  {:db/ident        :d3f/OTIdentifyDeviceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Identify Device Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTIdentifyDevice,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTInformationalMessage
+  {:d3f/definition
+   "Messages sent by remote devices not individually initiated by a request.",
+   :db/ident :d3f/OTInformationalMessage,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Informational Message",
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTInformationalMessageEvent
+  {:db/ident        :d3f/OTInformationalMessageEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Informational Message Event",
+   :rdfs/subClassOf #{:d3f/OTEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTInformationalMessage,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTLogicVariable
+  {:d3f/definition
+   "A variable which directly affects a program running on an OT controller, involving an OT Process.",
+   :db/ident :d3f/OTLogicVariable,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Logic Variable",
+   :rdfs/subClassOf :d3f/RuntimeVariable})
+
+(def OTManageRemoteConnection
+  {:d3f/definition  "Manage remote connection with a device.",
+   :db/ident        :d3f/OTManageRemoteConnection,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Manage Remote Connection",
+   :rdfs/subClassOf :d3f/OTCommand})
+
+(def OTManageRemoteConnectionEvent
+  {:db/ident        :d3f/OTManageRemoteConnectionEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Manage Remote Connection Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTManageRemoteConnection,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTModeSwitch
+  {:d3f/controls :d3f/OperatingMode,
+   :d3f/definition
+   "Keyswitch or mode switch is the mechanism for changing the operating mode of an OT controller or device.",
+   :d3f/synonym #{"Mode Switch" "Programming Key Switch"},
+   :db/ident :d3f/OTModeSwitch,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "An OT Mode Switch is a dedicated mechanism, implemented as either a physical keyswitch or a software control, that permits authorized users to transition an OT controller between its operating modes.",
+   :rdfs/label "OT Mode Switch",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/Industrial%20Cybersecurity%20Knowledge%20FINAL.pdf?hsLang=en"}
+     {:xsd/anyURI
+      "https://www.dragos.com/blog/industry-news/value-of-plc-key-switch-monitoring/"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/controls,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DigitalInformationBearer}})
+
+(def OTModifyDevice
+  {:d3f/definition
+   "Modify the power, memory, configuration, or process data of a remote device.",
+   :db/ident :d3f/OTModifyDevice,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Modify Device",
+   :rdfs/subClassOf :d3f/OTCommand})
+
+(def OTModifyDeviceData
+  {:d3f/definition
+   "OT command that modifies the data stored on a remote device.",
+   :db/ident :d3f/OTModifyDeviceData,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Modify Device Data",
+   :rdfs/subClassOf :d3f/OTModifyDevice})
+
+(def OTModifyDeviceDataEvent
+  {:db/ident        :d3f/OTModifyDeviceDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Modify Device Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTModifyDeviceData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTModifyDeviceEvent
+  {:db/ident        :d3f/OTModifyDeviceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Modify Device Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTModifyDevice,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTModifyDevicePower
+  {:d3f/definition  "Modifies the power state of a device.",
+   :db/ident        :d3f/OTModifyDevicePower,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "OT Modify Device Power",
+   :rdfs/subClassOf :d3f/OTModifyDevice})
+
+(def OTModifyDevicePowerEvent
+  {:db/ident        :d3f/OTModifyDevicePowerEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Device Power Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTModifyDevicePower,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTModifyDeviceProcessData
+  {:d3f/definition
+   "OT command that modifies the process data of a remote device, such as variables.",
+   :db/ident :d3f/OTModifyDeviceProcessData,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Modify Device Process Data",
+   :rdfs/subClassOf :d3f/OTModifyDevice})
+
+(def OTModifyDeviceProcessDataEvent
+  {:db/ident        :d3f/OTModifyDeviceProcessDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Modify Device Process Data Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTModifyDeviceProcessData,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTModifyDeviceProgramState
+  {:d3f/definition
+   "Modifies the running state of an application or program on a device.",
+   :db/ident :d3f/OTModifyDeviceProgramState,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"Modbus/TCP: WRITE_MULTIPLE_COILS\nModbus/TCP: MASK_WRITE_REGISTER\nModbus/TCP: WRITE_MULTIPLE_REGISTERS\nModbus/TCP: WRITE_SINGLE_COIL\nModbus/TCP: WRITE_SINGLE_REGISTER "
+     "BACnet/IP: WRITE_PROPERTY\nBACnet/IP: WRITE_PROPERTY_MULTIPLE "
+     "DNP3: SELECT\nDNP3: OPERATE\nDNP3: DIRECT_OPERATE\nDNP3: DIRECT_OPERATE_NR"
+     "GEMS: Directive"},
+   :rdfs/label "OT Modify Device Program State",
+   :rdfs/subClassOf :d3f/OTModifyDevice})
+
+(def OTModifyDeviceProgramStateEvent
+  {:db/ident        :d3f/OTModifyDeviceProgramStateEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Modify Device Program State Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTModifyDeviceProgramState,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTNetworkTraffic
+  {:d3f/definition
+   "Network traffic generated by operational technology devices, e.g. programmable logic controllers",
+   :d3f/may-contain :d3f/OTProtocolMessage,
+   :db/ident :d3f/OTNetworkTraffic,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Network Traffic",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/OTProtocolMessage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkTraffic}})
+
+(def OTParameterStatus
+  {:d3f/definition
+   "OT command that requests parameter status data of a remote device often in an ASCII or boolean list.",
+   :db/ident :d3f/OTParameterStatus,
+   :rdf/type :owl/Class,
+   :rdfs/comment #{"Modbus/TCP: READ_EXCEPTION_STATUS"
+                   "BACnet/IP: GET_ALARM_SUMMARY"},
+   :rdfs/label "OT Parameter Status",
+   :rdfs/subClassOf :d3f/OTReadDeviceStatus})
+
+(def OTParameterStatusEvent
+  {:db/ident        :d3f/OTParameterStatusEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Parameter Status Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTParameterStatus,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTPauseService
+  {:d3f/definition
+   "Command that tells the device to safely pause a service/program.",
+   :db/ident :d3f/OTPauseService,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Pause Service",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+
+(def OTPauseServiceEvent
+  {:db/ident        :d3f/OTPauseServiceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Pause Service Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTPauseService,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTPowerSupply
   {:d3f/definition
    "An OT power supply is a power supply whose control amplifier is optimized for signal-processing tasks rather than supplying mere steady-state power to a load. It is a self-contained combination of operational amplifiers, power amplifiers, and integral power circuits designed for higher-level operations in industrial or OT contexts.",
@@ -22532,9 +23977,204 @@
    :skos/example
    "Phoenix Contact QUINT, Eaton PSG, and many controller-branded power supplies."})
 
+(def OTProcessVariable
+  {:d3f/definition
+   "Process variables are the current actual measurement of the physical characteristics of a system. Common process variables include but are not limited to Temperature, Pressure, Level, and Flow.",
+   :db/ident :d3f/OTProcessVariable,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Process Variable",
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/Industrial%20Cybersecurity%20Knowledge%20FINAL.pdf?hsLang=en"},
+   :rdfs/subClassOf :d3f/OTLogicVariable,
+   :skos/example
+   "If the current temperature in a home is 82 degrees Fahrenheit, the process variable is 82 degrees."})
+
+(def OTProgramService
+  {:d3f/definition
+   "Command that places the controller in a mode capable of reprogramming logic. This may or may not stop the program.",
+   :db/ident :d3f/OTProgramService,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Program Service",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+
+(def OTProgramServiceEvent
+  {:db/ident        :d3f/OTProgramServiceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Program Service Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTProgramService,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTProtocolMessage
+  {:d3f/definition
+   "Packets generated by an operational technology protocol contain an OT protocol message",
+   :db/ident :d3f/OTProtocolMessage,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Protocol Message",
+   :rdfs/subClassOf :d3f/Command})
+
+(def OTReadDeviceConfigurationData
+  {:d3f/definition
+   "OT command that requests configuration or identification data of a remote device.",
+   :db/ident :d3f/OTReadDeviceConfigurationData,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"GEMS: GetConfig\nGEMS: GetConfigList"
+     "Modbus/TCP: REPORT_SLAVE_ID\nModbus/TCP: READ_DEVICE_IDENTIFICATION\nModbus/TCP: REPORT_LOCAL_ADDRESS "
+     "BACnet/IP: READ_BROADCAST_TABLE\nBACnet/IP: READ_FOREIGN_DEVICE_TABLE "
+     "DNP3: Secure Authentication Version\nDNP3: Device Manufacturer Hardware Version\nDNP3: Device Manufacturer Name\nDNP3: Device Manufacturer Product Name and Model\nDNP3: Device Manufacturer Software Version\nDNP3: Device Serial Number\nDNP3: User-Assigned Device Name\nDNP3: User-Assigned ID Code or Number\nDNP3: User-Assigned Location Name"},
+   :rdfs/label "OT Read Device Configuration Data",
+   :rdfs/subClassOf :d3f/OTGetData})
+
+(def OTReadDeviceConfigurationDataEvent
+  {:db/ident        :d3f/OTReadDeviceConfigurationDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read Device Configuration Data Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadDeviceConfigurationData,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTReadDeviceData
+  {:d3f/definition
+   "OT command that requests configuration or status details of a remote device.",
+   :db/ident :d3f/OTReadDeviceData,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "Modbus/TCP: DIAGNOSTICS\nDNP3: Non-Specific All Attributes Request\nDNP3: List of Attribute Variations",
+   :rdfs/label "OT Read Device Data",
+   :rdfs/subClassOf :d3f/OTGetData})
+
+(def OTReadDeviceDataEvent
+  {:db/ident        :d3f/OTReadDeviceDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read Device Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadDeviceData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTReadDeviceMemory
+  {:d3f/definition
+   "Reads the contents of the specified number of consecutive memory area.",
+   :db/ident :d3f/OTReadDeviceMemory,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Read Device Memory",
+   :rdfs/subClassOf :d3f/OTGetData})
+
+(def OTReadDeviceMemoryEvent
+  {:db/ident        :d3f/OTReadDeviceMemoryEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read Device Memory Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadDeviceMemory,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTReadDeviceStatus
+  {:d3f/definition
+   "OT command that requests device hardware, state, or parameter status data.",
+   :db/ident :d3f/OTReadDeviceStatus,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "BACnet/IP: I_HAVE\nBACnet/IP: WHO_HAS\nBACnet/IP: GET_ENROLLMENT_SUMMARY\nBACnet/IP: GET_EVENT_INFORMATION\nBACnet/IP: LIFE_SAFETY_OPERATION\n",
+   :rdfs/label "OT Read Device Status",
+   :rdfs/subClassOf :d3f/OTGetData})
+
+(def OTReadDeviceStatusEvent
+  {:db/ident        :d3f/OTReadDeviceStatusEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read Device Status Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadDeviceStatus,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTReadFile
+  {:d3f/definition
+   "Reads the contents of a specified  file stored in the file device connected to the PC.",
+   :db/ident :d3f/OTReadFile,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"DNP3: GET_FILE_INFO\nDNP3: OPEN_FILE\nDNP3: ABORT_FILE\nDNP3: CLOSE_FILE\nDNP3: AUTHENTICATE_FILE"
+     "BACnet/IP: ATOMIC_READ_FILE" "Modbus/TCP: READ_FILE_RECORD"},
+   :rdfs/label "OT Read File",
+   :rdfs/subClassOf :d3f/OTReadDeviceMemory})
+
+(def OTReadFileEvent
+  {:db/ident        :d3f/OTReadFileEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read File Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadFile,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTReadSetValue
+  {:d3f/definition
+   "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
+   :db/ident :d3f/OTReadSetValue,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"DNP3: Number of Analog Input Points\nDNP3: Number of Analog Outputs\nDNP3: Number of Binary Input Points\nDNP3: Number of Binary Outputs\nDNP3: Number of Counter Points\nDNP3: Number of Double-Bit Binary Input Points\nDNP3: Number of Master-Defined Data Set Properties\nDNP3: Number of Master-Defined Data Sets\nDNP3: Number of Outstation-Defined Data Set Properties\nDNP3: Number of Outstation-Defined Data Sets\nDNP3: Number of Security Statistics per Association\nDNP3: Maximum Analog Input Index\nDNP3: Maximum Analog Output Index\nDNP3: Maximum Binary Input Index\nDNP3: Maximum Binary Output Index\nDNP3: Maximum Counter Index\nDNP3: Maximum Double-Bit Binary Index\nDNP3: Maximum Number of Binary Output Objects per Request\nDNP3: Maximum Receive Fragment Size\nDNP3: Maximum Transmit Fragment Size"
+     "BACnet/IP: READ_PROPERTY\nBACnet/IP: READ_PROPERTY_CONDITIONAL\nBACnet/IP: READ_PROPERTY_MULTIPLE\nBACnet/IP: READ_RANGE\nBACnet/IP: REGISTER_FOREIGN_DEVICE "
+     "GEMS: GetTargets"
+     "Modbus/TCP: READ_COILS\nModbus/TCP: READ_DISCRETE_INPUTS\nModbus/TCP: READ_FIFO_QUEUE\nModbus/TCP: READ_HOLDING_REGISTERS\nModbus/TCP: READ_INPUT_REGISTERS\nModbus/TCP: READ_WRITE_MULTIPLE_REGISTERS"},
+   :rdfs/label "OT Read Set Value",
+   :rdfs/subClassOf :d3f/OTReadDeviceMemory})
+
+(def OTReadSetValueEvent
+  {:db/ident        :d3f/OTReadSetValueEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read Set Value Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadSetValue,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTRemoteService
+  {:d3f/definition
+   "Command that places the controller in a mode capable of receiving read/write communication from a networked entity.",
+   :db/ident :d3f/OTRemoteService,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Remote Service",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+
+(def OTRemoteServiceEvent
+  {:db/ident        :d3f/OTRemoteServiceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Remote Service Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTRemoteService,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTRestartDevice
+  {:d3f/definition
+   "Modifies the power state of a device causing to to shut down and then reboot.",
+   :db/ident :d3f/OTRestartDevice,
+   :rdf/type :owl/Class,
+   :rdfs/comment #{"BACnet/IP: REINITIALIZE_DEVICE"
+                   "DNP3: COLD_RESTART\nDNP3: WARM_RESTART "},
+   :rdfs/label "OT Restart Device",
+   :rdfs/subClassOf :d3f/OTModifyDevicePower})
+
+(def OTRestartDeviceEvent
+  {:db/ident        :d3f/OTRestartDeviceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Restart Device Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTRestartDevice,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTSensor
   {:d3f/definition
    "An OT Sensor is an industrial-grade sensing device engineered for operational technology (OT) environments (e.g. SCADA, ICS). It measures physical variables—such as pressure, temperature, or flow—under demanding conditions, converting them into reliable signals for real-time monitoring and process control loops.",
+   :d3f/may-contain #{:d3f/ClientComputer :d3f/RFTransmitter},
+   :d3f/writes :d3f/OTProcessVariable,
    :db/ident :d3f/OTSensor,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -22550,9 +24190,127 @@
       "https://www.emerson.com/en-us/catalog/rosemount-sku-708-wireless-acoustic-transmitter"}
      {:xsd/anyURI
       "https://www.vega.com/en-us/products/product-catalog/level/radar"}},
-   :rdfs/subClassOf :d3f/Sensor,
-   :skos/example
-   "Level sensors, pressure sensors, temperature sensors, and flow measurement devices."})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/RFTransmitter,
+                       :rdf/type           :owl/Restriction} :d3f/Sensor
+                      {:owl/onProperty     :d3f/writes,
+                       :owl/someValuesFrom :d3f/OTProcessVariable,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/ClientComputer,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTServiceStatus
+  {:d3f/definition
+   "OT command that requests the state or service status of a remote device.",
+   :db/ident :d3f/OTServiceStatus,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "Modbus/TCP: GET_COMM_EVENT_COUNTER\nModbus/TCP: GET_COMM_EVENT_LOG ",
+   :rdfs/label "OT Service Status",
+   :rdfs/subClassOf :d3f/OTReadDeviceStatus})
+
+(def OTServiceStatusEvent
+  {:db/ident        :d3f/OTServiceStatusEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Service Status Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTServiceStatus,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTCommandEvent}})
+
+(def OTStartService
+  {:d3f/definition
+   "Command that tells the device to start or resume a service/program.",
+   :db/ident :d3f/OTStartService,
+   :rdf/type :owl/Class,
+   :rdfs/comment "DNP3: INITIALIZE_APPL\nDNP3: START_APPL",
+   :rdfs/label "OT Start Service",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+
+(def OTStartServiceEvent
+  {:db/ident        :d3f/OTStartServiceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Start Service Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTStartService,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTStopService
+  {:d3f/definition  "Command that tells the device to stop a service/program.",
+   :db/ident        :d3f/OTStopService,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "DNP3: STOP_APPL",
+   :rdfs/label      "OT Stop Service",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+
+(def OTStopServiceEvent
+  {:db/ident        :d3f/OTStopServiceEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Stop Service Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTStopService,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTUpdateDeviceFirmware
+  {:d3f/contains :d3f/OTModifyDeviceProgramState,
+   :d3f/definition
+   "Commands the target device to update its firmware, often requiring the halt of application/program processes and monitoring,  taking the device offline temporarily.",
+   :d3f/may-contain :d3f/OTModifyDevicePower,
+   :db/ident :d3f/OTUpdateDeviceFirmware,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment "Modbus/TCP: FIRMWARE_REPLACEMENT",
+   :rdfs/label "OT Update Device",
+   :rdfs/subClassOf #{:d3f/OTModifyDevice
+                      {:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/OTModifyDevicePower,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OTModifyDeviceProgramState,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTUpdateDeviceFirmwareEvent
+  {:db/ident        :d3f/OTUpdateDeviceFirmwareEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Update Device Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTUpdateDeviceFirmware,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTUploadData
+  {:d3f/definition  "OT command that uploads data to a remote device.",
+   :db/ident        :d3f/OTUploadData,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Upload Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+
+(def OTUploadDataEvent
+  {:db/ident        :d3f/OTUploadDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Upload Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTUploadData,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTUploadDeviceProcessData
+  {:d3f/definition  "OT command that uploads process data to a remote device.",
+   :db/ident        :d3f/OTUploadDeviceProcessData,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Upload Device Process Data",
+   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
+
+(def OTUploadDeviceProcessDataEvent
+  {:db/ident        :d3f/OTUploadDeviceProcessDataEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Upload Device Process Data Event",
+   :rdfs/subClassOf #{:d3f/OTCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTUploadDeviceProcessData,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OWL
   {:d3f/d3fend-id "D3A-OWL",
@@ -22636,11 +24394,15 @@
 (def OfficeApplicationFile
   {:d3f/definition
    "A document file in a format associated with an d3f:OfficeApplication.",
+   :d3f/may-contain :d3f/ImageFile,
    :db/ident :d3f/OfficeApplicationFile,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Office Application File",
    :rdfs/seeAlso :d3f/OfficeApplication,
-   :rdfs/subClassOf :d3f/DocumentFile})
+   :rdfs/subClassOf #{:d3f/DocumentFile
+                      {:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/ImageFile,
+                       :rdf/type           :owl/Restriction}}})
 
 (def One-timePassword
   {:d3f/d3fend-id "D3-OTP",
@@ -22681,8 +24443,52 @@
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
+(def OperatingMode
+  {:d3f/definition
+   "The Operating Mode designates the specific, selectable state of an OT controller that delineates its operational behavior and governs access to engineering functions, commonly including Program, Run, Remote, Test, or Stop.",
+   :d3f/synonym "Keyswitch Position",
+   :db/ident :d3f/OperatingMode,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operating Mode",
+   :rdfs/subClassOf :d3f/SystemPlatformVariable})
+
+(def OperatingModeMonitoring
+  {:d3f/definition
+   "Detects operating modes such as Program, Run, Remote, or Stop.",
+   :d3f/kb-article
+   "## How it works\nMany OT Controllers have key switches to change the controller into various modes of operation. These modes of operation can include Program, Run, Remote, or Stop.\n\nThe key switch position is often available as a system diagnostic function block of the programming logic.\n\n## Considerations\n* It is advised to configure a key switch alarm such that an operator is alerted when the controller is put into a programming mode, as this could indicate unintentional or malicious changes to operational code.",
+   :d3f/kb-reference
+   #{:d3f/Reference-TRITONMalwareRemainsThreattoGlobalCriticalInfrastructureICS
+     :d3f/Reference-PLCKeySwitchMonitoring},
+   :d3f/monitors :d3f/OperatingMode,
+   :db/ident :d3f/OperatingModeMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operating Mode Monitoring",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PlatformMonitoring}})
+
+(def OperatingModeRestriction
+  {:d3f/definition
+   "Restricting unauthorized changes to the operating mode prevents devices from switching into inappropriate or vulnerable states during normal use.",
+   :d3f/kb-article
+   "## How it works\nMany OT Controllers use key switches to change the controller into different modes of operation. These modes of operation can include Program, Run, Remote, or Stop.\n\nThe key switch should be left in the appropriate key switch position, e.g., run or remote during normal operations.\n\nImplement a key management procedure to include removing the physical key from the key switch when not in use.",
+   :d3f/kb-reference
+   #{:d3f/Reference-TRITONMalwareRemainsThreattoGlobalCriticalInfrastructureICS
+     :d3f/Reference-MITREATTACKAuthorizationEnforcement},
+   :d3f/restricts :d3f/OperatingMode,
+   :db/ident :d3f/OperatingModeRestriction,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operating Mode Restriction",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/AccessMediation}})
+
 (def OperatingSystem
-  {:d3f/contains #{:d3f/Kernel :d3f/SystemServiceSoftware},
+  {:d3f/contains #{:d3f/Kernel :d3f/LocalUserAccount
+                   :d3f/SystemServiceSoftware},
    :d3f/definition
    "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs. All computer programs, excluding firmware, require an operating system to function. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.",
    :d3f/may-contain :d3f/OperatingSystemConfigurationComponent,
@@ -22693,7 +24499,10 @@
                    {:xsd/anyURI
                     "http://dbpedia.org/resource/Operating_system"}},
    :rdfs/subClassOf
-   #{{:owl/onProperty     :d3f/may-contain,
+   #{{:owl/onProperty     :d3f/contains,
+      :owl/someValuesFrom :d3f/LocalUserAccount,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/may-contain,
       :owl/someValuesFrom :d3f/OperatingSystemConfigurationComponent,
       :rdf/type           :owl/Restriction}
      {:owl/onProperty     :d3f/contains,
@@ -23154,10 +24963,22 @@
    :rdfs/label "POSIX Symbolic Link",
    :rdfs/subClassOf #{:d3f/UnixLink :d3f/SymbolicLink}})
 
+(def PacketCaptureFile
+  {:d3f/contains :d3f/NetworkPacket,
+   :d3f/definition
+   "A file which contains raw representations of collected packets.",
+   :db/ident :d3f/PacketCaptureFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Packet Capture File",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/NetworkPacket,
+                       :rdf/type           :owl/Restriction} :d3f/File}})
+
 (def PacketLog
   {:d3f/definition
    "A log of all the network packet data captured from a network by a network sensor (i.e., packet analyzer),",
    :d3f/records :d3f/NetworkSession,
+   :d3f/summarizes :d3f/PacketCaptureFile,
    :db/ident :d3f/PacketLog,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Packet Log",
@@ -23165,6 +24986,9 @@
    :rdfs/subClassOf #{:d3f/Log
                       {:owl/onProperty     :d3f/records,
                        :owl/someValuesFrom :d3f/NetworkSession,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/summarizes,
+                       :owl/someValuesFrom :d3f/PacketCaptureFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def Page
@@ -23577,6 +25401,20 @@
                        :owl/someValuesFrom :d3f/PhysicalLocation,
                        :rdf/type           :owl/Restriction} :d3f/Artifact},
    :skos/altLabel   "Physical Object"})
+
+(def PhysicalAttacker
+  {:d3f/definition
+   "An attacker who is physically close enough to interact with the system directly, such as through physical access to devices.",
+   :db/ident :d3f/PhysicalAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Attacker",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/ComputerPlatform,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/HardwareDevice,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/LocalAttacker}})
 
 (def PhysicalLink
   {:d3f/definition
@@ -23994,7 +25832,10 @@
    :db/ident :d3f/ProcessAccessEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Process Access Event",
-   :rdfs/subClassOf :d3f/ProcessEvent})
+   :rdfs/subClassOf #{:d3f/ProcessEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ProcessCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ProcessAnalysis
   {:d3f/d3fend-id "D3-PA",
@@ -24208,7 +26049,10 @@
    :db/ident :d3f/ProcessSetUserIDEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Process Set User ID Event",
-   :rdfs/subClassOf :d3f/ProcessEvent})
+   :rdfs/subClassOf #{:d3f/ProcessEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ProcessCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ProcessSpawnAnalysis
   {:d3f/analyzes #{:d3f/Process :d3f/CreateProcess},
@@ -24322,7 +26166,10 @@
    :db/ident :d3f/ProcessTerminationEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Process Termination Event",
-   :rdfs/subClassOf :d3f/ProcessEvent})
+   :rdfs/subClassOf #{:d3f/ProcessEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ProcessCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ProcessTree
   {:d3f/contains :d3f/Process,
@@ -24560,7 +26407,9 @@
    :db/ident :d3f/RDPConnectResponseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "RDP Connect Response Event",
-   :rdfs/subClassOf :d3f/RDPEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/RDPConnectRequestEvent,
+                       :rdf/type           :owl/Restriction} :d3f/RDPEvent}})
 
 (def RDPEvent
   {:d3f/definition
@@ -24591,7 +26440,9 @@
    :db/ident :d3f/RDPInitialResponseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "RDP Initial Response Event",
-   :rdfs/subClassOf :d3f/RDPEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/RDPInitialRequestEvent,
+                       :rdf/type           :owl/Restriction} :d3f/RDPEvent}})
 
 (def RDPSession
   {:d3f/definition
@@ -24691,6 +26542,14 @@
                        :owl/someValuesFrom :d3f/RPCNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/NetworkTrafficAnalysis}})
+
+(def RTSPServer
+  {:d3f/definition
+   "A streaming server that utilizes the real-time streaming protocol.",
+   :db/ident :d3f/RTSPServer,
+   :rdf/type :owl/Class,
+   :rdfs/label "RTSP Server",
+   :rdfs/subClassOf :d3f/NetworkAudioVisualStreamingResource})
 
 (def RadioModem
   {:d3f/definition
@@ -25819,6 +27678,37 @@
    :rdfs/label
    "Reference - Committee on National Security Systems (CNSS) Glossary"})
 
+(def Reference-CPGChecklist
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.cisa.gov/resources-tools/resources/cisa-cpg-checklist"},
+   :d3f/kb-abstract
+   "This document is to be used in tandem with the CPGs to help prioritize and track your organization's implementation.",
+   :d3f/kb-author "CISA",
+   :d3f/kb-reference-of :d3f/ChangeDefaultPassword,
+   :d3f/kb-reference-title "CISA CPG Checklist",
+   :db/ident :d3f/Reference-CPGChecklist,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - CISA CPG Checklist"})
+
+(def Reference-CarvingContiguousandFragmentedFilesWithFastObjectValidation
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.sciencedirect.com/science/article/pii/S1742287607000369?viewFullText=true#sec4"},
+   :d3f/kb-abstract
+   "“File carving” reconstructs files based on their content, rather than using metadata that points to the content. Carving is widely used for forensics and data recovery, but no file carvers can automatically reassemble fragmented files. We survey files from more than 300 hard drives acquired on the secondary market and show that the ability to reassemble fragmented files is an important requirement for forensic work. Next we analyze the file carving problem, arguing that rapid, accurate carving is best performed by a multi-tier decision problem that seeks to quickly validate or discard candidate byte strings – “objects” – from the media to be carved. Validators for the JPEG, Microsoft OLE (MSOLE) and ZIP file formats are discussed. Finally, we show how high speed validators can be used to reassemble fragmented files.",
+   :d3f/kb-author "Simson L. Garfinkel",
+   :d3f/kb-reference-of
+   #{:d3f/FileContentDecompressionChecking :d3f/FileMagicByteVerification
+     :d3f/FileMetadataValueVerification :d3f/FileInternalStructureVerification},
+   :d3f/kb-reference-title
+   "Carving Contiguous and Fragmented Files with Fast Object Validation",
+   :db/ident
+   :d3f/Reference-CarvingContiguousandFragmentedFilesWithFastObjectValidation,
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Carving Contiguous and Fragmented Files with Fast Object Validation"})
+
 (def Reference-CatiaUAFPlugin
   {:d3f/has-link
    {:xsd/anyURI
@@ -26685,7 +28575,7 @@
    :d3f/kb-reference-title "Federal Public Key Infrastructure 101",
    :db/ident :d3f/Reference-FederalPublicKeyInfrastructure101,
    :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
-   :rdfs/label "Reference - Federal Public Key Infrastructrure 101"})
+   :rdfs/label "Reference - Federal Public Key Infrastructure 101"})
 
 (def Reference-File-modifyingMalwareDetection_CrowdstrikeInc
   {:d3f/has-link
@@ -26715,6 +28605,20 @@
    :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - File and Folder Permissions"})
 
+(def Reference-FileEncryption101SafeguardingYourSensitiveData
+  {:d3f/has-link {:xsd/anyURI
+                  "https://www.veritas.com/information-center/file-encryption"},
+   :d3f/kb-abstract
+   "File encryption is a security method that converts your files into ciphertext or unreadable data. By using this method, you may be sure that even if unauthorized people access your files, they won't be able to understand the contents without the decryption key.",
+   :d3f/kb-author "Veritas",
+   :d3f/kb-reference-of :d3f/FileEncryption,
+   :d3f/kb-reference-title
+   "File Encryption 101: Safeguarding Your Sensitive Data",
+   :db/ident :d3f/Reference-FileEncryption101SafeguardingYourSensitiveData,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference -  File Encryption 101: Safeguarding Your Sensitive Data"})
+
 (def Reference-FileIntegrityMonitoringinMicrosoftDefenderforCloud-Microsoft
   {:d3f/has-link
    {:xsd/anyURI
@@ -26728,6 +28632,21 @@
    :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - File Integrity Monitoring in Microsoft Defender for Cloud - Microsoft"})
+
+(def Reference-FileSecurityUsingFileFormatValidation_OPSWATInc
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://patentimages.storage.googleapis.com/ba/10/83/968a6345eee505/US20200104494A1.pdf"},
+   :d3f/kb-abstract
+   "A method for securely validating the file format type including receiving a file having a file format type, a header and a content block. The header has a header block with a description representing attributes of the actual content in the file . The content block has leading bytes representing attributes of the actual content, and actual content. Data is parsed from the description of the header block, the leading bytes and the actual content. Data from the description is compared to the data from the leading bytes, data from the leading bytes is compared to the data from the actual content, and data from the description is compared to the data from the actual content. The file format type is validated and trustable when the data from the description, the data from the leading bytes and the data from the actual content are consistent with one another.",
+   :d3f/kb-author "Benjamin Czarny, Yiyi Miao, Jianpeng Mo",
+   :d3f/kb-organization "OPSWAT, Inc.",
+   :d3f/kb-reference-of #{:d3f/FileFormatVerification :d3f/ContentValidation},
+   :d3f/kb-reference-title "File Security Using FIle Format Validation",
+   :db/ident :d3f/Reference-FileSecurityUsingFileFormatValidation_OPSWATInc,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - File Security Using File Format Validation - OPSWAT Inc"})
 
 (def Reference-Finding_phishing_sites
   {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/US8839418B2/"},
@@ -26921,6 +28840,23 @@
    :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label "Reference - /GS (Buffer Security Check) - Microsoft Docs"})
 
+(def
+  Reference-GatheringEvidenceModel-DrivenSoftwareEngineeringinAutomatedDigitalForensics
+  {:d3f/has-link {:xsd/anyURI
+                  "https://pure.uva.nl/ws/files/1739225/132135_thesis.pdf"},
+   :d3f/kb-author "van den Bos, J.",
+   :d3f/kb-reference-of #{:d3f/FileContentDecompressionChecking
+                          :d3f/FileMagicByteVerification
+                          :d3f/FileMetadataConsistencyValidation
+                          :d3f/FileInternalStructureVerification},
+   :d3f/kb-reference-title
+   "Gathering Evidence: Model-Driven Software Engineering in Automated Digital Forensics",
+   :db/ident
+   :d3f/Reference-GatheringEvidenceModel-DrivenSoftwareEngineeringinAutomatedDigitalForensics,
+   :rdf/type #{:d3f/AcademicPaperReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Gathering Evidence: Model-Driven Software Engineering in Automated Digital Forensics"})
+
 (def Reference-GenericRegsvr32_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2019-04-002/"},
@@ -26952,6 +28888,34 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Guards for application in software tamperproofing - Purdue Research Foundation"})
+
+(def Reference-GuideToStorageEncryptionTechnologiesForEndUserDevices
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-111.pdf"},
+   :d3f/kb-abstract
+   "Many threats against end user devices could cause information stored on the devices to be accessed by unauthorized parties. To prevent such disclosures of information, particularly of personally identifiable information (PII) and other sensitive data, the information needs to be secured. Securing other components of end user devices, such as operating systems, is also necessary, but in many cases storage security, which is the process of allowing only authorized parties to access and use stored information. The primary security controls for restricting access to sensitive information stored on end user devices are encryption and authentication. Encryption can be applied granularly, such as to an individual file containing sensitive information, or broadly, such as encrypting all stored data. The appropriate encryption solution for a particular situation depends primarily upon the type of storage, the amount of information that needs to be protected, the environments where the storage will be located, and the threats that need to be mitigated.",
+   :d3f/kb-author "Karen Scarfone, Murugiah Souppaya, and Matt Sexton",
+   :d3f/kb-reference-of :d3f/FileEncryption,
+   :d3f/kb-reference-title
+   "NIST Special Publication 800-111 - Guide to Storage Encryption Technologies for End User Devices",
+   :db/ident
+   :d3f/Reference-GuideToStorageEncryptionTechnologiesForEndUserDevices,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Guide to Storage Encryption Technologies for End User Devices"})
+
+(def Reference-GuidetoOTSecurity
+  {:d3f/has-link {:xsd/anyURI "https://csrc.nist.gov/pubs/sp/800/82/r3/final"},
+   :d3f/kb-abstract
+   "This document provides guidance on how to secure operational technology (OT) while addressing their unique performance, reliability, and safety requirements. OT encompasses a broad range of programmable systems and devices that interact with the physical environment (or manage devices that interact with the physical environment). These systems and devices detect or cause a direct change through the monitoring and/or control of devices, processes, and events. Examples include industrial control systems, building automation systems, transportation systems, physical access control systems, physical environment monitoring systems, and physical environment measurement systems. The document provides an overview of OT and typical system topologies, identifies common threats and vulnerabilities to these systems, and provides recommended security countermeasures to mitigate the associated risks.",
+   :d3f/kb-author "NIST",
+   :d3f/kb-reference-of :d3f/ChangeDefaultPassword,
+   :d3f/kb-reference-title "Guide to Operational Technology (OT) Security",
+   :db/ident :d3f/Reference-GuidetoOTSecurity,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - NIST SP 800-82R3 Guide to Operational Technology (OT) Security, Section 6.2.1.4.5 Password Authentication"})
 
 (def
   Reference-Hardware-assistedSystemAndMethodForDetectingAndAnalyzingSystemCallsMadeToAnOpertingSystemKernel_EndgameInc
@@ -27260,6 +29224,16 @@
    :rdfs/label
    "Reference - Introducing Firefox's new Site Isolation Architecture"})
 
+(def Reference-IntroductoryComputerForensics
+  {:d3f/has-link        {:xsd/anyURI
+                         "https://core.ac.uk/download/pdf/326762883.pdf"},
+   :d3f/kb-author       "Xiaodong Lin",
+   :d3f/kb-reference-of :d3f/FileMetadataValueVerification,
+   :d3f/kb-reference-title "Introductory Computer Forensics",
+   :db/ident            :d3f/Reference-IntroductoryComputerForensics,
+   :rdf/type            #{:owl/NamedIndividual :d3f/BookReference},
+   :rdfs/label          "Reference - Introductory Computer Forensics"})
+
 (def Reference-IntrusionDetectionUsingAHeartbeat_SophosLtd
   {:d3f/has-link {:xsd/anyURI
                   "https://patents.google.com/patent/US20180191752A1"},
@@ -27383,6 +29357,27 @@
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - MGT516: Managing Security Vulnerabilities: Enterprise and Cloud"})
+
+(def Reference-MITREATTACKAuthorizationEnforcement
+  {:d3f/has-link {:xsd/anyURI "https://attack.mitre.org/mitigations/M0800/"},
+   :d3f/kb-abstract
+   "The device or system should restrict read, manipulate, or execute privileges to only authenticated users who require access based on approved security policies. Role-based Access Control (RBAC) schemes can help reduce the overhead of assigning permissions to the large number of devices within an ICS. For example, IEC 62351 provides examples of roles used to support common system operations within the electric power sector [1], while IEEE 1686 defines standard permissions for users of IEDs.",
+   :d3f/kb-author "MITRE",
+   :d3f/kb-reference-of :d3f/OperatingModeRestriction,
+   :d3f/kb-reference-title "MITRE ATT&CK - Authorization Enforcement",
+   :db/ident :d3f/Reference-MITREATTACKAuthorizationEnforcement,
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
+   :rdfs/label "Reference - MITRE ATT&CK - Authorization Enforcement"})
+
+(def Reference-MITREATTACKPasswordPolicies
+  {:d3f/has-link {:xsd/anyURI "https://attack.mitre.org/mitigations/M0927/"},
+   :d3f/kb-abstract "Set and enforce secure password policies for accounts..",
+   :d3f/kb-author "MITRE",
+   :d3f/kb-reference-of :d3f/ChangeDefaultPassword,
+   :d3f/kb-reference-title "MITRE ATT&CK - Password Policies",
+   :db/ident :d3f/Reference-MITREATTACKPasswordPolicies,
+   :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
+   :rdfs/label "Reference - MITRE ATT&CK - Password Policies"})
 
 (def Reference-MaliciousRelayDetectionOnNetworks_VECTRANETWORKSInc
   {:d3f/has-link {:xsd/anyURI
@@ -27697,6 +29692,24 @@
    :rdfs/label
    "Reference - Method and system for UDP flood attack detection - Riorey LLC"})
 
+(def Reference-MethodForContentDisarmandReconstruction_OPSWATInc
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://patentimages.storage.googleapis.com/a9/40/78/713c8deb2c4c7a/US20190268352A1.pdf"},
+   :d3f/kb-abstract
+   "A Content Disarm and Reconstruction ( CDR ) method is disclosed including a computer receiving an input file hav ing a file format configured with a structured storage. The computer disassembles the structured storage into at least one subfile . Each subfile is a stream subfile . For each subfile , the computer identifies an item in the stream subfile . The computer analyzes the item in the stream subfile for an unwanted behavior by determining an acceptability of the unwanted behavior , distinguishing a visibility of the item , and recognizing a necessity of the item . The computer , based on a result of the analyzing step , processes the item in the stream subfile resulting in a processed subfile . The computer assembles the processed subfiles into an output file having the same file format as the file format as the input file .",
+   :d3f/kb-author
+   "Taeil Goh, Vinh Nguyen Xuan Lam, Nhut Minh Ngo, Dung Huu Nguyen",
+   :d3f/kb-organization "OPSWAT, Inc.",
+   :d3f/kb-reference-of #{:d3f/ContentFiltering :d3f/ContentRebuild
+                          :d3f/ContentSubstitution :d3f/ContentModification
+                          :d3f/ContentFormatConversion :d3f/ContentExcision},
+   :d3f/kb-reference-title "Method For Content Disarm and Reconstruction",
+   :db/ident :d3f/Reference-MethodForContentDisarmandReconstruction_OPSWATInc,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Method For Content Disarm and Reconstruction - OPSWAT Inc"})
+
 (def
   Reference-MethodForControllingComputerNetworkSecurity_CheckpointSoftwareTechnologiesLtd
   {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/EP0658837B1/"},
@@ -27712,20 +29725,6 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Method for controlling computer network security - Checkpoint Software Technologies Ltd"})
-
-(def Reference-MethodForFileEncryption
-  {:d3f/has-link {:xsd/anyURI
-                  "https://patents.google.com/patent/US9521123B2/en"},
-   :d3f/kb-abstract
-   "A method for encryption and sealing of a plaintext file by hashing the plaintext file to produce a plaintext hash, encrypting the plaintext file to produce ciphertext, hashing the ciphertext to produce a ciphertext hash, hashing the plaintext hash and the ciphertext hash to produce a result hash, and sealing the ciphertext together with the result hash.",
-   :d3f/kb-author
-   "Robert R. Jueneman, Duane J. LINSENBARDT, John N. Young, William Reid Carlisle, Burton George Tregub",
-   :d3f/kb-organization "New Kailung Gear Co Ltd",
-   :d3f/kb-reference-of :d3f/FileEncryption,
-   :d3f/kb-reference-title "Method for file encryption",
-   :db/ident :d3f/Reference-MethodForFileEncryption,
-   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
-   :rdfs/label "Reference - Method for file encryption"})
 
 (def
   Reference-MethodUsingKernelModeAssistanceForTheDetectionAndRemovalOfThreatsWhichAreActivelyPreventingDetectionAndRemovalFromARunningSystem_SymantecCorporation
@@ -28074,6 +30073,21 @@
    :db/ident :d3f/Reference-OverviewOfTheSeccompSandbox,
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - Overview of the seccomp sandbox"})
+
+(def Reference-PLCKeySwitchMonitoring
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.dragos.com/blog/industry-news/value-of-plc-key-switch-monitoring/"},
+   :d3f/kb-abstract
+   "Programmable Logic Controllers (PLC) and Safety Instrumented Systems (SIS) Controllers have historically included an external switch, generally in the form of a key, to perform maintenance and troubleshooting. The key switch has become commonplace for automation engineers and technicians who maintain and support these systems and understand the importance of the little switch in overall device operation and affects the underlying process.",
+   :d3f/kb-author "DRAGOS",
+   :d3f/kb-reference-of :d3f/OperatingModeMonitoring,
+   :d3f/kb-reference-title
+   "Value of PLC Key Switch Monitoring to Keep Critical Systems More Secure",
+   :db/ident :d3f/Reference-PLCKeySwitchMonitoring,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Value of PLC Key Switch Monitoring to Keep Critical Systems More Secure"})
 
 (def Reference-PasswordandKeyRotation-SSH
   {:d3f/has-link {:xsd/anyURI
@@ -28869,6 +30883,22 @@
    :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label "Reference - Security Architecture for the Internet Protocol"})
 
+(def Reference-SecurityConsiderationsForExchangingFilesOverTheInternet
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://csrc.nist.gov/files/pubs/shared/itlb/itlbul2020-08.pdf"},
+   :d3f/kb-abstract
+   "This Information Technology Laboratory (ITL) Bulletin provides recommendations from the National Institute of Standards and Technology (NIST) for securely exchanging files over the Internet. It also explores several of the technologies currently available for doing so to educate readers on options they have.",
+   :d3f/kb-author "Karen Scarfone, Matt Scholl, and Murugiah Souppaya",
+   :d3f/kb-reference-of :d3f/FileEncryption,
+   :d3f/kb-reference-title
+   "NIST ITL Bulletin August 2020 - Security Considerations for Exchanging Files Over the Internet",
+   :db/ident
+   :d3f/Reference-SecurityConsiderationsForExchangingFilesOverTheInternet,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Security Considerations for Exchanging Files Over the Internet"})
+
 (def
   Reference-SecuritySystemWithMethodologyForInterprocessCommunicationControl_CheckPointSoftwareTechInc
   {:d3f/has-link {:xsd/anyURI
@@ -29638,6 +31668,21 @@
    :rdfs/label
    "Reference - TPM 2.0 Library Specification - Trusted Computing Group, Incorporated"})
 
+(def Reference-TRITONMalwareRemainsThreattoGlobalCriticalInfrastructureICS
+  {:d3f/has-link {:xsd/anyURI "https://www.ic3.gov/CSA/2022/220325.pdf"},
+   :d3f/kb-abstract
+   "The FBI is warning that the group responsible for the deployment of TRITON malware against a Middle East-based petrochemical plant's safety instrumented system in 2017, the Russian Central Scientific Research Institute of Chemistry and Mechanics (TsNIIKhM), continues to conduct activity targeting the global energy sector. This warning follows the 24 March 2022 unsealing of a US indictment of a Russian national and TsNIIkhM employee involved in that attack. TRITON was malware designed to cause physical safety systems to cease operating or to operate in an unsafe manner. Its potential impact could be similar to cyberattacks previously attributed to Russia that caused blackouts in Ukraine in 2015 and 2016.\n\n TRITON malware targeted the Schneider Electric Triconex safety instrumented system (SIS), which is used to initiate safe shutdown procedures in the event of an emergency. TRITON malware affected Triconex Tricon safety controllers by modifying in-memory firmware to add additional programming, potentially leading to damage of a facility, system downtime, and even loss of life should the SIS fail to initiate safe shutdown procedures. Schneider Electric addressed the vulnerability (with the Tricon model 3008 v10.0-10.4) when version 11.3 of the Tricon controller was released in June 2018; however, older versions of the controller remain in use and are vulnerable to a similar attack. As a result, the FBI is alerting the ICS community of continued activity by this group and requests that any indicators of potential compromise be reported to the FBI. ",
+   :d3f/kb-author "FBI",
+   :d3f/kb-reference-of #{:d3f/OperatingModeRestriction
+                          :d3f/OperatingModeMonitoring},
+   :d3f/kb-reference-title
+   "TRITON Malware Remains Threat to Global Critical Infrastructure Industrial Control Systems (ICS)",
+   :db/ident
+   :d3f/Reference-TRITONMalwareRemainsThreattoGlobalCriticalInfrastructureICS,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - TRITON Malware Remains Threat to Global Critical Infrastructure Industrial Control Systems (ICS)"})
+
 (def Reference-TamperProofMutatingSoftware_ARXANTECHNOLOGIESInc
   {:d3f/has-link
    {:xsd/anyURI
@@ -30111,6 +32156,19 @@
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - What is Network Access Control?"})
 
+(def Reference-WhatisHardwareWriteProtect
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.yokogawa.com/us/library/resources/faqs/pressure-what-is-hardware-write-protect/#:~:text=The%20hardware%20write%20protection%20is,Burn%20Out%20(BO)%20switch"},
+   :d3f/kb-abstract
+   "Transmitters used in safety systems, environmentally sensitive applications, custody transfer, or critical processes need to be secure from tampering or inadvertent changes to their setup that may lead to errors and failures. Yokogawa’s pressure transmitters have the security of a Software Write Protection (Password) and a Hardware Write Protection (Switch) to secure programming changes and physical cover locks to secure the transmitter electronics. These security features can be applied independently or in combination to build the level of security desired.",
+   :d3f/kb-author "YOKOGAWA",
+   :d3f/kb-reference-of :d3f/Hardware-basedWriteProtection,
+   :d3f/kb-reference-title "What is Hardware Write Protect?",
+   :db/ident :d3f/Reference-WhatisHardwareWriteProtect,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - What is Hardware Write Protect?"})
+
 (def Reference-Windows-Management-Infrastructure
   {:d3f/has-link
    {:xsd/anyURI
@@ -30353,6 +32411,14 @@
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
+(def RemoteAttacker
+  {:d3f/definition
+   "An attacker who exploits systems without being physically present near the target, often over the internet.",
+   :db/ident :d3f/RemoteAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Attacker",
+   :rdfs/subClassOf :d3f/Attacker})
+
 (def RemoteAuthenticationService
   {:d3f/definition
    "A remote authentication service provides for the authentication of a user across a network (i.e., remotely).",
@@ -30480,7 +32546,10 @@
    :db/ident :d3f/RemoveUserFromGroupEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Remove User from Group Event",
-   :rdfs/subClassOf :d3f/GroupManagementEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/AddUserToGroupEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/GroupManagementEvent}})
 
 (def Repository
   {:d3f/definition
@@ -30786,7 +32855,10 @@
    :db/ident :d3f/RevokePrivilegesFromGroupEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Revoke Privileges from Group Event",
-   :rdfs/subClassOf :d3f/GroupManagementEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/AssignPrivilegesToGroupEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/GroupManagementEvent}})
 
 (def Router
   {:d3f/definition
@@ -30821,6 +32893,16 @@
   {:db/ident   :d3f/RubyScriptFile,
    :rdf/type   #{:d3f/ExecutableScript :owl/NamedIndividual},
    :rdfs/label "Ruby Script File"})
+
+(def RuntimeVariable
+  {:d3f/definition
+   "A runtime variable is an abstract storage location paired with an associated symbolic name, which contains some known or unknown quantity of data or object referred to as a value, which can change during the execution of a computer program.",
+   :db/ident :d3f/RuntimeVariable,
+   :rdf/type :owl/Class,
+   :rdfs/label "Runtime Variable",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://dbpedia.org/page/Variable_(computer_science)"},
+   :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
 (def SARSA
   {:d3f/d3fend-id "D3A-SAR",
@@ -30863,7 +32945,10 @@
    :db/ident :d3f/SMBFileOpenEvent,
    :rdf/type :owl/Class,
    :rdfs/label "SMB File Open Event",
-   :rdfs/subClassOf :d3f/SMBEvent})
+   :rdfs/subClassOf #{:d3f/SMBEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/SMBFileCreateEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def SMBFileOpenIfEvent
   {:d3f/definition
@@ -30879,7 +32964,10 @@
    :db/ident :d3f/SMBFileOverwriteEvent,
    :rdf/type :owl/Class,
    :rdfs/label "SMB File Overwrite Event",
-   :rdfs/subClassOf :d3f/SMBEvent})
+   :rdfs/subClassOf #{:d3f/SMBEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/SMBFileCreateEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def SMBFileOverwriteIfEvent
   {:d3f/definition
@@ -30909,7 +32997,10 @@
    :db/ident :d3f/SSHConnectionCloseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "SSH Connection Close Event",
-   :rdfs/subClassOf #{:d3f/SSHEvent :d3f/NetworkConnectionCloseEvent}})
+   :rdfs/subClassOf #{:d3f/SSHEvent :d3f/NetworkConnectionCloseEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/SSHConnectionOpenEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def SSHConnectionFailEvent
   {:d3f/definition
@@ -30941,7 +33032,10 @@
    :db/ident :d3f/SSHConnectionResetEvent,
    :rdf/type :owl/Class,
    :rdfs/label "SSH Connection Reset Event",
-   :rdfs/subClassOf #{:d3f/SSHEvent :d3f/NetworkConnectionResetEvent}})
+   :rdfs/subClassOf #{:d3f/SSHEvent :d3f/NetworkConnectionResetEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/SSHConnectionOpenEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def SSHEvent
   {:d3f/definition
@@ -31052,7 +33146,10 @@
    :db/ident :d3f/ScheduledJobDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job Deletion Event",
-   :rdfs/subClassOf :d3f/ScheduledJobEvent})
+   :rdfs/subClassOf #{:d3f/ScheduledJobEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ScheduledJobCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ScheduledJobDisableEvent
   {:d3f/definition
@@ -31060,7 +33157,10 @@
    :db/ident :d3f/ScheduledJobDisableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job Disable Event",
-   :rdfs/subClassOf :d3f/ScheduledJobEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ScheduledJobEnableEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ScheduledJobEvent}})
 
 (def ScheduledJobEnableEvent
   {:d3f/definition
@@ -31068,7 +33168,10 @@
    :db/ident :d3f/ScheduledJobEnableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job Enable Event",
-   :rdfs/subClassOf :d3f/ScheduledJobEvent})
+   :rdfs/subClassOf #{:d3f/ScheduledJobEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ScheduledJobCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ScheduledJobEvent
   {:d3f/definition
@@ -31089,7 +33192,10 @@
    :db/ident :d3f/ScheduledJobStartEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job Start Event",
-   :rdfs/subClassOf :d3f/ScheduledJobEvent})
+   :rdfs/subClassOf #{:d3f/ScheduledJobEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ScheduledJobCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ScheduledJobUpdateEvent
   {:d3f/definition
@@ -31097,7 +33203,10 @@
    :db/ident :d3f/ScheduledJobUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job Update Event",
-   :rdfs/subClassOf :d3f/ScheduledJobEvent})
+   :rdfs/subClassOf #{:d3f/ScheduledJobEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ScheduledJobCreationEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def Scheduling
   {:db/ident        :d3f/Scheduling,
@@ -31760,6 +33869,7 @@
 (def ShimDatabase
   {:d3f/definition
    "A application configuration database that contains or points to software shims (e.g., for backward compatibility, patches, etc.)",
+   :d3f/synonym "Microsoft Shim Database File",
    :db/ident :d3f/ShimDatabase,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Shim Database",
@@ -32360,6 +34470,17 @@
    :rdfs/label "Supervised Learning",
    :rdfs/subClassOf :d3f/MachineLearning})
 
+(def SupplyChainAttacker
+  {:d3f/definition
+   "An attacker who exploits vulnerabilities in the supply chain to compromise systems or data.",
+   :db/ident :d3f/SupplyChainAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Supply Chain Attacker",
+   :rdfs/subClassOf #{:d3f/Attacker
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/Software,
+                       :rdf/type           :owl/Restriction}}})
+
 (def SupportVectorMachineClassification
   {:d3f/d3fend-id "D3A-SVMC",
    :d3f/definition
@@ -32784,6 +34905,19 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "System Password Database",
    :rdfs/subClassOf :d3f/PasswordDatabase})
+
+(def SystemPlatformVariable
+  {:d3f/definition
+   "Runtime variables  which may consist of memory usage, internal temperature, operating mode, clock time, scan time, hardware status, etc.",
+   :d3f/synonym #{"System Properties" "Configuration Resource" "System Data"},
+   :db/ident :d3f/SystemPlatformVariable,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Platform Variable",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://literature.rockwellautomation.com/idc/groups/literature/documents/pm/1756-pm015_-en-p.pdf"}
+     {:xsd/anyURI "https://www.nrc.gov/docs/ml0932/ml093290422.pdf"}},
+   :rdfs/subClassOf :d3f/RuntimeVariable})
 
 (def SystemServiceSoftware
   {:d3f/contains :d3f/OperatingSystemFile,
@@ -42440,102 +44574,130 @@
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def TA0001
-  {:d3f/display-order 1,
-   :db/ident          :d3f/TA0001,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Initial Access",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to get into your network. \n\nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses on public-facing web servers. Footholds gained through initial access may allow for continued access, like valid accounts and use of external remote services, or may be limited-use due to changing passwords.",
+   :d3f/display-order 1,
+   :db/ident :d3f/TA0001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Initial Access",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0002
-  {:d3f/display-order 2,
-   :db/ident          :d3f/TA0002,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Execution",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to run malicious code. \n\nExecution consists of techniques that result in adversary-controlled code running on a local or remote system. Techniques that run malicious code are often paired with techniques from all other tactics to achieve broader goals, like exploring a network or stealing data. For example, an adversary might use a remote access tool to run a PowerShell script that does Remote System Discovery.",
+   :d3f/display-order 2,
+   :db/ident :d3f/TA0002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Execution",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0003
-  {:d3f/display-order 3,
-   :db/ident          :d3f/TA0003,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Persistence",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to maintain their foothold. \n    \nPersistence consists of techniques that adversaries use to keep access to systems across restarts, changed credentials, and other interruptions that could cut off their access. Techniques used for persistence include any access, action, or configuration changes that let them maintain their foothold on systems, such as replacing or hijacking legitimate code or adding startup code.",
+   :d3f/display-order 3,
+   :db/ident :d3f/TA0003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Persistence",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0004
-  {:d3f/display-order 4,
-   :db/ident          :d3f/TA0004,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Privilege Escalation",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to gain higher-level permissions.\n\nPrivilege Escalation consists of techniques that adversaries use to gain higher-level permissions on a system or network. Adversaries can often enter and explore a network with unprivileged access but require elevated permissions to follow through on their objectives. Common approaches are to take advantage of system weaknesses, misconfigurations, and vulnerabilities. Examples of elevated access include:\n\nSYSTEM/root level\nlocal administrator\nuser account with admin-like access\nuser accounts with access to specific system or perform specific function\n\nThese techniques often overlap with Persistence techniques, as OS features that let an adversary persist can execute in an elevated context.",
+   :d3f/display-order 4,
+   :db/ident :d3f/TA0004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Privilege Escalation",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0005
-  {:d3f/display-order 5,
-   :db/ident          :d3f/TA0005,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Defense Evasion",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to avoid being detected.\n\nDefense Evasion consists of techniques that adversaries use to avoid detection throughout their compromise. Techniques used for defense evasion include uninstalling/disabling security software or obfuscating/encrypting data and scripts. Adversaries also leverage and abuse trusted processes to hide and masquerade their malware. Other tactics' techniques are cross-listed here when those techniques include the added benefit of subverting defenses.",
+   :d3f/display-order 5,
+   :db/ident :d3f/TA0005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Defense Evasion",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0006
-  {:d3f/display-order 6,
-   :db/ident          :d3f/TA0006,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Credential Access",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to steal account names and passwords.\n\nCredential Access consists of techniques for stealing credentials like account names and passwords. Techniques used to get credentials include keylogging or credential dumping. Using legitimate credentials can give adversaries access to systems, make them harder to detect, and provide the opportunity to create more accounts to help achieve their goals.",
+   :d3f/display-order 6,
+   :db/ident :d3f/TA0006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Credential Access",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0007
-  {:d3f/display-order 7,
-   :db/ident          :d3f/TA0007,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Discovery",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to figure out your environment.\n\nDiscovery consists of techniques an adversary may use to gain knowledge about the system and internal network. These techniques help adversaries observe the environment and orient themselves before deciding how to act. They also allow adversaries to explore what they can control and what's around their entry point in order to discover how it could benefit their current objective. Native operating system tools are often used toward this post-compromise information-gathering objective.",
+   :d3f/display-order 7,
+   :db/ident :d3f/TA0007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Discovery",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0008
-  {:d3f/display-order 8,
-   :db/ident          :d3f/TA0008,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Lateral Movement",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to move through your environment.\n\nLateral Movement consists of techniques that adversaries use to enter and control remote systems on a network. Following through on their primary objective often requires exploring the network to find their target and subsequently gaining access to it. Reaching their objective often involves pivoting through multiple systems and accounts to gain. Adversaries might install their own remote access tools to accomplish Lateral Movement or use legitimate credentials with native network and operating system tools, which may be stealthier.",
+   :d3f/display-order 8,
+   :db/ident :d3f/TA0008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Lateral Movement",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0009
-  {:d3f/display-order 9,
-   :db/ident          :d3f/TA0009,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Collection",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to gather data of interest to their goal.\n\nCollection consists of techniques adversaries may use to gather information and the sources information is collected from that are relevant to following through on the adversary's objectives. Frequently, the next goal after collecting data is to either steal (exfiltrate) the data or to use the data to gain more information about the target environment. Common target sources include various drive types, browsers, audio, video, and email. Common collection methods include capturing screenshots and keyboard input.",
+   :d3f/display-order 9,
+   :db/ident :d3f/TA0009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Collection",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0010
-  {:d3f/display-order 11,
-   :db/ident          :d3f/TA0010,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Exfiltration",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to steal data.\n\nExfiltration consists of techniques that adversaries may use to steal data from your network. Once they've collected data, adversaries often package it to avoid detection while removing it. This can include compression and encryption. Techniques for getting data out of a target network typically include transferring it over their command and control channel or an alternate channel and may also include putting size limits on the transmission.",
+   :d3f/display-order 11,
+   :db/ident :d3f/TA0010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Exfiltration",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0011
-  {:d3f/display-order 10,
-   :db/ident          :d3f/TA0011,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Command And Control",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to communicate with compromised systems to control them.\n\nCommand and Control consists of techniques that adversaries may use to communicate with systems under their control within a victim network. Adversaries commonly attempt to mimic normal, expected traffic to avoid detection. There are many ways an adversary can establish command and control with various levels of stealth depending on the victim's network structure and defenses.",
+   :d3f/display-order 10,
+   :db/ident :d3f/TA0011,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Command And Control",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0040
-  {:d3f/display-order 12,
-   :db/ident          :d3f/TA0040,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
-   :rdfs/label        "Impact",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to manipulate, interrupt, or destroy your systems and data.\n\nImpact consists of techniques that adversaries use to disrupt availability or compromise integrity by manipulating business and operational processes. Techniques used for impact can include destroying or tampering with data. In some cases, business processes can look fine, but may have been altered to benefit the adversaries' goals. These techniques might be used by adversaries to follow through on their end goal or to provide cover for a confidentiality breach.",
+   :d3f/display-order 12,
+   :db/ident :d3f/TA0040,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Impact",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0042
-  {:d3f/display-order 0,
-   :db/ident          :d3f/TA0042,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label        "Resource Development",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to establish resources they can use to support operations.\n\nResource Development consists of techniques that involve adversaries creating, purchasing, or compromising/stealing resources that can be used to support targeting. Such resources include infrastructure, accounts, or capabilities. These resources can be leveraged by the adversary to aid in other phases of the adversary lifecycle, such as using purchased domains to support Command and Control, email accounts for phishing as a part of Initial Access, or stealing code signing certificates to help with Defense Evasion.",
+   :d3f/display-order 0,
+   :db/ident :d3f/TA0042,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Resource Development",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TA0043
-  {:d3f/display-order -1,
-   :db/ident          :d3f/TA0043,
-   :rdf/type          #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label        "Reconnaissance",
-   :rdfs/subClassOf   #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+  {:d3f/definition
+   "The adversary is trying to gather information they can use to plan future operations.\n\nReconnaissance consists of techniques that involve adversaries actively or passively gathering information that can be used to support targeting. Such information may include details of the victim organization, infrastructure, or staff/personnel. This information can be leveraged by the adversary to aid in other phases of the adversary lifecycle, such as using gathered information to plan and execute Initial Access, to scope and prioritize post-compromise objectives, or to drive and lead further Reconnaissance efforts.",
+   :d3f/display-order -1,
+   :db/ident :d3f/TA0043,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Reconnaissance",
+   :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
 (def TCPEvent
   {:d3f/definition
@@ -42665,8 +44827,7 @@
    {:xsd/anyURI
     "https://en.wikipedia.org/wiki/Computer_data_storage#Tertiary_storage"},
    :rdfs/label "Tertiary Storage",
-   :rdfs/subClassOf #{:d3f/MemoryBlock :d3f/SecondaryStorage
-                      :d3f/HardwareDevice}})
+   :rdfs/subClassOf #{:d3f/SecondaryStorage :d3f/HardwareDevice}})
 
 (def TestExecutionTool
   {:d3f/definition
@@ -42899,6 +45060,25 @@
      {:xsd/anyURI "https://www.educative.io/edpresso/keystore-vs-truststore"}},
    :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
+(def TrustedAdministratorAttacker
+  {:d3f/definition
+   "A trusted attacker who misuses administrative access to execute attacks, often with elevated privileges.",
+   :db/ident :d3f/TrustedAdministratorAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trusted Administrator Attacker",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/PrivilegedUserAccount,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/TrustedAttacker}})
+
+(def TrustedAttacker
+  {:d3f/definition
+   "An individual who exploits their authorized access to conduct unauthorized actions, either intentionally or through negligence.",
+   :db/ident :d3f/TrustedAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trusted Attacker",
+   :rdfs/subClassOf :d3f/Attacker})
+
 (def TrustedLibrary
   {:d3f/d3fend-id "D3-TL",
    :d3f/definition
@@ -42915,13 +45095,33 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/SourceCodeHardening}})
 
+(def TrustedUserAttacker
+  {:d3f/definition
+   "A trusted attacker who abuses regular user-level access privileges to compromise systems or data.",
+   :db/ident :d3f/TrustedUserAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trusted User Attacker",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/LocalUserAccount,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/DomainUserAccount,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/TrustedAttacker
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/DefaultUserAccount,
+                       :rdf/type           :owl/Restriction}}})
+
 (def TunnelCloseEvent
   {:d3f/definition
    "An event where a network tunnel is terminated, ending encapsulated communication and releasing the associated resources.",
    :db/ident :d3f/TunnelCloseEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Tunnel Close Event",
-   :rdfs/subClassOf :d3f/TunnelEvent})
+   :rdfs/subClassOf #{:d3f/TunnelEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/TunnelOpenEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def TunnelEvent
   {:d3f/definition
@@ -42945,7 +45145,10 @@
    :db/ident :d3f/TunnelRenewEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Tunnel Renew Event",
-   :rdfs/subClassOf :d3f/TunnelEvent})
+   :rdfs/subClassOf #{:d3f/TunnelEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/TunnelOpenEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def UDPEvent
   {:d3f/definition
@@ -43045,6 +45248,9 @@
    :rdfs/label "Unload Library Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/LoadLibraryEvent,
                        :rdf/type           :owl/Restriction}
                       :d3f/ProcessEvent}})
 
@@ -43170,7 +45376,10 @@
    :db/ident :d3f/UserAccountAttachPolicyEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Attach Policy Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountCreationEvent
   {:d3f/definition
@@ -43186,7 +45395,10 @@
    :db/ident :d3f/UserAccountDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Deletion Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountDetachPolicyEvent
   {:d3f/definition
@@ -43194,7 +45406,10 @@
    :db/ident :d3f/UserAccountDetachPolicyEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Detach Policy Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{:d3f/UserAccountEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountAttachPolicyEvent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def UserAccountDisableEvent
   {:d3f/definition
@@ -43202,7 +45417,10 @@
    :db/ident :d3f/UserAccountDisableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Disable Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountEnableEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountEnableEvent
   {:d3f/definition
@@ -43210,7 +45428,10 @@
    :db/ident :d3f/UserAccountEnableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Enable Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountEvent
   {:d3f/definition
@@ -43231,7 +45452,10 @@
    :db/ident :d3f/UserAccountLockEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Lock Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountMFADisableEvent
   {:d3f/definition
@@ -43239,7 +45463,10 @@
    :db/ident :d3f/UserAccountMFADisableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account MFA Disable Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountMFAEnableEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountMFAEnableEvent
   {:d3f/definition
@@ -43247,7 +45474,10 @@
    :db/ident :d3f/UserAccountMFAEnableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account MFA Enable Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountPasswordChangeEvent
   {:d3f/definition
@@ -43255,7 +45485,10 @@
    :db/ident :d3f/UserAccountPasswordChangeEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Password Change Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountPasswordResetEvent
   {:d3f/definition
@@ -43263,7 +45496,10 @@
    :db/ident :d3f/UserAccountPasswordResetEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Password Reset Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAccountPermissions
   {:d3f/d3fend-id    "D3-UAP",
@@ -43284,7 +45520,10 @@
    :db/ident :d3f/UserAccountUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "User Account Update Event",
-   :rdfs/subClassOf :d3f/UserAccountEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/UserAccountEvent}})
 
 (def UserAction
   {:d3f/definition
@@ -43507,7 +45746,8 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Personal_message"},
    :rdfs/label "User to User Message",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-recipient,
+   :rdfs/subClassOf #{:d3f/DigitalMessage
+                      {:owl/onProperty     :d3f/has-recipient,
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-sender,
@@ -43515,8 +45755,7 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-contain,
                        :owl/someValuesFrom :d3f/Email,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DigitalInformationBearer},
+                       :rdf/type           :owl/Restriction}},
    :skos/altLabel #{"Private Message" "Personal Message"}})
 
 (def UtilitySoftware
@@ -43622,6 +45861,24 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Variance Reduction",
    :rdfs/subClassOf :d3f/ActiveLearning})
+
+(def VectorImage
+  {:d3f/definition
+   "A graphical image created using mathematical equations and geometric shapes defined by vectors.",
+   :db/ident :d3f/VectorImage,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Vector Image",
+   :rdfs/subClassOf :d3f/DigitalImage})
+
+(def VectorImageFile
+  {:d3f/contains :d3f/VectorImage,
+   :d3f/definition "A file that contains graphics data represented by vectors.",
+   :db/ident :d3f/VectorImageFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Vector Image File",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/VectorImage,
+                       :rdf/type           :owl/Restriction} :d3f/ImageFile}})
 
 (def Vendor
   {:db/ident        :d3f/Vendor,
@@ -44454,7 +46711,10 @@
    :db/ident :d3f/WindowsRegistryKeyDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Deletion Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryKeyEvent
   {:d3f/definition
@@ -44476,7 +46736,10 @@
    :db/ident :d3f/WindowsRegistryKeyExportEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Export Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryKeyImportEvent
   {:d3f/definition
@@ -44492,7 +46755,10 @@
    :db/ident :d3f/WindowsRegistryKeyReadEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Read Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryKeyRenamingEvent
   {:d3f/definition
@@ -44500,7 +46766,10 @@
    :db/ident :d3f/WindowsRegistryKeyRenamingEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Renaming Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryKeyRestoreEvent
   {:d3f/definition
@@ -44516,7 +46785,10 @@
    :db/ident :d3f/WindowsRegistryKeySetSecurityEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Set Security Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryKeyUpdateEvent
   {:d3f/definition
@@ -44524,7 +46796,10 @@
    :db/ident :d3f/WindowsRegistryKeyUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Update Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryValue
   {:d3f/contained-by :d3f/WindowsRegistryKey,
@@ -44554,7 +46829,10 @@
    :db/ident :d3f/WindowsRegistryValueDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Value Deletion Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryValueEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryValueSetEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryValueEvent}})
 
 (def WindowsRegistryValueEvent
   {:d3f/definition
@@ -44576,7 +46854,10 @@
    :db/ident :d3f/WindowsRegistryValueGetEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Value Get Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryValueEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryValueSetEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryValueEvent}})
 
 (def WindowsRegistryValueSetEvent
   {:d3f/definition
@@ -44592,7 +46873,10 @@
    :db/ident :d3f/WindowsRegistryValueUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Value Update Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryValueEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryValueSetEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryValueEvent}})
 
 (def WindowsResumeThread
   {:d3f/definition
@@ -44772,6 +47056,22 @@
                        :rdf/type           :owl/Restriction}},
    :skos/altLabel "WAP"})
 
+(def WirelessAttacker
+  {:d3f/definition
+   "An attacker who targets wireless communication methods, like Wi-Fi, without needing physical access to the premises.",
+   :db/ident :d3f/WirelessAttacker,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wireless Attacker",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/WirelessAccessPoint,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/WirelessRouter,
+                       :rdf/type           :owl/Restriction} :d3f/RemoteAttacker
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/PhysicalLink,
+                       :rdf/type           :owl/Restriction}}})
+
 (def WirelessRouter
   {:d3f/definition
    "A wireless router is a device that performs the functions of a router and also includes the functions of a wireless access point. It is used to provide access to the Internet or a private computer network. Depending on the manufacturer and model, it can function in a wired local area network, in a wireless-only LAN, or in a mixed wired and wireless network.",
@@ -44803,6 +47103,22 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/MemoryBlock,
                        :rdf/type           :owl/Restriction} :d3f/SystemCall}})
+
+(def WriteProtectSwitch
+  {:d3f/definition
+   "A physical device used to restrict configuration of a device.",
+   :d3f/restricts :d3f/Storage,
+   :db/ident :d3f/WriteProtectSwitch,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Write Protect Switch",
+   :rdfs/seeAlso
+   #{{:rdf/value
+      "NIST SP 800-82r3, Appendix F, SC-51 Hardware-Based Protection"}
+     {:xsd/anyURI "https://web-material3.yokogawa.com/FGP-110__5_.us.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
+                       :owl/someValuesFrom :d3f/Storage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDevice}})
 
 (def X86CodeSegment
   {:db/ident   :d3f/X86CodeSegment,
@@ -45063,6 +47379,14 @@
    :rdfs/label         "configures",
    :rdfs/subPropertyOf #{:d3f/hardens :d3f/associated-with}})
 
+(def connected-to
+  {:d3f/definition
+   "x connected-to y: The subject x shares a direct physical or logical link with object y such that communication is possible between them without intermediate routing.",
+   :db/ident :d3f/connected-to,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "connected-to",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def connects
   {:d3f/definition
    "x connects y: The subject x joins system y by means of communication equipment (to some other system, typically the adversary-targeted host).",
@@ -45208,8 +47532,7 @@
   {:db/ident           :d3f/d3fend-catalog-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-catalog-data-property",
-   :rdfs/subPropertyOf #{:d3f/d3fend-external-control-data-property
-                         :d3f/d3fend-data-property},
+   :rdfs/subPropertyOf :d3f/d3fend-data-property,
    :skos/altLabel      {:rdf/language "en",
                         :rdf/value    "d3fend-vendor-registry-data-property"}})
 
@@ -45245,7 +47568,8 @@
   {:db/ident           :d3f/d3fend-external-control-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-external-control-data-property",
-   :rdfs/subPropertyOf :d3f/d3fend-data-property})
+   :rdfs/subPropertyOf #{:d3f/d3fend-catalog-data-property
+                         :d3f/d3fend-data-property}})
 
 (def d3fend-general-object-property
   {:db/ident           :d3f/d3fend-general-object-property,
@@ -45342,6 +47666,14 @@
    :rdfs/label         "deceives-with",
    :rdfs/subPropertyOf :d3f/d3fend-tactical-verb-property})
 
+(def decodes
+  {:d3f/definition
+   "x decodes y: Entity x transforms data y to a different form, usually through decompression.",
+   :db/ident :d3f/decodes,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "decodes",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def definition
   {:d3f/definition "x definition y: The d3fend object x has the definition y.",
    :db/ident :d3f/definition,
@@ -45370,10 +47702,10 @@
    :rdfs/label "dependent",
    :rdfs/subPropertyOf :d3f/associated-with})
 
-(def dependsOn
+(def depends-on
   {:d3f/definition
    "x depends-on y: The entity x is contingent on y being available; x relies on y.",
-   :db/ident :d3f/dependsOn,
+   :db/ident :d3f/depends-on,
    :owl/inverseOf :d3f/has-dependent,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -45479,6 +47811,14 @@
    :rdfs/label "enables",
    :rdfs/subPropertyOf :d3f/associated-with})
 
+(def encodes
+  {:d3f/definition
+   "x encodes y: Entity x transforms data y to a different form, usually through compression.",
+   :db/ident :d3f/encodes,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "encodes",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def encrypts
   {:d3f/definition
    "x encrypts y: The entity x converts the ordinary representation of a digital artifact y into a secret code.",
@@ -45494,6 +47834,14 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "end",
    :rdfs/subPropertyOf :d3f/d3fend-process-object-property})
+
+(def enforces
+  {:d3f/definition
+   "x enforces y: Technique x forces entity y to be compliant with a law, rule, or obligation.",
+   :db/ident :d3f/enforces,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "enforces",
+   :rdfs/subPropertyOf :d3f/associated-with})
 
 (def enumerates
   {:d3f/definition
@@ -45536,6 +47884,13 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "exactly",
    :rdfs/subPropertyOf :d3f/semantic-relation})
+
+(def excises
+  {:d3f/definition "x excises y: Technique x removes a section of entity y.",
+   :db/ident :d3f/excises,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "excises",
+   :rdfs/subPropertyOf :d3f/associated-with})
 
 (def executed-by
   {:db/ident           :d3f/executed-by,
@@ -46457,7 +48812,7 @@
    :owl/inverseOf :d3f/powers,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "powered-by",
-   :rdfs/subPropertyOf :d3f/dependsOn})
+   :rdfs/subPropertyOf :d3f/depends-on})
 
 (def powers
   {:d3f/definition
@@ -46625,6 +48980,14 @@
    :rdfs/range         :xsd/dateTime,
    :rdfs/subPropertyOf :d3f/date})
 
+(def quarantines
+  {:d3f/definition
+   "x quarantines y: Technique x moves entity y to a place of isolation.",
+   :db/ident :d3f/quarantines,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "quarantines",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def queries
   {:db/ident           :d3f/queries,
    :rdf/type           :owl/ObjectProperty,
@@ -46649,9 +49012,12 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def recorded-in
-  {:db/ident           :d3f/recorded-in,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "recorded-in",
+  {:d3f/definition
+   "x recorded-in y: The event x is documented, logged, or otherwise preserved within the digital artifact y, which stores or encodes relevant data about the event.",
+   :db/ident :d3f/recorded-in,
+   :owl/inverseOf :d3f/records,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "recorded-in",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def records
@@ -46731,6 +49097,36 @@
                       "http://wordnet-rdf.princeton.edu/id/00350758-v"},
    :rdfs/label "resumes",
    :rdfs/subPropertyOf :d3f/associated-with})
+
+(def risk-impact
+  {:d3f/definition
+   "Risk impact rating, expressed on a numeric scale from 1 (lowest impact) to 5 (highest impact) in the context of a 5x5 risk matrix. Impact is used here as a synonym for consequence, another popular term used in risk analysis.",
+   :db/ident :d3f/risk-impact,
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://www.cto.mil/wp-content/uploads/2024/05/RIO-2023-2-2.pdf"},
+   :rdfs/label "risk-impact",
+   :rdfs/range {:owl/onDatatype :xsd/integer,
+                :owl/withRestrictions [{:xsd/minInclusive 1M}
+                                       {:xsd/maxInclusive 5M}],
+                :rdf/type       :rdfs/Datatype},
+   :rdfs/subPropertyOf :d3f/d3fend-data-property})
+
+(def risk-likelihood
+  {:d3f/definition
+   "Risk likelihood rating, expressed on a numeric scale from 1 (lowest likelihood) to 5 (highest likelihood) in the context of a 5x5 risk matrix.",
+   :db/ident :d3f/risk-likelihood,
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://www.cto.mil/wp-content/uploads/2024/05/RIO-2023-2-2.pdf"},
+   :rdfs/label "risk-likelihood",
+   :rdfs/range {:owl/onDatatype :xsd/integer,
+                :owl/withRestrictions [{:xsd/minInclusive 1M}
+                                       {:xsd/maxInclusive 5M}],
+                :rdf/type       :rdfs/Datatype},
+   :rdfs/subPropertyOf :d3f/d3fend-data-property})
 
 (def runs
   {:d3f/definition
@@ -46873,6 +49269,15 @@
                         :rdf/value    "title"},
    :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :d3f/d3fend-catalog-data-property})
+
+(def transmits
+  {:d3f/definition
+   "x transmits y: The subject x actively emits object y onto a communication medium, rendering y observable and available for reception on that medium.",
+   :db/ident :d3f/transmits,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "transmits",
+   :rdfs/subPropertyOf :d3f/associated-with,
+   :skos/altLabel "sends"})
 
 (def unloads
   {:d3f/definition
@@ -47018,15 +49423,15 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
-  {:d3f/release-date #inst "2024-12-20T00:42:42.042-00:00",
+  {:d3f/release-date #inst "2025-04-21T00:12:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.0.0/d3fend.owl"},
-   :owl/versionInfo "1.0.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl"},
+   :owl/versionInfo "1.1.0",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
