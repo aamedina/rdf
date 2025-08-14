@@ -53,8 +53,8 @@ jobs:
         uses: clj-holmes/clj-watson-action@main
         with:
           aliases: ''
-          clj-watson-sha: "56dfd3e"
-          clj-watson-tag: "v4.1.3"
+          clj-watson-sha: "b520351"
+          clj-watson-tag: "v6.0.1"
           deps-edn-path: 'deps.edn'
           suggest-fix: true
           output-type: 'stdout-simple'
