@@ -255,7 +255,7 @@
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
 (def d3f
-  {:dcat/downloadURL "https://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl"
+  {:dcat/downloadURL "https://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl"
    :rdfa/uri         "http://d3fend.mitre.org/ontologies/d3fend.owl#"
    :rdfa/prefix      "d3f"
    :rdf/type         :rdfa/PrefixMapping

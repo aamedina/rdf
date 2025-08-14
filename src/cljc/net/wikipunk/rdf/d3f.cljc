@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.d3f
-  {:d3f/release-date #inst "2025-04-21T00:12:00.000-00:00",
+  {:d3f/release-date #inst "2025-08-01T00:12:00.000-00:00",
    :dcat/downloadURL
-   "https://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl",
+   "https://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
@@ -15,8 +15,8 @@
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl"},
-   :owl/versionInfo "1.1.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl"},
+   :owl/versionInfo "1.2.0",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
    :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
@@ -158,7 +158,7 @@
 
 (def AccessControlConfiguration
   {:d3f/definition
-   "Information about what access permissions are granted to particular users for particular objects",
+   "Information about what access permissions are granted to particular users for particular objects.",
    :db/ident :d3f/AccessControlConfiguration,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Access Control Configuration",
@@ -222,7 +222,7 @@
 (def AccessMediation
   {:d3f/d3fend-id "D3-AMED",
    :d3f/definition
-   "Access mediation is the process of granting or denying specific requests to: 1) obtain and use information and related information processing services; and 2) enter specific physical facilities (e.g., Federal buildings, military establishments, border crossing entrances).",
+   "Access mediation is the process of granting or denying specific requests to: 1) obtain and use information and related information processing services; and 2) enter specific physical facilities (e.g., Federal buildings, military establishments, border crossing entrances). Access mediation decisions should enforce least privilege by granting access for scoped durations to prevent privilege creep and, where applicable, implement just-in-time (JIT) access. Denial decisions may prevent initial access or terminate access that has already been granted, ensuring continuous enforcement of security policies.",
    :d3f/enables :d3f/Isolate,
    :d3f/kb-reference :d3f/Reference-CNNSI-4009,
    :d3f/synonym "Access Control",
@@ -256,18 +256,20 @@
    :skos/altLabel "Access Enforcement Event"})
 
 (def AccessMediator
-  {:d3f/implements  :d3f/AccessControlConfiguration,
+  {:d3f/definition
+   "An Access Mediator enforces access control policies to regulate interactions with a resource.",
+   :d3f/implements :d3f/AccessControlConfiguration,
    :d3f/mediates-access-to :d3f/Resource,
-   :d3f/used-by     :d3f/Agent,
-   :db/ident        :d3f/AccessMediator,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Access Mediator",
+   :d3f/used-by :d3f/Agent,
+   :db/ident :d3f/AccessMediator,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Access Mediator",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/used-by,
                        :owl/someValuesFrom :d3f/Agent,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/implements,
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
-                       :rdf/type           :owl/Restriction} :d3f/D3FENDCore
+                       :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformationBearer
                       {:owl/onProperty     :d3f/mediates-access-to,
                        :owl/someValuesFrom :d3f/Resource,
@@ -276,14 +278,18 @@
 (def AccessModeling
   {:d3f/d3fend-id "D3-AM",
    :d3f/definition
-   "Access modeling identifies and records the access permissions granted to administrators, users, groups, and systems.",
+   "Access modeling captures and records the access permissions granted to identities (e.g., administrators, users, groups, systems) and optionally includes details on how these identities are stored, managed, and shared across systems.",
    :d3f/kb-reference
    :d3f/Reference-RFC7642SystemForCrossDomainIdentityManagementDefinitionsOverviewConceptsAndRequirements,
-   :d3f/maps #{:d3f/UserAccount :d3f/AccessControlConfiguration},
+   :d3f/maps #{:d3f/DigitalIdentity :d3f/UserAccount
+               :d3f/AccessControlConfiguration},
    :db/ident :d3f/AccessModeling,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Access Modeling",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
+                       :owl/someValuesFrom :d3f/DigitalIdentity,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}
                       :d3f/OperationalActivityMapping
@@ -344,9 +350,11 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Action
-  {:db/ident        :d3f/Action,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Action",
+  {:d3f/definition
+   "An Action is a deliberate operation or activity performed by an entity.",
+   :db/ident :d3f/Action,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Action",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-agent,
                        :owl/someValuesFrom :d3f/Agent,
                        :rdf/type           :owl/Restriction} :d3f/Event}})
@@ -384,14 +392,14 @@
    :d3f/kb-reference
    #{:d3f/Reference-IdentificationOfTracerouteNodesAndAssociatedDevices
      :d3f/Reference-SNMPNetworkAutoDiscovery},
-   :d3f/may-query :d3f/CollectorAgent,
+   :d3f/may-query :d3f/NetworkAgent,
    :db/ident :d3f/ActiveLogicalLinkMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Active Logical Link Mapping",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-query,
-                       :owl/someValuesFrom :d3f/CollectorAgent,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/LogicalLinkMapping}})
+   :rdfs/subClassOf #{:d3f/LogicalLinkMapping
+                      {:owl/onProperty     :d3f/may-query,
+                       :owl/someValuesFrom :d3f/NetworkAgent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ActivePhysicalLinkMapping
   {:d3f/d3fend-id "D3-APLM",
@@ -400,16 +408,16 @@
    :d3f/kb-reference
    #{:d3f/Reference-IdentificationOfTracerouteNodesAndAssociatedDevices
      :d3f/Reference-UsingSpanningTreeProtocolSTPToEnhanceLayer2NetworkTopologyMaps},
-   :d3f/may-query :d3f/CollectorAgent,
+   :d3f/may-query :d3f/NetworkAgent,
    :d3f/synonym "Active Physical Layer Mapping",
    :db/ident :d3f/ActivePhysicalLinkMapping,
    :owl/disjointWith :d3f/DirectPhysicalLinkMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Active Physical Link Mapping",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-query,
-                       :owl/someValuesFrom :d3f/CollectorAgent,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/PhysicalLinkMapping}})
+   :rdfs/subClassOf #{:d3f/PhysicalLinkMapping
+                      {:owl/onProperty     :d3f/may-query,
+                       :owl/someValuesFrom :d3f/NetworkAgent,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ActivityDependency
   {:d3f/definition
@@ -462,6 +470,9 @@
                       :d3f/GroupManagementEvent
                       {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}}})
 
 (def AddressSpace
@@ -724,6 +735,20 @@
                        :owl/someValuesFrom :d3f/ApplicationConfiguration,
                        :rdf/type           :owl/Restriction}}})
 
+(def ApplicationConfigurationModificationEvent
+  {:d3f/definition
+   "An event in which the configuration of a specific software application is changed, affecting how that application executes, interacts with other components, or exposes functionality to users or services.",
+   :db/ident :d3f/ApplicationConfigurationModificationEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Configuration Modification Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/ApplicationUpdateEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ConfigurationModificationEvent}})
+
 (def ApplicationDeletionEvent
   {:d3f/definition
    "An event capturing the removal of an application from a system, ensuring its binaries, configuration files, and registry entries are deleted or deactivated.",
@@ -792,12 +817,17 @@
    :db/ident :d3f/ApplicationInstallationEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Application Installation Event",
-   :rdfs/subClassOf :d3f/ApplicationEvent})
+   :rdfs/subClassOf #{:d3f/ApplicationEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/SoftwareDeploymentTool,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ApplicationInstaller
-  {:db/ident        :d3f/ApplicationInstaller,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Application Installer",
+  {:d3f/definition
+   "An application installer is a user application designed to install, configure, and deploy another application.",
+   :db/ident :d3f/ApplicationInstaller,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Installer",
    :rdfs/subClassOf :d3f/UserApplication})
 
 (def ApplicationInventorySensor
@@ -831,9 +861,11 @@
    :skos/altLabel "Application Firewall"})
 
 (def ApplicationLayerLink
-  {:db/ident        :d3f/ApplicationLayerLink,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Application Layer Link",
+  {:d3f/definition
+   "An Application Layer Link is a type of logical link that exists at the application layer of a network or system architecture.",
+   :db/ident :d3f/ApplicationLayerLink,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Layer Link",
    :rdfs/subClassOf :d3f/LogicalLink})
 
 (def ApplicationProcess
@@ -1001,7 +1033,7 @@
    :rdfs/seeAlso
    {:xsd/anyURI
     "https://www.ninjaone.com/blog/how-to-do-an-it-asset-inventory"},
-   :rdfs/subClassOf :d3f/CollectorAgent})
+   :rdfs/subClassOf :d3f/NetworkAgent})
 
 (def AssetVulnerabilityEnumeration
   {:d3f/d3fend-id "D3-AVE",
@@ -1036,7 +1068,7 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/GroupCreationEvent,
                        :rdf/type           :owl/Restriction}
-                      :d3f/GroupManagementEvent}})
+                      :d3f/PermissionGrantingEvent :d3f/GroupManagementEvent}})
 
 (def AssociationRuleLearning
   {:d3f/d3fend-id "D3A-ARL",
@@ -1205,17 +1237,27 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def AuthenticationServer
-  {:d3f/definition
+  {:d3f/contains :d3f/AuthenticationServiceApplication,
+   :d3f/definition
    "An authentication server provides a network service that applications use to authenticate the credentials, usually account names and passwords, of their users. When a client submits a valid set of credentials, it receives a cryptographic ticket that it can subsequently use to access various services. Major authentication algorithms include passwords, Kerberos, and public key encryption.",
+   :d3f/manages :d3f/AuthenticationService,
    :db/ident :d3f/AuthenticationServer,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Authentication_server"},
    :rdfs/label "Authentication Server",
-   :rdfs/subClassOf :d3f/Server})
+   :rdfs/subClassOf #{:d3f/Server
+                      {:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/AuthenticationService,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty :d3f/contains,
+                       :owl/someValuesFrom
+                       :d3f/AuthenticationServiceApplication,
+                       :rdf/type :owl/Restriction}}})
 
 (def AuthenticationService
-  {:d3f/definition
+  {:d3f/authenticates :d3f/Host,
+   :d3f/definition
    "An authentication service is a mechanism, analogous to the use of passwords on time-sharing systems, for the secure authentication of the identity of network clients by servers and vice versa, without presuming the operating system integrity of either (e.g., Kerberos).",
    :db/ident :d3f/AuthenticationService,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -1224,7 +1266,22 @@
     "https://www.gartner.com/en/information-technology/glossary/authentication-service"},
    :rdfs/label "Authentication Service",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Authentication"},
-   :rdfs/subClassOf :d3f/ServiceApplicationProcess})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/authenticates,
+                       :owl/someValuesFrom :d3f/Host,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplicationProcess}})
+
+(def AuthenticationServiceApplication
+  {:d3f/definition
+   "A software application designed to verify the identity of users or devices.",
+   :d3f/instructs :d3f/AuthenticationService,
+   :db/ident :d3f/AuthenticationServiceApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Authentication Service Application",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/instructs,
+                       :owl/someValuesFrom :d3f/AuthenticationService,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplication}})
 
 (def Authorization
   {:d3f/definition
@@ -5340,14 +5397,19 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-1004
-  {:d3f/cwe-id      "CWE-1004",
-   :db/ident        :d3f/CWE-1004,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Sensitive Cookie Without 'HttpOnly' Flag",
+  {:d3f/cwe-id "CWE-1004",
+   :d3f/definition
+   "The product uses a cookie to store sensitive information, but the cookie is not marked with the HttpOnly flag.",
+   :db/ident :d3f/CWE-1004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Sensitive Cookie Without 'HttpOnly' Flag",
    :rdfs/subClassOf :d3f/CWE-732})
 
 (def CWE-1007
   {:d3f/cwe-id "CWE-1007",
+   :d3f/definition
+   "The product displays information or identifiers to a user, but the display mechanism does not make it easy for the user to distinguish between visually similar or identical glyphs (homoglyphs), which may cause the user to misinterpret a glyph and perform an unintended, insecure action.",
+   :d3f/synonym "Homograph Attack",
    :db/ident :d3f/CWE-1007,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5355,56 +5417,74 @@
    :rdfs/subClassOf :d3f/CWE-451})
 
 (def CWE-102
-  {:d3f/cwe-id      "CWE-102",
-   :db/ident        :d3f/CWE-102,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Duplicate Validation Forms",
+  {:d3f/cwe-id "CWE-102",
+   :d3f/definition
+   "The product uses multiple validation forms with the same name, which might cause the Struts Validator to validate a form that the programmer does not expect.",
+   :db/ident :d3f/CWE-102,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Duplicate Validation Forms",
    :rdfs/subClassOf #{:d3f/CWE-1173 :d3f/CWE-694}})
 
 (def CWE-1021
-  {:d3f/cwe-id      "CWE-1021",
-   :db/ident        :d3f/CWE-1021,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Restriction of Rendered UI Layers or Frames",
+  {:d3f/cwe-id "CWE-1021",
+   :d3f/definition
+   "The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain, which can lead to user confusion about which interface the user is interacting with.",
+   :d3f/synonym #{"UI Redress Attack" "Tapjacking" "Clickjacking"},
+   :db/ident :d3f/CWE-1021,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Restriction of Rendered UI Layers or Frames",
    :rdfs/subClassOf #{:d3f/CWE-441 :d3f/CWE-451}})
 
 (def CWE-1022
   {:d3f/cwe-id "CWE-1022",
+   :d3f/definition
+   "The web application produces links to untrusted external sites outside of its sphere of control, but it does not properly prevent the external site from modifying security-critical properties of the window.opener object, such as the location property.",
+   :d3f/synonym "tabnabbing",
    :db/ident :d3f/CWE-1022,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Web Link to Untrusted Target with window.opener Access",
    :rdfs/subClassOf :d3f/CWE-266})
 
 (def CWE-1023
-  {:d3f/cwe-id      "CWE-1023",
-   :db/ident        :d3f/CWE-1023,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Comparison with Missing Factors",
+  {:d3f/cwe-id "CWE-1023",
+   :d3f/definition
+   "The product performs a comparison between entities that must consider multiple factors or characteristics of each entity, but the comparison does not include one or more of these factors.",
+   :db/ident :d3f/CWE-1023,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Comparison with Missing Factors",
    :rdfs/subClassOf :d3f/CWE-697})
 
 (def CWE-1024
-  {:d3f/cwe-id      "CWE-1024",
-   :db/ident        :d3f/CWE-1024,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Comparison of Incompatible Types",
+  {:d3f/cwe-id "CWE-1024",
+   :d3f/definition
+   "The product performs a comparison between two entities, but the entities are of different, incompatible types that cannot be guaranteed to provide correct results when they are directly compared.",
+   :db/ident :d3f/CWE-1024,
+   :rdf/type :owl/Class,
+   :rdfs/label "Comparison of Incompatible Types",
    :rdfs/subClassOf :d3f/CWE-697})
 
 (def CWE-1025
-  {:d3f/cwe-id      "CWE-1025",
-   :db/ident        :d3f/CWE-1025,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Comparison Using Wrong Factors",
+  {:d3f/cwe-id "CWE-1025",
+   :d3f/definition
+   "The code performs a comparison between two entities, but the comparison examines the wrong factors or characteristics of the entities, which can lead to incorrect results and resultant weaknesses.",
+   :db/ident :d3f/CWE-1025,
+   :rdf/type :owl/Class,
+   :rdfs/label "Comparison Using Wrong Factors",
    :rdfs/subClassOf :d3f/CWE-697})
 
 (def CWE-103
-  {:d3f/cwe-id      "CWE-103",
-   :db/ident        :d3f/CWE-103,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Incomplete validate() Method Definition",
+  {:d3f/cwe-id "CWE-103",
+   :d3f/definition
+   "The product has a validator form that either does not define a validate() method, or defines a validate() method but does not call super.validate().",
+   :db/ident :d3f/CWE-103,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Incomplete validate() Method Definition",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-1037
   {:d3f/cwe-id "CWE-1037",
+   :d3f/definition
+   "The developer builds a security-critical protection mechanism into the software, but the processor optimizes the execution of the program such that the mechanism is removed or modified.",
    :db/ident :d3f/CWE-1037,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5412,36 +5492,47 @@
    :rdfs/subClassOf :d3f/CWE-1038})
 
 (def CWE-1038
-  {:d3f/cwe-id      "CWE-1038",
-   :db/ident        :d3f/CWE-1038,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Automated Optimizations",
+  {:d3f/cwe-id "CWE-1038",
+   :d3f/definition
+   "The product uses a mechanism that automatically optimizes code, e.g. to improve a characteristic such as performance, but the optimizations can have an unintended side effect that might violate an intended security assumption.",
+   :db/ident :d3f/CWE-1038,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Automated Optimizations",
    :rdfs/subClassOf #{:d3f/CWE-758 :d3f/CWE-435}})
 
 (def CWE-1039
   {:d3f/cwe-id "CWE-1039",
+   :d3f/definition
+   "The product uses an automated mechanism such as machine learning to recognize complex data inputs (e.g. image or audio) as a particular concept or category, but it does not properly detect or handle inputs that have been modified or constructed in a way that causes the mechanism to detect a different, incorrect concept.",
    :db/ident :d3f/CWE-1039,
    :rdf/type :owl/Class,
    :rdfs/label
-   "Automated Recognition Mechanism with Inadequate Detection or Handling of Adversarial Input Perturbations",
+   #{"Inadequate Detection or Handling of Adversarial Input Perturbations in Automated Recognition Mechanism"
+     "Automated Recognition Mechanism with Inadequate Detection or Handling of Adversarial Input Perturbations"},
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-697}})
 
 (def CWE-104
-  {:d3f/cwe-id      "CWE-104",
-   :db/ident        :d3f/CWE-104,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Form Bean Does Not Extend Validation Class",
+  {:d3f/cwe-id "CWE-104",
+   :d3f/definition
+   "If a form bean does not extend an ActionForm subclass of the Validator framework, it can expose the application to other weaknesses related to insufficient input validation.",
+   :db/ident :d3f/CWE-104,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Form Bean Does Not Extend Validation Class",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-1041
-  {:d3f/cwe-id      "CWE-1041",
-   :db/ident        :d3f/CWE-1041,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Redundant Code",
+  {:d3f/cwe-id "CWE-1041",
+   :d3f/definition
+   "The product has multiple functions, methods, procedures, macros, etc. that contain the same code.",
+   :db/ident :d3f/CWE-1041,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Redundant Code",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1042
   {:d3f/cwe-id "CWE-1042",
+   :d3f/definition
+   "The code contains a member element that is declared as static (but not final), in which its parent class element is not a singleton class - that is, a class element that can be used only once in the 'to' association of a Create action.",
    :db/ident :d3f/CWE-1042,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5450,6 +5541,8 @@
 
 (def CWE-1043
   {:d3f/cwe-id "CWE-1043",
+   :d3f/definition
+   "The product uses a data element that has an excessively large number of sub-elements with non-primitive data types such as structures or aggregated objects.",
    :db/ident :d3f/CWE-1043,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5458,6 +5551,8 @@
 
 (def CWE-1044
   {:d3f/cwe-id "CWE-1044",
+   :d3f/definition
+   "The product's architecture contains too many - or too few - horizontal layers.",
    :db/ident :d3f/CWE-1044,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5466,6 +5561,8 @@
 
 (def CWE-1045
   {:d3f/cwe-id "CWE-1045",
+   :d3f/definition
+   "A parent class has a virtual destructor method, but the parent has a child class that does not have a virtual destructor.",
    :db/ident :d3f/CWE-1045,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5473,71 +5570,91 @@
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-1046
-  {:d3f/cwe-id      "CWE-1046",
-   :db/ident        :d3f/CWE-1046,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Creation of Immutable Text Using String Concatenation",
+  {:d3f/cwe-id "CWE-1046",
+   :d3f/definition
+   "The product creates an immutable text string using string concatenation operations.",
+   :db/ident :d3f/CWE-1046,
+   :rdf/type :owl/Class,
+   :rdfs/label "Creation of Immutable Text Using String Concatenation",
    :rdfs/subClassOf :d3f/CWE-1176})
 
 (def CWE-1047
-  {:d3f/cwe-id      "CWE-1047",
-   :db/ident        :d3f/CWE-1047,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Modules with Circular Dependencies",
+  {:d3f/cwe-id "CWE-1047",
+   :d3f/definition
+   "The product contains modules in which one module has references that cycle back to itself, i.e., there are circular dependencies.",
+   :db/ident :d3f/CWE-1047,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modules with Circular Dependencies",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1048
   {:d3f/cwe-id "CWE-1048",
+   :d3f/definition
+   "The code contains callable control elements that contain an excessively large number of references to other application objects external to the context of the callable, i.e. a Fan-Out value that is excessively large.",
    :db/ident :d3f/CWE-1048,
    :rdf/type :owl/Class,
    :rdfs/label "Invokable Control Element with Large Number of Outward Calls",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1049
-  {:d3f/cwe-id      "CWE-1049",
-   :db/ident        :d3f/CWE-1049,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Data Query Operations in a Large Data Table",
+  {:d3f/cwe-id "CWE-1049",
+   :d3f/definition
+   "The product performs a data query with a large number of joins and sub-queries on a large data table.",
+   :db/ident :d3f/CWE-1049,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Data Query Operations in a Large Data Table",
    :rdfs/subClassOf :d3f/CWE-1176})
 
 (def CWE-105
-  {:d3f/cwe-id      "CWE-105",
-   :db/ident        :d3f/CWE-105,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Form Field Without Validator",
+  {:d3f/cwe-id "CWE-105",
+   :d3f/definition
+   "The product has a form field that is not validated by a corresponding validation form, which can introduce other weaknesses related to insufficient input validation.",
+   :db/ident :d3f/CWE-105,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Form Field Without Validator",
    :rdfs/subClassOf :d3f/CWE-1173})
 
 (def CWE-1050
-  {:d3f/cwe-id      "CWE-1050",
-   :db/ident        :d3f/CWE-1050,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Platform Resource Consumption within a Loop",
+  {:d3f/cwe-id "CWE-1050",
+   :d3f/definition
+   "The product has a loop body or loop condition that contains a control element that directly or indirectly consumes platform resources, e.g. messaging, sessions, locks, or file descriptors.",
+   :db/ident :d3f/CWE-1050,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Platform Resource Consumption within a Loop",
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-1051
   {:d3f/cwe-id "CWE-1051",
+   :d3f/definition
+   "The product initializes data using hard-coded values that act as network resource identifiers.",
    :db/ident :d3f/CWE-1051,
    :rdf/type :owl/Class,
    :rdfs/label
    "Initialization with Hard-Coded Network Resource Configuration Data",
-   :rdfs/subClassOf :d3f/CWE-665})
+   :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-1419}})
 
 (def CWE-1052
-  {:d3f/cwe-id      "CWE-1052",
-   :db/ident        :d3f/CWE-1052,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Use of Hard-Coded Literals in Initialization",
-   :rdfs/subClassOf :d3f/CWE-665})
+  {:d3f/cwe-id "CWE-1052",
+   :d3f/definition
+   "The product initializes a data element using a hard-coded literal that is not a simple integer or static constant element.",
+   :db/ident :d3f/CWE-1052,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Use of Hard-Coded Literals in Initialization",
+   :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-1419}})
 
 (def CWE-1053
-  {:d3f/cwe-id      "CWE-1053",
-   :db/ident        :d3f/CWE-1053,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Documentation for Design",
+  {:d3f/cwe-id "CWE-1053",
+   :d3f/definition
+   "The product does not have documentation that represents how it is designed.",
+   :db/ident :d3f/CWE-1053,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Documentation for Design",
    :rdfs/subClassOf :d3f/CWE-1059})
 
 (def CWE-1054
   {:d3f/cwe-id "CWE-1054",
+   :d3f/definition
+   "The code at one architectural layer invokes code that resides at a deeper layer than the adjacent layer, i.e., the invocation skips at least one layer, and the invoked code is not part of a vertical utility layer that can be referenced from any horizontal layer.",
    :db/ident :d3f/CWE-1054,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5545,21 +5662,27 @@
    :rdfs/subClassOf :d3f/CWE-1061})
 
 (def CWE-1055
-  {:d3f/cwe-id      "CWE-1055",
-   :db/ident        :d3f/CWE-1055,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multiple Inheritance from Concrete Classes",
+  {:d3f/cwe-id "CWE-1055",
+   :d3f/definition
+   "The product contains a class with inheritance from more than one concrete class.",
+   :db/ident :d3f/CWE-1055,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multiple Inheritance from Concrete Classes",
    :rdfs/subClassOf :d3f/CWE-1093})
 
 (def CWE-1056
-  {:d3f/cwe-id      "CWE-1056",
-   :db/ident        :d3f/CWE-1056,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Invokable Control Element with Variadic Parameters",
+  {:d3f/cwe-id "CWE-1056",
+   :d3f/definition
+   "A named-callable or method control element has a signature that supports a variable (variadic) number of parameters or arguments.",
+   :db/ident :d3f/CWE-1056,
+   :rdf/type :owl/Class,
+   :rdfs/label "Invokable Control Element with Variadic Parameters",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1057
   {:d3f/cwe-id "CWE-1057",
+   :d3f/definition
+   "The product uses a dedicated, central data manager component as required by design, but it contains code that performs data-access operations that do not use this data manager.",
    :db/ident :d3f/CWE-1057,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5568,6 +5691,8 @@
 
 (def CWE-1058
   {:d3f/cwe-id "CWE-1058",
+   :d3f/definition
+   "The code contains a function or method that operates in a multi-threaded environment but owns an unsafe non-final static storable or member data element.",
    :db/ident :d3f/CWE-1058,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5575,42 +5700,53 @@
    :rdfs/subClassOf :d3f/CWE-662})
 
 (def CWE-1059
-  {:d3f/cwe-id      "CWE-1059",
-   :db/ident        :d3f/CWE-1059,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Technical Documentation",
+  {:d3f/cwe-id "CWE-1059",
+   :d3f/definition
+   "The product does not contain sufficient technical or engineering documentation (whether on paper or in electronic form) that contains descriptions of all the relevant software/hardware elements of the product, such as its usage, structure, architectural components, interfaces, design, implementation, configuration, operation, etc.",
+   :db/ident :d3f/CWE-1059,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Technical Documentation",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-106
-  {:d3f/cwe-id      "CWE-106",
-   :db/ident        :d3f/CWE-106,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Plug-in Framework not in Use",
+  {:d3f/cwe-id "CWE-106",
+   :d3f/definition
+   "When an application does not use an input validation framework such as the Struts Validator, there is a greater risk of introducing weaknesses related to insufficient input validation.",
+   :db/ident :d3f/CWE-106,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Plug-in Framework not in Use",
    :rdfs/subClassOf :d3f/CWE-1173})
 
 (def CWE-1060
-  {:d3f/cwe-id      "CWE-1060",
-   :db/ident        :d3f/CWE-1060,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Number of Inefficient Server-Side Data Accesses",
+  {:d3f/cwe-id "CWE-1060",
+   :d3f/definition
+   "The product performs too many data queries without using efficient data processing functionality such as stored procedures.",
+   :db/ident :d3f/CWE-1060,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Number of Inefficient Server-Side Data Accesses",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1061
-  {:d3f/cwe-id      "CWE-1061",
-   :db/ident        :d3f/CWE-1061,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Encapsulation",
+  {:d3f/cwe-id "CWE-1061",
+   :d3f/definition
+   "The product does not sufficiently hide the internal representation and implementation details of data or methods, which might allow external components or modules to modify data unexpectedly, invoke unexpected functionality, or introduce dependencies that the programmer did not intend.",
+   :db/ident :d3f/CWE-1061,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Encapsulation",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1062
-  {:d3f/cwe-id      "CWE-1062",
-   :db/ident        :d3f/CWE-1062,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Parent Class with References to Child Class",
+  {:d3f/cwe-id "CWE-1062",
+   :d3f/definition
+   "The code has a parent class that contains references to a child class, its methods, or its members.",
+   :db/ident :d3f/CWE-1062,
+   :rdf/type :owl/Class,
+   :rdfs/label "Parent Class with References to Child Class",
    :rdfs/subClassOf :d3f/CWE-1061})
 
 (def CWE-1063
   {:d3f/cwe-id      "CWE-1063",
+   :d3f/definition  "A static code block creates an instance of a class.",
    :db/ident        :d3f/CWE-1063,
    :rdf/type        :owl/Class,
    :rdfs/label      "Creation of Class Instance within a Static Code Block",
@@ -5618,6 +5754,8 @@
 
 (def CWE-1064
   {:d3f/cwe-id "CWE-1064",
+   :d3f/definition
+   "The product contains a function, subroutine, or method whose signature has an unnecessarily large number of parameters/arguments.",
    :db/ident :d3f/CWE-1064,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5626,6 +5764,8 @@
 
 (def CWE-1065
   {:d3f/cwe-id "CWE-1065",
+   :d3f/definition
+   "The product uses deployed components from application servers, but it also uses low-level functions/methods for management of resources, instead of the API provided by the application server.",
    :db/ident :d3f/CWE-1065,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5633,14 +5773,18 @@
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1066
-  {:d3f/cwe-id      "CWE-1066",
-   :db/ident        :d3f/CWE-1066,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Serialization Control Element",
+  {:d3f/cwe-id "CWE-1066",
+   :d3f/definition
+   "The product contains a serializable data element that does not have an associated serialization method.",
+   :db/ident :d3f/CWE-1066,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Serialization Control Element",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1067
   {:d3f/cwe-id "CWE-1067",
+   :d3f/definition
+   "The product contains a data query against an SQL table or view that is configured in a way that does not utilize an index and may cause sequential searches to be performed.",
    :db/ident :d3f/CWE-1067,
    :rdf/type :owl/Class,
    :rdfs/label "Excessive Execution of Sequential Searches of Data Resource",
@@ -5648,49 +5792,63 @@
 
 (def CWE-1068
   {:d3f/cwe-id "CWE-1068",
+   :d3f/definition
+   "The implementation of the product is not consistent with the design as described within the relevant documentation.",
    :db/ident :d3f/CWE-1068,
    :rdf/type :owl/Class,
    :rdfs/label "Inconsistency Between Implementation and Documented Design",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1069
-  {:d3f/cwe-id      "CWE-1069",
-   :db/ident        :d3f/CWE-1069,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Empty Exception Block",
+  {:d3f/cwe-id "CWE-1069",
+   :d3f/definition
+   "An invokable code block contains an exception handling block that does not contain any code, i.e. is empty.",
+   :db/ident :d3f/CWE-1069,
+   :rdf/type :owl/Class,
+   :rdfs/label "Empty Exception Block",
    :rdfs/subClassOf :d3f/CWE-1071})
 
 (def CWE-107
-  {:d3f/cwe-id      "CWE-107",
-   :db/ident        :d3f/CWE-107,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Unused Validation Form",
+  {:d3f/cwe-id "CWE-107",
+   :d3f/definition
+   "An unused validation form indicates that validation logic is not up-to-date.",
+   :db/ident :d3f/CWE-107,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Unused Validation Form",
    :rdfs/subClassOf :d3f/CWE-1164})
 
 (def CWE-1070
   {:d3f/cwe-id "CWE-1070",
+   :d3f/definition
+   "The product contains a serializable, storable data element such as a field or member, but the data element contains member elements that are not serializable.",
    :db/ident :d3f/CWE-1070,
    :rdf/type :owl/Class,
    :rdfs/label
    "Serializable Data Element Containing non-Serializable Item Elements",
-   :rdfs/subClassOf :d3f/CWE-710})
+   :rdfs/subClassOf #{:d3f/CWE-710 :d3f/CWE-1076}})
 
 (def CWE-1071
-  {:d3f/cwe-id      "CWE-1071",
-   :db/ident        :d3f/CWE-1071,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Empty Code Block",
+  {:d3f/cwe-id "CWE-1071",
+   :d3f/definition
+   "The source code contains a block that does not contain any code, i.e., the block is empty.",
+   :db/ident :d3f/CWE-1071,
+   :rdf/type :owl/Class,
+   :rdfs/label "Empty Code Block",
    :rdfs/subClassOf :d3f/CWE-1164})
 
 (def CWE-1072
-  {:d3f/cwe-id      "CWE-1072",
-   :db/ident        :d3f/CWE-1072,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Resource Access without Use of Connection Pooling",
+  {:d3f/cwe-id "CWE-1072",
+   :d3f/definition
+   "The product accesses a data resource through a database without using a connection pooling capability.",
+   :db/ident :d3f/CWE-1072,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Resource Access without Use of Connection Pooling",
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-1073
   {:d3f/cwe-id "CWE-1073",
+   :d3f/definition
+   "The product contains a client with a function or method that contains a large number of data accesses/queries that are sent through a data manager, i.e., does not use efficient database capabilities.",
    :db/ident :d3f/CWE-1073,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5698,77 +5856,98 @@
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-1074
-  {:d3f/cwe-id      "CWE-1074",
-   :db/ident        :d3f/CWE-1074,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Class with Excessively Deep Inheritance",
+  {:d3f/cwe-id "CWE-1074",
+   :d3f/definition
+   "A class has an inheritance level that is too high, i.e., it has a large number of parent classes.",
+   :db/ident :d3f/CWE-1074,
+   :rdf/type :owl/Class,
+   :rdfs/label "Class with Excessively Deep Inheritance",
    :rdfs/subClassOf :d3f/CWE-1093})
 
 (def CWE-1075
   {:d3f/cwe-id "CWE-1075",
+   :d3f/definition
+   "The product performs unconditional control transfer (such as a \"goto\") in code outside of a branching structure such as a switch block.",
    :db/ident :d3f/CWE-1075,
    :rdf/type :owl/Class,
    :rdfs/label "Unconditional Control Flow Transfer outside of Switch Block",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1076
-  {:d3f/cwe-id      "CWE-1076",
-   :db/ident        :d3f/CWE-1076,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Adherence to Expected Conventions",
+  {:d3f/cwe-id "CWE-1076",
+   :d3f/definition
+   "The product's architecture, source code, design, documentation, or other artifact does not follow required conventions.",
+   :db/ident :d3f/CWE-1076,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Adherence to Expected Conventions",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1077
-  {:d3f/cwe-id      "CWE-1077",
-   :db/ident        :d3f/CWE-1077,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Floating Point Comparison with Incorrect Operator",
+  {:d3f/cwe-id "CWE-1077",
+   :d3f/definition
+   "The code performs a comparison such as an equality test between two float (floating point) values, but it uses comparison operators that do not account for the possibility of loss of precision.",
+   :db/ident :d3f/CWE-1077,
+   :rdf/type :owl/Class,
+   :rdfs/label "Floating Point Comparison with Incorrect Operator",
    :rdfs/subClassOf :d3f/CWE-697})
 
 (def CWE-1078
-  {:d3f/cwe-id      "CWE-1078",
-   :db/ident        :d3f/CWE-1078,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inappropriate Source Code Style or Formatting",
+  {:d3f/cwe-id "CWE-1078",
+   :d3f/definition
+   "The source code does not follow desired style or formatting for indentation, white space, comments, etc.",
+   :db/ident :d3f/CWE-1078,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inappropriate Source Code Style or Formatting",
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-1079
-  {:d3f/cwe-id      "CWE-1079",
-   :db/ident        :d3f/CWE-1079,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Parent Class without Virtual Destructor Method",
+  {:d3f/cwe-id "CWE-1079",
+   :d3f/definition
+   "A parent class contains one or more child classes, but the parent class does not have a virtual destructor method.",
+   :db/ident :d3f/CWE-1079,
+   :rdf/type :owl/Class,
+   :rdfs/label "Parent Class without Virtual Destructor Method",
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-108
-  {:d3f/cwe-id      "CWE-108",
-   :db/ident        :d3f/CWE-108,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Unvalidated Action Form",
+  {:d3f/cwe-id "CWE-108",
+   :d3f/definition
+   "Every Action Form must have a corresponding validation form.",
+   :db/ident :d3f/CWE-108,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Unvalidated Action Form",
    :rdfs/subClassOf :d3f/CWE-1173})
 
 (def CWE-1080
   {:d3f/cwe-id      "CWE-1080",
+   :d3f/definition  "A source code file has too many lines of code.",
    :db/ident        :d3f/CWE-1080,
    :rdf/type        :owl/Class,
    :rdfs/label      "Source Code File with Excessive Number of Lines of Code",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1082
-  {:d3f/cwe-id      "CWE-1082",
-   :db/ident        :d3f/CWE-1082,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Class Instance Self Destruction Control Element",
+  {:d3f/cwe-id "CWE-1082",
+   :d3f/definition
+   "The code contains a class instance that calls the method or function to delete or destroy itself.",
+   :db/ident :d3f/CWE-1082,
+   :rdf/type :owl/Class,
+   :rdfs/label "Class Instance Self Destruction Control Element",
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-1083
-  {:d3f/cwe-id      "CWE-1083",
-   :db/ident        :d3f/CWE-1083,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Data Access from Outside Expected Data Manager Component",
+  {:d3f/cwe-id "CWE-1083",
+   :d3f/definition
+   "The product is intended to manage data access through a particular data manager component such as a relational or non-SQL database, but it contains code that performs data access operations without using that component.",
+   :db/ident :d3f/CWE-1083,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Access from Outside Expected Data Manager Component",
    :rdfs/subClassOf :d3f/CWE-1061})
 
 (def CWE-1084
   {:d3f/cwe-id "CWE-1084",
+   :d3f/definition
+   "A function or method contains too many operations that utilize a data manager or file resource.",
    :db/ident :d3f/CWE-1084,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5777,6 +5956,8 @@
 
 (def CWE-1085
   {:d3f/cwe-id "CWE-1085",
+   :d3f/definition
+   "A function, method, procedure, etc. contains an excessive amount of code that has been commented out within its body.",
    :db/ident :d3f/CWE-1085,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5784,42 +5965,54 @@
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1086
-  {:d3f/cwe-id      "CWE-1086",
-   :db/ident        :d3f/CWE-1086,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Class with Excessive Number of Child Classes",
+  {:d3f/cwe-id "CWE-1086",
+   :d3f/definition
+   "A class contains an unnecessarily large number of children.",
+   :db/ident :d3f/CWE-1086,
+   :rdf/type :owl/Class,
+   :rdfs/label "Class with Excessive Number of Child Classes",
    :rdfs/subClassOf :d3f/CWE-1093})
 
 (def CWE-1087
-  {:d3f/cwe-id      "CWE-1087",
-   :db/ident        :d3f/CWE-1087,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Class with Virtual Method without a Virtual Destructor",
+  {:d3f/cwe-id "CWE-1087",
+   :d3f/definition
+   "A class contains a virtual method, but the method does not have an associated virtual destructor.",
+   :db/ident :d3f/CWE-1087,
+   :rdf/type :owl/Class,
+   :rdfs/label "Class with Virtual Method without a Virtual Destructor",
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-1088
-  {:d3f/cwe-id      "CWE-1088",
-   :db/ident        :d3f/CWE-1088,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Synchronous Access of Remote Resource without Timeout",
+  {:d3f/cwe-id "CWE-1088",
+   :d3f/definition
+   "The code has a synchronous call to a remote resource, but there is no timeout for the call, or the timeout is set to infinite.",
+   :db/ident :d3f/CWE-1088,
+   :rdf/type :owl/Class,
+   :rdfs/label "Synchronous Access of Remote Resource without Timeout",
    :rdfs/subClassOf :d3f/CWE-821})
 
 (def CWE-1089
-  {:d3f/cwe-id      "CWE-1089",
-   :db/ident        :d3f/CWE-1089,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Large Data Table with Excessive Number of Indices",
+  {:d3f/cwe-id "CWE-1089",
+   :d3f/definition
+   "The product uses a large data table that contains an excessively large number of indices.",
+   :db/ident :d3f/CWE-1089,
+   :rdf/type :owl/Class,
+   :rdfs/label "Large Data Table with Excessive Number of Indices",
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-109
-  {:d3f/cwe-id      "CWE-109",
-   :db/ident        :d3f/CWE-109,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Validator Turned Off",
+  {:d3f/cwe-id "CWE-109",
+   :d3f/definition
+   "Automatic filtering via a Struts bean has been turned off, which disables the Struts Validator and custom validation logic. This exposes the application to other weaknesses related to insufficient input validation.",
+   :db/ident :d3f/CWE-109,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Validator Turned Off",
    :rdfs/subClassOf :d3f/CWE-1173})
 
 (def CWE-1090
   {:d3f/cwe-id "CWE-1090",
+   :d3f/definition
+   "A method for a class performs an operation that directly accesses a member element from another class.",
    :db/ident :d3f/CWE-1090,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5827,14 +6020,18 @@
    :rdfs/subClassOf :d3f/CWE-1061})
 
 (def CWE-1091
-  {:d3f/cwe-id      "CWE-1091",
-   :db/ident        :d3f/CWE-1091,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Object without Invoking Destructor Method",
+  {:d3f/cwe-id "CWE-1091",
+   :d3f/definition
+   "The product contains a method that accesses an object but does not later invoke the element's associated finalize/destructor method.",
+   :db/ident :d3f/CWE-1091,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Object without Invoking Destructor Method",
    :rdfs/subClassOf #{:d3f/CWE-1076 :d3f/CWE-772}})
 
 (def CWE-1092
   {:d3f/cwe-id "CWE-1092",
+   :d3f/definition
+   "The product uses the same control element across multiple architectural layers.",
    :db/ident :d3f/CWE-1092,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5842,28 +6039,36 @@
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1093
-  {:d3f/cwe-id      "CWE-1093",
-   :db/ident        :d3f/CWE-1093,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessively Complex Data Representation",
+  {:d3f/cwe-id "CWE-1093",
+   :d3f/definition
+   "The product uses an unnecessarily complex internal representation for its data structures or interrelationships between those structures.",
+   :db/ident :d3f/CWE-1093,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessively Complex Data Representation",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1094
-  {:d3f/cwe-id      "CWE-1094",
-   :db/ident        :d3f/CWE-1094,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Index Range Scan for a Data Resource",
+  {:d3f/cwe-id "CWE-1094",
+   :d3f/definition
+   "The product contains an index range scan for a large data table, but the scan can cover a large number of rows.",
+   :db/ident :d3f/CWE-1094,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Index Range Scan for a Data Resource",
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-1095
-  {:d3f/cwe-id      "CWE-1095",
-   :db/ident        :d3f/CWE-1095,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Loop Condition Value Update within the Loop",
+  {:d3f/cwe-id "CWE-1095",
+   :d3f/definition
+   "The product uses a loop with a control flow condition based on a value that is updated within the body of the loop.",
+   :db/ident :d3f/CWE-1095,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loop Condition Value Update within the Loop",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1096
   {:d3f/cwe-id "CWE-1096",
+   :d3f/definition
+   "The product implements a Singleton design pattern but does not use appropriate locking or other synchronization mechanism to ensure that the singleton class is only instantiated once.",
    :db/ident :d3f/CWE-1096,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5872,6 +6077,8 @@
 
 (def CWE-1097
   {:d3f/cwe-id "CWE-1097",
+   :d3f/definition
+   "The product uses a storable data element that does not have all of the associated functions or methods that are necessary to support comparison.",
    :db/ident :d3f/CWE-1097,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5880,6 +6087,8 @@
 
 (def CWE-1098
   {:d3f/cwe-id "CWE-1098",
+   :d3f/definition
+   "The code contains a data element with a pointer that does not have an associated copy or constructor method.",
    :db/ident :d3f/CWE-1098,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -5887,238 +6096,306 @@
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-1099
-  {:d3f/cwe-id      "CWE-1099",
-   :db/ident        :d3f/CWE-1099,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inconsistent Naming Conventions for Identifiers",
+  {:d3f/cwe-id "CWE-1099",
+   :d3f/definition
+   "The product's code, documentation, or other artifacts do not consistently use the same naming conventions for variables, callables, groups of related callables, I/O capabilities, data types, file names, or similar types of elements.",
+   :db/ident :d3f/CWE-1099,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inconsistent Naming Conventions for Identifiers",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-11
-  {:d3f/cwe-id      "CWE-11",
-   :db/ident        :d3f/CWE-11,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ASP.NET Misconfiguration: Creating Debug Binary",
+  {:d3f/cwe-id "CWE-11",
+   :d3f/definition
+   "Debugging messages help attackers learn about the system and plan a form of attack.",
+   :db/ident :d3f/CWE-11,
+   :rdf/type :owl/Class,
+   :rdfs/label "ASP.NET Misconfiguration: Creating Debug Binary",
    :rdfs/subClassOf :d3f/CWE-489})
 
 (def CWE-110
-  {:d3f/cwe-id      "CWE-110",
-   :db/ident        :d3f/CWE-110,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Validator Without Form Field",
+  {:d3f/cwe-id "CWE-110",
+   :d3f/definition
+   "Validation fields that do not appear in forms they are associated with indicate that the validation logic is out of date.",
+   :db/ident :d3f/CWE-110,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Validator Without Form Field",
    :rdfs/subClassOf :d3f/CWE-1164})
 
 (def CWE-1100
-  {:d3f/cwe-id      "CWE-1100",
-   :db/ident        :d3f/CWE-1100,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Isolation of System-Dependent Functions",
+  {:d3f/cwe-id "CWE-1100",
+   :d3f/definition
+   "The product or code does not isolate system-dependent functionality into separate standalone modules.",
+   :db/ident :d3f/CWE-1100,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Isolation of System-Dependent Functions",
    :rdfs/subClassOf :d3f/CWE-1061})
 
 (def CWE-1101
-  {:d3f/cwe-id      "CWE-1101",
-   :db/ident        :d3f/CWE-1101,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Runtime Component in Generated Code",
+  {:d3f/cwe-id "CWE-1101",
+   :d3f/definition
+   "The product uses automatically-generated code that cannot be executed without a specific runtime support component.",
+   :db/ident :d3f/CWE-1101,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Runtime Component in Generated Code",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1102
-  {:d3f/cwe-id      "CWE-1102",
-   :db/ident        :d3f/CWE-1102,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Machine-Dependent Data Representation",
+  {:d3f/cwe-id "CWE-1102",
+   :d3f/definition
+   "The code uses a data representation that relies on low-level data representation or constructs that may vary across different processors, physical machines, OSes, or other physical components.",
+   :db/ident :d3f/CWE-1102,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Machine-Dependent Data Representation",
    :rdfs/subClassOf :d3f/CWE-758})
 
 (def CWE-1103
-  {:d3f/cwe-id      "CWE-1103",
-   :db/ident        :d3f/CWE-1103,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Platform-Dependent Third Party Components",
+  {:d3f/cwe-id "CWE-1103",
+   :d3f/definition
+   "The product relies on third-party components that do not provide equivalent functionality across all desirable platforms.",
+   :db/ident :d3f/CWE-1103,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Platform-Dependent Third Party Components",
    :rdfs/subClassOf :d3f/CWE-758})
 
 (def CWE-1104
-  {:d3f/cwe-id      "CWE-1104",
-   :db/ident        :d3f/CWE-1104,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Unmaintained Third Party Components",
+  {:d3f/cwe-id "CWE-1104",
+   :d3f/definition
+   "The product relies on third-party components that are not actively supported or maintained by the original developer or a trusted proxy for the original developer.",
+   :db/ident :d3f/CWE-1104,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Unmaintained Third Party Components",
    :rdfs/subClassOf :d3f/CWE-1357})
 
 (def CWE-1105
   {:d3f/cwe-id "CWE-1105",
+   :d3f/definition
+   "The product or code uses machine-dependent functionality, but it does not sufficiently encapsulate or isolate this functionality from the rest of the code.",
    :db/ident :d3f/CWE-1105,
    :rdf/type :owl/Class,
    :rdfs/label "Insufficient Encapsulation of Machine-Dependent Functionality",
    :rdfs/subClassOf #{:d3f/CWE-1061 :d3f/CWE-758}})
 
 (def CWE-1106
-  {:d3f/cwe-id      "CWE-1106",
-   :db/ident        :d3f/CWE-1106,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Use of Symbolic Constants",
+  {:d3f/cwe-id "CWE-1106",
+   :d3f/definition
+   "The source code uses literal constants that may need to change or evolve over time, instead of using symbolic constants.",
+   :db/ident :d3f/CWE-1106,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Use of Symbolic Constants",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1107
-  {:d3f/cwe-id      "CWE-1107",
-   :db/ident        :d3f/CWE-1107,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Isolation of Symbolic Constant Definitions",
+  {:d3f/cwe-id "CWE-1107",
+   :d3f/definition
+   "The source code uses symbolic constants, but it does not sufficiently place the definitions of these constants into a more centralized or isolated location.",
+   :db/ident :d3f/CWE-1107,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Isolation of Symbolic Constant Definitions",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1108
-  {:d3f/cwe-id      "CWE-1108",
-   :db/ident        :d3f/CWE-1108,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Reliance on Global Variables",
+  {:d3f/cwe-id "CWE-1108",
+   :d3f/definition
+   "The code is structured in a way that relies too much on using or setting global variables throughout various points in the code, instead of preserving the associated information in a narrower, more local context.",
+   :db/ident :d3f/CWE-1108,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Reliance on Global Variables",
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-1109
-  {:d3f/cwe-id      "CWE-1109",
-   :db/ident        :d3f/CWE-1109,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Same Variable for Multiple Purposes",
+  {:d3f/cwe-id "CWE-1109",
+   :d3f/definition
+   "The code contains a callable, block, or other code element in which the same variable is used to control more than one unique task or store more than one instance of data.",
+   :db/ident :d3f/CWE-1109,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Same Variable for Multiple Purposes",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-111
-  {:d3f/cwe-id      "CWE-111",
-   :db/ident        :d3f/CWE-111,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Direct Use of Unsafe JNI",
+  {:d3f/cwe-id "CWE-111",
+   :d3f/definition
+   "When a Java application uses the Java Native Interface (JNI) to call code written in another programming language, it can expose the application to weaknesses in that code, even if those weaknesses cannot occur in Java.",
+   :db/ident :d3f/CWE-111,
+   :rdf/type :owl/Class,
+   :rdfs/label "Direct Use of Unsafe JNI",
    :rdfs/subClassOf :d3f/CWE-695})
 
 (def CWE-1110
-  {:d3f/cwe-id      "CWE-1110",
-   :db/ident        :d3f/CWE-1110,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Design Documentation",
+  {:d3f/cwe-id "CWE-1110",
+   :d3f/definition
+   "The product's design documentation does not adequately describe control flow, data flow, system initialization, relationships between tasks, components, rationales, or other important aspects of the design.",
+   :db/ident :d3f/CWE-1110,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Design Documentation",
    :rdfs/subClassOf :d3f/CWE-1059})
 
 (def CWE-1111
-  {:d3f/cwe-id      "CWE-1111",
-   :db/ident        :d3f/CWE-1111,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete I/O Documentation",
+  {:d3f/cwe-id "CWE-1111",
+   :d3f/definition
+   "The product's documentation does not adequately define inputs, outputs, or system/software interfaces.",
+   :db/ident :d3f/CWE-1111,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete I/O Documentation",
    :rdfs/subClassOf :d3f/CWE-1059})
 
 (def CWE-1112
-  {:d3f/cwe-id      "CWE-1112",
-   :db/ident        :d3f/CWE-1112,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Documentation of Program Execution",
+  {:d3f/cwe-id "CWE-1112",
+   :d3f/definition
+   "The document does not fully define all mechanisms that are used to control or influence how product-specific programs are executed.",
+   :db/ident :d3f/CWE-1112,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Documentation of Program Execution",
    :rdfs/subClassOf :d3f/CWE-1059})
 
 (def CWE-1113
-  {:d3f/cwe-id      "CWE-1113",
-   :db/ident        :d3f/CWE-1113,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inappropriate Comment Style",
+  {:d3f/cwe-id "CWE-1113",
+   :d3f/definition
+   "The source code uses comment styles or formats that are inconsistent or do not follow expected standards for the product.",
+   :db/ident :d3f/CWE-1113,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inappropriate Comment Style",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1114
-  {:d3f/cwe-id      "CWE-1114",
-   :db/ident        :d3f/CWE-1114,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inappropriate Whitespace Style",
+  {:d3f/cwe-id "CWE-1114",
+   :d3f/definition
+   "The source code contains whitespace that is inconsistent across the code or does not follow expected standards for the product.",
+   :db/ident :d3f/CWE-1114,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inappropriate Whitespace Style",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1115
-  {:d3f/cwe-id      "CWE-1115",
-   :db/ident        :d3f/CWE-1115,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Source Code Element without Standard Prologue",
+  {:d3f/cwe-id "CWE-1115",
+   :d3f/definition
+   "The source code contains elements such as source files that do not consistently provide a prologue or header that has been standardized for the project.",
+   :db/ident :d3f/CWE-1115,
+   :rdf/type :owl/Class,
+   :rdfs/label "Source Code Element without Standard Prologue",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1116
-  {:d3f/cwe-id      "CWE-1116",
-   :db/ident        :d3f/CWE-1116,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inaccurate Comments",
+  {:d3f/cwe-id "CWE-1116",
+   :d3f/definition
+   "The source code contains comments that do not accurately describe or explain aspects of the portion of the code with which the comment is associated.",
+   :db/ident :d3f/CWE-1116,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inaccurate Comments",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1117
-  {:d3f/cwe-id      "CWE-1117",
-   :db/ident        :d3f/CWE-1117,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Callable with Insufficient Behavioral Summary",
+  {:d3f/cwe-id "CWE-1117",
+   :d3f/definition
+   "The code contains a function or method whose signature and/or associated inline documentation does not sufficiently describe the callable's inputs, outputs, side effects, assumptions, or return codes.",
+   :db/ident :d3f/CWE-1117,
+   :rdf/type :owl/Class,
+   :rdfs/label "Callable with Insufficient Behavioral Summary",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-1118
-  {:d3f/cwe-id      "CWE-1118",
-   :db/ident        :d3f/CWE-1118,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Documentation of Error Handling Techniques",
+  {:d3f/cwe-id "CWE-1118",
+   :d3f/definition
+   "The documentation does not sufficiently describe the techniques that are used for error handling, exception processing, or similar mechanisms.",
+   :db/ident :d3f/CWE-1118,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Documentation of Error Handling Techniques",
    :rdfs/subClassOf :d3f/CWE-1059})
 
 (def CWE-1119
-  {:d3f/cwe-id      "CWE-1119",
-   :db/ident        :d3f/CWE-1119,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Use of Unconditional Branching",
+  {:d3f/cwe-id "CWE-1119",
+   :d3f/definition
+   "The code uses too many unconditional branches (such as \"goto\").",
+   :db/ident :d3f/CWE-1119,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Use of Unconditional Branching",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-112
-  {:d3f/cwe-id      "CWE-112",
-   :db/ident        :d3f/CWE-112,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing XML Validation",
+  {:d3f/cwe-id "CWE-112",
+   :d3f/definition
+   "The product accepts XML from an untrusted source but does not validate the XML against the proper schema.",
+   :db/ident :d3f/CWE-112,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing XML Validation",
    :rdfs/subClassOf :d3f/CWE-1286})
 
 (def CWE-1120
-  {:d3f/cwe-id      "CWE-1120",
-   :db/ident        :d3f/CWE-1120,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Code Complexity",
+  {:d3f/cwe-id "CWE-1120",
+   :d3f/definition
+   "The code is too complex, as calculated using a well-defined, quantitative measure.",
+   :db/ident :d3f/CWE-1120,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Code Complexity",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1121
-  {:d3f/cwe-id      "CWE-1121",
-   :db/ident        :d3f/CWE-1121,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive McCabe Cyclomatic Complexity",
+  {:d3f/cwe-id "CWE-1121",
+   :d3f/definition
+   "The code contains McCabe cyclomatic complexity that exceeds a desirable maximum.",
+   :db/ident :d3f/CWE-1121,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive McCabe Cyclomatic Complexity",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1122
-  {:d3f/cwe-id      "CWE-1122",
-   :db/ident        :d3f/CWE-1122,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Halstead Complexity",
+  {:d3f/cwe-id "CWE-1122",
+   :d3f/definition
+   "The code is structured in a way that a Halstead complexity measure exceeds a desirable maximum.",
+   :db/ident :d3f/CWE-1122,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Halstead Complexity",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1123
   {:d3f/cwe-id      "CWE-1123",
+   :d3f/definition  "The product uses too much self-modifying code.",
    :db/ident        :d3f/CWE-1123,
    :rdf/type        :owl/Class,
    :rdfs/label      "Excessive Use of Self-Modifying Code",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1124
-  {:d3f/cwe-id      "CWE-1124",
-   :db/ident        :d3f/CWE-1124,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessively Deep Nesting",
+  {:d3f/cwe-id "CWE-1124",
+   :d3f/definition
+   "The code contains a callable or other code grouping in which the nesting / branching is too deep.",
+   :db/ident :d3f/CWE-1124,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessively Deep Nesting",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1125
-  {:d3f/cwe-id      "CWE-1125",
-   :db/ident        :d3f/CWE-1125,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Attack Surface",
+  {:d3f/cwe-id "CWE-1125",
+   :d3f/definition
+   "The product has an attack surface whose quantitative measurement exceeds a desirable maximum.",
+   :db/ident :d3f/CWE-1125,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Attack Surface",
    :rdfs/subClassOf :d3f/CWE-1120})
 
 (def CWE-1126
-  {:d3f/cwe-id      "CWE-1126",
-   :db/ident        :d3f/CWE-1126,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Declaration of Variable with Unnecessarily Wide Scope",
+  {:d3f/cwe-id "CWE-1126",
+   :d3f/definition
+   "The source code declares a variable in one scope, but the variable is only used within a narrower scope.",
+   :db/ident :d3f/CWE-1126,
+   :rdf/type :owl/Class,
+   :rdfs/label "Declaration of Variable with Unnecessarily Wide Scope",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-1127
-  {:d3f/cwe-id      "CWE-1127",
-   :db/ident        :d3f/CWE-1127,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Compilation with Insufficient Warnings or Errors",
+  {:d3f/cwe-id "CWE-1127",
+   :d3f/definition
+   "The code is compiled without sufficient warnings enabled, which may prevent the detection of subtle bugs or quality issues.",
+   :db/ident :d3f/CWE-1127,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compilation with Insufficient Warnings or Errors",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-113
   {:d3f/cwe-id "CWE-113",
+   :d3f/definition
+   "The product receives data from an HTTP agent/component (e.g., web server, proxy, browser, etc.), but it does not neutralize or incorrectly neutralizes CR and LF characters before the data is included in outgoing HTTP headers.",
+   :d3f/synonym #{"HTTP Request Splitting" "HTTP Response Splitting"},
    :db/ident :d3f/CWE-113,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6126,84 +6403,111 @@
    :rdfs/subClassOf #{:d3f/CWE-93 :d3f/CWE-436}})
 
 (def CWE-114
-  {:d3f/cwe-id      "CWE-114",
-   :db/ident        :d3f/CWE-114,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Process Control",
+  {:d3f/cwe-id "CWE-114",
+   :d3f/definition
+   "Executing commands or loading libraries from an untrusted source or in an untrusted environment can cause an application to execute malicious commands (and payloads) on behalf of an attacker.",
+   :db/ident :d3f/CWE-114,
+   :rdf/type :owl/Class,
+   :rdfs/label "Process Control",
    :rdfs/subClassOf :d3f/CWE-73})
 
 (def CWE-115
-  {:d3f/cwe-id      "CWE-115",
-   :db/ident        :d3f/CWE-115,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Misinterpretation of Input",
+  {:d3f/cwe-id "CWE-115",
+   :d3f/definition
+   "The product misinterprets an input, whether from an attacker or another product, in a security-relevant fashion.",
+   :db/ident :d3f/CWE-115,
+   :rdf/type :owl/Class,
+   :rdfs/label "Misinterpretation of Input",
    :rdfs/subClassOf :d3f/CWE-436})
 
 (def CWE-116
-  {:d3f/cwe-id      "CWE-116",
-   :db/ident        :d3f/CWE-116,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Encoding or Escaping of Output",
+  {:d3f/cwe-id "CWE-116",
+   :d3f/definition
+   "The product prepares a structured message for communication with another component, but encoding or escaping of the data is either missing or done incorrectly. As a result, the intended structure of the message is not preserved.",
+   :d3f/synonym #{"Output Sanitization" "Output Validation" "Output Encoding"},
+   :db/ident :d3f/CWE-116,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Encoding or Escaping of Output",
    :rdfs/subClassOf :d3f/CWE-707})
 
 (def CWE-1164
-  {:d3f/cwe-id      "CWE-1164",
-   :db/ident        :d3f/CWE-1164,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Irrelevant Code",
+  {:d3f/cwe-id "CWE-1164",
+   :d3f/definition
+   "The product contains code that is not essential for execution, i.e. makes no state changes and has no side effects that alter data or control flow, such that removal of the code would have no impact to functionality or correctness.",
+   :db/ident :d3f/CWE-1164,
+   :rdf/type :owl/Class,
+   :rdfs/label "Irrelevant Code",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-117
-  {:d3f/cwe-id      "CWE-117",
-   :db/ident        :d3f/CWE-117,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Output Neutralization for Logs",
+  {:d3f/cwe-id "CWE-117",
+   :d3f/definition
+   "The product constructs a log message from external input, but it does not neutralize or incorrectly neutralizes special elements when the message is written to a log file.",
+   :d3f/synonym "Log forging",
+   :db/ident :d3f/CWE-117,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Output Neutralization for Logs",
    :rdfs/subClassOf :d3f/CWE-116})
 
 (def CWE-1173
-  {:d3f/cwe-id      "CWE-1173",
-   :db/ident        :d3f/CWE-1173,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Use of Validation Framework",
+  {:d3f/cwe-id "CWE-1173",
+   :d3f/definition
+   "The product does not use, or incorrectly uses, an input validation framework that is provided by the source language or an independent library.",
+   :db/ident :d3f/CWE-1173,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Use of Validation Framework",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-1174
-  {:d3f/cwe-id      "CWE-1174",
-   :db/ident        :d3f/CWE-1174,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ASP.NET Misconfiguration: Improper Model Validation",
+  {:d3f/cwe-id "CWE-1174",
+   :d3f/definition
+   "The ASP.NET application does not use, or incorrectly uses, the model validation framework.",
+   :db/ident :d3f/CWE-1174,
+   :rdf/type :owl/Class,
+   :rdfs/label "ASP.NET Misconfiguration: Improper Model Validation",
    :rdfs/subClassOf :d3f/CWE-1173})
 
 (def CWE-1176
-  {:d3f/cwe-id      "CWE-1176",
-   :db/ident        :d3f/CWE-1176,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inefficient CPU Computation",
+  {:d3f/cwe-id "CWE-1176",
+   :d3f/definition
+   "The product performs CPU computations using algorithms that are not as efficient as they could be for the needs of the developer, i.e., the computations can be optimized further.",
+   :db/ident :d3f/CWE-1176,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inefficient CPU Computation",
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-1177
-  {:d3f/cwe-id      "CWE-1177",
-   :db/ident        :d3f/CWE-1177,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Prohibited Code",
+  {:d3f/cwe-id "CWE-1177",
+   :d3f/definition
+   "The product uses a function, library, or third party component that has been explicitly prohibited, whether by the developer or the customer.",
+   :db/ident :d3f/CWE-1177,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Prohibited Code",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-118
-  {:d3f/cwe-id      "CWE-118",
-   :db/ident        :d3f/CWE-118,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Access of Indexable Resource ('Range Error')",
+  {:d3f/cwe-id "CWE-118",
+   :d3f/definition
+   "The product does not restrict or incorrectly restricts operations within the boundaries of a resource that is accessed using an index or pointer, such as memory or files.",
+   :db/ident :d3f/CWE-118,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Access of Indexable Resource ('Range Error')",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-1188
-  {:d3f/cwe-id      "CWE-1188",
-   :db/ident        :d3f/CWE-1188,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Default Initialization of Resource",
-   :rdfs/subClassOf :d3f/CWE-665})
+  {:d3f/cwe-id "CWE-1188",
+   :d3f/definition
+   "The product initializes or sets a resource with a default that is intended to be changed by the administrator, but the default is not secure.",
+   :db/ident :d3f/CWE-1188,
+   :rdf/type :owl/Class,
+   :rdfs/label #{"Initialization of a Resource with an Insecure Default"
+                 "Insecure Default Initialization of Resource"},
+   :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-1419}})
 
 (def CWE-1189
   {:d3f/cwe-id "CWE-1189",
+   :d3f/definition
+   "The System-On-a-Chip (SoC) does not properly isolate shared resources between trusted and untrusted agents.",
    :db/ident :d3f/CWE-1189,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6212,6 +6516,9 @@
 
 (def CWE-119
   {:d3f/cwe-id "CWE-119",
+   :d3f/definition
+   "The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary. This may result in read or write operations on unexpected memory locations that could be linked to other variables, data structures, or internal program data.",
+   :d3f/synonym #{"Buffer Overflow" "buffer overrun" "memory safety"},
    :d3f/weakness-of :d3f/RawMemoryAccessFunction,
    :db/ident :d3f/CWE-119,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -6223,14 +6530,18 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-1190
-  {:d3f/cwe-id      "CWE-1190",
-   :db/ident        :d3f/CWE-1190,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "DMA Device Enabled Too Early in Boot Phase",
+  {:d3f/cwe-id "CWE-1190",
+   :d3f/definition
+   "The product enables a Direct Memory Access (DMA) capable device before the security configuration settings are established, which allows an attacker to extract data from or gain privileges on the product.",
+   :db/ident :d3f/CWE-1190,
+   :rdf/type :owl/Class,
+   :rdfs/label "DMA Device Enabled Too Early in Boot Phase",
    :rdfs/subClassOf :d3f/CWE-696})
 
 (def CWE-1191
   {:d3f/cwe-id "CWE-1191",
+   :d3f/definition
+   "The chip does not implement or does not correctly perform access control to check whether users are authorized to access internal registers and test modes through the physical debug/test interface.",
    :db/ident :d3f/CWE-1191,
    :rdf/type :owl/Class,
    :rdfs/label "On-Chip Debug and Test Interface With Improper Access Control",
@@ -6238,14 +6549,19 @@
 
 (def CWE-1192
   {:d3f/cwe-id "CWE-1192",
+   :d3f/definition
+   "The System-on-Chip (SoC) does not have unique, immutable identifiers for each of its components.",
    :db/ident :d3f/CWE-1192,
    :rdf/type :owl/Class,
    :rdfs/label
-   "System-on-Chip (SoC) Using Components without Unique, Immutable Identifiers",
+   #{"System-on-Chip (SoC) Using Components without Unique, Immutable Identifiers"
+     "Improper Identifier for IP Block used in System-On-Chip (SOC)"},
    :rdfs/subClassOf :d3f/CWE-657})
 
 (def CWE-1193
   {:d3f/cwe-id "CWE-1193",
+   :d3f/definition
+   "The product enables components that contain untrusted firmware before memory and fabric access controls have been enabled.",
    :db/ident :d3f/CWE-1193,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6253,64 +6569,84 @@
    :rdfs/subClassOf :d3f/CWE-696})
 
 (def CWE-12
-  {:d3f/cwe-id      "CWE-12",
-   :db/ident        :d3f/CWE-12,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ASP.NET Misconfiguration: Missing Custom Error Page",
+  {:d3f/cwe-id "CWE-12",
+   :d3f/definition
+   "An ASP .NET application must enable custom error pages in order to prevent attackers from mining information from the framework's built-in responses.",
+   :db/ident :d3f/CWE-12,
+   :rdf/type :owl/Class,
+   :rdfs/label "ASP.NET Misconfiguration: Missing Custom Error Page",
    :rdfs/subClassOf :d3f/CWE-756})
 
 (def CWE-120
   {:d3f/cwe-id "CWE-120",
+   :d3f/definition
+   "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.",
+   :d3f/synonym #{"Classic Buffer Overflow" "Unbounded Transfer"},
    :db/ident :d3f/CWE-120,
    :rdf/type :owl/Class,
    :rdfs/label
    "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
-   :rdfs/subClassOf :d3f/CWE-119})
+   :rdfs/subClassOf #{:d3f/CWE-119 :d3f/CWE-787}})
 
 (def CWE-1204
-  {:d3f/cwe-id      "CWE-1204",
-   :db/ident        :d3f/CWE-1204,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Generation of Weak Initialization Vector (IV)",
+  {:d3f/cwe-id "CWE-1204",
+   :d3f/definition
+   "The product uses a cryptographic primitive that uses an Initialization Vector (IV), but the product does not generate IVs that are sufficiently unpredictable or unique according to the expected cryptographic requirements for that primitive.",
+   :db/ident :d3f/CWE-1204,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generation of Weak Initialization Vector (IV)",
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-1209
-  {:d3f/cwe-id      "CWE-1209",
-   :db/ident        :d3f/CWE-1209,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Failure to Disable Reserved Bits",
+  {:d3f/cwe-id "CWE-1209",
+   :d3f/definition
+   "The reserved bits in a hardware design are not disabled prior to production. Typically, reserved bits are used for future capabilities and should not support any functional logic in the design. However, designers might covertly use these bits to debug or further develop new capabilities in production hardware. Adversaries with access to these bits will write to them in hopes of compromising hardware state.",
+   :db/ident :d3f/CWE-1209,
+   :rdf/type :owl/Class,
+   :rdfs/label "Failure to Disable Reserved Bits",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-121
-  {:d3f/cwe-id      "CWE-121",
-   :db/ident        :d3f/CWE-121,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Stack-based Buffer Overflow",
+  {:d3f/cwe-id "CWE-121",
+   :d3f/definition
+   "A stack-based buffer overflow condition is a condition where the buffer being overwritten is allocated on the stack (i.e., is a local variable or, rarely, a parameter to a function).",
+   :d3f/synonym "Stack Overflow",
+   :db/ident :d3f/CWE-121,
+   :rdf/type :owl/Class,
+   :rdfs/label "Stack-based Buffer Overflow",
    :rdfs/subClassOf #{:d3f/CWE-788 :d3f/CWE-787}})
 
 (def CWE-122
-  {:d3f/cwe-id      "CWE-122",
-   :db/ident        :d3f/CWE-122,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Heap-based Buffer Overflow",
+  {:d3f/cwe-id "CWE-122",
+   :d3f/definition
+   "A heap overflow condition is a buffer overflow, where the buffer that can be overwritten is allocated in the heap portion of memory, generally meaning that the buffer was allocated using a routine such as malloc().",
+   :db/ident :d3f/CWE-122,
+   :rdf/type :owl/Class,
+   :rdfs/label "Heap-based Buffer Overflow",
    :rdfs/subClassOf #{:d3f/CWE-788 :d3f/CWE-787}})
 
 (def CWE-1220
-  {:d3f/cwe-id      "CWE-1220",
-   :db/ident        :d3f/CWE-1220,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Granularity of Access Control",
+  {:d3f/cwe-id "CWE-1220",
+   :d3f/definition
+   "The product implements access controls via a policy or other feature with the intention to disable or restrict accesses (reads and/or writes) to assets in a system from untrusted agents. However, implemented access controls lack required granularity, which renders the control policy too broad because it allows accesses from unauthorized agents to the security-sensitive assets.",
+   :db/ident :d3f/CWE-1220,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Granularity of Access Control",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1221
-  {:d3f/cwe-id      "CWE-1221",
-   :db/ident        :d3f/CWE-1221,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Register Defaults or Module Parameters",
-   :rdfs/subClassOf :d3f/CWE-665})
+  {:d3f/cwe-id "CWE-1221",
+   :d3f/definition
+   "Hardware description language code incorrectly defines register defaults or hardware Intellectual Property (IP) parameters to insecure values.",
+   :db/ident :d3f/CWE-1221,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Register Defaults or Module Parameters",
+   :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-1419}})
 
 (def CWE-1222
   {:d3f/cwe-id "CWE-1222",
+   :d3f/definition
+   "The product defines a large address region protected from modification by the same register lock control bit. This results in a conflict between the functional requirement that some addresses need to be writable by software during operation and the security requirement that the system configuration lock bit must be set during the boot process.",
    :db/ident :d3f/CWE-1222,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6318,56 +6654,72 @@
    :rdfs/subClassOf :d3f/CWE-1220})
 
 (def CWE-1223
-  {:d3f/cwe-id      "CWE-1223",
-   :db/ident        :d3f/CWE-1223,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Race Condition for Write-Once Attributes",
+  {:d3f/cwe-id "CWE-1223",
+   :d3f/definition
+   "A write-once register in hardware design is programmable by an untrusted software component earlier than the trusted software component, resulting in a race condition issue.",
+   :db/ident :d3f/CWE-1223,
+   :rdf/type :owl/Class,
+   :rdfs/label "Race Condition for Write-Once Attributes",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-1224
-  {:d3f/cwe-id      "CWE-1224",
-   :db/ident        :d3f/CWE-1224,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Restriction of Write-Once Bit Fields",
+  {:d3f/cwe-id "CWE-1224",
+   :d3f/definition
+   "The hardware design control register \"sticky bits\" or write-once bit fields are improperly implemented, such that they can be reprogrammed by software.",
+   :db/ident :d3f/CWE-1224,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Restriction of Write-Once Bit Fields",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1229
-  {:d3f/cwe-id      "CWE-1229",
-   :db/ident        :d3f/CWE-1229,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Creation of Emergent Resource",
+  {:d3f/cwe-id "CWE-1229",
+   :d3f/definition
+   "The product manages resources or behaves in a way that indirectly creates a new, distinct resource that can be used by attackers in violation of the intended policy.",
+   :db/ident :d3f/CWE-1229,
+   :rdf/type :owl/Class,
+   :rdfs/label "Creation of Emergent Resource",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-123
-  {:d3f/cwe-id      "CWE-123",
-   :db/ident        :d3f/CWE-123,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Write-what-where Condition",
+  {:d3f/cwe-id "CWE-123",
+   :d3f/definition
+   "Any condition where the attacker has the ability to write an arbitrary value to an arbitrary location, often as the result of a buffer overflow.",
+   :db/ident :d3f/CWE-123,
+   :rdf/type :owl/Class,
+   :rdfs/label "Write-what-where Condition",
    :rdfs/subClassOf :d3f/CWE-787})
 
 (def CWE-1230
-  {:d3f/cwe-id      "CWE-1230",
-   :db/ident        :d3f/CWE-1230,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Sensitive Information Through Metadata",
+  {:d3f/cwe-id "CWE-1230",
+   :d3f/definition
+   "The product prevents direct access to a resource containing sensitive information, but it does not sufficiently limit access to metadata that is derived from the original, sensitive information.",
+   :db/ident :d3f/CWE-1230,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Sensitive Information Through Metadata",
    :rdfs/subClassOf :d3f/CWE-285})
 
 (def CWE-1231
-  {:d3f/cwe-id      "CWE-1231",
-   :db/ident        :d3f/CWE-1231,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Prevention of Lock Bit Modification",
+  {:d3f/cwe-id "CWE-1231",
+   :d3f/definition
+   "The product uses a trusted lock bit for restricting access to registers, address regions, or other resources, but the product does not prevent the value of the lock bit from being modified after it has been set.",
+   :db/ident :d3f/CWE-1231,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Prevention of Lock Bit Modification",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1232
-  {:d3f/cwe-id      "CWE-1232",
-   :db/ident        :d3f/CWE-1232,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Lock Behavior After Power State Transition",
+  {:d3f/cwe-id "CWE-1232",
+   :d3f/definition
+   "Register lock bit protection disables changes to system configuration once the bit is set. Some of the protected registers or lock bits become programmable after power state transitions (e.g., Entry and wake from low power sleep modes) causing the system configuration to be changeable.",
+   :db/ident :d3f/CWE-1232,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Lock Behavior After Power State Transition",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-1233
   {:d3f/cwe-id "CWE-1233",
+   :d3f/definition
+   "The product uses a register lock bit protection mechanism, but it does not ensure that the lock bit prevents modification of system registers or controls that perform changes to important hardware system configuration.",
    :db/ident :d3f/CWE-1233,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6375,14 +6727,18 @@
    :rdfs/subClassOf #{:d3f/CWE-667 :d3f/CWE-284}})
 
 (def CWE-1234
-  {:d3f/cwe-id      "CWE-1234",
-   :db/ident        :d3f/CWE-1234,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hardware Internal or Debug Modes Allow Override of Locks",
+  {:d3f/cwe-id "CWE-1234",
+   :d3f/definition
+   "System configuration protection may be bypassed during debug mode.",
+   :db/ident :d3f/CWE-1234,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware Internal or Debug Modes Allow Override of Locks",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-1235
   {:d3f/cwe-id "CWE-1235",
+   :d3f/definition
+   "The code uses boxed primitives, which may introduce inefficiencies into performance-critical operations.",
    :db/ident :d3f/CWE-1235,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6390,49 +6746,65 @@
    :rdfs/subClassOf :d3f/CWE-400})
 
 (def CWE-1236
-  {:d3f/cwe-id      "CWE-1236",
-   :db/ident        :d3f/CWE-1236,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Formula Elements in a CSV File",
+  {:d3f/cwe-id "CWE-1236",
+   :d3f/definition
+   "The product saves user-provided information into a Comma-Separated Value (CSV) file, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as a command when the file is opened by a spreadsheet product.",
+   :d3f/synonym #{"Excel Macro Injection" "CSV Injection" "Formula Injection"},
+   :db/ident :d3f/CWE-1236,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Formula Elements in a CSV File",
    :rdfs/subClassOf :d3f/CWE-74})
 
 (def CWE-1239
-  {:d3f/cwe-id      "CWE-1239",
-   :db/ident        :d3f/CWE-1239,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Zeroization of Hardware Register",
+  {:d3f/cwe-id "CWE-1239",
+   :d3f/definition
+   "The hardware product does not properly clear sensitive information from built-in registers when the user of the hardware block changes.",
+   :db/ident :d3f/CWE-1239,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Zeroization of Hardware Register",
    :rdfs/subClassOf :d3f/CWE-226})
 
 (def CWE-124
-  {:d3f/cwe-id      "CWE-124",
-   :db/ident        :d3f/CWE-124,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Buffer Underwrite ('Buffer Underflow')",
+  {:d3f/cwe-id "CWE-124",
+   :d3f/definition
+   "The product writes to a buffer using an index or pointer that references a memory location prior to the beginning of the buffer.",
+   :d3f/synonym "buffer underrun",
+   :db/ident :d3f/CWE-124,
+   :rdf/type :owl/Class,
+   :rdfs/label "Buffer Underwrite ('Buffer Underflow')",
    :rdfs/subClassOf #{:d3f/CWE-786 :d3f/CWE-787}})
 
 (def CWE-1240
   {:d3f/cwe-id "CWE-1240",
+   :d3f/definition
+   "To fulfill the need for a cryptographic primitive, the product implements a cryptographic algorithm using a non-standard, unproven, or disallowed/non-compliant cryptographic implementation.",
    :db/ident :d3f/CWE-1240,
    :rdf/type :owl/Class,
    :rdfs/label "Use of a Cryptographic Primitive with a Risky Implementation",
    :rdfs/subClassOf :d3f/CWE-327})
 
 (def CWE-1241
-  {:d3f/cwe-id      "CWE-1241",
-   :db/ident        :d3f/CWE-1241,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Predictable Algorithm in Random Number Generator",
+  {:d3f/cwe-id "CWE-1241",
+   :d3f/definition
+   "The device uses an algorithm that is predictable and generates a pseudo-random number.",
+   :db/ident :d3f/CWE-1241,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Predictable Algorithm in Random Number Generator",
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-1242
-  {:d3f/cwe-id      "CWE-1242",
-   :db/ident        :d3f/CWE-1242,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inclusion of Undocumented Features or Chicken Bits",
-   :rdfs/subClassOf :d3f/CWE-284})
+  {:d3f/cwe-id "CWE-1242",
+   :d3f/definition
+   "The device includes chicken bits or undocumented features that can create entry points for unauthorized actors.",
+   :db/ident :d3f/CWE-1242,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inclusion of Undocumented Features or Chicken Bits",
+   :rdfs/subClassOf #{:d3f/CWE-284 :d3f/CWE-912}})
 
 (def CWE-1243
   {:d3f/cwe-id "CWE-1243",
+   :d3f/definition
+   "Access to security-sensitive information stored in fuses is not limited during debug.",
    :db/ident :d3f/CWE-1243,
    :rdf/type :owl/Class,
    :rdfs/label "Sensitive Non-Volatile Information Not Protected During Debug",
@@ -6440,34 +6812,44 @@
 
 (def CWE-1244
   {:d3f/cwe-id "CWE-1244",
+   :d3f/definition
+   "The product uses physical debug or test interfaces with support for multiple access levels, but it assigns the wrong debug access level to an internal asset, providing unintended access to the asset from untrusted debug agents.",
    :db/ident :d3f/CWE-1244,
    :rdf/type :owl/Class,
    :rdfs/label "Internal Asset Exposed to Unsafe Debug Access Level or State",
    :rdfs/subClassOf :d3f/CWE-863})
 
 (def CWE-1245
-  {:d3f/cwe-id      "CWE-1245",
-   :db/ident        :d3f/CWE-1245,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Finite State Machines (FSMs) in Hardware Logic",
+  {:d3f/cwe-id "CWE-1245",
+   :d3f/definition
+   "Faulty finite state machines (FSMs) in the hardware logic allow an attacker to put the system in an undefined state, to cause a denial of service (DoS) or gain privileges on the victim's system.",
+   :db/ident :d3f/CWE-1245,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Finite State Machines (FSMs) in Hardware Logic",
    :rdfs/subClassOf :d3f/CWE-684})
 
 (def CWE-1246
   {:d3f/cwe-id "CWE-1246",
+   :d3f/definition
+   "The product does not implement or incorrectly implements wear leveling operations in limited-write non-volatile memories.",
    :db/ident :d3f/CWE-1246,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Write Handling in Limited-write Non-Volatile Memories",
    :rdfs/subClassOf :d3f/CWE-400})
 
 (def CWE-1247
-  {:d3f/cwe-id      "CWE-1247",
-   :db/ident        :d3f/CWE-1247,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Protection Against Voltage and Clock Glitches",
+  {:d3f/cwe-id "CWE-1247",
+   :d3f/definition
+   "The device does not contain or contains incorrectly implemented circuitry or sensors to detect and mitigate voltage and clock glitches and protect sensitive information or software contained on the device.",
+   :db/ident :d3f/CWE-1247,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Protection Against Voltage and Clock Glitches",
    :rdfs/subClassOf :d3f/CWE-1384})
 
 (def CWE-1248
   {:d3f/cwe-id "CWE-1248",
+   :d3f/definition
+   "The security-sensitive hardware module contains semiconductor defects.",
    :db/ident :d3f/CWE-1248,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6476,6 +6858,9 @@
 
 (def CWE-1249
   {:d3f/cwe-id "CWE-1249",
+   :d3f/definition
+   "The product provides an application for administrators to manage parts of the underlying operating system, but the application does not accurately identify all of the relevant entities or resources that exist in the OS; that is, the application's model of the OS's state is inconsistent with the OS's actual state.",
+   :d3f/synonym "Ghost in the Shell",
    :db/ident :d3f/CWE-1249,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6483,11 +6868,14 @@
    :rdfs/subClassOf :d3f/CWE-1250})
 
 (def CWE-125
-  {:d3f/cwe-id      "CWE-125",
+  {:d3f/cwe-id "CWE-125",
+   :d3f/definition
+   "The product reads data past the end, or before the beginning, of the intended buffer.",
+   :d3f/synonym "OOB read",
    :d3f/weakness-of :d3f/RawMemoryAccessFunction,
-   :db/ident        :d3f/CWE-125,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Out-of-bounds Read",
+   :db/ident :d3f/CWE-125,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Out-of-bounds Read",
    :rdfs/subClassOf #{:d3f/CWE-119
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/RawMemoryAccessFunction,
@@ -6495,6 +6883,8 @@
 
 (def CWE-1250
   {:d3f/cwe-id "CWE-1250",
+   :d3f/definition
+   "The product has or supports multiple distributed components or sub-systems that are each required to keep their own local copy of shared data - such as state or cache - but the product does not ensure that all local copies remain consistent with each other.",
    :db/ident :d3f/CWE-1250,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6502,14 +6892,18 @@
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-1251
-  {:d3f/cwe-id      "CWE-1251",
-   :db/ident        :d3f/CWE-1251,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Mirrored Regions with Different Values",
+  {:d3f/cwe-id "CWE-1251",
+   :d3f/definition
+   "The product's architecture mirrors regions without ensuring that their contents always stay in sync.",
+   :db/ident :d3f/CWE-1251,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mirrored Regions with Different Values",
    :rdfs/subClassOf :d3f/CWE-1250})
 
 (def CWE-1252
   {:d3f/cwe-id "CWE-1252",
+   :d3f/definition
+   "The CPU is not configured to provide hardware support for exclusivity of write and execute operations on memory. This allows an attacker to execute data from all of memory.",
    :db/ident :d3f/CWE-1252,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6517,21 +6911,27 @@
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1253
-  {:d3f/cwe-id      "CWE-1253",
-   :db/ident        :d3f/CWE-1253,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Selection of Fuse Values",
+  {:d3f/cwe-id "CWE-1253",
+   :d3f/definition
+   "The logic level used to set a system to a secure state relies on a fuse being unblown. An attacker can set the system to an insecure state merely by blowing the fuse.",
+   :db/ident :d3f/CWE-1253,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Selection of Fuse Values",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-1254
-  {:d3f/cwe-id      "CWE-1254",
-   :db/ident        :d3f/CWE-1254,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Comparison Logic Granularity",
+  {:d3f/cwe-id "CWE-1254",
+   :d3f/definition
+   "The product's comparison logic is performed over a series of steps rather than across the entire string in one operation. If there is a comparison logic failure on one of these steps, the operation may be vulnerable to a timing attack that can result in the interception of the process for nefarious purposes.",
+   :db/ident :d3f/CWE-1254,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Comparison Logic Granularity",
    :rdfs/subClassOf #{:d3f/CWE-208 :d3f/CWE-697}})
 
 (def CWE-1255
   {:d3f/cwe-id "CWE-1255",
+   :d3f/definition
+   "A device's real time power consumption may be monitored during security token evaluation and the information gleaned may be used to determine the value of the reference token.",
    :db/ident :d3f/CWE-1255,
    :rdf/type :owl/Class,
    :rdfs/label "Comparison Logic is Vulnerable to Power Side-Channel Attacks",
@@ -6539,6 +6939,8 @@
 
 (def CWE-1256
   {:d3f/cwe-id "CWE-1256",
+   :d3f/definition
+   "The product provides software-controllable device functionality for capabilities such as power and clock management, but it does not properly limit functionality that can lead to modification of hardware memory or register bits, or the ability to observe physical side channels.",
    :db/ident :d3f/CWE-1256,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6547,6 +6949,8 @@
 
 (def CWE-1257
   {:d3f/cwe-id "CWE-1257",
+   :d3f/definition
+   "Aliased or mirrored memory regions in hardware designs may have inconsistent read/write permissions enforced by the hardware. A possible result is that an untrusted agent is blocked from accessing a memory region but is not blocked from accessing the corresponding aliased memory region.",
    :db/ident :d3f/CWE-1257,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6555,6 +6959,8 @@
 
 (def CWE-1258
   {:d3f/cwe-id "CWE-1258",
+   :d3f/definition
+   "The hardware does not fully clear security-sensitive values, such as keys and intermediate values in cryptographic operations, when debug mode is entered.",
    :db/ident :d3f/CWE-1258,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6562,49 +6968,63 @@
    :rdfs/subClassOf #{:d3f/CWE-212 :d3f/CWE-200}})
 
 (def CWE-1259
-  {:d3f/cwe-id      "CWE-1259",
-   :db/ident        :d3f/CWE-1259,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Restriction of Security Token Assignment",
+  {:d3f/cwe-id "CWE-1259",
+   :d3f/definition
+   "The System-On-A-Chip (SoC) implements a Security Token mechanism to differentiate what actions are allowed or disallowed when a transaction originates from an entity. However, the Security Tokens are improperly protected.",
+   :db/ident :d3f/CWE-1259,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Restriction of Security Token Assignment",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-126
-  {:d3f/cwe-id      "CWE-126",
-   :db/ident        :d3f/CWE-126,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Buffer Over-read",
+  {:d3f/cwe-id "CWE-126",
+   :d3f/definition
+   "The product reads from a buffer using buffer access mechanisms such as indexes or pointers that reference memory locations after the targeted buffer.",
+   :db/ident :d3f/CWE-126,
+   :rdf/type :owl/Class,
+   :rdfs/label "Buffer Over-read",
    :rdfs/subClassOf #{:d3f/CWE-788 :d3f/CWE-125}})
 
 (def CWE-1260
   {:d3f/cwe-id "CWE-1260",
+   :d3f/definition
+   "The product allows address regions to overlap, which can result in the bypassing of intended memory protection.",
    :db/ident :d3f/CWE-1260,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Handling of Overlap Between Protected Memory Ranges",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1261
-  {:d3f/cwe-id      "CWE-1261",
-   :db/ident        :d3f/CWE-1261,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Single Event Upsets",
+  {:d3f/cwe-id "CWE-1261",
+   :d3f/definition
+   "The hardware logic does not effectively handle when single-event upsets (SEUs) occur.",
+   :db/ident :d3f/CWE-1261,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Single Event Upsets",
    :rdfs/subClassOf :d3f/CWE-1384})
 
 (def CWE-1262
-  {:d3f/cwe-id      "CWE-1262",
-   :db/ident        :d3f/CWE-1262,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Access Control for Register Interface",
+  {:d3f/cwe-id "CWE-1262",
+   :d3f/definition
+   "The product uses memory-mapped I/O registers that act as an interface to hardware functionality from software, but there is improper access control to those registers.",
+   :db/ident :d3f/CWE-1262,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Access Control for Register Interface",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1263
-  {:d3f/cwe-id      "CWE-1263",
-   :db/ident        :d3f/CWE-1263,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Physical Access Control",
+  {:d3f/cwe-id "CWE-1263",
+   :d3f/definition
+   "The product is designed with access restricted to certain information, but it does not sufficiently protect against an unauthorized actor with physical access to these areas.",
+   :db/ident :d3f/CWE-1263,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Physical Access Control",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1264
   {:d3f/cwe-id "CWE-1264",
+   :d3f/definition
+   "The hardware logic for error handling and security checks can incorrectly forward data before the security check is complete.",
    :db/ident :d3f/CWE-1264,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6613,6 +7033,8 @@
 
 (def CWE-1265
   {:d3f/cwe-id "CWE-1265",
+   :d3f/definition
+   "During execution of non-reentrant code, the product performs a call that unintentionally produces a nested invocation of the non-reentrant code.",
    :db/ident :d3f/CWE-1265,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6621,6 +7043,8 @@
 
 (def CWE-1266
   {:d3f/cwe-id "CWE-1266",
+   :d3f/definition
+   "The product does not properly provide a capability for the product administrator to remove sensitive data at the time the product is decommissioned. A scrubbing capability could be missing, insufficient, or incorrect.",
    :db/ident :d3f/CWE-1266,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6628,14 +7052,18 @@
    :rdfs/subClassOf :d3f/CWE-404})
 
 (def CWE-1267
-  {:d3f/cwe-id      "CWE-1267",
-   :db/ident        :d3f/CWE-1267,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Policy Uses Obsolete Encoding",
+  {:d3f/cwe-id "CWE-1267",
+   :d3f/definition
+   "The product uses an obsolete encoding mechanism to implement access controls.",
+   :db/ident :d3f/CWE-1267,
+   :rdf/type :owl/Class,
+   :rdfs/label "Policy Uses Obsolete Encoding",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1268
   {:d3f/cwe-id "CWE-1268",
+   :d3f/definition
+   "The product's hardware-enforced access control for a particular resource improperly accounts for privilege discrepancies between control and write policies.",
    :db/ident :d3f/CWE-1268,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6643,28 +7071,36 @@
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1269
-  {:d3f/cwe-id      "CWE-1269",
-   :db/ident        :d3f/CWE-1269,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Product Released in Non-Release Configuration",
+  {:d3f/cwe-id "CWE-1269",
+   :d3f/definition
+   "The product released to market is released in pre-production or manufacturing configuration.",
+   :db/ident :d3f/CWE-1269,
+   :rdf/type :owl/Class,
+   :rdfs/label "Product Released in Non-Release Configuration",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-127
-  {:d3f/cwe-id      "CWE-127",
-   :db/ident        :d3f/CWE-127,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Buffer Under-read",
+  {:d3f/cwe-id "CWE-127",
+   :d3f/definition
+   "The product reads from a buffer using buffer access mechanisms such as indexes or pointers that reference memory locations prior to the targeted buffer.",
+   :db/ident :d3f/CWE-127,
+   :rdf/type :owl/Class,
+   :rdfs/label "Buffer Under-read",
    :rdfs/subClassOf #{:d3f/CWE-786 :d3f/CWE-125}})
 
 (def CWE-1270
-  {:d3f/cwe-id      "CWE-1270",
-   :db/ident        :d3f/CWE-1270,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Generation of Incorrect Security Tokens",
+  {:d3f/cwe-id "CWE-1270",
+   :d3f/definition
+   "The product implements a Security Token mechanism to differentiate what actions are allowed or disallowed when a transaction originates from an entity. However, the Security Tokens generated in the system are incorrect.",
+   :db/ident :d3f/CWE-1270,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generation of Incorrect Security Tokens",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1271
   {:d3f/cwe-id "CWE-1271",
+   :d3f/definition
+   "Security-critical logic is not set to a known value on reset.",
    :db/ident :d3f/CWE-1271,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6673,6 +7109,8 @@
 
 (def CWE-1272
   {:d3f/cwe-id "CWE-1272",
+   :d3f/definition
+   "The product performs a power or debug state transition, but it does not clear sensitive information that should no longer be accessible due to changes to information access restrictions.",
    :db/ident :d3f/CWE-1272,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6680,14 +7118,18 @@
    :rdfs/subClassOf :d3f/CWE-226})
 
 (def CWE-1273
-  {:d3f/cwe-id      "CWE-1273",
-   :db/ident        :d3f/CWE-1273,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Device Unlock Credential Sharing",
+  {:d3f/cwe-id "CWE-1273",
+   :d3f/definition
+   "The credentials necessary for unlocking a device are shared across multiple parties and may expose sensitive information.",
+   :db/ident :d3f/CWE-1273,
+   :rdf/type :owl/Class,
+   :rdfs/label "Device Unlock Credential Sharing",
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-1274
   {:d3f/cwe-id "CWE-1274",
+   :d3f/definition
+   "The product conducts a secure-boot process that transfers bootloader code from Non-Volatile Memory (NVM) into Volatile Memory (VM), but it does not have sufficient access control or other protections for the Volatile Memory.",
    :db/ident :d3f/CWE-1274,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6695,28 +7137,36 @@
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1275
-  {:d3f/cwe-id      "CWE-1275",
-   :db/ident        :d3f/CWE-1275,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Sensitive Cookie with Improper SameSite Attribute",
+  {:d3f/cwe-id "CWE-1275",
+   :d3f/definition
+   "The SameSite attribute for sensitive cookies is not set, or an insecure value is used.",
+   :db/ident :d3f/CWE-1275,
+   :rdf/type :owl/Class,
+   :rdfs/label "Sensitive Cookie with Improper SameSite Attribute",
    :rdfs/subClassOf :d3f/CWE-923})
 
 (def CWE-1276
   {:d3f/cwe-id "CWE-1276",
+   :d3f/definition
+   "Signals between a hardware IP and the parent system design are incorrectly connected causing security risks.",
    :db/ident :d3f/CWE-1276,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Child Block Incorrectly Connected to Parent System",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1277
-  {:d3f/cwe-id      "CWE-1277",
-   :db/ident        :d3f/CWE-1277,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Firmware Not Updateable",
+  {:d3f/cwe-id "CWE-1277",
+   :d3f/definition
+   "The product does not provide its users with the ability to update or patch its firmware to address any vulnerabilities or weaknesses that may be present.",
+   :db/ident :d3f/CWE-1277,
+   :rdf/type :owl/Class,
+   :rdfs/label "Firmware Not Updateable",
    :rdfs/subClassOf :d3f/CWE-1329})
 
 (def CWE-1278
   {:d3f/cwe-id "CWE-1278",
+   :d3f/definition
+   "Information stored in hardware may be recovered by an attacker with the capability to capture and analyze images of the integrated circuit using techniques such as scanning electron microscopy.",
    :db/ident :d3f/CWE-1278,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6725,28 +7175,36 @@
 
 (def CWE-1279
   {:d3f/cwe-id "CWE-1279",
+   :d3f/definition
+   "Performing cryptographic operations without ensuring that the supporting inputs are ready to supply valid data may compromise the cryptographic result.",
    :db/ident :d3f/CWE-1279,
    :rdf/type :owl/Class,
    :rdfs/label
    "Cryptographic Operations are run Before Supporting Units are Ready",
-   :rdfs/subClassOf :d3f/CWE-665})
+   :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-696}})
 
 (def CWE-128
-  {:d3f/cwe-id      "CWE-128",
-   :db/ident        :d3f/CWE-128,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Wrap-around Error",
+  {:d3f/cwe-id "CWE-128",
+   :d3f/definition
+   "Wrap around errors occur whenever a value is incremented past the maximum value for its type and therefore \"wraps around\" to a very small, negative, or undefined value.",
+   :db/ident :d3f/CWE-128,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wrap-around Error",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-1280
-  {:d3f/cwe-id      "CWE-1280",
-   :db/ident        :d3f/CWE-1280,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Access Control Check Implemented After Asset is Accessed",
+  {:d3f/cwe-id "CWE-1280",
+   :d3f/definition
+   "A product's hardware-based access control check occurs after the asset has been accessed.",
+   :db/ident :d3f/CWE-1280,
+   :rdf/type :owl/Class,
+   :rdfs/label "Access Control Check Implemented After Asset is Accessed",
    :rdfs/subClassOf #{:d3f/CWE-284 :d3f/CWE-696}})
 
 (def CWE-1281
   {:d3f/cwe-id "CWE-1281",
+   :d3f/definition
+   "Specific combinations of processor instructions lead to undesirable behavior such as locking the processor until a hard reset performed.",
    :db/ident :d3f/CWE-1281,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6754,28 +7212,36 @@
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-1282
-  {:d3f/cwe-id      "CWE-1282",
-   :db/ident        :d3f/CWE-1282,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Assumed-Immutable Data is Stored in Writable Memory",
+  {:d3f/cwe-id "CWE-1282",
+   :d3f/definition
+   "Immutable data, such as a first-stage bootloader, device identifiers, and \"write-once\" configuration settings are stored in writable memory that can be re-programmed or updated in the field.",
+   :db/ident :d3f/CWE-1282,
+   :rdf/type :owl/Class,
+   :rdfs/label "Assumed-Immutable Data is Stored in Writable Memory",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-1283
-  {:d3f/cwe-id      "CWE-1283",
-   :db/ident        :d3f/CWE-1283,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Mutable Attestation or Measurement Reporting Data",
+  {:d3f/cwe-id "CWE-1283",
+   :d3f/definition
+   "The register contents used for attestation or measurement reporting data to verify boot flow are modifiable by an adversary.",
+   :db/ident :d3f/CWE-1283,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mutable Attestation or Measurement Reporting Data",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1284
-  {:d3f/cwe-id      "CWE-1284",
-   :db/ident        :d3f/CWE-1284,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Specified Quantity in Input",
+  {:d3f/cwe-id "CWE-1284",
+   :d3f/definition
+   "The product receives input that is expected to specify a quantity (such as size or length), but it does not validate or incorrectly validates that the quantity has the required properties.",
+   :db/ident :d3f/CWE-1284,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Specified Quantity in Input",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-1285
   {:d3f/cwe-id "CWE-1285",
+   :d3f/definition
+   "The product receives input that is expected to specify an index, position, or offset into an indexable resource such as a buffer or file, but it does not validate or incorrectly validates that the specified index/position/offset has the required properties.",
    :db/ident :d3f/CWE-1285,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6783,91 +7249,119 @@
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-1286
-  {:d3f/cwe-id      "CWE-1286",
-   :db/ident        :d3f/CWE-1286,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Syntactic Correctness of Input",
+  {:d3f/cwe-id "CWE-1286",
+   :d3f/definition
+   "The product receives input that is expected to be well-formed - i.e., to comply with a certain syntax - but it does not validate or incorrectly validates that the input complies with the syntax.",
+   :db/ident :d3f/CWE-1286,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Syntactic Correctness of Input",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-1287
-  {:d3f/cwe-id      "CWE-1287",
-   :db/ident        :d3f/CWE-1287,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Specified Type of Input",
+  {:d3f/cwe-id "CWE-1287",
+   :d3f/definition
+   "The product receives input that is expected to be of a certain type, but it does not validate or incorrectly validates that the input is actually of the expected type.",
+   :db/ident :d3f/CWE-1287,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Specified Type of Input",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-1288
-  {:d3f/cwe-id      "CWE-1288",
-   :db/ident        :d3f/CWE-1288,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Consistency within Input",
+  {:d3f/cwe-id "CWE-1288",
+   :d3f/definition
+   "The product receives a complex input with multiple elements or fields that must be consistent with each other, but it does not validate or incorrectly validates that the input is actually consistent.",
+   :db/ident :d3f/CWE-1288,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Consistency within Input",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-1289
-  {:d3f/cwe-id      "CWE-1289",
-   :db/ident        :d3f/CWE-1289,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Unsafe Equivalence in Input",
+  {:d3f/cwe-id "CWE-1289",
+   :d3f/definition
+   "The product receives an input value that is used as a resource identifier or other type of reference, but it does not validate or incorrectly validates that the input is equivalent to a potentially-unsafe value.",
+   :db/ident :d3f/CWE-1289,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Unsafe Equivalence in Input",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-129
-  {:d3f/cwe-id      "CWE-129",
-   :db/ident        :d3f/CWE-129,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Array Index",
+  {:d3f/cwe-id "CWE-129",
+   :d3f/definition
+   "The product uses untrusted input when calculating or using an array index, but the product does not validate or incorrectly validates the index to ensure the index references a valid position within the array.",
+   :d3f/synonym #{"array index underflow" "out-of-bounds array index"
+                  "index-out-of-range"},
+   :db/ident :d3f/CWE-129,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Array Index",
    :rdfs/subClassOf :d3f/CWE-1285})
 
 (def CWE-1290
-  {:d3f/cwe-id      "CWE-1290",
-   :db/ident        :d3f/CWE-1290,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Decoding of Security Identifiers",
+  {:d3f/cwe-id "CWE-1290",
+   :d3f/definition
+   "The product implements a decoding mechanism to decode certain bus-transaction signals to security identifiers. If the decoding is implemented incorrectly, then untrusted agents can now gain unauthorized access to the asset.",
+   :db/ident :d3f/CWE-1290,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Decoding of Security Identifiers",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1291
   {:d3f/cwe-id "CWE-1291",
+   :d3f/definition
+   "The same public key is used for signing both debug and production code.",
    :db/ident :d3f/CWE-1291,
    :rdf/type :owl/Class,
    :rdfs/label "Public Key Re-Use for Signing both Debug and Production Code",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-1292
-  {:d3f/cwe-id      "CWE-1292",
-   :db/ident        :d3f/CWE-1292,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Conversion of Security Identifiers",
+  {:d3f/cwe-id "CWE-1292",
+   :d3f/definition
+   "The product implements a conversion mechanism to map certain bus-transaction signals to security identifiers. However, if the conversion is incorrectly implemented, untrusted agents can gain unauthorized access to the asset.",
+   :db/ident :d3f/CWE-1292,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Conversion of Security Identifiers",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1293
-  {:d3f/cwe-id      "CWE-1293",
-   :db/ident        :d3f/CWE-1293,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Source Correlation of Multiple Independent Data",
+  {:d3f/cwe-id "CWE-1293",
+   :d3f/definition
+   "The product relies on one source of data, preventing the ability to detect if an adversary has compromised a data source.",
+   :db/ident :d3f/CWE-1293,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Source Correlation of Multiple Independent Data",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-1294
-  {:d3f/cwe-id      "CWE-1294",
-   :db/ident        :d3f/CWE-1294,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Security Identifier Mechanism",
+  {:d3f/cwe-id "CWE-1294",
+   :d3f/definition
+   "The System-on-Chip (SoC) implements a Security Identifier mechanism to differentiate what actions are allowed or disallowed when a transaction originates from an entity. However, the Security Identifiers are not correctly implemented.",
+   :db/ident :d3f/CWE-1294,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Security Identifier Mechanism",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1295
-  {:d3f/cwe-id      "CWE-1295",
-   :db/ident        :d3f/CWE-1295,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Debug Messages Revealing Unnecessary Information",
+  {:d3f/cwe-id "CWE-1295",
+   :d3f/definition
+   "The product fails to adequately prevent the revealing of unnecessary and potentially sensitive system information within debugging messages.",
+   :db/ident :d3f/CWE-1295,
+   :rdf/type :owl/Class,
+   :rdfs/label "Debug Messages Revealing Unnecessary Information",
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-1296
-  {:d3f/cwe-id      "CWE-1296",
-   :db/ident        :d3f/CWE-1296,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Chaining or Granularity of Debug Components",
+  {:d3f/cwe-id "CWE-1296",
+   :d3f/definition
+   "The product's debug components contain incorrect chaining or granularity of debug components.",
+   :db/ident :d3f/CWE-1296,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Chaining or Granularity of Debug Components",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1297
   {:d3f/cwe-id "CWE-1297",
+   :d3f/definition
+   "The product does not adequately protect confidential information on the device from being accessed by Outsourced Semiconductor Assembly and Test (OSAT) vendors.",
    :db/ident :d3f/CWE-1297,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6875,42 +7369,55 @@
    :rdfs/subClassOf :d3f/CWE-285})
 
 (def CWE-1298
-  {:d3f/cwe-id      "CWE-1298",
-   :db/ident        :d3f/CWE-1298,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hardware Logic Contains Race Conditions",
+  {:d3f/cwe-id "CWE-1298",
+   :d3f/definition
+   "A race condition in the hardware logic results in undermining security guarantees of the system.",
+   :db/ident :d3f/CWE-1298,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware Logic Contains Race Conditions",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-1299
   {:d3f/cwe-id "CWE-1299",
+   :d3f/definition
+   "The lack of protections on alternate paths to access control-protected assets (such as unprotected shadow registers and other external facing unguarded interfaces) allows an attacker to bypass existing protections to the asset that are only performed against the primary path.",
    :db/ident :d3f/CWE-1299,
    :rdf/type :owl/Class,
    :rdfs/label "Missing Protection Mechanism for Alternate Hardware Interface",
    :rdfs/subClassOf #{:d3f/CWE-420 :d3f/CWE-288}})
 
 (def CWE-13
-  {:d3f/cwe-id      "CWE-13",
-   :db/ident        :d3f/CWE-13,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ASP.NET Misconfiguration: Password in Configuration File",
+  {:d3f/cwe-id "CWE-13",
+   :d3f/definition
+   "Storing a plaintext password in a configuration file allows anyone who can read the file access to the password-protected resource making them an easy target for attackers.",
+   :db/ident :d3f/CWE-13,
+   :rdf/type :owl/Class,
+   :rdfs/label "ASP.NET Misconfiguration: Password in Configuration File",
    :rdfs/subClassOf :d3f/CWE-260})
 
 (def CWE-130
-  {:d3f/cwe-id      "CWE-130",
-   :db/ident        :d3f/CWE-130,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Length Parameter Inconsistency",
+  {:d3f/cwe-id "CWE-130",
+   :d3f/definition
+   "The product parses a formatted message or structure, but it does not handle or incorrectly handles a length field that is inconsistent with the actual length of the associated data.",
+   :d3f/synonym #{"length tampering" "length manipulation"},
+   :db/ident :d3f/CWE-130,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Length Parameter Inconsistency",
    :rdfs/subClassOf :d3f/CWE-240})
 
 (def CWE-1300
-  {:d3f/cwe-id      "CWE-1300",
-   :db/ident        :d3f/CWE-1300,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Protection of Physical Side Channels",
+  {:d3f/cwe-id "CWE-1300",
+   :d3f/definition
+   "The device does not contain sufficient protection mechanisms to prevent physical side channels from exposing sensitive information due to patterns in physically observable phenomena such as variations in power consumption, electromagnetic emissions (EME), or acoustic emissions.",
+   :db/ident :d3f/CWE-1300,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Protection of Physical Side Channels",
    :rdfs/subClassOf :d3f/CWE-203})
 
 (def CWE-1301
   {:d3f/cwe-id "CWE-1301",
+   :d3f/definition
+   "The product's data removal process does not completely delete all data and potentially sensitive information within hardware components.",
    :db/ident :d3f/CWE-1301,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6918,21 +7425,29 @@
    :rdfs/subClassOf :d3f/CWE-226})
 
 (def CWE-1302
-  {:d3f/cwe-id      "CWE-1302",
-   :db/ident        :d3f/CWE-1302,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Security Identifier",
+  {:d3f/cwe-id "CWE-1302",
+   :d3f/definition
+   "The product implements a security identifier mechanism to differentiate what actions are allowed or disallowed when a transaction originates from an entity. A transaction is sent without a security identifier.",
+   :db/ident :d3f/CWE-1302,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   #{"Missing Security Identifier"
+     "Missing Source Identifier in Entity Transactions on a System-On-Chip (SOC)"},
    :rdfs/subClassOf :d3f/CWE-1294})
 
 (def CWE-1303
-  {:d3f/cwe-id      "CWE-1303",
-   :db/ident        :d3f/CWE-1303,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Non-Transparent Sharing of Microarchitectural Resources",
+  {:d3f/cwe-id "CWE-1303",
+   :d3f/definition
+   "Hardware structures shared across execution contexts (e.g., caches and branch predictors) can violate the expected architecture isolation between contexts.",
+   :db/ident :d3f/CWE-1303,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-Transparent Sharing of Microarchitectural Resources",
    :rdfs/subClassOf #{:d3f/CWE-203 :d3f/CWE-1189}})
 
 (def CWE-1304
   {:d3f/cwe-id "CWE-1304",
+   :d3f/definition
+   "The product performs a power save/restore operation, but it does not ensure that the integrity of the configuration state is maintained and/or verified between the beginning and ending of the operation.",
    :db/ident :d3f/CWE-1304,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6940,21 +7455,27 @@
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-131
-  {:d3f/cwe-id      "CWE-131",
-   :db/ident        :d3f/CWE-131,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Calculation of Buffer Size",
+  {:d3f/cwe-id "CWE-131",
+   :d3f/definition
+   "The product does not correctly calculate the size to be used when allocating a buffer, which could lead to a buffer overflow.",
+   :db/ident :d3f/CWE-131,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Calculation of Buffer Size",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-1310
-  {:d3f/cwe-id      "CWE-1310",
-   :db/ident        :d3f/CWE-1310,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Ability to Patch ROM Code",
+  {:d3f/cwe-id "CWE-1310",
+   :d3f/definition
+   "Missing an ability to patch ROM code may leave a System or System-on-Chip (SoC) in a vulnerable state.",
+   :db/ident :d3f/CWE-1310,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Ability to Patch ROM Code",
    :rdfs/subClassOf :d3f/CWE-1329})
 
 (def CWE-1311
   {:d3f/cwe-id "CWE-1311",
+   :d3f/definition
+   "The bridge incorrectly translates security attributes from either trusted to untrusted or from untrusted to trusted when converting from one fabric protocol to another.",
    :db/ident :d3f/CWE-1311,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Translation of Security Attributes by Fabric Bridge",
@@ -6962,6 +7483,8 @@
 
 (def CWE-1312
   {:d3f/cwe-id "CWE-1312",
+   :d3f/definition
+   "The firewall in an on-chip fabric protects the main addressed region, but it does not protect any mirrored memory or memory-mapped-IO (MMIO) regions.",
    :db/ident :d3f/CWE-1312,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6970,20 +7493,26 @@
 
 (def CWE-1313
   {:d3f/cwe-id "CWE-1313",
+   :d3f/definition
+   "During runtime, the hardware allows for test or debug logic (feature) to be activated, which allows for changing the state of the hardware. This feature can alter the intended behavior of the system and allow for alteration and leakage of sensitive data by an adversary.",
    :db/ident :d3f/CWE-1313,
    :rdf/type :owl/Class,
    :rdfs/label "Hardware Allows Activation of Test or Debug Logic at Runtime",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1314
-  {:d3f/cwe-id      "CWE-1314",
-   :db/ident        :d3f/CWE-1314,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Write Protection for Parametric Data Values",
+  {:d3f/cwe-id "CWE-1314",
+   :d3f/definition
+   "The device does not write-protect the parametric data values for sensors that scale the sensor value, allowing untrusted software to manipulate the apparent result and potentially damage hardware or cause operational failure.",
+   :db/ident :d3f/CWE-1314,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Write Protection for Parametric Data Values",
    :rdfs/subClassOf :d3f/CWE-862})
 
 (def CWE-1315
   {:d3f/cwe-id "CWE-1315",
+   :d3f/definition
+   "The bus controller enables bits in the fabric end-point to allow responder devices to control transactions on the fabric.",
    :db/ident :d3f/CWE-1315,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6992,6 +7521,8 @@
 
 (def CWE-1316
   {:d3f/cwe-id "CWE-1316",
+   :d3f/definition
+   "The address map of the on-chip fabric has protected and unprotected regions overlapping, allowing an attacker to bypass access control to the overlapping portion of the protected region.",
    :db/ident :d3f/CWE-1316,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -6999,14 +7530,18 @@
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1317
-  {:d3f/cwe-id      "CWE-1317",
-   :db/ident        :d3f/CWE-1317,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Access Control in Fabric Bridge",
+  {:d3f/cwe-id "CWE-1317",
+   :d3f/definition
+   "The product uses a fabric bridge for transactions between two Intellectual Property (IP) blocks, but the bridge does not properly perform the expected privilege, identity, or other access control checks between those IP blocks.",
+   :db/ident :d3f/CWE-1317,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Access Control in Fabric Bridge",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1318
   {:d3f/cwe-id "CWE-1318",
+   :d3f/definition
+   "On-chip fabrics or buses either do not support or are not configured to support privilege separation or other security features, such as access control.",
    :db/ident :d3f/CWE-1318,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7015,6 +7550,8 @@
 
 (def CWE-1319
   {:d3f/cwe-id "CWE-1319",
+   :d3f/definition
+   "The device is susceptible to electromagnetic fault injection attacks, causing device internal information to be compromised or security mechanisms to be bypassed.",
    :db/ident :d3f/CWE-1319,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7023,6 +7560,8 @@
 
 (def CWE-1320
   {:d3f/cwe-id "CWE-1320",
+   :d3f/definition
+   "Untrusted agents can disable alerts about signal conditions exceeding limits or the response mechanism that handles such alerts.",
    :db/ident :d3f/CWE-1320,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7031,6 +7570,8 @@
 
 (def CWE-1321
   {:d3f/cwe-id "CWE-1321",
+   :d3f/definition
+   "The product receives input from an upstream component that specifies attributes that are to be initialized or updated in an object, but it does not properly control modifications of attributes of the object prototype.",
    :db/ident :d3f/CWE-1321,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7039,62 +7580,81 @@
 
 (def CWE-1322
   {:d3f/cwe-id "CWE-1322",
+   :d3f/definition
+   "The product uses a non-blocking model that relies on a single threaded process for features such as scalability, but it contains code that can block when it is invoked.",
    :db/ident :d3f/CWE-1322,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Blocking Code in Single-threaded, Non-blocking Context",
    :rdfs/subClassOf :d3f/CWE-834})
 
 (def CWE-1323
-  {:d3f/cwe-id      "CWE-1323",
-   :db/ident        :d3f/CWE-1323,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Management of Sensitive Trace Data",
+  {:d3f/cwe-id "CWE-1323",
+   :d3f/definition
+   "Trace data collected from several sources on the System-on-Chip (SoC) is stored in unprotected locations or transported to untrusted agents.",
+   :db/ident :d3f/CWE-1323,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Management of Sensitive Trace Data",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1325
-  {:d3f/cwe-id      "CWE-1325",
-   :db/ident        :d3f/CWE-1325,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improperly Controlled Sequential Memory Allocation",
+  {:d3f/cwe-id "CWE-1325",
+   :d3f/definition
+   "The product manages a group of objects or resources and performs a separate memory allocation for each object, but it does not properly limit the total amount of memory that is consumed by all of the combined objects.",
+   :d3f/synonym "Stack Exhaustion",
+   :db/ident :d3f/CWE-1325,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improperly Controlled Sequential Memory Allocation",
    :rdfs/subClassOf :d3f/CWE-770})
 
 (def CWE-1326
-  {:d3f/cwe-id      "CWE-1326",
-   :db/ident        :d3f/CWE-1326,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Immutable Root of Trust in Hardware",
+  {:d3f/cwe-id "CWE-1326",
+   :d3f/definition
+   "A missing immutable root of trust in the hardware results in the ability to bypass secure boot or execute untrusted or adversarial boot code.",
+   :db/ident :d3f/CWE-1326,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Immutable Root of Trust in Hardware",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-1327
-  {:d3f/cwe-id      "CWE-1327",
-   :db/ident        :d3f/CWE-1327,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Binding to an Unrestricted IP Address",
+  {:d3f/cwe-id "CWE-1327",
+   :d3f/definition
+   "The product assigns the address 0.0.0.0 for a database server, a cloud service/instance, or any computing resource that communicates remotely.",
+   :db/ident :d3f/CWE-1327,
+   :rdf/type :owl/Class,
+   :rdfs/label "Binding to an Unrestricted IP Address",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-1328
-  {:d3f/cwe-id      "CWE-1328",
-   :db/ident        :d3f/CWE-1328,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Security Version Number Mutable to Older Versions",
+  {:d3f/cwe-id "CWE-1328",
+   :d3f/definition
+   "Security-version number in hardware is mutable, resulting in the ability to downgrade (roll-back) the boot firmware to vulnerable code versions.",
+   :db/ident :d3f/CWE-1328,
+   :rdf/type :owl/Class,
+   :rdfs/label "Security Version Number Mutable to Older Versions",
    :rdfs/subClassOf :d3f/CWE-285})
 
 (def CWE-1329
-  {:d3f/cwe-id      "CWE-1329",
-   :db/ident        :d3f/CWE-1329,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Component That is Not Updateable",
+  {:d3f/cwe-id "CWE-1329",
+   :d3f/definition
+   "The product contains a component that cannot be updated or patched in order to remove vulnerabilities or significant bugs.",
+   :db/ident :d3f/CWE-1329,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Component That is Not Updateable",
    :rdfs/subClassOf #{:d3f/CWE-664 :d3f/CWE-1357}})
 
 (def CWE-1330
-  {:d3f/cwe-id      "CWE-1330",
-   :db/ident        :d3f/CWE-1330,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Remanent Data Readable after Memory Erase",
+  {:d3f/cwe-id "CWE-1330",
+   :d3f/definition
+   "Confidential information stored in memory circuits is readable or recoverable after being cleared or erased.",
+   :db/ident :d3f/CWE-1330,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remanent Data Readable after Memory Erase",
    :rdfs/subClassOf :d3f/CWE-1301})
 
 (def CWE-1331
   {:d3f/cwe-id "CWE-1331",
+   :d3f/definition
+   "The Network On Chip (NoC) does not isolate or incorrectly isolates its on-chip-fabric and internal resources such that they are shared between trusted and untrusted agents, creating timing channels.",
    :db/ident :d3f/CWE-1331,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7103,34 +7663,48 @@
 
 (def CWE-1332
   {:d3f/cwe-id "CWE-1332",
+   :d3f/definition
+   "The device is missing or incorrectly implements circuitry or sensors that detect and mitigate the skipping of security-critical CPU instructions when they occur.",
    :db/ident :d3f/CWE-1332,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Handling of Faults that Lead to Instruction Skips",
    :rdfs/subClassOf :d3f/CWE-1384})
 
 (def CWE-1333
-  {:d3f/cwe-id      "CWE-1333",
-   :db/ident        :d3f/CWE-1333,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inefficient Regular Expression Complexity",
+  {:d3f/cwe-id "CWE-1333",
+   :d3f/definition
+   "The product uses a regular expression with an inefficient, possibly exponential worst-case computational complexity that consumes excessive CPU cycles.",
+   :d3f/synonym #{"Catastrophic backtracking"
+                  "Regular Expression Denial of Service" "ReDoS"},
+   :db/ident :d3f/CWE-1333,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inefficient Regular Expression Complexity",
    :rdfs/subClassOf :d3f/CWE-407})
 
 (def CWE-1334
   {:d3f/cwe-id "CWE-1334",
+   :d3f/definition
+   "An unauthorized agent can inject errors into a redundant block to deprive the system of redundancy or put the system in a degraded operating mode.",
    :db/ident :d3f/CWE-1334,
    :rdf/type :owl/Class,
    :rdfs/label "Unauthorized Error Injection Can Degrade Hardware Redundancy",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-1335
-  {:d3f/cwe-id      "CWE-1335",
-   :db/ident        :d3f/CWE-1335,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Bitwise Shift of Integer",
+  {:d3f/cwe-id "CWE-1335",
+   :d3f/definition
+   "An integer value is specified to be shifted by a negative amount or an amount greater than or equal to the number of bits contained in the value causing an unexpected or indeterminate result.",
+   :db/ident :d3f/CWE-1335,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Bitwise Shift of Integer",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-1336
   {:d3f/cwe-id "CWE-1336",
+   :d3f/definition
+   "The product uses a template engine to insert or process externally-influenced input, but it does not neutralize or incorrectly neutralizes special elements or syntax that can be interpreted as template expressions or other code directives when processed by the engine.",
+   :d3f/synonym #{"Client-Side Template Injection / CSTI"
+                  "Server-Side Template Injection / SSTI"},
    :db/ident :d3f/CWE-1336,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7138,35 +7712,45 @@
    :rdfs/subClassOf :d3f/CWE-94})
 
 (def CWE-1338
-  {:d3f/cwe-id      "CWE-1338",
-   :db/ident        :d3f/CWE-1338,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Protections Against Hardware Overheating",
+  {:d3f/cwe-id "CWE-1338",
+   :d3f/definition
+   "A hardware device is missing or has inadequate protection features to prevent overheating.",
+   :db/ident :d3f/CWE-1338,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Protections Against Hardware Overheating",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-1339
-  {:d3f/cwe-id      "CWE-1339",
-   :db/ident        :d3f/CWE-1339,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Precision or Accuracy of a Real Number",
+  {:d3f/cwe-id "CWE-1339",
+   :d3f/definition
+   "The product processes a real number with an implementation in which the number's representation does not preserve required accuracy and precision in its fractional part, causing an incorrect result.",
+   :db/ident :d3f/CWE-1339,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Precision or Accuracy of a Real Number",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-134
-  {:d3f/cwe-id      "CWE-134",
-   :db/ident        :d3f/CWE-134,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Externally-Controlled Format String",
+  {:d3f/cwe-id "CWE-134",
+   :d3f/definition
+   "The product uses a function that accepts a format string as an argument, but the format string originates from an external source.",
+   :db/ident :d3f/CWE-134,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Externally-Controlled Format String",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-1341
-  {:d3f/cwe-id      "CWE-1341",
-   :db/ident        :d3f/CWE-1341,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multiple Releases of Same Resource or Handle",
+  {:d3f/cwe-id "CWE-1341",
+   :d3f/definition
+   "The product attempts to close or release a resource or handle more than once, without any successful open between the close operations.",
+   :db/ident :d3f/CWE-1341,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multiple Releases of Same Resource or Handle",
    :rdfs/subClassOf :d3f/CWE-675})
 
 (def CWE-1342
   {:d3f/cwe-id "CWE-1342",
+   :d3f/definition
+   "The processor does not properly clear microarchitectural state after incorrect microcode assists or speculative execution, resulting in transient execution.",
    :db/ident :d3f/CWE-1342,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7174,14 +7758,18 @@
    :rdfs/subClassOf :d3f/CWE-226})
 
 (def CWE-135
-  {:d3f/cwe-id      "CWE-135",
-   :db/ident        :d3f/CWE-135,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Calculation of Multi-Byte String Length",
+  {:d3f/cwe-id "CWE-135",
+   :d3f/definition
+   "The product does not correctly calculate the length of strings that can contain wide or multi-byte characters.",
+   :db/ident :d3f/CWE-135,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Calculation of Multi-Byte String Length",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-1351
   {:d3f/cwe-id "CWE-1351",
+   :d3f/definition
+   "A hardware device, or the firmware running on it, is missing or has incorrect protection features to maintain goals of security primitives when the device is cooled below standard operating temperatures.",
    :db/ident :d3f/CWE-1351,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7189,509 +7777,757 @@
    :rdfs/subClassOf :d3f/CWE-1384})
 
 (def CWE-1357
-  {:d3f/cwe-id      "CWE-1357",
-   :db/ident        :d3f/CWE-1357,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Insufficiently Trustworthy Component",
+  {:d3f/cwe-id "CWE-1357",
+   :d3f/definition
+   "The product is built from multiple separate components, but it uses a component that is not sufficiently trusted to meet expectations for security, reliability, updateability, and maintainability.",
+   :db/ident :d3f/CWE-1357,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Insufficiently Trustworthy Component",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-138
-  {:d3f/cwe-id      "CWE-138",
-   :db/ident        :d3f/CWE-138,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Special Elements",
+  {:d3f/cwe-id "CWE-138",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as control elements or syntactic markers when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-138,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Special Elements",
    :rdfs/subClassOf :d3f/CWE-707})
 
 (def CWE-1384
-  {:d3f/cwe-id      "CWE-1384",
-   :db/ident        :d3f/CWE-1384,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Physical or Environmental Conditions",
+  {:d3f/cwe-id "CWE-1384",
+   :d3f/definition
+   "The product does not properly handle unexpected physical or environmental conditions that occur naturally or are artificially induced.",
+   :db/ident :d3f/CWE-1384,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Physical or Environmental Conditions",
    :rdfs/subClassOf :d3f/CWE-703})
 
 (def CWE-1385
-  {:d3f/cwe-id      "CWE-1385",
-   :db/ident        :d3f/CWE-1385,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Origin Validation in WebSockets",
+  {:d3f/cwe-id "CWE-1385",
+   :d3f/definition
+   "The product uses a WebSocket, but it does not properly verify that the source of data or communication is valid.",
+   :d3f/synonym "Cross-Site WebSocket hijacking (CSWSH)",
+   :db/ident :d3f/CWE-1385,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Origin Validation in WebSockets",
    :rdfs/subClassOf :d3f/CWE-346})
 
 (def CWE-1386
-  {:d3f/cwe-id      "CWE-1386",
-   :db/ident        :d3f/CWE-1386,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Operation on Windows Junction / Mount Point",
+  {:d3f/cwe-id "CWE-1386",
+   :d3f/definition
+   "The product opens a file or directory, but it does not properly prevent the name from being associated with a junction or mount point to a destination that is outside of the intended control sphere.",
+   :db/ident :d3f/CWE-1386,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Operation on Windows Junction / Mount Point",
    :rdfs/subClassOf :d3f/CWE-59})
 
 (def CWE-1389
-  {:d3f/cwe-id      "CWE-1389",
-   :db/ident        :d3f/CWE-1389,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Parsing of Numbers with Different Radices",
+  {:d3f/cwe-id "CWE-1389",
+   :d3f/definition
+   "The product parses numeric input assuming base 10 (decimal) values, but it does not account for inputs that use a different base number (radix).",
+   :db/ident :d3f/CWE-1389,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Parsing of Numbers with Different Radices",
    :rdfs/subClassOf :d3f/CWE-704})
 
 (def CWE-1390
-  {:d3f/cwe-id      "CWE-1390",
-   :db/ident        :d3f/CWE-1390,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Weak Authentication",
+  {:d3f/cwe-id "CWE-1390",
+   :d3f/definition
+   "The product uses an authentication mechanism to restrict access to specific users or identities, but the mechanism does not sufficiently prove that the claimed identity is correct.",
+   :db/ident :d3f/CWE-1390,
+   :rdf/type :owl/Class,
+   :rdfs/label "Weak Authentication",
    :rdfs/subClassOf :d3f/CWE-287})
 
 (def CWE-1391
-  {:d3f/cwe-id      "CWE-1391",
-   :db/ident        :d3f/CWE-1391,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Weak Credentials",
+  {:d3f/cwe-id "CWE-1391",
+   :d3f/definition
+   "The product uses weak credentials (such as a default key or hard-coded password) that can be calculated, derived, reused, or guessed by an attacker.",
+   :db/ident :d3f/CWE-1391,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Weak Credentials",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-1392
-  {:d3f/cwe-id      "CWE-1392",
-   :db/ident        :d3f/CWE-1392,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Default Credentials",
+  {:d3f/cwe-id "CWE-1392",
+   :d3f/definition
+   "The product uses default credentials (such as passwords or cryptographic keys) for potentially critical functionality.",
+   :db/ident :d3f/CWE-1392,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Default Credentials",
    :rdfs/subClassOf :d3f/CWE-1391})
 
 (def CWE-1393
-  {:d3f/cwe-id      "CWE-1393",
+  {:d3f/cwe-id "CWE-1393",
+   :d3f/definition
+   "The product uses default passwords for potentially critical functionality.",
    :d3f/weakness-of :d3f/UserAccount,
-   :db/ident        :d3f/CWE-1393,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Use of Default Password",
+   :db/ident :d3f/CWE-1393,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Use of Default Password",
    :rdfs/subClassOf #{:d3f/CWE-1392
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-1394
-  {:d3f/cwe-id      "CWE-1394",
-   :db/ident        :d3f/CWE-1394,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Default Cryptographic Key",
+  {:d3f/cwe-id "CWE-1394",
+   :d3f/definition
+   "The product uses a default cryptographic key for potentially critical functionality.",
+   :db/ident :d3f/CWE-1394,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Default Cryptographic Key",
    :rdfs/subClassOf :d3f/CWE-1392})
 
 (def CWE-1395
-  {:d3f/cwe-id      "CWE-1395",
-   :db/ident        :d3f/CWE-1395,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dependency on Vulnerable Third-Party Component",
+  {:d3f/cwe-id "CWE-1395",
+   :d3f/definition
+   "The product has a dependency on a third-party component that contains one or more known vulnerabilities.",
+   :db/ident :d3f/CWE-1395,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dependency on Vulnerable Third-Party Component",
    :rdfs/subClassOf :d3f/CWE-657})
 
 (def CWE-14
-  {:d3f/cwe-id      "CWE-14",
-   :db/ident        :d3f/CWE-14,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Compiler Removal of Code to Clear Buffers",
+  {:d3f/cwe-id "CWE-14",
+   :d3f/definition
+   "Sensitive memory is cleared according to the source code, but compiler optimizations leave the memory untouched when it is not read from again, aka \"dead store removal.\"",
+   :db/ident :d3f/CWE-14,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compiler Removal of Code to Clear Buffers",
    :rdfs/subClassOf :d3f/CWE-733})
 
 (def CWE-140
-  {:d3f/cwe-id      "CWE-140",
-   :db/ident        :d3f/CWE-140,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Delimiters",
+  {:d3f/cwe-id "CWE-140",
+   :d3f/definition
+   "The product does not neutralize or incorrectly neutralizes delimiters.",
+   :db/ident :d3f/CWE-140,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Delimiters",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-141
-  {:d3f/cwe-id      "CWE-141",
-   :db/ident        :d3f/CWE-141,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Parameter/Argument Delimiters",
+  {:d3f/cwe-id "CWE-141",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as parameter or argument delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-141,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Parameter/Argument Delimiters",
    :rdfs/subClassOf :d3f/CWE-140})
+
+(def CWE-1419
+  {:d3f/cwe-id "CWE-1419",
+   :d3f/definition
+   "The product attempts to initialize a resource but does not correctly do so, which might leave the resource in an unexpected, incorrect, or insecure state when it is accessed.",
+   :db/ident :d3f/CWE-1419,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Initialization of Resource",
+   :rdfs/subClassOf :d3f/CWE-665})
 
 (def CWE-142
-  {:d3f/cwe-id      "CWE-142",
-   :db/ident        :d3f/CWE-142,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Value Delimiters",
+  {:d3f/cwe-id "CWE-142",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as value delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-142,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Value Delimiters",
    :rdfs/subClassOf :d3f/CWE-140})
+
+(def CWE-1420
+  {:d3f/cwe-id "CWE-1420",
+   :d3f/definition
+   "A processor event or prediction may allow incorrect operations (or correct operations with incorrect data) to execute transiently, potentially exposing data over a covert channel.",
+   :db/ident :d3f/CWE-1420,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Sensitive Information during Transient Execution",
+   :rdfs/subClassOf :d3f/CWE-669})
+
+(def CWE-1421
+  {:d3f/cwe-id "CWE-1421",
+   :d3f/definition
+   "A processor event may allow transient operations to access architecturally restricted data (for example, in another address space) in a shared microarchitectural structure (for example, a CPU cache), potentially exposing the data over a covert channel.",
+   :db/ident :d3f/CWE-1421,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Exposure of Sensitive Information in Shared Microarchitectural Structures during Transient Execution",
+   :rdfs/subClassOf :d3f/CWE-1420})
+
+(def CWE-1422
+  {:d3f/cwe-id "CWE-1422",
+   :d3f/definition
+   "A processor event or prediction may allow incorrect or stale data to be forwarded to transient operations, potentially exposing data over a covert channel.",
+   :db/ident :d3f/CWE-1422,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Exposure of Sensitive Information caused by Incorrect Data Forwarding during Transient Execution",
+   :rdfs/subClassOf :d3f/CWE-1420})
+
+(def CWE-1423
+  {:d3f/cwe-id "CWE-1423",
+   :d3f/definition
+   "Shared microarchitectural predictor state may allow code to influence transient execution across a hardware boundary, potentially exposing data that is accessible beyond the boundary over a covert channel.",
+   :db/ident :d3f/CWE-1423,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Exposure of Sensitive Information caused by Shared Microarchitectural Predictor State that Influences Transient Execution",
+   :rdfs/subClassOf :d3f/CWE-1420})
+
+(def CWE-1426
+  {:d3f/cwe-id "CWE-1426",
+   :d3f/definition
+   "The product invokes a generative AI/ML component whose behaviors and outputs cannot be directly controlled, but the product does not validate or insufficiently validates the outputs to ensure that they align with the intended security, content, or privacy policy.",
+   :db/ident :d3f/CWE-1426,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Generative AI Output",
+   :rdfs/subClassOf :d3f/CWE-707})
+
+(def CWE-1427
+  {:d3f/cwe-id "CWE-1427",
+   :d3f/definition
+   "The product uses externally-provided data to build prompts provided to large language models (LLMs), but the way these prompts are constructed causes the LLM to fail to distinguish between user-supplied inputs and developer provided system directives.",
+   :d3f/synonym "prompt injection",
+   :db/ident :d3f/CWE-1427,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Input Used for LLM Prompting",
+   :rdfs/subClassOf :d3f/CWE-77})
+
+(def CWE-1428
+  {:d3f/cwe-id "CWE-1428",
+   :d3f/definition
+   "The product provides or relies on use of HTTP communications when HTTPS is available.",
+   :db/ident :d3f/CWE-1428,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on HTTP instead of HTTPS",
+   :rdfs/subClassOf :d3f/CWE-319})
+
+(def CWE-1429
+  {:d3f/cwe-id "CWE-1429",
+   :d3f/definition
+   "The product has a hardware interface that silently discards operations in situations for which feedback would be security-relevant, such as the timely detection of failures or attacks.",
+   :db/ident :d3f/CWE-1429,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Missing Security-Relevant Feedback for Unexecuted Operations in Hardware Interface",
+   :rdfs/subClassOf :d3f/CWE-223})
 
 (def CWE-143
-  {:d3f/cwe-id      "CWE-143",
-   :db/ident        :d3f/CWE-143,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Record Delimiters",
+  {:d3f/cwe-id "CWE-143",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as record delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-143,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Record Delimiters",
    :rdfs/subClassOf :d3f/CWE-140})
 
+(def CWE-1431
+  {:d3f/cwe-id "CWE-1431",
+   :d3f/definition
+   "The product uses a hardware module implementing a cryptographic algorithm that writes sensitive information about the intermediate state or results of its cryptographic operations via one of its output wires (typically the output port containing the final result).",
+   :db/ident :d3f/CWE-1431,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Driving Intermediate Cryptographic State/Results to Hardware Module Outputs",
+   :rdfs/subClassOf :d3f/CWE-200})
+
 (def CWE-144
-  {:d3f/cwe-id      "CWE-144",
-   :db/ident        :d3f/CWE-144,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Line Delimiters",
+  {:d3f/cwe-id "CWE-144",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as line delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-144,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Line Delimiters",
    :rdfs/subClassOf :d3f/CWE-140})
 
 (def CWE-145
-  {:d3f/cwe-id      "CWE-145",
-   :db/ident        :d3f/CWE-145,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Section Delimiters",
+  {:d3f/cwe-id "CWE-145",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as section delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-145,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Section Delimiters",
    :rdfs/subClassOf :d3f/CWE-140})
 
 (def CWE-146
-  {:d3f/cwe-id      "CWE-146",
-   :db/ident        :d3f/CWE-146,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Expression/Command Delimiters",
+  {:d3f/cwe-id "CWE-146",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as expression or command delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-146,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Expression/Command Delimiters",
    :rdfs/subClassOf :d3f/CWE-140})
 
 (def CWE-147
-  {:d3f/cwe-id      "CWE-147",
-   :db/ident        :d3f/CWE-147,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Input Terminators",
+  {:d3f/cwe-id "CWE-147",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as input terminators when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-147,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Input Terminators",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-148
-  {:d3f/cwe-id      "CWE-148",
-   :db/ident        :d3f/CWE-148,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Input Leaders",
+  {:d3f/cwe-id "CWE-148",
+   :d3f/definition
+   "The product does not properly handle when a leading character or sequence (\"leader\") is missing or malformed, or if multiple leaders are used when only one should be allowed.",
+   :db/ident :d3f/CWE-148,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Input Leaders",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-149
-  {:d3f/cwe-id      "CWE-149",
-   :db/ident        :d3f/CWE-149,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Quoting Syntax",
+  {:d3f/cwe-id "CWE-149",
+   :d3f/definition
+   "Quotes injected into a product can be used to compromise a system. As data are parsed, an injected/absent/duplicate/malformed use of quotes may cause the process to take unexpected actions.",
+   :db/ident :d3f/CWE-149,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Quoting Syntax",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-15
-  {:d3f/cwe-id      "CWE-15",
-   :db/ident        :d3f/CWE-15,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "External Control of System or Configuration Setting",
+  {:d3f/cwe-id "CWE-15",
+   :d3f/definition
+   "One or more system settings or configuration elements can be externally controlled by a user.",
+   :db/ident :d3f/CWE-15,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Control of System or Configuration Setting",
    :rdfs/subClassOf #{:d3f/CWE-642 :d3f/CWE-610}})
 
 (def CWE-150
   {:d3f/cwe-id "CWE-150",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as escape, meta, or control character sequences when they are sent to a downstream component.",
    :db/ident :d3f/CWE-150,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Escape, Meta, or Control Sequences",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-151
-  {:d3f/cwe-id      "CWE-151",
-   :db/ident        :d3f/CWE-151,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Comment Delimiters",
+  {:d3f/cwe-id "CWE-151",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as comment delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-151,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Comment Delimiters",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-152
-  {:d3f/cwe-id      "CWE-152",
-   :db/ident        :d3f/CWE-152,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Macro Symbols",
+  {:d3f/cwe-id "CWE-152",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as macro symbols when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-152,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Macro Symbols",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-153
-  {:d3f/cwe-id      "CWE-153",
-   :db/ident        :d3f/CWE-153,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Substitution Characters",
+  {:d3f/cwe-id "CWE-153",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as substitution characters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-153,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Substitution Characters",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-154
-  {:d3f/cwe-id      "CWE-154",
-   :db/ident        :d3f/CWE-154,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Variable Name Delimiters",
+  {:d3f/cwe-id "CWE-154",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as variable name delimiters when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-154,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Variable Name Delimiters",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-155
-  {:d3f/cwe-id      "CWE-155",
-   :db/ident        :d3f/CWE-155,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Wildcards or Matching Symbols",
+  {:d3f/cwe-id "CWE-155",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as wildcards or matching symbols when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-155,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Wildcards or Matching Symbols",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-156
-  {:d3f/cwe-id      "CWE-156",
-   :db/ident        :d3f/CWE-156,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Whitespace",
+  {:d3f/cwe-id "CWE-156",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as whitespace when they are sent to a downstream component.",
+   :d3f/synonym "White space",
+   :db/ident :d3f/CWE-156,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Whitespace",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-157
-  {:d3f/cwe-id      "CWE-157",
-   :db/ident        :d3f/CWE-157,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Failure to Sanitize Paired Delimiters",
+  {:d3f/cwe-id "CWE-157",
+   :d3f/definition
+   "The product does not properly handle the characters that are used to mark the beginning and ending of a group of entities, such as parentheses, brackets, and braces.",
+   :db/ident :d3f/CWE-157,
+   :rdf/type :owl/Class,
+   :rdfs/label "Failure to Sanitize Paired Delimiters",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-158
-  {:d3f/cwe-id      "CWE-158",
-   :db/ident        :d3f/CWE-158,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Null Byte or NUL Character",
+  {:d3f/cwe-id "CWE-158",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes NUL characters or null bytes when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-158,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Null Byte or NUL Character",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-159
-  {:d3f/cwe-id      "CWE-159",
-   :db/ident        :d3f/CWE-159,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Invalid Use of Special Elements",
+  {:d3f/cwe-id "CWE-159",
+   :d3f/definition
+   "The product does not properly filter, remove, quote, or otherwise manage the invalid use of special elements in user-controlled input, which could cause adverse effect on its behavior and integrity.",
+   :db/ident :d3f/CWE-159,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Invalid Use of Special Elements",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-160
-  {:d3f/cwe-id      "CWE-160",
-   :db/ident        :d3f/CWE-160,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Leading Special Elements",
+  {:d3f/cwe-id "CWE-160",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes leading special elements that could be interpreted in unexpected ways when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-160,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Leading Special Elements",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-161
   {:d3f/cwe-id "CWE-161",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes multiple leading special elements that could be interpreted in unexpected ways when they are sent to a downstream component.",
    :db/ident :d3f/CWE-161,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Multiple Leading Special Elements",
    :rdfs/subClassOf :d3f/CWE-160})
 
 (def CWE-162
-  {:d3f/cwe-id      "CWE-162",
-   :db/ident        :d3f/CWE-162,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Trailing Special Elements",
+  {:d3f/cwe-id "CWE-162",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes trailing special elements that could be interpreted in unexpected ways when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-162,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Trailing Special Elements",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-163
   {:d3f/cwe-id "CWE-163",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes multiple trailing special elements that could be interpreted in unexpected ways when they are sent to a downstream component.",
    :db/ident :d3f/CWE-163,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Multiple Trailing Special Elements",
    :rdfs/subClassOf :d3f/CWE-162})
 
 (def CWE-164
-  {:d3f/cwe-id      "CWE-164",
-   :db/ident        :d3f/CWE-164,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Internal Special Elements",
+  {:d3f/cwe-id "CWE-164",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes internal special elements that could be interpreted in unexpected ways when they are sent to a downstream component.",
+   :db/ident :d3f/CWE-164,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Internal Special Elements",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-165
   {:d3f/cwe-id "CWE-165",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes multiple internal special elements that could be interpreted in unexpected ways when they are sent to a downstream component.",
    :db/ident :d3f/CWE-165,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Multiple Internal Special Elements",
    :rdfs/subClassOf :d3f/CWE-164})
 
 (def CWE-166
-  {:d3f/cwe-id      "CWE-166",
-   :db/ident        :d3f/CWE-166,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Missing Special Element",
-   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-159}})
+  {:d3f/cwe-id "CWE-166",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not handle or incorrectly handles when an expected special element is missing.",
+   :db/ident :d3f/CWE-166,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Missing Special Element",
+   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-228 :d3f/CWE-159}})
 
 (def CWE-167
-  {:d3f/cwe-id      "CWE-167",
-   :db/ident        :d3f/CWE-167,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Additional Special Element",
-   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-159}})
+  {:d3f/cwe-id "CWE-167",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not handle or incorrectly handles when an additional unexpected special element is provided.",
+   :db/ident :d3f/CWE-167,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Additional Special Element",
+   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-228 :d3f/CWE-159}})
 
 (def CWE-168
-  {:d3f/cwe-id      "CWE-168",
-   :db/ident        :d3f/CWE-168,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Inconsistent Special Elements",
-   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-159}})
+  {:d3f/cwe-id "CWE-168",
+   :d3f/definition
+   "The product does not properly handle input in which an inconsistency exists between two or more special characters or reserved words.",
+   :db/ident :d3f/CWE-168,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Inconsistent Special Elements",
+   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-228 :d3f/CWE-159}})
 
 (def CWE-170
-  {:d3f/cwe-id      "CWE-170",
-   :db/ident        :d3f/CWE-170,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Null Termination",
+  {:d3f/cwe-id "CWE-170",
+   :d3f/definition
+   "The product does not terminate or incorrectly terminates a string or array with a null character or equivalent terminator.",
+   :db/ident :d3f/CWE-170,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Null Termination",
    :rdfs/subClassOf :d3f/CWE-707})
 
 (def CWE-172
-  {:d3f/cwe-id      "CWE-172",
-   :db/ident        :d3f/CWE-172,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Encoding Error",
+  {:d3f/cwe-id "CWE-172",
+   :d3f/definition
+   "The product does not properly encode or decode the data, resulting in unexpected values.",
+   :db/ident :d3f/CWE-172,
+   :rdf/type :owl/Class,
+   :rdfs/label "Encoding Error",
    :rdfs/subClassOf :d3f/CWE-707})
 
 (def CWE-173
-  {:d3f/cwe-id      "CWE-173",
-   :db/ident        :d3f/CWE-173,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Alternate Encoding",
+  {:d3f/cwe-id "CWE-173",
+   :d3f/definition
+   "The product does not properly handle when an input uses an alternate encoding that is valid for the control sphere to which the input is being sent.",
+   :db/ident :d3f/CWE-173,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Alternate Encoding",
    :rdfs/subClassOf :d3f/CWE-172})
 
 (def CWE-174
-  {:d3f/cwe-id      "CWE-174",
-   :db/ident        :d3f/CWE-174,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Double Decoding of the Same Data",
+  {:d3f/cwe-id "CWE-174",
+   :d3f/definition
+   "The product decodes the same input twice, which can limit the effectiveness of any protection mechanism that occurs in between the decoding operations.",
+   :db/ident :d3f/CWE-174,
+   :rdf/type :owl/Class,
+   :rdfs/label "Double Decoding of the Same Data",
    :rdfs/subClassOf #{:d3f/CWE-172 :d3f/CWE-675}})
 
 (def CWE-175
-  {:d3f/cwe-id      "CWE-175",
-   :db/ident        :d3f/CWE-175,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Mixed Encoding",
+  {:d3f/cwe-id "CWE-175",
+   :d3f/definition
+   "The product does not properly handle when the same input uses several different (mixed) encodings.",
+   :db/ident :d3f/CWE-175,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Mixed Encoding",
    :rdfs/subClassOf :d3f/CWE-172})
 
 (def CWE-176
-  {:d3f/cwe-id      "CWE-176",
-   :db/ident        :d3f/CWE-176,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Unicode Encoding",
+  {:d3f/cwe-id "CWE-176",
+   :d3f/definition
+   "The product does not properly handle when an input contains Unicode encoding.",
+   :db/ident :d3f/CWE-176,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Unicode Encoding",
    :rdfs/subClassOf :d3f/CWE-172})
 
 (def CWE-177
-  {:d3f/cwe-id      "CWE-177",
-   :db/ident        :d3f/CWE-177,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of URL Encoding (Hex Encoding)",
+  {:d3f/cwe-id "CWE-177",
+   :d3f/definition
+   "The product does not properly handle when all or part of an input has been URL encoded.",
+   :db/ident :d3f/CWE-177,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of URL Encoding (Hex Encoding)",
    :rdfs/subClassOf :d3f/CWE-172})
 
 (def CWE-178
-  {:d3f/cwe-id      "CWE-178",
-   :db/ident        :d3f/CWE-178,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Case Sensitivity",
+  {:d3f/cwe-id "CWE-178",
+   :d3f/definition
+   "The product does not properly account for differences in case sensitivity when accessing or determining the properties of a resource, leading to inconsistent results.",
+   :db/ident :d3f/CWE-178,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Case Sensitivity",
    :rdfs/subClassOf :d3f/CWE-706})
 
 (def CWE-179
-  {:d3f/cwe-id      "CWE-179",
-   :db/ident        :d3f/CWE-179,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Behavior Order: Early Validation",
+  {:d3f/cwe-id "CWE-179",
+   :d3f/definition
+   "The product validates input before applying protection mechanisms that modify the input, which could allow an attacker to bypass the validation via dangerous inputs that only arise after the modification.",
+   :db/ident :d3f/CWE-179,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Behavior Order: Early Validation",
    :rdfs/subClassOf #{:d3f/CWE-696 :d3f/CWE-20}})
 
 (def CWE-180
-  {:d3f/cwe-id      "CWE-180",
-   :db/ident        :d3f/CWE-180,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Behavior Order: Validate Before Canonicalize",
+  {:d3f/cwe-id "CWE-180",
+   :d3f/definition
+   "The product validates input before it is canonicalized, which prevents the product from detecting data that becomes invalid after the canonicalization step.",
+   :db/ident :d3f/CWE-180,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Behavior Order: Validate Before Canonicalize",
    :rdfs/subClassOf :d3f/CWE-179})
 
 (def CWE-181
-  {:d3f/cwe-id      "CWE-181",
-   :db/ident        :d3f/CWE-181,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Behavior Order: Validate Before Filter",
+  {:d3f/cwe-id "CWE-181",
+   :d3f/definition
+   "The product validates data before it has been filtered, which prevents the product from detecting data that becomes invalid after the filtering step.",
+   :d3f/synonym "Validate-before-cleanse",
+   :db/ident :d3f/CWE-181,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Behavior Order: Validate Before Filter",
    :rdfs/subClassOf :d3f/CWE-179})
 
 (def CWE-182
-  {:d3f/cwe-id      "CWE-182",
-   :db/ident        :d3f/CWE-182,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Collapse of Data into Unsafe Value",
-   :rdfs/subClassOf :d3f/CWE-693})
+  {:d3f/cwe-id "CWE-182",
+   :d3f/definition
+   "The product filters data in a way that causes it to be reduced or \"collapsed\" into an unsafe value that violates an expected security property.",
+   :db/ident :d3f/CWE-182,
+   :rdf/type :owl/Class,
+   :rdfs/label "Collapse of Data into Unsafe Value",
+   :rdfs/subClassOf #{:d3f/CWE-707 :d3f/CWE-693}})
 
 (def CWE-183
-  {:d3f/cwe-id      "CWE-183",
-   :db/ident        :d3f/CWE-183,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Permissive List of Allowed Inputs",
+  {:d3f/cwe-id "CWE-183",
+   :d3f/definition
+   "The product implements a protection mechanism that relies on a list of inputs (or properties of inputs) that are explicitly allowed by policy because the inputs are assumed to be safe, but the list is too permissive - that is, it allows an input that is unsafe, leading to resultant weaknesses.",
+   :d3f/synonym #{"Allowlist / Allow List" "Whitelist / White List"
+                  "Safelist / Safe List"},
+   :db/ident :d3f/CWE-183,
+   :rdf/type :owl/Class,
+   :rdfs/label "Permissive List of Allowed Inputs",
    :rdfs/subClassOf :d3f/CWE-697})
 
 (def CWE-184
-  {:d3f/cwe-id      "CWE-184",
-   :db/ident        :d3f/CWE-184,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete List of Disallowed Inputs",
+  {:d3f/cwe-id "CWE-184",
+   :d3f/definition
+   "The product implements a protection mechanism that relies on a list of inputs (or properties of inputs) that are not allowed by policy or otherwise require other action to neutralize before additional processing takes place, but the list is incomplete.",
+   :d3f/synonym #{"Blocklist / Block List" "Blacklist / Black List"
+                  "Denylist / Deny List"},
+   :db/ident :d3f/CWE-184,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete List of Disallowed Inputs",
    :rdfs/subClassOf #{:d3f/CWE-1023 :d3f/CWE-693}})
 
 (def CWE-185
-  {:d3f/cwe-id      "CWE-185",
-   :db/ident        :d3f/CWE-185,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Regular Expression",
+  {:d3f/cwe-id "CWE-185",
+   :d3f/definition
+   "The product specifies a regular expression in a way that causes data to be improperly matched or compared.",
+   :db/ident :d3f/CWE-185,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Regular Expression",
    :rdfs/subClassOf :d3f/CWE-697})
 
 (def CWE-186
-  {:d3f/cwe-id      "CWE-186",
-   :db/ident        :d3f/CWE-186,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Overly Restrictive Regular Expression",
+  {:d3f/cwe-id "CWE-186",
+   :d3f/definition
+   "A regular expression is overly restrictive, which prevents dangerous values from being detected.",
+   :db/ident :d3f/CWE-186,
+   :rdf/type :owl/Class,
+   :rdfs/label "Overly Restrictive Regular Expression",
    :rdfs/subClassOf :d3f/CWE-185})
 
 (def CWE-187
-  {:d3f/cwe-id      "CWE-187",
-   :db/ident        :d3f/CWE-187,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Partial String Comparison",
+  {:d3f/cwe-id "CWE-187",
+   :d3f/definition
+   "The product performs a comparison that only examines a portion of a factor before determining whether there is a match, such as a substring, leading to resultant weaknesses.",
+   :db/ident :d3f/CWE-187,
+   :rdf/type :owl/Class,
+   :rdfs/label "Partial String Comparison",
    :rdfs/subClassOf :d3f/CWE-1023})
 
 (def CWE-188
-  {:d3f/cwe-id      "CWE-188",
-   :db/ident        :d3f/CWE-188,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Data/Memory Layout",
+  {:d3f/cwe-id "CWE-188",
+   :d3f/definition
+   "The product makes invalid assumptions about how protocol data or memory is organized at a lower level, resulting in unintended program behavior.",
+   :db/ident :d3f/CWE-188,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Data/Memory Layout",
    :rdfs/subClassOf #{:d3f/CWE-435 :d3f/CWE-1105}})
 
 (def CWE-190
-  {:d3f/cwe-id      "CWE-190",
+  {:d3f/cwe-id "CWE-190",
+   :d3f/definition
+   "The product performs a calculation that can produce an integer overflow or wraparound when the logic assumes that the resulting value will always be larger than the original value. This occurs when an integer value is incremented to a value that is too large to store in the associated representation. When this occurs, the value may become a very small or negative number.",
+   :d3f/synonym #{"Wraparound" "wrap, wrap-around, wrap around" "Overflow"},
    :d3f/weakness-of :d3f/MathematicalFunction,
-   :db/ident        :d3f/CWE-190,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Integer Overflow or Wraparound",
+   :db/ident :d3f/CWE-190,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Integer Overflow or Wraparound",
    :rdfs/subClassOf #{:d3f/CWE-682
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/MathematicalFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-191
-  {:d3f/cwe-id      "CWE-191",
-   :db/ident        :d3f/CWE-191,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Integer Underflow (Wrap or Wraparound)",
+  {:d3f/cwe-id "CWE-191",
+   :d3f/definition
+   "The product subtracts one value from another, such that the result is less than the minimum allowable integer value, which produces a value that is not equal to the correct result.",
+   :d3f/synonym "Integer underflow",
+   :db/ident :d3f/CWE-191,
+   :rdf/type :owl/Class,
+   :rdfs/label "Integer Underflow (Wrap or Wraparound)",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-192
-  {:d3f/cwe-id      "CWE-192",
-   :db/ident        :d3f/CWE-192,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Integer Coercion Error",
+  {:d3f/cwe-id "CWE-192",
+   :d3f/definition
+   "Integer coercion refers to a set of flaws pertaining to the type casting, extension, or truncation of primitive data types.",
+   :db/ident :d3f/CWE-192,
+   :rdf/type :owl/Class,
+   :rdfs/label "Integer Coercion Error",
    :rdfs/subClassOf :d3f/CWE-681})
 
 (def CWE-193
-  {:d3f/cwe-id      "CWE-193",
-   :db/ident        :d3f/CWE-193,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Off-by-one Error",
+  {:d3f/cwe-id "CWE-193",
+   :d3f/definition
+   "A product calculates or uses an incorrect maximum or minimum value that is 1 more, or 1 less, than the correct value.",
+   :d3f/synonym "off-by-five",
+   :db/ident :d3f/CWE-193,
+   :rdf/type :owl/Class,
+   :rdfs/label "Off-by-one Error",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-194
-  {:d3f/cwe-id      "CWE-194",
-   :db/ident        :d3f/CWE-194,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unexpected Sign Extension",
+  {:d3f/cwe-id "CWE-194",
+   :d3f/definition
+   "The product performs an operation on a number that causes it to be sign extended when it is transformed into a larger data type. When the original number is negative, this can produce unexpected values that lead to resultant weaknesses.",
+   :db/ident :d3f/CWE-194,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unexpected Sign Extension",
    :rdfs/subClassOf :d3f/CWE-681})
 
 (def CWE-195
-  {:d3f/cwe-id      "CWE-195",
-   :db/ident        :d3f/CWE-195,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Signed to Unsigned Conversion Error",
+  {:d3f/cwe-id "CWE-195",
+   :d3f/definition
+   "The product uses a signed primitive and performs a cast to an unsigned primitive, which can produce an unexpected value if the value of the signed primitive can not be represented using an unsigned primitive.",
+   :db/ident :d3f/CWE-195,
+   :rdf/type :owl/Class,
+   :rdfs/label "Signed to Unsigned Conversion Error",
    :rdfs/subClassOf :d3f/CWE-681})
 
 (def CWE-196
-  {:d3f/cwe-id      "CWE-196",
-   :db/ident        :d3f/CWE-196,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unsigned to Signed Conversion Error",
+  {:d3f/cwe-id "CWE-196",
+   :d3f/definition
+   "The product uses an unsigned primitive and performs a cast to a signed primitive, which can produce an unexpected value if the value of the unsigned primitive can not be represented using a signed primitive.",
+   :db/ident :d3f/CWE-196,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unsigned to Signed Conversion Error",
    :rdfs/subClassOf :d3f/CWE-681})
 
 (def CWE-197
-  {:d3f/cwe-id      "CWE-197",
-   :db/ident        :d3f/CWE-197,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Numeric Truncation Error",
+  {:d3f/cwe-id "CWE-197",
+   :d3f/definition
+   "Truncation errors occur when a primitive is cast to a primitive of a smaller size and data is lost in the conversion.",
+   :db/ident :d3f/CWE-197,
+   :rdf/type :owl/Class,
+   :rdfs/label "Numeric Truncation Error",
    :rdfs/subClassOf :d3f/CWE-681})
 
 (def CWE-198
-  {:d3f/cwe-id      "CWE-198",
-   :db/ident        :d3f/CWE-198,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Incorrect Byte Ordering",
+  {:d3f/cwe-id "CWE-198",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not account for byte ordering (e.g. big-endian and little-endian) when processing the input, causing an incorrect number or value to be used.",
+   :db/ident :d3f/CWE-198,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Incorrect Byte Ordering",
    :rdfs/subClassOf :d3f/CWE-188})
 
 (def CWE-20
-  {:d3f/cwe-id      "CWE-20",
+  {:d3f/cwe-id "CWE-20",
+   :d3f/definition
+   "The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.",
    :d3f/weakness-of :d3f/UserInputFunction,
-   :db/ident        :d3f/CWE-20,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Improper Input Validation",
+   :db/ident :d3f/CWE-20,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Improper Input Validation",
    :rdfs/subClassOf #{:d3f/CWE-707
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/UserInputFunction,
@@ -7699,69 +8535,91 @@
 
 (def CWE-200
   {:d3f/cwe-id "CWE-200",
+   :d3f/definition
+   "The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.",
+   :d3f/synonym #{"Information Leak" "Information Disclosure"},
    :db/ident :d3f/CWE-200,
    :rdf/type :owl/Class,
    :rdfs/label "Exposure of Sensitive Information to an Unauthorized Actor",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-201
-  {:d3f/cwe-id      "CWE-201",
-   :db/ident        :d3f/CWE-201,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insertion of Sensitive Information Into Sent Data",
+  {:d3f/cwe-id "CWE-201",
+   :d3f/definition
+   "The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.",
+   :db/ident :d3f/CWE-201,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insertion of Sensitive Information Into Sent Data",
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-202
-  {:d3f/cwe-id      "CWE-202",
-   :db/ident        :d3f/CWE-202,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Sensitive Information Through Data Queries",
+  {:d3f/cwe-id "CWE-202",
+   :d3f/definition
+   "When trying to keep information confidential, an attacker can often infer some of the information by using statistics.",
+   :db/ident :d3f/CWE-202,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Sensitive Information Through Data Queries",
    :rdfs/subClassOf :d3f/CWE-1230})
 
 (def CWE-203
-  {:d3f/cwe-id      "CWE-203",
-   :db/ident        :d3f/CWE-203,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Observable Discrepancy",
+  {:d3f/cwe-id "CWE-203",
+   :d3f/definition
+   "The product behaves differently or sends different responses under different circumstances in a way that is observable to an unauthorized actor, which exposes security-relevant information about the state of the product, such as whether a particular operation was successful or not.",
+   :d3f/synonym "Side Channel Attack",
+   :db/ident :d3f/CWE-203,
+   :rdf/type :owl/Class,
+   :rdfs/label "Observable Discrepancy",
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-204
-  {:d3f/cwe-id      "CWE-204",
-   :db/ident        :d3f/CWE-204,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Observable Response Discrepancy",
+  {:d3f/cwe-id "CWE-204",
+   :d3f/definition
+   "The product provides different responses to incoming requests in a way that reveals internal state information to an unauthorized actor outside of the intended control sphere.",
+   :db/ident :d3f/CWE-204,
+   :rdf/type :owl/Class,
+   :rdfs/label "Observable Response Discrepancy",
    :rdfs/subClassOf :d3f/CWE-203})
 
 (def CWE-205
-  {:d3f/cwe-id      "CWE-205",
-   :db/ident        :d3f/CWE-205,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Observable Behavioral Discrepancy",
+  {:d3f/cwe-id "CWE-205",
+   :d3f/definition
+   "The product's behaviors indicate important differences that may be observed by unauthorized actors in a way that reveals (1) its internal state or decision process, or (2) differences from other products with equivalent functionality.",
+   :db/ident :d3f/CWE-205,
+   :rdf/type :owl/Class,
+   :rdfs/label "Observable Behavioral Discrepancy",
    :rdfs/subClassOf :d3f/CWE-203})
 
 (def CWE-206
-  {:d3f/cwe-id      "CWE-206",
-   :db/ident        :d3f/CWE-206,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Observable Internal Behavioral Discrepancy",
+  {:d3f/cwe-id "CWE-206",
+   :d3f/definition
+   "The product performs multiple behaviors that are combined to produce a single result, but the individual behaviors are observable separately in a way that allows attackers to reveal internal state or internal decision points.",
+   :db/ident :d3f/CWE-206,
+   :rdf/type :owl/Class,
+   :rdfs/label "Observable Internal Behavioral Discrepancy",
    :rdfs/subClassOf :d3f/CWE-205})
 
 (def CWE-207
   {:d3f/cwe-id "CWE-207",
+   :d3f/definition
+   "The product operates in an environment in which its existence or specific identity should not be known, but it behaves differently than other products with equivalent functionality, in a way that is observable to an attacker.",
    :db/ident :d3f/CWE-207,
    :rdf/type :owl/Class,
    :rdfs/label "Observable Behavioral Discrepancy With Equivalent Products",
    :rdfs/subClassOf :d3f/CWE-205})
 
 (def CWE-208
-  {:d3f/cwe-id      "CWE-208",
-   :db/ident        :d3f/CWE-208,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Observable Timing Discrepancy",
+  {:d3f/cwe-id "CWE-208",
+   :d3f/definition
+   "Two separate operations in a product require different amounts of time to complete, in a way that is observable to an actor and reveals security-relevant information about the state of the product, such as whether a particular operation was successful or not.",
+   :db/ident :d3f/CWE-208,
+   :rdf/type :owl/Class,
+   :rdfs/label "Observable Timing Discrepancy",
    :rdfs/subClassOf :d3f/CWE-203})
 
 (def CWE-209
   {:d3f/cwe-id "CWE-209",
+   :d3f/definition
+   "The product generates an error message that includes sensitive information about its environment, users, or associated data.",
    :db/ident :d3f/CWE-209,
    :rdf/type :owl/Class,
    :rdfs/label "Generation of Error Message Containing Sensitive Information",
@@ -7769,6 +8627,8 @@
 
 (def CWE-210
   {:d3f/cwe-id "CWE-210",
+   :d3f/definition
+   "The product identifies an error condition and creates its own diagnostic or error messages that contain sensitive information.",
    :db/ident :d3f/CWE-210,
    :rdf/type :owl/Class,
    :rdfs/label "Self-generated Error Message Containing Sensitive Information",
@@ -7776,6 +8636,8 @@
 
 (def CWE-211
   {:d3f/cwe-id "CWE-211",
+   :d3f/definition
+   "The product performs an operation that triggers an external diagnostic or error message that is not directly generated or controlled by the product, such as an error generated by the programming language interpreter that a software application uses. The error can contain sensitive system information.",
    :db/ident :d3f/CWE-211,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7784,6 +8646,8 @@
 
 (def CWE-212
   {:d3f/cwe-id "CWE-212",
+   :d3f/definition
+   "The product stores, transfers, or shares a resource that contains sensitive information, but it does not properly remove that information before the product makes the resource available to unauthorized actors.",
    :db/ident :d3f/CWE-212,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -7792,34 +8656,45 @@
 
 (def CWE-213
   {:d3f/cwe-id "CWE-213",
+   :d3f/definition
+   "The product's intended functionality exposes information to certain actors in accordance with the developer's security policy, but this information is regarded as sensitive according to the intended security policies of other stakeholders such as the product's administrator, users, or others whose information is being processed.",
    :db/ident :d3f/CWE-213,
    :rdf/type :owl/Class,
    :rdfs/label "Exposure of Sensitive Information Due to Incompatible Policies",
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-214
-  {:d3f/cwe-id      "CWE-214",
-   :db/ident        :d3f/CWE-214,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Invocation of Process Using Visible Sensitive Information",
+  {:d3f/cwe-id "CWE-214",
+   :d3f/definition
+   "A process is invoked with sensitive command-line arguments, environment variables, or other elements that can be seen by other processes on the operating system.",
+   :db/ident :d3f/CWE-214,
+   :rdf/type :owl/Class,
+   :rdfs/label "Invocation of Process Using Visible Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-497})
 
 (def CWE-215
-  {:d3f/cwe-id      "CWE-215",
-   :db/ident        :d3f/CWE-215,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insertion of Sensitive Information Into Debugging Code",
+  {:d3f/cwe-id "CWE-215",
+   :d3f/definition
+   "The product inserts sensitive information into debugging code, which could expose this information if the debugging code is not disabled in production.",
+   :db/ident :d3f/CWE-215,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insertion of Sensitive Information Into Debugging Code",
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-219
-  {:d3f/cwe-id      "CWE-219",
-   :db/ident        :d3f/CWE-219,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Storage of File with Sensitive Data Under Web Root",
+  {:d3f/cwe-id "CWE-219",
+   :d3f/definition
+   "The product stores sensitive data under the web document root with insufficient access control, which might make it accessible to untrusted parties.",
+   :db/ident :d3f/CWE-219,
+   :rdf/type :owl/Class,
+   :rdfs/label "Storage of File with Sensitive Data Under Web Root",
    :rdfs/subClassOf :d3f/CWE-552})
 
 (def CWE-22
   {:d3f/cwe-id "CWE-22",
+   :d3f/definition
+   "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+   :d3f/synonym #{"Path traversal" "Directory traversal"},
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-22,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -7831,168 +8706,217 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-220
-  {:d3f/cwe-id      "CWE-220",
-   :db/ident        :d3f/CWE-220,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Storage of File With Sensitive Data Under FTP Root",
+  {:d3f/cwe-id "CWE-220",
+   :d3f/definition
+   "The product stores sensitive data under the FTP server root with insufficient access control, which might make it accessible to untrusted parties.",
+   :db/ident :d3f/CWE-220,
+   :rdf/type :owl/Class,
+   :rdfs/label "Storage of File With Sensitive Data Under FTP Root",
    :rdfs/subClassOf :d3f/CWE-552})
 
 (def CWE-221
-  {:d3f/cwe-id      "CWE-221",
-   :db/ident        :d3f/CWE-221,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Information Loss or Omission",
+  {:d3f/cwe-id "CWE-221",
+   :d3f/definition
+   "The product does not record, or improperly records, security-relevant information that leads to an incorrect decision or hampers later analysis.",
+   :db/ident :d3f/CWE-221,
+   :rdf/type :owl/Class,
+   :rdfs/label "Information Loss or Omission",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-222
-  {:d3f/cwe-id      "CWE-222",
-   :db/ident        :d3f/CWE-222,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Truncation of Security-relevant Information",
+  {:d3f/cwe-id "CWE-222",
+   :d3f/definition
+   "The product truncates the display, recording, or processing of security-relevant information in a way that can obscure the source or nature of an attack.",
+   :db/ident :d3f/CWE-222,
+   :rdf/type :owl/Class,
+   :rdfs/label "Truncation of Security-relevant Information",
    :rdfs/subClassOf :d3f/CWE-221})
 
 (def CWE-223
-  {:d3f/cwe-id      "CWE-223",
-   :db/ident        :d3f/CWE-223,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Omission of Security-relevant Information",
+  {:d3f/cwe-id "CWE-223",
+   :d3f/definition
+   "The product does not record or display information that would be important for identifying the source or nature of an attack, or determining if an action is safe.",
+   :db/ident :d3f/CWE-223,
+   :rdf/type :owl/Class,
+   :rdfs/label "Omission of Security-relevant Information",
    :rdfs/subClassOf :d3f/CWE-221})
 
 (def CWE-224
-  {:d3f/cwe-id      "CWE-224",
-   :db/ident        :d3f/CWE-224,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Obscured Security-relevant Information by Alternate Name",
+  {:d3f/cwe-id "CWE-224",
+   :d3f/definition
+   "The product records security-relevant information according to an alternate name of the affected entity, instead of the canonical name.",
+   :db/ident :d3f/CWE-224,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obscured Security-relevant Information by Alternate Name",
    :rdfs/subClassOf :d3f/CWE-221})
 
 (def CWE-226
   {:d3f/cwe-id "CWE-226",
+   :d3f/definition
+   "The product releases a resource such as memory or a file so that it can be made available for reuse, but it does not clear or \"zeroize\" the information contained in the resource before the product performs a critical state transition or makes the resource available for reuse by other entities.",
    :db/ident :d3f/CWE-226,
    :rdf/type :owl/Class,
    :rdfs/label "Sensitive Information in Resource Not Removed Before Reuse",
    :rdfs/subClassOf #{:d3f/CWE-212 :d3f/CWE-459}})
 
 (def CWE-228
-  {:d3f/cwe-id      "CWE-228",
-   :db/ident        :d3f/CWE-228,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Syntactically Invalid Structure",
+  {:d3f/cwe-id "CWE-228",
+   :d3f/definition
+   "The product does not handle or incorrectly handles input that is not syntactically well-formed with respect to the associated specification.",
+   :db/ident :d3f/CWE-228,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Syntactically Invalid Structure",
    :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-707}})
 
 (def CWE-229
-  {:d3f/cwe-id      "CWE-229",
-   :db/ident        :d3f/CWE-229,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Values",
+  {:d3f/cwe-id "CWE-229",
+   :d3f/definition
+   "The product does not properly handle when the expected number of values for parameters, fields, or arguments is not provided in input, or if those values are undefined.",
+   :db/ident :d3f/CWE-229,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Values",
    :rdfs/subClassOf :d3f/CWE-228})
 
 (def CWE-23
-  {:d3f/cwe-id      "CWE-23",
-   :db/ident        :d3f/CWE-23,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Relative Path Traversal",
+  {:d3f/cwe-id "CWE-23",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as \"..\" that can resolve to a location that is outside of that directory.",
+   :d3f/synonym "Zip Slip",
+   :db/ident :d3f/CWE-23,
+   :rdf/type :owl/Class,
+   :rdfs/label "Relative Path Traversal",
    :rdfs/subClassOf :d3f/CWE-22})
 
 (def CWE-230
-  {:d3f/cwe-id      "CWE-230",
-   :db/ident        :d3f/CWE-230,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Missing Values",
+  {:d3f/cwe-id "CWE-230",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when a parameter, field, or argument name is specified, but the associated value is missing, i.e. it is empty, blank, or null.",
+   :db/ident :d3f/CWE-230,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Missing Values",
    :rdfs/subClassOf :d3f/CWE-229})
 
 (def CWE-231
-  {:d3f/cwe-id      "CWE-231",
-   :db/ident        :d3f/CWE-231,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Extra Values",
+  {:d3f/cwe-id "CWE-231",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when more values are provided than expected.",
+   :db/ident :d3f/CWE-231,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Extra Values",
    :rdfs/subClassOf :d3f/CWE-229})
 
 (def CWE-232
-  {:d3f/cwe-id      "CWE-232",
-   :db/ident        :d3f/CWE-232,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Undefined Values",
+  {:d3f/cwe-id "CWE-232",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when a value is not defined or supported for the associated parameter, field, or argument name.",
+   :db/ident :d3f/CWE-232,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Undefined Values",
    :rdfs/subClassOf :d3f/CWE-229})
 
 (def CWE-233
-  {:d3f/cwe-id      "CWE-233",
-   :db/ident        :d3f/CWE-233,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Parameters",
+  {:d3f/cwe-id "CWE-233",
+   :d3f/definition
+   "The product does not properly handle when the expected number of parameters, fields, or arguments is not provided in input, or if those parameters are undefined.",
+   :db/ident :d3f/CWE-233,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Parameters",
    :rdfs/subClassOf :d3f/CWE-228})
 
 (def CWE-234
-  {:d3f/cwe-id      "CWE-234",
-   :db/ident        :d3f/CWE-234,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Failure to Handle Missing Parameter",
+  {:d3f/cwe-id "CWE-234",
+   :d3f/definition
+   "If too few arguments are sent to a function, the function will still pop the expected number of arguments from the stack. Potentially, a variable number of arguments could be exhausted in a function as well.",
+   :db/ident :d3f/CWE-234,
+   :rdf/type :owl/Class,
+   :rdfs/label "Failure to Handle Missing Parameter",
    :rdfs/subClassOf :d3f/CWE-233})
 
 (def CWE-235
-  {:d3f/cwe-id      "CWE-235",
-   :db/ident        :d3f/CWE-235,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Extra Parameters",
+  {:d3f/cwe-id "CWE-235",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when the number of parameters, fields, or arguments with the same name exceeds the expected amount.",
+   :db/ident :d3f/CWE-235,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Extra Parameters",
    :rdfs/subClassOf :d3f/CWE-233})
 
 (def CWE-236
-  {:d3f/cwe-id      "CWE-236",
-   :db/ident        :d3f/CWE-236,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Undefined Parameters",
+  {:d3f/cwe-id "CWE-236",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when a particular parameter, field, or argument name is not defined or supported by the product.",
+   :db/ident :d3f/CWE-236,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Undefined Parameters",
    :rdfs/subClassOf :d3f/CWE-233})
 
 (def CWE-237
-  {:d3f/cwe-id      "CWE-237",
-   :db/ident        :d3f/CWE-237,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Structural Elements",
+  {:d3f/cwe-id "CWE-237",
+   :d3f/definition
+   "The product does not handle or incorrectly handles inputs that are related to complex structures.",
+   :db/ident :d3f/CWE-237,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Structural Elements",
    :rdfs/subClassOf :d3f/CWE-228})
 
 (def CWE-238
-  {:d3f/cwe-id      "CWE-238",
-   :db/ident        :d3f/CWE-238,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Incomplete Structural Elements",
+  {:d3f/cwe-id "CWE-238",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when a particular structural element is not completely specified.",
+   :db/ident :d3f/CWE-238,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Incomplete Structural Elements",
    :rdfs/subClassOf :d3f/CWE-237})
 
 (def CWE-239
-  {:d3f/cwe-id      "CWE-239",
-   :db/ident        :d3f/CWE-239,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Failure to Handle Incomplete Element",
+  {:d3f/cwe-id "CWE-239",
+   :d3f/definition
+   "The product does not properly handle when a particular element is not completely specified.",
+   :db/ident :d3f/CWE-239,
+   :rdf/type :owl/Class,
+   :rdfs/label "Failure to Handle Incomplete Element",
    :rdfs/subClassOf :d3f/CWE-237})
 
 (def CWE-24
-  {:d3f/cwe-id      "CWE-24",
-   :db/ident        :d3f/CWE-24,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '../filedir'",
+  {:d3f/cwe-id "CWE-24",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize \"../\" sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-24,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '../filedir'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-240
-  {:d3f/cwe-id      "CWE-240",
-   :db/ident        :d3f/CWE-240,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Inconsistent Structural Elements",
+  {:d3f/cwe-id "CWE-240",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when two or more structural elements should be consistent, but are not.",
+   :db/ident :d3f/CWE-240,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Inconsistent Structural Elements",
    :rdfs/subClassOf #{:d3f/CWE-707 :d3f/CWE-237}})
 
 (def CWE-241
-  {:d3f/cwe-id      "CWE-241",
-   :db/ident        :d3f/CWE-241,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Unexpected Data Type",
+  {:d3f/cwe-id "CWE-241",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when a particular element is not the expected type, e.g. it expects a digit (0-9) but is provided with a letter (A-Z).",
+   :db/ident :d3f/CWE-241,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Unexpected Data Type",
    :rdfs/subClassOf :d3f/CWE-228})
 
 (def CWE-242
-  {:d3f/cwe-id      "CWE-242",
-   :db/ident        :d3f/CWE-242,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Inherently Dangerous Function",
+  {:d3f/cwe-id "CWE-242",
+   :d3f/definition
+   "The product calls a function that can never be guaranteed to work safely.",
+   :db/ident :d3f/CWE-242,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Inherently Dangerous Function",
    :rdfs/subClassOf :d3f/CWE-1177})
 
 (def CWE-243
   {:d3f/cwe-id "CWE-243",
+   :d3f/definition
+   "The product uses the chroot() system call to create a jail, but does not change the working directory afterward. This does not prevent access to files outside of the jail.",
    :db/ident :d3f/CWE-243,
    :rdf/type :owl/Class,
    :rdfs/label "Creation of chroot Jail Without Changing Working Directory",
@@ -8000,6 +8924,8 @@
 
 (def CWE-244
   {:d3f/cwe-id "CWE-244",
+   :d3f/definition
+   "Using realloc() to resize buffers that store sensitive information can leave the sensitive information exposed to attack, because it is not removed from memory.",
    :db/ident :d3f/CWE-244,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -8007,630 +8933,814 @@
    :rdfs/subClassOf :d3f/CWE-226})
 
 (def CWE-245
-  {:d3f/cwe-id      "CWE-245",
-   :db/ident        :d3f/CWE-245,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Bad Practices: Direct Management of Connections",
+  {:d3f/cwe-id "CWE-245",
+   :d3f/definition
+   "The J2EE application directly manages connections, instead of using the container's connection management facilities.",
+   :db/ident :d3f/CWE-245,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Bad Practices: Direct Management of Connections",
    :rdfs/subClassOf :d3f/CWE-695})
 
 (def CWE-246
-  {:d3f/cwe-id      "CWE-246",
-   :db/ident        :d3f/CWE-246,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Bad Practices: Direct Use of Sockets",
+  {:d3f/cwe-id "CWE-246",
+   :d3f/definition
+   "The J2EE application directly uses sockets instead of using framework method calls.",
+   :db/ident :d3f/CWE-246,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Bad Practices: Direct Use of Sockets",
    :rdfs/subClassOf :d3f/CWE-695})
 
 (def CWE-248
-  {:d3f/cwe-id      "CWE-248",
-   :db/ident        :d3f/CWE-248,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Uncaught Exception",
-   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-705}})
+  {:d3f/cwe-id "CWE-248",
+   :d3f/definition
+   "An exception is thrown from a function, but it is not caught.",
+   :db/ident :d3f/CWE-248,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uncaught Exception",
+   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-705 :d3f/CWE-755}})
 
 (def CWE-25
-  {:d3f/cwe-id      "CWE-25",
-   :db/ident        :d3f/CWE-25,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '/../filedir'",
+  {:d3f/cwe-id "CWE-25",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize \"/../\" sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-25,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '/../filedir'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-250
-  {:d3f/cwe-id      "CWE-250",
-   :db/ident        :d3f/CWE-250,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Execution with Unnecessary Privileges",
+  {:d3f/cwe-id "CWE-250",
+   :d3f/definition
+   "The product performs an operation at a privilege level that is higher than the minimum level required, which creates new weaknesses or amplifies the consequences of other weaknesses.",
+   :db/ident :d3f/CWE-250,
+   :rdf/type :owl/Class,
+   :rdfs/label "Execution with Unnecessary Privileges",
    :rdfs/subClassOf #{:d3f/CWE-657 :d3f/CWE-269}})
 
 (def CWE-252
-  {:d3f/cwe-id      "CWE-252",
-   :db/ident        :d3f/CWE-252,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unchecked Return Value",
+  {:d3f/cwe-id "CWE-252",
+   :d3f/definition
+   "The product does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions.",
+   :db/ident :d3f/CWE-252,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unchecked Return Value",
    :rdfs/subClassOf :d3f/CWE-754})
 
 (def CWE-253
-  {:d3f/cwe-id      "CWE-253",
-   :db/ident        :d3f/CWE-253,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Check of Function Return Value",
+  {:d3f/cwe-id "CWE-253",
+   :d3f/definition
+   "The product incorrectly checks a return value from a function, which prevents it from detecting errors or exceptional conditions.",
+   :db/ident :d3f/CWE-253,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Check of Function Return Value",
    :rdfs/subClassOf #{:d3f/CWE-573 :d3f/CWE-754}})
 
 (def CWE-256
-  {:d3f/cwe-id      "CWE-256",
-   :db/ident        :d3f/CWE-256,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Plaintext Storage of a Password",
+  {:d3f/cwe-id "CWE-256",
+   :d3f/definition
+   "Storing a password in plaintext may result in a system compromise.",
+   :db/ident :d3f/CWE-256,
+   :rdf/type :owl/Class,
+   :rdfs/label "Plaintext Storage of a Password",
    :rdfs/subClassOf :d3f/CWE-522})
 
 (def CWE-257
-  {:d3f/cwe-id      "CWE-257",
-   :db/ident        :d3f/CWE-257,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Storing Passwords in a Recoverable Format",
+  {:d3f/cwe-id "CWE-257",
+   :d3f/definition
+   "The storage of passwords in a recoverable format makes them subject to password reuse attacks by malicious users. In fact, it should be noted that recoverable encrypted passwords provide no significant benefit over plaintext passwords since they are subject not only to reuse by malicious attackers but also by malicious insiders. If a system administrator can recover a password directly, or use a brute force search on the available information, the administrator can use the password on other accounts.",
+   :db/ident :d3f/CWE-257,
+   :rdf/type :owl/Class,
+   :rdfs/label "Storing Passwords in a Recoverable Format",
    :rdfs/subClassOf :d3f/CWE-522})
 
 (def CWE-258
   {:d3f/cwe-id      "CWE-258",
+   :d3f/definition  "Using an empty string as a password is insecure.",
    :db/ident        :d3f/CWE-258,
    :rdf/type        :owl/Class,
    :rdfs/label      "Empty Password in Configuration File",
    :rdfs/subClassOf #{:d3f/CWE-260 :d3f/CWE-521}})
 
 (def CWE-259
-  {:d3f/cwe-id      "CWE-259",
-   :db/ident        :d3f/CWE-259,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Hard-coded Password",
+  {:d3f/cwe-id "CWE-259",
+   :d3f/definition
+   "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+   :db/ident :d3f/CWE-259,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Hard-coded Password",
    :rdfs/subClassOf :d3f/CWE-798})
 
 (def CWE-26
-  {:d3f/cwe-id      "CWE-26",
-   :db/ident        :d3f/CWE-26,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '/dir/../filename'",
+  {:d3f/cwe-id "CWE-26",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize \"/dir/../filename\" sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-26,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '/dir/../filename'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-260
-  {:d3f/cwe-id      "CWE-260",
-   :db/ident        :d3f/CWE-260,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Password in Configuration File",
+  {:d3f/cwe-id "CWE-260",
+   :d3f/definition
+   "The product stores a password in a configuration file that might be accessible to actors who do not know the password.",
+   :db/ident :d3f/CWE-260,
+   :rdf/type :owl/Class,
+   :rdfs/label "Password in Configuration File",
    :rdfs/subClassOf :d3f/CWE-522})
 
 (def CWE-261
-  {:d3f/cwe-id      "CWE-261",
-   :db/ident        :d3f/CWE-261,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Weak Encoding for Password",
+  {:d3f/cwe-id "CWE-261",
+   :d3f/definition
+   "Obscuring a password with a trivial encoding does not protect the password.",
+   :db/ident :d3f/CWE-261,
+   :rdf/type :owl/Class,
+   :rdfs/label "Weak Encoding for Password",
    :rdfs/subClassOf :d3f/CWE-522})
 
 (def CWE-262
-  {:d3f/cwe-id      "CWE-262",
-   :db/ident        :d3f/CWE-262,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Not Using Password Aging",
+  {:d3f/cwe-id "CWE-262",
+   :d3f/definition
+   "The product does not have a mechanism in place for managing password aging.",
+   :db/ident :d3f/CWE-262,
+   :rdf/type :owl/Class,
+   :rdfs/label "Not Using Password Aging",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-263
-  {:d3f/cwe-id      "CWE-263",
-   :db/ident        :d3f/CWE-263,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Password Aging with Long Expiration",
+  {:d3f/cwe-id "CWE-263",
+   :d3f/definition
+   "The product supports password aging, but the expiration period is too long.",
+   :db/ident :d3f/CWE-263,
+   :rdf/type :owl/Class,
+   :rdfs/label "Password Aging with Long Expiration",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-266
-  {:d3f/cwe-id      "CWE-266",
-   :db/ident        :d3f/CWE-266,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Privilege Assignment",
+  {:d3f/cwe-id "CWE-266",
+   :d3f/definition
+   "A product incorrectly assigns a privilege to a particular actor, creating an unintended sphere of control for that actor.",
+   :db/ident :d3f/CWE-266,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Privilege Assignment",
    :rdfs/subClassOf :d3f/CWE-269})
 
 (def CWE-267
-  {:d3f/cwe-id      "CWE-267",
-   :db/ident        :d3f/CWE-267,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Privilege Defined With Unsafe Actions",
+  {:d3f/cwe-id "CWE-267",
+   :d3f/definition
+   "A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.",
+   :db/ident :d3f/CWE-267,
+   :rdf/type :owl/Class,
+   :rdfs/label "Privilege Defined With Unsafe Actions",
    :rdfs/subClassOf :d3f/CWE-269})
 
 (def CWE-268
-  {:d3f/cwe-id      "CWE-268",
-   :db/ident        :d3f/CWE-268,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Privilege Chaining",
+  {:d3f/cwe-id "CWE-268",
+   :d3f/definition
+   "Two distinct privileges, roles, capabilities, or rights can be combined in a way that allows an entity to perform unsafe actions that would not be allowed without that combination.",
+   :db/ident :d3f/CWE-268,
+   :rdf/type :owl/Class,
+   :rdfs/label "Privilege Chaining",
    :rdfs/subClassOf :d3f/CWE-269})
 
 (def CWE-269
-  {:d3f/cwe-id      "CWE-269",
-   :db/ident        :d3f/CWE-269,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Privilege Management",
+  {:d3f/cwe-id "CWE-269",
+   :d3f/definition
+   "The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor.",
+   :db/ident :d3f/CWE-269,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Privilege Management",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-27
-  {:d3f/cwe-id      "CWE-27",
-   :db/ident        :d3f/CWE-27,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: 'dir/../../filename'",
+  {:d3f/cwe-id "CWE-27",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize multiple internal \"../\" sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-27,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: 'dir/../../filename'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-270
-  {:d3f/cwe-id      "CWE-270",
-   :db/ident        :d3f/CWE-270,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Privilege Context Switching Error",
+  {:d3f/cwe-id "CWE-270",
+   :d3f/definition
+   "The product does not properly manage privileges while it is switching between different contexts that have different privileges or spheres of control.",
+   :db/ident :d3f/CWE-270,
+   :rdf/type :owl/Class,
+   :rdfs/label "Privilege Context Switching Error",
    :rdfs/subClassOf :d3f/CWE-269})
 
 (def CWE-271
-  {:d3f/cwe-id      "CWE-271",
-   :db/ident        :d3f/CWE-271,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Privilege Dropping / Lowering Errors",
+  {:d3f/cwe-id "CWE-271",
+   :d3f/definition
+   "The product does not drop privileges before passing control of a resource to an actor that does not have those privileges.",
+   :db/ident :d3f/CWE-271,
+   :rdf/type :owl/Class,
+   :rdfs/label "Privilege Dropping / Lowering Errors",
    :rdfs/subClassOf :d3f/CWE-269})
 
 (def CWE-272
-  {:d3f/cwe-id      "CWE-272",
-   :db/ident        :d3f/CWE-272,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Least Privilege Violation",
+  {:d3f/cwe-id "CWE-272",
+   :d3f/definition
+   "The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.",
+   :db/ident :d3f/CWE-272,
+   :rdf/type :owl/Class,
+   :rdfs/label "Least Privilege Violation",
    :rdfs/subClassOf :d3f/CWE-271})
 
 (def CWE-273
-  {:d3f/cwe-id      "CWE-273",
-   :db/ident        :d3f/CWE-273,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Check for Dropped Privileges",
+  {:d3f/cwe-id "CWE-273",
+   :d3f/definition
+   "The product attempts to drop privileges but does not check or incorrectly checks to see if the drop succeeded.",
+   :db/ident :d3f/CWE-273,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Check for Dropped Privileges",
    :rdfs/subClassOf #{:d3f/CWE-754 :d3f/CWE-271}})
 
 (def CWE-274
-  {:d3f/cwe-id      "CWE-274",
-   :db/ident        :d3f/CWE-274,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Insufficient Privileges",
+  {:d3f/cwe-id "CWE-274",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when it has insufficient privileges to perform an operation, leading to resultant weaknesses.",
+   :db/ident :d3f/CWE-274,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Insufficient Privileges",
    :rdfs/subClassOf #{:d3f/CWE-755 :d3f/CWE-269}})
 
 (def CWE-276
-  {:d3f/cwe-id      "CWE-276",
+  {:d3f/cwe-id "CWE-276",
+   :d3f/definition
+   "During installation, installed file permissions are set to allow anyone to modify those files.",
    :d3f/weakness-of :d3f/ApplicationInstaller,
-   :db/ident        :d3f/CWE-276,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Incorrect Default Permissions",
+   :db/ident :d3f/CWE-276,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Incorrect Default Permissions",
    :rdfs/subClassOf #{:d3f/CWE-732
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/ApplicationInstaller,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-277
-  {:d3f/cwe-id      "CWE-277",
-   :db/ident        :d3f/CWE-277,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Inherited Permissions",
+  {:d3f/cwe-id "CWE-277",
+   :d3f/definition
+   "A product defines a set of insecure permissions that are inherited by objects that are created by the program.",
+   :db/ident :d3f/CWE-277,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Inherited Permissions",
    :rdfs/subClassOf :d3f/CWE-732})
 
 (def CWE-278
-  {:d3f/cwe-id      "CWE-278",
-   :db/ident        :d3f/CWE-278,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Preserved Inherited Permissions",
+  {:d3f/cwe-id "CWE-278",
+   :d3f/definition
+   "A product inherits a set of insecure permissions for an object, e.g. when copying from an archive file, without user awareness or involvement.",
+   :db/ident :d3f/CWE-278,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Preserved Inherited Permissions",
    :rdfs/subClassOf :d3f/CWE-732})
 
 (def CWE-279
-  {:d3f/cwe-id      "CWE-279",
-   :db/ident        :d3f/CWE-279,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Execution-Assigned Permissions",
+  {:d3f/cwe-id "CWE-279",
+   :d3f/definition
+   "While it is executing, the product sets the permissions of an object in a way that violates the intended permissions that have been specified by the user.",
+   :db/ident :d3f/CWE-279,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Execution-Assigned Permissions",
    :rdfs/subClassOf :d3f/CWE-732})
 
 (def CWE-28
-  {:d3f/cwe-id      "CWE-28",
-   :db/ident        :d3f/CWE-28,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '..\\filedir'",
+  {:d3f/cwe-id "CWE-28",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize \"..\\\" sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-28,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '..\\filedir'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-280
   {:d3f/cwe-id "CWE-280",
+   :d3f/definition
+   "The product does not handle or incorrectly handles when it has insufficient privileges to access resources or functionality as specified by their permissions. This may cause it to follow unexpected code paths that may leave the product in an invalid state.",
    :db/ident :d3f/CWE-280,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Handling of Insufficient Permissions or Privileges",
    :rdfs/subClassOf :d3f/CWE-755})
 
 (def CWE-281
-  {:d3f/cwe-id      "CWE-281",
-   :db/ident        :d3f/CWE-281,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Preservation of Permissions",
+  {:d3f/cwe-id "CWE-281",
+   :d3f/definition
+   "The product does not preserve permissions or incorrectly preserves permissions when copying, restoring, or sharing objects, which can cause them to have less restrictive permissions than intended.",
+   :db/ident :d3f/CWE-281,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Preservation of Permissions",
    :rdfs/subClassOf :d3f/CWE-732})
 
 (def CWE-282
-  {:d3f/cwe-id      "CWE-282",
-   :db/ident        :d3f/CWE-282,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Ownership Management",
+  {:d3f/cwe-id "CWE-282",
+   :d3f/definition
+   "The product assigns the wrong ownership, or does not properly verify the ownership, of an object or resource.",
+   :db/ident :d3f/CWE-282,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Ownership Management",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-283
-  {:d3f/cwe-id      "CWE-283",
-   :db/ident        :d3f/CWE-283,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unverified Ownership",
+  {:d3f/cwe-id "CWE-283",
+   :d3f/definition
+   "The product does not properly verify that a critical resource is owned by the proper entity.",
+   :db/ident :d3f/CWE-283,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unverified Ownership",
    :rdfs/subClassOf :d3f/CWE-282})
 
 (def CWE-284
-  {:d3f/cwe-id      "CWE-284",
-   :db/ident        :d3f/CWE-284,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Access Control",
+  {:d3f/cwe-id "CWE-284",
+   :d3f/definition
+   "The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.",
+   :d3f/synonym "Authorization",
+   :db/ident :d3f/CWE-284,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Access Control",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-285
-  {:d3f/cwe-id      "CWE-285",
-   :db/ident        :d3f/CWE-285,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Authorization",
+  {:d3f/cwe-id "CWE-285",
+   :d3f/definition
+   "The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.",
+   :d3f/synonym "AuthZ",
+   :db/ident :d3f/CWE-285,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Authorization",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-286
-  {:d3f/cwe-id      "CWE-286",
-   :db/ident        :d3f/CWE-286,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect User Management",
+  {:d3f/cwe-id "CWE-286",
+   :d3f/definition
+   "The product does not properly manage a user within its environment.",
+   :db/ident :d3f/CWE-286,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect User Management",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-287
-  {:d3f/cwe-id      "CWE-287",
+  {:d3f/cwe-id "CWE-287",
+   :d3f/definition
+   "When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.",
+   :d3f/synonym #{"AuthN" "authentification" "AuthC"},
    :d3f/weakness-of :d3f/AuthenticationFunction,
-   :db/ident        :d3f/CWE-287,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Improper Authentication",
+   :db/ident :d3f/CWE-287,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Improper Authentication",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/AuthenticationFunction,
                        :rdf/type           :owl/Restriction} :d3f/CWE-284}})
 
 (def CWE-288
-  {:d3f/cwe-id      "CWE-288",
-   :db/ident        :d3f/CWE-288,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Bypass Using an Alternate Path or Channel",
+  {:d3f/cwe-id "CWE-288",
+   :d3f/definition
+   "The product requires authentication, but the product has an alternate path or channel that does not require authentication.",
+   :db/ident :d3f/CWE-288,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authentication Bypass Using an Alternate Path or Channel",
    :rdfs/subClassOf :d3f/CWE-306})
 
 (def CWE-289
-  {:d3f/cwe-id      "CWE-289",
-   :db/ident        :d3f/CWE-289,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Bypass by Alternate Name",
+  {:d3f/cwe-id "CWE-289",
+   :d3f/definition
+   "The product performs authentication based on the name of a resource being accessed, or the name of the actor performing the access, but it does not properly check all possible names for that resource or actor.",
+   :db/ident :d3f/CWE-289,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authentication Bypass by Alternate Name",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-29
-  {:d3f/cwe-id      "CWE-29",
-   :db/ident        :d3f/CWE-29,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '\\..\\filename'",
+  {:d3f/cwe-id "CWE-29",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '\\..\\filename' (leading backslash dot dot) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-29,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '\\..\\filename'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-290
-  {:d3f/cwe-id      "CWE-290",
-   :db/ident        :d3f/CWE-290,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Bypass by Spoofing",
+  {:d3f/cwe-id "CWE-290",
+   :d3f/definition
+   "This attack-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.",
+   :db/ident :d3f/CWE-290,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authentication Bypass by Spoofing",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-291
   {:d3f/cwe-id      "CWE-291",
+   :d3f/definition  "The product uses an IP address for authentication.",
    :db/ident        :d3f/CWE-291,
    :rdf/type        :owl/Class,
    :rdfs/label      "Reliance on IP Address for Authentication",
    :rdfs/subClassOf #{:d3f/CWE-923 :d3f/CWE-290 :d3f/CWE-471}})
 
 (def CWE-293
-  {:d3f/cwe-id      "CWE-293",
-   :db/ident        :d3f/CWE-293,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Using Referer Field for Authentication",
+  {:d3f/cwe-id "CWE-293",
+   :d3f/definition
+   "The referer field in HTTP requests can be easily modified and, as such, is not a valid means of message integrity checking.",
+   :d3f/synonym "referrer",
+   :db/ident :d3f/CWE-293,
+   :rdf/type :owl/Class,
+   :rdfs/label "Using Referer Field for Authentication",
    :rdfs/subClassOf :d3f/CWE-290})
 
 (def CWE-294
-  {:d3f/cwe-id      "CWE-294",
-   :db/ident        :d3f/CWE-294,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Bypass by Capture-replay",
+  {:d3f/cwe-id "CWE-294",
+   :d3f/definition
+   "A capture-replay flaw exists when the design of the product makes it possible for a malicious user to sniff network traffic and bypass authentication by replaying it to the server in question to the same effect as the original message (or with minor changes).",
+   :db/ident :d3f/CWE-294,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authentication Bypass by Capture-replay",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-295
-  {:d3f/cwe-id      "CWE-295",
-   :db/ident        :d3f/CWE-295,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Certificate Validation",
+  {:d3f/cwe-id "CWE-295",
+   :d3f/definition
+   "The product does not validate, or incorrectly validates, a certificate.",
+   :db/ident :d3f/CWE-295,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Certificate Validation",
    :rdfs/subClassOf :d3f/CWE-287})
 
 (def CWE-296
-  {:d3f/cwe-id      "CWE-296",
-   :db/ident        :d3f/CWE-296,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Following of a Certificate's Chain of Trust",
+  {:d3f/cwe-id "CWE-296",
+   :d3f/definition
+   "The product does not follow, or incorrectly follows, the chain of trust for a certificate back to a trusted root certificate, resulting in incorrect trust of any resource that is associated with that certificate.",
+   :db/ident :d3f/CWE-296,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Following of a Certificate's Chain of Trust",
    :rdfs/subClassOf #{:d3f/CWE-295 :d3f/CWE-573}})
 
 (def CWE-297
-  {:d3f/cwe-id      "CWE-297",
-   :db/ident        :d3f/CWE-297,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Certificate with Host Mismatch",
+  {:d3f/cwe-id "CWE-297",
+   :d3f/definition
+   "The product communicates with a host that provides a certificate, but the product does not properly ensure that the certificate is actually associated with that host.",
+   :db/ident :d3f/CWE-297,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Certificate with Host Mismatch",
    :rdfs/subClassOf #{:d3f/CWE-923 :d3f/CWE-295}})
 
 (def CWE-298
-  {:d3f/cwe-id      "CWE-298",
-   :db/ident        :d3f/CWE-298,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Certificate Expiration",
+  {:d3f/cwe-id "CWE-298",
+   :d3f/definition
+   "A certificate expiration is not validated or is incorrectly validated, so trust may be assigned to certificates that have been abandoned due to age.",
+   :db/ident :d3f/CWE-298,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Certificate Expiration",
    :rdfs/subClassOf #{:d3f/CWE-295 :d3f/CWE-672}})
 
 (def CWE-299
-  {:d3f/cwe-id      "CWE-299",
-   :db/ident        :d3f/CWE-299,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Check for Certificate Revocation",
+  {:d3f/cwe-id "CWE-299",
+   :d3f/definition
+   "The product does not check or incorrectly checks the revocation status of a certificate, which may cause it to use a certificate that has been compromised.",
+   :db/ident :d3f/CWE-299,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Check for Certificate Revocation",
    :rdfs/subClassOf #{:d3f/CWE-295 :d3f/CWE-404}})
 
 (def CWE-30
-  {:d3f/cwe-id      "CWE-30",
-   :db/ident        :d3f/CWE-30,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '\\dir\\..\\filename'",
+  {:d3f/cwe-id "CWE-30",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '\\dir\\..\\filename' (leading backslash dot dot) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-30,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '\\dir\\..\\filename'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-300
-  {:d3f/cwe-id      "CWE-300",
-   :db/ident        :d3f/CWE-300,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Channel Accessible by Non-Endpoint",
+  {:d3f/cwe-id "CWE-300",
+   :d3f/definition
+   "The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or influenced by an actor that is not an endpoint.",
+   :d3f/synonym #{"Interception attack" "Person-in-the-Middle / PITM"
+                  "Adversary-in-the-Middle / AITM" "Monkey-in-the-Middle"
+                  "Monster-in-the-Middle" "Manipulator-in-the-Middle"
+                  "On-path attack" "Man-in-the-Middle / MITM"},
+   :db/ident :d3f/CWE-300,
+   :rdf/type :owl/Class,
+   :rdfs/label "Channel Accessible by Non-Endpoint",
    :rdfs/subClassOf :d3f/CWE-923})
 
 (def CWE-301
-  {:d3f/cwe-id      "CWE-301",
-   :db/ident        :d3f/CWE-301,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reflection Attack in an Authentication Protocol",
+  {:d3f/cwe-id "CWE-301",
+   :d3f/definition
+   "Simple authentication protocols are subject to reflection attacks if a malicious user can use the target machine to impersonate a trusted user.",
+   :db/ident :d3f/CWE-301,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reflection Attack in an Authentication Protocol",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-302
-  {:d3f/cwe-id      "CWE-302",
-   :db/ident        :d3f/CWE-302,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Bypass by Assumed-Immutable Data",
+  {:d3f/cwe-id "CWE-302",
+   :d3f/definition
+   "The authentication scheme or implementation uses key data elements that are assumed to be immutable, but can be controlled or modified by the attacker.",
+   :db/ident :d3f/CWE-302,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authentication Bypass by Assumed-Immutable Data",
    :rdfs/subClassOf #{:d3f/CWE-807 :d3f/CWE-1390}})
 
 (def CWE-303
-  {:d3f/cwe-id      "CWE-303",
-   :db/ident        :d3f/CWE-303,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Implementation of Authentication Algorithm",
+  {:d3f/cwe-id "CWE-303",
+   :d3f/definition
+   "The requirements for the product dictate the use of an established authentication algorithm, but the implementation of the algorithm is incorrect.",
+   :db/ident :d3f/CWE-303,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Implementation of Authentication Algorithm",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-304
-  {:d3f/cwe-id      "CWE-304",
-   :db/ident        :d3f/CWE-304,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Critical Step in Authentication",
+  {:d3f/cwe-id "CWE-304",
+   :d3f/definition
+   "The product implements an authentication technique, but it skips a step that weakens the technique.",
+   :db/ident :d3f/CWE-304,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Critical Step in Authentication",
    :rdfs/subClassOf #{:d3f/CWE-303 :d3f/CWE-573}})
 
 (def CWE-305
-  {:d3f/cwe-id      "CWE-305",
-   :db/ident        :d3f/CWE-305,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authentication Bypass by Primary Weakness",
+  {:d3f/cwe-id "CWE-305",
+   :d3f/definition
+   "The authentication algorithm is sound, but the implemented mechanism can be bypassed as the result of a separate weakness that is primary to the authentication error.",
+   :db/ident :d3f/CWE-305,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authentication Bypass by Primary Weakness",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-306
-  {:d3f/cwe-id      "CWE-306",
-   :db/ident        :d3f/CWE-306,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Authentication for Critical Function",
+  {:d3f/cwe-id "CWE-306",
+   :d3f/definition
+   "The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.",
+   :db/ident :d3f/CWE-306,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Authentication for Critical Function",
    :rdfs/subClassOf :d3f/CWE-287})
 
 (def CWE-307
-  {:d3f/cwe-id      "CWE-307",
-   :db/ident        :d3f/CWE-307,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Restriction of Excessive Authentication Attempts",
+  {:d3f/cwe-id "CWE-307",
+   :d3f/definition
+   "The product does not implement sufficient measures to prevent multiple failed authentication attempts within a short time frame.",
+   :db/ident :d3f/CWE-307,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Restriction of Excessive Authentication Attempts",
    :rdfs/subClassOf #{:d3f/CWE-799 :d3f/CWE-1390}})
 
 (def CWE-308
-  {:d3f/cwe-id      "CWE-308",
-   :db/ident        :d3f/CWE-308,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Single-factor Authentication",
+  {:d3f/cwe-id "CWE-308",
+   :d3f/definition
+   "The use of single-factor authentication can lead to unnecessary risk of compromise when compared with the benefits of a dual-factor authentication scheme.",
+   :db/ident :d3f/CWE-308,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Single-factor Authentication",
    :rdfs/subClassOf #{:d3f/CWE-654 :d3f/CWE-1390}})
 
 (def CWE-309
-  {:d3f/cwe-id      "CWE-309",
-   :db/ident        :d3f/CWE-309,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Password System for Primary Authentication",
+  {:d3f/cwe-id "CWE-309",
+   :d3f/definition
+   "The use of password systems as the primary means of authentication may be subject to several flaws or shortcomings, each reducing the effectiveness of the mechanism.",
+   :db/ident :d3f/CWE-309,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Password System for Primary Authentication",
    :rdfs/subClassOf #{:d3f/CWE-654 :d3f/CWE-1390}})
 
 (def CWE-31
-  {:d3f/cwe-id      "CWE-31",
-   :db/ident        :d3f/CWE-31,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: 'dir\\..\\..\\filename'",
+  {:d3f/cwe-id "CWE-31",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize 'dir\\..\\..\\filename' (multiple internal backslash dot dot) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-31,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: 'dir\\..\\..\\filename'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-311
-  {:d3f/cwe-id      "CWE-311",
-   :db/ident        :d3f/CWE-311,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Encryption of Sensitive Data",
+  {:d3f/cwe-id "CWE-311",
+   :d3f/definition
+   "The product does not encrypt sensitive or critical information before storage or transmission.",
+   :db/ident :d3f/CWE-311,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Encryption of Sensitive Data",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-312
-  {:d3f/cwe-id      "CWE-312",
-   :db/ident        :d3f/CWE-312,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage of Sensitive Information",
+  {:d3f/cwe-id "CWE-312",
+   :d3f/definition
+   "The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere.",
+   :db/ident :d3f/CWE-312,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage of Sensitive Information",
    :rdfs/subClassOf #{:d3f/CWE-311 :d3f/CWE-922}})
 
 (def CWE-313
-  {:d3f/cwe-id      "CWE-313",
-   :db/ident        :d3f/CWE-313,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage in a File or on Disk",
+  {:d3f/cwe-id "CWE-313",
+   :d3f/definition
+   "The product stores sensitive information in cleartext in a file, or on disk.",
+   :db/ident :d3f/CWE-313,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage in a File or on Disk",
    :rdfs/subClassOf :d3f/CWE-312})
 
 (def CWE-314
-  {:d3f/cwe-id      "CWE-314",
-   :db/ident        :d3f/CWE-314,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage in the Registry",
+  {:d3f/cwe-id "CWE-314",
+   :d3f/definition
+   "The product stores sensitive information in cleartext in the registry.",
+   :db/ident :d3f/CWE-314,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage in the Registry",
    :rdfs/subClassOf :d3f/CWE-312})
 
 (def CWE-315
-  {:d3f/cwe-id      "CWE-315",
-   :db/ident        :d3f/CWE-315,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage of Sensitive Information in a Cookie",
+  {:d3f/cwe-id "CWE-315",
+   :d3f/definition
+   "The product stores sensitive information in cleartext in a cookie.",
+   :db/ident :d3f/CWE-315,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage of Sensitive Information in a Cookie",
    :rdfs/subClassOf :d3f/CWE-312})
 
 (def CWE-316
-  {:d3f/cwe-id      "CWE-316",
-   :db/ident        :d3f/CWE-316,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage of Sensitive Information in Memory",
+  {:d3f/cwe-id "CWE-316",
+   :d3f/definition
+   "The product stores sensitive information in cleartext in memory.",
+   :db/ident :d3f/CWE-316,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage of Sensitive Information in Memory",
    :rdfs/subClassOf :d3f/CWE-312})
 
 (def CWE-317
-  {:d3f/cwe-id      "CWE-317",
-   :db/ident        :d3f/CWE-317,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage of Sensitive Information in GUI",
+  {:d3f/cwe-id "CWE-317",
+   :d3f/definition
+   "The product stores sensitive information in cleartext within the GUI.",
+   :db/ident :d3f/CWE-317,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage of Sensitive Information in GUI",
    :rdfs/subClassOf :d3f/CWE-312})
 
 (def CWE-318
-  {:d3f/cwe-id      "CWE-318",
-   :db/ident        :d3f/CWE-318,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Storage of Sensitive Information in Executable",
+  {:d3f/cwe-id "CWE-318",
+   :d3f/definition
+   "The product stores sensitive information in cleartext in an executable.",
+   :db/ident :d3f/CWE-318,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Storage of Sensitive Information in Executable",
    :rdfs/subClassOf :d3f/CWE-312})
 
 (def CWE-319
-  {:d3f/cwe-id      "CWE-319",
-   :db/ident        :d3f/CWE-319,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cleartext Transmission of Sensitive Information",
+  {:d3f/cwe-id "CWE-319",
+   :d3f/definition
+   "The product transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors.",
+   :db/ident :d3f/CWE-319,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cleartext Transmission of Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-311})
 
 (def CWE-32
-  {:d3f/cwe-id      "CWE-32",
-   :db/ident        :d3f/CWE-32,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '...' (Triple Dot)",
+  {:d3f/cwe-id "CWE-32",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '...' (triple dot) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-32,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '...' (Triple Dot)",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-321
-  {:d3f/cwe-id      "CWE-321",
-   :db/ident        :d3f/CWE-321,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Hard-coded Cryptographic Key",
+  {:d3f/cwe-id "CWE-321",
+   :d3f/definition
+   "The product uses a hard-coded, unchangeable cryptographic key.",
+   :db/ident :d3f/CWE-321,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Hard-coded Cryptographic Key",
    :rdfs/subClassOf :d3f/CWE-798})
 
 (def CWE-322
-  {:d3f/cwe-id      "CWE-322",
-   :db/ident        :d3f/CWE-322,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Key Exchange without Entity Authentication",
+  {:d3f/cwe-id "CWE-322",
+   :d3f/definition
+   "The product performs a key exchange with an actor without verifying the identity of that actor.",
+   :db/ident :d3f/CWE-322,
+   :rdf/type :owl/Class,
+   :rdfs/label "Key Exchange without Entity Authentication",
    :rdfs/subClassOf :d3f/CWE-306})
 
 (def CWE-323
-  {:d3f/cwe-id      "CWE-323",
-   :db/ident        :d3f/CWE-323,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reusing a Nonce, Key Pair in Encryption",
+  {:d3f/cwe-id "CWE-323",
+   :d3f/definition
+   "Nonces should be used for the present occasion and only once.",
+   :db/ident :d3f/CWE-323,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reusing a Nonce, Key Pair in Encryption",
    :rdfs/subClassOf :d3f/CWE-344})
 
 (def CWE-324
-  {:d3f/cwe-id      "CWE-324",
-   :db/ident        :d3f/CWE-324,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of a Key Past its Expiration Date",
+  {:d3f/cwe-id "CWE-324",
+   :d3f/definition
+   "The product uses a cryptographic key or password past its expiration date, which diminishes its safety significantly by increasing the timing window for cracking attacks against that key.",
+   :db/ident :d3f/CWE-324,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of a Key Past its Expiration Date",
    :rdfs/subClassOf :d3f/CWE-672})
 
 (def CWE-325
-  {:d3f/cwe-id      "CWE-325",
-   :db/ident        :d3f/CWE-325,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Cryptographic Step",
+  {:d3f/cwe-id "CWE-325",
+   :d3f/definition
+   "The product does not implement a required step in a cryptographic algorithm, resulting in weaker encryption than advertised by the algorithm.",
+   :db/ident :d3f/CWE-325,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Cryptographic Step",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-326
-  {:d3f/cwe-id      "CWE-326",
-   :db/ident        :d3f/CWE-326,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inadequate Encryption Strength",
+  {:d3f/cwe-id "CWE-326",
+   :d3f/definition
+   "The product stores or transmits sensitive data using an encryption scheme that is theoretically sound, but is not strong enough for the level of protection required.",
+   :db/ident :d3f/CWE-326,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inadequate Encryption Strength",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-327
-  {:d3f/cwe-id      "CWE-327",
-   :db/ident        :d3f/CWE-327,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of a Broken or Risky Cryptographic Algorithm",
+  {:d3f/cwe-id "CWE-327",
+   :d3f/definition
+   "The product uses a broken or risky cryptographic algorithm or protocol.",
+   :db/ident :d3f/CWE-327,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of a Broken or Risky Cryptographic Algorithm",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-328
-  {:d3f/cwe-id      "CWE-328",
-   :db/ident        :d3f/CWE-328,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Weak Hash",
+  {:d3f/cwe-id "CWE-328",
+   :d3f/definition
+   "The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (2nd preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack).",
+   :db/ident :d3f/CWE-328,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Weak Hash",
    :rdfs/subClassOf #{:d3f/CWE-327 :d3f/CWE-326}})
 
 (def CWE-329
-  {:d3f/cwe-id      "CWE-329",
-   :db/ident        :d3f/CWE-329,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Generation of Predictable IV with CBC Mode",
+  {:d3f/cwe-id "CWE-329",
+   :d3f/definition
+   "The product generates and uses a predictable initialization Vector (IV) with Cipher Block Chaining (CBC) Mode, which causes algorithms to be susceptible to dictionary attacks when they are encrypted under the same key.",
+   :db/ident :d3f/CWE-329,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generation of Predictable IV with CBC Mode",
    :rdfs/subClassOf #{:d3f/CWE-1204 :d3f/CWE-573}})
 
 (def CWE-33
-  {:d3f/cwe-id      "CWE-33",
-   :db/ident        :d3f/CWE-33,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '....' (Multiple Dot)",
+  {:d3f/cwe-id "CWE-33",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '....' (multiple dot) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-33,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '....' (Multiple Dot)",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-330
-  {:d3f/cwe-id      "CWE-330",
-   :db/ident        :d3f/CWE-330,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Insufficiently Random Values",
+  {:d3f/cwe-id "CWE-330",
+   :d3f/definition
+   "The product uses insufficiently random numbers or values in a security context that depends on unpredictable numbers.",
+   :db/ident :d3f/CWE-330,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Insufficiently Random Values",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-331
-  {:d3f/cwe-id      "CWE-331",
-   :db/ident        :d3f/CWE-331,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Entropy",
+  {:d3f/cwe-id "CWE-331",
+   :d3f/definition
+   "The product uses an algorithm or scheme that produces insufficient entropy, leaving patterns or clusters of values that are more likely to occur than others.",
+   :db/ident :d3f/CWE-331,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Entropy",
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-332
-  {:d3f/cwe-id      "CWE-332",
-   :db/ident        :d3f/CWE-332,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Entropy in PRNG",
+  {:d3f/cwe-id "CWE-332",
+   :d3f/definition
+   "The lack of entropy available for, or used by, a Pseudo-Random Number Generator (PRNG) can be a stability and security threat.",
+   :db/ident :d3f/CWE-332,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Entropy in PRNG",
    :rdfs/subClassOf :d3f/CWE-331})
 
 (def CWE-333
-  {:d3f/cwe-id      "CWE-333",
-   :db/ident        :d3f/CWE-333,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Insufficient Entropy in TRNG",
-   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-331}})
+  {:d3f/cwe-id "CWE-333",
+   :d3f/definition
+   "True random number generators (TRNG) generally have a limited source of entropy and therefore can fail or block.",
+   :db/ident :d3f/CWE-333,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Insufficient Entropy in TRNG",
+   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-331 :d3f/CWE-755}})
 
 (def CWE-334
-  {:d3f/cwe-id      "CWE-334",
-   :db/ident        :d3f/CWE-334,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Small Space of Random Values",
+  {:d3f/cwe-id "CWE-334",
+   :d3f/definition
+   "The number of possible random values is smaller than needed by the product, making it more susceptible to brute force attacks.",
+   :db/ident :d3f/CWE-334,
+   :rdf/type :owl/Class,
+   :rdfs/label "Small Space of Random Values",
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-335
   {:d3f/cwe-id "CWE-335",
+   :d3f/definition
+   "The product uses a Pseudo-Random Number Generator (PRNG) but does not correctly manage seeds.",
    :db/ident :d3f/CWE-335,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -8638,21 +9748,27 @@
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-336
-  {:d3f/cwe-id      "CWE-336",
-   :db/ident        :d3f/CWE-336,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Same Seed in Pseudo-Random Number Generator (PRNG)",
+  {:d3f/cwe-id "CWE-336",
+   :d3f/definition
+   "A Pseudo-Random Number Generator (PRNG) uses the same seed each time the product is initialized.",
+   :db/ident :d3f/CWE-336,
+   :rdf/type :owl/Class,
+   :rdfs/label "Same Seed in Pseudo-Random Number Generator (PRNG)",
    :rdfs/subClassOf :d3f/CWE-335})
 
 (def CWE-337
-  {:d3f/cwe-id      "CWE-337",
-   :db/ident        :d3f/CWE-337,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Predictable Seed in Pseudo-Random Number Generator (PRNG)",
+  {:d3f/cwe-id "CWE-337",
+   :d3f/definition
+   "A Pseudo-Random Number Generator (PRNG) is initialized from a predictable seed, such as the process ID or system time.",
+   :db/ident :d3f/CWE-337,
+   :rdf/type :owl/Class,
+   :rdfs/label "Predictable Seed in Pseudo-Random Number Generator (PRNG)",
    :rdfs/subClassOf :d3f/CWE-335})
 
 (def CWE-338
   {:d3f/cwe-id "CWE-338",
+   :d3f/definition
+   "The product uses a Pseudo-Random Number Generator (PRNG) in a security context, but the PRNG's algorithm is not cryptographically strong.",
    :db/ident :d3f/CWE-338,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -8660,98 +9776,126 @@
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-339
-  {:d3f/cwe-id      "CWE-339",
-   :db/ident        :d3f/CWE-339,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Small Seed Space in PRNG",
+  {:d3f/cwe-id "CWE-339",
+   :d3f/definition
+   "A Pseudo-Random Number Generator (PRNG) uses a relatively small seed space, which makes it more susceptible to brute force attacks.",
+   :db/ident :d3f/CWE-339,
+   :rdf/type :owl/Class,
+   :rdfs/label "Small Seed Space in PRNG",
    :rdfs/subClassOf :d3f/CWE-335})
 
 (def CWE-34
-  {:d3f/cwe-id      "CWE-34",
-   :db/ident        :d3f/CWE-34,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '....//'",
+  {:d3f/cwe-id "CWE-34",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '....//' (doubled dot dot slash) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-34,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '....//'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-340
-  {:d3f/cwe-id      "CWE-340",
-   :db/ident        :d3f/CWE-340,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Generation of Predictable Numbers or Identifiers",
+  {:d3f/cwe-id "CWE-340",
+   :d3f/definition
+   "The product uses a scheme that generates numbers or identifiers that are more predictable than required.",
+   :db/ident :d3f/CWE-340,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generation of Predictable Numbers or Identifiers",
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-341
-  {:d3f/cwe-id      "CWE-341",
-   :db/ident        :d3f/CWE-341,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Predictable from Observable State",
+  {:d3f/cwe-id "CWE-341",
+   :d3f/definition
+   "A number or object is predictable based on observations that the attacker can make about the state of the system or network, such as time, process ID, etc.",
+   :db/ident :d3f/CWE-341,
+   :rdf/type :owl/Class,
+   :rdfs/label "Predictable from Observable State",
    :rdfs/subClassOf :d3f/CWE-340})
 
 (def CWE-342
-  {:d3f/cwe-id      "CWE-342",
-   :db/ident        :d3f/CWE-342,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Predictable Exact Value from Previous Values",
+  {:d3f/cwe-id "CWE-342",
+   :d3f/definition
+   "An exact value or random number can be precisely predicted by observing previous values.",
+   :db/ident :d3f/CWE-342,
+   :rdf/type :owl/Class,
+   :rdfs/label "Predictable Exact Value from Previous Values",
    :rdfs/subClassOf :d3f/CWE-340})
 
 (def CWE-343
-  {:d3f/cwe-id      "CWE-343",
-   :db/ident        :d3f/CWE-343,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Predictable Value Range from Previous Values",
+  {:d3f/cwe-id "CWE-343",
+   :d3f/definition
+   "The product's random number generator produces a series of values which, when observed, can be used to infer a relatively small range of possibilities for the next value that could be generated.",
+   :db/ident :d3f/CWE-343,
+   :rdf/type :owl/Class,
+   :rdfs/label "Predictable Value Range from Previous Values",
    :rdfs/subClassOf :d3f/CWE-340})
 
 (def CWE-344
-  {:d3f/cwe-id      "CWE-344",
-   :db/ident        :d3f/CWE-344,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Invariant Value in Dynamically Changing Context",
+  {:d3f/cwe-id "CWE-344",
+   :d3f/definition
+   "The product uses a constant value, name, or reference, but this value can (or should) vary across different environments.",
+   :db/ident :d3f/CWE-344,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Invariant Value in Dynamically Changing Context",
    :rdfs/subClassOf :d3f/CWE-330})
 
 (def CWE-345
-  {:d3f/cwe-id      "CWE-345",
-   :db/ident        :d3f/CWE-345,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Verification of Data Authenticity",
+  {:d3f/cwe-id "CWE-345",
+   :d3f/definition
+   "The product does not sufficiently verify the origin or authenticity of data, in a way that causes it to accept invalid data.",
+   :db/ident :d3f/CWE-345,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Verification of Data Authenticity",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-346
-  {:d3f/cwe-id      "CWE-346",
-   :db/ident        :d3f/CWE-346,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Origin Validation Error",
+  {:d3f/cwe-id "CWE-346",
+   :d3f/definition
+   "The product does not properly verify that the source of data or communication is valid.",
+   :db/ident :d3f/CWE-346,
+   :rdf/type :owl/Class,
+   :rdfs/label "Origin Validation Error",
    :rdfs/subClassOf #{:d3f/CWE-284 :d3f/CWE-345}})
 
 (def CWE-347
-  {:d3f/cwe-id      "CWE-347",
-   :db/ident        :d3f/CWE-347,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Verification of Cryptographic Signature",
+  {:d3f/cwe-id "CWE-347",
+   :d3f/definition
+   "The product does not verify, or incorrectly verifies, the cryptographic signature for data.",
+   :db/ident :d3f/CWE-347,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Verification of Cryptographic Signature",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-348
-  {:d3f/cwe-id      "CWE-348",
-   :db/ident        :d3f/CWE-348,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Less Trusted Source",
+  {:d3f/cwe-id "CWE-348",
+   :d3f/definition
+   "The product has two different sources of the same data or information, but it uses the source that has less support for verification, is less trusted, or is less resistant to attack.",
+   :db/ident :d3f/CWE-348,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Less Trusted Source",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-349
-  {:d3f/cwe-id      "CWE-349",
-   :db/ident        :d3f/CWE-349,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Acceptance of Extraneous Untrusted Data With Trusted Data",
+  {:d3f/cwe-id "CWE-349",
+   :d3f/definition
+   "The product, when processing trusted data, accepts any untrusted data that is also included with the trusted data, treating the untrusted data as if it were trusted.",
+   :db/ident :d3f/CWE-349,
+   :rdf/type :owl/Class,
+   :rdfs/label "Acceptance of Extraneous Untrusted Data With Trusted Data",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-35
-  {:d3f/cwe-id      "CWE-35",
-   :db/ident        :d3f/CWE-35,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '.../...//'",
+  {:d3f/cwe-id "CWE-35",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '.../...//' (doubled triple dot slash) sequences that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-35,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '.../...//'",
    :rdfs/subClassOf :d3f/CWE-23})
 
 (def CWE-350
   {:d3f/cwe-id "CWE-350",
+   :d3f/definition
+   "The product performs reverse DNS resolution on an IP address to obtain the hostname and make a security decision, but it does not properly ensure that the IP address is truly associated with the hostname.",
    :db/ident :d3f/CWE-350,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -8759,60 +9903,79 @@
    :rdfs/subClassOf #{:d3f/CWE-290 :d3f/CWE-807}})
 
 (def CWE-351
-  {:d3f/cwe-id      "CWE-351",
-   :db/ident        :d3f/CWE-351,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Type Distinction",
+  {:d3f/cwe-id "CWE-351",
+   :d3f/definition
+   "The product does not properly distinguish between different types of elements in a way that leads to insecure behavior.",
+   :db/ident :d3f/CWE-351,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Type Distinction",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-352
-  {:d3f/cwe-id      "CWE-352",
+  {:d3f/cwe-id "CWE-352",
+   :d3f/definition
+   "The web application does not, or cannot, sufficiently verify whether a request was intentionally provided by the user who sent the request, which could have originated from an unauthorized actor.",
+   :d3f/synonym #{"Cross Site Reference Forgery" "XSRF" "CSRF"
+                  "Session Riding"},
    :d3f/weakness-of :d3f/UserInputFunction,
-   :db/ident        :d3f/CWE-352,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Cross-Site Request Forgery (CSRF)",
+   :db/ident :d3f/CWE-352,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cross-Site Request Forgery (CSRF)",
    :rdfs/subClassOf #{:d3f/CWE-345
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/UserInputFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-353
-  {:d3f/cwe-id      "CWE-353",
-   :db/ident        :d3f/CWE-353,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Support for Integrity Check",
+  {:d3f/cwe-id "CWE-353",
+   :d3f/definition
+   "The product uses a transmission protocol that does not include a mechanism for verifying the integrity of the data during transmission, such as a checksum.",
+   :db/ident :d3f/CWE-353,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Support for Integrity Check",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-354
-  {:d3f/cwe-id      "CWE-354",
-   :db/ident        :d3f/CWE-354,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Integrity Check Value",
+  {:d3f/cwe-id "CWE-354",
+   :d3f/definition
+   "The product does not validate or incorrectly validates the integrity check values or \"checksums\" of a message. This may prevent it from detecting if the data has been modified or corrupted in transmission.",
+   :db/ident :d3f/CWE-354,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Integrity Check Value",
    :rdfs/subClassOf #{:d3f/CWE-345 :d3f/CWE-754}})
 
 (def CWE-356
-  {:d3f/cwe-id      "CWE-356",
-   :db/ident        :d3f/CWE-356,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Product UI does not Warn User of Unsafe Actions",
+  {:d3f/cwe-id "CWE-356",
+   :d3f/definition
+   "The product's user interface does not warn the user before undertaking an unsafe action on behalf of that user. This makes it easier for attackers to trick users into inflicting damage to their system.",
+   :db/ident :d3f/CWE-356,
+   :rdf/type :owl/Class,
+   :rdfs/label "Product UI does not Warn User of Unsafe Actions",
    :rdfs/subClassOf :d3f/CWE-221})
 
 (def CWE-357
-  {:d3f/cwe-id      "CWE-357",
-   :db/ident        :d3f/CWE-357,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient UI Warning of Dangerous Operations",
+  {:d3f/cwe-id "CWE-357",
+   :d3f/definition
+   "The user interface provides a warning to a user regarding dangerous or sensitive operations, but the warning is not noticeable enough to warrant attention.",
+   :db/ident :d3f/CWE-357,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient UI Warning of Dangerous Operations",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-358
-  {:d3f/cwe-id      "CWE-358",
-   :db/ident        :d3f/CWE-358,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improperly Implemented Security Check for Standard",
+  {:d3f/cwe-id "CWE-358",
+   :d3f/definition
+   "The product does not implement or incorrectly implements one or more security-relevant checks as specified by the design of a standardized algorithm, protocol, or technique.",
+   :db/ident :d3f/CWE-358,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improperly Implemented Security Check for Standard",
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-573}})
 
 (def CWE-359
   {:d3f/cwe-id "CWE-359",
+   :d3f/definition
+   "The product does not properly prevent a person's private, personal information from being accessed by actors who either (1) are not explicitly authorized to access the information or (2) do not have the implicit consent of the person about whom the information is collected.",
+   :d3f/synonym #{"Privacy violation" "Privacy leakage" "Privacy leak"},
    :db/ident :d3f/CWE-359,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -8820,21 +9983,28 @@
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-36
-  {:d3f/cwe-id      "CWE-36",
-   :db/ident        :d3f/CWE-36,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Absolute Path Traversal",
+  {:d3f/cwe-id "CWE-36",
+   :d3f/definition
+   "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as \"/abs/path\" that can resolve to a location that is outside of that directory.",
+   :db/ident :d3f/CWE-36,
+   :rdf/type :owl/Class,
+   :rdfs/label "Absolute Path Traversal",
    :rdfs/subClassOf :d3f/CWE-22})
 
 (def CWE-360
-  {:d3f/cwe-id      "CWE-360",
-   :db/ident        :d3f/CWE-360,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trust of System Event Data",
+  {:d3f/cwe-id "CWE-360",
+   :d3f/definition
+   "Security based on event locations are insecure and can be spoofed.",
+   :db/ident :d3f/CWE-360,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trust of System Event Data",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-362
   {:d3f/cwe-id "CWE-362",
+   :d3f/definition
+   "The product contains a concurrent code sequence that requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence operating concurrently.",
+   :d3f/synonym "Race Condition",
    :d3f/weakness-of :d3f/SharedResourceAccessFunction,
    :db/ident :d3f/CWE-362,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -8846,98 +10016,126 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-363
-  {:d3f/cwe-id      "CWE-363",
-   :db/ident        :d3f/CWE-363,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Race Condition Enabling Link Following",
+  {:d3f/cwe-id "CWE-363",
+   :d3f/definition
+   "The product checks the status of a file or directory before accessing it, which produces a race condition in which the file can be replaced with a link before the access is performed, causing the product to access the wrong file.",
+   :db/ident :d3f/CWE-363,
+   :rdf/type :owl/Class,
+   :rdfs/label "Race Condition Enabling Link Following",
    :rdfs/subClassOf :d3f/CWE-367})
 
 (def CWE-364
-  {:d3f/cwe-id      "CWE-364",
-   :db/ident        :d3f/CWE-364,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Signal Handler Race Condition",
+  {:d3f/cwe-id "CWE-364",
+   :d3f/definition
+   "The product uses a signal handler that introduces a race condition.",
+   :db/ident :d3f/CWE-364,
+   :rdf/type :owl/Class,
+   :rdfs/label "Signal Handler Race Condition",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-366
-  {:d3f/cwe-id      "CWE-366",
-   :db/ident        :d3f/CWE-366,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Race Condition within a Thread",
+  {:d3f/cwe-id "CWE-366",
+   :d3f/definition
+   "If two threads of execution use a resource simultaneously, there exists the possibility that resources may be used while invalid, in turn making the state of execution undefined.",
+   :db/ident :d3f/CWE-366,
+   :rdf/type :owl/Class,
+   :rdfs/label "Race Condition within a Thread",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-367
-  {:d3f/cwe-id      "CWE-367",
-   :db/ident        :d3f/CWE-367,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Time-of-check Time-of-use (TOCTOU) Race Condition",
+  {:d3f/cwe-id "CWE-367",
+   :d3f/definition
+   "The product checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check. This can cause the product to perform invalid actions when the resource is in an unexpected state.",
+   :d3f/synonym #{"TOCTTOU" "TOCCTOU"},
+   :db/ident :d3f/CWE-367,
+   :rdf/type :owl/Class,
+   :rdfs/label "Time-of-check Time-of-use (TOCTOU) Race Condition",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-368
-  {:d3f/cwe-id      "CWE-368",
-   :db/ident        :d3f/CWE-368,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Context Switching Race Condition",
+  {:d3f/cwe-id "CWE-368",
+   :d3f/definition
+   "A product performs a series of non-atomic actions to switch between contexts that cross privilege or other security boundaries, but a race condition allows an attacker to modify or misrepresent the product's behavior during the switch.",
+   :db/ident :d3f/CWE-368,
+   :rdf/type :owl/Class,
+   :rdfs/label "Context Switching Race Condition",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-369
   {:d3f/cwe-id      "CWE-369",
+   :d3f/definition  "The product divides a value by zero.",
    :db/ident        :d3f/CWE-369,
    :rdf/type        :owl/Class,
    :rdfs/label      "Divide By Zero",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-37
-  {:d3f/cwe-id      "CWE-37",
-   :db/ident        :d3f/CWE-37,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '/absolute/pathname/here'",
+  {:d3f/cwe-id "CWE-37",
+   :d3f/definition
+   "The product accepts input in the form of a slash absolute path ('/absolute/pathname/here') without appropriate validation, which can allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-37,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '/absolute/pathname/here'",
    :rdfs/subClassOf #{:d3f/CWE-160 :d3f/CWE-36}})
 
 (def CWE-370
   {:d3f/cwe-id "CWE-370",
+   :d3f/definition
+   "The product does not check the revocation status of a certificate after its initial revocation check, which can cause the product to perform privileged actions even after the certificate is revoked at a later time.",
    :db/ident :d3f/CWE-370,
    :rdf/type :owl/Class,
    :rdfs/label "Missing Check for Certificate Revocation after Initial Check",
    :rdfs/subClassOf :d3f/CWE-299})
 
 (def CWE-372
-  {:d3f/cwe-id      "CWE-372",
-   :db/ident        :d3f/CWE-372,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Internal State Distinction",
+  {:d3f/cwe-id "CWE-372",
+   :d3f/definition
+   "The product does not properly determine which state it is in, causing it to assume it is in state X when in fact it is in state Y, causing it to perform incorrect operations in a security-relevant manner.",
+   :db/ident :d3f/CWE-372,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Internal State Distinction",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-374
-  {:d3f/cwe-id      "CWE-374",
-   :db/ident        :d3f/CWE-374,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Passing Mutable Objects to an Untrusted Method",
+  {:d3f/cwe-id "CWE-374",
+   :d3f/definition
+   "The product sends non-cloned mutable data as an argument to a method or function.",
+   :db/ident :d3f/CWE-374,
+   :rdf/type :owl/Class,
+   :rdfs/label "Passing Mutable Objects to an Untrusted Method",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-375
-  {:d3f/cwe-id      "CWE-375",
-   :db/ident        :d3f/CWE-375,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Returning a Mutable Object to an Untrusted Caller",
+  {:d3f/cwe-id "CWE-375",
+   :d3f/definition
+   "Sending non-cloned mutable data as a return value may result in that data being altered or deleted by the calling function.",
+   :db/ident :d3f/CWE-375,
+   :rdf/type :owl/Class,
+   :rdfs/label "Returning a Mutable Object to an Untrusted Caller",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-377
-  {:d3f/cwe-id      "CWE-377",
-   :db/ident        :d3f/CWE-377,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Temporary File",
+  {:d3f/cwe-id "CWE-377",
+   :d3f/definition
+   "Creating and using insecure temporary files can leave application and system data vulnerable to attack.",
+   :db/ident :d3f/CWE-377,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Temporary File",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-378
-  {:d3f/cwe-id      "CWE-378",
-   :db/ident        :d3f/CWE-378,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Creation of Temporary File With Insecure Permissions",
+  {:d3f/cwe-id "CWE-378",
+   :d3f/definition
+   "Opening temporary files without appropriate measures or controls can leave the file, its contents and any function that it impacts vulnerable to attack.",
+   :db/ident :d3f/CWE-378,
+   :rdf/type :owl/Class,
+   :rdfs/label "Creation of Temporary File With Insecure Permissions",
    :rdfs/subClassOf :d3f/CWE-377})
 
 (def CWE-379
   {:d3f/cwe-id "CWE-379",
+   :d3f/definition
+   "The product creates a temporary file in a directory whose permissions allow unintended actors to determine the file's existence or otherwise access that file.",
    :db/ident :d3f/CWE-379,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -8945,91 +10143,117 @@
    :rdfs/subClassOf :d3f/CWE-377})
 
 (def CWE-38
-  {:d3f/cwe-id      "CWE-38",
-   :db/ident        :d3f/CWE-38,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: '\\absolute\\pathname\\here'",
+  {:d3f/cwe-id "CWE-38",
+   :d3f/definition
+   "The product accepts input in the form of a backslash absolute path ('\\absolute\\pathname\\here') without appropriate validation, which can allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-38,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: '\\absolute\\pathname\\here'",
    :rdfs/subClassOf :d3f/CWE-36})
 
 (def CWE-382
-  {:d3f/cwe-id      "CWE-382",
-   :db/ident        :d3f/CWE-382,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Bad Practices: Use of System.exit()",
+  {:d3f/cwe-id "CWE-382",
+   :d3f/definition
+   "A J2EE application uses System.exit(), which also shuts down its container.",
+   :db/ident :d3f/CWE-382,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Bad Practices: Use of System.exit()",
    :rdfs/subClassOf :d3f/CWE-705})
 
 (def CWE-383
-  {:d3f/cwe-id      "CWE-383",
-   :db/ident        :d3f/CWE-383,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Bad Practices: Direct Use of Threads",
+  {:d3f/cwe-id "CWE-383",
+   :d3f/definition
+   "Thread management in a Web application is forbidden in some circumstances and is always highly error prone.",
+   :db/ident :d3f/CWE-383,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Bad Practices: Direct Use of Threads",
    :rdfs/subClassOf :d3f/CWE-695})
 
 (def CWE-384
-  {:d3f/cwe-id      "CWE-384",
-   :db/ident        :d3f/CWE-384,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Session Fixation",
+  {:d3f/cwe-id "CWE-384",
+   :d3f/definition
+   "Authenticating a user, or otherwise establishing a new user session, without invalidating any existing session identifier gives an attacker the opportunity to steal authenticated sessions.",
+   :db/ident :d3f/CWE-384,
+   :rdf/type :owl/Class,
+   :rdfs/label "Session Fixation",
    :rdfs/subClassOf :d3f/CWE-610})
 
 (def CWE-385
-  {:d3f/cwe-id      "CWE-385",
-   :db/ident        :d3f/CWE-385,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Covert Timing Channel",
+  {:d3f/cwe-id "CWE-385",
+   :d3f/definition
+   "Covert timing channels convey information by modulating some aspect of system behavior over time, so that the program receiving the information can observe system behavior and infer protected information.",
+   :db/ident :d3f/CWE-385,
+   :rdf/type :owl/Class,
+   :rdfs/label "Covert Timing Channel",
    :rdfs/subClassOf :d3f/CWE-514})
 
 (def CWE-386
-  {:d3f/cwe-id      "CWE-386",
-   :db/ident        :d3f/CWE-386,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Symbolic Name not Mapping to Correct Object",
+  {:d3f/cwe-id "CWE-386",
+   :d3f/definition
+   "A constant symbolic reference to an object is used, even though the reference can resolve to a different object over time.",
+   :db/ident :d3f/CWE-386,
+   :rdf/type :owl/Class,
+   :rdfs/label "Symbolic Name not Mapping to Correct Object",
    :rdfs/subClassOf :d3f/CWE-706})
 
 (def CWE-39
-  {:d3f/cwe-id      "CWE-39",
-   :db/ident        :d3f/CWE-39,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Traversal: 'C:dirname'",
+  {:d3f/cwe-id "CWE-39",
+   :d3f/definition
+   "The product accepts input that contains a drive letter or Windows volume letter ('C:dirname') that potentially redirects access to an unintended location or arbitrary file.",
+   :db/ident :d3f/CWE-39,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Traversal: 'C:dirname'",
    :rdfs/subClassOf :d3f/CWE-36})
 
 (def CWE-390
-  {:d3f/cwe-id      "CWE-390",
-   :db/ident        :d3f/CWE-390,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Detection of Error Condition Without Action",
+  {:d3f/cwe-id "CWE-390",
+   :d3f/definition
+   "The product detects a specific error, but takes no actions to handle the error.",
+   :db/ident :d3f/CWE-390,
+   :rdf/type :owl/Class,
+   :rdfs/label "Detection of Error Condition Without Action",
    :rdfs/subClassOf :d3f/CWE-755})
 
 (def CWE-391
-  {:d3f/cwe-id      "CWE-391",
-   :db/ident        :d3f/CWE-391,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unchecked Error Condition",
+  {:d3f/cwe-id "CWE-391",
+   :d3f/definition
+   "[PLANNED FOR DEPRECATION. SEE MAINTENANCE NOTES AND CONSIDER CWE-252, CWE-248, OR CWE-1069.] Ignoring exceptions and other error conditions may allow an attacker to induce unexpected behavior unnoticed.",
+   :db/ident :d3f/CWE-391,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unchecked Error Condition",
    :rdfs/subClassOf :d3f/CWE-754})
 
 (def CWE-392
-  {:d3f/cwe-id      "CWE-392",
-   :db/ident        :d3f/CWE-392,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Report of Error Condition",
-   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-684}})
+  {:d3f/cwe-id "CWE-392",
+   :d3f/definition
+   "The product encounters an error but does not provide a status code or return value to indicate that an error has occurred.",
+   :db/ident :d3f/CWE-392,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Report of Error Condition",
+   :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-684 :d3f/CWE-755}})
 
 (def CWE-393
-  {:d3f/cwe-id      "CWE-393",
-   :db/ident        :d3f/CWE-393,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Return of Wrong Status Code",
+  {:d3f/cwe-id "CWE-393",
+   :d3f/definition
+   "A function or operation returns an incorrect return value or status code that does not indicate the true result of execution, causing the product to modify its behavior based on the incorrect result.",
+   :db/ident :d3f/CWE-393,
+   :rdf/type :owl/Class,
+   :rdfs/label "Return of Wrong Status Code",
    :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-684}})
 
 (def CWE-394
-  {:d3f/cwe-id      "CWE-394",
-   :db/ident        :d3f/CWE-394,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unexpected Status Code or Return Value",
+  {:d3f/cwe-id "CWE-394",
+   :d3f/definition
+   "The product does not properly check when a function or operation returns a value that is legitimate for the function, but is not expected by the product.",
+   :db/ident :d3f/CWE-394,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unexpected Status Code or Return Value",
    :rdfs/subClassOf :d3f/CWE-754})
 
 (def CWE-395
   {:d3f/cwe-id "CWE-395",
+   :d3f/definition
+   "Catching NullPointerException should not be used as an alternative to programmatic checks to prevent dereferencing a null pointer.",
    :db/ident :d3f/CWE-395,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9037,42 +10261,57 @@
    :rdfs/subClassOf #{:d3f/CWE-705 :d3f/CWE-755}})
 
 (def CWE-396
-  {:d3f/cwe-id      "CWE-396",
-   :db/ident        :d3f/CWE-396,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Declaration of Catch for Generic Exception",
+  {:d3f/cwe-id "CWE-396",
+   :d3f/definition
+   "Catching overly broad exceptions promotes complex error handling code that is more likely to contain security vulnerabilities.",
+   :db/ident :d3f/CWE-396,
+   :rdf/type :owl/Class,
+   :rdfs/label "Declaration of Catch for Generic Exception",
    :rdfs/subClassOf #{:d3f/CWE-705 :d3f/CWE-221 :d3f/CWE-755}})
 
 (def CWE-397
-  {:d3f/cwe-id      "CWE-397",
-   :db/ident        :d3f/CWE-397,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Declaration of Throws for Generic Exception",
+  {:d3f/cwe-id "CWE-397",
+   :d3f/definition
+   "The product throws or raises an overly broad exceptions that can hide important details and produce inappropriate responses to certain conditions.",
+   :db/ident :d3f/CWE-397,
+   :rdf/type :owl/Class,
+   :rdfs/label "Declaration of Throws for Generic Exception",
    :rdfs/subClassOf #{:d3f/CWE-703 :d3f/CWE-705 :d3f/CWE-221}})
 
 (def CWE-40
   {:d3f/cwe-id "CWE-40",
+   :d3f/definition
+   "The product accepts input that identifies a Windows UNC share ('\\\\UNC\\share\\name') that potentially redirects access to an unintended location or arbitrary file.",
    :db/ident :d3f/CWE-40,
    :rdf/type :owl/Class,
    :rdfs/label "Path Traversal: '\\\\UNC\\share\\name\\' (Windows UNC Share)",
    :rdfs/subClassOf :d3f/CWE-36})
 
 (def CWE-400
-  {:d3f/cwe-id      "CWE-400",
-   :db/ident        :d3f/CWE-400,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Uncontrolled Resource Consumption",
+  {:d3f/cwe-id "CWE-400",
+   :d3f/definition
+   "The product does not properly control the allocation and maintenance of a limited resource.",
+   :d3f/synonym "Resource Exhaustion",
+   :db/ident :d3f/CWE-400,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uncontrolled Resource Consumption",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-401
-  {:d3f/cwe-id      "CWE-401",
-   :db/ident        :d3f/CWE-401,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Release of Memory after Effective Lifetime",
+  {:d3f/cwe-id "CWE-401",
+   :d3f/definition
+   "The product does not sufficiently track and release allocated memory after it has been used, making the memory unavailable for reallocation and reuse.",
+   :d3f/synonym "Memory Leak",
+   :db/ident :d3f/CWE-401,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Release of Memory after Effective Lifetime",
    :rdfs/subClassOf :d3f/CWE-772})
 
 (def CWE-402
   {:d3f/cwe-id "CWE-402",
+   :d3f/definition
+   "The product makes resources available to untrusted parties when those resources are only intended to be accessed by the product.",
+   :d3f/synonym "Resource Leak",
    :db/ident :d3f/CWE-402,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9081,6 +10320,9 @@
 
 (def CWE-403
   {:d3f/cwe-id "CWE-403",
+   :d3f/definition
+   "A process does not close sensitive file descriptors before invoking a child process, which allows the child to perform unauthorized I/O operations using those descriptors.",
+   :d3f/synonym "File descriptor leak",
    :db/ident :d3f/CWE-403,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9088,21 +10330,27 @@
    :rdfs/subClassOf :d3f/CWE-402})
 
 (def CWE-404
-  {:d3f/cwe-id      "CWE-404",
-   :db/ident        :d3f/CWE-404,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Resource Shutdown or Release",
+  {:d3f/cwe-id "CWE-404",
+   :d3f/definition
+   "The product does not release or incorrectly releases a resource before it is made available for re-use.",
+   :db/ident :d3f/CWE-404,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Resource Shutdown or Release",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-405
-  {:d3f/cwe-id      "CWE-405",
-   :db/ident        :d3f/CWE-405,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Asymmetric Resource Consumption (Amplification)",
-   :rdfs/subClassOf :d3f/CWE-664})
+  {:d3f/cwe-id "CWE-405",
+   :d3f/definition
+   "The product does not properly control situations in which an adversary can cause the product to consume or produce excessive resources without requiring the adversary to invest equivalent work or otherwise prove authorization, i.e., the adversary's influence is \"asymmetric.\"",
+   :db/ident :d3f/CWE-405,
+   :rdf/type :owl/Class,
+   :rdfs/label "Asymmetric Resource Consumption (Amplification)",
+   :rdfs/subClassOf #{:d3f/CWE-664 :d3f/CWE-400}})
 
 (def CWE-406
   {:d3f/cwe-id "CWE-406",
+   :d3f/definition
+   "The product does not sufficiently monitor or control transmitted network traffic volume, so that an actor can cause the product to transmit more traffic than should be allowed for that actor.",
    :db/ident :d3f/CWE-406,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9110,21 +10358,28 @@
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-407
-  {:d3f/cwe-id      "CWE-407",
-   :db/ident        :d3f/CWE-407,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inefficient Algorithmic Complexity",
+  {:d3f/cwe-id "CWE-407",
+   :d3f/definition
+   "An algorithm in a product has an inefficient worst-case computational complexity that may be detrimental to system performance and can be triggered by an attacker, typically using crafted manipulations that ensure that the worst case is being reached.",
+   :d3f/synonym "Quadratic Complexity",
+   :db/ident :d3f/CWE-407,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inefficient Algorithmic Complexity",
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-408
-  {:d3f/cwe-id      "CWE-408",
-   :db/ident        :d3f/CWE-408,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Behavior Order: Early Amplification",
+  {:d3f/cwe-id "CWE-408",
+   :d3f/definition
+   "The product allows an entity to perform a legitimate but expensive operation before authentication or authorization has taken place.",
+   :db/ident :d3f/CWE-408,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Behavior Order: Early Amplification",
    :rdfs/subClassOf #{:d3f/CWE-405 :d3f/CWE-696}})
 
 (def CWE-409
   {:d3f/cwe-id "CWE-409",
+   :d3f/definition
+   "The product does not handle or incorrectly handles a compressed input with a very high compression ratio that produces a large output.",
    :db/ident :d3f/CWE-409,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9132,46 +10387,58 @@
    :rdfs/subClassOf :d3f/CWE-405})
 
 (def CWE-41
-  {:d3f/cwe-id      "CWE-41",
-   :db/ident        :d3f/CWE-41,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Resolution of Path Equivalence",
+  {:d3f/cwe-id "CWE-41",
+   :d3f/definition
+   "The product is vulnerable to file system contents disclosure through path equivalence. Path equivalence involves the use of special characters in file and directory names. The associated manipulations are intended to generate multiple names for the same object.",
+   :db/ident :d3f/CWE-41,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Resolution of Path Equivalence",
    :rdfs/subClassOf :d3f/CWE-706})
 
 (def CWE-410
-  {:d3f/cwe-id      "CWE-410",
-   :db/ident        :d3f/CWE-410,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Resource Pool",
+  {:d3f/cwe-id "CWE-410",
+   :d3f/definition
+   "The product's resource pool is not large enough to handle peak demand, which allows an attacker to prevent others from accessing the resource by using a (relatively) large number of requests for resources.",
+   :db/ident :d3f/CWE-410,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Resource Pool",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-412
-  {:d3f/cwe-id      "CWE-412",
-   :db/ident        :d3f/CWE-412,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unrestricted Externally Accessible Lock",
+  {:d3f/cwe-id "CWE-412",
+   :d3f/definition
+   "The product properly checks for the existence of a lock, but the lock can be externally controlled or influenced by an actor that is outside of the intended sphere of control.",
+   :db/ident :d3f/CWE-412,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unrestricted Externally Accessible Lock",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-413
-  {:d3f/cwe-id      "CWE-413",
-   :db/ident        :d3f/CWE-413,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Resource Locking",
+  {:d3f/cwe-id "CWE-413",
+   :d3f/definition
+   "The product does not lock or does not correctly lock a resource when the product must have exclusive access to the resource.",
+   :db/ident :d3f/CWE-413,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Resource Locking",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-414
-  {:d3f/cwe-id      "CWE-414",
-   :db/ident        :d3f/CWE-414,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Lock Check",
+  {:d3f/cwe-id "CWE-414",
+   :d3f/definition
+   "A product does not check to see if a lock is present before performing sensitive operations on a resource.",
+   :db/ident :d3f/CWE-414,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Lock Check",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-415
-  {:d3f/cwe-id      "CWE-415",
+  {:d3f/cwe-id "CWE-415",
+   :d3f/definition "The product calls free() twice on the same memory address.",
+   :d3f/synonym "Double-free",
    :d3f/weakness-of :d3f/MemoryFreeFunction,
-   :db/ident        :d3f/CWE-415,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Double Free",
+   :db/ident :d3f/CWE-415,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Double Free",
    :rdfs/subClassOf #{:d3f/CWE-825
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/MemoryFreeFunction,
@@ -9179,91 +10446,121 @@
                       :d3f/CWE-1341}})
 
 (def CWE-416
-  {:d3f/cwe-id      "CWE-416",
-   :db/ident        :d3f/CWE-416,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use After Free",
+  {:d3f/cwe-id "CWE-416",
+   :d3f/definition
+   "The product reuses or references memory after it has been freed. At some point afterward, the memory may be allocated again and saved in another pointer, while the original pointer references a location somewhere within the new allocation. Any operations using the original pointer are no longer valid because the memory \"belongs\" to the code that operates on the new pointer.",
+   :d3f/synonym #{"Use-After-Free" "Dangling pointer" "UAF"},
+   :db/ident :d3f/CWE-416,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use After Free",
    :rdfs/subClassOf :d3f/CWE-825})
 
 (def CWE-419
-  {:d3f/cwe-id      "CWE-419",
-   :db/ident        :d3f/CWE-419,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unprotected Primary Channel",
+  {:d3f/cwe-id "CWE-419",
+   :d3f/definition
+   "The product uses a primary channel for administration or restricted functionality, but it does not properly protect the channel.",
+   :db/ident :d3f/CWE-419,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unprotected Primary Channel",
    :rdfs/subClassOf :d3f/CWE-923})
 
 (def CWE-42
-  {:d3f/cwe-id      "CWE-42",
-   :db/ident        :d3f/CWE-42,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'filename.' (Trailing Dot)",
+  {:d3f/cwe-id "CWE-42",
+   :d3f/definition
+   "The product accepts path input in the form of trailing dot ('filedir.') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-42,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'filename.' (Trailing Dot)",
    :rdfs/subClassOf #{:d3f/CWE-162 :d3f/CWE-41}})
 
 (def CWE-420
-  {:d3f/cwe-id      "CWE-420",
-   :db/ident        :d3f/CWE-420,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unprotected Alternate Channel",
+  {:d3f/cwe-id "CWE-420",
+   :d3f/definition
+   "The product protects a primary channel, but it does not use the same level of protection for an alternate channel.",
+   :db/ident :d3f/CWE-420,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unprotected Alternate Channel",
    :rdfs/subClassOf :d3f/CWE-923})
 
 (def CWE-421
-  {:d3f/cwe-id      "CWE-421",
-   :db/ident        :d3f/CWE-421,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Race Condition During Access to Alternate Channel",
+  {:d3f/cwe-id "CWE-421",
+   :d3f/definition
+   "The product opens an alternate channel to communicate with an authorized user, but the channel is accessible to other actors.",
+   :db/ident :d3f/CWE-421,
+   :rdf/type :owl/Class,
+   :rdfs/label "Race Condition During Access to Alternate Channel",
    :rdfs/subClassOf #{:d3f/CWE-420 :d3f/CWE-362}})
 
 (def CWE-422
-  {:d3f/cwe-id      "CWE-422",
-   :db/ident        :d3f/CWE-422,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unprotected Windows Messaging Channel ('Shatter')",
+  {:d3f/cwe-id "CWE-422",
+   :d3f/definition
+   "The product does not properly verify the source of a message in the Windows Messaging System while running at elevated privileges, creating an alternate channel through which an attacker can directly send a message to the product.",
+   :db/ident :d3f/CWE-422,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unprotected Windows Messaging Channel ('Shatter')",
    :rdfs/subClassOf #{:d3f/CWE-420 :d3f/CWE-360}})
 
 (def CWE-424
-  {:d3f/cwe-id      "CWE-424",
-   :db/ident        :d3f/CWE-424,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Protection of Alternate Path",
+  {:d3f/cwe-id "CWE-424",
+   :d3f/definition
+   "The product does not sufficiently protect all possible paths that a user can take to access restricted functionality or resources.",
+   :db/ident :d3f/CWE-424,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Protection of Alternate Path",
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-638}})
 
 (def CWE-425
-  {:d3f/cwe-id      "CWE-425",
-   :db/ident        :d3f/CWE-425,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Direct Request ('Forced Browsing')",
+  {:d3f/cwe-id "CWE-425",
+   :d3f/definition
+   "The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.",
+   :d3f/synonym "forced browsing",
+   :db/ident :d3f/CWE-425,
+   :rdf/type :owl/Class,
+   :rdfs/label "Direct Request ('Forced Browsing')",
    :rdfs/subClassOf #{:d3f/CWE-288 :d3f/CWE-862 :d3f/CWE-424}})
 
 (def CWE-426
-  {:d3f/cwe-id      "CWE-426",
-   :db/ident        :d3f/CWE-426,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Untrusted Search Path",
+  {:d3f/cwe-id "CWE-426",
+   :d3f/definition
+   "The product searches for critical resources using an externally-supplied search path that can point to resources that are not under the product's direct control.",
+   :d3f/synonym "Untrusted Path",
+   :db/ident :d3f/CWE-426,
+   :rdf/type :owl/Class,
+   :rdfs/label "Untrusted Search Path",
    :rdfs/subClassOf #{:d3f/CWE-642 :d3f/CWE-673}})
 
 (def CWE-427
-  {:d3f/cwe-id      "CWE-427",
-   :db/ident        :d3f/CWE-427,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Uncontrolled Search Path Element",
+  {:d3f/cwe-id "CWE-427",
+   :d3f/definition
+   "The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.",
+   :d3f/synonym #{"Binary planting" "Dependency confusion"
+                  "Insecure library loading" "DLL preloading"},
+   :db/ident :d3f/CWE-427,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uncontrolled Search Path Element",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-428
-  {:d3f/cwe-id      "CWE-428",
-   :db/ident        :d3f/CWE-428,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unquoted Search Path or Element",
+  {:d3f/cwe-id "CWE-428",
+   :d3f/definition
+   "The product uses a search path that contains an unquoted element, in which the element contains whitespace or other separators. This can cause the product to access resources in a parent path.",
+   :db/ident :d3f/CWE-428,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unquoted Search Path or Element",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-43
-  {:d3f/cwe-id      "CWE-43",
-   :db/ident        :d3f/CWE-43,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'filename....' (Multiple Trailing Dot)",
+  {:d3f/cwe-id "CWE-43",
+   :d3f/definition
+   "The product accepts path input in the form of multiple trailing dot ('filedir....') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-43,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'filename....' (Multiple Trailing Dot)",
    :rdfs/subClassOf #{:d3f/CWE-163 :d3f/CWE-42}})
 
 (def CWE-430
   {:d3f/cwe-id      "CWE-430",
+   :d3f/definition  "The wrong \"handler\" is assigned to process an object.",
    :db/ident        :d3f/CWE-430,
    :rdf/type        :owl/Class,
    :rdfs/label      "Deployment of Wrong Handler",
@@ -9271,6 +10568,7 @@
 
 (def CWE-431
   {:d3f/cwe-id      "CWE-431",
+   :d3f/definition  "A handler is not available or implemented.",
    :db/ident        :d3f/CWE-431,
    :rdf/type        :owl/Class,
    :rdfs/label      "Missing Handler",
@@ -9278,6 +10576,8 @@
 
 (def CWE-432
   {:d3f/cwe-id "CWE-432",
+   :d3f/definition
+   "The product uses a signal handler that shares state with other signal handlers, but it does not properly mask or prevent those signal handlers from being invoked while the original signal handler is still running.",
    :db/ident :d3f/CWE-432,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9285,18 +10585,23 @@
    :rdfs/subClassOf :d3f/CWE-364})
 
 (def CWE-433
-  {:d3f/cwe-id      "CWE-433",
-   :db/ident        :d3f/CWE-433,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unparsed Raw Web Content Delivery",
+  {:d3f/cwe-id "CWE-433",
+   :d3f/definition
+   "The product stores raw content or supporting code under the web document root with an extension that is not specifically handled by the server.",
+   :db/ident :d3f/CWE-433,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unparsed Raw Web Content Delivery",
    :rdfs/subClassOf :d3f/CWE-219})
 
 (def CWE-434
-  {:d3f/cwe-id      "CWE-434",
+  {:d3f/cwe-id "CWE-434",
+   :d3f/definition
+   "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+   :d3f/synonym "Unrestricted File Upload",
    :d3f/weakness-of :d3f/UserInputFunction,
-   :db/ident        :d3f/CWE-434,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Unrestricted Upload of File with Dangerous Type",
+   :db/ident :d3f/CWE-434,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Unrestricted Upload of File with Dangerous Type",
    :rdfs/subClassOf #{:d3f/CWE-669
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/UserInputFunction,
@@ -9304,6 +10609,9 @@
 
 (def CWE-435
   {:d3f/cwe-id "CWE-435",
+   :d3f/definition
+   "An interaction error occurs when two entities have correct behavior when running independently of each other, but when they are integrated as components in a larger system or process, they introduce incorrect behaviors that may cause resultant weaknesses.",
+   :d3f/synonym #{"Interaction Error" "Emergent Fault"},
    :db/ident :d3f/CWE-435,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9311,49 +10619,67 @@
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-436
-  {:d3f/cwe-id      "CWE-436",
-   :db/ident        :d3f/CWE-436,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Interpretation Conflict",
+  {:d3f/cwe-id "CWE-436",
+   :d3f/definition
+   "Product A handles inputs or steps differently than Product B, which causes A to perform incorrect actions based on its perception of B's state.",
+   :db/ident :d3f/CWE-436,
+   :rdf/type :owl/Class,
+   :rdfs/label "Interpretation Conflict",
    :rdfs/subClassOf :d3f/CWE-435})
 
 (def CWE-437
-  {:d3f/cwe-id      "CWE-437",
-   :db/ident        :d3f/CWE-437,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Model of Endpoint Features",
+  {:d3f/cwe-id "CWE-437",
+   :d3f/definition
+   "A product acts as an intermediary or monitor between two or more endpoints, but it does not have a complete model of an endpoint's features, behaviors, or state, potentially causing the product to perform incorrect actions based on this incomplete model.",
+   :db/ident :d3f/CWE-437,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Model of Endpoint Features",
    :rdfs/subClassOf :d3f/CWE-436})
 
 (def CWE-439
-  {:d3f/cwe-id      "CWE-439",
-   :db/ident        :d3f/CWE-439,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Behavioral Change in New Version or Environment",
+  {:d3f/cwe-id "CWE-439",
+   :d3f/definition
+   "A's behavior or functionality changes with a new version of A, or a new environment, which is not known (or manageable) by B.",
+   :d3f/synonym "Functional change",
+   :db/ident :d3f/CWE-439,
+   :rdf/type :owl/Class,
+   :rdfs/label "Behavioral Change in New Version or Environment",
    :rdfs/subClassOf :d3f/CWE-435})
 
 (def CWE-44
-  {:d3f/cwe-id      "CWE-44",
-   :db/ident        :d3f/CWE-44,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'file.name' (Internal Dot)",
+  {:d3f/cwe-id "CWE-44",
+   :d3f/definition
+   "The product accepts path input in the form of internal dot ('file.ordir') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-44,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'file.name' (Internal Dot)",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-440
-  {:d3f/cwe-id      "CWE-440",
-   :db/ident        :d3f/CWE-440,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Expected Behavior Violation",
+  {:d3f/cwe-id "CWE-440",
+   :d3f/definition
+   "A feature, API, or function does not perform according to its specification.",
+   :db/ident :d3f/CWE-440,
+   :rdf/type :owl/Class,
+   :rdfs/label "Expected Behavior Violation",
    :rdfs/subClassOf :d3f/CWE-684})
 
 (def CWE-441
-  {:d3f/cwe-id      "CWE-441",
-   :db/ident        :d3f/CWE-441,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unintended Proxy or Intermediary ('Confused Deputy')",
+  {:d3f/cwe-id "CWE-441",
+   :d3f/definition
+   "The product receives a request, message, or directive from an upstream component, but the product does not sufficiently preserve the original source of the request before forwarding the request to an external actor that is outside of the product's control sphere. This causes the product to appear to be the source of the request, leading it to act as a proxy or other intermediary between the upstream component and the external actor.",
+   :d3f/synonym "Confused Deputy",
+   :db/ident :d3f/CWE-441,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unintended Proxy or Intermediary ('Confused Deputy')",
    :rdfs/subClassOf :d3f/CWE-610})
 
 (def CWE-444
   {:d3f/cwe-id "CWE-444",
+   :d3f/definition
+   "The product acts as an intermediary HTTP agent (such as a proxy or firewall) in the data flow between two entities such as a client and server, but it does not interpret malformed HTTP requests or responses in ways that are consistent with how the messages will be processed by those entities that are at the ultimate destination.",
+   :d3f/synonym #{"HTTP Smuggling" "HTTP Response Smuggling"
+                  "HTTP Request Smuggling"},
    :db/ident :d3f/CWE-444,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9361,168 +10687,218 @@
    :rdfs/subClassOf :d3f/CWE-436})
 
 (def CWE-446
-  {:d3f/cwe-id      "CWE-446",
-   :db/ident        :d3f/CWE-446,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "UI Discrepancy for Security Feature",
+  {:d3f/cwe-id "CWE-446",
+   :d3f/definition
+   "The user interface does not correctly enable or configure a security feature, but the interface provides feedback that causes the user to believe that the feature is in a secure state.",
+   :db/ident :d3f/CWE-446,
+   :rdf/type :owl/Class,
+   :rdfs/label "UI Discrepancy for Security Feature",
    :rdfs/subClassOf :d3f/CWE-684})
 
 (def CWE-447
-  {:d3f/cwe-id      "CWE-447",
-   :db/ident        :d3f/CWE-447,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unimplemented or Unsupported Feature in UI",
+  {:d3f/cwe-id "CWE-447",
+   :d3f/definition
+   "A UI function for a security feature appears to be supported and gives feedback to the user that suggests that it is supported, but the underlying functionality is not implemented.",
+   :db/ident :d3f/CWE-447,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unimplemented or Unsupported Feature in UI",
    :rdfs/subClassOf #{:d3f/CWE-446 :d3f/CWE-671}})
 
 (def CWE-448
-  {:d3f/cwe-id      "CWE-448",
-   :db/ident        :d3f/CWE-448,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Obsolete Feature in UI",
+  {:d3f/cwe-id "CWE-448",
+   :d3f/definition
+   "A UI function is obsolete and the product does not warn the user.",
+   :db/ident :d3f/CWE-448,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obsolete Feature in UI",
    :rdfs/subClassOf :d3f/CWE-446})
 
 (def CWE-449
-  {:d3f/cwe-id      "CWE-449",
-   :db/ident        :d3f/CWE-449,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "The UI Performs the Wrong Action",
+  {:d3f/cwe-id "CWE-449",
+   :d3f/definition
+   "The UI performs the wrong action with respect to the user's request.",
+   :db/ident :d3f/CWE-449,
+   :rdf/type :owl/Class,
+   :rdfs/label "The UI Performs the Wrong Action",
    :rdfs/subClassOf :d3f/CWE-446})
 
 (def CWE-45
-  {:d3f/cwe-id      "CWE-45",
-   :db/ident        :d3f/CWE-45,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'file...name' (Multiple Internal Dot)",
+  {:d3f/cwe-id "CWE-45",
+   :d3f/definition
+   "The product accepts path input in the form of multiple internal dot ('file...dir') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-45,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'file...name' (Multiple Internal Dot)",
    :rdfs/subClassOf #{:d3f/CWE-44 :d3f/CWE-165}})
 
 (def CWE-450
-  {:d3f/cwe-id      "CWE-450",
-   :db/ident        :d3f/CWE-450,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multiple Interpretations of UI Input",
+  {:d3f/cwe-id "CWE-450",
+   :d3f/definition
+   "The UI has multiple interpretations of user input but does not prompt the user when it selects the less secure interpretation.",
+   :db/ident :d3f/CWE-450,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multiple Interpretations of UI Input",
    :rdfs/subClassOf :d3f/CWE-357})
 
 (def CWE-451
   {:d3f/cwe-id "CWE-451",
+   :d3f/definition
+   "The user interface (UI) does not properly represent critical information to the user, allowing the information - or its source - to be obscured or spoofed. This is often a component in phishing attacks.",
    :db/ident :d3f/CWE-451,
    :rdf/type :owl/Class,
    :rdfs/label "User Interface (UI) Misrepresentation of Critical Information",
    :rdfs/subClassOf #{:d3f/CWE-684 :d3f/CWE-221}})
 
 (def CWE-453
-  {:d3f/cwe-id      "CWE-453",
-   :db/ident        :d3f/CWE-453,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Default Variable Initialization",
+  {:d3f/cwe-id "CWE-453",
+   :d3f/definition
+   "The product, by default, initializes an internal variable with an insecure or less secure value than is possible.",
+   :db/ident :d3f/CWE-453,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Default Variable Initialization",
    :rdfs/subClassOf :d3f/CWE-1188})
 
 (def CWE-454
   {:d3f/cwe-id "CWE-454",
+   :d3f/definition
+   "The product initializes critical internal variables or data stores using inputs that can be modified by untrusted actors.",
    :db/ident :d3f/CWE-454,
    :rdf/type :owl/Class,
    :rdfs/label "External Initialization of Trusted Variables or Data Stores",
-   :rdfs/subClassOf :d3f/CWE-665})
+   :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-1419}})
 
 (def CWE-455
-  {:d3f/cwe-id      "CWE-455",
-   :db/ident        :d3f/CWE-455,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Non-exit on Failed Initialization",
+  {:d3f/cwe-id "CWE-455",
+   :d3f/definition
+   "The product does not exit or otherwise modify its operation when security-relevant errors occur during initialization, such as when a configuration file has a format error or a hardware security module (HSM) cannot be activated, which can cause the product to execute in a less secure fashion than intended by the administrator.",
+   :db/ident :d3f/CWE-455,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-exit on Failed Initialization",
    :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-636 :d3f/CWE-705}})
 
 (def CWE-456
-  {:d3f/cwe-id      "CWE-456",
-   :db/ident        :d3f/CWE-456,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Initialization of a Variable",
+  {:d3f/cwe-id "CWE-456",
+   :d3f/definition
+   "The product does not initialize critical variables, which causes the execution environment to use unexpected values.",
+   :db/ident :d3f/CWE-456,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Initialization of a Variable",
    :rdfs/subClassOf :d3f/CWE-909})
 
 (def CWE-457
-  {:d3f/cwe-id      "CWE-457",
-   :db/ident        :d3f/CWE-457,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Uninitialized Variable",
+  {:d3f/cwe-id "CWE-457",
+   :d3f/definition
+   "The code uses a variable that has not been initialized, leading to unpredictable or unintended results.",
+   :db/ident :d3f/CWE-457,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Uninitialized Variable",
    :rdfs/subClassOf :d3f/CWE-908})
 
 (def CWE-459
-  {:d3f/cwe-id      "CWE-459",
-   :db/ident        :d3f/CWE-459,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Cleanup",
+  {:d3f/cwe-id "CWE-459",
+   :d3f/definition
+   "The product does not properly \"clean up\" and remove temporary or supporting resources after they have been used.",
+   :d3f/synonym "Insufficient Cleanup",
+   :db/ident :d3f/CWE-459,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Cleanup",
    :rdfs/subClassOf :d3f/CWE-404})
 
 (def CWE-46
-  {:d3f/cwe-id      "CWE-46",
-   :db/ident        :d3f/CWE-46,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'filename ' (Trailing Space)",
+  {:d3f/cwe-id "CWE-46",
+   :d3f/definition
+   "The product accepts path input in the form of trailing space ('filedir ') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-46,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'filename ' (Trailing Space)",
    :rdfs/subClassOf #{:d3f/CWE-162 :d3f/CWE-41}})
 
 (def CWE-460
-  {:d3f/cwe-id      "CWE-460",
-   :db/ident        :d3f/CWE-460,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Cleanup on Thrown Exception",
+  {:d3f/cwe-id "CWE-460",
+   :d3f/definition
+   "The product does not clean up its state or incorrectly cleans up its state when an exception is thrown, leading to unexpected state or control flow.",
+   :db/ident :d3f/CWE-460,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Cleanup on Thrown Exception",
    :rdfs/subClassOf #{:d3f/CWE-459 :d3f/CWE-755}})
 
 (def CWE-462
-  {:d3f/cwe-id      "CWE-462",
-   :db/ident        :d3f/CWE-462,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Duplicate Key in Associative List (Alist)",
+  {:d3f/cwe-id "CWE-462",
+   :d3f/definition
+   "Duplicate keys in associative lists can lead to non-unique keys being mistaken for an error.",
+   :db/ident :d3f/CWE-462,
+   :rdf/type :owl/Class,
+   :rdfs/label "Duplicate Key in Associative List (Alist)",
    :rdfs/subClassOf :d3f/CWE-694})
 
 (def CWE-463
-  {:d3f/cwe-id      "CWE-463",
-   :db/ident        :d3f/CWE-463,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Deletion of Data Structure Sentinel",
+  {:d3f/cwe-id "CWE-463",
+   :d3f/definition
+   "The accidental deletion of a data-structure sentinel can cause serious programming logic problems.",
+   :db/ident :d3f/CWE-463,
+   :rdf/type :owl/Class,
+   :rdfs/label "Deletion of Data Structure Sentinel",
    :rdfs/subClassOf :d3f/CWE-707})
 
 (def CWE-464
-  {:d3f/cwe-id      "CWE-464",
-   :db/ident        :d3f/CWE-464,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Addition of Data Structure Sentinel",
+  {:d3f/cwe-id "CWE-464",
+   :d3f/definition
+   "The accidental addition of a data-structure sentinel can cause serious programming logic problems.",
+   :db/ident :d3f/CWE-464,
+   :rdf/type :owl/Class,
+   :rdfs/label "Addition of Data Structure Sentinel",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-466
-  {:d3f/cwe-id      "CWE-466",
-   :db/ident        :d3f/CWE-466,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Return of Pointer Value Outside of Expected Range",
+  {:d3f/cwe-id "CWE-466",
+   :d3f/definition
+   "A function can return a pointer to memory that is outside of the buffer that the pointer is expected to reference.",
+   :db/ident :d3f/CWE-466,
+   :rdf/type :owl/Class,
+   :rdfs/label "Return of Pointer Value Outside of Expected Range",
    :rdfs/subClassOf :d3f/CWE-119})
 
 (def CWE-467
-  {:d3f/cwe-id      "CWE-467",
-   :db/ident        :d3f/CWE-467,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of sizeof() on a Pointer Type",
+  {:d3f/cwe-id "CWE-467",
+   :d3f/definition
+   "The code calls sizeof() on a pointer type, which can be an incorrect calculation if the programmer intended to determine the size of the data that is being pointed to.",
+   :db/ident :d3f/CWE-467,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of sizeof() on a Pointer Type",
    :rdfs/subClassOf :d3f/CWE-131})
 
 (def CWE-468
-  {:d3f/cwe-id      "CWE-468",
-   :db/ident        :d3f/CWE-468,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Pointer Scaling",
+  {:d3f/cwe-id "CWE-468",
+   :d3f/definition
+   "In C and C++, one may often accidentally refer to the wrong memory due to the semantics of when math operations are implicitly scaled.",
+   :db/ident :d3f/CWE-468,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Pointer Scaling",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-469
-  {:d3f/cwe-id      "CWE-469",
-   :db/ident        :d3f/CWE-469,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Pointer Subtraction to Determine Size",
+  {:d3f/cwe-id "CWE-469",
+   :d3f/definition
+   "The product subtracts one pointer from another in order to determine size, but this calculation can be incorrect if the pointers do not exist in the same memory chunk.",
+   :db/ident :d3f/CWE-469,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Pointer Subtraction to Determine Size",
    :rdfs/subClassOf :d3f/CWE-682})
 
 (def CWE-47
-  {:d3f/cwe-id      "CWE-47",
-   :db/ident        :d3f/CWE-47,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: ' filename' (Leading Space)",
+  {:d3f/cwe-id "CWE-47",
+   :d3f/definition
+   "The product accepts path input in the form of leading space (' filedir') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-47,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: ' filename' (Leading Space)",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-470
   {:d3f/cwe-id "CWE-470",
+   :d3f/definition
+   "The product uses external input with reflection to select which classes or code to use, but it does not sufficiently prevent the input from selecting improper classes or code.",
+   :d3f/synonym "Reflection Injection",
    :db/ident :d3f/CWE-470,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9530,193 +10906,250 @@
    :rdfs/subClassOf #{:d3f/CWE-913 :d3f/CWE-610}})
 
 (def CWE-471
-  {:d3f/cwe-id      "CWE-471",
-   :db/ident        :d3f/CWE-471,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Modification of Assumed-Immutable Data (MAID)",
+  {:d3f/cwe-id "CWE-471",
+   :d3f/definition
+   "The product does not properly protect an assumed-immutable element from being modified by an attacker.",
+   :db/ident :d3f/CWE-471,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modification of Assumed-Immutable Data (MAID)",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-472
-  {:d3f/cwe-id      "CWE-472",
-   :db/ident        :d3f/CWE-472,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "External Control of Assumed-Immutable Web Parameter",
+  {:d3f/cwe-id "CWE-472",
+   :d3f/definition
+   "The web application does not sufficiently verify inputs that are assumed to be immutable but are actually externally controllable, such as hidden form fields.",
+   :d3f/synonym "Assumed-Immutable Parameter Tampering",
+   :db/ident :d3f/CWE-472,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Control of Assumed-Immutable Web Parameter",
    :rdfs/subClassOf #{:d3f/CWE-642 :d3f/CWE-471}})
 
 (def CWE-473
-  {:d3f/cwe-id      "CWE-473",
-   :db/ident        :d3f/CWE-473,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "PHP External Variable Modification",
+  {:d3f/cwe-id "CWE-473",
+   :d3f/definition
+   "A PHP application does not properly protect against the modification of variables from external sources, such as query parameters or cookies. This can expose the application to numerous weaknesses that would not exist otherwise.",
+   :db/ident :d3f/CWE-473,
+   :rdf/type :owl/Class,
+   :rdfs/label "PHP External Variable Modification",
    :rdfs/subClassOf :d3f/CWE-471})
 
 (def CWE-474
-  {:d3f/cwe-id      "CWE-474",
-   :db/ident        :d3f/CWE-474,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Function with Inconsistent Implementations",
+  {:d3f/cwe-id "CWE-474",
+   :d3f/definition
+   "The code uses a function that has inconsistent implementations across operating systems and versions.",
+   :db/ident :d3f/CWE-474,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Function with Inconsistent Implementations",
    :rdfs/subClassOf :d3f/CWE-758})
 
 (def CWE-475
-  {:d3f/cwe-id      "CWE-475",
-   :db/ident        :d3f/CWE-475,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Undefined Behavior for Input to API",
+  {:d3f/cwe-id "CWE-475",
+   :d3f/definition
+   "The behavior of this function is undefined unless its control parameter is set to a specific value.",
+   :db/ident :d3f/CWE-475,
+   :rdf/type :owl/Class,
+   :rdfs/label "Undefined Behavior for Input to API",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-476
-  {:d3f/cwe-id      "CWE-476",
+  {:d3f/cwe-id "CWE-476",
+   :d3f/definition
+   "The product dereferences a pointer that it expects to be valid but is NULL.",
+   :d3f/synonym #{"null deref" "NPD" "NPE" "nil pointer dereference"},
    :d3f/weakness-of :d3f/PointerDereferencingFunction,
-   :db/ident        :d3f/CWE-476,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "NULL Pointer Dereference",
+   :db/ident :d3f/CWE-476,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "NULL Pointer Dereference",
    :rdfs/subClassOf #{:d3f/CWE-710
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/PointerDereferencingFunction,
                        :rdf/type           :owl/Restriction} :d3f/CWE-754}})
 
 (def CWE-477
-  {:d3f/cwe-id      "CWE-477",
-   :db/ident        :d3f/CWE-477,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Obsolete Function",
+  {:d3f/cwe-id "CWE-477",
+   :d3f/definition
+   "The code uses deprecated or obsolete functions, which suggests that the code has not been actively reviewed or maintained.",
+   :db/ident :d3f/CWE-477,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Obsolete Function",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-478
-  {:d3f/cwe-id      "CWE-478",
-   :db/ident        :d3f/CWE-478,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Default Case in Multiple Condition Expression",
+  {:d3f/cwe-id "CWE-478",
+   :d3f/definition
+   "The code does not have a default case in an expression with multiple conditions, such as a switch statement.",
+   :db/ident :d3f/CWE-478,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Default Case in Multiple Condition Expression",
    :rdfs/subClassOf :d3f/CWE-1023})
 
 (def CWE-479
-  {:d3f/cwe-id      "CWE-479",
-   :db/ident        :d3f/CWE-479,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Signal Handler Use of a Non-reentrant Function",
+  {:d3f/cwe-id "CWE-479",
+   :d3f/definition
+   "The product defines a signal handler that calls a non-reentrant function.",
+   :db/ident :d3f/CWE-479,
+   :rdf/type :owl/Class,
+   :rdfs/label "Signal Handler Use of a Non-reentrant Function",
    :rdfs/subClassOf #{:d3f/CWE-828 :d3f/CWE-663}})
 
 (def CWE-48
-  {:d3f/cwe-id      "CWE-48",
-   :db/ident        :d3f/CWE-48,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'file name' (Internal Whitespace)",
+  {:d3f/cwe-id "CWE-48",
+   :d3f/definition
+   "The product accepts path input in the form of internal space ('file(SPACE)name') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-48,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'file name' (Internal Whitespace)",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-480
-  {:d3f/cwe-id      "CWE-480",
-   :db/ident        :d3f/CWE-480,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Incorrect Operator",
+  {:d3f/cwe-id "CWE-480",
+   :d3f/definition
+   "The product accidentally uses the wrong operator, which changes the logic in security-relevant ways.",
+   :db/ident :d3f/CWE-480,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Incorrect Operator",
    :rdfs/subClassOf :d3f/CWE-670})
 
 (def CWE-481
-  {:d3f/cwe-id      "CWE-481",
-   :db/ident        :d3f/CWE-481,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Assigning instead of Comparing",
+  {:d3f/cwe-id "CWE-481",
+   :d3f/definition
+   "The code uses an operator for assignment when the intention was to perform a comparison.",
+   :db/ident :d3f/CWE-481,
+   :rdf/type :owl/Class,
+   :rdfs/label "Assigning instead of Comparing",
    :rdfs/subClassOf :d3f/CWE-480})
 
 (def CWE-482
-  {:d3f/cwe-id      "CWE-482",
-   :db/ident        :d3f/CWE-482,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Comparing instead of Assigning",
+  {:d3f/cwe-id "CWE-482",
+   :d3f/definition
+   "The code uses an operator for comparison when the intention was to perform an assignment.",
+   :db/ident :d3f/CWE-482,
+   :rdf/type :owl/Class,
+   :rdfs/label "Comparing instead of Assigning",
    :rdfs/subClassOf :d3f/CWE-480})
 
 (def CWE-483
-  {:d3f/cwe-id      "CWE-483",
-   :db/ident        :d3f/CWE-483,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Block Delimitation",
+  {:d3f/cwe-id "CWE-483",
+   :d3f/definition
+   "The code does not explicitly delimit a block that is intended to contain 2 or more statements, creating a logic error.",
+   :db/ident :d3f/CWE-483,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Block Delimitation",
    :rdfs/subClassOf :d3f/CWE-670})
 
 (def CWE-484
-  {:d3f/cwe-id      "CWE-484",
-   :db/ident        :d3f/CWE-484,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Omitted Break Statement in Switch",
+  {:d3f/cwe-id "CWE-484",
+   :d3f/definition
+   "The product omits a break statement within a switch or similar construct, causing code associated with multiple conditions to execute. This can cause problems when the programmer only intended to execute code associated with one condition.",
+   :db/ident :d3f/CWE-484,
+   :rdf/type :owl/Class,
+   :rdfs/label "Omitted Break Statement in Switch",
    :rdfs/subClassOf #{:d3f/CWE-670 :d3f/CWE-710}})
 
 (def CWE-486
-  {:d3f/cwe-id      "CWE-486",
-   :db/ident        :d3f/CWE-486,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Comparison of Classes by Name",
+  {:d3f/cwe-id "CWE-486",
+   :d3f/definition
+   "The product compares classes by name, which can cause it to use the wrong class when multiple classes can have the same name.",
+   :db/ident :d3f/CWE-486,
+   :rdf/type :owl/Class,
+   :rdfs/label "Comparison of Classes by Name",
    :rdfs/subClassOf :d3f/CWE-1025})
 
 (def CWE-487
-  {:d3f/cwe-id      "CWE-487",
-   :db/ident        :d3f/CWE-487,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Package-level Scope",
+  {:d3f/cwe-id "CWE-487",
+   :d3f/definition
+   "Java packages are not inherently closed; therefore, relying on them for code security is not a good practice.",
+   :db/ident :d3f/CWE-487,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Package-level Scope",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-488
-  {:d3f/cwe-id      "CWE-488",
-   :db/ident        :d3f/CWE-488,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Data Element to Wrong Session",
+  {:d3f/cwe-id "CWE-488",
+   :d3f/definition
+   "The product does not sufficiently enforce boundaries between the states of different sessions, causing data to be provided to, or used by, the wrong session.",
+   :db/ident :d3f/CWE-488,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Data Element to Wrong Session",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-489
-  {:d3f/cwe-id      "CWE-489",
-   :db/ident        :d3f/CWE-489,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Active Debug Code",
+  {:d3f/cwe-id "CWE-489",
+   :d3f/definition
+   "The product is deployed to unauthorized actors with debugging code still enabled or active, which can create unintended entry points or expose sensitive information.",
+   :d3f/synonym "Leftover debug code",
+   :db/ident :d3f/CWE-489,
+   :rdf/type :owl/Class,
+   :rdfs/label "Active Debug Code",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-49
-  {:d3f/cwe-id      "CWE-49",
-   :db/ident        :d3f/CWE-49,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'filename/' (Trailing Slash)",
+  {:d3f/cwe-id "CWE-49",
+   :d3f/definition
+   "The product accepts path input in the form of trailing slash ('filedir/') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-49,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'filename/' (Trailing Slash)",
    :rdfs/subClassOf #{:d3f/CWE-162 :d3f/CWE-41}})
 
 (def CWE-491
-  {:d3f/cwe-id      "CWE-491",
-   :db/ident        :d3f/CWE-491,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Public cloneable() Method Without Final ('Object Hijack')",
+  {:d3f/cwe-id "CWE-491",
+   :d3f/definition
+   "A class has a cloneable() method that is not declared final, which allows an object to be created without calling the constructor. This can cause the object to be in an unexpected state.",
+   :db/ident :d3f/CWE-491,
+   :rdf/type :owl/Class,
+   :rdfs/label "Public cloneable() Method Without Final ('Object Hijack')",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-492
-  {:d3f/cwe-id      "CWE-492",
-   :db/ident        :d3f/CWE-492,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Inner Class Containing Sensitive Data",
+  {:d3f/cwe-id "CWE-492",
+   :d3f/definition
+   "Inner classes are translated into classes that are accessible at package scope and may expose code that the programmer intended to keep private to attackers.",
+   :db/ident :d3f/CWE-492,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Inner Class Containing Sensitive Data",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-493
-  {:d3f/cwe-id      "CWE-493",
-   :db/ident        :d3f/CWE-493,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Critical Public Variable Without Final Modifier",
+  {:d3f/cwe-id "CWE-493",
+   :d3f/definition
+   "The product has a critical public variable that is not final, which allows the variable to be modified to contain unexpected values.",
+   :db/ident :d3f/CWE-493,
+   :rdf/type :owl/Class,
+   :rdfs/label "Critical Public Variable Without Final Modifier",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-494
-  {:d3f/cwe-id      "CWE-494",
-   :db/ident        :d3f/CWE-494,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Download of Code Without Integrity Check",
+  {:d3f/cwe-id "CWE-494",
+   :d3f/definition
+   "The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.",
+   :db/ident :d3f/CWE-494,
+   :rdf/type :owl/Class,
+   :rdfs/label "Download of Code Without Integrity Check",
    :rdfs/subClassOf #{:d3f/CWE-669 :d3f/CWE-345}})
 
 (def CWE-495
-  {:d3f/cwe-id      "CWE-495",
-   :db/ident        :d3f/CWE-495,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Private Data Structure Returned From A Public Method",
+  {:d3f/cwe-id "CWE-495",
+   :d3f/definition
+   "The product has a method that is declared public, but returns a reference to a private data structure, which could then be modified in unexpected ways.",
+   :db/ident :d3f/CWE-495,
+   :rdf/type :owl/Class,
+   :rdfs/label "Private Data Structure Returned From A Public Method",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-496
-  {:d3f/cwe-id      "CWE-496",
-   :db/ident        :d3f/CWE-496,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Public Data Assigned to Private Array-Typed Field",
+  {:d3f/cwe-id "CWE-496",
+   :d3f/definition
+   "Assigning public data to a private array is equivalent to giving public access to the array.",
+   :db/ident :d3f/CWE-496,
+   :rdf/type :owl/Class,
+   :rdfs/label "Public Data Assigned to Private Array-Typed Field",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-497
   {:d3f/cwe-id "CWE-497",
+   :d3f/definition
+   "The product does not properly prevent sensitive system-level information from being accessed by unauthorized actors who do not have the same level of access to the underlying system as the product does.",
    :db/ident :d3f/CWE-497,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9724,54 +11157,70 @@
    :rdfs/subClassOf :d3f/CWE-200})
 
 (def CWE-498
-  {:d3f/cwe-id      "CWE-498",
-   :db/ident        :d3f/CWE-498,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cloneable Class Containing Sensitive Information",
+  {:d3f/cwe-id "CWE-498",
+   :d3f/definition
+   "The code contains a class with sensitive data, but the class is cloneable. The data can then be accessed by cloning the class.",
+   :db/ident :d3f/CWE-498,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloneable Class Containing Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-499
-  {:d3f/cwe-id      "CWE-499",
-   :db/ident        :d3f/CWE-499,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Serializable Class Containing Sensitive Data",
+  {:d3f/cwe-id "CWE-499",
+   :d3f/definition
+   "The code contains a class with sensitive data, but the class does not explicitly deny serialization. The data can be accessed by serializing the class through another class.",
+   :db/ident :d3f/CWE-499,
+   :rdf/type :owl/Class,
+   :rdfs/label "Serializable Class Containing Sensitive Data",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-5
   {:d3f/cwe-id "CWE-5",
+   :d3f/definition
+   "Information sent over a network can be compromised while in transit. An attacker may be able to read or modify the contents if the data are sent in plaintext or are weakly encrypted.",
    :db/ident :d3f/CWE-5,
    :rdf/type :owl/Class,
    :rdfs/label "J2EE Misconfiguration: Data Transmission Without Encryption",
    :rdfs/subClassOf :d3f/CWE-319})
 
 (def CWE-50
-  {:d3f/cwe-id      "CWE-50",
-   :db/ident        :d3f/CWE-50,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: '//multiple/leading/slash'",
+  {:d3f/cwe-id "CWE-50",
+   :d3f/definition
+   "The product accepts path input in the form of multiple leading slash ('//multiple/leading/slash') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-50,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: '//multiple/leading/slash'",
    :rdfs/subClassOf #{:d3f/CWE-161 :d3f/CWE-41}})
 
 (def CWE-500
-  {:d3f/cwe-id      "CWE-500",
-   :db/ident        :d3f/CWE-500,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Public Static Field Not Marked Final",
+  {:d3f/cwe-id "CWE-500",
+   :d3f/definition
+   "An object contains a public static field that is not marked final, which might allow it to be modified in unexpected ways.",
+   :db/ident :d3f/CWE-500,
+   :rdf/type :owl/Class,
+   :rdfs/label "Public Static Field Not Marked Final",
    :rdfs/subClassOf :d3f/CWE-493})
 
 (def CWE-501
-  {:d3f/cwe-id      "CWE-501",
-   :db/ident        :d3f/CWE-501,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trust Boundary Violation",
+  {:d3f/cwe-id "CWE-501",
+   :d3f/definition
+   "The product mixes trusted and untrusted data in the same data structure or structured message.",
+   :db/ident :d3f/CWE-501,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trust Boundary Violation",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-502
-  {:d3f/cwe-id      "CWE-502",
+  {:d3f/cwe-id "CWE-502",
+   :d3f/definition
+   "The product deserializes untrusted data without sufficiently ensuring that the resulting data will be valid.",
    :d3f/may-be-weakness-of :d3f/UserInputFunction,
+   :d3f/synonym #{"PHP Object Injection" "Marshaling, Unmarshaling"
+                  "Pickling, Unpickling"},
    :d3f/weakness-of :d3f/DeserializationFunction,
-   :db/ident        :d3f/CWE-502,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Deserialization of Untrusted Data",
+   :db/ident :d3f/CWE-502,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Deserialization of Untrusted Data",
    :rdfs/subClassOf #{:d3f/CWE-913
                       {:owl/onProperty     :d3f/may-be-weakness-of,
                        :owl/someValuesFrom :d3f/UserInputFunction,
@@ -9781,126 +11230,162 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-506
-  {:d3f/cwe-id      "CWE-506",
-   :db/ident        :d3f/CWE-506,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Embedded Malicious Code",
+  {:d3f/cwe-id "CWE-506",
+   :d3f/definition
+   "The product contains code that appears to be malicious in nature.",
+   :db/ident :d3f/CWE-506,
+   :rdf/type :owl/Class,
+   :rdfs/label "Embedded Malicious Code",
    :rdfs/subClassOf :d3f/CWE-912})
 
 (def CWE-507
-  {:d3f/cwe-id      "CWE-507",
-   :db/ident        :d3f/CWE-507,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trojan Horse",
+  {:d3f/cwe-id "CWE-507",
+   :d3f/definition
+   "The product appears to contain benign or useful functionality, but it also contains code that is hidden from normal operation that violates the intended security policy of the user or the system administrator.",
+   :db/ident :d3f/CWE-507,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trojan Horse",
    :rdfs/subClassOf :d3f/CWE-506})
 
 (def CWE-508
-  {:d3f/cwe-id      "CWE-508",
-   :db/ident        :d3f/CWE-508,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Non-Replicating Malicious Code",
+  {:d3f/cwe-id "CWE-508",
+   :d3f/definition
+   "Non-replicating malicious code only resides on the target system or product that is attacked; it does not attempt to spread to other systems.",
+   :db/ident :d3f/CWE-508,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-Replicating Malicious Code",
    :rdfs/subClassOf :d3f/CWE-507})
 
 (def CWE-509
-  {:d3f/cwe-id      "CWE-509",
-   :db/ident        :d3f/CWE-509,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Replicating Malicious Code (Virus or Worm)",
+  {:d3f/cwe-id "CWE-509",
+   :d3f/definition
+   "Replicating malicious code, including viruses and worms, will attempt to attack other systems once it has successfully compromised the target system or the product.",
+   :db/ident :d3f/CWE-509,
+   :rdf/type :owl/Class,
+   :rdfs/label "Replicating Malicious Code (Virus or Worm)",
    :rdfs/subClassOf :d3f/CWE-507})
 
 (def CWE-51
-  {:d3f/cwe-id      "CWE-51",
-   :db/ident        :d3f/CWE-51,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: '/multiple//internal/slash'",
+  {:d3f/cwe-id "CWE-51",
+   :d3f/definition
+   "The product accepts path input in the form of multiple internal slash ('/multiple//internal/slash/') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-51,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: '/multiple//internal/slash'",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-510
-  {:d3f/cwe-id      "CWE-510",
-   :db/ident        :d3f/CWE-510,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trapdoor",
+  {:d3f/cwe-id "CWE-510",
+   :d3f/definition
+   "A trapdoor is a hidden piece of code that responds to a special input, allowing its user access to resources without passing through the normal security enforcement mechanism.",
+   :db/ident :d3f/CWE-510,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trapdoor",
    :rdfs/subClassOf :d3f/CWE-506})
 
 (def CWE-511
-  {:d3f/cwe-id      "CWE-511",
-   :db/ident        :d3f/CWE-511,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Logic/Time Bomb",
+  {:d3f/cwe-id "CWE-511",
+   :d3f/definition
+   "The product contains code that is designed to disrupt the legitimate operation of the product (or its environment) when a certain time passes, or when a certain logical condition is met.",
+   :db/ident :d3f/CWE-511,
+   :rdf/type :owl/Class,
+   :rdfs/label "Logic/Time Bomb",
    :rdfs/subClassOf :d3f/CWE-506})
 
 (def CWE-512
-  {:d3f/cwe-id      "CWE-512",
-   :db/ident        :d3f/CWE-512,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spyware",
+  {:d3f/cwe-id "CWE-512",
+   :d3f/definition
+   "The product collects personally identifiable information about a human user or the user's activities, but the product accesses this information using other resources besides itself, and it does not require that user's explicit approval or direct input into the product.",
+   :db/ident :d3f/CWE-512,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spyware",
    :rdfs/subClassOf :d3f/CWE-506})
 
 (def CWE-514
-  {:d3f/cwe-id      "CWE-514",
-   :db/ident        :d3f/CWE-514,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Covert Channel",
+  {:d3f/cwe-id "CWE-514",
+   :d3f/definition
+   "A covert channel is a path that can be used to transfer information in a way not intended by the system's designers.",
+   :db/ident :d3f/CWE-514,
+   :rdf/type :owl/Class,
+   :rdfs/label "Covert Channel",
    :rdfs/subClassOf :d3f/CWE-1229})
 
 (def CWE-515
-  {:d3f/cwe-id      "CWE-515",
-   :db/ident        :d3f/CWE-515,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Covert Storage Channel",
+  {:d3f/cwe-id "CWE-515",
+   :d3f/definition
+   "A covert storage channel transfers information through the setting of bits by one program and the reading of those bits by another. What distinguishes this case from that of ordinary operation is that the bits are used to convey encoded information.",
+   :db/ident :d3f/CWE-515,
+   :rdf/type :owl/Class,
+   :rdfs/label "Covert Storage Channel",
    :rdfs/subClassOf :d3f/CWE-514})
 
 (def CWE-52
-  {:d3f/cwe-id      "CWE-52",
-   :db/ident        :d3f/CWE-52,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: '/multiple/trailing/slash//'",
+  {:d3f/cwe-id "CWE-52",
+   :d3f/definition
+   "The product accepts path input in the form of multiple trailing slash ('/multiple/trailing/slash//') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-52,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: '/multiple/trailing/slash//'",
    :rdfs/subClassOf #{:d3f/CWE-163 :d3f/CWE-41}})
 
 (def CWE-520
-  {:d3f/cwe-id      "CWE-520",
-   :db/ident        :d3f/CWE-520,
-   :rdf/type        :owl/Class,
-   :rdfs/label      ".NET Misconfiguration: Use of Impersonation",
+  {:d3f/cwe-id "CWE-520",
+   :d3f/definition
+   "Allowing a .NET application to run at potentially escalated levels of access to the underlying operating and file systems can be dangerous and result in various forms of attacks.",
+   :db/ident :d3f/CWE-520,
+   :rdf/type :owl/Class,
+   :rdfs/label ".NET Misconfiguration: Use of Impersonation",
    :rdfs/subClassOf :d3f/CWE-266})
 
 (def CWE-521
-  {:d3f/cwe-id      "CWE-521",
-   :db/ident        :d3f/CWE-521,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Weak Password Requirements",
+  {:d3f/cwe-id "CWE-521",
+   :d3f/definition
+   "The product does not require that users should have strong passwords, which makes it easier for attackers to compromise user accounts.",
+   :db/ident :d3f/CWE-521,
+   :rdf/type :owl/Class,
+   :rdfs/label "Weak Password Requirements",
    :rdfs/subClassOf :d3f/CWE-1391})
 
 (def CWE-522
-  {:d3f/cwe-id      "CWE-522",
-   :db/ident        :d3f/CWE-522,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficiently Protected Credentials",
+  {:d3f/cwe-id "CWE-522",
+   :d3f/definition
+   "The product transmits or stores authentication credentials, but it uses an insecure method that is susceptible to unauthorized interception and/or retrieval.",
+   :db/ident :d3f/CWE-522,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficiently Protected Credentials",
    :rdfs/subClassOf #{:d3f/CWE-668 :d3f/CWE-1390}})
 
 (def CWE-523
-  {:d3f/cwe-id      "CWE-523",
-   :db/ident        :d3f/CWE-523,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unprotected Transport of Credentials",
+  {:d3f/cwe-id "CWE-523",
+   :d3f/definition
+   "Login pages do not use adequate measures to protect the user name and password while they are in transit from the client to the server.",
+   :db/ident :d3f/CWE-523,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unprotected Transport of Credentials",
    :rdfs/subClassOf :d3f/CWE-522})
 
 (def CWE-524
-  {:d3f/cwe-id      "CWE-524",
-   :db/ident        :d3f/CWE-524,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Cache Containing Sensitive Information",
+  {:d3f/cwe-id "CWE-524",
+   :d3f/definition
+   "The code uses a cache that contains sensitive information, but the cache can be read by an actor outside of the intended control sphere.",
+   :db/ident :d3f/CWE-524,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Cache Containing Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-525
-  {:d3f/cwe-id      "CWE-525",
-   :db/ident        :d3f/CWE-525,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Web Browser Cache Containing Sensitive Information",
+  {:d3f/cwe-id "CWE-525",
+   :d3f/definition
+   "The web application does not use an appropriate caching policy that specifies the extent to which each web page and associated form fields should be cached.",
+   :db/ident :d3f/CWE-525,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Web Browser Cache Containing Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-524})
 
 (def CWE-526
   {:d3f/cwe-id "CWE-526",
+   :d3f/definition
+   "The product uses an environment variable to store unencrypted sensitive information.",
    :db/ident :d3f/CWE-526,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9909,6 +11394,8 @@
 
 (def CWE-527
   {:d3f/cwe-id "CWE-527",
+   :d3f/definition
+   "The product stores a CVS, git, or other repository in a directory, archive, or other resource that is stored, transferred, or otherwise made accessible to unauthorized actors.",
    :db/ident :d3f/CWE-527,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9917,6 +11404,8 @@
 
 (def CWE-528
   {:d3f/cwe-id "CWE-528",
+   :d3f/definition
+   "The product generates a core dump file in a directory, archive, or other resource that is stored, transferred, or otherwise made accessible to unauthorized actors.",
    :db/ident :d3f/CWE-528,
    :rdf/type :owl/Class,
    :rdfs/label "Exposure of Core Dump File to an Unauthorized Control Sphere",
@@ -9924,6 +11413,8 @@
 
 (def CWE-529
   {:d3f/cwe-id "CWE-529",
+   :d3f/definition
+   "The product stores access control list files in a directory or other container that is accessible to actors outside of the intended control sphere.",
    :db/ident :d3f/CWE-529,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9931,42 +11422,53 @@
    :rdfs/subClassOf :d3f/CWE-552})
 
 (def CWE-53
-  {:d3f/cwe-id      "CWE-53",
-   :db/ident        :d3f/CWE-53,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: '\\multiple\\\\internal\\backslash'",
+  {:d3f/cwe-id "CWE-53",
+   :d3f/definition
+   "The product accepts path input in the form of multiple internal backslash ('\\multiple\\trailing\\\\slash') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-53,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: '\\multiple\\\\internal\\backslash'",
    :rdfs/subClassOf #{:d3f/CWE-41 :d3f/CWE-165}})
 
 (def CWE-530
-  {:d3f/cwe-id      "CWE-530",
-   :db/ident        :d3f/CWE-530,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Backup File to an Unauthorized Control Sphere",
+  {:d3f/cwe-id "CWE-530",
+   :d3f/definition
+   "A backup file is stored in a directory or archive that is made accessible to unauthorized actors.",
+   :db/ident :d3f/CWE-530,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Backup File to an Unauthorized Control Sphere",
    :rdfs/subClassOf :d3f/CWE-552})
 
 (def CWE-531
-  {:d3f/cwe-id      "CWE-531",
-   :db/ident        :d3f/CWE-531,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inclusion of Sensitive Information in Test Code",
+  {:d3f/cwe-id "CWE-531",
+   :d3f/definition
+   "Accessible test applications can pose a variety of security risks. Since developers or administrators rarely consider that someone besides themselves would even know about the existence of these applications, it is common for them to contain sensitive information or functions.",
+   :db/ident :d3f/CWE-531,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inclusion of Sensitive Information in Test Code",
    :rdfs/subClassOf :d3f/CWE-540})
 
 (def CWE-532
   {:d3f/cwe-id      "CWE-532",
+   :d3f/definition  "The product writes sensitive information to a log file.",
    :db/ident        :d3f/CWE-532,
    :rdf/type        :owl/Class,
    :rdfs/label      "Insertion of Sensitive Information into Log File",
    :rdfs/subClassOf :d3f/CWE-538})
 
 (def CWE-535
-  {:d3f/cwe-id      "CWE-535",
-   :db/ident        :d3f/CWE-535,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Information Through Shell Error Message",
+  {:d3f/cwe-id "CWE-535",
+   :d3f/definition
+   "A command shell error message indicates that there exists an unhandled exception in the web application code. In many cases, an attacker can leverage the conditions that cause these errors in order to gain unauthorized access to the system.",
+   :db/ident :d3f/CWE-535,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Information Through Shell Error Message",
    :rdfs/subClassOf :d3f/CWE-211})
 
 (def CWE-536
   {:d3f/cwe-id "CWE-536",
+   :d3f/definition
+   "A servlet error message indicates that there exists an unhandled exception in your web application code and may provide useful information to an attacker.",
    :db/ident :d3f/CWE-536,
    :rdf/type :owl/Class,
    :rdfs/label "Servlet Runtime Error Message Containing Sensitive Information",
@@ -9974,6 +11476,8 @@
 
 (def CWE-537
   {:d3f/cwe-id "CWE-537",
+   :d3f/definition
+   "In many cases, an attacker can leverage the conditions that cause unhandled exception errors in order to gain unauthorized access to the system.",
    :db/ident :d3f/CWE-537,
    :rdf/type :owl/Class,
    :rdfs/label "Java Runtime Error Message Containing Sensitive Information",
@@ -9981,6 +11485,8 @@
 
 (def CWE-538
   {:d3f/cwe-id "CWE-538",
+   :d3f/definition
+   "The product places sensitive information into files or directories that are accessible to actors who are allowed to have access to the files, but not to the sensitive information.",
    :db/ident :d3f/CWE-538,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -9989,34 +11495,44 @@
 
 (def CWE-539
   {:d3f/cwe-id "CWE-539",
+   :d3f/definition
+   "The web application uses persistent cookies, but the cookies contain sensitive information.",
    :db/ident :d3f/CWE-539,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Persistent Cookies Containing Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-552})
 
 (def CWE-54
-  {:d3f/cwe-id      "CWE-54",
-   :db/ident        :d3f/CWE-54,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'filedir\\' (Trailing Backslash)",
+  {:d3f/cwe-id "CWE-54",
+   :d3f/definition
+   "The product accepts path input in the form of trailing backslash ('filedir\\') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-54,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'filedir\\' (Trailing Backslash)",
    :rdfs/subClassOf #{:d3f/CWE-162 :d3f/CWE-41}})
 
 (def CWE-540
-  {:d3f/cwe-id      "CWE-540",
-   :db/ident        :d3f/CWE-540,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inclusion of Sensitive Information in Source Code",
+  {:d3f/cwe-id "CWE-540",
+   :d3f/definition
+   "Source code on a web server or repository often contains sensitive information and should generally not be accessible to users.",
+   :db/ident :d3f/CWE-540,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inclusion of Sensitive Information in Source Code",
    :rdfs/subClassOf :d3f/CWE-538})
 
 (def CWE-541
-  {:d3f/cwe-id      "CWE-541",
-   :db/ident        :d3f/CWE-541,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inclusion of Sensitive Information in an Include File",
+  {:d3f/cwe-id "CWE-541",
+   :d3f/definition
+   "If an include file source is accessible, the file can contain usernames and passwords, as well as sensitive information pertaining to the application and system.",
+   :db/ident :d3f/CWE-541,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inclusion of Sensitive Information in an Include File",
    :rdfs/subClassOf :d3f/CWE-540})
 
 (def CWE-543
   {:d3f/cwe-id "CWE-543",
+   :d3f/definition
+   "The product uses the singleton pattern when creating a resource within a multithreaded environment.",
    :db/ident :d3f/CWE-543,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10024,49 +11540,63 @@
    :rdfs/subClassOf :d3f/CWE-820})
 
 (def CWE-544
-  {:d3f/cwe-id      "CWE-544",
-   :db/ident        :d3f/CWE-544,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Standardized Error Handling Mechanism",
+  {:d3f/cwe-id "CWE-544",
+   :d3f/definition
+   "The product does not use a standardized method for handling errors throughout the code, which might introduce inconsistent error handling and resultant weaknesses.",
+   :db/ident :d3f/CWE-544,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Standardized Error Handling Mechanism",
    :rdfs/subClassOf :d3f/CWE-755})
 
 (def CWE-546
-  {:d3f/cwe-id      "CWE-546",
-   :db/ident        :d3f/CWE-546,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Suspicious Comment",
+  {:d3f/cwe-id "CWE-546",
+   :d3f/definition
+   "The code contains comments that suggest the presence of bugs, incomplete functionality, or weaknesses.",
+   :db/ident :d3f/CWE-546,
+   :rdf/type :owl/Class,
+   :rdfs/label "Suspicious Comment",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-547
-  {:d3f/cwe-id      "CWE-547",
-   :db/ident        :d3f/CWE-547,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Hard-coded, Security-relevant Constants",
+  {:d3f/cwe-id "CWE-547",
+   :d3f/definition
+   "The product uses hard-coded constants instead of symbolic names for security-critical values, which increases the likelihood of mistakes during code maintenance or security policy change.",
+   :db/ident :d3f/CWE-547,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Hard-coded, Security-relevant Constants",
    :rdfs/subClassOf :d3f/CWE-1078})
 
 (def CWE-548
-  {:d3f/cwe-id      "CWE-548",
-   :db/ident        :d3f/CWE-548,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Information Through Directory Listing",
+  {:d3f/cwe-id "CWE-548",
+   :d3f/definition
+   "The product inappropriately exposes a directory listing with an index of all the resources located inside of the directory.",
+   :db/ident :d3f/CWE-548,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Information Through Directory Listing",
    :rdfs/subClassOf :d3f/CWE-497})
 
 (def CWE-549
-  {:d3f/cwe-id      "CWE-549",
-   :db/ident        :d3f/CWE-549,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Password Field Masking",
+  {:d3f/cwe-id "CWE-549",
+   :d3f/definition
+   "The product does not mask passwords during entry, increasing the potential for attackers to observe and capture passwords.",
+   :db/ident :d3f/CWE-549,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Password Field Masking",
    :rdfs/subClassOf :d3f/CWE-522})
 
 (def CWE-55
-  {:d3f/cwe-id      "CWE-55",
-   :db/ident        :d3f/CWE-55,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: '/./' (Single Dot Directory)",
+  {:d3f/cwe-id "CWE-55",
+   :d3f/definition
+   "The product accepts path input in the form of single dot directory exploit ('/./') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-55,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: '/./' (Single Dot Directory)",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-550
   {:d3f/cwe-id "CWE-550",
+   :d3f/definition
+   "Certain conditions, such as network failure, will cause a server error message to be displayed.",
    :db/ident :d3f/CWE-550,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10075,6 +11605,8 @@
 
 (def CWE-551
   {:d3f/cwe-id "CWE-551",
+   :d3f/definition
+   "If a web server does not fully parse requested URLs before it examines them for authorization, it may be possible for an attacker to bypass authorization protection.",
    :db/ident :d3f/CWE-551,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10082,21 +11614,27 @@
    :rdfs/subClassOf #{:d3f/CWE-863 :d3f/CWE-696}})
 
 (def CWE-552
-  {:d3f/cwe-id      "CWE-552",
-   :db/ident        :d3f/CWE-552,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Files or Directories Accessible to External Parties",
+  {:d3f/cwe-id "CWE-552",
+   :d3f/definition
+   "The product makes files or directories accessible to unauthorized actors, even though they should not be.",
+   :db/ident :d3f/CWE-552,
+   :rdf/type :owl/Class,
+   :rdfs/label "Files or Directories Accessible to External Parties",
    :rdfs/subClassOf #{:d3f/CWE-285 :d3f/CWE-668}})
 
 (def CWE-553
-  {:d3f/cwe-id      "CWE-553",
-   :db/ident        :d3f/CWE-553,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Command Shell in Externally Accessible Directory",
+  {:d3f/cwe-id "CWE-553",
+   :d3f/definition
+   "A possible shell file exists in /cgi-bin/ or other accessible directories. This is extremely dangerous and can be used by an attacker to execute commands on the web server.",
+   :db/ident :d3f/CWE-553,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command Shell in Externally Accessible Directory",
    :rdfs/subClassOf :d3f/CWE-552})
 
 (def CWE-554
   {:d3f/cwe-id "CWE-554",
+   :d3f/definition
+   "The ASP.NET application does not use an input validation framework.",
    :db/ident :d3f/CWE-554,
    :rdf/type :owl/Class,
    :rdfs/label "ASP.NET Misconfiguration: Not Using Input Validation Framework",
@@ -10104,6 +11642,8 @@
 
 (def CWE-555
   {:d3f/cwe-id "CWE-555",
+   :d3f/definition
+   "The J2EE application stores a plaintext password in a configuration file.",
    :db/ident :d3f/CWE-555,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10111,63 +11651,82 @@
    :rdfs/subClassOf :d3f/CWE-260})
 
 (def CWE-556
-  {:d3f/cwe-id      "CWE-556",
-   :db/ident        :d3f/CWE-556,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "ASP.NET Misconfiguration: Use of Identity Impersonation",
+  {:d3f/cwe-id "CWE-556",
+   :d3f/definition
+   "Configuring an ASP.NET application to run with impersonated credentials may give the application unnecessary privileges.",
+   :db/ident :d3f/CWE-556,
+   :rdf/type :owl/Class,
+   :rdfs/label "ASP.NET Misconfiguration: Use of Identity Impersonation",
    :rdfs/subClassOf :d3f/CWE-266})
 
 (def CWE-558
-  {:d3f/cwe-id      "CWE-558",
-   :db/ident        :d3f/CWE-558,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of getlogin() in Multithreaded Application",
+  {:d3f/cwe-id "CWE-558",
+   :d3f/definition
+   "The product uses the getlogin() function in a multithreaded context, potentially causing it to return incorrect values.",
+   :db/ident :d3f/CWE-558,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of getlogin() in Multithreaded Application",
    :rdfs/subClassOf :d3f/CWE-663})
 
 (def CWE-56
-  {:d3f/cwe-id      "CWE-56",
-   :db/ident        :d3f/CWE-56,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'filedir*' (Wildcard)",
+  {:d3f/cwe-id "CWE-56",
+   :d3f/definition
+   "The product accepts path input in the form of asterisk wildcard ('filedir*') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.",
+   :db/ident :d3f/CWE-56,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'filedir*' (Wildcard)",
    :rdfs/subClassOf #{:d3f/CWE-155 :d3f/CWE-41}})
 
 (def CWE-560
-  {:d3f/cwe-id      "CWE-560",
-   :db/ident        :d3f/CWE-560,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of umask() with chmod-style Argument",
+  {:d3f/cwe-id "CWE-560",
+   :d3f/definition
+   "The product calls umask() with an incorrect argument that is specified as if it is an argument to chmod().",
+   :db/ident :d3f/CWE-560,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of umask() with chmod-style Argument",
    :rdfs/subClassOf :d3f/CWE-687})
 
 (def CWE-561
-  {:d3f/cwe-id      "CWE-561",
-   :db/ident        :d3f/CWE-561,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dead Code",
+  {:d3f/cwe-id "CWE-561",
+   :d3f/definition
+   "The product contains dead code, which can never be executed.",
+   :db/ident :d3f/CWE-561,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dead Code",
    :rdfs/subClassOf :d3f/CWE-1164})
 
 (def CWE-562
-  {:d3f/cwe-id      "CWE-562",
-   :db/ident        :d3f/CWE-562,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Return of Stack Variable Address",
+  {:d3f/cwe-id "CWE-562",
+   :d3f/definition
+   "A function returns the address of a stack variable, which will cause unintended program behavior, typically in the form of a crash.",
+   :db/ident :d3f/CWE-562,
+   :rdf/type :owl/Class,
+   :rdfs/label "Return of Stack Variable Address",
    :rdfs/subClassOf :d3f/CWE-758})
 
 (def CWE-563
-  {:d3f/cwe-id      "CWE-563",
-   :db/ident        :d3f/CWE-563,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Assignment to Variable without Use",
+  {:d3f/cwe-id "CWE-563",
+   :d3f/definition
+   "The variable's value is assigned but never used, making it a dead store.",
+   :d3f/synonym "Unused Variable",
+   :db/ident :d3f/CWE-563,
+   :rdf/type :owl/Class,
+   :rdfs/label "Assignment to Variable without Use",
    :rdfs/subClassOf :d3f/CWE-1164})
 
 (def CWE-564
-  {:d3f/cwe-id      "CWE-564",
-   :db/ident        :d3f/CWE-564,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "SQL Injection: Hibernate",
+  {:d3f/cwe-id "CWE-564",
+   :d3f/definition
+   "Using Hibernate to execute a dynamic SQL statement built with user-controlled input can allow an attacker to modify the statement's meaning or to execute arbitrary SQL commands.",
+   :db/ident :d3f/CWE-564,
+   :rdf/type :owl/Class,
+   :rdfs/label "SQL Injection: Hibernate",
    :rdfs/subClassOf :d3f/CWE-89})
 
 (def CWE-565
   {:d3f/cwe-id "CWE-565",
+   :d3f/definition
+   "The product relies on the existence or values of cookies when performing security-critical operations, but it does not properly ensure that the setting is valid for the associated user.",
    :db/ident :d3f/CWE-565,
    :rdf/type :owl/Class,
    :rdfs/label "Reliance on Cookies without Validation and Integrity Checking",
@@ -10175,6 +11734,8 @@
 
 (def CWE-566
   {:d3f/cwe-id "CWE-566",
+   :d3f/definition
+   "The product uses a database table that includes records that should not be accessible to an actor, but it executes a SQL statement with a primary key that can be controlled by that actor.",
    :db/ident :d3f/CWE-566,
    :rdf/type :owl/Class,
    :rdfs/label "Authorization Bypass Through User-Controlled SQL Primary Key",
@@ -10182,6 +11743,8 @@
 
 (def CWE-567
   {:d3f/cwe-id "CWE-567",
+   :d3f/definition
+   "The product does not properly synchronize shared data, such as static variables across threads, which can lead to undefined behavior and unpredictable data changes.",
    :db/ident :d3f/CWE-567,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10189,105 +11752,135 @@
    :rdfs/subClassOf :d3f/CWE-820})
 
 (def CWE-568
-  {:d3f/cwe-id      "CWE-568",
-   :db/ident        :d3f/CWE-568,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "finalize() Method Without super.finalize()",
+  {:d3f/cwe-id "CWE-568",
+   :d3f/definition
+   "The product contains a finalize() method that does not call super.finalize().",
+   :db/ident :d3f/CWE-568,
+   :rdf/type :owl/Class,
+   :rdfs/label "finalize() Method Without super.finalize()",
    :rdfs/subClassOf #{:d3f/CWE-459 :d3f/CWE-573}})
 
 (def CWE-57
-  {:d3f/cwe-id      "CWE-57",
-   :db/ident        :d3f/CWE-57,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: 'fakedir/../realdir/filename'",
+  {:d3f/cwe-id "CWE-57",
+   :d3f/definition
+   "The product contains protection mechanisms to restrict access to 'realdir/filename', but it constructs pathnames using external input in the form of 'fakedir/../realdir/filename' that are not handled by those mechanisms. This allows attackers to perform unauthorized actions against the targeted file.",
+   :db/ident :d3f/CWE-57,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: 'fakedir/../realdir/filename'",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-570
-  {:d3f/cwe-id      "CWE-570",
-   :db/ident        :d3f/CWE-570,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Expression is Always False",
+  {:d3f/cwe-id "CWE-570",
+   :d3f/definition
+   "The product contains an expression that will always evaluate to false.",
+   :db/ident :d3f/CWE-570,
+   :rdf/type :owl/Class,
+   :rdfs/label "Expression is Always False",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-571
-  {:d3f/cwe-id      "CWE-571",
-   :db/ident        :d3f/CWE-571,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Expression is Always True",
+  {:d3f/cwe-id "CWE-571",
+   :d3f/definition
+   "The product contains an expression that will always evaluate to true.",
+   :db/ident :d3f/CWE-571,
+   :rdf/type :owl/Class,
+   :rdfs/label "Expression is Always True",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-572
-  {:d3f/cwe-id      "CWE-572",
-   :db/ident        :d3f/CWE-572,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Call to Thread run() instead of start()",
+  {:d3f/cwe-id "CWE-572",
+   :d3f/definition
+   "The product calls a thread's run() method instead of calling start(), which causes the code to run in the thread of the caller instead of the callee.",
+   :db/ident :d3f/CWE-572,
+   :rdf/type :owl/Class,
+   :rdfs/label "Call to Thread run() instead of start()",
    :rdfs/subClassOf :d3f/CWE-821})
 
 (def CWE-573
-  {:d3f/cwe-id      "CWE-573",
-   :db/ident        :d3f/CWE-573,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Following of Specification by Caller",
+  {:d3f/cwe-id "CWE-573",
+   :d3f/definition
+   "The product does not follow or incorrectly follows the specifications as required by the implementation language, environment, framework, protocol, or platform.",
+   :db/ident :d3f/CWE-573,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Following of Specification by Caller",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-574
-  {:d3f/cwe-id      "CWE-574",
-   :db/ident        :d3f/CWE-574,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "EJB Bad Practices: Use of Synchronization Primitives",
+  {:d3f/cwe-id "CWE-574",
+   :d3f/definition
+   "The product violates the Enterprise JavaBeans (EJB) specification by using thread synchronization primitives.",
+   :db/ident :d3f/CWE-574,
+   :rdf/type :owl/Class,
+   :rdfs/label "EJB Bad Practices: Use of Synchronization Primitives",
    :rdfs/subClassOf #{:d3f/CWE-821 :d3f/CWE-695}})
 
 (def CWE-575
-  {:d3f/cwe-id      "CWE-575",
-   :db/ident        :d3f/CWE-575,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "EJB Bad Practices: Use of AWT Swing",
+  {:d3f/cwe-id "CWE-575",
+   :d3f/definition
+   "The product violates the Enterprise JavaBeans (EJB) specification by using AWT/Swing.",
+   :db/ident :d3f/CWE-575,
+   :rdf/type :owl/Class,
+   :rdfs/label "EJB Bad Practices: Use of AWT Swing",
    :rdfs/subClassOf :d3f/CWE-695})
 
 (def CWE-576
-  {:d3f/cwe-id      "CWE-576",
-   :db/ident        :d3f/CWE-576,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "EJB Bad Practices: Use of Java I/O",
+  {:d3f/cwe-id "CWE-576",
+   :d3f/definition
+   "The product violates the Enterprise JavaBeans (EJB) specification by using the java.io package.",
+   :db/ident :d3f/CWE-576,
+   :rdf/type :owl/Class,
+   :rdfs/label "EJB Bad Practices: Use of Java I/O",
    :rdfs/subClassOf :d3f/CWE-695})
 
 (def CWE-577
-  {:d3f/cwe-id      "CWE-577",
-   :db/ident        :d3f/CWE-577,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "EJB Bad Practices: Use of Sockets",
+  {:d3f/cwe-id "CWE-577",
+   :d3f/definition
+   "The product violates the Enterprise JavaBeans (EJB) specification by using sockets.",
+   :db/ident :d3f/CWE-577,
+   :rdf/type :owl/Class,
+   :rdfs/label "EJB Bad Practices: Use of Sockets",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-578
-  {:d3f/cwe-id      "CWE-578",
-   :db/ident        :d3f/CWE-578,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "EJB Bad Practices: Use of Class Loader",
+  {:d3f/cwe-id "CWE-578",
+   :d3f/definition
+   "The product violates the Enterprise JavaBeans (EJB) specification by using the class loader.",
+   :db/ident :d3f/CWE-578,
+   :rdf/type :owl/Class,
+   :rdfs/label "EJB Bad Practices: Use of Class Loader",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-579
   {:d3f/cwe-id "CWE-579",
+   :d3f/definition
+   "The product stores a non-serializable object as an HttpSession attribute, which can hurt reliability.",
    :db/ident :d3f/CWE-579,
    :rdf/type :owl/Class,
    :rdfs/label "J2EE Bad Practices: Non-serializable Object Stored in Session",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-58
-  {:d3f/cwe-id      "CWE-58",
-   :db/ident        :d3f/CWE-58,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Path Equivalence: Windows 8.3 Filename",
+  {:d3f/cwe-id "CWE-58",
+   :d3f/definition
+   "The product contains a protection mechanism that restricts access to a long filename on a Windows operating system, but it does not properly restrict access to the equivalent short \"8.3\" filename.",
+   :db/ident :d3f/CWE-58,
+   :rdf/type :owl/Class,
+   :rdfs/label "Path Equivalence: Windows 8.3 Filename",
    :rdfs/subClassOf :d3f/CWE-41})
 
 (def CWE-580
-  {:d3f/cwe-id      "CWE-580",
-   :db/ident        :d3f/CWE-580,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "clone() Method Without super.clone()",
+  {:d3f/cwe-id "CWE-580",
+   :d3f/definition
+   "The product contains a clone() method that does not call super.clone() to obtain the new object.",
+   :db/ident :d3f/CWE-580,
+   :rdf/type :owl/Class,
+   :rdfs/label "clone() Method Without super.clone()",
    :rdfs/subClassOf #{:d3f/CWE-664 :d3f/CWE-573}})
 
 (def CWE-581
   {:d3f/cwe-id "CWE-581",
+   :d3f/definition
+   "The product does not maintain equal hashcodes for equal objects.",
    :db/ident :d3f/CWE-581,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10295,87 +11888,111 @@
    :rdfs/subClassOf #{:d3f/CWE-573 :d3f/CWE-697}})
 
 (def CWE-582
-  {:d3f/cwe-id      "CWE-582",
-   :db/ident        :d3f/CWE-582,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Array Declared Public, Final, and Static",
+  {:d3f/cwe-id "CWE-582",
+   :d3f/definition
+   "The product declares an array public, final, and static, which is not sufficient to prevent the array's contents from being modified.",
+   :db/ident :d3f/CWE-582,
+   :rdf/type :owl/Class,
+   :rdfs/label "Array Declared Public, Final, and Static",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-583
-  {:d3f/cwe-id      "CWE-583",
-   :db/ident        :d3f/CWE-583,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "finalize() Method Declared Public",
+  {:d3f/cwe-id "CWE-583",
+   :d3f/definition
+   "The product violates secure coding principles for mobile code by declaring a finalize() method public.",
+   :db/ident :d3f/CWE-583,
+   :rdf/type :owl/Class,
+   :rdfs/label "finalize() Method Declared Public",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-584
-  {:d3f/cwe-id      "CWE-584",
-   :db/ident        :d3f/CWE-584,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Return Inside Finally Block",
+  {:d3f/cwe-id "CWE-584",
+   :d3f/definition
+   "The code has a return statement inside a finally block, which will cause any thrown exception in the try block to be discarded.",
+   :db/ident :d3f/CWE-584,
+   :rdf/type :owl/Class,
+   :rdfs/label "Return Inside Finally Block",
    :rdfs/subClassOf :d3f/CWE-705})
 
 (def CWE-585
   {:d3f/cwe-id      "CWE-585",
+   :d3f/definition  "The product contains an empty synchronized block.",
    :db/ident        :d3f/CWE-585,
    :rdf/type        :owl/Class,
    :rdfs/label      "Empty Synchronized Block",
    :rdfs/subClassOf :d3f/CWE-1071})
 
 (def CWE-586
-  {:d3f/cwe-id      "CWE-586",
-   :db/ident        :d3f/CWE-586,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Explicit Call to Finalize()",
+  {:d3f/cwe-id "CWE-586",
+   :d3f/definition
+   "The product makes an explicit call to the finalize() method from outside the finalizer.",
+   :db/ident :d3f/CWE-586,
+   :rdf/type :owl/Class,
+   :rdfs/label "Explicit Call to Finalize()",
    :rdfs/subClassOf :d3f/CWE-1076})
 
 (def CWE-587
-  {:d3f/cwe-id      "CWE-587",
-   :db/ident        :d3f/CWE-587,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Assignment of a Fixed Address to a Pointer",
+  {:d3f/cwe-id "CWE-587",
+   :d3f/definition
+   "The product sets a pointer to a specific address other than NULL or 0.",
+   :db/ident :d3f/CWE-587,
+   :rdf/type :owl/Class,
+   :rdfs/label "Assignment of a Fixed Address to a Pointer",
    :rdfs/subClassOf #{:d3f/CWE-344 :d3f/CWE-758}})
 
 (def CWE-588
-  {:d3f/cwe-id      "CWE-588",
-   :db/ident        :d3f/CWE-588,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Attempt to Access Child of a Non-structure Pointer",
+  {:d3f/cwe-id "CWE-588",
+   :d3f/definition
+   "Casting a non-structure type to a structure type and accessing a field can lead to memory access errors or data corruption.",
+   :db/ident :d3f/CWE-588,
+   :rdf/type :owl/Class,
+   :rdfs/label "Attempt to Access Child of a Non-structure Pointer",
    :rdfs/subClassOf #{:d3f/CWE-704 :d3f/CWE-758}})
 
 (def CWE-589
-  {:d3f/cwe-id      "CWE-589",
-   :db/ident        :d3f/CWE-589,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Call to Non-ubiquitous API",
+  {:d3f/cwe-id "CWE-589",
+   :d3f/definition
+   "The product uses an API function that does not exist on all versions of the target platform. This could cause portability problems or inconsistencies that allow denial of service or other consequences.",
+   :db/ident :d3f/CWE-589,
+   :rdf/type :owl/Class,
+   :rdfs/label "Call to Non-ubiquitous API",
    :rdfs/subClassOf :d3f/CWE-474})
 
 (def CWE-59
   {:d3f/cwe-id "CWE-59",
+   :d3f/definition
+   "The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.",
+   :d3f/synonym #{"Zip Slip" "insecure temporary file"},
    :db/ident :d3f/CWE-59,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Link Resolution Before File Access ('Link Following')",
    :rdfs/subClassOf :d3f/CWE-706})
 
 (def CWE-590
-  {:d3f/cwe-id      "CWE-590",
+  {:d3f/cwe-id "CWE-590",
+   :d3f/definition
+   "The product calls free() on a pointer to memory that was not allocated using associated heap allocation functions such as malloc(), calloc(), or realloc().",
    :d3f/weakness-of :d3f/MemoryFreeFunction,
-   :db/ident        :d3f/CWE-590,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Free of Memory not on the Heap",
+   :db/ident :d3f/CWE-590,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Free of Memory not on the Heap",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/MemoryFreeFunction,
                        :rdf/type           :owl/Restriction} :d3f/CWE-762}})
 
 (def CWE-591
-  {:d3f/cwe-id      "CWE-591",
-   :db/ident        :d3f/CWE-591,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Sensitive Data Storage in Improperly Locked Memory",
+  {:d3f/cwe-id "CWE-591",
+   :d3f/definition
+   "The product stores sensitive data in memory that is not locked, or that has been incorrectly locked, which might cause the memory to be written to swap files on disk by the virtual memory manager. This can make the data more accessible to external actors.",
+   :db/ident :d3f/CWE-591,
+   :rdf/type :owl/Class,
+   :rdfs/label "Sensitive Data Storage in Improperly Locked Memory",
    :rdfs/subClassOf :d3f/CWE-413})
 
 (def CWE-593
   {:d3f/cwe-id "CWE-593",
+   :d3f/definition
+   "The product modifies the SSL context after connection creation has begun.",
    :db/ident :d3f/CWE-593,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10383,119 +12000,157 @@
    :rdfs/subClassOf #{:d3f/CWE-1390 :d3f/CWE-666}})
 
 (def CWE-594
-  {:d3f/cwe-id      "CWE-594",
-   :db/ident        :d3f/CWE-594,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Framework: Saving Unserializable Objects to Disk",
-   :rdfs/subClassOf :d3f/CWE-710})
+  {:d3f/cwe-id "CWE-594",
+   :d3f/definition
+   "When the J2EE container attempts to write unserializable objects to disk there is no guarantee that the process will complete successfully.",
+   :db/ident :d3f/CWE-594,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Framework: Saving Unserializable Objects to Disk",
+   :rdfs/subClassOf #{:d3f/CWE-710 :d3f/CWE-1076}})
 
 (def CWE-595
   {:d3f/cwe-id "CWE-595",
+   :d3f/definition
+   "The product compares object references instead of the contents of the objects themselves, preventing it from detecting equivalent objects.",
    :db/ident :d3f/CWE-595,
    :rdf/type :owl/Class,
    :rdfs/label "Comparison of Object References Instead of Object Contents",
    :rdfs/subClassOf :d3f/CWE-1025})
 
 (def CWE-597
-  {:d3f/cwe-id      "CWE-597",
-   :db/ident        :d3f/CWE-597,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Wrong Operator in String Comparison",
+  {:d3f/cwe-id "CWE-597",
+   :d3f/definition
+   "The product uses the wrong operator when comparing a string, such as using \"==\" when the .equals() method should be used instead.",
+   :db/ident :d3f/CWE-597,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Wrong Operator in String Comparison",
    :rdfs/subClassOf #{:d3f/CWE-595 :d3f/CWE-480}})
 
 (def CWE-598
-  {:d3f/cwe-id      "CWE-598",
-   :db/ident        :d3f/CWE-598,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of GET Request Method With Sensitive Query Strings",
+  {:d3f/cwe-id "CWE-598",
+   :d3f/definition
+   "The web application uses the HTTP GET method to process a request and includes sensitive information in the query string of that request.",
+   :db/ident :d3f/CWE-598,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of GET Request Method With Sensitive Query Strings",
    :rdfs/subClassOf :d3f/CWE-201})
 
 (def CWE-599
-  {:d3f/cwe-id      "CWE-599",
-   :db/ident        :d3f/CWE-599,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Validation of OpenSSL Certificate",
+  {:d3f/cwe-id "CWE-599",
+   :d3f/definition
+   "The product uses OpenSSL and trusts or uses a certificate without using the SSL_get_verify_result() function to ensure that the certificate satisfies all necessary security requirements.",
+   :db/ident :d3f/CWE-599,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Validation of OpenSSL Certificate",
    :rdfs/subClassOf :d3f/CWE-295})
 
 (def CWE-6
-  {:d3f/cwe-id      "CWE-6",
-   :db/ident        :d3f/CWE-6,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Misconfiguration: Insufficient Session-ID Length",
+  {:d3f/cwe-id "CWE-6",
+   :d3f/definition
+   "The J2EE application is configured to use an insufficient session ID length.",
+   :db/ident :d3f/CWE-6,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Misconfiguration: Insufficient Session-ID Length",
    :rdfs/subClassOf :d3f/CWE-334})
 
 (def CWE-600
-  {:d3f/cwe-id      "CWE-600",
-   :db/ident        :d3f/CWE-600,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Uncaught Exception in Servlet",
+  {:d3f/cwe-id "CWE-600",
+   :d3f/definition
+   "The Servlet does not catch all exceptions, which may reveal sensitive debugging information.",
+   :d3f/synonym "Missing Catch Block",
+   :db/ident :d3f/CWE-600,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uncaught Exception in Servlet",
    :rdfs/subClassOf :d3f/CWE-248})
 
 (def CWE-601
-  {:d3f/cwe-id      "CWE-601",
-   :db/ident        :d3f/CWE-601,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "URL Redirection to Untrusted Site ('Open Redirect')",
+  {:d3f/cwe-id "CWE-601",
+   :d3f/definition
+   "The web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a redirect.",
+   :d3f/synonym #{"Unvalidated Redirect" "Cross-site Redirect" "Open Redirect"
+                  "Cross-domain Redirect"},
+   :db/ident :d3f/CWE-601,
+   :rdf/type :owl/Class,
+   :rdfs/label "URL Redirection to Untrusted Site ('Open Redirect')",
    :rdfs/subClassOf :d3f/CWE-610})
 
 (def CWE-602
-  {:d3f/cwe-id      "CWE-602",
-   :db/ident        :d3f/CWE-602,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Client-Side Enforcement of Server-Side Security",
+  {:d3f/cwe-id "CWE-602",
+   :d3f/definition
+   "The product is composed of a server that relies on the client to implement a mechanism that is intended to protect the server.",
+   :db/ident :d3f/CWE-602,
+   :rdf/type :owl/Class,
+   :rdfs/label "Client-Side Enforcement of Server-Side Security",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-603
-  {:d3f/cwe-id      "CWE-603",
-   :db/ident        :d3f/CWE-603,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Client-Side Authentication",
+  {:d3f/cwe-id "CWE-603",
+   :d3f/definition
+   "A client/server product performs authentication within client code but not in server code, allowing server-side authentication to be bypassed via a modified client that omits the authentication check.",
+   :db/ident :d3f/CWE-603,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Client-Side Authentication",
    :rdfs/subClassOf #{:d3f/CWE-1390 :d3f/CWE-602}})
 
 (def CWE-605
-  {:d3f/cwe-id      "CWE-605",
-   :db/ident        :d3f/CWE-605,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multiple Binds to the Same Port",
+  {:d3f/cwe-id "CWE-605",
+   :d3f/definition
+   "When multiple sockets are allowed to bind to the same port, other services on that port may be stolen or spoofed.",
+   :db/ident :d3f/CWE-605,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multiple Binds to the Same Port",
    :rdfs/subClassOf #{:d3f/CWE-675 :d3f/CWE-666}})
 
 (def CWE-606
-  {:d3f/cwe-id      "CWE-606",
-   :db/ident        :d3f/CWE-606,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unchecked Input for Loop Condition",
+  {:d3f/cwe-id "CWE-606",
+   :d3f/definition
+   "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
+   :db/ident :d3f/CWE-606,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unchecked Input for Loop Condition",
    :rdfs/subClassOf :d3f/CWE-1284})
 
 (def CWE-607
-  {:d3f/cwe-id      "CWE-607",
-   :db/ident        :d3f/CWE-607,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Public Static Final Field References Mutable Object",
+  {:d3f/cwe-id "CWE-607",
+   :d3f/definition
+   "A public or protected static final field references a mutable object, which allows the object to be changed by malicious code, or accidentally from another package.",
+   :db/ident :d3f/CWE-607,
+   :rdf/type :owl/Class,
+   :rdfs/label "Public Static Final Field References Mutable Object",
    :rdfs/subClassOf :d3f/CWE-471})
 
 (def CWE-608
-  {:d3f/cwe-id      "CWE-608",
-   :db/ident        :d3f/CWE-608,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Struts: Non-private Field in ActionForm Class",
+  {:d3f/cwe-id "CWE-608",
+   :d3f/definition
+   "An ActionForm class contains a field that has not been declared private, which can be accessed without using a setter or getter.",
+   :db/ident :d3f/CWE-608,
+   :rdf/type :owl/Class,
+   :rdfs/label "Struts: Non-private Field in ActionForm Class",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-609
-  {:d3f/cwe-id      "CWE-609",
-   :db/ident        :d3f/CWE-609,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Double-Checked Locking",
+  {:d3f/cwe-id "CWE-609",
+   :d3f/definition
+   "The product uses double-checked locking to access a resource without the overhead of explicit synchronization, but the locking is insufficient.",
+   :db/ident :d3f/CWE-609,
+   :rdf/type :owl/Class,
+   :rdfs/label "Double-Checked Locking",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-61
-  {:d3f/cwe-id      "CWE-61",
-   :db/ident        :d3f/CWE-61,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "UNIX Symbolic Link (Symlink) Following",
+  {:d3f/cwe-id "CWE-61",
+   :d3f/definition
+   "The product, when opening a file or directory, does not sufficiently account for when the file is a symbolic link that resolves to a target outside of the intended control sphere. This could allow an attacker to cause the product to operate on unauthorized files.",
+   :d3f/synonym #{"Symlink following" "symlink vulnerability"},
+   :db/ident :d3f/CWE-61,
+   :rdf/type :owl/Class,
+   :rdfs/label "UNIX Symbolic Link (Symlink) Following",
    :rdfs/subClassOf :d3f/CWE-59})
 
 (def CWE-610
   {:d3f/cwe-id "CWE-610",
+   :d3f/definition
+   "The product uses an externally controlled name or reference that resolves to a resource that is outside of the intended control sphere.",
    :db/ident :d3f/CWE-610,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10503,11 +12158,14 @@
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-611
-  {:d3f/cwe-id      "CWE-611",
+  {:d3f/cwe-id "CWE-611",
+   :d3f/definition
+   "The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.",
+   :d3f/synonym "XXE",
    :d3f/weakness-of :d3f/ExternalContentInclusionFunction,
-   :db/ident        :d3f/CWE-611,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Improper Restriction of XML External Entity Reference",
+   :db/ident :d3f/CWE-611,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Improper Restriction of XML External Entity Reference",
    :rdfs/subClassOf #{{:owl/onProperty :d3f/weakness-of,
                        :owl/someValuesFrom
                        :d3f/ExternalContentInclusionFunction,
@@ -10515,6 +12173,8 @@
 
 (def CWE-612
   {:d3f/cwe-id "CWE-612",
+   :d3f/definition
+   "The product creates a search index of private or sensitive documents, but it does not properly limit index access to actors who are authorized to see the original information.",
    :db/ident :d3f/CWE-612,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10522,14 +12182,18 @@
    :rdfs/subClassOf :d3f/CWE-1230})
 
 (def CWE-613
-  {:d3f/cwe-id      "CWE-613",
-   :db/ident        :d3f/CWE-613,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Session Expiration",
+  {:d3f/cwe-id "CWE-613",
+   :d3f/definition
+   "According to WASC, \"Insufficient Session Expiration is when a web site permits an attacker to reuse old session credentials or session IDs for authorization.\"",
+   :db/ident :d3f/CWE-613,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Session Expiration",
    :rdfs/subClassOf :d3f/CWE-672})
 
 (def CWE-614
   {:d3f/cwe-id "CWE-614",
+   :d3f/definition
+   "The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.",
    :db/ident :d3f/CWE-614,
    :rdf/type :owl/Class,
    :rdfs/label "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
@@ -10537,6 +12201,8 @@
 
 (def CWE-615
   {:d3f/cwe-id "CWE-615",
+   :d3f/definition
+   "While adding general comments is very useful, some programmers tend to leave important data, such as: filenames related to the web application, old links or links which were not meant to be browsed by users, old code fragments, etc.",
    :db/ident :d3f/CWE-615,
    :rdf/type :owl/Class,
    :rdfs/label "Inclusion of Sensitive Information in Source Code Comments",
@@ -10544,111 +12210,148 @@
 
 (def CWE-616
   {:d3f/cwe-id "CWE-616",
+   :d3f/definition
+   "The PHP application uses an old method for processing uploaded files by referencing the four global variables that are set for each file (e.g. $varname, $varname_size, $varname_name, $varname_type). These variables could be overwritten by attackers, causing the application to process unauthorized files.",
    :db/ident :d3f/CWE-616,
    :rdf/type :owl/Class,
    :rdfs/label "Incomplete Identification of Uploaded File Variables (PHP)",
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-617
-  {:d3f/cwe-id      "CWE-617",
-   :db/ident        :d3f/CWE-617,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reachable Assertion",
+  {:d3f/cwe-id "CWE-617",
+   :d3f/definition
+   "The product contains an assert() or similar statement that can be triggered by an attacker, which leads to an application exit or other behavior that is more severe than necessary.",
+   :d3f/synonym "assertion failure",
+   :db/ident :d3f/CWE-617,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reachable Assertion",
    :rdfs/subClassOf :d3f/CWE-670})
 
 (def CWE-618
-  {:d3f/cwe-id      "CWE-618",
-   :db/ident        :d3f/CWE-618,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposed Unsafe ActiveX Method",
+  {:d3f/cwe-id "CWE-618",
+   :d3f/definition
+   "An ActiveX control is intended for use in a web browser, but it exposes dangerous methods that perform actions that are outside of the browser's security model (e.g. the zone or domain).",
+   :db/ident :d3f/CWE-618,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposed Unsafe ActiveX Method",
    :rdfs/subClassOf :d3f/CWE-749})
 
 (def CWE-619
-  {:d3f/cwe-id      "CWE-619",
-   :db/ident        :d3f/CWE-619,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dangling Database Cursor ('Cursor Injection')",
+  {:d3f/cwe-id "CWE-619",
+   :d3f/definition
+   "If a database cursor is not closed properly, then it could become accessible to other users while retaining the same privileges that were originally assigned, leaving the cursor \"dangling.\"",
+   :db/ident :d3f/CWE-619,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dangling Database Cursor ('Cursor Injection')",
    :rdfs/subClassOf :d3f/CWE-402})
 
 (def CWE-62
-  {:d3f/cwe-id      "CWE-62",
-   :db/ident        :d3f/CWE-62,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "UNIX Hard Link",
+  {:d3f/cwe-id "CWE-62",
+   :d3f/definition
+   "The product, when opening a file or directory, does not sufficiently account for when the name is associated with a hard link to a target that is outside of the intended control sphere. This could allow an attacker to cause the product to operate on unauthorized files.",
+   :db/ident :d3f/CWE-62,
+   :rdf/type :owl/Class,
+   :rdfs/label "UNIX Hard Link",
    :rdfs/subClassOf :d3f/CWE-59})
 
 (def CWE-620
-  {:d3f/cwe-id      "CWE-620",
-   :db/ident        :d3f/CWE-620,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unverified Password Change",
+  {:d3f/cwe-id "CWE-620",
+   :d3f/definition
+   "When setting a new password for a user, the product does not require knowledge of the original password, or using another form of authentication.",
+   :db/ident :d3f/CWE-620,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unverified Password Change",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-621
-  {:d3f/cwe-id      "CWE-621",
-   :db/ident        :d3f/CWE-621,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Variable Extraction Error",
+  {:d3f/cwe-id "CWE-621",
+   :d3f/definition
+   "The product uses external input to determine the names of variables into which information is extracted, without verifying that the names of the specified variables are valid. This could cause the program to overwrite unintended variables.",
+   :d3f/synonym "Variable overwrite",
+   :db/ident :d3f/CWE-621,
+   :rdf/type :owl/Class,
+   :rdfs/label "Variable Extraction Error",
    :rdfs/subClassOf :d3f/CWE-914})
 
 (def CWE-622
-  {:d3f/cwe-id      "CWE-622",
-   :db/ident        :d3f/CWE-622,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Validation of Function Hook Arguments",
+  {:d3f/cwe-id "CWE-622",
+   :d3f/definition
+   "The product adds hooks to user-accessible API functions, but it does not properly validate the arguments. This could lead to resultant vulnerabilities.",
+   :db/ident :d3f/CWE-622,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Validation of Function Hook Arguments",
    :rdfs/subClassOf :d3f/CWE-20})
 
 (def CWE-623
-  {:d3f/cwe-id      "CWE-623",
-   :db/ident        :d3f/CWE-623,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unsafe ActiveX Control Marked Safe For Scripting",
+  {:d3f/cwe-id "CWE-623",
+   :d3f/definition
+   "An ActiveX control is intended for restricted use, but it has been marked as safe-for-scripting.",
+   :db/ident :d3f/CWE-623,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unsafe ActiveX Control Marked Safe For Scripting",
    :rdfs/subClassOf :d3f/CWE-267})
 
 (def CWE-624
-  {:d3f/cwe-id      "CWE-624",
-   :db/ident        :d3f/CWE-624,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Executable Regular Expression Error",
+  {:d3f/cwe-id "CWE-624",
+   :d3f/definition
+   "The product uses a regular expression that either (1) contains an executable component with user-controlled inputs, or (2) allows a user to enable execution by inserting pattern modifiers.",
+   :db/ident :d3f/CWE-624,
+   :rdf/type :owl/Class,
+   :rdfs/label "Executable Regular Expression Error",
    :rdfs/subClassOf :d3f/CWE-77})
 
 (def CWE-625
-  {:d3f/cwe-id      "CWE-625",
-   :db/ident        :d3f/CWE-625,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Permissive Regular Expression",
+  {:d3f/cwe-id "CWE-625",
+   :d3f/definition
+   "The product uses a regular expression that does not sufficiently restrict the set of allowed values.",
+   :db/ident :d3f/CWE-625,
+   :rdf/type :owl/Class,
+   :rdfs/label "Permissive Regular Expression",
    :rdfs/subClassOf :d3f/CWE-185})
 
 (def CWE-626
-  {:d3f/cwe-id      "CWE-626",
-   :db/ident        :d3f/CWE-626,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Null Byte Interaction Error (Poison Null Byte)",
+  {:d3f/cwe-id "CWE-626",
+   :d3f/definition
+   "The product does not properly handle null bytes or NUL characters when passing data between different representations or components.",
+   :db/ident :d3f/CWE-626,
+   :rdf/type :owl/Class,
+   :rdfs/label "Null Byte Interaction Error (Poison Null Byte)",
    :rdfs/subClassOf #{:d3f/CWE-436 :d3f/CWE-147}})
 
 (def CWE-627
-  {:d3f/cwe-id      "CWE-627",
-   :db/ident        :d3f/CWE-627,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Dynamic Variable Evaluation",
+  {:d3f/cwe-id "CWE-627",
+   :d3f/definition
+   "In a language where the user can influence the name of a variable at runtime, if the variable names are not controlled, an attacker can read or write to arbitrary variables, or access arbitrary functions.",
+   :d3f/synonym "Dynamic evaluation",
+   :db/ident :d3f/CWE-627,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dynamic Variable Evaluation",
    :rdfs/subClassOf :d3f/CWE-914})
 
 (def CWE-628
-  {:d3f/cwe-id      "CWE-628",
-   :db/ident        :d3f/CWE-628,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Function Call with Incorrectly Specified Arguments",
+  {:d3f/cwe-id "CWE-628",
+   :d3f/definition
+   "The product calls a function, procedure, or routine with arguments that are not correctly specified, leading to always-incorrect behavior and resultant weaknesses.",
+   :db/ident :d3f/CWE-628,
+   :rdf/type :owl/Class,
+   :rdfs/label "Function Call with Incorrectly Specified Arguments",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-636
-  {:d3f/cwe-id      "CWE-636",
-   :db/ident        :d3f/CWE-636,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Not Failing Securely ('Failing Open')",
+  {:d3f/cwe-id "CWE-636",
+   :d3f/definition
+   "When the product encounters an error condition or failure, its design requires it to fall back to a state that is less secure than other options that are available, such as selecting the weakest encryption algorithm or using the most permissive access control restrictions.",
+   :d3f/synonym "Failing Open",
+   :db/ident :d3f/CWE-636,
+   :rdf/type :owl/Class,
+   :rdfs/label "Not Failing Securely ('Failing Open')",
    :rdfs/subClassOf #{:d3f/CWE-755 :d3f/CWE-657}})
 
 (def CWE-637
   {:d3f/cwe-id "CWE-637",
+   :d3f/definition
+   "The product uses a more complex mechanism than necessary, which could lead to resultant weaknesses when the mechanism is not correctly understood, modeled, configured, implemented, or used.",
+   :d3f/synonym "Unnecessary Complexity",
    :db/ident :d3f/CWE-637,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10656,49 +12359,67 @@
    :rdfs/subClassOf :d3f/CWE-657})
 
 (def CWE-638
-  {:d3f/cwe-id      "CWE-638",
-   :db/ident        :d3f/CWE-638,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Not Using Complete Mediation",
+  {:d3f/cwe-id "CWE-638",
+   :d3f/definition
+   "The product does not perform access checks on a resource every time the resource is accessed by an entity, which can create resultant weaknesses if that entity's rights or privileges change over time.",
+   :db/ident :d3f/CWE-638,
+   :rdf/type :owl/Class,
+   :rdfs/label "Not Using Complete Mediation",
    :rdfs/subClassOf #{:d3f/CWE-862 :d3f/CWE-657}})
 
 (def CWE-639
-  {:d3f/cwe-id      "CWE-639",
-   :db/ident        :d3f/CWE-639,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Authorization Bypass Through User-Controlled Key",
+  {:d3f/cwe-id "CWE-639",
+   :d3f/definition
+   "The system's authorization functionality does not prevent one user from gaining access to another user's data or record by modifying the key value identifying the data.",
+   :d3f/synonym #{"Horizontal Authorization"
+                  "Insecure Direct Object Reference / IDOR"
+                  "Broken Object Level Authorization / BOLA"},
+   :db/ident :d3f/CWE-639,
+   :rdf/type :owl/Class,
+   :rdfs/label "Authorization Bypass Through User-Controlled Key",
    :rdfs/subClassOf :d3f/CWE-863})
 
 (def CWE-64
-  {:d3f/cwe-id      "CWE-64",
-   :db/ident        :d3f/CWE-64,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Shortcut Following (.LNK)",
+  {:d3f/cwe-id "CWE-64",
+   :d3f/definition
+   "The product, when opening a file or directory, does not sufficiently handle when the file is a Windows shortcut (.LNK) whose target is outside of the intended control sphere. This could allow an attacker to cause the product to operate on unauthorized files.",
+   :d3f/synonym #{"Windows symbolic link following" "symlink"},
+   :db/ident :d3f/CWE-64,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows Shortcut Following (.LNK)",
    :rdfs/subClassOf :d3f/CWE-59})
 
 (def CWE-640
-  {:d3f/cwe-id      "CWE-640",
-   :db/ident        :d3f/CWE-640,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Weak Password Recovery Mechanism for Forgotten Password",
+  {:d3f/cwe-id "CWE-640",
+   :d3f/definition
+   "The product contains a mechanism for users to recover or change their passwords without knowing the original password, but the mechanism is weak.",
+   :db/ident :d3f/CWE-640,
+   :rdf/type :owl/Class,
+   :rdfs/label "Weak Password Recovery Mechanism for Forgotten Password",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-641
   {:d3f/cwe-id "CWE-641",
+   :d3f/definition
+   "The product constructs the name of a file or other resource using input from an upstream component, but it does not restrict or incorrectly restricts the resulting name.",
    :db/ident :d3f/CWE-641,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Restriction of Names for Files and Other Resources",
    :rdfs/subClassOf :d3f/CWE-99})
 
 (def CWE-642
-  {:d3f/cwe-id      "CWE-642",
-   :db/ident        :d3f/CWE-642,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "External Control of Critical State Data",
+  {:d3f/cwe-id "CWE-642",
+   :d3f/definition
+   "The product stores security-critical state information about its users, or the product itself, in a location that is accessible to unauthorized actors.",
+   :db/ident :d3f/CWE-642,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Control of Critical State Data",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-643
   {:d3f/cwe-id "CWE-643",
+   :d3f/definition
+   "The product uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
    :db/ident :d3f/CWE-643,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10707,20 +12428,26 @@
 
 (def CWE-644
   {:d3f/cwe-id "CWE-644",
+   :d3f/definition
+   "The product does not neutralize or incorrectly neutralizes web scripting syntax in HTTP headers that can be used by web browser components that can process raw headers, such as Flash.",
    :db/ident :d3f/CWE-644,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of HTTP Headers for Scripting Syntax",
    :rdfs/subClassOf :d3f/CWE-116})
 
 (def CWE-645
-  {:d3f/cwe-id      "CWE-645",
-   :db/ident        :d3f/CWE-645,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Overly Restrictive Account Lockout Mechanism",
+  {:d3f/cwe-id "CWE-645",
+   :d3f/definition
+   "The product contains an account lockout protection mechanism, but the mechanism is too restrictive and can be triggered too easily, which allows attackers to deny service to legitimate users by causing their accounts to be locked out.",
+   :db/ident :d3f/CWE-645,
+   :rdf/type :owl/Class,
+   :rdfs/label "Overly Restrictive Account Lockout Mechanism",
    :rdfs/subClassOf :d3f/CWE-287})
 
 (def CWE-646
   {:d3f/cwe-id "CWE-646",
+   :d3f/definition
+   "The product allows a file to be uploaded, but it relies on the file name or extension of the file to determine the appropriate behaviors. This could be used by attackers to cause the file to be misclassified and processed in a dangerous fashion.",
    :db/ident :d3f/CWE-646,
    :rdf/type :owl/Class,
    :rdfs/label "Reliance on File Name or Extension of Externally-Supplied File",
@@ -10728,20 +12455,26 @@
 
 (def CWE-647
   {:d3f/cwe-id "CWE-647",
+   :d3f/definition
+   "The product defines policy namespaces and makes authorization decisions based on the assumption that a URL is canonical. This can allow a non-canonical URL to bypass the authorization.",
    :db/ident :d3f/CWE-647,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Non-Canonical URL Paths for Authorization Decisions",
    :rdfs/subClassOf :d3f/CWE-863})
 
 (def CWE-648
-  {:d3f/cwe-id      "CWE-648",
-   :db/ident        :d3f/CWE-648,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Use of Privileged APIs",
+  {:d3f/cwe-id "CWE-648",
+   :d3f/definition
+   "The product does not conform to the API requirements for a function call that requires extra privileges. This could allow attackers to gain privileges by causing the function to be called incorrectly.",
+   :db/ident :d3f/CWE-648,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Use of Privileged APIs",
    :rdfs/subClassOf :d3f/CWE-269})
 
 (def CWE-649
   {:d3f/cwe-id "CWE-649",
+   :d3f/definition
+   "The product uses obfuscation or encryption of inputs that should not be mutable by an external actor, but the product does not use integrity checks to detect if those inputs have been modified.",
    :db/ident :d3f/CWE-649,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10749,28 +12482,36 @@
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-65
-  {:d3f/cwe-id      "CWE-65",
-   :db/ident        :d3f/CWE-65,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Windows Hard Link",
+  {:d3f/cwe-id "CWE-65",
+   :d3f/definition
+   "The product, when opening a file or directory, does not sufficiently handle when the name is associated with a hard link to a target that is outside of the intended control sphere. This could allow an attacker to cause the product to operate on unauthorized files.",
+   :db/ident :d3f/CWE-65,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows Hard Link",
    :rdfs/subClassOf :d3f/CWE-59})
 
 (def CWE-650
-  {:d3f/cwe-id      "CWE-650",
-   :db/ident        :d3f/CWE-650,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Trusting HTTP Permission Methods on the Server Side",
+  {:d3f/cwe-id "CWE-650",
+   :d3f/definition
+   "The server contains a protection mechanism that assumes that any URI that is accessed using HTTP GET will not cause a state change to the associated resource. This might allow attackers to bypass intended access restrictions and conduct resource modification and deletion attacks, since some applications allow GET to modify state.",
+   :db/ident :d3f/CWE-650,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trusting HTTP Permission Methods on the Server Side",
    :rdfs/subClassOf :d3f/CWE-436})
 
 (def CWE-651
-  {:d3f/cwe-id      "CWE-651",
-   :db/ident        :d3f/CWE-651,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of WSDL File Containing Sensitive Information",
+  {:d3f/cwe-id "CWE-651",
+   :d3f/definition
+   "The Web services architecture may require exposing a Web Service Definition Language (WSDL) file that contains information on the publicly accessible services and how callers of these services should interact with them (e.g. what parameters they expect and what types they return).",
+   :db/ident :d3f/CWE-651,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of WSDL File Containing Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-538})
 
 (def CWE-652
   {:d3f/cwe-id "CWE-652",
+   :d3f/definition
+   "The product uses external input to dynamically construct an XQuery expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
    :db/ident :d3f/CWE-652,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10778,42 +12519,57 @@
    :rdfs/subClassOf #{:d3f/CWE-943 :d3f/CWE-91}})
 
 (def CWE-653
-  {:d3f/cwe-id      "CWE-653",
-   :db/ident        :d3f/CWE-653,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Isolation or Compartmentalization",
+  {:d3f/cwe-id "CWE-653",
+   :d3f/definition
+   "The product does not properly compartmentalize or isolate functionality, processes, or resources that require different privilege levels, rights, or permissions.",
+   :d3f/synonym "Separation of Privilege",
+   :db/ident :d3f/CWE-653,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Isolation or Compartmentalization",
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-657}})
 
 (def CWE-654
-  {:d3f/cwe-id      "CWE-654",
-   :db/ident        :d3f/CWE-654,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on a Single Factor in a Security Decision",
+  {:d3f/cwe-id "CWE-654",
+   :d3f/definition
+   "A protection mechanism relies exclusively, or to a large extent, on the evaluation of a single condition or the integrity of a single object or entity in order to make a decision about granting access to restricted resources or functionality.",
+   :d3f/synonym "Separation of Privilege",
+   :db/ident :d3f/CWE-654,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on a Single Factor in a Security Decision",
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-657}})
 
 (def CWE-655
-  {:d3f/cwe-id      "CWE-655",
-   :db/ident        :d3f/CWE-655,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Psychological Acceptability",
+  {:d3f/cwe-id "CWE-655",
+   :d3f/definition
+   "The product has a protection mechanism that is too difficult or inconvenient to use, encouraging non-malicious users to disable or bypass the mechanism, whether by accident or on purpose.",
+   :db/ident :d3f/CWE-655,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Psychological Acceptability",
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-657}})
 
 (def CWE-656
-  {:d3f/cwe-id      "CWE-656",
-   :db/ident        :d3f/CWE-656,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Security Through Obscurity",
+  {:d3f/cwe-id "CWE-656",
+   :d3f/definition
+   "The product uses a protection mechanism whose strength depends heavily on its obscurity, such that knowledge of its algorithms or key data is sufficient to defeat the mechanism.",
+   :d3f/synonym "Never Assuming your secrets are safe",
+   :db/ident :d3f/CWE-656,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Security Through Obscurity",
    :rdfs/subClassOf #{:d3f/CWE-693 :d3f/CWE-657}})
 
 (def CWE-657
-  {:d3f/cwe-id      "CWE-657",
-   :db/ident        :d3f/CWE-657,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Violation of Secure Design Principles",
+  {:d3f/cwe-id "CWE-657",
+   :d3f/definition
+   "The product violates well-established principles for secure design.",
+   :db/ident :d3f/CWE-657,
+   :rdf/type :owl/Class,
+   :rdfs/label "Violation of Secure Design Principles",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-66
   {:d3f/cwe-id "CWE-66",
+   :d3f/definition
+   "The product does not handle or incorrectly handles a file name that identifies a \"virtual\" resource that is not directly specified within the directory that is associated with the file name, causing the product to perform file-based operations on a resource that is not a file.",
    :db/ident :d3f/CWE-66,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -10821,336 +12577,434 @@
    :rdfs/subClassOf :d3f/CWE-706})
 
 (def CWE-662
-  {:d3f/cwe-id      "CWE-662",
-   :db/ident        :d3f/CWE-662,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Synchronization",
+  {:d3f/cwe-id "CWE-662",
+   :d3f/definition
+   "The product utilizes multiple threads or processes to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these actions, which might cause simultaneous accesses of this resource by multiple threads or processes.",
+   :db/ident :d3f/CWE-662,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Synchronization",
    :rdfs/subClassOf #{:d3f/CWE-664 :d3f/CWE-691}})
 
 (def CWE-663
-  {:d3f/cwe-id      "CWE-663",
-   :db/ident        :d3f/CWE-663,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of a Non-reentrant Function in a Concurrent Context",
+  {:d3f/cwe-id "CWE-663",
+   :d3f/definition
+   "The product calls a non-reentrant function in a concurrent context in which a competing code sequence (e.g. thread or signal handler) may have an opportunity to call the same function or otherwise influence its state.",
+   :db/ident :d3f/CWE-663,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of a Non-reentrant Function in a Concurrent Context",
    :rdfs/subClassOf :d3f/CWE-662})
 
 (def CWE-664
-  {:d3f/cwe-id      "CWE-664",
-   :db/ident        :d3f/CWE-664,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Control of a Resource Through its Lifetime",
+  {:d3f/cwe-id "CWE-664",
+   :d3f/definition
+   "The product does not maintain or incorrectly maintains control over a resource throughout its lifetime of creation, use, and release.",
+   :db/ident :d3f/CWE-664,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Control of a Resource Through its Lifetime",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-665
-  {:d3f/cwe-id      "CWE-665",
-   :db/ident        :d3f/CWE-665,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Initialization",
+  {:d3f/cwe-id "CWE-665",
+   :d3f/definition
+   "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
+   :db/ident :d3f/CWE-665,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Initialization",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-666
-  {:d3f/cwe-id      "CWE-666",
-   :db/ident        :d3f/CWE-666,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Operation on Resource in Wrong Phase of Lifetime",
+  {:d3f/cwe-id "CWE-666",
+   :d3f/definition
+   "The product performs an operation on a resource at the wrong phase of the resource's lifecycle, which can lead to unexpected behaviors.",
+   :db/ident :d3f/CWE-666,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operation on Resource in Wrong Phase of Lifetime",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-667
-  {:d3f/cwe-id      "CWE-667",
-   :db/ident        :d3f/CWE-667,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Locking",
+  {:d3f/cwe-id "CWE-667",
+   :d3f/definition
+   "The product does not properly acquire or release a lock on a resource, leading to unexpected resource state changes and behaviors.",
+   :db/ident :d3f/CWE-667,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Locking",
    :rdfs/subClassOf :d3f/CWE-662})
 
 (def CWE-668
-  {:d3f/cwe-id      "CWE-668",
-   :db/ident        :d3f/CWE-668,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposure of Resource to Wrong Sphere",
+  {:d3f/cwe-id "CWE-668",
+   :d3f/definition
+   "The product exposes a resource to the wrong control sphere, providing unintended actors with inappropriate access to the resource.",
+   :db/ident :d3f/CWE-668,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposure of Resource to Wrong Sphere",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-669
-  {:d3f/cwe-id      "CWE-669",
-   :db/ident        :d3f/CWE-669,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Resource Transfer Between Spheres",
+  {:d3f/cwe-id "CWE-669",
+   :d3f/definition
+   "The product does not properly transfer a resource/behavior to another sphere, or improperly imports a resource/behavior from another sphere, in a manner that provides unintended control over that resource.",
+   :db/ident :d3f/CWE-669,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Resource Transfer Between Spheres",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-67
-  {:d3f/cwe-id      "CWE-67",
-   :db/ident        :d3f/CWE-67,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Windows Device Names",
+  {:d3f/cwe-id "CWE-67",
+   :d3f/definition
+   "The product constructs pathnames from user input, but it does not handle or incorrectly handles a pathname containing a Windows device name such as AUX or CON. This typically leads to denial of service or an information exposure when the application attempts to process the pathname as a regular file.",
+   :db/ident :d3f/CWE-67,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Windows Device Names",
    :rdfs/subClassOf :d3f/CWE-66})
 
 (def CWE-670
-  {:d3f/cwe-id      "CWE-670",
-   :db/ident        :d3f/CWE-670,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Always-Incorrect Control Flow Implementation",
+  {:d3f/cwe-id "CWE-670",
+   :d3f/definition
+   "The code contains a control flow path that does not reflect the algorithm that the path is intended to implement, leading to incorrect behavior any time this path is navigated.",
+   :db/ident :d3f/CWE-670,
+   :rdf/type :owl/Class,
+   :rdfs/label "Always-Incorrect Control Flow Implementation",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-671
-  {:d3f/cwe-id      "CWE-671",
-   :db/ident        :d3f/CWE-671,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Lack of Administrator Control over Security",
+  {:d3f/cwe-id "CWE-671",
+   :d3f/definition
+   "The product uses security features in a way that prevents the product's administrator from tailoring security settings to reflect the environment in which the product is being used. This introduces resultant weaknesses or prevents it from operating at a level of security that is desired by the administrator.",
+   :db/ident :d3f/CWE-671,
+   :rdf/type :owl/Class,
+   :rdfs/label "Lack of Administrator Control over Security",
    :rdfs/subClassOf :d3f/CWE-657})
 
 (def CWE-672
-  {:d3f/cwe-id      "CWE-672",
-   :db/ident        :d3f/CWE-672,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Operation on a Resource after Expiration or Release",
+  {:d3f/cwe-id "CWE-672",
+   :d3f/definition
+   "The product uses, accesses, or otherwise operates on a resource after that resource has been expired, released, or revoked.",
+   :db/ident :d3f/CWE-672,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operation on a Resource after Expiration or Release",
    :rdfs/subClassOf :d3f/CWE-666})
 
 (def CWE-673
-  {:d3f/cwe-id      "CWE-673",
-   :db/ident        :d3f/CWE-673,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "External Influence of Sphere Definition",
+  {:d3f/cwe-id "CWE-673",
+   :d3f/definition
+   "The product does not prevent the definition of control spheres from external actors.",
+   :db/ident :d3f/CWE-673,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Influence of Sphere Definition",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-674
-  {:d3f/cwe-id      "CWE-674",
-   :db/ident        :d3f/CWE-674,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Uncontrolled Recursion",
+  {:d3f/cwe-id "CWE-674",
+   :d3f/definition
+   "The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack.",
+   :d3f/synonym "Stack Exhaustion",
+   :db/ident :d3f/CWE-674,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uncontrolled Recursion",
    :rdfs/subClassOf :d3f/CWE-834})
 
 (def CWE-675
   {:d3f/cwe-id "CWE-675",
+   :d3f/definition
+   "The product performs the same operation on a resource two or more times, when the operation should only be applied once.",
    :db/ident :d3f/CWE-675,
    :rdf/type :owl/Class,
    :rdfs/label "Multiple Operations on Resource in Single-Operation Context",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-676
-  {:d3f/cwe-id      "CWE-676",
-   :db/ident        :d3f/CWE-676,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Potentially Dangerous Function",
+  {:d3f/cwe-id "CWE-676",
+   :d3f/definition
+   "The product invokes a potentially dangerous function that could introduce a vulnerability if it is used incorrectly, but the function can also be used safely.",
+   :db/ident :d3f/CWE-676,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Potentially Dangerous Function",
    :rdfs/subClassOf :d3f/CWE-1177})
 
 (def CWE-680
-  {:d3f/cwe-id      "CWE-680",
-   :db/ident        :d3f/CWE-680,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Integer Overflow to Buffer Overflow",
-   :rdfs/subClassOf :d3f/CWE-119})
+  {:d3f/cwe-id "CWE-680",
+   :d3f/definition
+   "The product performs a calculation to determine how much memory to allocate, but an integer overflow can occur that causes less memory to be allocated than expected, leading to a buffer overflow.",
+   :db/ident :d3f/CWE-680,
+   :rdf/type :owl/Class,
+   :rdfs/label "Integer Overflow to Buffer Overflow",
+   :rdfs/subClassOf #{:d3f/CWE-119 :d3f/CWE-190}})
 
 (def CWE-681
-  {:d3f/cwe-id      "CWE-681",
-   :db/ident        :d3f/CWE-681,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Conversion between Numeric Types",
+  {:d3f/cwe-id "CWE-681",
+   :d3f/definition
+   "When converting from one data type to another, such as long to integer, data can be omitted or translated in a way that produces unexpected values. If the resulting values are used in a sensitive context, then dangerous behaviors may occur.",
+   :db/ident :d3f/CWE-681,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Conversion between Numeric Types",
    :rdfs/subClassOf :d3f/CWE-704})
 
 (def CWE-682
-  {:d3f/cwe-id      "CWE-682",
-   :db/ident        :d3f/CWE-682,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Calculation",
+  {:d3f/cwe-id "CWE-682",
+   :d3f/definition
+   "The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.",
+   :db/ident :d3f/CWE-682,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Calculation",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-683
-  {:d3f/cwe-id      "CWE-683",
-   :db/ident        :d3f/CWE-683,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Function Call With Incorrect Order of Arguments",
+  {:d3f/cwe-id "CWE-683",
+   :d3f/definition
+   "The product calls a function, procedure, or routine, but the caller specifies the arguments in an incorrect order, leading to resultant weaknesses.",
+   :db/ident :d3f/CWE-683,
+   :rdf/type :owl/Class,
+   :rdfs/label "Function Call With Incorrect Order of Arguments",
    :rdfs/subClassOf :d3f/CWE-628})
 
 (def CWE-684
-  {:d3f/cwe-id      "CWE-684",
-   :db/ident        :d3f/CWE-684,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Provision of Specified Functionality",
+  {:d3f/cwe-id "CWE-684",
+   :d3f/definition
+   "The code does not function according to its published specifications, potentially leading to incorrect usage.",
+   :db/ident :d3f/CWE-684,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Provision of Specified Functionality",
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-685
-  {:d3f/cwe-id      "CWE-685",
-   :db/ident        :d3f/CWE-685,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Function Call With Incorrect Number of Arguments",
+  {:d3f/cwe-id "CWE-685",
+   :d3f/definition
+   "The product calls a function, procedure, or routine, but the caller specifies too many arguments, or too few arguments, which may lead to undefined behavior and resultant weaknesses.",
+   :db/ident :d3f/CWE-685,
+   :rdf/type :owl/Class,
+   :rdfs/label "Function Call With Incorrect Number of Arguments",
    :rdfs/subClassOf :d3f/CWE-628})
 
 (def CWE-686
-  {:d3f/cwe-id      "CWE-686",
-   :db/ident        :d3f/CWE-686,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Function Call With Incorrect Argument Type",
+  {:d3f/cwe-id "CWE-686",
+   :d3f/definition
+   "The product calls a function, procedure, or routine, but the caller specifies an argument that is the wrong data type, which may lead to resultant weaknesses.",
+   :db/ident :d3f/CWE-686,
+   :rdf/type :owl/Class,
+   :rdfs/label "Function Call With Incorrect Argument Type",
    :rdfs/subClassOf :d3f/CWE-628})
 
 (def CWE-687
-  {:d3f/cwe-id      "CWE-687",
-   :db/ident        :d3f/CWE-687,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Function Call With Incorrectly Specified Argument Value",
+  {:d3f/cwe-id "CWE-687",
+   :d3f/definition
+   "The product calls a function, procedure, or routine, but the caller specifies an argument that contains the wrong value, which may lead to resultant weaknesses.",
+   :db/ident :d3f/CWE-687,
+   :rdf/type :owl/Class,
+   :rdfs/label "Function Call With Incorrectly Specified Argument Value",
    :rdfs/subClassOf :d3f/CWE-628})
 
 (def CWE-688
   {:d3f/cwe-id "CWE-688",
+   :d3f/definition
+   "The product calls a function, procedure, or routine, but the caller specifies the wrong variable or reference as one of the arguments, which may lead to undefined behavior and resultant weaknesses.",
    :db/ident :d3f/CWE-688,
    :rdf/type :owl/Class,
    :rdfs/label "Function Call With Incorrect Variable or Reference as Argument",
    :rdfs/subClassOf :d3f/CWE-628})
 
 (def CWE-689
-  {:d3f/cwe-id      "CWE-689",
-   :db/ident        :d3f/CWE-689,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Permission Race Condition During Resource Copy",
+  {:d3f/cwe-id "CWE-689",
+   :d3f/definition
+   "The product, while copying or cloning a resource, does not set the resource's permissions or access control until the copy is complete, leaving the resource exposed to other spheres while the copy is taking place.",
+   :db/ident :d3f/CWE-689,
+   :rdf/type :owl/Class,
+   :rdfs/label "Permission Race Condition During Resource Copy",
    :rdfs/subClassOf :d3f/CWE-362})
 
 (def CWE-69
-  {:d3f/cwe-id      "CWE-69",
-   :db/ident        :d3f/CWE-69,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Windows ::DATA Alternate Data Stream",
+  {:d3f/cwe-id "CWE-69",
+   :d3f/definition
+   "The product does not properly prevent access to, or detect usage of, alternate data streams (ADS).",
+   :db/ident :d3f/CWE-69,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Windows ::DATA Alternate Data Stream",
    :rdfs/subClassOf :d3f/CWE-66})
 
 (def CWE-690
-  {:d3f/cwe-id      "CWE-690",
-   :db/ident        :d3f/CWE-690,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unchecked Return Value to NULL Pointer Dereference",
-   :rdfs/subClassOf :d3f/CWE-476})
+  {:d3f/cwe-id "CWE-690",
+   :d3f/definition
+   "The product does not check for an error after calling a function that can return with a NULL pointer if the function fails, which leads to a resultant NULL pointer dereference.",
+   :db/ident :d3f/CWE-690,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unchecked Return Value to NULL Pointer Dereference",
+   :rdfs/subClassOf #{:d3f/CWE-476 :d3f/CWE-252}})
 
 (def CWE-691
-  {:d3f/cwe-id      "CWE-691",
-   :db/ident        :d3f/CWE-691,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Control Flow Management",
+  {:d3f/cwe-id "CWE-691",
+   :d3f/definition
+   "The code does not sufficiently manage its control flow during execution, creating conditions in which the control flow can be modified in unexpected ways.",
+   :db/ident :d3f/CWE-691,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Control Flow Management",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-692
-  {:d3f/cwe-id      "CWE-692",
-   :db/ident        :d3f/CWE-692,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Denylist to Cross-Site Scripting",
-   :rdfs/subClassOf :d3f/CWE-79})
+  {:d3f/cwe-id "CWE-692",
+   :d3f/definition
+   "The product uses a denylist-based protection mechanism to defend against XSS attacks, but the denylist is incomplete, allowing XSS variants to succeed.",
+   :db/ident :d3f/CWE-692,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Denylist to Cross-Site Scripting",
+   :rdfs/subClassOf #{:d3f/CWE-79 :d3f/CWE-184}})
 
 (def CWE-693
-  {:d3f/cwe-id      "CWE-693",
-   :db/ident        :d3f/CWE-693,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Protection Mechanism Failure",
+  {:d3f/cwe-id "CWE-693",
+   :d3f/definition
+   "The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.",
+   :db/ident :d3f/CWE-693,
+   :rdf/type :owl/Class,
+   :rdfs/label "Protection Mechanism Failure",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-694
-  {:d3f/cwe-id      "CWE-694",
-   :db/ident        :d3f/CWE-694,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Multiple Resources with Duplicate Identifier",
+  {:d3f/cwe-id "CWE-694",
+   :d3f/definition
+   "The product uses multiple resources that can have the same identifier, in a context in which unique identifiers are required.",
+   :db/ident :d3f/CWE-694,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Multiple Resources with Duplicate Identifier",
    :rdfs/subClassOf #{:d3f/CWE-573 :d3f/CWE-99}})
 
 (def CWE-695
-  {:d3f/cwe-id      "CWE-695",
-   :db/ident        :d3f/CWE-695,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Low-Level Functionality",
+  {:d3f/cwe-id "CWE-695",
+   :d3f/definition
+   "The product uses low-level functionality that is explicitly prohibited by the framework or specification under which the product is supposed to operate.",
+   :db/ident :d3f/CWE-695,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Low-Level Functionality",
    :rdfs/subClassOf :d3f/CWE-573})
 
 (def CWE-696
-  {:d3f/cwe-id      "CWE-696",
-   :db/ident        :d3f/CWE-696,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Behavior Order",
+  {:d3f/cwe-id "CWE-696",
+   :d3f/definition
+   "The product performs multiple related behaviors, but the behaviors are performed in the wrong order in ways which may produce resultant weaknesses.",
+   :db/ident :d3f/CWE-696,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Behavior Order",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-697
-  {:d3f/cwe-id      "CWE-697",
-   :db/ident        :d3f/CWE-697,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Comparison",
+  {:d3f/cwe-id "CWE-697",
+   :d3f/definition
+   "The product compares two entities in a security-relevant context, but the comparison is incorrect, which may lead to resultant weaknesses.",
+   :db/ident :d3f/CWE-697,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Comparison",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-698
-  {:d3f/cwe-id      "CWE-698",
-   :db/ident        :d3f/CWE-698,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Execution After Redirect (EAR)",
+  {:d3f/cwe-id "CWE-698",
+   :d3f/definition
+   "The web application sends a redirect to another location, but instead of exiting, it executes additional code.",
+   :d3f/synonym "Redirect Without Exit",
+   :db/ident :d3f/CWE-698,
+   :rdf/type :owl/Class,
+   :rdfs/label "Execution After Redirect (EAR)",
    :rdfs/subClassOf #{:d3f/CWE-670 :d3f/CWE-705}})
 
 (def CWE-7
-  {:d3f/cwe-id      "CWE-7",
-   :db/ident        :d3f/CWE-7,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Misconfiguration: Missing Custom Error Page",
+  {:d3f/cwe-id "CWE-7",
+   :d3f/definition
+   "The default error page of a web application should not display sensitive information about the product.",
+   :db/ident :d3f/CWE-7,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Misconfiguration: Missing Custom Error Page",
    :rdfs/subClassOf :d3f/CWE-756})
 
 (def CWE-703
-  {:d3f/cwe-id      "CWE-703",
-   :db/ident        :d3f/CWE-703,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Check or Handling of Exceptional Conditions",
+  {:d3f/cwe-id "CWE-703",
+   :d3f/definition
+   "The product does not properly anticipate or handle exceptional conditions that rarely occur during normal operation of the product.",
+   :db/ident :d3f/CWE-703,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Check or Handling of Exceptional Conditions",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-704
-  {:d3f/cwe-id      "CWE-704",
-   :db/ident        :d3f/CWE-704,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Type Conversion or Cast",
+  {:d3f/cwe-id "CWE-704",
+   :d3f/definition
+   "The product does not correctly convert an object, resource, or structure from one type to a different type.",
+   :db/ident :d3f/CWE-704,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Type Conversion or Cast",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-705
-  {:d3f/cwe-id      "CWE-705",
-   :db/ident        :d3f/CWE-705,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Control Flow Scoping",
+  {:d3f/cwe-id "CWE-705",
+   :d3f/definition
+   "The product does not properly return control flow to the proper location after it has completed a task or detected an unusual condition.",
+   :db/ident :d3f/CWE-705,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Control Flow Scoping",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-706
-  {:d3f/cwe-id      "CWE-706",
-   :db/ident        :d3f/CWE-706,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Incorrectly-Resolved Name or Reference",
+  {:d3f/cwe-id "CWE-706",
+   :d3f/definition
+   "The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.",
+   :db/ident :d3f/CWE-706,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Incorrectly-Resolved Name or Reference",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-707
-  {:d3f/cwe-id      "CWE-707",
-   :db/ident        :d3f/CWE-707,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization",
+  {:d3f/cwe-id "CWE-707",
+   :d3f/definition
+   "The product does not ensure or incorrectly ensures that structured messages or data are well-formed and that certain security properties are met before being read from an upstream component or sent to a downstream component.",
+   :db/ident :d3f/CWE-707,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-708
-  {:d3f/cwe-id      "CWE-708",
-   :db/ident        :d3f/CWE-708,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Ownership Assignment",
+  {:d3f/cwe-id "CWE-708",
+   :d3f/definition
+   "The product assigns an owner to a resource, but the owner is outside of the intended control sphere.",
+   :db/ident :d3f/CWE-708,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Ownership Assignment",
    :rdfs/subClassOf :d3f/CWE-282})
 
 (def CWE-710
-  {:d3f/cwe-id      "CWE-710",
-   :db/ident        :d3f/CWE-710,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Adherence to Coding Standards",
+  {:d3f/cwe-id "CWE-710",
+   :d3f/definition
+   "The product does not follow certain coding rules for development, which can lead to resultant weaknesses or increase the severity of the associated vulnerabilities.",
+   :db/ident :d3f/CWE-710,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Adherence to Coding Standards",
    :rdfs/subClassOf :d3f/Weakness})
 
 (def CWE-72
   {:d3f/cwe-id "CWE-72",
+   :d3f/definition
+   "The product does not properly handle special paths that may identify the data or resource fork of a file on the HFS+ file system.",
    :db/ident :d3f/CWE-72,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Handling of Apple HFS+ Alternate Data Stream Path",
    :rdfs/subClassOf :d3f/CWE-66})
 
 (def CWE-73
-  {:d3f/cwe-id      "CWE-73",
-   :db/ident        :d3f/CWE-73,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "External Control of File Name or Path",
+  {:d3f/cwe-id "CWE-73",
+   :d3f/definition
+   "The product allows user input to control or influence paths or file names that are used in filesystem operations.",
+   :db/ident :d3f/CWE-73,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Control of File Name or Path",
    :rdfs/subClassOf #{:d3f/CWE-642 :d3f/CWE-610}})
 
 (def CWE-732
-  {:d3f/cwe-id      "CWE-732",
-   :db/ident        :d3f/CWE-732,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Permission Assignment for Critical Resource",
+  {:d3f/cwe-id "CWE-732",
+   :d3f/definition
+   "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.",
+   :db/ident :d3f/CWE-732,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Permission Assignment for Critical Resource",
    :rdfs/subClassOf #{:d3f/CWE-285 :d3f/CWE-668}})
 
 (def CWE-733
   {:d3f/cwe-id "CWE-733",
+   :d3f/definition
+   "The developer builds a security-critical protection mechanism into the software, but the compiler optimizes the program such that the mechanism is removed or modified.",
    :db/ident :d3f/CWE-733,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11159,6 +13013,8 @@
 
 (def CWE-74
   {:d3f/cwe-id "CWE-74",
+   :d3f/definition
+   "The product constructs all or part of a command, data structure, or record using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify how it is parsed or interpreted when it is sent to a downstream component.",
    :db/ident :d3f/CWE-74,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11166,14 +13022,18 @@
    :rdfs/subClassOf :d3f/CWE-707})
 
 (def CWE-749
-  {:d3f/cwe-id      "CWE-749",
-   :db/ident        :d3f/CWE-749,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposed Dangerous Method or Function",
+  {:d3f/cwe-id "CWE-749",
+   :d3f/definition
+   "The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted.",
+   :db/ident :d3f/CWE-749,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposed Dangerous Method or Function",
    :rdfs/subClassOf :d3f/CWE-284})
 
 (def CWE-75
   {:d3f/cwe-id "CWE-75",
+   :d3f/definition
+   "The product does not adequately filter user-controlled input for special elements with control implications.",
    :db/ident :d3f/CWE-75,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11181,28 +13041,36 @@
    :rdfs/subClassOf :d3f/CWE-74})
 
 (def CWE-754
-  {:d3f/cwe-id      "CWE-754",
-   :db/ident        :d3f/CWE-754,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Check for Unusual or Exceptional Conditions",
+  {:d3f/cwe-id "CWE-754",
+   :d3f/definition
+   "The product does not check or incorrectly checks for unusual or exceptional conditions that are not expected to occur frequently during day to day operation of the product.",
+   :db/ident :d3f/CWE-754,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Check for Unusual or Exceptional Conditions",
    :rdfs/subClassOf :d3f/CWE-703})
 
 (def CWE-755
-  {:d3f/cwe-id      "CWE-755",
-   :db/ident        :d3f/CWE-755,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Handling of Exceptional Conditions",
+  {:d3f/cwe-id "CWE-755",
+   :d3f/definition
+   "The product does not handle or incorrectly handles an exceptional condition.",
+   :db/ident :d3f/CWE-755,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Handling of Exceptional Conditions",
    :rdfs/subClassOf :d3f/CWE-703})
 
 (def CWE-756
-  {:d3f/cwe-id      "CWE-756",
-   :db/ident        :d3f/CWE-756,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Custom Error Page",
+  {:d3f/cwe-id "CWE-756",
+   :d3f/definition
+   "The product does not return custom error pages to the user, possibly exposing sensitive information.",
+   :db/ident :d3f/CWE-756,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Custom Error Page",
    :rdfs/subClassOf :d3f/CWE-755})
 
 (def CWE-757
   {:d3f/cwe-id "CWE-757",
+   :d3f/definition
+   "A protocol or its implementation supports interaction between multiple actors and allows those actors to negotiate which algorithm should be used as a protection mechanism such as encryption or authentication, but it does not select the strongest algorithm that is available to both parties.",
    :db/ident :d3f/CWE-757,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11211,6 +13079,8 @@
 
 (def CWE-758
   {:d3f/cwe-id "CWE-758",
+   :d3f/definition
+   "The product uses an API function, data structure, or other entity in a way that relies on properties that are not always guaranteed to hold for that entity.",
    :db/ident :d3f/CWE-758,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11218,87 +13088,112 @@
    :rdfs/subClassOf :d3f/CWE-710})
 
 (def CWE-759
-  {:d3f/cwe-id      "CWE-759",
-   :db/ident        :d3f/CWE-759,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of a One-Way Hash without a Salt",
+  {:d3f/cwe-id "CWE-759",
+   :d3f/definition
+   "The product uses a one-way cryptographic hash against an input that should not be reversible, such as a password, but the product does not also use a salt as part of the input.",
+   :db/ident :d3f/CWE-759,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of a One-Way Hash without a Salt",
    :rdfs/subClassOf :d3f/CWE-916})
 
 (def CWE-76
-  {:d3f/cwe-id      "CWE-76",
-   :db/ident        :d3f/CWE-76,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Equivalent Special Elements",
+  {:d3f/cwe-id "CWE-76",
+   :d3f/definition
+   "The product correctly neutralizes certain special elements, but it improperly neutralizes equivalent special elements.",
+   :db/ident :d3f/CWE-76,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Equivalent Special Elements",
    :rdfs/subClassOf :d3f/CWE-75})
 
 (def CWE-760
-  {:d3f/cwe-id      "CWE-760",
-   :db/ident        :d3f/CWE-760,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of a One-Way Hash with a Predictable Salt",
+  {:d3f/cwe-id "CWE-760",
+   :d3f/definition
+   "The product uses a one-way cryptographic hash against an input that should not be reversible, such as a password, but the product uses a predictable salt as part of the input.",
+   :db/ident :d3f/CWE-760,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of a One-Way Hash with a Predictable Salt",
    :rdfs/subClassOf :d3f/CWE-916})
 
 (def CWE-761
-  {:d3f/cwe-id      "CWE-761",
+  {:d3f/cwe-id "CWE-761",
+   :d3f/definition
+   "The product calls free() on a pointer to a memory resource that was allocated on the heap, but the pointer is not at the start of the buffer.",
    :d3f/weakness-of :d3f/MemoryFreeFunction,
-   :db/ident        :d3f/CWE-761,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Free of Pointer not at Start of Buffer",
+   :db/ident :d3f/CWE-761,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Free of Pointer not at Start of Buffer",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/MemoryFreeFunction,
                        :rdf/type           :owl/Restriction} :d3f/CWE-763}})
 
 (def CWE-762
-  {:d3f/cwe-id      "CWE-762",
-   :db/ident        :d3f/CWE-762,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Mismatched Memory Management Routines",
+  {:d3f/cwe-id "CWE-762",
+   :d3f/definition
+   "The product attempts to return a memory resource to the system, but it calls a release function that is not compatible with the function that was originally used to allocate that resource.",
+   :db/ident :d3f/CWE-762,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mismatched Memory Management Routines",
    :rdfs/subClassOf :d3f/CWE-763})
 
 (def CWE-763
-  {:d3f/cwe-id      "CWE-763",
-   :db/ident        :d3f/CWE-763,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Release of Invalid Pointer or Reference",
+  {:d3f/cwe-id "CWE-763",
+   :d3f/definition
+   "The product attempts to return a memory resource to the system, but it calls the wrong release function or calls the appropriate release function incorrectly.",
+   :db/ident :d3f/CWE-763,
+   :rdf/type :owl/Class,
+   :rdfs/label "Release of Invalid Pointer or Reference",
    :rdfs/subClassOf :d3f/CWE-404})
 
 (def CWE-764
-  {:d3f/cwe-id      "CWE-764",
-   :db/ident        :d3f/CWE-764,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multiple Locks of a Critical Resource",
+  {:d3f/cwe-id "CWE-764",
+   :d3f/definition
+   "The product locks a critical resource more times than intended, leading to an unexpected state in the system.",
+   :db/ident :d3f/CWE-764,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multiple Locks of a Critical Resource",
    :rdfs/subClassOf #{:d3f/CWE-667 :d3f/CWE-675}})
 
 (def CWE-765
-  {:d3f/cwe-id      "CWE-765",
-   :db/ident        :d3f/CWE-765,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Multiple Unlocks of a Critical Resource",
+  {:d3f/cwe-id "CWE-765",
+   :d3f/definition
+   "The product unlocks a critical resource more times than intended, leading to an unexpected state in the system.",
+   :db/ident :d3f/CWE-765,
+   :rdf/type :owl/Class,
+   :rdfs/label "Multiple Unlocks of a Critical Resource",
    :rdfs/subClassOf #{:d3f/CWE-667 :d3f/CWE-675}})
 
 (def CWE-766
-  {:d3f/cwe-id      "CWE-766",
-   :db/ident        :d3f/CWE-766,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Critical Data Element Declared Public",
-   :rdfs/subClassOf :d3f/CWE-1061})
+  {:d3f/cwe-id "CWE-766",
+   :d3f/definition
+   "The product declares a critical variable, field, or member to be public when intended security policy requires it to be private.",
+   :db/ident :d3f/CWE-766,
+   :rdf/type :owl/Class,
+   :rdfs/label "Critical Data Element Declared Public",
+   :rdfs/subClassOf #{:d3f/CWE-732 :d3f/CWE-1061}})
 
 (def CWE-767
-  {:d3f/cwe-id      "CWE-767",
-   :db/ident        :d3f/CWE-767,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Access to Critical Private Variable via Public Method",
+  {:d3f/cwe-id "CWE-767",
+   :d3f/definition
+   "The product defines a public method that reads or modifies a private variable.",
+   :db/ident :d3f/CWE-767,
+   :rdf/type :owl/Class,
+   :rdfs/label "Access to Critical Private Variable via Public Method",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-768
-  {:d3f/cwe-id      "CWE-768",
-   :db/ident        :d3f/CWE-768,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Short Circuit Evaluation",
+  {:d3f/cwe-id "CWE-768",
+   :d3f/definition
+   "The product contains a conditional statement with multiple logical expressions in which one of the non-leading expressions may produce side effects. This may lead to an unexpected state in the program after the execution of the conditional, because short-circuiting logic may prevent the side effects from occurring.",
+   :db/ident :d3f/CWE-768,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Short Circuit Evaluation",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-77
   {:d3f/cwe-id "CWE-77",
+   :d3f/definition
+   "The product constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.",
+   :d3f/synonym "Command injection",
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-77,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -11310,35 +13205,46 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-770
-  {:d3f/cwe-id      "CWE-770",
-   :db/ident        :d3f/CWE-770,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Allocation of Resources Without Limits or Throttling",
+  {:d3f/cwe-id "CWE-770",
+   :d3f/definition
+   "The product allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on the size or number of resources that can be allocated, in violation of the intended security policy for that actor.",
+   :db/ident :d3f/CWE-770,
+   :rdf/type :owl/Class,
+   :rdfs/label "Allocation of Resources Without Limits or Throttling",
    :rdfs/subClassOf #{:d3f/CWE-665 :d3f/CWE-400}})
 
 (def CWE-771
-  {:d3f/cwe-id      "CWE-771",
-   :db/ident        :d3f/CWE-771,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Reference to Active Allocated Resource",
+  {:d3f/cwe-id "CWE-771",
+   :d3f/definition
+   "The product does not properly maintain a reference to a resource that has been allocated, which prevents the resource from being reclaimed.",
+   :db/ident :d3f/CWE-771,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Reference to Active Allocated Resource",
    :rdfs/subClassOf :d3f/CWE-400})
 
 (def CWE-772
-  {:d3f/cwe-id      "CWE-772",
-   :db/ident        :d3f/CWE-772,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Release of Resource after Effective Lifetime",
+  {:d3f/cwe-id "CWE-772",
+   :d3f/definition
+   "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+   :db/ident :d3f/CWE-772,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Release of Resource after Effective Lifetime",
    :rdfs/subClassOf :d3f/CWE-404})
 
 (def CWE-773
-  {:d3f/cwe-id      "CWE-773",
-   :db/ident        :d3f/CWE-773,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Reference to Active File Descriptor or Handle",
+  {:d3f/cwe-id "CWE-773",
+   :d3f/definition
+   "The product does not properly maintain references to a file descriptor or handle, which prevents that file descriptor/handle from being reclaimed.",
+   :db/ident :d3f/CWE-773,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Reference to Active File Descriptor or Handle",
    :rdfs/subClassOf :d3f/CWE-771})
 
 (def CWE-774
   {:d3f/cwe-id "CWE-774",
+   :d3f/definition
+   "The product allocates file descriptors or handles on behalf of an actor without imposing any restrictions on how many descriptors can be allocated, in violation of the intended security policy for that actor.",
+   :d3f/synonym "File Descriptor Exhaustion",
    :db/ident :d3f/CWE-774,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11347,6 +13253,8 @@
 
 (def CWE-775
   {:d3f/cwe-id "CWE-775",
+   :d3f/definition
+   "The product does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
    :db/ident :d3f/CWE-775,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11355,6 +13263,9 @@
 
 (def CWE-776
   {:d3f/cwe-id "CWE-776",
+   :d3f/definition
+   "The product uses XML documents and allows their structure to be defined with a Document Type Definition (DTD), but it does not properly control the number of recursive definitions of entities.",
+   :d3f/synonym #{"XEE" "XML Bomb" "Billion Laughs Attack"},
    :db/ident :d3f/CWE-776,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11362,30 +13273,40 @@
    :rdfs/subClassOf #{:d3f/CWE-405 :d3f/CWE-674}})
 
 (def CWE-777
-  {:d3f/cwe-id      "CWE-777",
-   :db/ident        :d3f/CWE-777,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Regular Expression without Anchors",
+  {:d3f/cwe-id "CWE-777",
+   :d3f/definition
+   "The product uses a regular expression to perform neutralization, but the regular expression is not anchored and may allow malicious or malformed data to slip through.",
+   :db/ident :d3f/CWE-777,
+   :rdf/type :owl/Class,
+   :rdfs/label "Regular Expression without Anchors",
    :rdfs/subClassOf :d3f/CWE-625})
 
 (def CWE-778
-  {:d3f/cwe-id      "CWE-778",
-   :db/ident        :d3f/CWE-778,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insufficient Logging",
+  {:d3f/cwe-id "CWE-778",
+   :d3f/definition
+   "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
+   :db/ident :d3f/CWE-778,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insufficient Logging",
    :rdfs/subClassOf #{:d3f/CWE-223 :d3f/CWE-693}})
 
 (def CWE-779
-  {:d3f/cwe-id      "CWE-779",
-   :db/ident        :d3f/CWE-779,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Logging of Excessive Data",
+  {:d3f/cwe-id "CWE-779",
+   :d3f/definition
+   "The product logs too much information, making log files hard to process and possibly hindering recovery efforts or forensic analysis after an attack.",
+   :db/ident :d3f/CWE-779,
+   :rdf/type :owl/Class,
+   :rdfs/label "Logging of Excessive Data",
    :rdfs/subClassOf :d3f/CWE-400})
 
 (def CWE-78
   {:d3f/cwe-id "CWE-78",
+   :d3f/definition
+   "The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.",
    :d3f/may-be-weakness-of #{:d3f/ProcessStartFunction :d3f/EvalFunction
                              :d3f/UserInputFunction},
+   :d3f/synonym #{"Shell metacharacters" "Shell injection"
+                  "OS Command Injection"},
    :db/ident :d3f/CWE-78,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label
@@ -11401,14 +13322,18 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-780
-  {:d3f/cwe-id      "CWE-780",
-   :db/ident        :d3f/CWE-780,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of RSA Algorithm without OAEP",
+  {:d3f/cwe-id "CWE-780",
+   :d3f/definition
+   "The product uses the RSA algorithm but does not incorporate Optimal Asymmetric Encryption Padding (OAEP), which might weaken the encryption.",
+   :db/ident :d3f/CWE-780,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of RSA Algorithm without OAEP",
    :rdfs/subClassOf :d3f/CWE-327})
 
 (def CWE-781
   {:d3f/cwe-id "CWE-781",
+   :d3f/definition
+   "The product defines an IOCTL that uses METHOD_NEITHER for I/O, but it does not validate or incorrectly validates the addresses that are provided.",
    :db/ident :d3f/CWE-781,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11416,21 +13341,27 @@
    :rdfs/subClassOf :d3f/CWE-1285})
 
 (def CWE-782
-  {:d3f/cwe-id      "CWE-782",
-   :db/ident        :d3f/CWE-782,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Exposed IOCTL with Insufficient Access Control",
+  {:d3f/cwe-id "CWE-782",
+   :d3f/definition
+   "The product implements an IOCTL with functionality that should be restricted, but it does not properly enforce access control for the IOCTL.",
+   :db/ident :d3f/CWE-782,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exposed IOCTL with Insufficient Access Control",
    :rdfs/subClassOf :d3f/CWE-749})
 
 (def CWE-783
-  {:d3f/cwe-id      "CWE-783",
-   :db/ident        :d3f/CWE-783,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Operator Precedence Logic Error",
+  {:d3f/cwe-id "CWE-783",
+   :d3f/definition
+   "The product uses an expression in which operator precedence causes incorrect logic to be used.",
+   :db/ident :d3f/CWE-783,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operator Precedence Logic Error",
    :rdfs/subClassOf :d3f/CWE-670})
 
 (def CWE-784
   {:d3f/cwe-id "CWE-784",
+   :d3f/definition
+   "The product uses a protection mechanism that relies on the existence or values of a cookie, but it does not properly ensure that the cookie is valid for the associated user.",
    :db/ident :d3f/CWE-784,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11439,45 +13370,62 @@
 
 (def CWE-785
   {:d3f/cwe-id "CWE-785",
+   :d3f/definition
+   "The product invokes a function for normalizing paths or file names, but it provides an output buffer that is smaller than the maximum possible size, such as PATH_MAX.",
    :db/ident :d3f/CWE-785,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Path Manipulation Function without Maximum-sized Buffer",
    :rdfs/subClassOf #{:d3f/CWE-120 :d3f/CWE-676}})
 
 (def CWE-786
-  {:d3f/cwe-id      "CWE-786",
-   :db/ident        :d3f/CWE-786,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Access of Memory Location Before Start of Buffer",
+  {:d3f/cwe-id "CWE-786",
+   :d3f/definition
+   "The product reads or writes to a buffer using an index or pointer that references a memory location prior to the beginning of the buffer.",
+   :db/ident :d3f/CWE-786,
+   :rdf/type :owl/Class,
+   :rdfs/label "Access of Memory Location Before Start of Buffer",
    :rdfs/subClassOf :d3f/CWE-119})
 
 (def CWE-787
-  {:d3f/cwe-id      "CWE-787",
+  {:d3f/cwe-id "CWE-787",
+   :d3f/definition
+   "The product writes data past the end, or before the beginning, of the intended buffer.",
+   :d3f/synonym "Memory Corruption",
    :d3f/weakness-of :d3f/RawMemoryAccessFunction,
-   :db/ident        :d3f/CWE-787,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Out-of-bounds Write",
+   :db/ident :d3f/CWE-787,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Out-of-bounds Write",
    :rdfs/subClassOf #{:d3f/CWE-119
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/RawMemoryAccessFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-788
-  {:d3f/cwe-id      "CWE-788",
-   :db/ident        :d3f/CWE-788,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Access of Memory Location After End of Buffer",
+  {:d3f/cwe-id "CWE-788",
+   :d3f/definition
+   "The product reads or writes to a buffer using an index or pointer that references a memory location after the end of the buffer.",
+   :db/ident :d3f/CWE-788,
+   :rdf/type :owl/Class,
+   :rdfs/label "Access of Memory Location After End of Buffer",
    :rdfs/subClassOf :d3f/CWE-119})
 
 (def CWE-789
-  {:d3f/cwe-id      "CWE-789",
-   :db/ident        :d3f/CWE-789,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Memory Allocation with Excessive Size Value",
+  {:d3f/cwe-id "CWE-789",
+   :d3f/definition
+   "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated.",
+   :d3f/synonym "Stack Exhaustion",
+   :db/ident :d3f/CWE-789,
+   :rdf/type :owl/Class,
+   :rdfs/label "Memory Allocation with Excessive Size Value",
    :rdfs/subClassOf #{:d3f/CWE-1284 :d3f/CWE-770}})
 
 (def CWE-79
   {:d3f/cwe-id "CWE-79",
+   :d3f/definition
+   "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+   :d3f/synonym #{"HTML Injection" "Stored XSS / Persistent XSS / Type 2 XSS"
+                  "Reflected XSS / Non-Persistent XSS / Type 1 XSS" "CSS"
+                  "DOM-Based XSS / Type 0 XSS" "XSS"},
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-79,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -11489,21 +13437,27 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-790
-  {:d3f/cwe-id      "CWE-790",
-   :db/ident        :d3f/CWE-790,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Filtering of Special Elements",
+  {:d3f/cwe-id "CWE-790",
+   :d3f/definition
+   "The product receives data from an upstream component, but does not filter or incorrectly filters special elements before sending it to a downstream component.",
+   :db/ident :d3f/CWE-790,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Filtering of Special Elements",
    :rdfs/subClassOf :d3f/CWE-138})
 
 (def CWE-791
-  {:d3f/cwe-id      "CWE-791",
-   :db/ident        :d3f/CWE-791,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incomplete Filtering of Special Elements",
+  {:d3f/cwe-id "CWE-791",
+   :d3f/definition
+   "The product receives data from an upstream component, but does not completely filter special elements before sending it to a downstream component.",
+   :db/ident :d3f/CWE-791,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incomplete Filtering of Special Elements",
    :rdfs/subClassOf :d3f/CWE-790})
 
 (def CWE-792
   {:d3f/cwe-id "CWE-792",
+   :d3f/definition
+   "The product receives data from an upstream component, but does not completely filter one or more instances of special elements before sending it to a downstream component.",
    :db/ident :d3f/CWE-792,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11511,67 +13465,86 @@
    :rdfs/subClassOf :d3f/CWE-791})
 
 (def CWE-793
-  {:d3f/cwe-id      "CWE-793",
-   :db/ident        :d3f/CWE-793,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Only Filtering One Instance of a Special Element",
+  {:d3f/cwe-id "CWE-793",
+   :d3f/definition
+   "The product receives data from an upstream component, but only filters a single instance of a special element before sending it to a downstream component.",
+   :db/ident :d3f/CWE-793,
+   :rdf/type :owl/Class,
+   :rdfs/label "Only Filtering One Instance of a Special Element",
    :rdfs/subClassOf :d3f/CWE-792})
 
 (def CWE-794
   {:d3f/cwe-id "CWE-794",
+   :d3f/definition
+   "The product receives data from an upstream component, but does not filter all instances of a special element before sending it to a downstream component.",
    :db/ident :d3f/CWE-794,
    :rdf/type :owl/Class,
    :rdfs/label "Incomplete Filtering of Multiple Instances of Special Elements",
    :rdfs/subClassOf :d3f/CWE-792})
 
 (def CWE-795
-  {:d3f/cwe-id      "CWE-795",
-   :db/ident        :d3f/CWE-795,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Only Filtering Special Elements at a Specified Location",
+  {:d3f/cwe-id "CWE-795",
+   :d3f/definition
+   "The product receives data from an upstream component, but only accounts for special elements at a specified location, thereby missing remaining special elements that may exist before sending it to a downstream component.",
+   :db/ident :d3f/CWE-795,
+   :rdf/type :owl/Class,
+   :rdfs/label "Only Filtering Special Elements at a Specified Location",
    :rdfs/subClassOf :d3f/CWE-791})
 
 (def CWE-796
-  {:d3f/cwe-id      "CWE-796",
-   :db/ident        :d3f/CWE-796,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Only Filtering Special Elements Relative to a Marker",
+  {:d3f/cwe-id "CWE-796",
+   :d3f/definition
+   "The product receives data from an upstream component, but only accounts for special elements positioned relative to a marker (e.g. \"at the beginning/end of a string; the second argument\"), thereby missing remaining special elements that may exist before sending it to a downstream component.",
+   :db/ident :d3f/CWE-796,
+   :rdf/type :owl/Class,
+   :rdfs/label "Only Filtering Special Elements Relative to a Marker",
    :rdfs/subClassOf :d3f/CWE-795})
 
 (def CWE-797
-  {:d3f/cwe-id      "CWE-797",
-   :db/ident        :d3f/CWE-797,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Only Filtering Special Elements at an Absolute Position",
+  {:d3f/cwe-id "CWE-797",
+   :d3f/definition
+   "The product receives data from an upstream component, but only accounts for special elements at an absolute position (e.g. \"byte number 10\"), thereby missing remaining special elements that may exist before sending it to a downstream component.",
+   :db/ident :d3f/CWE-797,
+   :rdf/type :owl/Class,
+   :rdfs/label "Only Filtering Special Elements at an Absolute Position",
    :rdfs/subClassOf :d3f/CWE-795})
 
 (def CWE-798
-  {:d3f/cwe-id      "CWE-798",
+  {:d3f/cwe-id "CWE-798",
+   :d3f/definition
+   "The product contains hard-coded credentials, such as a password or cryptographic key.",
    :d3f/weakness-of :d3f/AuthenticationFunction,
-   :db/ident        :d3f/CWE-798,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Use of Hard-coded Credentials",
+   :db/ident :d3f/CWE-798,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Use of Hard-coded Credentials",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/AuthenticationFunction,
                        :rdf/type           :owl/Restriction} :d3f/CWE-1391
                       :d3f/CWE-344 :d3f/CWE-671}})
 
 (def CWE-799
-  {:d3f/cwe-id      "CWE-799",
-   :db/ident        :d3f/CWE-799,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Control of Interaction Frequency",
+  {:d3f/cwe-id "CWE-799",
+   :d3f/definition
+   "The product does not properly limit the number or frequency of interactions that it has with an actor, such as the number of incoming requests.",
+   :d3f/synonym #{"Insufficient anti-automation" "Brute force"},
+   :db/ident :d3f/CWE-799,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Control of Interaction Frequency",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-8
-  {:d3f/cwe-id      "CWE-8",
-   :db/ident        :d3f/CWE-8,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "J2EE Misconfiguration: Entity Bean Declared Remote",
+  {:d3f/cwe-id "CWE-8",
+   :d3f/definition
+   "When an application exposes a remote interface for an entity bean, it might also expose methods that get or set the bean's data. These methods could be leveraged to read sensitive information, or to change data in ways that violate the application's expectations, potentially leading to other vulnerabilities.",
+   :db/ident :d3f/CWE-8,
+   :rdf/type :owl/Class,
+   :rdfs/label "J2EE Misconfiguration: Entity Bean Declared Remote",
    :rdfs/subClassOf :d3f/CWE-668})
 
 (def CWE-80
   {:d3f/cwe-id "CWE-80",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters such as \"<\", \">\", and \"&\" that could be interpreted as web-scripting elements when they are sent to a downstream component that processes web pages.",
    :db/ident :d3f/CWE-80,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11579,35 +13552,45 @@
    :rdfs/subClassOf :d3f/CWE-79})
 
 (def CWE-804
-  {:d3f/cwe-id      "CWE-804",
-   :db/ident        :d3f/CWE-804,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Guessable CAPTCHA",
+  {:d3f/cwe-id "CWE-804",
+   :d3f/definition
+   "The product uses a CAPTCHA challenge, but the challenge can be guessed or automatically recognized by a non-human actor.",
+   :db/ident :d3f/CWE-804,
+   :rdf/type :owl/Class,
+   :rdfs/label "Guessable CAPTCHA",
    :rdfs/subClassOf #{:d3f/CWE-863 :d3f/CWE-1390}})
 
 (def CWE-805
-  {:d3f/cwe-id      "CWE-805",
-   :db/ident        :d3f/CWE-805,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Buffer Access with Incorrect Length Value",
+  {:d3f/cwe-id "CWE-805",
+   :d3f/definition
+   "The product uses a sequential operation to read or write a buffer, but it uses an incorrect length value that causes it to access memory that is outside of the bounds of the buffer.",
+   :db/ident :d3f/CWE-805,
+   :rdf/type :owl/Class,
+   :rdfs/label "Buffer Access with Incorrect Length Value",
    :rdfs/subClassOf :d3f/CWE-119})
 
 (def CWE-806
-  {:d3f/cwe-id      "CWE-806",
-   :db/ident        :d3f/CWE-806,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Buffer Access Using Size of Source Buffer",
+  {:d3f/cwe-id "CWE-806",
+   :d3f/definition
+   "The product uses the size of a source buffer when reading from or writing to a destination buffer, which may cause it to access memory that is outside of the bounds of the buffer.",
+   :db/ident :d3f/CWE-806,
+   :rdf/type :owl/Class,
+   :rdfs/label "Buffer Access Using Size of Source Buffer",
    :rdfs/subClassOf :d3f/CWE-805})
 
 (def CWE-807
-  {:d3f/cwe-id      "CWE-807",
-   :db/ident        :d3f/CWE-807,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Reliance on Untrusted Inputs in a Security Decision",
+  {:d3f/cwe-id "CWE-807",
+   :d3f/definition
+   "The product uses a protection mechanism that relies on the existence or values of an input, but the input can be modified by an untrusted actor in a way that bypasses the protection mechanism.",
+   :db/ident :d3f/CWE-807,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reliance on Untrusted Inputs in a Security Decision",
    :rdfs/subClassOf :d3f/CWE-693})
 
 (def CWE-81
   {:d3f/cwe-id "CWE-81",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters that could be interpreted as web-scripting elements when they are sent to an error page.",
    :db/ident :d3f/CWE-81,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Script in an Error Message Web Page",
@@ -11615,6 +13598,8 @@
 
 (def CWE-82
   {:d3f/cwe-id "CWE-82",
+   :d3f/definition
+   "The web application does not neutralize or incorrectly neutralizes scripting elements within attributes of HTML IMG tags, such as the src attribute.",
    :db/ident :d3f/CWE-82,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11622,75 +13607,95 @@
    :rdfs/subClassOf :d3f/CWE-83})
 
 (def CWE-820
-  {:d3f/cwe-id      "CWE-820",
-   :db/ident        :d3f/CWE-820,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Missing Synchronization",
+  {:d3f/cwe-id "CWE-820",
+   :d3f/definition
+   "The product utilizes a shared resource in a concurrent manner but does not attempt to synchronize access to the resource.",
+   :db/ident :d3f/CWE-820,
+   :rdf/type :owl/Class,
+   :rdfs/label "Missing Synchronization",
    :rdfs/subClassOf :d3f/CWE-662})
 
 (def CWE-821
-  {:d3f/cwe-id      "CWE-821",
-   :db/ident        :d3f/CWE-821,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Synchronization",
+  {:d3f/cwe-id "CWE-821",
+   :d3f/definition
+   "The product utilizes a shared resource in a concurrent manner, but it does not correctly synchronize access to the resource.",
+   :db/ident :d3f/CWE-821,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Synchronization",
    :rdfs/subClassOf :d3f/CWE-662})
 
 (def CWE-822
-  {:d3f/cwe-id      "CWE-822",
+  {:d3f/cwe-id "CWE-822",
+   :d3f/definition
+   "The product obtains a value from an untrusted source, converts this value to a pointer, and dereferences the resulting pointer.",
    :d3f/weakness-of :d3f/PointerDereferencingFunction,
-   :db/ident        :d3f/CWE-822,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Untrusted Pointer Dereference",
+   :db/ident :d3f/CWE-822,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Untrusted Pointer Dereference",
    :rdfs/subClassOf #{:d3f/CWE-119
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/PointerDereferencingFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-823
-  {:d3f/cwe-id      "CWE-823",
-   :db/ident        :d3f/CWE-823,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Out-of-range Pointer Offset",
+  {:d3f/cwe-id "CWE-823",
+   :d3f/definition
+   "The product performs pointer arithmetic on a valid pointer, but it uses an offset that can point outside of the intended range of valid memory locations for the resulting pointer.",
+   :d3f/synonym "Untrusted pointer offset",
+   :db/ident :d3f/CWE-823,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Out-of-range Pointer Offset",
    :rdfs/subClassOf :d3f/CWE-119})
 
 (def CWE-824
-  {:d3f/cwe-id      "CWE-824",
+  {:d3f/cwe-id "CWE-824",
+   :d3f/definition
+   "The product accesses or uses a pointer that has not been initialized.",
    :d3f/weakness-of :d3f/PointerDereferencingFunction,
-   :db/ident        :d3f/CWE-824,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Access of Uninitialized Pointer",
+   :db/ident :d3f/CWE-824,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Access of Uninitialized Pointer",
    :rdfs/subClassOf #{:d3f/CWE-119
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/PointerDereferencingFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-825
-  {:d3f/cwe-id      "CWE-825",
+  {:d3f/cwe-id "CWE-825",
+   :d3f/definition
+   "The product dereferences a pointer that contains a location for memory that was previously valid, but is no longer valid.",
+   :d3f/synonym "Dangling pointer",
    :d3f/weakness-of :d3f/UserInputFunction,
-   :db/ident        :d3f/CWE-825,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Expired Pointer Dereference",
+   :db/ident :d3f/CWE-825,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Expired Pointer Dereference",
    :rdfs/subClassOf #{:d3f/CWE-119 :d3f/CWE-672
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/UserInputFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-826
-  {:d3f/cwe-id      "CWE-826",
-   :db/ident        :d3f/CWE-826,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Premature Release of Resource During Expected Lifetime",
+  {:d3f/cwe-id "CWE-826",
+   :d3f/definition
+   "The product releases a resource that is still intended to be used by itself or another actor.",
+   :db/ident :d3f/CWE-826,
+   :rdf/type :owl/Class,
+   :rdfs/label "Premature Release of Resource During Expected Lifetime",
    :rdfs/subClassOf :d3f/CWE-666})
 
 (def CWE-827
-  {:d3f/cwe-id      "CWE-827",
-   :db/ident        :d3f/CWE-827,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Control of Document Type Definition",
+  {:d3f/cwe-id "CWE-827",
+   :d3f/definition
+   "The product does not restrict a reference to a Document Type Definition (DTD) to the intended control sphere. This might allow attackers to reference arbitrary DTDs, possibly causing the product to expose files, consume excessive system resources, or execute arbitrary http requests on behalf of the attacker.",
+   :db/ident :d3f/CWE-827,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Control of Document Type Definition",
    :rdfs/subClassOf #{:d3f/CWE-706 :d3f/CWE-829}})
 
 (def CWE-828
   {:d3f/cwe-id "CWE-828",
+   :d3f/definition
+   "The product defines a signal handler that contains code sequences that are not asynchronous-safe, i.e., the functionality is not reentrant, or it can be interrupted.",
    :db/ident :d3f/CWE-828,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11698,126 +13703,164 @@
    :rdfs/subClassOf :d3f/CWE-364})
 
 (def CWE-829
-  {:d3f/cwe-id      "CWE-829",
-   :db/ident        :d3f/CWE-829,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inclusion of Functionality from Untrusted Control Sphere",
+  {:d3f/cwe-id "CWE-829",
+   :d3f/definition
+   "The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.",
+   :db/ident :d3f/CWE-829,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inclusion of Functionality from Untrusted Control Sphere",
    :rdfs/subClassOf :d3f/CWE-669})
 
 (def CWE-83
   {:d3f/cwe-id "CWE-83",
+   :d3f/definition
+   "The product does not neutralize or incorrectly neutralizes \"javascript:\" or other URIs from dangerous attributes within tags, such as onmouseover, onload, onerror, or style.",
    :db/ident :d3f/CWE-83,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Script in Attributes in a Web Page",
    :rdfs/subClassOf :d3f/CWE-79})
 
 (def CWE-830
-  {:d3f/cwe-id      "CWE-830",
-   :db/ident        :d3f/CWE-830,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inclusion of Web Functionality from an Untrusted Source",
+  {:d3f/cwe-id "CWE-830",
+   :d3f/definition
+   "The product includes web functionality (such as a web widget) from another domain, which causes it to operate within the domain of the product, potentially granting total access and control of the product to the untrusted source.",
+   :db/ident :d3f/CWE-830,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inclusion of Web Functionality from an Untrusted Source",
    :rdfs/subClassOf :d3f/CWE-829})
 
 (def CWE-831
-  {:d3f/cwe-id      "CWE-831",
-   :db/ident        :d3f/CWE-831,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Signal Handler Function Associated with Multiple Signals",
+  {:d3f/cwe-id "CWE-831",
+   :d3f/definition
+   "The product defines a function that is used as a handler for more than one signal.",
+   :db/ident :d3f/CWE-831,
+   :rdf/type :owl/Class,
+   :rdfs/label "Signal Handler Function Associated with Multiple Signals",
    :rdfs/subClassOf :d3f/CWE-364})
 
 (def CWE-832
-  {:d3f/cwe-id      "CWE-832",
-   :db/ident        :d3f/CWE-832,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Unlock of a Resource that is not Locked",
+  {:d3f/cwe-id "CWE-832",
+   :d3f/definition
+   "The product attempts to unlock a resource that is not locked.",
+   :db/ident :d3f/CWE-832,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unlock of a Resource that is not Locked",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-833
-  {:d3f/cwe-id      "CWE-833",
-   :db/ident        :d3f/CWE-833,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Deadlock",
+  {:d3f/cwe-id "CWE-833",
+   :d3f/definition
+   "The product contains multiple threads or executable segments that are waiting for each other to release a necessary lock, resulting in deadlock.",
+   :db/ident :d3f/CWE-833,
+   :rdf/type :owl/Class,
+   :rdfs/label "Deadlock",
    :rdfs/subClassOf :d3f/CWE-667})
 
 (def CWE-834
-  {:d3f/cwe-id      "CWE-834",
-   :db/ident        :d3f/CWE-834,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Excessive Iteration",
+  {:d3f/cwe-id "CWE-834",
+   :d3f/definition
+   "The product performs an iteration or loop without sufficiently limiting the number of times that the loop is executed.",
+   :db/ident :d3f/CWE-834,
+   :rdf/type :owl/Class,
+   :rdfs/label "Excessive Iteration",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-835
-  {:d3f/cwe-id      "CWE-835",
-   :db/ident        :d3f/CWE-835,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Loop with Unreachable Exit Condition ('Infinite Loop')",
+  {:d3f/cwe-id "CWE-835",
+   :d3f/definition
+   "The product contains an iteration or loop with an exit condition that cannot be reached, i.e., an infinite loop.",
+   :db/ident :d3f/CWE-835,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loop with Unreachable Exit Condition ('Infinite Loop')",
    :rdfs/subClassOf :d3f/CWE-834})
 
 (def CWE-836
   {:d3f/cwe-id "CWE-836",
+   :d3f/definition
+   "The product records password hashes in a data store, receives a hash of a password from a client, and compares the supplied hash to the hash obtained from the data store.",
    :db/ident :d3f/CWE-836,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Password Hash Instead of Password for Authentication",
    :rdfs/subClassOf :d3f/CWE-1390})
 
 (def CWE-837
-  {:d3f/cwe-id      "CWE-837",
-   :db/ident        :d3f/CWE-837,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Enforcement of a Single, Unique Action",
+  {:d3f/cwe-id "CWE-837",
+   :d3f/definition
+   "The product requires that an actor should only be able to perform an action once, or to have only one unique action, but the product does not enforce or improperly enforces this restriction.",
+   :db/ident :d3f/CWE-837,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Enforcement of a Single, Unique Action",
    :rdfs/subClassOf :d3f/CWE-799})
 
 (def CWE-838
-  {:d3f/cwe-id      "CWE-838",
-   :db/ident        :d3f/CWE-838,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Inappropriate Encoding for Output Context",
+  {:d3f/cwe-id "CWE-838",
+   :d3f/definition
+   "The product uses or specifies an encoding when generating output to a downstream component, but the specified encoding is not the same as the encoding that is expected by the downstream component.",
+   :db/ident :d3f/CWE-838,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inappropriate Encoding for Output Context",
    :rdfs/subClassOf :d3f/CWE-116})
 
 (def CWE-839
-  {:d3f/cwe-id      "CWE-839",
-   :db/ident        :d3f/CWE-839,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Numeric Range Comparison Without Minimum Check",
+  {:d3f/cwe-id "CWE-839",
+   :d3f/definition
+   "The product checks a value to ensure that it is less than or equal to a maximum, but it does not also verify that the value is greater than or equal to the minimum.",
+   :d3f/synonym "Signed comparison",
+   :db/ident :d3f/CWE-839,
+   :rdf/type :owl/Class,
+   :rdfs/label "Numeric Range Comparison Without Minimum Check",
    :rdfs/subClassOf :d3f/CWE-1023})
 
 (def CWE-84
   {:d3f/cwe-id "CWE-84",
+   :d3f/definition
+   "The web application improperly neutralizes user-controlled input for executable script disguised with URI encodings.",
    :db/ident :d3f/CWE-84,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of Encoded URI Schemes in a Web Page",
    :rdfs/subClassOf :d3f/CWE-79})
 
 (def CWE-841
-  {:d3f/cwe-id      "CWE-841",
-   :db/ident        :d3f/CWE-841,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Enforcement of Behavioral Workflow",
+  {:d3f/cwe-id "CWE-841",
+   :d3f/definition
+   "The product supports a session in which more than one behavior must be performed by an actor, but it does not properly ensure that the actor performs the behaviors in the required sequence.",
+   :db/ident :d3f/CWE-841,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Enforcement of Behavioral Workflow",
    :rdfs/subClassOf :d3f/CWE-691})
 
 (def CWE-842
-  {:d3f/cwe-id      "CWE-842",
-   :db/ident        :d3f/CWE-842,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Placement of User into Incorrect Group",
+  {:d3f/cwe-id "CWE-842",
+   :d3f/definition
+   "The product or the administrator places a user into an incorrect group.",
+   :db/ident :d3f/CWE-842,
+   :rdf/type :owl/Class,
+   :rdfs/label "Placement of User into Incorrect Group",
    :rdfs/subClassOf :d3f/CWE-286})
 
 (def CWE-843
   {:d3f/cwe-id "CWE-843",
+   :d3f/definition
+   "The product allocates or initializes a resource such as a pointer, object, or variable using one type, but it later accesses that resource using a type that is incompatible with the original type.",
+   :d3f/synonym "Object Type Confusion",
    :db/ident :d3f/CWE-843,
    :rdf/type :owl/Class,
    :rdfs/label "Access of Resource Using Incompatible Type ('Type Confusion')",
    :rdfs/subClassOf :d3f/CWE-704})
 
 (def CWE-85
-  {:d3f/cwe-id      "CWE-85",
-   :db/ident        :d3f/CWE-85,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Doubled Character XSS Manipulations",
+  {:d3f/cwe-id "CWE-85",
+   :d3f/definition
+   "The web application does not filter user-controlled input for executable script disguised using doubling of the involved characters.",
+   :db/ident :d3f/CWE-85,
+   :rdf/type :owl/Class,
+   :rdfs/label "Doubled Character XSS Manipulations",
    :rdfs/subClassOf :d3f/CWE-79})
 
 (def CWE-86
   {:d3f/cwe-id "CWE-86",
+   :d3f/definition
+   "The product does not neutralize or incorrectly neutralizes invalid characters or byte sequences in the middle of tag names, URI schemes, and other identifiers.",
    :db/ident :d3f/CWE-86,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11825,29 +13868,39 @@
    :rdfs/subClassOf #{:d3f/CWE-79 :d3f/CWE-436}})
 
 (def CWE-862
-  {:d3f/cwe-id      "CWE-862",
-   :db/ident        :d3f/CWE-862,
-   :rdf/type        :owl/Class,
-   :rdfs/comment    "Broad and could apply to all resource accesses.",
-   :rdfs/label      "Missing Authorization",
+  {:d3f/cwe-id "CWE-862",
+   :d3f/definition
+   "The product does not perform an authorization check when an actor attempts to access a resource or perform an action.",
+   :d3f/synonym "AuthZ",
+   :db/ident :d3f/CWE-862,
+   :rdf/type :owl/Class,
+   :rdfs/comment "Broad and could apply to all resource accesses.",
+   :rdfs/label "Missing Authorization",
    :rdfs/subClassOf :d3f/CWE-285})
 
 (def CWE-863
-  {:d3f/cwe-id      "CWE-863",
-   :db/ident        :d3f/CWE-863,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Incorrect Authorization",
+  {:d3f/cwe-id "CWE-863",
+   :d3f/definition
+   "The product performs an authorization check when an actor attempts to access a resource or perform an action, but it does not correctly perform the check.",
+   :d3f/synonym "AuthZ",
+   :db/ident :d3f/CWE-863,
+   :rdf/type :owl/Class,
+   :rdfs/label "Incorrect Authorization",
    :rdfs/subClassOf :d3f/CWE-285})
 
 (def CWE-87
-  {:d3f/cwe-id      "CWE-87",
-   :db/ident        :d3f/CWE-87,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Neutralization of Alternate XSS Syntax",
+  {:d3f/cwe-id "CWE-87",
+   :d3f/definition
+   "The product does not neutralize or incorrectly neutralizes user-controlled input for alternate script syntax.",
+   :db/ident :d3f/CWE-87,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Neutralization of Alternate XSS Syntax",
    :rdfs/subClassOf :d3f/CWE-79})
 
 (def CWE-88
   {:d3f/cwe-id "CWE-88",
+   :d3f/definition
+   "The product constructs a string for a command to be executed by a separate component in another control sphere, but it does not properly delimit the intended arguments, options, or switches within that command string.",
    :db/ident :d3f/CWE-88,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11856,6 +13909,9 @@
 
 (def CWE-89
   {:d3f/cwe-id "CWE-89",
+   :d3f/definition
+   "The product constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component. Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data.",
+   :d3f/synonym #{"SQLi" "SQL injection"},
    :d3f/weakness-of :d3f/UserInputFunction,
    :db/ident :d3f/CWE-89,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -11868,6 +13924,8 @@
 
 (def CWE-9
   {:d3f/cwe-id "CWE-9",
+   :d3f/definition
+   "If elevated access rights are assigned to EJB methods, then an attacker can take advantage of the permissions to exploit the product.",
    :db/ident :d3f/CWE-9,
    :rdf/type :owl/Class,
    :rdfs/label "J2EE Misconfiguration: Weak Access Permissions for EJB Methods",
@@ -11875,6 +13933,8 @@
 
 (def CWE-90
   {:d3f/cwe-id "CWE-90",
+   :d3f/definition
+   "The product constructs all or part of an LDAP query using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended LDAP query when it is sent to a downstream component.",
    :db/ident :d3f/CWE-90,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11882,63 +13942,82 @@
    :rdfs/subClassOf :d3f/CWE-943})
 
 (def CWE-908
-  {:d3f/cwe-id      "CWE-908",
-   :db/ident        :d3f/CWE-908,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Uninitialized Resource",
+  {:d3f/cwe-id "CWE-908",
+   :d3f/definition
+   "The product uses or accesses a resource that has not been initialized.",
+   :db/ident :d3f/CWE-908,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Uninitialized Resource",
    :rdfs/subClassOf :d3f/CWE-665})
 
 (def CWE-909
   {:d3f/cwe-id      "CWE-909",
+   :d3f/definition  "The product does not initialize a critical resource.",
    :db/ident        :d3f/CWE-909,
    :rdf/type        :owl/Class,
    :rdfs/label      "Missing Initialization of Resource",
    :rdfs/subClassOf :d3f/CWE-665})
 
 (def CWE-91
-  {:d3f/cwe-id      "CWE-91",
-   :db/ident        :d3f/CWE-91,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "XML Injection (aka Blind XPath Injection)",
+  {:d3f/cwe-id "CWE-91",
+   :d3f/definition
+   "The product does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
+   :db/ident :d3f/CWE-91,
+   :rdf/type :owl/Class,
+   :rdfs/label "XML Injection (aka Blind XPath Injection)",
    :rdfs/subClassOf :d3f/CWE-74})
 
 (def CWE-910
-  {:d3f/cwe-id      "CWE-910",
-   :db/ident        :d3f/CWE-910,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Expired File Descriptor",
+  {:d3f/cwe-id "CWE-910",
+   :d3f/definition
+   "The product uses or accesses a file descriptor after it has been closed.",
+   :d3f/synonym "Stale file descriptor",
+   :db/ident :d3f/CWE-910,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Expired File Descriptor",
    :rdfs/subClassOf :d3f/CWE-672})
 
 (def CWE-911
-  {:d3f/cwe-id      "CWE-911",
-   :db/ident        :d3f/CWE-911,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Update of Reference Count",
+  {:d3f/cwe-id "CWE-911",
+   :d3f/definition
+   "The product uses a reference count to manage a resource, but it does not update or incorrectly updates the reference count.",
+   :db/ident :d3f/CWE-911,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Update of Reference Count",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-912
-  {:d3f/cwe-id      "CWE-912",
-   :db/ident        :d3f/CWE-912,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Hidden Functionality",
+  {:d3f/cwe-id "CWE-912",
+   :d3f/definition
+   "The product contains functionality that is not documented, not part of the specification, and not accessible through an interface or command sequence that is obvious to the product's users or administrators.",
+   :db/ident :d3f/CWE-912,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hidden Functionality",
    :rdfs/subClassOf :d3f/CWE-684})
 
 (def CWE-913
-  {:d3f/cwe-id      "CWE-913",
-   :db/ident        :d3f/CWE-913,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Control of Dynamically-Managed Code Resources",
+  {:d3f/cwe-id "CWE-913",
+   :d3f/definition
+   "The product does not properly restrict reading from or writing to dynamically-managed code resources such as variables, objects, classes, attributes, functions, or executable instructions or statements.",
+   :db/ident :d3f/CWE-913,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Control of Dynamically-Managed Code Resources",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-914
-  {:d3f/cwe-id      "CWE-914",
-   :db/ident        :d3f/CWE-914,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Control of Dynamically-Identified Variables",
+  {:d3f/cwe-id "CWE-914",
+   :d3f/definition
+   "The product does not properly restrict reading from or writing to dynamically-identified variables.",
+   :db/ident :d3f/CWE-914,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Control of Dynamically-Identified Variables",
    :rdfs/subClassOf #{:d3f/CWE-913 :d3f/CWE-99}})
 
 (def CWE-915
   {:d3f/cwe-id "CWE-915",
+   :d3f/definition
+   "The product receives input from an upstream component that specifies multiple attributes, properties, or fields that are to be initialized or updated in an object, but it does not properly control which attributes can be modified.",
+   :d3f/synonym #{"PHP Object Injection" "Mass Assignment" "AutoBinding"},
    :db/ident :d3f/CWE-915,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11947,13 +14026,18 @@
 
 (def CWE-916
   {:d3f/cwe-id "CWE-916",
+   :d3f/definition
+   "The product generates a hash for a password, but it uses a scheme that does not provide a sufficient level of computational effort that would make password cracking attacks infeasible or expensive.",
    :db/ident :d3f/CWE-916,
    :rdf/type :owl/Class,
    :rdfs/label "Use of Password Hash With Insufficient Computational Effort",
-   :rdfs/subClassOf :d3f/CWE-327})
+   :rdfs/subClassOf #{:d3f/CWE-328 :d3f/CWE-327}})
 
 (def CWE-917
   {:d3f/cwe-id "CWE-917",
+   :d3f/definition
+   "The product constructs all or part of an expression language (EL) statement in a framework such as a Java Server Page (JSP) using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended EL statement before it is executed.",
+   :d3f/synonym "EL Injection",
    :db/ident :d3f/CWE-917,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11961,25 +14045,32 @@
    :rdfs/subClassOf :d3f/CWE-77})
 
 (def CWE-918
-  {:d3f/cwe-id      "CWE-918",
+  {:d3f/cwe-id "CWE-918",
+   :d3f/definition
+   "The web server receives a URL or similar request from an upstream component and retrieves the contents of this URL, but it does not sufficiently ensure that the request is being sent to the expected destination.",
+   :d3f/synonym #{"SSRF" "XSPA"},
    :d3f/weakness-of :d3f/UserInputFunction,
-   :db/ident        :d3f/CWE-918,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Server-Side Request Forgery (SSRF)",
+   :db/ident :d3f/CWE-918,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Server-Side Request Forgery (SSRF)",
    :rdfs/subClassOf #{:d3f/CWE-441
                       {:owl/onProperty     :d3f/weakness-of,
                        :owl/someValuesFrom :d3f/UserInputFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def CWE-920
-  {:d3f/cwe-id      "CWE-920",
-   :db/ident        :d3f/CWE-920,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Restriction of Power Consumption",
+  {:d3f/cwe-id "CWE-920",
+   :d3f/definition
+   "The product operates in an environment in which power is a limited resource that cannot be automatically replenished, but the product does not properly restrict the amount of power that its operation consumes.",
+   :db/ident :d3f/CWE-920,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Restriction of Power Consumption",
    :rdfs/subClassOf :d3f/CWE-400})
 
 (def CWE-921
   {:d3f/cwe-id "CWE-921",
+   :d3f/definition
+   "The product stores sensitive information in a file system or device that does not have built-in access control.",
    :db/ident :d3f/CWE-921,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -11987,14 +14078,18 @@
    :rdfs/subClassOf :d3f/CWE-922})
 
 (def CWE-922
-  {:d3f/cwe-id      "CWE-922",
-   :db/ident        :d3f/CWE-922,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Insecure Storage of Sensitive Information",
+  {:d3f/cwe-id "CWE-922",
+   :d3f/definition
+   "The product stores sensitive information without properly limiting read or write access by unauthorized actors.",
+   :db/ident :d3f/CWE-922,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insecure Storage of Sensitive Information",
    :rdfs/subClassOf :d3f/CWE-664})
 
 (def CWE-923
   {:d3f/cwe-id "CWE-923",
+   :d3f/definition
+   "The product establishes a communication channel to (or from) an endpoint for privileged or protected operations, but it does not properly ensure that it is communicating with the correct endpoint.",
    :db/ident :d3f/CWE-923,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12003,6 +14098,8 @@
 
 (def CWE-924
   {:d3f/cwe-id "CWE-924",
+   :d3f/definition
+   "The product establishes a communication channel with an endpoint and receives a message from that endpoint, but it does not sufficiently ensure that the message was not modified during transmission.",
    :db/ident :d3f/CWE-924,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12010,46 +14107,60 @@
    :rdfs/subClassOf :d3f/CWE-345})
 
 (def CWE-925
-  {:d3f/cwe-id      "CWE-925",
-   :db/ident        :d3f/CWE-925,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Verification of Intent by Broadcast Receiver",
+  {:d3f/cwe-id "CWE-925",
+   :d3f/definition
+   "The Android application uses a Broadcast Receiver that receives an Intent but does not properly verify that the Intent came from an authorized source.",
+   :d3f/synonym "Intent Spoofing",
+   :db/ident :d3f/CWE-925,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Verification of Intent by Broadcast Receiver",
    :rdfs/subClassOf :d3f/CWE-940})
 
 (def CWE-926
-  {:d3f/cwe-id      "CWE-926",
-   :db/ident        :d3f/CWE-926,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Export of Android Application Components",
+  {:d3f/cwe-id "CWE-926",
+   :d3f/definition
+   "The Android application exports a component for use by other applications, but does not properly restrict which applications can launch the component or access the data it contains.",
+   :db/ident :d3f/CWE-926,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Export of Android Application Components",
    :rdfs/subClassOf :d3f/CWE-285})
 
 (def CWE-927
-  {:d3f/cwe-id      "CWE-927",
-   :db/ident        :d3f/CWE-927,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use of Implicit Intent for Sensitive Communication",
+  {:d3f/cwe-id "CWE-927",
+   :d3f/definition
+   "The Android application uses an implicit intent for transmitting sensitive data to other applications.",
+   :db/ident :d3f/CWE-927,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use of Implicit Intent for Sensitive Communication",
    :rdfs/subClassOf #{:d3f/CWE-285 :d3f/CWE-668}})
 
 (def CWE-93
   {:d3f/cwe-id "CWE-93",
+   :d3f/definition
+   "The product uses CRLF (carriage return line feeds) as a special element, e.g. to separate lines or records, but it does not neutralize or incorrectly neutralizes CRLF sequences from inputs.",
    :db/ident :d3f/CWE-93,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Neutralization of CRLF Sequences ('CRLF Injection')",
    :rdfs/subClassOf :d3f/CWE-74})
 
 (def CWE-939
-  {:d3f/cwe-id      "CWE-939",
-   :db/ident        :d3f/CWE-939,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Improper Authorization in Handler for Custom URL Scheme",
+  {:d3f/cwe-id "CWE-939",
+   :d3f/definition
+   "The product uses a handler for a custom URL scheme, but it does not properly restrict which actors can invoke the handler using the scheme.",
+   :db/ident :d3f/CWE-939,
+   :rdf/type :owl/Class,
+   :rdfs/label "Improper Authorization in Handler for Custom URL Scheme",
    :rdfs/subClassOf :d3f/CWE-862})
 
 (def CWE-94
-  {:d3f/cwe-id      "CWE-94",
+  {:d3f/cwe-id "CWE-94",
+   :d3f/definition
+   "The product constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.",
    :d3f/may-be-weakness-of #{:d3f/EvalFunction :d3f/UserInputFunction},
-   :db/ident        :d3f/CWE-94,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Improper Control of Generation of Code ('Code Injection')",
+   :d3f/synonym "Code Injection",
+   :db/ident :d3f/CWE-94,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Improper Control of Generation of Code ('Code Injection')",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-be-weakness-of,
                        :owl/someValuesFrom :d3f/EvalFunction,
                        :rdf/type           :owl/Restriction} :d3f/CWE-913
@@ -12059,27 +14170,36 @@
 
 (def CWE-940
   {:d3f/cwe-id "CWE-940",
+   :d3f/definition
+   "The product establishes a communication channel to handle an incoming request that has been initiated by an actor, but it does not properly verify that the request is coming from the expected origin.",
    :db/ident :d3f/CWE-940,
    :rdf/type :owl/Class,
    :rdfs/label "Improper Verification of Source of a Communication Channel",
-   :rdfs/subClassOf :d3f/CWE-923})
+   :rdfs/subClassOf #{:d3f/CWE-923 :d3f/CWE-346}})
 
 (def CWE-941
   {:d3f/cwe-id "CWE-941",
+   :d3f/definition
+   "The product creates a communication channel to initiate an outgoing request to an actor, but it does not correctly specify the intended destination for that actor.",
    :db/ident :d3f/CWE-941,
    :rdf/type :owl/Class,
    :rdfs/label "Incorrectly Specified Destination in a Communication Channel",
    :rdfs/subClassOf :d3f/CWE-923})
 
 (def CWE-942
-  {:d3f/cwe-id      "CWE-942",
-   :db/ident        :d3f/CWE-942,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Permissive Cross-domain Policy with Untrusted Domains",
-   :rdfs/subClassOf #{:d3f/CWE-923 :d3f/CWE-183}})
+  {:d3f/cwe-id "CWE-942",
+   :d3f/definition
+   "The product uses a cross-domain policy file that includes domains that should not be trusted.",
+   :db/ident :d3f/CWE-942,
+   :rdf/type :owl/Class,
+   :rdfs/label "Permissive Cross-domain Policy with Untrusted Domains",
+   :rdfs/subClassOf #{:d3f/CWE-863 :d3f/CWE-923 :d3f/CWE-183}})
 
 (def CWE-943
   {:d3f/cwe-id "CWE-943",
+   :d3f/definition
+   "The product generates a query intended to access or manipulate data in a data store such as a database, but it does not neutralize or incorrectly neutralizes special elements that can modify the intended logic of the query.",
+   :d3f/synonym "NoSQL Injection, NoSQLi",
    :db/ident :d3f/CWE-943,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12088,6 +14208,8 @@
 
 (def CWE-95
   {:d3f/cwe-id "CWE-95",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes code syntax before using the input in a dynamic evaluation call (e.g. \"eval\").",
    :db/ident :d3f/CWE-95,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12096,6 +14218,8 @@
 
 (def CWE-96
   {:d3f/cwe-id "CWE-96",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes code syntax before inserting the input into an executable resource, such as a library, configuration file, or template.",
    :db/ident :d3f/CWE-96,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12104,6 +14228,8 @@
 
 (def CWE-97
   {:d3f/cwe-id "CWE-97",
+   :d3f/definition
+   "The product generates a web page, but does not neutralize or incorrectly neutralizes user-controllable input that could be interpreted as a server-side include (SSI) directive.",
    :db/ident :d3f/CWE-97,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12112,6 +14238,9 @@
 
 (def CWE-98
   {:d3f/cwe-id "CWE-98",
+   :d3f/definition
+   "The PHP application receives input from an upstream component, but it does not restrict or incorrectly restricts the input before its usage in \"require,\" \"include,\" or similar functions.",
+   :d3f/synonym #{"RFI" "Remote file include" "Local file inclusion"},
    :db/ident :d3f/CWE-98,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12120,6 +14249,9 @@
 
 (def CWE-99
   {:d3f/cwe-id "CWE-99",
+   :d3f/definition
+   "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+   :d3f/synonym "Insecure Direct Object Reference",
    :db/ident :d3f/CWE-99,
    :rdf/type :owl/Class,
    :rdfs/label
@@ -12320,8 +14452,8 @@
    :d3f/definition
    "Certificate rotation involves replacing digital certificates and their private keys to maintain cryptographic integrity and trust, mitigating key compromise risks and ensuring continuous secure communications.",
    :d3f/kb-article
-   #{"## How it works\n\nCertificate rotation should be performed when:\n- Any certificate expires.\n- A new CA authority is substituted for the old, thus requiring a replacement root certificate.\n- New or modified constraints need to be imposed on one or more certificates.\n- A security breach has occurred.\n\nConsiderations:\n- Managing certificate rotation across an enterprise can be complex. Automated solutions, sold by multiple vendors, should be considered to manage this complexity."
-     :d3f/Reference-PasswordandKeyRotation-SSH},
+   "## How it works\n\nCertificate rotation should be performed when:\n- Any certificate expires.\n- A new CA authority is substituted for the old, thus requiring a replacement root certificate.\n- New or modified constraints need to be imposed on one or more certificates.\n- A security breach has occurred.\n\nConsiderations:\n- Managing certificate rotation across an enterprise can be complex. Automated solutions, sold by multiple vendors, should be considered to manage this complexity.",
+   :d3f/kb-reference :d3f/Reference-PasswordandKeyRotation-SSH,
    :d3f/regenerates :d3f/Certificate,
    :db/ident :d3f/CertificateRotation,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -12349,7 +14481,8 @@
                        :rdf/type           :owl/Restriction} :d3f/TrustStore}})
 
 (def ChangeDefaultPassword
-  {:d3f/definition
+  {:d3f/d3fend-id "D3-CFP",
+   :d3f/definition
    "Changing the default password means replacing the factory-set credentials with a strong, unique password before the device is deployed, preventing unauthorized access.",
    :d3f/hardens :d3f/OTController,
    :d3f/kb-article
@@ -12458,6 +14591,19 @@
    :rdfs/label "Clipboard",
    :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
+(def Cloud-basedDatabaseApplication
+  {:d3f/definition
+   "A database application where the underlying infrastructure is managed by a third-party cloud provider. Examples include DynamoDB, Firestore, and CosmosDB.",
+   :d3f/provider :d3f/CloudServiceProvider,
+   :d3f/synonym "Serverless Database Application",
+   :db/ident :d3f/Cloud-basedDatabaseApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Cloud-based Database Application",
+   :rdfs/subClassOf #{:d3f/DatabaseServiceApplication
+                      {:owl/onProperty     :d3f/provider,
+                       :owl/someValuesFrom :d3f/CloudServiceProvider,
+                       :rdf/type           :owl/Restriction}}})
+
 (def CloudConfiguration
   {:d3f/definition
    "Information used to configure the services, parameters, and initial settings for a virtual server instance running in a cloud service.",
@@ -12466,6 +14612,17 @@
    :rdfs/label "Cloud Configuration",
    :rdfs/subClassOf :d3f/ConfigurationResource,
    :skos/altLabel "Cloud Configuration Information"})
+
+(def CloudConfigurationModificationEvent
+  {:d3f/definition
+   "An event that updates cloud-hosted resource configurations such as IAM policies, virtual network constructs, storage settings, or managed-service parameters; impacting resource provisioning, access control, functionality, or compliance.",
+   :db/ident :d3f/CloudConfigurationModificationEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Configuration Modification Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/CloudConfiguration,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ConfigurationModificationEvent}})
 
 (def CloudInstanceMetadata
   {:d3f/definition
@@ -12497,7 +14654,7 @@
   {:d3f/definition
    "A cloud service provider delivers scalable and distributed computing resources over a network, enabling clients to access infrastructure, platforms, and applications remotely.",
    :db/ident :d3f/CloudServiceProvider,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Cloud Service Provider",
    :rdfs/subClassOf :d3f/ServiceProvider})
 
@@ -12623,15 +14780,6 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/ATTACKEnterpriseTechnique :d3f/OffensiveTechnique}})
 
-(def CollectorAgent
-  {:d3f/definition
-   "A network agent is software installed on a network node or device that transmits information back to a collector agent or management system.  Kinds of network agents include SNMP Agent, IPMI agents, WBEM agents, and many proprietary agents capturing network monitoring and management information.",
-   :d3f/synonym "Exporter",
-   :db/ident :d3f/CollectorAgent,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Network Agent",
-   :rdfs/subClassOf :d3f/Software})
-
 (def Command
   {:d3f/definition
    "In computing, a command is a directive to a computer program acting as an interpreter of some kind, in order to perform a specific task. Most commonly a command is either a directive to some kind of command-line interface, such as a shell, or an event in a graphical user interface triggered by the user selecting an option in a menu.",
@@ -12749,8 +14897,7 @@
                       {:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/HardwareDevice,
                        :rdf/type           :owl/Restriction}
-                      :d3f/DigitalInformationBearer},
-   :skos/altLabel "Computer Platform"})
+                      :d3f/DigitalInformationBearer}})
 
 (def ComputingImage
   {:d3f/definition
@@ -12806,11 +14953,24 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def ConfigurationDatabaseRecord
-  {:d3f/synonym     "Configuration Record",
-   :db/ident        :d3f/ConfigurationDatabaseRecord,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Configuration Database Record",
-   :rdfs/subClassOf #{:d3f/ConfigurationResource :d3f/Record}})
+  {:d3f/definition
+   "A Configuration Database Record defines settings, parameters, or preferences for applications, systems, or devices.",
+   :d3f/synonym "Configuration Record",
+   :db/ident :d3f/ConfigurationDatabaseRecord,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Configuration Database Record",
+   :rdfs/subClassOf #{:d3f/ConfigurationResource :d3f/DatabaseRecord}})
+
+(def ConfigurationEvent
+  {:d3f/definition
+   "A discrete event that creates, applies, modifies, or deletes configuration resources to determine or alter the function of a system, device, application, or service.",
+   :db/ident :d3f/ConfigurationEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Configuration Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/ConfigurationResource,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DigitalEvent}})
 
 (def ConfigurationFile
   {:d3f/definition
@@ -12857,6 +15017,14 @@
      {:xsd/anyURI
       "https://dbpedia.org/resource/Configuration_management_database"}},
    :rdfs/subClassOf :d3f/ConfigurationDatabase})
+
+(def ConfigurationModificationEvent
+  {:d3f/definition
+   "An event that changes the persisted state of configuration resources by adding, updating, or removing parameters, impacting the target component's behavior.",
+   :db/ident :d3f/ConfigurationModificationEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Configuration Modification Event",
+   :rdfs/subClassOf :d3f/ConfigurationEvent})
 
 (def ConfigurationResource
   {:d3f/definition
@@ -12931,7 +15099,7 @@
 
 (def ContainerImage
   {:d3f/definition
-   "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.\n\n:S\n\nContainer images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.",
+   "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.\n\nContainer images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.",
    :db/ident :d3f/ContainerImage,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -12966,20 +15134,22 @@
    :rdfs/subClassOf :d3f/ServiceApplication})
 
 (def ContainerProcess
-  {:d3f/definition  "A running instance of a d3f:ContainerImage",
+  {:d3f/definition  "A running instance of a container image.",
    :db/ident        :d3f/ContainerProcess,
    :rdf/type        :owl/Class,
    :rdfs/label      "Container Process",
-   :rdfs/seeAlso    {:xsd/anyURI "https://schema.ocsf.io/objects/container"},
+   :rdfs/seeAlso    #{:d3f/ContainerImage
+                      {:xsd/anyURI "https://schema.ocsf.io/objects/container"}},
    :rdfs/subClassOf :d3f/ApplicationProcess})
 
 (def ContainerRuntime
   {:d3f/definition
-   "A software layer between d3f:ContainerProcess and d3f:Kernel which often mediates the invocation of d3f:SystemCall",
+   "A software layer between a container process and a kernel which often mediates the invocation of a system call.",
    :d3f/runs :d3f/ContainerImage,
    :db/ident :d3f/ContainerRuntime,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Container Runtime",
+   :rdfs/seeAlso #{:d3f/ContainerProcess :d3f/Kernel :d3f/SystemCall},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
                        :owl/someValuesFrom :d3f/ContainerImage,
                        :rdf/type           :owl/Restriction}
@@ -13489,9 +15659,11 @@
    :rdfs/subClassOf :d3f/Action})
 
 (def CyberSensor
-  {:db/ident        :d3f/CyberSensor,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Cyber Sensor",
+  {:d3f/definition
+   "A cyber sensor collects and monitors data related to cyber activities, events, or environments.",
+   :db/ident :d3f/CyberSensor,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cyber Sensor",
    :rdfs/subClassOf :d3f/Sensor})
 
 (def CyberTechnique
@@ -13641,15 +15813,46 @@
    :skos/altLabel "DHCPREQUEST"})
 
 (def DHCPServer
-  {:d3f/definition
+  {:d3f/contains :d3f/DHCPServiceApplication,
+   :d3f/definition
    "A Dynamic Host Configuration Protocol (DHCP) server is a type of server that assigns IP addresses to computers.  DHCP servers are used to assign IP addresses to computers and other devices automatically.  The DHCP server is responsible for assigning the unique IP address to each device.",
+   :d3f/manages :d3f/DHCPService,
    :db/ident :d3f/DHCPServer,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "http://dbpedia.org/resource/Dynamic_Host_Configuration_Protocol"},
    :rdfs/label "DHCP Server",
-   :rdfs/subClassOf :d3f/Server})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/DHCPServiceApplication,
+                       :rdf/type           :owl/Restriction} :d3f/Server
+                      {:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/DHCPService,
+                       :rdf/type           :owl/Restriction}}})
+
+(def DHCPService
+  {:d3f/definition
+   "A DHCP service assigns IP address and modifies network configurations.",
+   :d3f/may-produce :d3f/DHCPNetworkTraffic,
+   :db/ident :d3f/DHCPService,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DHCP Service",
+   :rdfs/subClassOf #{:d3f/NetworkService
+                      {:owl/onProperty     :d3f/may-produce,
+                       :owl/someValuesFrom :d3f/DHCPNetworkTraffic,
+                       :rdf/type           :owl/Restriction}}})
+
+(def DHCPServiceApplication
+  {:d3f/definition
+   "An application that automates the assignment of IP addresses and other network configuration parameters to devices on a network",
+   :d3f/instructs :d3f/DHCPService,
+   :db/ident :d3f/DHCPServiceApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "DHCP Service Application",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/instructs,
+                       :owl/someValuesFrom :d3f/DHCPService,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplication}})
 
 (def DISA_FSO
   {:d3f/definition
@@ -14209,10 +16412,12 @@
    :rdfs/subClassOf :d3f/ArtifactServer})
 
 (def DataDependency
-  {:d3f/synonym     "Transactional Dependency",
-   :db/ident        :d3f/DataDependency,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Data Dependency",
+  {:d3f/definition
+   "A Data Dependency exists when a process, operation, or system requires specific data in order to execute correctly.",
+   :d3f/synonym "Transactional Dependency",
+   :db/ident :d3f/DataDependency,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Dependency",
    :rdfs/subClassOf :d3f/Dependency})
 
 (def DataExchangeMapping
@@ -14262,28 +16467,51 @@
    :rdfs/subClassOf :d3f/LogicalLink})
 
 (def Database
-  {:d3f/definition
+  {:d3f/contains :d3f/DatabaseRecord,
+   :d3f/definition
    "A database is an organized collection of data, generally stored and accessed electronically from a computer system. Where databases are more complex they are often developed using formal design and modeling techniques.",
    :db/ident :d3f/Database,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Database"},
    :rdfs/label "Database",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Database"},
-   :rdfs/subClassOf :d3f/DigitalInformationBearer})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/DatabaseRecord,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DigitalInformationBearer}})
+
+(def DatabaseApplication
+  {:d3f/definition
+   "A database application is a computer program whose primary purpose is retrieving information from a computerized database.",
+   :d3f/synonym "Database Management System (DBMS)",
+   :db/ident :d3f/DatabaseApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "https://dbpedia.org/page/Database_application"},
+   :rdfs/label "Database Application",
+   :rdfs/subClassOf :d3f/Application})
 
 (def DatabaseFile
-  {:db/ident        :d3f/DatabaseFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Database File",
-   :rdfs/subClassOf :d3f/File})
+  {:d3f/contains :d3f/Database,
+   :d3f/definition
+   "A file that stores data and metadata in an organized format, managed by a database management system.",
+   :db/ident :d3f/DatabaseFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Database File",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/Database,
+                       :rdf/type           :owl/Restriction} :d3f/File}})
 
 (def DatabaseQuery
   {:d3f/definition
    "A specific query expressed in SQL, SPARQL, or similar language against a database.",
+   :d3f/queries :d3f/Database,
    :db/ident :d3f/DatabaseQuery,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Database Query",
-   :rdfs/subClassOf :d3f/Command})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/queries,
+                       :owl/someValuesFrom :d3f/Database,
+                       :rdf/type           :owl/Restriction} :d3f/Command}})
 
 (def DatabaseQueryStringAnalysis
   {:d3f/analyzes :d3f/DatabaseQuery,
@@ -14312,7 +16540,7 @@
    :rdfs/subClassOf :d3f/Record})
 
 (def DatabaseServer
-  {:d3f/contains :d3f/Database,
+  {:d3f/contains :d3f/DatabaseApplication,
    :d3f/definition
    "A database server is a server which uses a database application that provides database services to other computer programs or to computers, as defined by the client-server model. Database management systems (DBMSs) frequently provide database-server functionality, and some database management systems (such as MySQL) rely exclusively on the client-server model for database access (while others e.g. SQLite are meant for using as an embedded database). For clarification, a database server is simply a server that maintains services related to clients via database applications.",
    :db/ident :d3f/DatabaseServer,
@@ -14320,11 +16548,38 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Database_server"},
    :rdfs/label "Database Server",
-   :rdfs/subClassOf #{:d3f/Server
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/Database,
-                       :rdf/type           :owl/Restriction}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/DatabaseApplication,
+                       :rdf/type           :owl/Restriction} :d3f/Server},
    :skos/altLabel "Network Database Resource"})
+
+(def DatabaseService
+  {:d3f/definition
+   "A database service interacts with a database, either retrieving data through queries or making modifications to its contents.",
+   :d3f/executes :d3f/DatabaseQuery,
+   :d3f/manages :d3f/Database,
+   :db/ident :d3f/DatabaseService,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Database Service",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/Database,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/executes,
+                       :owl/someValuesFrom :d3f/DatabaseQuery,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplicationProcess}})
+
+(def DatabaseServiceApplication
+  {:d3f/definition
+   "A software application that interacts with a database management system (DBMS) hosted as a separate, standalone service or server.",
+   :d3f/instructs :d3f/DatabaseService,
+   :db/ident :d3f/DatabaseServiceApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Database Service Application",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/instructs,
+                       :owl/someValuesFrom :d3f/DatabaseService,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DatabaseApplication :d3f/ServiceApplication}})
 
 (def Datalog
   {:d3f/d3fend-id "D3A-DAT",
@@ -14608,7 +16863,7 @@
    :rdfs/subClassOf :d3f/CyberAction})
 
 (def DefensiveTactic
-  {:d3f/definition   "a plan for attaining a particular goal",
+  {:d3f/definition   "A plan for attaining a particular goal.",
    :db/ident         :d3f/DefensiveTactic,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -14896,15 +17151,19 @@
    :rdfs/subClassOf :d3f/DigitalMedia})
 
 (def DigitalInformation
-  {:db/ident        :d3f/DigitalInformation,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Digital Information",
+  {:d3f/definition
+   "Digital information is a broad category of encoded representations in digital form that convey meaning, instructions, or functionality.",
+   :db/ident :d3f/DigitalInformation,
+   :rdf/type :owl/Class,
+   :rdfs/label "Digital Information",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def DigitalInformationBearer
-  {:db/ident        :d3f/DigitalInformationBearer,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Digital Information Bearer",
+  {:d3f/definition
+   "A digital information bearer is a physical or virtual entity that stores, transmits, or processes digital information.",
+   :db/ident :d3f/DigitalInformationBearer,
+   :rdf/type :owl/Class,
+   :rdfs/label "Digital Information Bearer",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def DigitalMedia
@@ -14928,7 +17187,7 @@
 
 (def DigitalMultimedia
   {:d3f/definition
-   "Digital Multimedia refers to content that combines text, audio, images, animations, and video in a digital format for interactive applications",
+   "Digital Multimedia refers to content that combines text, audio, images, animations, and video in a digital format for interactive applications.",
    :db/ident :d3f/DigitalMultimedia,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Multimedia"},
@@ -15474,6 +17733,22 @@
    :rdfs/subClassOf :d3f/ClientComputer,
    :skos/altLabel "Embedded System"})
 
+(def EmbeddedDatabaseApplication
+  {:d3f/definition
+   "A software application that integrates a database management system (DBMS) directly within its own structure, rather than relying on a separate, standalone database server. Examples include SQLite and Berkeley DB.",
+   :d3f/executes :d3f/DatabaseQuery,
+   :d3f/manages :d3f/Database,
+   :db/ident :d3f/EmbeddedDatabaseApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Embedded Database Application",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/Database,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/executes,
+                       :owl/someValuesFrom :d3f/DatabaseQuery,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/DatabaseApplication}})
+
 (def EmulatedFileAnalysis
   {:d3f/analyzes #{:d3f/ExecutableFile :d3f/DocumentFile},
    :d3f/d3fend-id "D3-EFA",
@@ -15521,7 +17796,8 @@
    :rdfs/subClassOf :d3f/Credential})
 
 (def EncryptedPassword
-  {:db/ident        :d3f/EncryptedPassword,
+  {:d3f/definition  "A password that is encrypted.",
+   :db/ident        :d3f/EncryptedPassword,
    :rdf/type        :owl/Class,
    :rdfs/label      "Encrypted Password",
    :rdfs/subClassOf #{:d3f/EncryptedCredential :d3f/Password}})
@@ -15635,9 +17911,11 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Event
-  {:db/ident        :d3f/Event,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Event",
+  {:d3f/definition
+   "An Event is an occurrence or action within a system, process, or environment within a finite span of time.",
+   :db/ident :d3f/Event,
+   :rdf/type :owl/Class,
+   :rdfs/label "Event",
    :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def EventLog
@@ -16149,6 +18427,9 @@
    :rdfs/subClassOf #{:d3f/FileEvent
                       {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/FileCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/FilePathOpenFunction,
                        :rdf/type           :owl/Restriction}}})
 
 (def FileAccessPatternAnalysis
@@ -16235,7 +18516,7 @@
 
 (def FileContentBlockMetadata
   {:d3f/definition
-   "Content Blocks may contain metadata specific to the block's content at the beginning",
+   "Content Blocks may contain metadata specific to the block's content at the beginning.",
    :db/ident :d3f/FileContentBlockMetadata,
    :rdf/type :owl/Class,
    :rdfs/label "File Content Block Metadata",
@@ -16328,10 +18609,7 @@
    :db/ident :d3f/FileDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "File Deletion Event",
-   :rdfs/subClassOf #{:d3f/FileEvent
-                      {:owl/onProperty     :d3f/preceded-by,
-                       :owl/someValuesFrom :d3f/FileCreationEvent,
-                       :rdf/type           :owl/Restriction}}})
+   :rdfs/subClassOf :d3f/FileEvent})
 
 (def FileEncryption
   {:d3f/d3fend-id "D3-FE",
@@ -16454,10 +18732,12 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def FileHash
-  {:d3f/identifies  :d3f/File,
-   :db/ident        :d3f/FileHash,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "File Hash",
+  {:d3f/definition
+   "A File Hash is a fixed-length, unique digital fingerprint generated by applying a cryptographic hash function to the contents of a file.",
+   :d3f/identifies :d3f/File,
+   :db/ident :d3f/FileHash,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "File Hash",
    :rdfs/subClassOf #{:d3f/DigitalFingerprint
                       {:owl/onProperty     :d3f/identifies,
                        :owl/someValuesFrom :d3f/File,
@@ -16808,12 +19088,16 @@
 (def Firewall
   {:d3f/definition
    "In computing, a firewall is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. A firewall typically establishes a barrier between a trusted internal network and untrusted external network, such as the Internet. Firewalls are often categorized as either network firewalls or host-based firewalls. Network firewalls filter traffic between two or more networks and run on network hardware. Host-based firewalls run on host computers and control network traffic in and out of those machines. This definition refers to network firewalls.",
+   :d3f/filters :d3f/NetworkTraffic,
    :db/ident :d3f/Firewall,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Firewall",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Firewall_(computing)"},
-   :rdfs/subClassOf :d3f/ComputerNetworkNode,
+   :rdfs/subClassOf #{:d3f/ComputerNetworkNode
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                       :rdf/type           :owl/Restriction}},
    :skos/altLabel "Network Firewall"})
 
 (def Firmware
@@ -17215,10 +19499,12 @@
    :skos/altLabel   "Video Card Firmware"})
 
 (def GraphicsProcessingUnit
-  {:d3f/synonym     "GPU",
-   :db/ident        :d3f/GraphicsProcessingUnit,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Graphics Processing Unit",
+  {:d3f/definition
+   "A Graphics Processing Unit (GPU) is a specialized processor designed to efficiently perform parallel computations, primarily for rendering graphics and visual data.",
+   :d3f/synonym "GPU",
+   :db/ident :d3f/GraphicsProcessingUnit,
+   :rdf/type :owl/Class,
+   :rdfs/label "Graphics Processing Unit",
    :rdfs/subClassOf :d3f/Processor})
 
 (def Grid-CNN
@@ -17480,11 +19766,10 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def Hardware-basedWriteProtection
-  {:d3f/definition
+  {:d3f/d3fend-id "D3-HBWP",
+   :d3f/definition
    "Physical methods of preventing data from being written to computer storage.",
    :d3f/hardens :d3f/Storage,
-   :d3f/kb-article
-   "## How it works\ncomment\n\n## Considerations\n* considerations",
    :d3f/kb-reference :d3f/Reference-WhatisHardwareWriteProtect,
    :db/ident :d3f/Hardware-basedWriteProtection,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -18115,7 +20400,7 @@
    :rdfs/subClassOf :d3f/ImageSegment})
 
 (def ImageFile
-  {:d3f/definition  "A file that contains graphics data",
+  {:d3f/definition  "A file that contains graphics data.",
    :db/ident        :d3f/ImageFile,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Image File",
@@ -18200,6 +20485,24 @@
    :rdfs/label "Inbound Internet DNS Response Traffic",
    :rdfs/subClassOf :d3f/InboundInternetNetworkTraffic})
 
+(def InboundInternetEncryptedTraffic
+  {:d3f/definition
+   "Inbound  internet encrypted traffic is encrypted network traffic on an incoming connection initiated from a host outside the network to a host within a network .",
+   :db/ident :d3f/InboundInternetEncryptedTraffic,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inbound Internet Encrypted Traffic",
+   :rdfs/subClassOf :d3f/InboundInternetNetworkTraffic})
+
+(def InboundInternetEncryptedWebTraffic
+  {:d3f/definition
+   "Inbound internet web traffic is network traffic that is: (a) on an incoming connection initiated from a host outside the network to a host within a network, and (b) using a standard web encryption protocol.",
+   :db/ident :d3f/InboundInternetEncryptedWebTraffic,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inbound Internet Encrypted Web Traffic",
+   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
+   :rdfs/subClassOf #{:d3f/InboundInternetWebTraffic
+                      :d3f/InboundInternetEncryptedTraffic}})
+
 (def InboundInternetMailTraffic
   {:d3f/definition
    "Inbound internet mail traffic is network traffic that is: (a) coming from a host outside a given network via an incoming connection to a host inside that same network, and (b) using a standard protocol for email.",
@@ -18222,6 +20525,15 @@
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/InternetNetworkTraffic :d3f/InboundNetworkTraffic}})
+
+(def InboundInternetWebTraffic
+  {:d3f/definition
+   "Inbound internet web traffic is network traffic that is: (a) on an incoming connection initiated from a host outside the network to a host within a network, and (b) using a standard web protocol.",
+   :db/ident :d3f/InboundInternetWebTraffic,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inbound Internet Web Traffic",
+   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Internetworking"},
+   :rdfs/subClassOf :d3f/InboundInternetNetworkTraffic})
 
 (def InboundNetworkTraffic
   {:d3f/definition
@@ -18975,7 +21287,10 @@
    :db/ident :d3f/KernelModuleLoadEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Kernel Module Load Event",
-   :rdfs/subClassOf :d3f/KernelModuleEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/KernelModuleEvent}})
 
 (def KernelModuleUnloadEvent
   {:d3f/definition
@@ -18986,6 +21301,9 @@
    :rdfs/subClassOf #{:d3f/KernelModuleEvent
                       {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/KernelModuleLoadEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/MemoryDeletionEvent,
                        :rdf/type           :owl/Restriction}}})
 
 (def KernelProcessTable
@@ -19149,15 +21467,17 @@
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def Link
-  {:db/ident        :d3f/Link,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Link",
-   :rdfs/seeAlso    {:xsd/anyURI "https://dbpedia.org/resource/Link"},
+  {:d3f/definition
+   "A link is a connection or association between two entities that facilitates communication, interaction, or data transfer.",
+   :db/ident :d3f/Link,
+   :rdf/type :owl/Class,
+   :rdfs/label "Link",
+   :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/resource/Link"},
    :rdfs/subClassOf #{:d3f/D3FENDCore :d3f/DigitalInformationBearer}})
 
 (def LinuxClone
   {:d3f/definition
-   "Creates a child process and provides more precise control over the data shared between the parent and child processes",
+   "Creates a child process and provides more precise control over the data shared between the parent and child processes.",
    :db/ident :d3f/LinuxClone,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -19257,7 +21577,7 @@
 
 (def LinuxFork
   {:d3f/definition
-   "Creates a child process with unique PID but retains parent PID as Parent Process Identifier (PPID)",
+   "Creates a child process with unique PID but retains parent PID as Parent Process Identifier (PPID).",
    :db/ident :d3f/LinuxFork,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -19272,7 +21592,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI "https://man7.org/linux/man-pages/man2/init_module.2.html"},
-   :rdfs/label "Linux Init Module",
+   :rdfs/label "Linux Init_Module",
    :rdfs/subClassOf :d3f/OSAPILoadModule})
 
 (def LinuxKillArgumentSIGKILL
@@ -19498,7 +21818,7 @@
    :rdfs/subClassOf  :d3f/OSAPIReadFile})
 
 (def LinuxRename
-  {:d3f/definition   "Change the name or location of a file",
+  {:d3f/definition   "Change the name or location of a file.",
    :db/ident         :d3f/LinuxRename,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -19581,7 +21901,7 @@
 
 (def LinuxVfork
   {:d3f/definition
-   "Create child process that temp suspends parent process until it terminates",
+   "Create child process that temp suspends parent process until it terminates.",
    :db/ident :d3f/LinuxVfork,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -19826,9 +22146,11 @@
    :rdfs/subClassOf :d3f/SymbolicAI})
 
 (def LogicalLink
-  {:db/ident        :d3f/LogicalLink,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Logical Link",
+  {:d3f/definition
+   "A Logical Link is an abstract or virtual connection between two entities that facilitates communication or data exchange without requiring a direct physical connection.",
+   :db/ident :d3f/LogicalLink,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Logical Link",
    :rdfs/subClassOf :d3f/Link})
 
 (def LogicalLinkMapping
@@ -20515,7 +22837,10 @@
    :db/ident :d3f/MemoryDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Memory Deletion Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/MemoryFreeFunction,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/MemoryAllocationEvent,
                        :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
@@ -20546,9 +22871,11 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def MemoryExtent
-  {:db/ident        :d3f/MemoryExtent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Memory Extent",
+  {:d3f/definition
+   "A memory extent is a defined, contiguous region of memory within a computing system, characterized by its size, location, and purpose. It represents an abstraction of physical or virtual memory used for storing data, instructions, or other computational artifacts.",
+   :db/ident :d3f/MemoryExtent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Memory Extent",
    :rdfs/subClassOf :d3f/DigitalInformation})
 
 (def MemoryFreeFunction
@@ -20592,9 +22919,11 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def MemoryManagementUnitComponent
-  {:db/ident        :d3f/MemoryManagementUnitComponent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Memory Management Unit Component",
+  {:d3f/definition
+   "A Memory Management Unit Component is a hardware or software element that contributes to the functionality of a Memory Management Unit, which is responsible for managing and translating memory addresses in a computing system.",
+   :db/ident :d3f/MemoryManagementUnitComponent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Memory Management Unit Component",
    :rdfs/subClassOf :d3f/HardwareDevice})
 
 (def MemoryMapEvent
@@ -20634,9 +22963,12 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def MemoryProtectionUnit
-  {:db/ident        :d3f/MemoryProtectionUnit,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Memory Protection Unit",
+  {:d3f/definition
+   "A Memory Protection Unit (MPU) is a processor component that enforces access control policies on memory regions to ensure the integrity, security, and proper operation of a computing system.",
+   :d3f/synonym "MPU",
+   :db/ident :d3f/MemoryProtectionUnit,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Memory Protection Unit",
    :rdfs/subClassOf :d3f/ProcessorComponent})
 
 (def MemoryReadEvent
@@ -20647,6 +22979,9 @@
    :rdfs/label "Memory Read Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/MemoryAllocationEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/RawMemoryAccessFunction,
                        :rdf/type           :owl/Restriction} :d3f/MemoryEvent}})
 
 (def MemoryWord
@@ -20764,16 +23099,19 @@
    :rdfs/subClassOf :d3f/Firmware})
 
 (def MicrosoftHTMLApplication
-  {:d3f/may-contain  :d3f/ExecutableScript,
-   :db/ident         :d3f/MicrosoftHTMLApplication,
-   :rdf/type         #{:owl/NamedIndividual :owl/Class},
+  {:d3f/definition
+   "An HTML Application (HTA) is a Microsoft Windows program whose source code consists of HTML, Dynamic HTML, and one or more scripting languages supported by Internet Explorer, such as VBScript or JScript.",
+   :d3f/may-contain :d3f/ExecutableScript,
+   :d3f/synonym "HTA",
+   :db/ident :d3f/MicrosoftHTMLApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/HTML_Application"},
-   :rdfs/label       "Microsoft HTML Application",
-   :rdfs/subClassOf  #{:d3f/HTMLFile
-                       {:owl/onProperty     :d3f/may-contain,
-                        :owl/someValuesFrom :d3f/ExecutableScript,
-                        :rdf/type           :owl/Restriction}}})
+   :rdfs/label "Microsoft HTML Application",
+   :rdfs/subClassOf #{:d3f/HTMLFile
+                      {:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/ExecutableScript,
+                       :rdf/type           :owl/Restriction}}})
 
 (def MicrosoftWordDOCBFile
   {:db/ident   :d3f/MicrosoftWordDOCBFile,
@@ -22327,6 +24665,15 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/AccessMediation}})
 
+(def NetworkAgent
+  {:d3f/definition
+   "A network agent is software installed on a network node or device that transmits information back to a collector agent or management system.  Kinds of network agents include SNMP Agent, IPMI agents, WBEM agents, and many proprietary agents capturing network monitoring and management information.",
+   :d3f/synonym "Exporter",
+   :db/ident :d3f/NetworkAgent,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Network Agent",
+   :rdfs/subClassOf :d3f/Software})
+
 (def NetworkAudioStreamingResource
   {:d3f/definition
    "A server that provides digital audio media content to users.",
@@ -22704,9 +25051,11 @@
    :skos/altLabel "Network Enumerator"})
 
 (def NetworkSensor
-  {:db/ident        :d3f/NetworkSensor,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Network Sensor",
+  {:d3f/definition
+   "A Network Sensor monitors network traffic and communication patterns.",
+   :db/ident :d3f/NetworkSensor,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Sensor",
    :rdfs/subClassOf :d3f/CyberSensor})
 
 (def NetworkService
@@ -22835,17 +25184,17 @@
 (def NetworkTrafficPolicyMapping
   {:d3f/d3fend-id "D3-NTPM",
    :d3f/definition
-   "Network traffic policy mapping identifies and models the allowed pathways of data at the network, tranport, and/or application levels.",
+   "Network traffic policy mapping identifies and models the allowed pathways of data at the network, transport, and/or application levels.",
    :d3f/kb-reference :d3f/Reference-CiscoASR9000AccessListCommands,
    :d3f/maps :d3f/AccessControlConfiguration,
-   :d3f/queries :d3f/CollectorAgent,
+   :d3f/queries :d3f/NetworkAgent,
    :d3f/synonym #{"Web Security Gateway Policy Mapping" "DLP Policy Mapping"
                   "IPS Policy Mapping" "Firewall Mapping"},
    :db/ident :d3f/NetworkTrafficPolicyMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Traffic Policy Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/queries,
-                       :owl/someValuesFrom :d3f/CollectorAgent,
+                       :owl/someValuesFrom :d3f/NetworkAgent,
                        :rdf/type           :owl/Restriction} :d3f/NetworkMapping
                       {:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/AccessControlConfiguration,
@@ -22858,6 +25207,8 @@
    "Analyzing network traffic and compares it to known signatures",
    :d3f/kb-article
    "## How it works\n\nNetwork signature analysis relies on predefined patterns, or signatures, to identify malicious network activity. These signatures typically match against specific byte sequences, packet header information, or protocol anomalies indicative of known threats.\n\nThe process works as follows:\n\n* Packet Capture: Network traffic is captured on an interface or port, resulting in a stream of raw packets.\n* Preprocessing: The captured packets are preprocessed, cleaning and normalizing the data for efficient analysis.\n* Signature Matching: Each packet is compared against a database of signatures using dedicated engines.\n\n## Considerations\n\n### False Negatives\n\nNetwork signature analysis is susceptible to generating false negatives. These occur when malicious activity evades detection due to limitations in the signature-based approach. Here are some common causes:\n\n* Evolving threats: Attackers frequently modify their tactics, rendering existing signatures ineffective against new variants.\n* Obfuscation: Attackers may disguise malicious content using encryption, encoding, or other techniques to bypass signature detection.\n* Limited visibility: Signatures rely on specific patterns. If crucial information is encrypted or hidden, the signature might miss the threat.\n* Zero-day attacks: By definition, new and unknown attacks lack corresponding signatures, allowing them to pass undetected.\n\n### False Positives\n\nNetwork signature analysis is susceptible to generating false positives. These occur when the signature analysis triggers an alert for benign traffic. Common causes include:\n\n* Overly broad signatures: Rules designed to be too general might match harmless activities, generating false alarms.\n* Network misconfigurations: Improperly configured devices or legitimate network activity can mimic malicious patterns, triggering false positives.\n* Data errors: Corrupted or incomplete network data can lead to misinterpretations and false alerts.\n\n",
+   :d3f/kb-reference
+   :d3f/Reference-SystemAndMethodForStrategicAntiMalwareMonitoring,
    :db/ident :d3f/NetworkTrafficSignatureAnalysis,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Traffic Signature Analysis",
@@ -22880,6 +25231,8 @@
    "Network vulnerability assessment relates all the vulnerabilities of a network's components in the context of their configuration and interdependencies and can also include assessing risk emerging from the network's design as a whole, not just the sum of individual network node or network segment vulnerabilities.",
    :d3f/evaluates :d3f/Network,
    :d3f/identifies :d3f/Vulnerability,
+   :d3f/kb-reference
+   :d3f/Reference-ReachabilityGraphBasedSafeRemediationsforSecuirytofOnPremiseAndCloudComputingEnvironments,
    :db/ident :d3f/NetworkVulnerabilityAssessment,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Vulnerability Assessment",
@@ -22979,7 +25332,8 @@
    :rdfs/subClassOf :d3f/PatternMatching})
 
 (def OSAPIAccessProcess
-  {:d3f/invokes     :d3f/AccessProcess,
+  {:d3f/definition  "An OS API function for interacting with processes.",
+   :d3f/invokes     :d3f/AccessProcess,
    :db/ident        :d3f/OSAPIAccessProcess,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "OS API Access Process",
@@ -22989,37 +25343,44 @@
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPIAllocateMemory
-  {:d3f/invokes     :d3f/AllocateMemory,
-   :db/ident        :d3f/OSAPIAllocateMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Allocate Memory",
+  {:d3f/definition
+   "An OS API function that requests and allocates a region of memory for use by a process or application.",
+   :d3f/invokes :d3f/AllocateMemory,
+   :db/ident :d3f/OSAPIAllocateMemory,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Allocate Memory",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/AllocateMemory,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIConnectSocket
-  {:d3f/invokes     :d3f/ConnectSocket,
-   :db/ident        :d3f/OSAPIConnectSocket,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Connect Socket",
+  {:d3f/definition
+   "An OS API function that establishes a connection between a socket and a endpooint.",
+   :d3f/invokes :d3f/ConnectSocket,
+   :db/ident :d3f/OSAPIConnectSocket,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Connect Socket",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ConnectSocket,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPICopyToken
-  {:d3f/invokes     :d3f/CopyToken,
-   :db/ident        :d3f/OSAPICopyToken,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Copy Token",
+  {:d3f/definition
+   "An OS API function that creates a duplicate or copy of an existing security token.",
+   :d3f/invokes :d3f/CopyToken,
+   :db/ident :d3f/OSAPICopyToken,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Copy Token",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CopyToken,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPICreateFile
-  {:d3f/invokes     :d3f/CreateFile,
+  {:d3f/definition  "An OS API function that creates a file.",
+   :d3f/invokes     :d3f/CreateFile,
    :db/ident        :d3f/OSAPICreateFile,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "OS API Create File",
@@ -23029,17 +25390,20 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPICreateProcess
-  {:d3f/invokes     :d3f/CreateProcess,
-   :db/ident        :d3f/OSAPICreateProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Create Process",
+  {:d3f/definition
+   "An OS API function that creates a new process within the system.",
+   :d3f/invokes :d3f/CreateProcess,
+   :db/ident :d3f/OSAPICreateProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Create Process",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateProcess,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPICreateSocket
-  {:d3f/invokes     :d3f/CreateSocket,
+  {:d3f/definition  "An OS API function that creates a socket.",
+   :d3f/invokes     :d3f/CreateSocket,
    :db/ident        :d3f/OSAPICreateSocket,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "OS API Create Socket",
@@ -23049,186 +25413,222 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPICreateThread
-  {:d3f/invokes     :d3f/CreateThread,
-   :db/ident        :d3f/OSAPICreateThread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Create Thread",
+  {:d3f/definition
+   "An OS API function that creates a new thread of execution within a process.",
+   :d3f/invokes :d3f/CreateThread,
+   :db/ident :d3f/OSAPICreateThread,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Create Thread",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/CreateThread,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIDeleteFile
-  {:d3f/invokes     :d3f/DeleteFile,
-   :db/ident        :d3f/OSAPIDeleteFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Delete File",
+  {:d3f/definition
+   "An OS API function that removes a file from the file system.",
+   :d3f/invokes :d3f/DeleteFile,
+   :db/ident :d3f/OSAPIDeleteFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Delete File",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/DeleteFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIExec
-  {:d3f/invokes     :d3f/Exec,
-   :db/ident        :d3f/OSAPIExec,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Exec",
+  {:d3f/definition
+   "An OS API function that replaces the current process image with a new processs image, executing a specified program.",
+   :d3f/invokes :d3f/Exec,
+   :db/ident :d3f/OSAPIExec,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Exec",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/Exec,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIFreeMemory
-  {:d3f/invokes     :d3f/FreeMemory,
-   :db/ident        :d3f/OSAPIFreeMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Free Memory",
+  {:d3f/definition
+   "An OS API function that releases or deallocates memory that was previously allocated by the program.",
+   :d3f/invokes :d3f/FreeMemory,
+   :db/ident :d3f/OSAPIFreeMemory,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Free Memory",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/FreeMemory,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIFunction
-  {:db/ident        :d3f/OSAPIFunction,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OS API Function",
-   :rdfs/seeAlso    #{{:xsd/anyURI "http://dbpedia.org/resource/Windows_API"}
-                      {:xsd/anyURI
-                       "http://dbpedia.org/page/Linux_kernel_interfaces"}},
+  {:d3f/definition
+   "A callable interface provided by an operating system that allows applications or other software components to interact with and utilize the underlying system resources, services, or functionalities.",
+   :db/ident :d3f/OSAPIFunction,
+   :rdf/type :owl/Class,
+   :rdfs/label "OS API Function",
+   :rdfs/seeAlso #{{:xsd/anyURI "http://dbpedia.org/resource/Windows_API"}
+                   {:xsd/anyURI
+                    "http://dbpedia.org/page/Linux_kernel_interfaces"}},
    :rdfs/subClassOf :d3f/Software})
 
 (def OSAPIGetSystemTime
-  {:d3f/invokes     :d3f/GetSystemTime,
-   :db/ident        :d3f/OSAPIGetSystemTime,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Get System Time",
+  {:d3f/definition
+   "An OS API function that retrieves the current system time or timestamp.",
+   :d3f/invokes :d3f/GetSystemTime,
+   :db/ident :d3f/OSAPIGetSystemTime,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Get System Time",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/GetSystemTime,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPIGetThreadContext
-  {:d3f/invokes     :d3f/GetThreadContext,
-   :db/ident        :d3f/OSAPIGetThreadContext,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Get Thread Context",
+  {:d3f/definition
+   "An OS API function that retrieves the execution context or state of a specific thread in a process.",
+   :d3f/invokes :d3f/GetThreadContext,
+   :db/ident :d3f/OSAPIGetThreadContext,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Get Thread Context",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/GetThreadContext,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPILoadModule
-  {:d3f/invokes     :d3f/LoadModule,
-   :db/ident        :d3f/OSAPILoadModule,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Load Module",
+  {:d3f/definition
+   "An OS API function that loads a module into memory and makes it available for execution.",
+   :d3f/invokes :d3f/LoadModule,
+   :db/ident :d3f/OSAPILoadModule,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Load Module",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/LoadModule,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIMoveFile
-  {:d3f/invokes     :d3f/MoveFile,
-   :db/ident        :d3f/OSAPIMoveFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Move File",
+  {:d3f/definition
+   "An OS API function that moves or renames a file or directory from one location to another within the file system.",
+   :d3f/invokes :d3f/MoveFile,
+   :db/ident :d3f/OSAPIMoveFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Move File",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/MoveFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIOpenFile
-  {:d3f/invokes     :d3f/OpenFile,
-   :db/ident        :d3f/OSAPIOpenFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Open File",
+  {:d3f/definition
+   "An OS API function that opens a file for reading, writing, or both, and return a handle or descriptor that can be used to interact with the file.",
+   :d3f/invokes :d3f/OpenFile,
+   :db/ident :d3f/OSAPIOpenFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Open File",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/OpenFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIReadFile
-  {:d3f/invokes     :d3f/ReadFile,
-   :db/ident        :d3f/OSAPIReadFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Read File",
+  {:d3f/definition
+   "An OS API function that reads data from a file or input stream into memory.",
+   :d3f/invokes :d3f/ReadFile,
+   :db/ident :d3f/OSAPIReadFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Read File",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ReadFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIReadMemory
-  {:d3f/invokes     :d3f/ReadMemory,
-   :db/ident        :d3f/OSAPIReadMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Read Memory",
+  {:d3f/definition
+   "An OS API function that reads the contents of memory from a specific address or region.",
+   :d3f/invokes :d3f/ReadMemory,
+   :db/ident :d3f/OSAPIReadMemory,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Read Memory",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ReadMemory,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIResumeProcess
-  {:d3f/invokes     :d3f/ResumeProcess,
-   :db/ident        :d3f/OSAPIResumeProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Resume Process",
+  {:d3f/definition
+   "An OS API function that resumes the execution of a paused, stopped, or suspended process.",
+   :d3f/invokes :d3f/ResumeProcess,
+   :db/ident :d3f/OSAPIResumeProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Resume Process",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ResumeProcess,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPIResumeThread
-  {:d3f/invokes     :d3f/ResumeThread,
-   :db/ident        :d3f/OSAPIResumeThread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Resume Thread",
+  {:d3f/definition
+   "An OS API function that resumes the execution of a paused, stopped, or suspended thread.",
+   :d3f/invokes :d3f/ResumeThread,
+   :db/ident :d3f/OSAPIResumeThread,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Resume Thread",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/ResumeThread,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPISaveRegisters
-  {:d3f/invokes     :d3f/SaveRegister,
-   :db/ident        :d3f/OSAPISaveRegisters,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Save Registers",
+  {:d3f/definition
+   "An OS API function that retrieves and saves the values of CPU registers for a specific process or thread.",
+   :d3f/invokes :d3f/SaveRegister,
+   :db/ident :d3f/OSAPISaveRegisters,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Save Registers",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SaveRegister,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPISetRegisters
-  {:d3f/invokes     :d3f/SetRegisters,
-   :db/ident        :d3f/OSAPISetRegisters,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Set Registers",
+  {:d3f/definition
+   "An OS API function that modifies the values of CPU registers.",
+   :d3f/invokes :d3f/SetRegisters,
+   :db/ident :d3f/OSAPISetRegisters,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Set Registers",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SetRegisters,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPISetThreadContext
-  {:d3f/invokes     :d3f/SetThreadContext,
-   :db/ident        :d3f/OSAPISetThreadContext,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Set Thread Context",
+  {:d3f/definition
+   "An OS API function that modifies the execution context of a thread.",
+   :d3f/invokes :d3f/SetThreadContext,
+   :db/ident :d3f/OSAPISetThreadContext,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Set Thread Context",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SetThreadContext,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPISuspendProcess
-  {:d3f/invokes     :d3f/SuspendProcess,
-   :db/ident        :d3f/OSAPISuspendProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Suspend Process",
+  {:d3f/definition "An OS API function that pauses the execution of a process.",
+   :d3f/invokes :d3f/SuspendProcess,
+   :db/ident :d3f/OSAPISuspendProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Suspend Process",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/SuspendProcess,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPISuspendThread
-  {:d3f/invokes     :d3f/SuspendThread,
+  {:d3f/definition  "An OS API function that pauses the execution of a thread.",
+   :d3f/invokes     :d3f/SuspendThread,
    :db/ident        :d3f/OSAPISuspendThread,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "OS API Suspend Thread",
@@ -23247,79 +25647,111 @@
    :rdfs/subClassOf :d3f/OSAPIFunction})
 
 (def OSAPITerminateProcess
-  {:d3f/invokes     :d3f/TerminateProcess,
-   :db/ident        :d3f/OSAPITerminateProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Terminate Process",
+  {:d3f/invokes :d3f/TerminateProcess,
+   :db/ident :d3f/OSAPITerminateProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Terminate Process",
+   :rdfs/seeAlso {:rdf/value
+                  "An OS API function taht stops the execution of a process."},
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/TerminateProcess,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPITraceProcess
-  {:d3f/invokes     :d3f/TraceProcess,
-   :db/ident        :d3f/OSAPITraceProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Trace Process",
+  {:d3f/definition
+   "An OS API function that enables a program to monitor, control, or interact with the execution of a process.",
+   :d3f/invokes :d3f/TraceProcess,
+   :db/ident :d3f/OSAPITraceProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Trace Process",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/TraceProcess,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPITraceThread
-  {:d3f/invokes     :d3f/TraceThread,
-   :db/ident        :d3f/OSAPITraceThread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Trace Thread",
+  {:d3f/definition
+   "An OS API function that enables a program to monitor, control, or interact with the execution of a thread.",
+   :d3f/invokes :d3f/TraceThread,
+   :db/ident :d3f/OSAPITraceThread,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Trace Thread",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/TraceThread,
                        :rdf/type           :owl/Restriction}
                       :d3f/OSAPISystemFunction}})
 
 (def OSAPIUnloadModule
-  {:d3f/invokes     :d3f/UnloadModule,
-   :db/ident        :d3f/OSAPIUnloadModule,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Unload Module",
+  {:d3f/definition
+   "An OS API function that removes a previously loaded module from memory.",
+   :d3f/invokes :d3f/UnloadModule,
+   :db/ident :d3f/OSAPIUnloadModule,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Unload Module",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/UnloadModule,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIWriteFile
-  {:d3f/invokes     :d3f/WriteFile,
-   :db/ident        :d3f/OSAPIWriteFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Write File",
+  {:d3f/definition
+   "An OS API function that writes data from a buffer in memory to a file or output stream.",
+   :d3f/invokes :d3f/WriteFile,
+   :db/ident :d3f/OSAPIWriteFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Write File",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/WriteFile,
                        :rdf/type           :owl/Restriction}}})
 
 (def OSAPIWriteMemory
-  {:d3f/invokes     :d3f/WriteMemory,
-   :db/ident        :d3f/OSAPIWriteMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OS API Write Memory",
+  {:d3f/definition
+   "An OS API function that writes data into the memory space of another process or into specific regions of memory.",
+   :d3f/invokes :d3f/WriteMemory,
+   :db/ident :d3f/OSAPIWriteMemory,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OS API Write Memory",
    :rdfs/subClassOf #{:d3f/OSAPISystemFunction
                       {:owl/onProperty     :d3f/invokes,
                        :owl/someValuesFrom :d3f/WriteMemory,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTAbortService
-  {:d3f/definition  "Command that tells the device to abort a service/program.",
-   :db/ident        :d3f/OTAbortService,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Abort Service",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+(def OTAbortCommand
+  {:d3f/definition "Commands a device to abort a service/program.",
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTAbortCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Abort Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
 
-(def OTAbortServiceEvent
-  {:db/ident        :d3f/OTAbortServiceEvent,
+(def OTAbortCommandEvent
+  {:db/ident        :d3f/OTAbortCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Abort Service Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label      "OT Abort Command Event",
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/OTRunCommandEvent,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTAbortService,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTAbortCommand,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTActuator
@@ -23332,75 +25764,176 @@
    :rdfs/label "OT Actuator",
    :rdfs/subClassOf :d3f/Actuator})
 
-(def OTChangeData
-  {:d3f/definition "OT command that changes existing data on a remote device.",
-   :db/ident :d3f/OTChangeData,
+(def OTAlarmMessage
+  {:d3f/definition "Report danger, hazards, or serious errors.",
+   :db/ident :d3f/OTAlarmMessage,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #{"BACnet/IP: ATOMIC_WRITE_FILE\nBACnet/IP: WRITE_BROADCAST_TABLE\nBACnet/IP: WRITE_GROUP  "
-     "Modbus/TCP: WRITE_FILE_RECORD" "GEMS: SaveConfig"
-     "DNP3: WRITE\nDNP3: SAVE_CONFIG\nDNP3: ASSIGN_CLASS\nDNP3: RECORD_CURRENT_TIME "},
-   :rdfs/label "OT Change Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+   #{"BACnet: acknowledgeAlarm\nBACnet: confirmedEventNotification\nBACnet: getAlarmSummary\nBACnet: unconfirmedEventNotification\nBACnet: lifeSafetyOperation\nBACnet: Abort: 1\nBACnet: Abort: 2\nBACnet: Abort: 3\nBACnet: Abort: 4\nBACnet: Abort: 5\nBACnet: Abort: 6\nBACnet: Abort: 7\nBACnet: Abort: 8\nBACnet: Abort: 9\nBACnet: Abort: 10\nBACnet: Abort: 11\nBACnet: Abort: 12 "
+     "GE-SRTP: RETURN FAULT TABLE\nGE-SRTP: CLEAR FAULT TABLE"},
+   :rdfs/label "OT Alarm Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDiagnosticsMessage})
 
-(def OTChangeDataEvent
-  {:db/ident        :d3f/OTChangeDataEvent,
+(def OTAlarmMessageEvent
+  {:d3f/definition  "Report danger, hazards, or serious errors.",
+   :db/ident        :d3f/OTAlarmMessageEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Change Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTChangeData,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTChangeDeviceProcessData
-  {:d3f/definition
-   "OT command that changes existing process data on a remote device.",
-   :db/ident :d3f/OTChangeDeviceProcessData,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   #{"BACnet/IP: WRITE_PROPERTY\nBACnet/IP: WRITE_PROPERTY_MULTIPLE\nBACnet/IP: ATOMIC_WRITE_FILE "
-     "Modbus/TCP: WRITE_MULTIPLE_COILS\nModbus/TCP: MASK_WRITE_REGISTER\nModbus/TCP: WRITE_MULTIPLE_REGISTERS\nModbus/TCP: WRITE_SINGLE_COIL\nModbus/TCP: WRITE_SINGLE_REGISTER\nModbus/TCP: WRITE_FILE_RECORD "
-     "GEMS: LoadConfig\nGEMS: SetConfig"
-     "DNP3: INITIALIZE_DATA\nDNP3: ACTIVATE_CONFIG"},
-   :rdfs/label "OT Change Device Process Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
-
-(def OTChangeDeviceProcessDataEvent
-  {:db/ident        :d3f/OTChangeDeviceProcessDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Change Device Process Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTChangeDeviceProcessData,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTCommand
-  {:d3f/definition
-   "An operational technology event that captures the occurrence of an OT command being issued, executed, or acknowledged, thereby linking a specific command action to its observable impact within a control system.",
-   :db/ident :d3f/OTCommand,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Command",
-   :rdfs/subClassOf :d3f/OTProtocolMessage})
-
-(def OTCommandEvent
-  {:db/ident        :d3f/OTCommandEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Command Event",
+   :rdfs/label      "OT Alarm Message Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTCommand,
-                       :rdf/type           :owl/Restriction} :d3f/OTEvent}})
+                       :owl/someValuesFrom :d3f/OTAlarmMessage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTDiagnosticsMessageEvent}})
+
+(def OTChangeControlProgramCommand
+  {:d3f/definition
+   "Commands a remote device to modify an existing control program.",
+   :d3f/modifies :d3f/OTControlProgram,
+   :db/ident :d3f/OTChangeControlProgramCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "GE-SRTP: WRITE PROGRAM BLOCK MEMORY\nGE-SRTP: CHANGE PLC CPU PRIVILEGE LEVEL\nGE-SRTP: SET CONTROL ID(CPU ID)\nGE-SRTP: PROGRAM STORE (UPLOAD FROM PLC)\nGE-SRTP: PROGRAM LOAD (DOWNLOAD TO PLC)\nGE-SRTP: TOGGLE FORCE SYSTEM MEMORY",
+   :rdfs/label "OT Change Control Program Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTModifyControlProgramCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTChangeControlProgramCommandEvent
+  {:d3f/definition
+   "Commands a remote device to modify an existing control program.",
+   :db/ident :d3f/OTChangeControlProgramCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Change Control Program Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTChangeControlProgramCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyControlProgramCommandEvent}})
+
+(def OTChangeDataCommand
+  {:d3f/definition "OT command that modifies existing data on a remote device.",
+   :db/ident :d3f/OTChangeDataCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"Modbus: Write Single Coil\nModbus: Write Single Register\nModbus: Write Multiple Coils\nModbus: Write Multiple Registers\nModbus: Write File Record\nModbus: Mask Write Register\nModbus: Read Write Register"
+     "CIP: Set Attributes All\nCIP: Set Attribute List\nCIP: Set Attribute Single\nCIP: Set Member"
+     "GE-SRTP: WRITE SYSTEM MEMORY\nGE-SRTP: WRITE TASK MEMORY "
+     "BACnet: atomicWriteFile\nBACnet: writeProperty\nBACnet: writePropertyMultiple\nBACnet: write-group "},
+   :rdfs/label "OT Change Data Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTWriteCommand})
+
+(def OTChangeDataCommandEvent
+  {:d3f/definition "OT command that modifies existing data on a remote device.",
+   :db/ident :d3f/OTChangeDataCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Change Data Command Event",
+   :rdfs/subClassOf #{:d3f/OTWriteCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTChangeDataCommand,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTConnectionCommand
+  {:d3f/definition "Establish a network connection with a device.",
+   :db/ident :d3f/OTConnectionCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment #{"BACnet: vtOpen\nBACnet: vtClose "
+                   "ENIP: Register Session\nENIP: Unregister Session"},
+   :rdfs/label "OT Connection Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTNetworkManagementCommand})
+
+(def OTConnectionCommandEvent
+  {:d3f/definition  "Establish a network connection with a device.",
+   :db/ident        :d3f/OTConnectionCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Connection Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTConnectionCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTNetworkManagementCommandEvent}})
+
+(def OTControlCommand
+  {:d3f/definition "Command and control the managed process.",
+   :db/ident :d3f/OTControlCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"GE-SRTP: PLC SHORT STATUS REQUEST"
+     "CIP: Reset\nCIP: Start\nCIP: Stop\nCIP: Create\nCIP: Delete\nCIP: Apply Attributes\nCIP: Restore\nCIP: Save "},
+   :rdfs/label "OT Control Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProcessDataCommand})
+
+(def OTControlCommandEvent
+  {:d3f/definition  "Command and control the managed process.",
+   :db/ident        :d3f/OTControlCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Control Command Event",
+   :rdfs/subClassOf #{:d3f/OTProcessDataCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControlCommand,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTControlLogicProcess
-  {:d3f/contains :d3f/OTLogicVariable,
+  {:d3f/communicates-with :d3f/OTIOModule,
+   :d3f/contains :d3f/OTLogicVariable,
+   :d3f/controls :d3f/OTActuator,
    :d3f/definition
    "The instructions and algorithms within an OT Controller defined by user programming to interpret inputs, process information, and determine outputs.",
+   :d3f/monitors :d3f/OTSensor,
    :db/ident :d3f/OTControlLogicProcess,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "OT Control Logic Process",
-   :rdfs/subClassOf #{:d3f/Process
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/controls,
+                       :owl/someValuesFrom :d3f/OTActuator,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/OTSensor,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/OTLogicVariable,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/communicates-with,
+                       :owl/someValuesFrom :d3f/OTIOModule,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplicationProcess}})
 
 (def OTControlProgram
   {:d3f/definition
@@ -23410,221 +25943,438 @@
    :db/ident :d3f/OTControlProgram,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "OT Control Program",
-   :rdfs/subClassOf #{:d3f/Application
-                      {:owl/onProperty     :d3f/instructs,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/instructs,
                        :owl/someValuesFrom :d3f/OTControlLogicProcess,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplication}})
 
 (def OTControlVariable
   {:d3f/definition
-   "A control variable is the measurement of the physical condition of the device that influences the Process Variables. For example, if the Set Point of a temperature control system for a residential dwelling is 72 degrees, and the Process Variable is 82 degrees, the Control Variable for the air conditioner should be 'on.'",
+   "A control variable is the measurement of the physical condition of the device that influences the Process Variables.",
    :db/ident :d3f/OTControlVariable,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/Industrial%20Cybersecurity%20Knowledge%20FINAL.pdf?hsLang=en"},
    :rdfs/label "OT Control Variable",
-   :rdfs/subClassOf :d3f/OTLogicVariable})
+   :rdfs/subClassOf :d3f/OTLogicVariable,
+   :skos/example
+   "If the Set Point of a temperature control system for a residential dwelling is 72 degrees, and the Process Variable is 82 degrees, the Control Variable for the air conditioner should be 'on.'"})
 
 (def OTController
-  {:d3f/communicates-with :d3f/OTIOModule,
-   :d3f/controls :d3f/OTActuator,
+  {:d3f/contains :d3f/OTControlProgram,
    :d3f/definition
    "An OT Controller is an industrial control device that automatically regulates one or more controlled variables in response to command inputs and real-time feedback signals.",
-   :d3f/monitors :d3f/OTSensor,
+   :d3f/manages :d3f/OTControlLogicProcess,
    :d3f/powered-by :d3f/OTPowerSupply,
-   :d3f/runs :d3f/OTControlProgram,
    :db/ident :d3f/OTController,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://csrc.nist.gov/glossary/term/controller"},
    :rdfs/label "OT Controller",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
-                       :owl/someValuesFrom :d3f/OTControlProgram,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/controls,
-                       :owl/someValuesFrom :d3f/OTActuator,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/monitors,
-                       :owl/someValuesFrom :d3f/OTSensor,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/OTControlLogicProcess,
                        :rdf/type           :owl/Restriction}
                       :d3f/OTEmbeddedComputer
-                      {:owl/onProperty     :d3f/communicates-with,
-                       :owl/someValuesFrom :d3f/OTIOModule,
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/powered-by,
                        :owl/someValuesFrom :d3f/OTPowerSupply,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTCreateData
+(def OTCreateDataCommand
   {:d3f/definition "OT command that creates data on a remote device.",
-   :db/ident :d3f/OTCreateData,
+   :db/ident :d3f/OTCreateDataCommand,
    :rdf/type :owl/Class,
-   :rdfs/comment
-   #{"DNP3: FREEZE_AT_TIME\nDNP3: FREEZE_CLEAR\nDNP3: IMMED_FREEZE"
-     "BACnet/IP: ADD_LIST_ELEMENT"},
-   :rdfs/label "OT Create Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+   :rdfs/comment #{"CIP: Insert Member"
+                   "BACnet: addListElement\nBACnet: createObject"},
+   :rdfs/label "OT Create Data Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTWriteCommand})
 
-(def OTCreateDataEvent
-  {:db/ident        :d3f/OTCreateDataEvent,
+(def OTCreateDataCommandEvent
+  {:d3f/definition  "OT command that creates data on a remote device.",
+   :db/ident        :d3f/OTCreateDataCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Create Data Event",
+   :rdfs/label      "OT Create Data Command Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTCreateData,
+                       :owl/someValuesFrom :d3f/OTCreateDataCommand,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      :d3f/OTWriteCommandEvent}})
 
-(def OTCreateNewDeviceProcessData
-  {:d3f/definition  "OT command that creates process data on a remote device.",
-   :db/ident        :d3f/OTCreateNewDeviceProcessData,
+(def OTCreateNewControlProgramCommand
+  {:d3f/definition "Commands a remote device to create an control program.",
+   :d3f/has-participant :d3f/OTControlProgram,
+   :db/ident :d3f/OTCreateNewControlProgramCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "GE-SRTP: WRITE PROGRAM BLOCK MEMORY\nGE-SRTP: SET CONTROL ID(CPU ID)\nGE-SRTP: PROGRAM LOAD (DOWNLOAD TO PLC)\nGE-SRTP: TOGGLE FORCE SYSTEM MEMORY",
+   :rdfs/label "OT Create New Control Program Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyControlProgramCommand}})
+
+(def OTCreateNewControlProgramCommandEvent
+  {:d3f/definition  "Commands a remote device to create an control program.",
+   :db/ident        :d3f/OTCreateNewControlProgramCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "BACnet/IP: CREATE_OBJECT",
-   :rdfs/label      "OT Create New Device Process Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
+   :rdfs/label      "OT Create New Control Program Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyControlProgramCommandEvent
+                      {:owl/onProperty :d3f/has-participant,
+                       :owl/someValuesFrom
+                       :d3f/OTCreateNewControlProgramCommand,
+                       :rdf/type :owl/Restriction}}})
 
-(def OTCreateNewDeviceProcessDataEvent
-  {:db/ident        :d3f/OTCreateNewDeviceProcessDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Create New Device Process Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTCreateNewDeviceProcessData,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTDeleteData
-  {:d3f/definition "OT command that removes existing data on a remote device.",
-   :db/ident :d3f/OTDeleteData,
+(def OTDebugCommand
+  {:d3f/definition "Investigate or analyze the current state of the system.",
+   :db/ident :d3f/OTDebugCommand,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #{"BACnet/IP: REMOVE_LIST_ELEMENT\nBACnet/IP: DELETE_FOREIGN_DEVICE_TABLE_ENTRY "
-     "DNP3: DELETE_FILE"},
-   :rdfs/label "OT Delete Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceData})
+   #{"Modbus: Get Comm. Event Log\nModbus: Return Query Data\nModbus: Clear Counters\nModbus: Get Comm. Event Counters"
+     "BACnet: getEnrollmentSummary\nBACnet: confirmed-audit-notification\nBACnet: audit-log-query\nBACnet: unconfirmed-audit-notification "},
+   :rdfs/label "OT Debug Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDiagnosticsMessage})
 
-(def OTDeleteDataEvent
-  {:db/ident        :d3f/OTDeleteDataEvent,
+(def OTDebugCommandEvent
+  {:d3f/definition  "Investigate or analyze the current state of the system.",
+   :db/ident        :d3f/OTDebugCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Delete Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDeleteData,
+   :rdfs/label      "OT Debug Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDebugCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTDiagnosticsMessageEvent}})
+
+(def OTDeleteControlProgramCommand
+  {:d3f/definition
+   "Commands a remote device to remove an existing control program.",
+   :d3f/modifies :d3f/OTControlProgram,
+   :db/ident :d3f/OTDeleteControlProgramCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Delete Control Program Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTModifyControlProgramCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTDeleteDeviceProcessData
+(def OTDeleteControlProgramCommandEvent
   {:d3f/definition
-   "OT command that removes existing process data on a remote device.",
-   :db/ident :d3f/OTDeleteDeviceProcessData,
+   "Commands a remote device to remove an existing control program.",
+   :db/ident :d3f/OTDeleteControlProgramCommandEvent,
    :rdf/type :owl/Class,
-   :rdfs/comment "BACnet/IP: DELETE_OBJECT",
-   :rdfs/label "OT Delete Device Process Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
-
-(def OTDeleteDeviceProcessDataEvent
-  {:db/ident        :d3f/OTDeleteDeviceProcessDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Delete Device Process Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label "OT Delete Control Program Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDeleteDeviceProcessData,
+                       :owl/someValuesFrom :d3f/OTDeleteControlProgramCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyControlProgramCommandEvent}})
+
+(def OTDeleteDataCommand
+  {:d3f/definition "OT command that removes data on a remote device.",
+   :db/ident :d3f/OTDeleteDataCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment "BACnet: removeListElement\nBACnet: deleteObject",
+   :rdfs/label "OT Delete Data Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTWriteCommand})
+
+(def OTDeleteDataCommandEvent
+  {:d3f/definition  "OT command that removes data on a remote device.",
+   :db/ident        :d3f/OTDeleteDataCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Delete Data Command Event",
+   :rdfs/subClassOf #{:d3f/OTWriteCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeleteDataCommand,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTDeviceAcknowledge
-  {:d3f/definition
-   "A device's acknowledgment of a message, not being a response.",
-   :db/ident :d3f/OTDeviceAcknowledge,
+(def OTDeviceConfigurationCommand
+  {:d3f/definition "Configure or administer managed devices.",
+   :db/ident :d3f/OTDeviceConfigurationCommand,
    :rdf/type :owl/Class,
-   :rdfs/comment "BACnet/IP: ACKNOWLEDGE_ALARM\nDNP3: ACK\nDNP3: RESPONSE",
-   :rdfs/label "OT Device Acknowledge",
-   :rdfs/subClassOf :d3f/OTInformationalMessage})
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: READ PROGRAM MEMORY\nGE-SRTP: WRITE PROGRAM BLOCK MEMORY\nGE-SRTP: CHANGE PLC CPU PRIVILEGE LEVEL\nGE-SRTP: SET CONTROL ID(CPU ID)\nGE-SRTP: SET PLC (RUN VS STOP)\nGE-SRTP: PROGRAM STORE (UPLOAD FROM PLC)\nGE-SRTP: PROGRAM LOAD (DOWNLOAD TO PLC)\nGE-SRTP: TOGGLE FORCE SYSTEM MEMORY"},
+   :rdfs/label "OT Device Configuration Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceManagementMessage})
 
-(def OTDeviceAcknowledgeEvent
-  {:db/ident        :d3f/OTDeviceAcknowledgeEvent,
+(def OTDeviceConfigurationCommandEvent
+  {:d3f/definition  "Configure or administer managed devices.",
+   :db/ident        :d3f/OTDeviceConfigurationCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Device Acknowledge Event",
-   :rdfs/subClassOf #{:d3f/OTInformationalMessageEvent
+   :rdfs/label      "OT Device Configuration Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeviceConfigurationCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTDeviceManagementMessageEvent}})
+
+(def OTDeviceDescriptionMessage
+  {:d3f/definition
+   "Describe features, abilities, or performance of system components.",
+   :db/ident :d3f/OTDeviceDescriptionMessage,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"ENIP: List Services\nENIP: List Interfaces "
+     "GE-SRTP: RETURN CONTROL PROGRAM NAMES\nGE-SRTP: RETURN CONTROLLER TYPE AND ID INFORMATION"},
+   :rdfs/label "OT Device Description Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceManagementMessage})
+
+(def OTDeviceDescriptionMessageEvent
+  {:d3f/definition
+   "Describe features, abilities, or performance of system components.",
+   :db/ident :d3f/OTDeviceDescriptionMessageEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Device Description Message Event",
+   :rdfs/subClassOf #{:d3f/OTDeviceManagementMessageEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDeviceAcknowledge,
+                       :owl/someValuesFrom :d3f/OTDeviceDescriptionMessage,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTDeviceException
-  {:d3f/definition
-   "Response to a message when the incoming message cannot be parsed correctly, or another exception is raised in the message’s execution or request.",
+  {:d3f/definition "An unknown or anomalous condition occurred in the system.",
    :db/ident :d3f/OTDeviceException,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #{"Modbus/TCP: MASK_WRITE_REGISTER_EXCEPTION\nModbus/TCP: READ_COILS_EXCEPTION\nModbus/TCP: READ_DISCRETE_INPUTS_EXCEPTION\nModbus/TCP: READ_EXCEPTION_STATUS_EXCEPTION\nModbus/TCP: READ_FIFO_QUEUE_EXCEPTION\nModbus/TCP: READ_FILE_RECORD_EXCEPTION\nModbus/TCP: READ_HOLDING_REGISTERS_EXCEPTION\nModbus/TCP: READ_INPUT_REGISTERS_EXCEPTION\nModbus/TCP: READ_WRITE_MULTIPLE_REGISTERS_EXCEPTION\nModbus/TCP: WRITE_FILE_RECORD_EXCEPTION\nModbus/TCP: WRITE_MULTIPLE_COILS_EXCEPTION\nModbus/TCP: WRITE_MULTIPLE_REGISTERS_EXCEPTION\nModbus/TCP: WRITE_SINGLE_COIL_EXCEPTION\nModbus/TCP: WRITE_SINGLE_REGISTER_EXCEPTION "
-     "DNP3: Support for Analog Input Events\nDNP3: Support for Analog Output Events\nDNP3: Support for Binary Input Events\nDNP3: Support for Binary Output Events\nDNP3: Support for Counter Events\nDNP3: Support for Double-Bit Binary Events\nDNP3: Support for Frozen Analog Inputs\nDNP3: Support for Frozen Counter Events\nDNP3: Support for Frozen Counters\nDNP3: Identification of Support for User-Specific Attributes"
-     "GEMS: ErrorResponse"
-     "BACnet/IP: UNCONFIRMED_EVENT_NOTIFICATION\nBACnet/IP: CONFIRMED_EVENT_NOTIFICATION "},
-   :rdfs/label "OT Device Exception",
-   :rdfs/subClassOf :d3f/OTInformationalMessage})
+   #{"Modbus: Read Exception Status\nModbus: Exception: Illegal Function\nModbus: Exception: Illegal Data Address\nModbus: Exception: Illegal Data Value\nModbus: Exception: Slave Device Failure\nModbus: Exception: Acknowledge\nModbus: Exception: Slave Device Busy\nModbus: Exception: Memory Parity Error\nModbus: Exception: Gateway Path Unavailable\nModbus: Exception: Gateway Target Device Failed to Respond"
+     "BACnet: Reject: 1\nBACnet: Reject: 2\nBACnet: Reject: 3\nBACnet: Reject: 4\nBACnet: Reject: 5\nBACnet: Reject: 6\nBACnet: Reject: 7\nBACnet: Reject: 8\nBACnet: Reject: 9\nBACnet: Reject: 10 "},
+   :rdfs/label "OT Exception Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDiagnosticsMessage})
 
 (def OTDeviceExceptionEvent
-  {:db/ident        :d3f/OTDeviceExceptionEvent,
+  {:d3f/definition  "An unknown or anomalous condition occurred in the system.",
+   :db/ident        :d3f/OTDeviceExceptionEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Device Exception Event",
+   :rdfs/label      "OT Exception Message Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/OTDeviceException,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTInformationalMessageEvent}})
+                      :d3f/OTDiagnosticsMessageEvent}})
 
-(def OTDeviceStatus
+(def OTDeviceFirmwareCommand
   {:d3f/definition
-   "A subscribed device status update message containing configuration, or I/O data.",
-   :db/ident :d3f/OTDeviceStatus,
+   "Interact with the software responsible for low-level control of the system.",
+   :db/ident :d3f/OTDeviceFirmwareCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Firmware Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceManagementMessage})
+
+(def OTDeviceFirmwareCommandEvent
+  {:d3f/definition
+   "Interact with the software responsible for low-level control of the system.",
+   :db/ident :d3f/OTDeviceFirmwareCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Firmware Command Event",
+   :rdfs/subClassOf #{:d3f/OTDeviceManagementMessageEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeviceFirmwareCommand,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDeviceIdentificationMessage
+  {:d3f/definition "Identify devices on the network.",
+   :db/ident :d3f/OTDeviceIdentificationMessage,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #{"BACnet/IP: SUBSCRIBE_COV\nBACnet/IP: SUBSCRIBE_COV_PROPERTY\nBACnet/IP: UNCONFIRMED_COV_NOTIFICATION\nBACnet/IP: UNCONFIRMED_COV_NOTIFICATION_MULTIPLE\nBACnet/IP: CONFIRMED_COV_NOTIFICATION\nBACnet/IP: VT_DATA\nBACnet/IP: CONFIRMED_TEXT_MESSAGE\nBACnet/IP: UNCONFIRMED_TEXT_MESSAGE\nBACnet/IP: CONFIRMED_PRIVATE_TRANSFER\nBACnet/IP: UNCONFIRMED_PRIVATE_TRANSFER\nBACnet/IP: UTC_TIME_SYNCHRONIZATION "
-     "DNP3: DISABLE_UNSOLICITED\nDNP3: ENABLE_UNSOLICITED\nDNP3: DELAY_MEASURE\nDNP3: Local Timing Accuracy\nDNP3: DNP3 Subset and Conformance\nDNP3: Duration of Time Accuracy\nDNP3: CONFIRM\nDNP3: CONFIRMED_USER_DATA"
-     "GEMS: PingMessage\nGEMS: AsyncStatus"},
-   :rdfs/label "OT Device Status",
-   :rdfs/subClassOf :d3f/OTInformationalMessage})
+   #{"Modbus: Read Device Identification\nModbus: Report Slave ID"
+     "BACnet: i-Am\nBACnet: i-Have\nBACnet: who-Has\nBACnet: who-Is "
+     "ENIP: List Identity"},
+   :rdfs/label "OT Device Identification Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceManagementMessage})
 
-(def OTDeviceStatusEvent
-  {:db/ident        :d3f/OTDeviceStatusEvent,
+(def OTDeviceIdentificationMessageEvent
+  {:d3f/definition  "Identify devices on the network.",
+   :db/ident        :d3f/OTDeviceIdentificationMessageEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Device Status Event",
+   :rdfs/label      "OT Device Identification Message Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDeviceStatus,
+                       :owl/someValuesFrom :d3f/OTDeviceIdentificationMessage,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTInformationalMessageEvent}})
+                      :d3f/OTDeviceManagementMessageEvent}})
 
-(def OTDisconnectRemoteConnection
+(def OTDeviceManagementMessage
+  {:d3f/definition "Manage devices and their configurations.",
+   :db/ident :d3f/OTDeviceManagementMessage,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Device Management Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTDeviceManagementMessageEvent
+  {:d3f/definition  "Manage devices and their configurations.",
+   :db/ident        :d3f/OTDeviceManagementMessageEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Device Management Message Event",
+   :rdfs/subClassOf #{:d3f/OTEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDeviceManagementMessage,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDiagnosticsMessage
+  {:d3f/definition "Relay error, exception, alarm, or log information.",
+   :db/ident :d3f/OTDiagnosticsMessage,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Diagnostics Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTDiagnosticsMessageEvent
+  {:d3f/definition  "Relay error, exception, alarm, or log information.",
+   :db/ident        :d3f/OTDiagnosticsMessageEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Diagnostics Message Event",
+   :rdfs/subClassOf #{:d3f/OTEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTDiagnosticsMessage,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDisconnectRemoteConnectionCommand
   {:d3f/definition
    "The Disconnect Request message is sent to the message receiver to indicate that the transmitter is terminating its TCP socket.",
-   :db/ident :d3f/OTDisconnectRemoteConnection,
+   :db/ident :d3f/OTDisconnectRemoteConnectionCommand,
    :rdf/type :owl/Class,
-   :rdfs/comment
-   #{"Modbus/TCP: RESET_COMM_LINK" "GEMS: Disconnect"
-     "BACnet/IP: VT_CLOSE\nBACnet/IP: DEVICE_COMMUNICATION_CONTROL "},
-   :rdfs/label "OT Disconnect Remote Connection",
-   :rdfs/subClassOf :d3f/OTManageRemoteConnection})
+   :rdfs/label "OT Disconnect Remote Connection Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTConnectionCommand})
 
-(def OTDisconnectRemoteConnectionEvent
-  {:db/ident        :d3f/OTDisconnectRemoteConnectionEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Disconnect Remote Connection Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDisconnectRemoteConnection,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
-
-(def OTDownloadData
+(def OTDisconnectRemoteConnectionCommandEvent
   {:d3f/definition
-   "Copies a file from one file device to another file device connected to the same PC.",
-   :db/ident :d3f/OTDownloadData,
+   "The Disconnect Request message is sent to the message receiver to indicate that the transmitter is terminating its TCP socket.",
+   :db/ident :d3f/OTDisconnectRemoteConnectionCommandEvent,
    :rdf/type :owl/Class,
-   :rdfs/label "OT Download Data",
-   :rdfs/subClassOf :d3f/OTGetData})
+   :rdfs/label "OT Disconnect Remote Connection Command Event",
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/has-participant,
+      :owl/someValuesFrom :d3f/OTDisconnectRemoteConnectionCommand,
+      :rdf/type           :owl/Restriction}
+     {:owl/onProperty     :d3f/preceded-by,
+      :owl/someValuesFrom :d3f/OTEstablishRemoteConnectionCommandEvent,
+      :rdf/type           :owl/Restriction} :d3f/OTConnectionCommandEvent}})
 
-(def OTDownloadDataEvent
-  {:db/ident        :d3f/OTDownloadDataEvent,
+(def OTDownloadControlProgramCommand
+  {:d3f/definition "Commands a remote device to download a control program.",
+   :d3f/modifies :d3f/OTControlProgram,
+   :d3f/synonym "OT Program Download",
+   :db/ident :d3f/OTDownloadControlProgramCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "GE-SRTP: PROGRAM STORE (UPLOAD FROM PLC)\nGE-SRTP: PROGRAM LOAD (DOWNLOAD TO PLC)",
+   :rdfs/label "OT Download Control Program Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "https://attack.mitre.org/techniques/T0843/"}
+     {:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTModifyControlProgramCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTDownloadControlProgramCommandEvent
+  {:d3f/definition  "Commands a remote device to download a control program.",
+   :db/ident        :d3f/OTDownloadControlProgramCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Download Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label      "OT Download Control Program Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyControlProgramCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDownloadData,
+                       :owl/someValuesFrom :d3f/OTDownloadControlProgramCommand,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTEmbeddedComputer
@@ -23664,25 +26414,60 @@
                        :owl/someValuesFrom :d3f/OTController,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTEstablishRemoteConnection
+(def OTErrorMessage
   {:d3f/definition
-   "Used to establish an TCP/IP Connection to the target device.",
-   :db/ident :d3f/OTEstablishRemoteConnection,
+   "An anticipated, reproducible defect occurred within the system.",
+   :db/ident :d3f/OTErrorMessage,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #{"GEMS: ConnectionRequest" "Modbus/TCP: RESET_COMM_LINK:"
-     "BACnet/IP: VT_OPEN\nBACnet/IP: DEVICE_COMMUNICATION_CONTROL\nBACnet/IP: SECURE_BVLL\nBACnet/IP: BVLC_RESULT"},
-   :rdfs/label "OT Establish Remote Connection",
-   :rdfs/subClassOf :d3f/OTManageRemoteConnection})
+   "BACnet: Error: 1\nBACnet: Error: 2\nBACnet: Error: 3\nBACnet: Error: 4\nBACnet: Error: 5\nBACnet: Error: 6\nBACnet: Error: 7\nBACnet: Error: 8",
+   :rdfs/label "OT Error Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDiagnosticsMessage})
 
-(def OTEstablishRemoteConnectionEvent
-  {:db/ident        :d3f/OTEstablishRemoteConnectionEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Establish Remote Connection Event",
+(def OTErrorMessageEvent
+  {:d3f/definition
+   "An anticipated, reproducible defect occurred within the system.",
+   :db/ident :d3f/OTErrorMessageEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Error Message Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTEstablishRemoteConnection,
+                       :owl/someValuesFrom :d3f/OTErrorMessage,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      :d3f/OTDiagnosticsMessageEvent}})
+
+(def OTEstablishRemoteConnectionCommand
+  {:d3f/definition
+   "Used to establish an TCP/IP Connection to the target device.",
+   :db/ident :d3f/OTEstablishRemoteConnectionCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Establish Remote Connection Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTConnectionCommand})
+
+(def OTEstablishRemoteConnectionCommandEvent
+  {:d3f/definition
+   "Used to establish an TCP/IP Connection to the target device.",
+   :db/ident :d3f/OTEstablishRemoteConnectionCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Establish Remote Connection Command Event",
+   :rdfs/subClassOf #{:d3f/OTConnectionCommandEvent
+                      {:owl/onProperty :d3f/has-participant,
+                       :owl/someValuesFrom
+                       :d3f/OTEstablishRemoteConnectionCommand,
+                       :rdf/type :owl/Restriction}}})
 
 (def OTEvent
   {:d3f/definition
@@ -23690,40 +26475,10 @@
    :db/ident :d3f/OTEvent,
    :rdf/type :owl/Class,
    :rdfs/label "OT Event",
-   :rdfs/subClassOf :d3f/DigitalEvent})
-
-(def OTGetData
-  {:d3f/definition  "Request data from a remote device.",
-   :db/ident        :d3f/OTGetData,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Get Data",
-   :rdfs/subClassOf :d3f/OTCommand})
-
-(def OTGetDataEvent
-  {:db/ident        :d3f/OTGetDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Get Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTGetData,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTHardwareStatus
-  {:d3f/definition
-   "OT command that requests the status of the hardware of a remote device.",
-   :db/ident :d3f/OTHardwareStatus,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Hardware Status",
-   :rdfs/subClassOf :d3f/OTReadDeviceStatus})
-
-(def OTHardwareStatusEvent
-  {:db/ident        :d3f/OTHardwareStatusEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Hardware Status Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTHardwareStatus,
+                       :owl/someValuesFrom :d3f/OTProtocolMessage,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      :d3f/DigitalEvent}})
 
 (def OTIOModule
   {:d3f/communicates-with #{:d3f/OTSensor :d3f/OTActuator},
@@ -23748,42 +26503,6 @@
                        :rdf/type           :owl/Restriction}},
    :skos/example "Rockwell Compact 5000 IO Module"})
 
-(def OTIdentifyDevice
-  {:d3f/definition "Request the identification of a remote device.",
-   :db/ident :d3f/OTIdentifyDevice,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   #{"BACnet/IP: I_AM\nBACnet/IP: WHO_IS\nBACnet/IP: AUTHENTICATE\nBACnet/IP: REQUEST_KEY "
-     "DNP3: LINK_STATUS\nDNP3: REQUEST_LINK_STATUS\nDNP3: RESET_LINK_STATES\nDNP3: TEST_LINK_STATES\nDNP3: AUTHENTICATE_REQ\nDNP3: AUTHENTICATE_RESP"},
-   :rdfs/label "OT Identify Device",
-   :rdfs/subClassOf :d3f/OTManageRemoteConnection})
-
-(def OTIdentifyDeviceEvent
-  {:db/ident        :d3f/OTIdentifyDeviceEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Identify Device Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTIdentifyDevice,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
-
-(def OTInformationalMessage
-  {:d3f/definition
-   "Messages sent by remote devices not individually initiated by a request.",
-   :db/ident :d3f/OTInformationalMessage,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Informational Message",
-   :rdfs/subClassOf :d3f/OTProtocolMessage})
-
-(def OTInformationalMessageEvent
-  {:db/ident        :d3f/OTInformationalMessageEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Informational Message Event",
-   :rdfs/subClassOf #{:d3f/OTEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTInformationalMessage,
-                       :rdf/type           :owl/Restriction}}})
-
 (def OTLogicVariable
   {:d3f/definition
    "A variable which directly affects a program running on an OT controller, involving an OT Process.",
@@ -23791,22 +26510,6 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "OT Logic Variable",
    :rdfs/subClassOf :d3f/RuntimeVariable})
-
-(def OTManageRemoteConnection
-  {:d3f/definition  "Manage remote connection with a device.",
-   :db/ident        :d3f/OTManageRemoteConnection,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Manage Remote Connection",
-   :rdfs/subClassOf :d3f/OTCommand})
-
-(def OTManageRemoteConnectionEvent
-  {:db/ident        :d3f/OTManageRemoteConnectionEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Manage Remote Connection Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTManageRemoteConnection,
-                       :rdf/type           :owl/Restriction}}})
 
 (def OTModeSwitch
   {:d3f/controls :d3f/OperatingMode,
@@ -23828,94 +26531,129 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformationBearer}})
 
-(def OTModifyDevice
+(def OTModifyControlProgramCommand
   {:d3f/definition
-   "Modify the power, memory, configuration, or process data of a remote device.",
-   :db/ident :d3f/OTModifyDevice,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Modify Device",
-   :rdfs/subClassOf :d3f/OTCommand})
-
-(def OTModifyDeviceData
-  {:d3f/definition
-   "OT command that modifies the data stored on a remote device.",
-   :db/ident :d3f/OTModifyDeviceData,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Modify Device Data",
-   :rdfs/subClassOf :d3f/OTModifyDevice})
-
-(def OTModifyDeviceDataEvent
-  {:db/ident        :d3f/OTModifyDeviceDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Modify Device Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTModifyDeviceData,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTModifyDeviceEvent
-  {:db/ident        :d3f/OTModifyDeviceEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Modify Device Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTModifyDevice,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
-
-(def OTModifyDevicePower
-  {:d3f/definition  "Modifies the power state of a device.",
-   :db/ident        :d3f/OTModifyDevicePower,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "OT Modify Device Power",
-   :rdfs/subClassOf :d3f/OTModifyDevice})
-
-(def OTModifyDevicePowerEvent
-  {:db/ident        :d3f/OTModifyDevicePowerEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Device Power Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTModifyDevicePower,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTModifyDeviceProcessData
-  {:d3f/definition
-   "OT command that modifies the process data of a remote device, such as variables.",
-   :db/ident :d3f/OTModifyDeviceProcessData,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Modify Device Process Data",
-   :rdfs/subClassOf :d3f/OTModifyDevice})
-
-(def OTModifyDeviceProcessDataEvent
-  {:db/ident        :d3f/OTModifyDeviceProcessDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Modify Device Process Data Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTModifyDeviceProcessData,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
-
-(def OTModifyDeviceProgramState
-  {:d3f/definition
-   "Modifies the running state of an application or program on a device.",
-   :db/ident :d3f/OTModifyDeviceProgramState,
+   "OT command that adds, removes, or changes, process data on a remote device.",
+   :d3f/modifies :d3f/OTControlProgram,
+   :db/ident :d3f/OTModifyControlProgramCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
-   #{"Modbus/TCP: WRITE_MULTIPLE_COILS\nModbus/TCP: MASK_WRITE_REGISTER\nModbus/TCP: WRITE_MULTIPLE_REGISTERS\nModbus/TCP: WRITE_SINGLE_COIL\nModbus/TCP: WRITE_SINGLE_REGISTER "
-     "BACnet/IP: WRITE_PROPERTY\nBACnet/IP: WRITE_PROPERTY_MULTIPLE "
-     "DNP3: SELECT\nDNP3: OPERATE\nDNP3: DIRECT_OPERATE\nDNP3: DIRECT_OPERATE_NR"
-     "GEMS: Directive"},
-   :rdfs/label "OT Modify Device Program State",
-   :rdfs/subClassOf :d3f/OTModifyDevice})
+   "GE-SRTP: WRITE PROGRAM BLOCK MEMORY\nGE-SRTP: CHANGE PLC CPU PRIVILEGE LEVEL\nGE-SRTP: SET CONTROL ID(CPU ID)\nGE-SRTP: PROGRAM STORE (UPLOAD FROM PLC)\nGE-SRTP: PROGRAM LOAD (DOWNLOAD TO PLC)\nGE-SRTP: TOGGLE FORCE SYSTEM MEMORY",
+   :rdfs/label "OT Modify Control Program Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceConfigurationCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
+                       :rdf/type           :owl/Restriction}}})
 
-(def OTModifyDeviceProgramStateEvent
-  {:db/ident        :d3f/OTModifyDeviceProgramStateEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Modify Device Program State Event",
+(def OTModifyControlProgramCommandEvent
+  {:d3f/definition
+   "OT command that adds, removes, or changes, process data on a remote device.",
+   :db/ident :d3f/OTModifyControlProgramCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Modify Control Program Command Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTModifyDeviceProgramState,
+                       :owl/someValuesFrom :d3f/OTControlProgram,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTModifyControlProgramCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceConfigurationCommandEvent}})
+
+(def OTModifyDeviceConfigurationCommand
+  {:d3f/definition "Modify device configuration.",
+   :db/ident :d3f/OTModifyDeviceConfigurationCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: WRITE PROGRAM BLOCK MEMORY\nGE-SRTP: CHANGE PLC CPU PRIVILEGE LEVEL\nGE-SRTP: SET CONTROL ID(CPU ID)\nGE-SRTP: SET PLC (RUN VS STOP)\nGE-SRTP: PROGRAM STORE (UPLOAD FROM PLC)\nGE-SRTP: PROGRAM LOAD (DOWNLOAD TO PLC)\nGE-SRTP: TOGGLE FORCE SYSTEM MEMORY"},
+   :rdfs/label "OT Modify Device Configuration Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceConfigurationCommand})
+
+(def OTModifyDeviceConfigurationCommandEvent
+  {:d3f/definition  "Modify device configuration.",
+   :db/ident        :d3f/OTModifyDeviceConfigurationCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Modify Device Configuration Command Event",
+   :rdfs/subClassOf #{:d3f/OTDeviceConfigurationCommandEvent
+                      {:owl/onProperty :d3f/has-participant,
+                       :owl/someValuesFrom
+                       :d3f/OTModifyDeviceConfigurationCommand,
+                       :rdf/type :owl/Restriction}}})
+
+(def OTModifyDeviceOperatingModeCommand
+  {:d3f/definition
+   "Modifies the running state of an application or program on a device.",
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTModifyDeviceOperatingModeCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Modify Device Operating Mode Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceConfigurationCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTModifyDeviceOperatingModeCommandEvent
+  {:d3f/definition
+   "Modifies the running state of an application or program on a device.",
+   :db/ident :d3f/OTModifyDeviceOperatingModeCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Modify Device Operating Mode Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty :d3f/has-participant,
+                       :owl/someValuesFrom
+                       :d3f/OTModifyDeviceOperatingModeCommand,
+                       :rdf/type :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceConfigurationCommandEvent}})
+
+(def OTNetworkManagementCommand
+  {:d3f/definition "Manage message routing or network connection mechanisms.",
+   :db/ident :d3f/OTNetworkManagementCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Network Management Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTNetworkManagementCommandEvent
+  {:d3f/definition  "Manage message routing or network connection mechanisms.",
+   :db/ident        :d3f/OTNetworkManagementCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Network Management Message Event",
+   :rdfs/subClassOf #{:d3f/OTEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTNetworkManagementCommand,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTNetworkTraffic
   {:d3f/definition
@@ -23929,40 +26667,41 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/NetworkTraffic}})
 
-(def OTParameterStatus
-  {:d3f/definition
-   "OT command that requests parameter status data of a remote device often in an ASCII or boolean list.",
-   :db/ident :d3f/OTParameterStatus,
-   :rdf/type :owl/Class,
-   :rdfs/comment #{"Modbus/TCP: READ_EXCEPTION_STATUS"
-                   "BACnet/IP: GET_ALARM_SUMMARY"},
-   :rdfs/label "OT Parameter Status",
-   :rdfs/subClassOf :d3f/OTReadDeviceStatus})
-
-(def OTParameterStatusEvent
-  {:db/ident        :d3f/OTParameterStatusEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Parameter Status Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTParameterStatus,
+(def OTPauseCommand
+  {:d3f/definition "Commands a device to pause a service/program.",
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTPauseCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Pause Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
 
-(def OTPauseService
-  {:d3f/definition
-   "Command that tells the device to safely pause a service/program.",
-   :db/ident :d3f/OTPauseService,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Pause Service",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
-
-(def OTPauseServiceEvent
-  {:db/ident        :d3f/OTPauseServiceEvent,
+(def OTPauseCommandEvent
+  {:d3f/definition  "Commands a device to pause a service/program.",
+   :db/ident        :d3f/OTPauseCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Pause Service Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label      "OT Pause Command Event",
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTPauseService,
+                       :owl/someValuesFrom :d3f/OTPauseCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/OTRunCommandEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTPowerSupply
@@ -23977,6 +26716,30 @@
    :skos/example
    "Phoenix Contact QUINT, Eaton PSG, and many controller-branded power supplies."})
 
+(def OTProcessDataCommand
+  {:d3f/definition "Manage data associated with a controlled process.",
+   :db/ident :d3f/OTProcessDataCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Process Data Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTProcessDataCommandEvent
+  {:d3f/definition  "Manage data associated with a controlled process.",
+   :db/ident        :d3f/OTProcessDataCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Process Data Command Event",
+   :rdfs/subClassOf #{:d3f/OTEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTProcessDataCommand,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTProcessVariable
   {:d3f/definition
    "Process variables are the current actual measurement of the physical characteristics of a system. Common process variables include but are not limited to Temperature, Pressure, Level, and Flow.",
@@ -23990,185 +26753,329 @@
    :skos/example
    "If the current temperature in a home is 82 degrees Fahrenheit, the process variable is 82 degrees."})
 
-(def OTProgramService
+(def OTProgramModeCommand
   {:d3f/definition
    "Command that places the controller in a mode capable of reprogramming logic. This may or may not stop the program.",
-   :db/ident :d3f/OTProgramService,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Program Service",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
-
-(def OTProgramServiceEvent
-  {:db/ident        :d3f/OTProgramServiceEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Program Service Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTProgramService,
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTProgramModeCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Program Mode Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
+
+(def OTProgramModeCommandEvent
+  {:d3f/definition
+   "Command that places the controller in a mode capable of reprogramming logic. This may or may not stop the program.",
+   :db/ident :d3f/OTProgramModeCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Program Mode Command Event",
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTProgramModeCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTProprietaryMessage
+  {:d3f/definition
+   "Vendor specific and may not be publicly documented, or values left for device specific configuration.",
+   :db/ident :d3f/OTProprietaryMessage,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Proprietary Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProtocolMessage})
+
+(def OTProprietaryMessageEvent
+  {:d3f/definition
+   "Vendor specific and may not be publicly documented, or values left for device specific configuration.",
+   :db/ident :d3f/OTProprietaryMessageEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Proprietary Message Event",
+   :rdfs/subClassOf #{:d3f/OTEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTProprietaryMessage,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTProtocolMessage
   {:d3f/definition
-   "Packets generated by an operational technology protocol contain an OT protocol message",
+   "Packets generated by an operational technology protocol contain an OT protocol message.",
    :db/ident :d3f/OTProtocolMessage,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "OT Protocol Message",
-   :rdfs/subClassOf :d3f/Command})
+   :rdfs/subClassOf :d3f/DigitalMessage})
 
-(def OTReadDeviceConfigurationData
-  {:d3f/definition
-   "OT command that requests configuration or identification data of a remote device.",
-   :db/ident :d3f/OTReadDeviceConfigurationData,
+(def OTReadCommand
+  {:d3f/definition "Read or retrieve data.",
+   :db/ident :d3f/OTReadCommand,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #{"GEMS: GetConfig\nGEMS: GetConfigList"
-     "Modbus/TCP: REPORT_SLAVE_ID\nModbus/TCP: READ_DEVICE_IDENTIFICATION\nModbus/TCP: REPORT_LOCAL_ADDRESS "
-     "BACnet/IP: READ_BROADCAST_TABLE\nBACnet/IP: READ_FOREIGN_DEVICE_TABLE "
-     "DNP3: Secure Authentication Version\nDNP3: Device Manufacturer Hardware Version\nDNP3: Device Manufacturer Name\nDNP3: Device Manufacturer Product Name and Model\nDNP3: Device Manufacturer Software Version\nDNP3: Device Serial Number\nDNP3: User-Assigned Device Name\nDNP3: User-Assigned ID Code or Number\nDNP3: User-Assigned Location Name"},
-   :rdfs/label "OT Read Device Configuration Data",
-   :rdfs/subClassOf :d3f/OTGetData})
+   #{"GE-SRTP: READ SYSTEM MEMORY\nGE-SRTP: READ TASK MEMORY "
+     "CIP: Get Attributes All\nCIP: Get Attribute List\nCIP: Get Attribute Single\nCIP: Find Next Object Instance\nCIP: Get Member "
+     "Modbus: Read Coils\nModbus: Read Discrete Inputs\nModbus: Read Holding Registers\nModbus: Read Input Registers\nModbus: Read File Record\nModbus: Read FIFO Queue"
+     "BACnet: confirmedCOVNotification\nBACnet: subscribeCOV\nBACnet: atomicReadFile\nBACnet: readProperty\nBACnet: readPropertyConditional\nBACnet: readPropertyMultiple\nBACnet: unconfirmedCOVNotification\nBACnet: readRange\nBACnet: subscribeCOVProperty\nBACnet: getEventInformation\nBACnet: subscribe-cov-property-multiple\nBACnet: confirmed-cov-notification-multiple\nBACnet: unconfirmed-cov-notification-multiple "},
+   :rdfs/label "OT Read Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProcessDataCommand})
 
-(def OTReadDeviceConfigurationDataEvent
-  {:db/ident        :d3f/OTReadDeviceConfigurationDataEvent,
+(def OTReadCommandEvent
+  {:d3f/definition  "Read or retrieve data.",
+   :db/ident        :d3f/OTReadCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Read Device Configuration Data Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadDeviceConfigurationData,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
-
-(def OTReadDeviceData
-  {:d3f/definition
-   "OT command that requests configuration or status details of a remote device.",
-   :db/ident :d3f/OTReadDeviceData,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "Modbus/TCP: DIAGNOSTICS\nDNP3: Non-Specific All Attributes Request\nDNP3: List of Attribute Variations",
-   :rdfs/label "OT Read Device Data",
-   :rdfs/subClassOf :d3f/OTGetData})
-
-(def OTReadDeviceDataEvent
-  {:db/ident        :d3f/OTReadDeviceDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Read Device Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label      "OT Read Command Event",
+   :rdfs/subClassOf #{:d3f/OTProcessDataCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadDeviceData,
+                       :owl/someValuesFrom :d3f/OTReadCommand,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTReadDeviceMemory
-  {:d3f/definition
-   "Reads the contents of the specified number of consecutive memory area.",
-   :db/ident :d3f/OTReadDeviceMemory,
+(def OTReadDeviceConfigurationDataCommand
+  {:d3f/definition "Read device configuration.",
+   :db/ident :d3f/OTReadDeviceConfigurationDataCommand,
    :rdf/type :owl/Class,
-   :rdfs/label "OT Read Device Memory",
-   :rdfs/subClassOf :d3f/OTGetData})
+   :rdfs/comment #{"BACnet: deviceCommunicationControl"
+                   "GE-SRTP: READ PROGRAM MEMORY"},
+   :rdfs/label "OT Read Device Configuration Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceConfigurationCommand})
 
-(def OTReadDeviceMemoryEvent
-  {:db/ident        :d3f/OTReadDeviceMemoryEvent,
+(def OTReadDeviceConfigurationDataCommandEvent
+  {:d3f/definition  "Read device configuration.",
+   :db/ident        :d3f/OTReadDeviceConfigurationDataCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Read Device Memory Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadDeviceMemory,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+   :rdfs/label      "OT Read Device Configuration Command Event",
+   :rdfs/subClassOf #{:d3f/OTDeviceConfigurationCommandEvent
+                      {:owl/onProperty :d3f/has-participant,
+                       :owl/someValuesFrom
+                       :d3f/OTReadDeviceConfigurationDataCommand,
+                       :rdf/type :owl/Restriction}}})
 
-(def OTReadDeviceStatus
+(def OTReadFileCommand
   {:d3f/definition
-   "OT command that requests device hardware, state, or parameter status data.",
-   :db/ident :d3f/OTReadDeviceStatus,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "BACnet/IP: I_HAVE\nBACnet/IP: WHO_HAS\nBACnet/IP: GET_ENROLLMENT_SUMMARY\nBACnet/IP: GET_EVENT_INFORMATION\nBACnet/IP: LIFE_SAFETY_OPERATION\n",
-   :rdfs/label "OT Read Device Status",
-   :rdfs/subClassOf :d3f/OTGetData})
-
-(def OTReadDeviceStatusEvent
-  {:db/ident        :d3f/OTReadDeviceStatusEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Read Device Status Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadDeviceStatus,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
-
-(def OTReadFile
-  {:d3f/definition
-   "Reads the contents of a specified  file stored in the file device connected to the PC.",
-   :db/ident :d3f/OTReadFile,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   #{"DNP3: GET_FILE_INFO\nDNP3: OPEN_FILE\nDNP3: ABORT_FILE\nDNP3: CLOSE_FILE\nDNP3: AUTHENTICATE_FILE"
-     "BACnet/IP: ATOMIC_READ_FILE" "Modbus/TCP: READ_FILE_RECORD"},
-   :rdfs/label "OT Read File",
-   :rdfs/subClassOf :d3f/OTReadDeviceMemory})
-
-(def OTReadFileEvent
-  {:db/ident        :d3f/OTReadFileEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Read File Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   "Reads data in specified chuncks or the contents of a specified file stored in the file device connected to the PC.",
+   :d3f/has-participant :d3f/File,
+   :db/ident :d3f/OTReadFileCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment #{"Modbus: Read File Record" "BACnet: atomicReadFile"},
+   :rdfs/label "OT Read File Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTReadCommand
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadFile,
+                       :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTReadSetValue
+(def OTReadFileCommandEvent
+  {:d3f/definition
+   "Reads data in specified chuncks or the contents of a specified file stored in the file device connected to the PC.",
+   :db/ident :d3f/OTReadFileCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Read File Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadFileCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/File,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTReadCommandEvent}})
+
+(def OTReadSetValueCommand
   {:d3f/definition
    "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
-   :db/ident :d3f/OTReadSetValue,
-   :rdf/type :owl/Class,
+   :d3f/has-participant :d3f/OTLogicVariable,
+   :db/ident :d3f/OTReadSetValueCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
-   #{"DNP3: Number of Analog Input Points\nDNP3: Number of Analog Outputs\nDNP3: Number of Binary Input Points\nDNP3: Number of Binary Outputs\nDNP3: Number of Counter Points\nDNP3: Number of Double-Bit Binary Input Points\nDNP3: Number of Master-Defined Data Set Properties\nDNP3: Number of Master-Defined Data Sets\nDNP3: Number of Outstation-Defined Data Set Properties\nDNP3: Number of Outstation-Defined Data Sets\nDNP3: Number of Security Statistics per Association\nDNP3: Maximum Analog Input Index\nDNP3: Maximum Analog Output Index\nDNP3: Maximum Binary Input Index\nDNP3: Maximum Binary Output Index\nDNP3: Maximum Counter Index\nDNP3: Maximum Double-Bit Binary Index\nDNP3: Maximum Number of Binary Output Objects per Request\nDNP3: Maximum Receive Fragment Size\nDNP3: Maximum Transmit Fragment Size"
-     "BACnet/IP: READ_PROPERTY\nBACnet/IP: READ_PROPERTY_CONDITIONAL\nBACnet/IP: READ_PROPERTY_MULTIPLE\nBACnet/IP: READ_RANGE\nBACnet/IP: REGISTER_FOREIGN_DEVICE "
-     "GEMS: GetTargets"
-     "Modbus/TCP: READ_COILS\nModbus/TCP: READ_DISCRETE_INPUTS\nModbus/TCP: READ_FIFO_QUEUE\nModbus/TCP: READ_HOLDING_REGISTERS\nModbus/TCP: READ_INPUT_REGISTERS\nModbus/TCP: READ_WRITE_MULTIPLE_REGISTERS"},
-   :rdfs/label "OT Read Set Value",
-   :rdfs/subClassOf :d3f/OTReadDeviceMemory})
-
-(def OTReadSetValueEvent
-  {:db/ident        :d3f/OTReadSetValueEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Read Set Value Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   #{"GE-SRTP: READ SYSTEM MEMORY\nGE-SRTP: READ TASK MEMORY "
+     "CIP: Get Attributes All\nCIP: Get Attribute List\nCIP: Get Attribute Single\nCIP: Find Next Object Instance\nCIP: Get Member "
+     "BACnet: confirmedCOVNotification\nBACnet: subscribeCOV\nBACnet: readProperty\nBACnet: readPropertyConditional\nBACnet: readPropertyMultiple\nBACnet: unconfirmedCOVNotification\nBACnet: readRange\nBACnet: subscribeCOVProperty\nBACnet: getEventInformation\nBACnet: subscribe-cov-property-multiple\nBACnet: confirmed-cov-notification-multiple\nBACnet: unconfirmed-cov-notification-multiple "
+     "Modbus: Read Coils\nModbus: Read Discrete Inputs\nModbus: Read Holding Registers\nModbus: Read Input Registers\nModbus: Read FIFO Queue"},
+   :rdfs/label "OT Read Value Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTReadCommand
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadSetValue,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTRemoteService
+(def OTReadSetValueCommandEvent
+  {:d3f/definition
+   "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
+   :db/ident :d3f/OTReadSetValueCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Read Value Command Event",
+   :rdfs/subClassOf #{:d3f/OTReadCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadSetValueCommand,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTReadTimeCommand
+  {:d3f/definition "Read timing mechanisms.",
+   :db/ident :d3f/OTReadTimeCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment "example",
+   :rdfs/label "OT Read Time Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTTimeCommand})
+
+(def OTReadTimeCommandEvent
+  {:d3f/definition  "Read timing mechanisms.",
+   :db/ident        :d3f/OTReadTimeCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Read Time Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadTimeCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTTimeCommandEvent}})
+
+(def OTRemoteModeCommand
   {:d3f/definition
    "Command that places the controller in a mode capable of receiving read/write communication from a networked entity.",
-   :db/ident :d3f/OTRemoteService,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Remote Service",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTRemoteModeCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Remote Mode Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
 
-(def OTRemoteServiceEvent
-  {:db/ident        :d3f/OTRemoteServiceEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Remote Service Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTRemoteService,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTRestartDevice
+(def OTRemoteModeCommandEvent
   {:d3f/definition
-   "Modifies the power state of a device causing to to shut down and then reboot.",
-   :db/ident :d3f/OTRestartDevice,
+   "Command that places the controller in a mode capable of receiving read/write communication from a networked entity.",
+   :db/ident :d3f/OTRemoteModeCommandEvent,
    :rdf/type :owl/Class,
-   :rdfs/comment #{"BACnet/IP: REINITIALIZE_DEVICE"
-                   "DNP3: COLD_RESTART\nDNP3: WARM_RESTART "},
-   :rdfs/label "OT Restart Device",
-   :rdfs/subClassOf :d3f/OTModifyDevicePower})
-
-(def OTRestartDeviceEvent
-  {:db/ident        :d3f/OTRestartDeviceEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Restart Device Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label "OT Remote Mode Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTRemoteModeCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTRestartDevice,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}}})
+
+(def OTRunCommand
+  {:d3f/definition "Commands a device to start or resume a service/program.",
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTRunCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Run Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
+
+(def OTRunCommandEvent
+  {:d3f/definition  "Commands a device to start or resume a service/program.",
+   :db/ident        :d3f/OTRunCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Run Command Event",
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTRunCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTSecurityCommand
+  {:d3f/definition
+   "Ensure confidentiality, integrity, or availability of system information.",
+   :db/ident :d3f/OTSecurityCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment #{"BACnet: authenticate\nBACnet: requestKey "
+                   "GE-SRTP: PROGRAMMER LOGON"},
+   :rdfs/label "OT Security Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTNetworkManagementCommand})
+
+(def OTSecurityCommandEvent
+  {:d3f/definition
+   "Ensure confidentiality, integrity, or availability of system information.",
+   :db/ident :d3f/OTSecurityCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Security Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTSecurityCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTNetworkManagementCommandEvent}})
 
 (def OTSensor
   {:d3f/definition
@@ -24200,116 +27107,205 @@
                        :owl/someValuesFrom :d3f/ClientComputer,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTServiceStatus
-  {:d3f/definition
-   "OT command that requests the state or service status of a remote device.",
-   :db/ident :d3f/OTServiceStatus,
+(def OTSetTimeCommand
+  {:d3f/definition "Set timing mechanisms.",
+   :db/ident :d3f/OTSetTimeCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Set Time Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTTimeCommand})
+
+(def OTSetTimeCommandEvent
+  {:d3f/definition  "Set timing mechanisms.",
+   :db/ident        :d3f/OTSetTimeCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Set Time Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTSetTimeCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTTimeCommandEvent}})
+
+(def OTStopCommand
+  {:d3f/definition "Commands a device to stop a service/program.",
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTStopCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Stop Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
+
+(def OTStopCommandEvent
+  {:d3f/definition  "Commands a device to stop a service/program.",
+   :db/ident        :d3f/OTStopCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Stop Command Event",
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTStopCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/OTRunCommandEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTSynchronizeTimeCommand
+  {:d3f/definition "Used to align timing mechanisms.",
+   :db/ident :d3f/OTSynchronizeTimeCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment "example",
+   :rdfs/label "OT Synchronize Time Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTTimeCommand})
+
+(def OTSynchronizeTimeCommandEvent
+  {:d3f/definition  "Used to align timing mechanisms.",
+   :db/ident        :d3f/OTSynchronizeTimeCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Synchronize Time Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTSynchronizeTimeCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTTimeCommandEvent}})
+
+(def OTTestCommand
+  {:d3f/definition "Commands a  device to run a program in Test mode.",
+   :d3f/modifies :d3f/OperatingMode,
+   :db/ident :d3f/OTTestCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"BACnet: deviceCommunicationControl\nBACnet: reinitializeDevice "
+     "GE-SRTP: SET PLC (RUN VS STOP)"},
+   :rdfs/label "OT Test Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTModifyDeviceOperatingModeCommand}})
+
+(def OTTestCommandEvent
+  {:d3f/definition  "Commands a  device to run a program in Test mode.",
+   :db/ident        :d3f/OTTestCommandEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Test Command Event",
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTTestCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTTimeCommand
+  {:d3f/definition "Read, set, or calculate timing mechanisms.",
+   :db/ident :d3f/OTTimeCommand,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Modbus/TCP: GET_COMM_EVENT_COUNTER\nModbus/TCP: GET_COMM_EVENT_LOG ",
-   :rdfs/label "OT Service Status",
-   :rdfs/subClassOf :d3f/OTReadDeviceStatus})
+   #{"BACnet: timeSynchronization\nBACnet: utcTimeSynchronization "
+     "GE-SRTP: SET PLC TIME/DATE\nGE-SRTP: RETURN PLC TIME/DATE"},
+   :rdfs/label "OT Time Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDeviceManagementMessage})
 
-(def OTServiceStatusEvent
-  {:db/ident        :d3f/OTServiceStatusEvent,
+(def OTTimeCommandEvent
+  {:d3f/definition  "Read, set, or calculate timing mechanisms.",
+   :db/ident        :d3f/OTTimeCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Service Status Event",
+   :rdfs/label      "OT Time Command Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTServiceStatus,
+                       :owl/someValuesFrom :d3f/OTTimeCommand,
                        :rdf/type           :owl/Restriction}
-                      :d3f/OTCommandEvent}})
+                      :d3f/OTDeviceManagementMessageEvent}})
 
-(def OTStartService
-  {:d3f/definition
-   "Command that tells the device to start or resume a service/program.",
-   :db/ident :d3f/OTStartService,
+(def OTTransportConfigurationCommand
+  {:d3f/definition "Configure transport settings for a communication channel.",
+   :db/ident :d3f/OTTransportConfigurationCommand,
    :rdf/type :owl/Class,
-   :rdfs/comment "DNP3: INITIALIZE_APPL\nDNP3: START_APPL",
-   :rdfs/label "OT Start Service",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
+   :rdfs/comment "Modbus: Encapsulated Interface Transport",
+   :rdfs/label "OT Transport Configuration Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTNetworkManagementCommand})
 
-(def OTStartServiceEvent
-  {:db/ident        :d3f/OTStartServiceEvent,
+(def OTTransportConfigurationCommandEvent
+  {:d3f/definition  "Configure transport settings for a communication channel.",
+   :db/ident        :d3f/OTTransportConfigurationCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Start Service Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTStartService,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTStopService
-  {:d3f/definition  "Command that tells the device to stop a service/program.",
-   :db/ident        :d3f/OTStopService,
-   :rdf/type        :owl/Class,
-   :rdfs/comment    "DNP3: STOP_APPL",
-   :rdfs/label      "OT Stop Service",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProgramState})
-
-(def OTStopServiceEvent
-  {:db/ident        :d3f/OTStopServiceEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Stop Service Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTStopService,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTUpdateDeviceFirmware
-  {:d3f/contains :d3f/OTModifyDeviceProgramState,
-   :d3f/definition
-   "Commands the target device to update its firmware, often requiring the halt of application/program processes and monitoring,  taking the device offline temporarily.",
-   :d3f/may-contain :d3f/OTModifyDevicePower,
-   :db/ident :d3f/OTUpdateDeviceFirmware,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/comment "Modbus/TCP: FIRMWARE_REPLACEMENT",
-   :rdfs/label "OT Update Device",
-   :rdfs/subClassOf #{:d3f/OTModifyDevice
-                      {:owl/onProperty     :d3f/may-contain,
-                       :owl/someValuesFrom :d3f/OTModifyDevicePower,
+   :rdfs/label      "OT Transport Configuration Command Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTTransportConfigurationCommand,
                        :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/OTModifyDeviceProgramState,
-                       :rdf/type           :owl/Restriction}}})
+                      :d3f/OTNetworkManagementCommandEvent}})
 
-(def OTUpdateDeviceFirmwareEvent
-  {:db/ident        :d3f/OTUpdateDeviceFirmwareEvent,
+(def OTWriteCommand
+  {:d3f/definition "Write or store data.",
+   :db/ident :d3f/OTWriteCommand,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"Modbus: Write Single Coil\nModbus: Write Single Register\nModbus: Write Multiple Coils\nModbus: Write Multiple Registers\nModbus: Write File Record\nModbus: Mask Write Register\nModbus: Read Write Register"
+     "CIP: Set Attributes All\nCIP: Set Attribute List\nCIP: Set Attribute Single\nCIP: Set Member\nCIP: Insert Member\nCIP: Remove Member "
+     "BACnet: atomicWriteFile\nBACnet: addListElement\nBACnet: removeListElement\nBACnet: createObject\nBACnet: deleteObject\nBACnet: writeProperty\nBACnet: writePropertyMultiple\nBACnet: write-group "
+     "GE-SRTP: WRITE SYSTEM MEMORY\nGE-SRTP: WRITE TASK MEMORY "},
+   :rdfs/label "OT Write Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTProcessDataCommand})
+
+(def OTWriteCommandEvent
+  {:d3f/definition  "Write or store data.",
+   :db/ident        :d3f/OTWriteCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Update Device Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
+   :rdfs/label      "OT Write Command Event",
+   :rdfs/subClassOf #{:d3f/OTProcessDataCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTUpdateDeviceFirmware,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTUploadData
-  {:d3f/definition  "OT command that uploads data to a remote device.",
-   :db/ident        :d3f/OTUploadData,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Upload Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceData})
-
-(def OTUploadDataEvent
-  {:db/ident        :d3f/OTUploadDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Upload Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTUploadData,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTUploadDeviceProcessData
-  {:d3f/definition  "OT command that uploads process data to a remote device.",
-   :db/ident        :d3f/OTUploadDeviceProcessData,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Upload Device Process Data",
-   :rdfs/subClassOf :d3f/OTModifyDeviceProcessData})
-
-(def OTUploadDeviceProcessDataEvent
-  {:db/ident        :d3f/OTUploadDeviceProcessDataEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Upload Device Process Data Event",
-   :rdfs/subClassOf #{:d3f/OTCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTUploadDeviceProcessData,
+                       :owl/someValuesFrom :d3f/OTWriteCommand,
                        :rdf/type           :owl/Restriction}}})
 
 (def OWL
@@ -24424,9 +27420,11 @@
                       :d3f/PasswordRotation}})
 
 (def Open-sourceDeveloper
-  {:db/ident        :d3f/Open-sourceDeveloper,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Open-source Developer",
+  {:d3f/definition
+   "An open-source developer contributes to the development, maintenance, or improvement of open-source projects.",
+   :db/ident :d3f/Open-sourceDeveloper,
+   :rdf/type :owl/Class,
+   :rdfs/label "Open-source Developer",
    :rdfs/subClassOf :d3f/ProductDeveloper})
 
 (def OpenFile
@@ -24453,7 +27451,8 @@
    :rdfs/subClassOf :d3f/SystemPlatformVariable})
 
 (def OperatingModeMonitoring
-  {:d3f/definition
+  {:d3f/d3fend-id "D3-OMM",
+   :d3f/definition
    "Detects operating modes such as Program, Run, Remote, or Stop.",
    :d3f/kb-article
    "## How it works\nMany OT Controllers have key switches to change the controller into various modes of operation. These modes of operation can include Program, Run, Remote, or Stop.\n\nThe key switch position is often available as a system diagnostic function block of the programming logic.\n\n## Considerations\n* It is advised to configure a key switch alarm such that an operator is alerted when the controller is put into a programming mode, as this could indicate unintentional or malicious changes to operational code.",
@@ -24470,7 +27469,8 @@
                       :d3f/PlatformMonitoring}})
 
 (def OperatingModeRestriction
-  {:d3f/definition
+  {:d3f/d3fend-id "D3-OPR",
+   :d3f/definition
    "Restricting unauthorized changes to the operating mode prevents devices from switching into inappropriate or vulnerable states during normal use.",
    :d3f/kb-article
    "## How it works\nMany OT Controllers use key switches to change the controller into different modes of operation. These modes of operation can include Program, Run, Remote, or Stop.\n\nThe key switch should be left in the appropriate key switch position, e.g., run or remote during normal operations.\n\nImplement a key management procedure to include removing the physical key from the key switch when not in use.",
@@ -24543,6 +27543,17 @@
    :rdfs/subClassOf #{:d3f/ConfigurationFile :d3f/OperatingSystemFile},
    :skos/altLabel "System Configuration File"})
 
+(def OperatingSystemConfigurationModificationEvent
+  {:d3f/definition
+   "An event that alters persistent operating-system configuration resources such as kernel options, registry keys, service definitions, or security policies; affecting system startup, hardware interfaces, or global security enforcement.",
+   :db/ident :d3f/OperatingSystemConfigurationModificationEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operating System Configuration Modification Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OperatingSystemConfiguration,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ConfigurationModificationEvent}})
+
 (def OperatingSystemExecutableFile
   {:d3f/definition
    "An operating system executable is a critical executable that is part of the operating system, and without which, the operating system may not operate correctly.",
@@ -24563,7 +27574,7 @@
 
 (def OperatingSystemLogFile
   {:d3f/definition
-   "An operating system log file records events that occur in an operating system",
+   "An operating system log file records events that occur in an operating system.",
    :db/ident :d3f/OperatingSystemLogFile,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Log_file"},
@@ -24744,9 +27755,12 @@
    :rdfs/subClassOf :d3f/OrchestrationServer})
 
 (def Organization
-  {:db/ident        :d3f/Organization,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Organization",
+  {:d3f/definition
+   "An organization with a defined mission/goal and a defined boundary, using systems to execute that mission, and with responsibility for managing its own risks and performance. An enterprise may consist of all or some of the following business aspects: acquisition, program management, human resources, financial management, security, and systems, information and mission management",
+   :db/ident :d3f/Organization,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Organization",
+   :rdfs/seeAlso :d3f/NIST_SP_800-53_R5,
    :rdfs/subClassOf #{:d3f/AgentGroup :d3f/Non-PersonEntity
                       {:owl/onProperty     :d3f/has-member,
                        :owl/someValuesFrom :d3f/Person,
@@ -24962,6 +27976,23 @@
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Symbolic_link"},
    :rdfs/label "POSIX Symbolic Link",
    :rdfs/subClassOf #{:d3f/UnixLink :d3f/SymbolicLink}})
+
+(def PackageURL
+  {:d3f/definition
+   "A package URL, or purl, is a URL used to identify a software package in a mostly universal and uniform way across programming languages, package managers, packaging conventions, tools, APIs and databases.",
+   :d3f/identifies :d3f/SoftwarePackage,
+   :db/ident :d3f/PackageURL,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://github.com/package-url/purl-spec/blob/main/PURL-SPECIFICATION.rst"},
+   :rdfs/label "Package URL",
+   :rdfs/seeAlso {:xsd/anyURI "https://github.com/package-url/purl-spec"},
+   :rdfs/subClassOf #{:d3f/URL
+                      {:owl/onProperty     :d3f/identifies,
+                       :owl/someValuesFrom :d3f/SoftwarePackage,
+                       :rdf/type           :owl/Restriction}},
+   :skos/altLabel "purl"})
 
 (def PacketCaptureFile
   {:d3f/contains :d3f/NetworkPacket,
@@ -25328,7 +28359,8 @@
                       :d3f/OffensiveTechnique}})
 
 (def Person
-  {:db/ident        :d3f/Person,
+  {:d3f/definition  "A person is a human being.",
+   :db/ident        :d3f/Person,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Person",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/name,
@@ -25426,6 +28458,75 @@
    :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/resource/Physical_layer"},
    :rdfs/subClassOf :d3f/Link})
 
+(def PhysicalLinkConnectEvent
+  {:d3f/definition
+   "The medium is attached or the port is enabled, establishing electrical or optical continuity so that link negotiation can begin.",
+   :db/ident :d3f/PhysicalLinkConnectEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Connect Event",
+   :rdfs/subClassOf #{:d3f/PhysicalLinkEvent
+                      {:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/PhysicalLinkUpEvent,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLinkDisableEvent
+  {:d3f/definition
+   "An administrator issues a shutdown or disable command, forcing the link out of service regardless of signal status.",
+   :db/ident :d3f/PhysicalLinkDisableEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Disable Event",
+   :rdfs/subClassOf #{:d3f/PhysicalLinkEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/PhysicalLinkUpEvent,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLinkDisconnectEvent
+  {:d3f/definition
+   "The transmission medium is removed or power is cut, physically breaking the path between the two interfaces.",
+   :db/ident :d3f/PhysicalLinkDisconnectEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Disconnect Event",
+   :rdfs/subClassOf #{:d3f/PhysicalLinkEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/PhysicalLinkDownEvent,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLinkDownEvent
+  {:d3f/definition
+   "Carrier or negotiation is lost, or the port is shut, rendering the link non-operational while the medium remains connected.",
+   :db/ident :d3f/PhysicalLinkDownEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Down Event",
+   :rdfs/subClassOf #{:d3f/PhysicalLinkEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/PhysicalLinkUpEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/PhysicalLinkDisconnectEvent,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLinkErrorDisableEvent
+  {:d3f/definition
+   "The device automatically disables the link in response to fault conditions such as excessive faults or signal degradation.",
+   :db/ident :d3f/PhysicalLinkErrorDisableEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Error Disable Event",
+   :rdfs/subClassOf #{:d3f/PhysicalLinkEvent
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/PhysicalLinkDownEvent,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLinkEvent
+  {:d3f/definition
+   "A discrete event that changes either the presence of the transmission medium or the operational state of a single-hop layer-1 link between two network nodes.",
+   :db/ident :d3f/PhysicalLinkEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/PhysicalLink,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkDeviceEvent}})
+
 (def PhysicalLinkMapping
   {:d3f/d3fend-id "D3-PLM",
    :d3f/definition
@@ -25443,6 +28544,20 @@
                        :rdf/type           :owl/Restriction} :d3f/NetworkMapping
                       {:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/PhysicalLink,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLinkUpEvent
+  {:d3f/definition
+   "Auto-negotiation and signal detection complete; carrier is present and the link can forward frames.",
+   :db/ident :d3f/PhysicalLinkUpEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Link Up Event",
+   :rdfs/subClassOf #{:d3f/PhysicalLinkEvent
+                      {:owl/onProperty     :d3f/precedes,
+                       :owl/someValuesFrom :d3f/PhysicalLinkDownEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/PhysicalLinkConnectEvent,
                        :rdf/type           :owl/Restriction}}})
 
 (def PhysicalLocation
@@ -25897,7 +29012,10 @@
    :db/ident :d3f/ProcessCreationEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Process Creation Event",
-   :rdfs/subClassOf :d3f/ProcessEvent})
+   :rdfs/subClassOf #{:d3f/ProcessEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/ProcessStartFunction,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ProcessDataSegment
   {:d3f/definition
@@ -26187,16 +29305,21 @@
                       :d3f/DigitalInformationBearer}})
 
 (def Processor
-  {:d3f/synonym     "Computer Processor",
-   :db/ident        :d3f/Processor,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Processor",
+  {:d3f/definition
+   "A processor is a hardware component or integrated circuit that performs computations, executes instructions, and processes data to carry out tasks within a computing system.",
+   :d3f/synonym "Computer Processor",
+   :db/ident :d3f/Processor,
+   :rdf/type :owl/Class,
+   :rdfs/label "Processor",
    :rdfs/subClassOf :d3f/HardwareDevice})
 
 (def ProcessorComponent
-  {:db/ident        :d3f/ProcessorComponent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Processor Component",
+  {:d3f/definition
+   "A Processor Component is a functional subunit or module within a processor that performs specific tasks to support the processor's overall operation.",
+   :db/ident :d3f/ProcessorComponent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Processor Component",
+   :rdfs/seeAlso :d3f/Processor,
    :rdfs/subClassOf :d3f/HardwareDevice})
 
 (def ProcessorRegister
@@ -26216,9 +29339,11 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def ProductDeveloper
-  {:db/ident        :d3f/ProductDeveloper,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Product Developer",
+  {:d3f/definition
+   "A product developer intentionally designs, creates, or improves products, which may include physical goods, software, or other outputs.",
+   :db/ident :d3f/ProductDeveloper,
+   :rdf/type :owl/Class,
+   :rdfs/label "Product Developer",
    :rdfs/subClassOf :d3f/Provider})
 
 (def ProgressivelyGrowingGAN
@@ -26308,9 +29433,11 @@
                       :d3f/NetworkTrafficAnalysis}})
 
 (def Provider
-  {:db/ident        :d3f/Provider,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Provider",
+  {:d3f/definition
+   "Providers are entities that intentionally offer, supply, or facilitate goods, services, or resources through actions of their agents.",
+   :db/ident :d3f/Provider,
+   :rdf/type :owl/Class,
+   :rdfs/label "Provider",
    :rdfs/subClassOf :d3f/Organization})
 
 (def ProxyBasedWebServerAccessMediation
@@ -26355,7 +29482,8 @@
    :rdfs/subClassOf :d3f/SoftwarePackage})
 
 (def PythonScriptFile
-  {:db/ident        :d3f/PythonScriptFile,
+  {:d3f/synonym     "A script file written in the Python programming language.",
+   :db/ident        :d3f/PythonScriptFile,
    :rdf/type        :owl/Class,
    :rdfs/label      "Python Script File",
    :rdfs/subClassOf :d3f/ExecutableScript})
@@ -26462,18 +29590,22 @@
    :db/ident :d3f/RDPTLSHandshakeEvent,
    :rdf/type :owl/Class,
    :rdfs/label "RDP TLS Handshake Event",
-   :rdfs/subClassOf #{:d3f/RDPEvent :d3f/TCPEvent}})
+   :rdfs/subClassOf :d3f/RDPEvent})
 
 (def RFNode
-  {:db/ident        :d3f/RFNode,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "RF Node",
+  {:d3f/definition
+   "An RF Node is a device or component that participates in the transmission, reception, or processing of radio frequency (RF) signals within a wireless communication system.",
+   :db/ident :d3f/RFNode,
+   :rdf/type :owl/Class,
+   :rdfs/label "RF Node",
    :rdfs/subClassOf :d3f/NetworkNode})
 
 (def RFReceiver
-  {:db/ident        :d3f/RFReceiver,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "RF Receiver",
+  {:d3f/definition
+   "An RF Receiver captures and processes incoming radio freqency signals.",
+   :db/ident :d3f/RFReceiver,
+   :rdf/type :owl/Class,
+   :rdfs/label "RF Receiver",
    :rdfs/subClassOf :d3f/RFNode})
 
 (def RFShielding
@@ -26489,13 +29621,16 @@
    :rdfs/subClassOf :d3f/PlatformHardening})
 
 (def RFTransceiver
-  {:db/ident        :d3f/RFTransceiver,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "RF Transceiver",
+  {:d3f/definition
+   "An RF Transceiver can send and receive RF signals - a combination of RF transmitter and RF receiver.",
+   :db/ident :d3f/RFTransceiver,
+   :rdf/type :owl/Class,
+   :rdfs/label "RF Transceiver",
    :rdfs/subClassOf :d3f/RFNode})
 
 (def RFTransmitter
-  {:db/ident        :d3f/RFTransmitter,
+  {:d3f/definition  "An RF Transmitter generates and sends RF signals.",
+   :db/ident        :d3f/RFTransmitter,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "RF Transmitter",
    :rdfs/subClassOf :d3f/RFNode})
@@ -30501,6 +33636,23 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label "Reference - RPC call interception - Crowdstrike Inc"})
 
+(def
+  Reference-ReachabilityGraphBasedSafeRemediationsforSecuirytofOnPremiseAndCloudComputingEnvironments
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://patentimages.storage.googleapis.com/23/c1/a5/d78b3d4f275070/US11637861.pdf"},
+   :d3f/kb-abstract
+   "A method for securing a networked computer system executing an application includes identifying a vulnerable computer resource in the networked computer system, determining all computer resources in the networked computer system that are accessible from, or are accessed by, the vulnerable computer resource, and prioritizing implementation of a remediation action to secure the vulnerable computer resource if a vulnerability path extends from the vulnerable computer resource to a critical computer resource that contains sensitive information. The remediation action to secure the vulnerable computer resource is a safe remediation action that does not impact availability of the application executing on the networked computer system.",
+   :d3f/kb-author "Siddharth Sukumar Burle, Ajoy Kumar, Manish Jain",
+   :d3f/kb-reference-of :d3f/NetworkVulnerabilityAssessment,
+   :d3f/kb-reference-title
+   "Reachability graph-based safe remediations for security of on-premise and cloud computing environments",
+   :db/ident
+   :d3f/Reference-ReachabilityGraphBasedSafeRemediationsforSecuirytofOnPremiseAndCloudComputingEnvironments,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Reachability graph-based safe remediations for security of on-premise and cloud computing environments"})
+
 (def Reference-RedHatEnterpriseLinux8SecurityTechnicalImplementationGuide
   {:d3f/has-link
    {:xsd/anyURI "https://www.stigviewer.com/stig/red_hat_enterprise_linux_8/"},
@@ -31392,6 +34544,22 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - System and method for scanning remote services to locate stored objects with malware"})
+
+(def Reference-SystemAndMethodForStrategicAntiMalwareMonitoring
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://patentimages.storage.googleapis.com/d9/02/31/3a28fefc73661d/US20230362189A1.pdf"},
+   :d3f/kb-abstract
+   "The system and method described herein may leverage active network scanning and passive network monitoring to provide strategic anti-malware monitoring in a network. In particular, the system and method described herein may remotely connect to managed hosts in a network to compute hashes or other signatures associated with processes running thereon and suspicious files hosted thereon, wherein the hashes may communicated to a cloud database that aggregates all known virus or malware signatures that various anti-virus vendors have catalogued to detect malware infections without requiring the hosts to have a local or resident anti-virus agent. Furthermore, running processes and file system activity may be monitored in the network to further detect malware infections. Additionally, the network scanning and network monitoring may be used to detect hosts that may potentially be participating in an active botnet or hosting botnet content and audit anti-virus strategies deployed in the network.",
+   :d3f/kb-author "Marcus J. Ranum, Ron Gula",
+   :d3f/kb-organization "Tenable Inc",
+   :d3f/kb-reference-of :d3f/NetworkTrafficSignatureAnalysis,
+   :d3f/kb-reference-title
+   "System and method for strategic anti-malware monitoring",
+   :db/ident :d3f/Reference-SystemAndMethodForStrategicAntiMalwareMonitoring,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - System and method for strategic anti-malware monitoring - Tenable"})
 
 (def
   Reference-SystemAndMethodForValidatingIn-memoryIntegrityOfExecutableFilesToIdentifyMaliciousActivity_EndgameInc
@@ -32549,7 +35717,10 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/AddUserToGroupEvent,
                        :rdf/type           :owl/Restriction}
-                      :d3f/GroupManagementEvent}})
+                      :d3f/GroupManagementEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/UserAccount,
+                       :rdf/type           :owl/Restriction}}})
 
 (def Repository
   {:d3f/definition
@@ -32858,7 +36029,7 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/AssignPrivilegesToGroupEvent,
                        :rdf/type           :owl/Restriction}
-                      :d3f/GroupManagementEvent}})
+                      :d3f/PermissionRevokingEvent :d3f/GroupManagementEvent}})
 
 (def Router
   {:d3f/definition
@@ -33559,9 +36730,11 @@
    :rdfs/subClassOf :d3f/Application})
 
 (def ServiceApplicationProcess
-  {:db/ident        :d3f/ServiceApplicationProcess,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Service Application Process",
+  {:d3f/definition
+   "A Service Application Process performs specific tasks or provides functionality to support other processes, applications, or users.",
+   :db/ident :d3f/ServiceApplicationProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Service Application Process",
    :rdfs/subClassOf :d3f/ApplicationProcess})
 
 (def ServiceBinaryVerification
@@ -33586,7 +36759,10 @@
    :db/ident :d3f/ServiceDeletionEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Deletion Event",
-   :rdfs/subClassOf #{:d3f/ServiceEvent :d3f/ApplicationDeletionEvent}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ServiceInstallationEvent,
+                       :rdf/type           :owl/Restriction} :d3f/ServiceEvent
+                      :d3f/ApplicationDeletionEvent}})
 
 (def ServiceDependency
   {:d3f/definition
@@ -33622,7 +36798,10 @@
    :db/ident :d3f/ServiceDisableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Disable Event",
-   :rdfs/subClassOf #{:d3f/ApplicationDisableEvent :d3f/ServiceEvent}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ServiceEnableEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationDisableEvent :d3f/ServiceEvent}})
 
 (def ServiceEnableEvent
   {:d3f/definition
@@ -33630,7 +36809,10 @@
    :db/ident :d3f/ServiceEnableEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Enable Event",
-   :rdfs/subClassOf #{:d3f/ApplicationEnableEvent :d3f/ServiceEvent}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ServiceInstallationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationEnableEvent :d3f/ServiceEvent}})
 
 (def ServiceEvent
   {:d3f/definition
@@ -33652,9 +36834,11 @@
    :rdfs/subClassOf #{:d3f/ApplicationInstallationEvent :d3f/ServiceEvent}})
 
 (def ServiceProvider
-  {:db/ident        :d3f/ServiceProvider,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Service Provider",
+  {:d3f/definition
+   "A service provider offers delivery of intangible outputs such as expertise, support, or access to resources to individuals, organizations, or other entities.",
+   :db/ident :d3f/ServiceProvider,
+   :rdf/type :owl/Class,
+   :rdfs/label "Service Provider",
    :rdfs/subClassOf :d3f/Provider})
 
 (def ServiceRestartEvent
@@ -33663,7 +36847,13 @@
    :db/ident :d3f/ServiceRestartEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Restart Event",
-   :rdfs/subClassOf #{:d3f/ApplicationRestartEvent :d3f/ServiceEvent}})
+   :rdfs/subClassOf
+   #{{:owl/onProperty     :d3f/precedes,
+      :owl/someValuesFrom :d3f/ServiceStartEvent,
+      :rdf/type           :owl/Restriction} :d3f/ApplicationRestartEvent
+     {:owl/onProperty     :d3f/preceded-by,
+      :owl/someValuesFrom :d3f/ServiceStopEvent,
+      :rdf/type           :owl/Restriction} :d3f/ServiceEvent}})
 
 (def ServiceStartEvent
   {:d3f/definition
@@ -33671,7 +36861,10 @@
    :db/ident :d3f/ServiceStartEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Start Event",
-   :rdfs/subClassOf #{:d3f/ApplicationStartEvent :d3f/ServiceEvent}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ServiceInstallationEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationStartEvent :d3f/ServiceEvent}})
 
 (def ServiceStopEvent
   {:d3f/definition
@@ -33679,7 +36872,10 @@
    :db/ident :d3f/ServiceStopEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Stop Event",
-   :rdfs/subClassOf #{:d3f/ApplicationStopEvent :d3f/ServiceEvent}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ServiceStartEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationStopEvent :d3f/ServiceEvent}})
 
 (def ServiceUpdateEvent
   {:d3f/definition
@@ -33687,7 +36883,10 @@
    :db/ident :d3f/ServiceUpdateEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Service Update Event",
-   :rdfs/subClassOf #{:d3f/ServiceEvent :d3f/ApplicationUpdateEvent}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/ServiceInstallationEvent,
+                       :rdf/type           :owl/Restriction} :d3f/ServiceEvent
+                      :d3f/ApplicationUpdateEvent}})
 
 (def Session
   {:d3f/definition
@@ -34018,10 +37217,12 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def SoftwarePackage
-  {:db/ident        :d3f/SoftwarePackage,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Software Package",
-   :rdfs/seeAlso    {:xsd/anyURI "https://schema.ocsf.io/objects/package"},
+  {:d3f/definition
+   "A Software Package is a bundled collection of files, code, and metadata that provides functionality, libraries, or applications.",
+   :db/ident :d3f/SoftwarePackage,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Software Package",
+   :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/package"},
    :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
 (def SoftwarePackagingTool
@@ -35789,6 +38990,33 @@
    :rdfs/label "Polymorphic Code",
    :rdfs/subClassOf :d3f/T1027})
 
+(def T1027_015
+  {:d3f/attack-id "T1027.015",
+   :d3f/definition
+   "Adversaries may use compression to obfuscate their payloads or files. Compressed file formats such as ZIP, gzip, 7z, and RAR can compress and archive multiple files together to make it easier and faster to transfer files. In addition to compressing files, adversaries may also compress shellcode directly - for example, in order to store it in a Windows Registry key (i.e., [Fileless Storage](https://attack.mitre.org/techniques/T1027/011)).(Citation: Trustwave Pillowmint June 2020)",
+   :db/ident :d3f/T1027.015,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compression",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_016
+  {:d3f/attack-id "T1027.016",
+   :d3f/definition
+   "Adversaries may use junk code / dead code to obfuscate a malware’s functionality. Junk code is code that either does not execute, or if it does execute, does not change the functionality of the code. Junk code makes analysis more difficult and time-consuming, as the analyst steps through non-functional code instead of analyzing the main code. It also may hinder detections that rely on static code analysis due to the use of benign functionality, especially when combined with [Compression](https://attack.mitre.org/techniques/T1027/015) or [Software Packing](https://attack.mitre.org/techniques/T1027/002).(Citation: ReasonLabs)(Citation: ReasonLabs Cyberpedia Junk Code)",
+   :db/ident :d3f/T1027.016,
+   :rdf/type :owl/Class,
+   :rdfs/label "Junk Code Insertion",
+   :rdfs/subClassOf :d3f/T1027})
+
+(def T1027_017
+  {:d3f/attack-id "T1027.017",
+   :d3f/definition
+   "Adversaries may smuggle data and files past content filters by hiding malicious payloads inside of seemingly benign SVG files.(Citation: Trustwave SVG Smuggling 2025) SVGs, or Scalable Vector Graphics, are vector-based image files constructed using XML. As such, they can legitimately include `<script>` tags that enable adversaries to include malicious JavaScript payloads. However, SVGs may appear less suspicious to users than other types of executable files, as they are often treated as image files.",
+   :db/ident :d3f/T1027.017,
+   :rdf/type :owl/Class,
+   :rdfs/label "SVG Smuggling",
+   :rdfs/subClassOf :d3f/T1027})
+
 (def T1028
   {:d3f/attack-id "T1028",
    :d3f/definition
@@ -35948,7 +39176,7 @@
    :d3f/may-modify :d3f/OperatingSystemExecutableFile,
    :db/ident :d3f/T1036.003,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Rename System Utilities",
+   :rdfs/label "Rename Legitimate Utilities",
    :rdfs/subClassOf #{:d3f/T1036
                       {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/OperatingSystemExecutableFile,
@@ -35977,7 +39205,7 @@
    :d3f/may-create :d3f/File,
    :db/ident :d3f/T1036.005,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Match Legitimate Name or Location",
+   :rdfs/label "Match Legitimate Resource Name or Location",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction} :d3f/T1036
@@ -36037,6 +39265,15 @@
    :rdfs/label "Masquerade Account Name",
    :rdfs/subClassOf :d3f/T1036})
 
+(def T1036_011
+  {:d3f/attack-id "T1036.011",
+   :d3f/definition
+   "Adversaries may modify a process's in-memory arguments to change its name in order to appear as a legitimate or benign process. On Linux, the operating system stores command-line arguments in the process’s stack and passes them to the `main()` function as the `argv` array. The first element, `argv[0]`, typically contains the process name or path - by default, the command used to actually start the process (e.g., `cat /etc/passwd`). By default, the Linux `/proc` filesystem uses this value to represent the process name. The `/proc/<PID>/cmdline` file reflects the contents of this memory, and tools like `ps` use it to display process information. Since arguments are stored in user-space memory at launch, this modification can be performed without elevated privileges.",
+   :db/ident :d3f/T1036.011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Overwrite Process Arguments",
+   :rdfs/subClassOf :d3f/T1036})
+
 (def T1037
   {:d3f/attack-id "T1037",
    :d3f/definition
@@ -36076,7 +39313,7 @@
 (def T1037_003
   {:d3f/attack-id "T1037.003",
    :d3f/definition
-   "Group Policy Object / Active Directory Users and Computers are both Active Directory-based",
+   "Group Policy Object / Active Directory Users and Computers are both Active Directory-based.",
    :d3f/modifies :d3f/NetworkInitScriptFileResource,
    :db/ident :d3f/T1037.003,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -36362,7 +39599,7 @@
 (def T1053
   {:d3f/attack-id "T1053",
    :d3f/definition
-   "The sub-techniques of this are specific software implementations of scheduling capabilities",
+   "The sub-techniques of this are specific software implementations of scheduling capabilities.",
    :d3f/executes :d3f/ScheduledJob,
    :d3f/invokes :d3f/CreateProcess,
    :d3f/modifies :d3f/JobSchedule,
@@ -36843,6 +40080,15 @@
    :db/ident :d3f/T1059.011,
    :rdf/type :owl/Class,
    :rdfs/label "Lua",
+   :rdfs/subClassOf :d3f/T1059})
+
+(def T1059_012
+  {:d3f/attack-id "T1059.012",
+   :d3f/definition
+   "Adversaries may abuse hypervisor command line interpreters (CLIs) to execute malicious commands. Hypervisor CLIs typically enable a wide variety of functionality for managing both the hypervisor itself and the guest virtual machines it hosts.",
+   :db/ident :d3f/T1059.012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hypervisor CLI",
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1060
@@ -38342,6 +41588,15 @@
    :rdfs/label "ClickOnce",
    :rdfs/subClassOf :d3f/T1127})
 
+(def T1127_003
+  {:d3f/attack-id "T1127.003",
+   :d3f/definition
+   "Adversaries may use `JamPlus` to proxy the execution of a malicious script. `JamPlus` is a build utility tool for code and data build systems. It works with several popular compilers and can be used for generating workspaces in code editors such as Visual Studio.(Citation: JamPlus manual)",
+   :db/ident :d3f/T1127.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "JamPlus",
+   :rdfs/subClassOf :d3f/T1127})
+
 (def T1128
   {:d3f/attack-id "T1128",
    :d3f/definition
@@ -39168,11 +42423,29 @@
    :d3f/modifies :d3f/BrowserExtension,
    :db/ident :d3f/T1176,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Browser Extensions",
+   :rdfs/label "Software Extensions",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/BrowserExtension,
                        :rdf/type           :owl/Restriction}}})
+
+(def T1176_001
+  {:d3f/attack-id "T1176.001",
+   :d3f/definition
+   "Adversaries may abuse internet browser extensions to establish persistent access to victim systems. Browser extensions or plugins are small programs that can add functionality to and customize aspects of internet browsers. They can be installed directly via a local file or custom URL or through a browser's app store - an official online platform where users can browse, install, and manage extensions for a specific web browser. Extensions generally inherit the web browser's permissions previously granted.(Citation: Wikipedia Browser Extension)(Citation: Chrome Extensions Definition)",
+   :db/ident :d3f/T1176.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Browser Extensions",
+   :rdfs/subClassOf :d3f/T1176})
+
+(def T1176_002
+  {:d3f/attack-id "T1176.002",
+   :d3f/definition
+   "Adversaries may abuse an integrated development environment (IDE) extension to establish persistent access to victim systems.(Citation: Mnemonic misuse visual studio) IDEs such as Visual Studio Code, IntelliJ IDEA, and Eclipse support extensions - software components that add features like code linting, auto-completion, task automation, or integration with tools like Git and Docker. A malicious extension can be installed through an extension marketplace (i.e., [Compromise Software Dependencies and Development Tools](https://attack.mitre.org/techniques/T1195/001)) or side-loaded directly into the IDE.(Citation: Abramovsky VSCode Security)(Citation: Lakshmanan Visual Studio Marketplace)",
+   :db/ident :d3f/T1176.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "IDE Extensions",
+   :rdfs/subClassOf :d3f/T1176})
 
 (def T1177
   {:d3f/attack-id "T1177",
@@ -39625,6 +42898,15 @@
    :db/ident :d3f/T1204.003,
    :rdf/type :owl/Class,
    :rdfs/label "Malicious Image",
+   :rdfs/subClassOf :d3f/T1204})
+
+(def T1204_004
+  {:d3f/attack-id "T1204.004",
+   :d3f/definition
+   "An adversary may rely upon a user copying and pasting code in order to gain execution. Users may be subjected to social engineering to get them to copy and paste code directly into a [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059).",
+   :db/ident :d3f/T1204.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malicious Copy and Paste",
    :rdfs/subClassOf :d3f/T1204})
 
 (def T1205
@@ -40109,11 +43391,38 @@
    :d3f/produces :d3f/OutboundInternetNetworkTraffic,
    :db/ident :d3f/T1219,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Remote Access Software",
+   :rdfs/label "Remote Access Tools",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction}
                       :d3f/CommandAndControlTechnique}})
+
+(def T1219_001
+  {:d3f/attack-id "T1219.001",
+   :d3f/definition
+   "Adversaries may abuse Integrated Development Environment (IDE) software with remote development features to establish an interactive command and control channel on target systems within a network. IDE tunneling combines SSH, port forwarding, file sharing, and debugging into a single secure connection, letting developers work on remote systems as if they were local. Unlike SSH and port forwarding, IDE tunneling encapsulates an entire session and may use proprietary tunneling protocols alongside SSH, allowing adversaries to blend in with legitimate development workflows. Some IDEs, like Visual Studio Code, also provide CLI tools (e.g., `code tunnel`) that adversaries may use to programmatically establish tunnels and generate web-accessible URLs for remote access. These tunnels can be authenticated through accounts such as GitHub, enabling the adversary to control the compromised system via a legitimate developer portal.(Citation: sentinelone operationDigitalEye Dec 2024)(Citation: Unit42 Chinese VSCode 06 September 2024)(Citation: Thornton tutorial VSCode shell September 2023)",
+   :db/ident :d3f/T1219.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "IDE Tunneling",
+   :rdfs/subClassOf :d3f/T1219})
+
+(def T1219_002
+  {:d3f/attack-id "T1219.002",
+   :d3f/definition
+   "An adversary may use legitimate desktop support software to establish an interactive command and control channel to target systems within networks. Desktop support software provides a graphical interface for remotely controlling another computer, transmitting the display output, keyboard input, and mouse control between devices using various protocols. Desktop support software, such as `VNC`, `Team Viewer`, `AnyDesk`, `ScreenConnect`, `LogMein`, `AmmyyAdmin`, and other remote monitoring and management (RMM) tools, are commonly used as legitimate technical support software and may be allowed by application control within a target environment.(Citation: Symantec Living off the Land)(Citation: CrowdStrike 2015 Global Threat Report)(Citation: CrySyS Blog TeamSpy)",
+   :db/ident :d3f/T1219.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Desktop Software",
+   :rdfs/subClassOf :d3f/T1219})
+
+(def T1219_003
+  {:d3f/attack-id "T1219.003",
+   :d3f/definition
+   "An adversary may use legitimate remote access hardware to establish an interactive command and control channel to target systems within networks. These services, including IP-based keyboard, video, or mouse (KVM) devices such as TinyPilot and PiKVM, are commonly used as legitimate tools and may be allowed by peripheral device policies within a target environment.",
+   :db/ident :d3f/T1219.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Access Hardware",
+   :rdfs/subClassOf :d3f/T1219})
 
 (def T1220
   {:d3f/adds :d3f/File,
@@ -40729,6 +44038,15 @@
    :db/ident :d3f/T1505.005,
    :rdf/type :owl/Class,
    :rdfs/label "Terminal Services DLL",
+   :rdfs/subClassOf :d3f/T1505})
+
+(def T1505_006
+  {:d3f/attack-id "T1505.006",
+   :d3f/definition
+   "Adversaries may abuse vSphere Installation Bundles (VIBs) to establish persistent access to ESXi hypervisors. VIBs are collections of files used for software distribution and virtual system management in VMware environments. Since ESXi uses an in-memory filesystem where changes made to most files are stored in RAM rather than in persistent storage, these modifications are lost after a reboot. However, VIBs can be used to create startup tasks, apply custom firewall rules, or deploy binaries that persist across reboots. Typically, administrators use VIBs for updates and system maintenance.",
+   :db/ident :d3f/T1505.006,
+   :rdf/type :owl/Class,
+   :rdfs/label "vSphere Installation Bundles",
    :rdfs/subClassOf :d3f/T1505})
 
 (def T1506
@@ -42817,6 +46135,24 @@
    :rdfs/label "File/Path Exclusions",
    :rdfs/subClassOf :d3f/T1564})
 
+(def T1564_013
+  {:d3f/attack-id "T1564.013",
+   :d3f/definition
+   "Adversaries may abuse bind mounts on file structures to hide their activity and artifacts from native utilities. A bind mount maps a directory or file from one location on the filesystem to another, similar to a shortcut on Windows. It’s commonly used to provide access to specific files or directories across different environments, such as inside containers or chroot environments, and requires sudo access.",
+   :db/ident :d3f/T1564.013,
+   :rdf/type :owl/Class,
+   :rdfs/label "Bind Mounts",
+   :rdfs/subClassOf :d3f/T1564})
+
+(def T1564_014
+  {:d3f/attack-id "T1564.014",
+   :d3f/definition
+   "Adversaries may abuse extended attributes (xattrs) on macOS and Linux to hide their malicious data in order to evade detection. Extended attributes are key-value pairs of file and directory metadata used by both macOS and Linux. They are not visible through standard tools like `Finder`,  `ls`, or `cat` and require utilities such as `xattr` (macOS) or `getfattr` (Linux) for inspection. Operating systems and applications use xattrs for tagging, integrity checks, and access control. On Linux, xattrs are organized into namespaces such as `user.` (user permissions), `trusted.` (root permissions), `security.`, and `system.`, each with specific permissions. On macOS, xattrs are flat strings without namespace prefixes, commonly prefixed with `com.apple.*` (e.g., `com.apple.quarantine`, `com.apple.metadata:_kMDItemUserTags`) and used by system features like Gatekeeper and Spotlight.(Citation: Establishing persistence using extended attributes on Linux)",
+   :db/ident :d3f/T1564.014,
+   :rdf/type :owl/Class,
+   :rdfs/label "Extended Attributes",
+   :rdfs/subClassOf :d3f/T1564})
+
 (def T1565
   {:d3f/attack-id "T1565",
    :d3f/definition
@@ -43060,6 +46396,15 @@
    :rdfs/label "Service Execution",
    :rdfs/subClassOf :d3f/T1569})
 
+(def T1569_003
+  {:d3f/attack-id "T1569.003",
+   :d3f/definition
+   "Adversaries may abuse systemctl to execute commands or programs. Systemctl is the primary interface for systemd, the Linux init system and service manager. Typically invoked from a shell, Systemctl can also be integrated into scripts or applications.",
+   :db/ident :d3f/T1569.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Systemctl",
+   :rdfs/subClassOf :d3f/T1569})
+
 (def T1570
   {:d3f/attack-id "T1570",
    :d3f/definition
@@ -43164,7 +46509,7 @@
    :d3f/may-create :d3f/SharedLibraryFile,
    :db/ident :d3f/T1574.001,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "DLL Search Order Hijacking",
+   :rdfs/label "DLL",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1574}})
@@ -43176,8 +46521,11 @@
    :d3f/may-create :d3f/SharedLibraryFile,
    :d3f/may-modify :d3f/SharedLibraryFile,
    :db/ident :d3f/T1574.002,
+   :owl/deprecated true,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment "This technique has been revoked by T1574.001",
    :rdfs/label "DLL Side-Loading",
+   :rdfs/seeAlso {:rdf/value "T1574.001"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/SharedLibraryFile,
                        :rdf/type           :owl/Restriction} :d3f/T1574
@@ -44573,9 +47921,81 @@
    :rdfs/label "Modify Cloud Resource Hierarchy",
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
+(def T1667
+  {:d3f/attack-id "T1667",
+   :d3f/definition
+   "Adversaries may flood targeted email addresses with an overwhelming volume of messages. This may bury legitimate emails in a flood of spam and disrupt business operations.(Citation: sophos-bombing)(Citation: krebs-email-bombing)",
+   :db/ident :d3f/T1667,
+   :rdf/type :owl/Class,
+   :rdfs/label "Email Bombing",
+   :rdfs/subClassOf :d3f/ImpactTechnique})
+
+(def T1668
+  {:d3f/attack-id "T1668",
+   :d3f/definition
+   "Adversaries who successfully compromise a system may attempt to maintain persistence by “closing the door” behind them  – in other words, by preventing other threat actors from initially accessing or maintaining a foothold on the same system.",
+   :db/ident :d3f/T1668,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exclusive Control",
+   :rdfs/subClassOf :d3f/PersistenceTechnique})
+
+(def T1669
+  {:d3f/attack-id "T1669",
+   :d3f/definition
+   "Adversaries may gain initial access to target systems by connecting to wireless networks. They may accomplish this by exploiting open Wi-Fi networks used by target devices or by accessing secured Wi-Fi networks — requiring [Valid Accounts](https://attack.mitre.org/techniques/T1078) — belonging to a target organization.(Citation: DOJ GRU Charges 2018)(Citation: Nearest Neighbor Volexity) Establishing a connection to a Wi-Fi access point requires a certain level of proximity to both discover and maintain a stable network connection.",
+   :db/ident :d3f/T1669,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wi-Fi Networks",
+   :rdfs/subClassOf :d3f/InitialAccessTechnique})
+
+(def T1671
+  {:d3f/attack-id "T1671",
+   :d3f/definition
+   "Adversaries may achieve persistence by leveraging OAuth application integrations in a software-as-a-service environment. Adversaries may create a custom application, add a legitimate application into the environment, or even co-opt an existing integration to achieve malicious ends.(Citation: Push Security SaaS Persistence 2022)(Citation: SaaS Attacks GitHub Evil Twin Integrations)",
+   :db/ident :d3f/T1671,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Application Integration",
+   :rdfs/subClassOf :d3f/PersistenceTechnique})
+
+(def T1672
+  {:d3f/attack-id "T1672",
+   :d3f/definition
+   "Adversaries may fake, or spoof, a sender’s identity by modifying the value of relevant email headers in order to establish contact with victims under false pretenses.(Citation: Proofpoint TA427 April 2024) In addition to actual email content, email headers (such as the FROM header, which contains the email address of the sender) may also be modified. Email clients display these headers when emails appear in a victim's inbox, which may cause modified emails to appear as if they were from the spoofed entity.",
+   :db/ident :d3f/T1672,
+   :rdf/type :owl/Class,
+   :rdfs/label "Email Spoofing",
+   :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
+
+(def T1673
+  {:d3f/attack-id "T1673",
+   :d3f/definition
+   "An adversary may attempt to enumerate running virtual machines (VMs) after gaining access to a host or hypervisor. For example, adversaries may enumerate a list of VMs on an ESXi hypervisor using a [Hypervisor CLI](https://attack.mitre.org/techniques/T1059/012) such as `esxcli` or `vim-cmd` (e.g. `esxcli vm process list or vim-cmd vmsvc/getallvms`).(Citation: Crowdstrike Hypervisor Jackpotting Pt 2 2021)(Citation: TrendMicro Play) Adversaries may also directly leverage a graphical user interface, such as VMware vCenter, in order to view virtual machines on a host.",
+   :db/ident :d3f/T1673,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtual Machine Discovery",
+   :rdfs/subClassOf :d3f/DiscoveryTechnique})
+
+(def T1674
+  {:d3f/attack-id "T1674",
+   :d3f/definition
+   "Adversaries may simulate keystrokes on a victim’s computer by various means to perform any type of action on behalf of the user, such as launching the command interpreter using keyboard shortcuts,  typing an inline script to be executed, or interacting directly with a GUI-based application.  These actions can be preprogrammed into adversary tooling or executed through physical devices such as Human Interface Devices (HIDs).",
+   :db/ident :d3f/T1674,
+   :rdf/type :owl/Class,
+   :rdfs/label "Input Injection",
+   :rdfs/subClassOf :d3f/ExecutionTechnique})
+
+(def T1675
+  {:d3f/attack-id "T1675",
+   :d3f/definition
+   "Adversaries may abuse ESXi administration services to execute commands on guest machines hosted within an ESXi virtual environment. Persistent background services on ESXi-hosted VMs, such as the VMware Tools Daemon Service, allow for remote management from the ESXi server. The tools daemon service runs as `vmtoolsd.exe` on Windows guest operating systems, `vmware-tools-daemon` on macOS, and `vmtoolsd ` on Linux.(Citation: Broadcom VMware Tools Services)",
+   :db/ident :d3f/T1675,
+   :rdf/type :owl/Class,
+   :rdfs/label "ESXi Administration Command",
+   :rdfs/subClassOf :d3f/ExecutionTechnique})
+
 (def TA0001
   {:d3f/definition
-   "The adversary is trying to get into your network. \n\nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses on public-facing web servers. Footholds gained through initial access may allow for continued access, like valid accounts and use of external remote services, or may be limited-use due to changing passwords.",
+   "The adversary is trying to get into your network.\n\nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses on public-facing web servers. Footholds gained through initial access may allow for continued access, like valid accounts and use of external remote services, or may be limited-use due to changing passwords.",
    :d3f/display-order 1,
    :db/ident :d3f/TA0001,
    :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
@@ -44584,7 +48004,7 @@
 
 (def TA0002
   {:d3f/definition
-   "The adversary is trying to run malicious code. \n\nExecution consists of techniques that result in adversary-controlled code running on a local or remote system. Techniques that run malicious code are often paired with techniques from all other tactics to achieve broader goals, like exploring a network or stealing data. For example, an adversary might use a remote access tool to run a PowerShell script that does Remote System Discovery.",
+   "The adversary is trying to run malicious code.\n\nExecution consists of techniques that result in adversary-controlled code running on a local or remote system. Techniques that run malicious code are often paired with techniques from all other tactics to achieve broader goals, like exploring a network or stealing data. For example, an adversary might use a remote access tool to run a PowerShell script that does Remote System Discovery.",
    :d3f/display-order 2,
    :db/ident :d3f/TA0002,
    :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
@@ -44593,7 +48013,7 @@
 
 (def TA0003
   {:d3f/definition
-   "The adversary is trying to maintain their foothold. \n    \nPersistence consists of techniques that adversaries use to keep access to systems across restarts, changed credentials, and other interruptions that could cut off their access. Techniques used for persistence include any access, action, or configuration changes that let them maintain their foothold on systems, such as replacing or hijacking legitimate code or adding startup code.",
+   "The adversary is trying to maintain their foothold.\n\nPersistence consists of techniques that adversaries use to keep access to systems across restarts, changed credentials, and other interruptions that could cut off their access. Techniques used for persistence include any access, action, or configuration changes that let them maintain their foothold on systems, such as replacing or hijacking legitimate code or adding startup code.",
    :d3f/display-order 3,
    :db/ident :d3f/TA0003,
    :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
@@ -44850,9 +48270,11 @@
    :rdfs/subClassOf :d3f/SharedComputer})
 
 (def ThreadClass
-  {:db/ident        :d3f/Thread,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Thread",
+  {:d3f/definition
+   "A Thread is the smallest unit of execution within a process, representing a sequence of instructions that can be scheduled and executed independently by the operating system.",
+   :db/ident :d3f/Thread,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Thread",
    :rdfs/subClassOf :d3f/DigitalInformationBearer})
 
 (def ThreadStartFunction
@@ -44915,8 +48337,8 @@
    :d3f/definition
    "Token binding is a security mechanism used to enhance the protection of tokens, such as cookies or OAuth tokens, by binding them to a specific connection.",
    :d3f/kb-article
-   #{:d3f/Reference-RFC8471TheTokenBindingProtocolVersion1.0
-     "## How it works\n\nWhen issuing a security token to a client that supports Token Binding, a server includes the client's Token Binding ID (or its cryptographic hash) in the token. Later on, when a client presents a security token containing a Token Binding ID, the server verifies that the ID in the token matches the ID of the Token Binding established with the client. In the case of a mismatch, the server rejects the token.\n\n## Considerations\n\n- While industry participation in the standards process is widespread, browser support remains limited.\n- In practice, token-binding implementations are tied to Transport Security Layer (TLS)."},
+   "## How it works\n\nWhen issuing a security token to a client that supports Token Binding, a server includes the client's Token Binding ID (or its cryptographic hash) in the token. Later on, when a client presents a security token containing a Token Binding ID, the server verifies that the ID in the token matches the ID of the Token Binding established with the client. In the case of a mismatch, the server rejects the token.\n\n## Considerations\n\n- While industry participation in the standards process is widespread, browser support remains limited.\n- In practice, token-binding implementations are tied to Transport Security Layer (TLS).",
+   :d3f/kb-reference :d3f/Reference-RFC8471TheTokenBindingProtocolVersion1.0,
    :d3f/strengthens :d3f/AccessToken,
    :db/ident :d3f/TokenBinding,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -44955,9 +48377,11 @@
    :rdfs/subClassOf :d3f/Forecasting})
 
 (def TransducerSensor
-  {:db/ident        :d3f/TransducerSensor,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Transducer Sensor",
+  {:d3f/definition
+   "A Transducer Sensor converts physical signals into digital data for monitoring purposes.",
+   :db/ident :d3f/TransducerSensor,
+   :rdf/type :owl/Class,
+   :rdfs/label "Transducer Sensor",
    :rdfs/subClassOf :d3f/Sensor})
 
 (def TransferAgentAuthentication
@@ -45032,9 +48456,11 @@
    :rdfs/subClassOf :d3f/NetworkEvent})
 
 (def TransportLink
-  {:db/ident        :d3f/TransportLink,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Transport Link",
+  {:d3f/definition
+   "A Transport Link is a type of logical link that exists at the transport layer of a network or system architecture.",
+   :db/ident :d3f/TransportLink,
+   :rdf/type :owl/Class,
+   :rdfs/label "Transport Link",
    :rdfs/subClassOf :d3f/LogicalLink})
 
 (def TrimmedMean
@@ -45488,6 +48914,9 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/UserAccountCreationEvent,
                        :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/Credential,
+                       :rdf/type           :owl/Restriction}
                       :d3f/UserAccountEvent}})
 
 (def UserAccountPasswordResetEvent
@@ -45498,6 +48927,9 @@
    :rdfs/label "User Account Password Reset Event",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/UserAccountCreationEvent,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/Credential,
                        :rdf/type           :owl/Restriction}
                       :d3f/UserAccountEvent}})
 
@@ -45881,9 +49313,11 @@
                        :rdf/type           :owl/Restriction} :d3f/ImageFile}})
 
 (def Vendor
-  {:db/ident        :d3f/Vendor,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Vendor",
+  {:d3f/definition
+   "A vendor sells or supplies goods and services to customers.",
+   :db/ident :d3f/Vendor,
+   :rdf/type :owl/Class,
+   :rdfs/label "Vendor",
    :rdfs/subClassOf :d3f/Provider})
 
 (def VersionControlTool
@@ -45989,9 +49423,11 @@
    :rdfs/subClassOf :d3f/EnsembleLearning})
 
 (def Vulnerability
-  {:db/ident        :d3f/Vulnerability,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Vulnerability",
+  {:d3f/definition
+   "A Vulnerability is a publicly disclosed instance of one or more weaknesses in a product that an attacker could exploit, violating its confidentiality, integrity, or availability.",
+   :db/ident :d3f/Vulnerability,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Vulnerability",
    :rdfs/subClassOf :d3f/D3FENDCore})
 
 (def WHOISCompatibleDomainRegistration
@@ -46270,7 +49706,9 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def WindowsCreateRemoteThread
-  {:d3f/invokes :d3f/WindowsNtCreateThreadEx,
+  {:d3f/definition
+   "Creates a thread that runs in the virtual address space of another process.",
+   :d3f/invokes :d3f/WindowsNtCreateThreadEx,
    :db/ident :d3f/WindowsCreateRemoteThread,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy
@@ -46350,10 +49788,15 @@
    :rdfs/subClassOf :d3f/OSAPIGetThreadContext})
 
 (def WindowsNtAllocateVirtualMemory
-  {:db/ident        :d3f/WindowsNtAllocateVirtualMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtAllocateVirtualMemory",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition
+   "The NtAllocateVirtualMemory routine reserves, commits, or both, a region of pages within the user-mode virtual address space of a specified process.",
+   :db/ident :d3f/WindowsNtAllocateVirtualMemory,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntallocatevirtualmemory"},
+   :rdfs/label "Windows NtAllocateVirtualMemory",
+   :rdfs/seeAlso {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
    :rdfs/subClassOf :d3f/OSAPIAllocateMemory})
 
 (def WindowsNtAllocateVirtualMemoryEx
@@ -46363,10 +49806,15 @@
    :rdfs/subClassOf :d3f/OSAPIAllocateMemory})
 
 (def WindowsNtCreateFile
-  {:db/ident        :d3f/WindowsNtCreateFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtCreateFile",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition
+   "Creates a new file or directory, or opens an existing file, device, directory, or volume.",
+   :db/ident :d3f/WindowsNtCreateFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://learn.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile"},
+   :rdfs/label "Windows NtCreateFile",
+   :rdfs/seeAlso {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
    :rdfs/subClassOf :d3f/OSAPICreateFile})
 
 (def WindowsNtCreateMailslotFile
@@ -46429,10 +49877,15 @@
    :rdfs/subClassOf :d3f/OSAPIDeleteFile})
 
 (def WindowsNtDuplicateToken
-  {:db/ident        :d3f/WindowsNtDuplicateToken,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtDuplicateToken",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition
+   "The NtDuplicateToken function creates a handle to a new access token that duplicates an existing token. This function can create either a primary token or an impersonation token.",
+   :db/ident :d3f/WindowsNtDuplicateToken,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Windows NtDuplicateToken",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntduplicatetoken"}
+     {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"}},
    :rdfs/subClassOf :d3f/OSAPICopyToken})
 
 (def WindowsNtFlushInstructionCache
@@ -46442,28 +49895,38 @@
    :rdfs/subClassOf :d3f/OSAPIWriteMemory})
 
 (def WindowsNtFreeVirtualMemory
-  {:db/ident        :d3f/WindowsNtFreeVirtualMemory,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtFreeVirtualMemory",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition
+   "The NtFreeVirtualMemory routine releases, decommits, or both releases and decommits, a region of pages within the virtual address space of a specified process.",
+   :db/ident :d3f/WindowsNtFreeVirtualMemory,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntfreevirtualmemory"},
+   :rdfs/label "Windows NtFreeVirtualMemory",
+   :rdfs/seeAlso {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
    :rdfs/subClassOf :d3f/OSAPIFreeMemory})
 
 (def WindowsNtOpenFile
-  {:db/ident        :d3f/WindowsNtOpenFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtOpenFile",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition
+   "The NtOpenFile routine opens an existing file, directory, device, or volume.",
+   :db/ident :d3f/WindowsNtOpenFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntopenfile"},
+   :rdfs/label "Windows NtOpenFile",
+   :rdfs/seeAlso {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
    :rdfs/subClassOf :d3f/OSAPIOpenFile})
 
 (def WindowsNtOpenProcess
   {:d3f/definition
-   "Opens a handle to process obj and sets the access rights to this object.",
+   "Opens a handle to process object and sets the access rights to this object.",
    :db/ident :d3f/WindowsNtOpenProcess,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Windows NtOpenProcess",
-   :rdfs/seeAlso
+   :rdfs/isDefinedBy
    {:xsd/anyURI
     "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-ntopenprocess"},
+   :rdfs/label "Windows NtOpenProcess",
    :rdfs/subClassOf :d3f/OSAPITraceProcess})
 
 (def WindowsNtOpenThread
@@ -46496,10 +49959,14 @@
    :rdfs/subClassOf :d3f/OSAPIGetSystemTime})
 
 (def WindowsNtReadFile
-  {:db/ident        :d3f/WindowsNtReadFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtReadFile",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition "The NtReadFile routine reads data from an open file.",
+   :db/ident :d3f/WindowsNtReadFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntreadfile"},
+   :rdfs/label "Windows NtReadFile",
+   :rdfs/seeAlso {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
    :rdfs/subClassOf :d3f/OSAPIReadFile})
 
 (def WindowsNtReadFileScatter
@@ -46556,10 +50023,14 @@
    :rdfs/subClassOf :d3f/OSAPITerminateProcess})
 
 (def WindowsNtWriteFile
-  {:db/ident        :d3f/WindowsNtWriteFile,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Windows NtWriteFile",
-   :rdfs/seeAlso    {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
+  {:d3f/definition "Writes data to an open file.",
+   :db/ident :d3f/WindowsNtWriteFile,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntwritefile"},
+   :rdfs/label "Windows NtWriteFile",
+   :rdfs/seeAlso {:xsd/anyURI "https://j00ru.vexillium.org/syscalls/nt/64/"},
    :rdfs/subClassOf :d3f/OSAPIWriteFile})
 
 (def WindowsNtWriteFileGather
@@ -46703,7 +50174,10 @@
    :db/ident :d3f/WindowsRegistryKeyCreationEvent,
    :rdf/type :owl/Class,
    :rdfs/label "Windows Registry Key Creation Event",
-   :rdfs/subClassOf :d3f/WindowsRegistryKeyEvent})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/preceded-by,
+                       :owl/someValuesFrom :d3f/WindowsRegistryKeyImportEvent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/WindowsRegistryKeyEvent}})
 
 (def WindowsRegistryKeyDeletionEvent
   {:d3f/definition
@@ -47148,17 +50622,21 @@
    :skos/altLabel #{"misapplies" "misuses"}})
 
 (def access-mediated-by
-  {:db/ident           :d3f/access-mediated-by,
-   :owl/inverseOf      :d3f/mediates-access-to,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "access mediated by",
+  {:d3f/definition
+   "x access-mediated-by y: The entity or resource x has its access regulated, controlled, or facilitated by entity y, which acts as an intermediary or gatekeeper to enforce access control policies.",
+   :db/ident :d3f/access-mediated-by,
+   :owl/inverseOf :d3f/mediates-access-to,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "access-mediated-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def accessed-by
-  {:db/ident           :d3f/accessed-by,
-   :owl/inverseOf      :d3f/accesses,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "accessed-by",
+  {:d3f/definition
+   "x accessed-by y: The entity or resource x is accessed by entity y.",
+   :db/ident :d3f/accessed-by,
+   :owl/inverseOf :d3f/accesses,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "accessed-by",
    :rdfs/subPropertyOf #{:d3f/associated-with :d3f/may-be-accessed-by}})
 
 (def accesses
@@ -47258,11 +50736,10 @@
    :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def attack-kb-data-property
-  {:db/ident           :d3f/attack-kb-data-property,
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/label         "attack-kb-data-property",
-   :rdfs/subPropertyOf :owl/topDataProperty,
-   :skos/altLabel      "attack-kb-property"})
+  {:db/ident      :d3f/attack-kb-data-property,
+   :rdf/type      :owl/DatatypeProperty,
+   :rdfs/label    "attack-kb-data-property",
+   :skos/altLabel "attack-kb-property"})
 
 (def attack-may-be-countered-by
   {:db/ident           :d3f/attack-may-be-countered-by,
@@ -47311,15 +50788,19 @@
    :rdfs/subPropertyOf #{:d3f/filters :d3f/counters}})
 
 (def broader
-  {:db/ident           :d3f/broader,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "broader",
+  {:d3f/definition
+   "x broader y: The entity x represents a more general or inclusive concept than entity y.",
+   :db/ident :d3f/broader,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "broader",
    :rdfs/subPropertyOf :d3f/semantic-relation})
 
 (def broader-transitive
-  {:db/ident           :d3f/broader-transitive,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "broader-transitive",
+  {:d3f/definition
+   "x broader-transitive y: The entity x represents a more general concept than entity y, including indirect or hierarchical relationships where x encompasses y through intermediate entities.",
+   :db/ident :d3f/broader-transitive,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "broader-transitive",
    :rdfs/subPropertyOf :d3f/semantic-relation})
 
 (def capec-id
@@ -47374,9 +50855,11 @@
    :rdfs/subPropertyOf :d3f/d3fend-catalog-data-property})
 
 (def configures
-  {:db/ident           :d3f/configures,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "configures",
+  {:d3f/definition
+   "x configures y: The entity x sets the operational parameters of entity y, determining how y will operate.",
+   :db/ident :d3f/configures,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "configures",
    :rdfs/subPropertyOf #{:d3f/hardens :d3f/associated-with}})
 
 (def connected-to
@@ -47398,10 +50881,12 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def contained-by
-  {:db/ident           :d3f/contained-by,
-   :owl/inverseOf      :d3f/contains,
-   :rdf/type           #{:owl/TransitiveProperty :owl/ObjectProperty},
-   :rdfs/label         "contained-by",
+  {:d3f/definition
+   "x contained-by y: The entity x exists within or is physically or logically enclosed by entity y.",
+   :db/ident :d3f/contained-by,
+   :owl/inverseOf :d3f/contains,
+   :rdf/type #{:owl/TransitiveProperty :owl/ObjectProperty},
+   :rdfs/label "contained-by",
    :rdfs/subPropertyOf #{:d3f/associated-with :d3f/may-be-contained-by}})
 
 (def contains
@@ -47453,7 +50938,7 @@
    :rdfs/subPropertyOf :d3f/creates})
 
 (def copy-of
-  {:d3f/definition "x copy-of y: The subject x is a duplicate of the object y",
+  {:d3f/definition "x copy-of y: The subject x is a duplicate of the object y.",
    :db/ident :d3f/copy-of,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "copy-of",
@@ -47475,10 +50960,12 @@
    :rdfs/subPropertyOf :d3f/date})
 
 (def created-by
-  {:db/ident           :d3f/created-by,
-   :owl/inverseOf      :d3f/creates,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "created-by",
+  {:d3f/definition
+   "x created-by y: The entity x is brought into existence, developed, or generated by entity y.",
+   :db/ident :d3f/created-by,
+   :owl/inverseOf :d3f/creates,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "created-by",
    :rdfs/subPropertyOf #{:d3f/may-be-created-by :d3f/associated-with}})
 
 (def creates
@@ -47532,7 +51019,8 @@
   {:db/ident           :d3f/d3fend-catalog-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-catalog-data-property",
-   :rdfs/subPropertyOf :d3f/d3fend-data-property,
+   :rdfs/subPropertyOf #{:d3f/d3fend-external-control-data-property
+                         :d3f/d3fend-data-property},
    :skos/altLabel      {:rdf/language "en",
                         :rdf/value    "d3fend-vendor-registry-data-property"}})
 
@@ -47545,10 +51033,9 @@
    :rdfs/subPropertyOf :d3f/d3fend-kb-data-property})
 
 (def d3fend-data-property
-  {:db/ident           :d3f/d3fend-data-property,
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/label         "d3fend-data-property",
-   :rdfs/subPropertyOf :owl/topDataProperty})
+  {:db/ident   :d3f/d3fend-data-property,
+   :rdf/type   :owl/DatatypeProperty,
+   :rdfs/label "d3fend-data-property"})
 
 (def d3fend-display-annotation
   {:db/ident           :d3f/d3fend-display-annotation,
@@ -47568,8 +51055,7 @@
   {:db/ident           :d3f/d3fend-external-control-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-external-control-data-property",
-   :rdfs/subPropertyOf #{:d3f/d3fend-catalog-data-property
-                         :d3f/d3fend-data-property}})
+   :rdfs/subPropertyOf :d3f/d3fend-data-property})
 
 (def d3fend-general-object-property
   {:db/ident           :d3f/d3fend-general-object-property,
@@ -47619,10 +51105,9 @@
    :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
 
 (def d3fend-object-property
-  {:db/ident           :d3f/d3fend-object-property,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "d3fend-object-property",
-   :rdfs/subPropertyOf :owl/topObjectProperty})
+  {:db/ident   :d3f/d3fend-object-property,
+   :rdf/type   :owl/ObjectProperty,
+   :rdfs/label "d3fend-object-property"})
 
 (def d3fend-process-object-property
   {:db/ident           :d3f/d3fend-process-object-property,
@@ -47661,9 +51146,11 @@
    :rdfs/subPropertyOf :d3f/counters})
 
 (def deceives-with
-  {:db/ident           :d3f/deceives-with,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "deceives-with",
+  {:d3f/definition
+   "x deceives-with y: The entity x misleads or manipulates another entity using y as a tool, method, or mechanism to create false perceptions or understanding.",
+   :db/ident :d3f/deceives-with,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "deceives-with",
    :rdfs/subPropertyOf :d3f/d3fend-tactical-verb-property})
 
 (def decodes
@@ -47725,9 +51212,11 @@
    :rdfs/subPropertyOf :d3f/d3fend-catalog-annotation-property})
 
 (def detects
-  {:db/ident           :d3f/detects,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "detects",
+  {:d3f/definition
+   "x detects y: The entity x discovers the presence, occurrence, or state of entity y through observation or measurement.",
+   :db/ident :d3f/detects,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "detects",
    :rdfs/subPropertyOf #{:d3f/d3fend-tactical-verb-property :d3f/counters}})
 
 (def disables
@@ -47785,9 +51274,11 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def employs
-  {:db/ident           :d3f/employs,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "employs",
+  {:d3f/definition
+   "x employs y: The entity x makes purposeful use of entity y to perform a function.",
+   :db/ident :d3f/employs,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "employs",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def enabled-by
@@ -47852,7 +51343,7 @@
    :rdfs/subPropertyOf :d3f/reads})
 
 (def erases
-  {:d3f/description
+  {:d3f/definition
    "x erases y: A technique x removes recorded data from storage device y creating space for new data.",
    :db/ident :d3f/erases,
    :rdf/type :owl/ObjectProperty,
@@ -47860,29 +51351,37 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def evaluated-by
-  {:db/ident           :d3f/evaluated-by,
-   :owl/inverseOf      :d3f/evaluates,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "evaluated-by",
+  {:d3f/definition
+   "x evaluated-by y: The entity x is assessed and analyzed by entity y.",
+   :db/ident :d3f/evaluated-by,
+   :owl/inverseOf :d3f/evaluates,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "evaluated-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def evaluates
-  {:db/ident           :d3f/evaluates,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "evaluates",
+  {:d3f/definition
+   "x evaluates y: The entity x systematically assesses entity y to judge its state, quality, or risk.",
+   :db/ident :d3f/evaluates,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "evaluates",
    :rdfs/subPropertyOf #{:d3f/associated-with :d3f/may-evaluate}})
 
 (def evicts
-  {:db/ident           :d3f/evicts,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "evicts",
+  {:d3f/definition
+   "x evicts y: The entity x forcibly removes entity y from the environment or resource where y was residing.",
+   :db/ident :d3f/evicts,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "evicts",
    :rdfs/subPropertyOf #{:d3f/may-evict :d3f/d3fend-tactical-verb-property
                          :d3f/counters}})
 
 (def exactly
-  {:db/ident           :d3f/exactly,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "exactly",
+  {:d3f/definition
+   "x exactly y: The entity x is identical to or fully corresponds to entity y.",
+   :db/ident :d3f/exactly,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "exactly",
    :rdfs/subPropertyOf :d3f/semantic-relation})
 
 (def excises
@@ -47893,10 +51392,12 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def executed-by
-  {:db/ident           :d3f/executed-by,
-   :owl/inverseOf      :d3f/executes,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "executed-by",
+  {:d3f/definition
+   "x executed-by y: The entity or function x is carried out, performed, or run by entity y.",
+   :db/ident :d3f/executed-by,
+   :owl/inverseOf :d3f/executes,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "executed-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def executes
@@ -47955,9 +51456,11 @@
    :rdfs/subPropertyOf :d3f/d3fend-process-object-property})
 
 (def hardens
-  {:db/ident           :d3f/hardens,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "hardens",
+  {:d3f/definition
+   "x hardens y: The entity x fortifies entity y to reduce its weaknesses so y can better withstand attack or failure.",
+   :db/ident :d3f/hardens,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "hardens",
    :rdfs/subPropertyOf #{:d3f/d3fend-tactical-verb-property :d3f/counters}})
 
 (def has-account
@@ -47970,9 +51473,11 @@
    :rdfs/subPropertyOf :d3f/owns})
 
 (def has-agent
-  {:db/ident           :d3f/has-agent,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "has-agent",
+  {:d3f/definition
+   "x has-agent y: The event x occurs because agent y actively carries it out.",
+   :db/ident :d3f/has-agent,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "has-agent",
    :rdfs/subPropertyOf :d3f/has-participant})
 
 (def has-audience
@@ -47994,9 +51499,11 @@
    :rdfs/subPropertyOf :d3f/d3fend-kb-object-property})
 
 (def has-dependent
-  {:db/ident           :d3f/has-dependent,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "has-dependent",
+  {:d3f/definition
+   "x has-dependent y: The entity x is relied upon or required by entity y.",
+   :db/ident :d3f/has-dependent,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "has-dependent",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def has-goal
@@ -48027,9 +51534,11 @@
    :skos/altLabel "located_in"})
 
 (def has-mediator
-  {:db/ident           :d3f/has-mediator,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "has-mediator",
+  {:d3f/definition
+   "x has-mediator y: The entity x relies on or is facilitated by entity y.",
+   :db/ident :d3f/has-mediator,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "has-mediator",
    :rdfs/subPropertyOf :d3f/has-participant})
 
 (def has-member
@@ -48088,10 +51597,12 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def has-weakness
-  {:db/ident           :d3f/has-weakness,
-   :owl/inverseOf      :d3f/weakness-of,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "has-weakness",
+  {:d3f/definition
+   "x has-weakness y: The entity x exhibits a condition y that could, in some circumstances, lead to a vulnerability.",
+   :db/ident :d3f/has-weakness,
+   :owl/inverseOf :d3f/weakness-of,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "has-weakness",
    :rdfs/subPropertyOf :d3f/may-have-weakness})
 
 (def hides
@@ -48109,10 +51620,12 @@
    :rdfs/label "iOS Process"})
 
 (def identified-by
-  {:db/ident           :d3f/identified-by,
-   :owl/inverseOf      :d3f/identifies,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "identified-by",
+  {:d3f/definition
+   "x identified-by y: The entity x is recognized or described by entity y.",
+   :db/ident :d3f/identified-by,
+   :owl/inverseOf :d3f/identifies,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "identified-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def identifier
@@ -48124,34 +51637,44 @@
    :rdfs/subPropertyOf :d3f/d3fend-catalog-data-property})
 
 (def identifies
-  {:db/ident           :d3f/identifies,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "identifies",
+  {:d3f/definition
+   "x identifies y: The entity x recognizes or brings attention to entity y, making it distinct or clear through naming, description, or discovery.",
+   :db/ident :d3f/identifies,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "identifies",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def impairs
-  {:db/ident           :d3f/impairs,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "impairs",
+  {:d3f/definition
+   "x impairs y: The entity or action x hinders entity y by reducing its normal function, capacity, or availability.",
+   :db/ident :d3f/impairs,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "impairs",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def implemented-by
-  {:db/ident           :d3f/implemented-by,
-   :owl/inverseOf      :d3f/implements,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "implemented-by",
+  {:d3f/definition
+   "x implemented-by y: The entity x is realized or brought into operation by entity y.",
+   :db/ident :d3f/implemented-by,
+   :owl/inverseOf :d3f/implements,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "implemented-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def implements
-  {:db/ident           :d3f/implements,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "implements",
+  {:d3f/definition
+   "x implements y: The entity x realize entity y by putting its design or specification into effect.",
+   :db/ident :d3f/implements,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "implements",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def initiates
-  {:db/ident           :d3f/initiates,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "initiates",
+  {:d3f/definition
+   "x initiates y: The entity or action x starts or triggers entity or function y, bringing it into action.",
+   :db/ident :d3f/initiates,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "initiates",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def injects
@@ -48202,23 +51725,29 @@
    :rdfs/subPropertyOf #{:d3f/may-interpret :d3f/executes}})
 
 (def inventoried-by
-  {:db/ident           :d3f/inventoried-by,
-   :owl/inverseOf      :d3f/inventories,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "inventoried-by",
+  {:d3f/definition
+   "x inventoried-by y: The entity x is cataloged, recorded, or tracked by entity y.",
+   :db/ident :d3f/inventoried-by,
+   :owl/inverseOf :d3f/inventories,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "inventoried-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def inventories
-  {:db/ident           :d3f/inventories,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "inventories",
+  {:d3f/definition
+   "x inventories y: The entity x systematically discovers entity y and records its presence and key details for tracking.",
+   :db/ident :d3f/inventories,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "inventories",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def invoked-by
-  {:db/ident           :d3f/invoked-by,
-   :owl/inverseOf      :d3f/invokes,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "invoked-by",
+  {:d3f/definition
+   "x invoked-by y: The entity x is called, triggered, or activated by entity y.",
+   :db/ident :d3f/invoked-by,
+   :owl/inverseOf :d3f/invokes,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "invoked-by",
    :rdfs/subPropertyOf #{:d3f/may-be-invoked-by :d3f/associated-with}})
 
 (def invokes
@@ -48346,10 +51875,12 @@
    :skos/altLabel "cutoff"})
 
 (def loaded-by
-  {:db/ident           :d3f/loaded-by,
-   :owl/inverseOf      :d3f/loads,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "loaded-by",
+  {:d3f/definition
+   "x loaded-by y: The entity x is brought into memory by entity y.",
+   :db/ident :d3f/loaded-by,
+   :owl/inverseOf :d3f/loads,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "loaded-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def loads
@@ -48379,16 +51910,20 @@
    :skos/altLabel #{"oversees" "supervises"}})
 
 (def mapped-by
-  {:db/ident           :d3f/mapped-by,
-   :owl/inverseOf      :d3f/maps,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "mapped-by",
+  {:d3f/definition
+   "x mapped-by y: The entity x is linked  to another entity by entity y.",
+   :db/ident :d3f/mapped-by,
+   :owl/inverseOf :d3f/maps,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "mapped-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def maps
-  {:db/ident           :d3f/maps,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "maps",
+  {:d3f/definition
+   "x maps y: The entity x discovers and records how entity y is arranged and interconnected.",
+   :db/ident :d3f/maps,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "maps",
    :rdfs/subPropertyOf :d3f/may-map})
 
 (def may-access
@@ -48660,9 +52195,11 @@
    :rdfs/subPropertyOf :d3f/may-be-associated-with})
 
 (def mediates-access-to
-  {:db/ident           :d3f/mediates-access-to,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "mediates-access-to",
+  {:d3f/definition
+   "x mediates-access-to y: The entity x controls and brokers requests to reach entity y, enforcing the access rules that allow or deny it.",
+   :db/ident :d3f/mediates-access-to,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "mediates-access-to",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def member-of
@@ -48681,7 +52218,8 @@
    :rdfs/subPropertyOf :d3f/date})
 
 (def modified-by
-  {:db/ident           :d3f/modified-by,
+  {:d3f/definition     "x modified-by y: The entity x is changed by entity y.",
+   :db/ident           :d3f/modified-by,
    :owl/inverseOf      :d3f/modifies,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "modified-by",
@@ -48725,15 +52263,19 @@
    :rdfs/subPropertyOf :d3f/d3fend-catalog-data-property})
 
 (def narrower
-  {:db/ident           :d3f/narrower,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "narrower",
+  {:d3f/definition
+   "x narrower y: The entity x represents a more specific or focused concept than entity y.",
+   :db/ident :d3f/narrower,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "narrower",
    :rdfs/subPropertyOf :d3f/semantic-relation})
 
 (def narrower-transitive
-  {:db/ident           :d3f/narrower-transitive,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "narrower-transitive",
+  {:d3f/definition
+   "x narrower-transitive y: The entity x represents a more specific concept than entity y, including indirect or hierarchical relationships where x is a subset of y through intermediate entities.",
+   :db/ident :d3f/narrower-transitive,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "narrower-transitive",
    :rdfs/subPropertyOf :d3f/semantic-relation})
 
 (def neutralizes
@@ -48942,7 +52484,8 @@
    :skos/altLabel "processUser"})
 
 (def produced-by
-  {:db/ident           :d3f/produced-by,
+  {:d3f/definition     "x produced-by y: The entity x is created by entity y.",
+   :db/ident           :d3f/produced-by,
    :owl/inverseOf      :d3f/produces,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "produced-by",
@@ -48989,9 +52532,11 @@
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def queries
-  {:db/ident           :d3f/queries,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "queries",
+  {:d3f/definition
+   "x queries y: The entity x requests information or data from entity y.",
+   :db/ident :d3f/queries,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "queries",
    :rdfs/subPropertyOf #{:d3f/associated-with :d3f/may-query}})
 
 (def rating
@@ -49057,16 +52602,20 @@
    :rdfs/subPropertyOf #{:owl/versionInfo :d3f/d3fend-annotation}})
 
 (def restores
-  {:db/ident           :d3f/restores,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "restores",
+  {:d3f/definition
+   "x restores y: The entity x returns entity y to its known-good or previous state.",
+   :db/ident :d3f/restores,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "restores",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def restricted-by
-  {:db/ident           :d3f/restricted-by,
-   :owl/inverseOf      :d3f/restricts,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "restricted-by",
+  {:d3f/definition
+   "x restricted-by y: The entity x is limited, constrained, or regulated by entity y.",
+   :db/ident :d3f/restricted-by,
+   :owl/inverseOf :d3f/restricts,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "restricted-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def restricts
@@ -49138,9 +52687,11 @@
    :rdfs/subPropertyOf #{:d3f/may-run :d3f/associated-with}})
 
 (def semantic-relation
-  {:db/ident           :d3f/semantic-relation,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "semantic-relation",
+  {:d3f/definition
+   "x semantic-relation y: The entity x is conceptually or meaningfully connected to entity y.",
+   :db/ident :d3f/semantic-relation,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "semantic-relation",
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def signed-by
@@ -49149,6 +52700,7 @@
    :db/ident :d3f/signed-by,
    :owl/inverseOf :d3f/signs,
    :rdf/type :owl/ObjectProperty,
+   :rdfs/label "signed-by",
    :rdfs/subPropertyOf :d3f/validated-by})
 
 (def signs
@@ -49156,6 +52708,7 @@
    "x signs y: The entity x applies a digital signature to the digital artifact y, thereby asserting its validity, integrity, and authenticity. Typically, this involves cryptographic techniques to securely bind the signature to y, ensuring that y's contents have not been altered and are authentic as endorsed by x.",
    :db/ident :d3f/signs,
    :rdf/type :owl/ObjectProperty,
+   :rdfs/label "signs",
    :rdfs/subPropertyOf :d3f/validates})
 
 (def spoofs
@@ -49206,7 +52759,7 @@
 
 (def summarizes
   {:d3f/definition
-   "x summarizes y: The sensor x summarizes a set y of events concerning digital artifacts over time",
+   "x summarizes y: The sensor x summarizes a set y of events concerning digital artifacts over time.",
    :db/ident :d3f/summarizes,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -49423,15 +52976,15 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
-  {:d3f/release-date #inst "2025-04-21T00:12:00.000-00:00",
+  {:d3f/release-date #inst "2025-08-01T00:12:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.1.0/d3fend.owl"},
-   :owl/versionInfo "1.1.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl"},
+   :owl/versionInfo "1.2.0",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
