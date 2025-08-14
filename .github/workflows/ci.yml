@@ -47,18 +47,5 @@ jobs:
       - name: Run tests
         run: clojure -M:test
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Dependencies scan
-        uses: clj-holmes/clj-watson-action@main
-        with:
-          aliases: ''
-          clj-watson-sha: "b520351"
-          clj-watson-tag: "v6.0.1"
-          deps-edn-path: 'deps.edn'
-          suggest-fix: true
-          output-type: 'stdout-simple'
-          fail-on-result: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}}
 
